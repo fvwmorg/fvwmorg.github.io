@@ -13,13 +13,11 @@ if( strlen("$navigation_check") > 0 ) return;
   <body>
     <h1>php info</h1>
 
-<?php 
-echo "Cookie: $_COOKIE\n<hr>";
-reset($_COOKIE);
-while(list($key,$value) = each($_COOKIE) ) echo "$key => $value <br>";
-echo "<hr>\n";
-phpinfo(); 
-?>
+<pre>
+<?php echo print_r($_SERVER);?>
+</pre>
+
+<?php phpinfo();  ?>
 
   </body>
 </html>

@@ -25,7 +25,7 @@ function mail_is_registered($mail) {
             while (!feof($handle)) {
                 $line = fgets($handle, 4096);
                 if( preg_match('/'.$mail.'/', $line) ) {
-                    $id = preg_replace('/^.*  /', '', $line);
+                    $id = preg_replace('/^.*   /', '', $line);
                     return trim($id);
                 }
             }
@@ -45,7 +45,7 @@ function id_is_registered($id) {
             while (!feof($handle)) {
                 $line = fgets($handle, 4096);
                 if( preg_match('/'.$id.'/', $line) ) {
-                    $email = preg_replace('/  .*$/', '', $line);
+                    $email = preg_replace('/   .*$/', '', $line);
                     return trim($email);
                 }
             }
@@ -77,7 +77,14 @@ function id_has_voted_already($id) {
 function register_mail_and_id( $email, $id ) {
     global $register_file;
     if( $handle = fopen ($register_file, "a") ) {
-        fwrite( $handle, trim($email)."  ".trim($id)."\n");
+        fwrite( $handle, trim($email)."   ".trim($id)."\n");
+        fwrite( $handle, "# ip          : ".$_SERVER["REMOTE_ADDR"]."\n");
+        fwrite( $handle, "# remote host : ".$_SERVER["REMOTE_HOST"]."\n");
+        fwrite( $handle, "# host name   : ".$_SERVER["HTTP_HOST"]."\n");
+        fwrite( $handle, "# language    : ".$_SERVER["HTTP_ACCEPT_LANGUAGE"]."\n");
+        fwrite( $handle, "# user agent  : ".$_SERVER["HTTP_USER_AGENT"]."\n");
+        fwrite( $handle, "# char set    : ".$_SERVER["HTTP_ACCEPT_CHARSET"]."\n");
+        fwrite( $handle, "# referer     : ".$_SERVER["HTTP_REFERER"]."\n");
         fclose ($handle);
     } else {
         echo "<h1>Error: Failed to register your email address. Please try again later</h1>";
