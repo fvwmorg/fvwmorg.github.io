@@ -1,0 +1,25 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Happy Birthday Fvwm</title>
+  </head>
+  <style type="text/css">
+  <!--
+    .Color01{ Color: #000000; }
+    .Color02{ Color: #48724F; }
+    .Color03{ Color: #6CAC76; }
+    .Color04{ Color: #8FE49D; }
+    .Color05{ Color: #FFFFFF; }
+    .BgColor01{ background-color: #000000; }
+    .BgColor02{ background-color: #48724F; }
+    .BgColor03{ background-color: #6CAC76; }
+    .BgColor04{ background-color: #8FE49D; }
+    .BgColor05{ background-color: #FFFFFF; }
+    -->
+  </style>
+
+  <body bgcolor="#000000" color="#8FE49D">
+    
+
+  </body>
+</html>

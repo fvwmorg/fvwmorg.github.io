@@ -70,9 +70,9 @@ Participate in our new
 <?php
 echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 ?>
-
-<p><b>UPCOMING!</b> On the 1st of June 2003 we are celebrating fvwm's
-tenth birthday. Stay tuned for updates.
+<hr>
+<a href="<?php echo $rel_path;?>/birthday/index.php" class="nohilight"><img src="<?php echo $rel_path;?>/birthday/birthday_celebration1.gif" border="0"></a>
+<h3>On the 1st of June 2003 we are celebrating fvwm's tenth birthday.</h3>
 <hr>
 
 <div align="center">
