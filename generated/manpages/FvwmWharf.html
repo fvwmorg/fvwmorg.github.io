@@ -10,289 +10,309 @@
 </center>
 <pre>
 
+</pre>
+	<style><!--
+	# All these may be commented out
+	#H1, H2 { margin-left: -0; }
+	#BLACKQUOTE { margin-left: +48; }
+	#P { margin-left: +24; }
+	B { color: #FFFFD0; }
+	I { color: #D0FFFF; }
+	--></style>
+    
+<HTML><HEAD><TITLE>Manpage of FvwmWharf</TITLE>
+</HEAD><BODY>
+<H1>FvwmWharf</H1>
+Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+<A HREF="./">Return to Main Contents</A><HR>
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+FvwmWharf - the AfterStep application &quot;dock&quot; module ported to
+Fvwm.
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+FvwmWharf is spawned by Fvwm, so no command line invocation will work.
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+The FvwmWharf module is a free-floating application loader that can
+execute programs, &quot;Swallow&quot; running programs, and contain &quot;Folders&quot; of
+more applications, among other things.  The user can press the first
+button at any time to trigger invocation of one of these functions, or
+the user can press button two in order to cause the entire Wharf
+to withdraw to the nearest corner in an iconified state.  FvwmWharf only
+works when Fvwm is used as the window manager.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>COPYRIGHTS</H2>
+
+The FvwmWharf module is copyright 1995 and 1996 by a variety of contributors.
+They are, in alphabetical order, Beat Christen, Frank Fejes, Alfredo
+Kenji Kojima, Dan Weeks, and Bo Yang
+<P>
+The GoodStuff program, and the concept for
+interfacing this module to the Window Manager, are all original work
+by Robert Nation
+<P>
+No guarantees or warranties or anything
+are provided or implied in any way whatsoever. Use this program at your
+own risk. Permission to use this program for any purpose is given,
+as long as the copyright is kept intact.
+<P>
+<P>
+<A NAME="lbAF">&nbsp;</A>
+<H2>INITIALIZATION</H2>
+
+During initialization, <I>FvwmWharf</I> will search for a configuration
+file which describes the button panel geometry, color, icons, and
+actions. The format of
+this file will be described later. The configuration file will be the
+one which Fvwm used during its initialization.
+<P>
+If the FvwmWharf executable is linked to another name, ie ln -s
+FvwmWharf Pier, then another module called Pier can be
+started, with a completely different configuration than FvwmWharf,
+simply by changing the keywords FvwmWharf... to Pier.... This way multiple
+button-bars can be used.
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>INVOCATION</H2>
+
+FvwmWharf should be invoked in the same way as other
+Fvwm modules.
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H2>CONFIGURATION OPTIONS</H2>
+
+The following options can be placed in the .steprc file
+<P>
+<DL COMPACT>
+<DT>*FvwmWharfAnimate<DD>
+If specified, the opening and closing of Folders will be animated,
+rather than simply drawn in one frame.
+<P>
+<DT>*FvwmWharfAnimateMain<DD>
+Designates that full-length Wharf windows will be animated.
+<P>
+<DT>*FvwmWharfBgColor <I>color</I><DD>
+If <I>*FvwmWharfTextureType 0</I> is specified, <I>FvwmWharf</I>'s buttons
+will be filled with <I>color</I>.
+<P>
+<DT>*FvwmWharfColorset <I>colorset</I><DD>
+Tells the module to use colorset <I>colorset</I> for the background
+of all buttons.  This option disables the options 'BgColor', 'TextureType'
+and 'TextureColor' if specified after these and is
+disabled by them if used before any of them in the configuration.
+Please refer to the man page of the FvwmTheme module for details
+about colorsets.
+<P>
+<DT>*FvwmWharfColumns <I>columns</I><DD>
+Specifies the number of columns of buttons to be created. If unspecified,
+the number of columns will be set to 1.
+If the columns are set to a number greater than 1 then there will be
+that number
+of columns with enough rows to satisfy the requested number of buttons.
+<P>
+<DT>*FvwmWharfForceSize<DD>
+If specified, will force pixmaps larger than 64x64 to the default
+size.  Pixmaps smaller than 64x64 are not supported.
+<P>
+<DT>*FvwmWharfFullPush<DD>
+If specified, the entire FvwmWharf button background will be moved down
+and to the right when pushed.  Especially useful with *FvwmWharfNoBorder
+textures.
+<P>
+<DT>*FvwmWharfGeometry <I>geometry</I><DD>
+Specifies the FvwmWharf window location and/or size. If the size is
+not specified, FvwmWharf will auto-size itself in a reasonable manner.
+The geometry is a standard X11 window geometry specification.  This option is
+pre-set in the Nextstep(tm) style section for a consistent look and
+feel with NEXTSTEP(tm). Secondary FvwmWharf invocations from links
+may have their own geometry.
+<P>
+<DT>*FvwmWharfMaxColors <I>number</I><DD>
+Specifies the maximum <I>number</I> of colors to use on a gradient
+fill.
+<P>
+<DT>*FvwmWharfNoBorder<DD>
+Denotes that beveled borders should not be drawn around the FvwmWharf button.
+Useful with textures that include their own bevels.
+<P>
+<DT>*FvwmWharfPixmap <I>pixmap</I><DD>
+Sets the pixmap file to be used as <I>FvwmWharf</I>'s button.  To be used
+with <I>*FvwmWharfTextureType 128</I>.
+<P>
+<DT>*FvwmWharfTextureColor <I>from</I> <I>to</I><DD>
+When used with a <I>*FvwmWharfTextureType</I> of 1 to 5, designates the
+ends of the gradient range to be used on <I>FvwmWharf</I>'s buttons.
+<P>
+<DT>*FvwmWharfTextureType  <I>type</I><DD>
+Specifies the type of gradient fill to be used on
+<I>FvwmWharf</I>'s buttons.  Valid values are:
 <PRE>
-<!-- Manpage converted by man2html 3.0.1 -->
-       FvwmWharf - the AfterStep application "dock" module ported
-       to Fvwm.
+0 - No texture - use <I>FvwmWharfBgColor</I> to set the desired color
+1 - Gradient from upper-left to lower right
+2 - Horizontal one way gradient from top to bottom
+3 - Horizontal cylindrical gradient from top/bottom to center
+4 - Vertical one way gradient from left to right
+5 - Vertical cylindrical gradient from left/right to center
+128 - User specified pixmap
+</PRE>
 
+The default is the builtin <I>FvwmWharf</I> texture pixmap.
+<P>
+<DT>*FvwmWharf <I>label icon command</I><DD>
+Specifies a window manager built-in command or folder to activate
+(folders will be discussed below), as described in the Fvwm
+man page, which should be executed when a button is pressed. The label
+field is an internal item that is still around from the GoodStuff module.
+The icon field
+specifies an X11 bitmap file, XPM color icon file, or a comma-delimited
+set of pixmaps containing the
+icon(s) to display on the button. FvwmWharf will search through the path
+specified in the ImagePath configuration item to
+find the icon file.
+<P>
+NOTE: Icons must have one transparent pixel or the definition of
+a transparent color in order to be valid.
+<P>
+If <I>command</I> is an Fvwm Exec command, then the button will
+appear pushed in until the mouse button is released.
+<P>
+A single extension to the Fvwm built-in command set is provided.
+A command of the form:
+<PRE>
+
+*FvwmWharf junk clock.xpm Swallow &quot;Clock&quot; asclock -shape -12
 
 </PRE>
-<H2>SYNOPSIS</H2><PRE>
-       FvwmWharf is spawned by Fvwm, so no command  line  invoca-
-       tion will work.
 
+will cause FvwmWharf to spawn an asclock process, and capture
+the first window whose name or resource is &quot;Clock&quot;, and display it in
+the button-bar. This is handy for applications like xclock, xbiff,
+xload, asclock, and asmail.
+<P>
+Modules can be swallowed by specifying the word Module:
+<PRE>
 
-
-</PRE>
-<H2>DESCRIPTION</H2><PRE>
-       The FvwmWharf module is a free-floating application loader
-       that can execute programs, "Swallow" running programs, and
-       contain   "Folders"  of  more  applications,  among  other
-       things.  The user can press the first button at  any  time
-       to  trigger  invocation  of one of these functions, or the
-       user can press button two in order  to  cause  the  entire
-       Wharf  to  withdraw  to the nearest corner in an iconified
-       state.  FvwmWharf only works when Fvwm is used as the win-
-       dow manager.
-
-
+*FvwmWharf pager nil Swallow &quot;Desktop&quot; Module FvwmPager 0 0
 
 </PRE>
-<H2>COPYRIGHTS</H2><PRE>
-       The FvwmWharf module is copyright 1995 and 1996 by a vari-
-       ety of contributors.  They  are,  in  alphabetical  order,
-       Beat  Christen,  Frank  Fejes,  Alfredo  Kenji Kojima, Dan
-       Weeks, and Bo Yang
 
-       The GoodStuff program, and  the  concept  for  interfacing
-       this  module  to the Window Manager, are all original work
-       by Robert Nation
+NOTE: if you use xclock for this application, you will want
+to specify xclock -padding 0.
+<P>
+<I>Swallow</I>
 
-       No guarantees or warranties or anything  are  provided  or
-       implied  in  any  way whatsoever. Use this program at your
-       own risk. Permission to use this program for  any  purpose
-       is given, as long as the copyright is kept intact.
+option tries to force an application to be 48 by 48 pixels.
+A special option
+<I>MaxSwallow</I>
 
+can be used to leave an application at its own size (but less then 64x64).
+MaxSwallow is invoked the same way Swallow is. If you want an application
+to fill all the button place, you should start it with a proper geometry flag,
+like &quot;xload -g 64x64&quot; or, if you want to leave a 3d-look: &quot;xload -g 60x60&quot;.
+<P>
+Note, not all applications are good for swallowing, some can't be
+resized at all, some can't be resized exactly to 48x48 or 64x64,
+you are responsible for choosing suitable applications to be swallowed.
+<P>
+To create folder &quot;slide-outs&quot; in
+<B>FvwmWharf</B>
 
+the following format must be used:
+<PRE>
 
-
-</PRE>
-<H2>INITIALIZATION</H2><PRE>
-       During initialization, <font color="yellow">FvwmWharf</font color="yellow"> will search for a config-
-       uration file which describes the  button  panel  geometry,
-       color, icons, and actions. The format of this file will be
-       described later. The configuration file will  be  the  one
-       which Fvwm used during its initialization.
-
-       If  the FvwmWharf executable is linked to another name, ie
-       ln -s FvwmWharf Pier, then another module called Pier  can
-       be started, with a completely different configuration than
-       FvwmWharf, simply by changing the keywords FvwmWharf... to
-       Pier.... This way multiple button-bars can be used.
-
-
+*FvwmWharf files Folders.xpm Folder
+*FvwmWharf xftp 3DRings.xpm     Exec xftp
+*FvwmWharf xdir FolderDeposit.xpm Exec xdir
+*FvwmWharf moxfm FilingCabinet.xpm Exec moxfm
+*FvwmWharf ~Folders
 
 </PRE>
-<H2>INVOCATION</H2><PRE>
 
+The first line of this set tells FvwmWharf that this button definition
+will be a folder.  All of the button definitions between the
+<I>Folder</I>
 
+and the line with the definition of
+<I>*FvwmWharf ~Folders</I>
 
-</PRE>
-<H2>CONFIGURATION OPTIONS</H2><PRE>
-       The following options can be placed in the .steprc file
+will appear on the &quot;files&quot; folder when it is exposed.  To expose the &quot;files&quot;
+folder simply click on the FvwmWharf button with the Folders.xpm icon
+showing.  A button bar will appear perpendicular to your FvwmWharf bar
+and toward the center of the screen.  On this smaller bar will be the
+three icons that were configured between the
+<I>Folder</I>
 
+and
+<I>~Folder</I>
 
-       *FvwmWharfAnimate
-              If specified, the opening and  closing  of  Folders
-              will  be  animated, rather than simply drawn in one
-              frame.
+parts of the FvwmWharf configuration.  As many folder buttons may be configured as
+is room on your screen.  The only items that may not be configured within
+folders are Swallowed applications and more folders.
+<P>
+</DL>
+<A NAME="lbAI">&nbsp;</A>
+<H2>DRAG AND DROP</H2>
 
+<I>FvwmWharf</I> supports the OffiX Drag and Drop standard.  In order to
+have Drag and Drop enabled on a particular button, the following syntax
+must be adhered to:
+<PRE>
 
-       *FvwmWharfAnimateMain
-              Designates that full-length Wharf windows  will  be
-              animated.
-
-
-       *FvwmWharfBgColor <font color="yellow">color</font color="yellow">
-              If    <font color="yellow">*FvwmWharfTextureType</font color="yellow">    <font color="yellow">0</font color="yellow">    is   specified,
-              <font color="yellow">FvwmWharf</font color="yellow">'s buttons will be filled with <font color="yellow">color</font color="yellow">.
-
-
-       *FvwmWharfColorset <font color="yellow">colorset</font color="yellow">
-              Tells the module to use colorset <font color="yellow">colorset</font color="yellow">  for  the
-              background  of  all  buttons.  This option disables
-              the options 'BgColor', 'TextureType' and  'Texture-
-              Color'  if specified after these and is disabled by
-              them if used before any of them in  the  configura-
-              tion.    Please  refer  to  the  man  page  of  the
-              FvwmTheme module for details about colorsets.
-
-
-       *FvwmWharfColumns <font color="yellow">columns</font color="yellow">
-              Specifies the number of columns of  buttons  to  be
-              created. If unspecified, the number of columns will
-              be set to 1.  If the columns are set  to  a  number
-              greater  than  1  then there will be that number of
-              columns with enough rows to satisfy  the  requested
-              number of buttons.
-
-
-       *FvwmWharfForceSize
-              If  specified, will force pixmaps larger than 64x64
-              to the default size.  Pixmaps  smaller  than  64x64
-              are not supported.
-
-
-       *FvwmWharfFullPush
-              If  specified,  the  entire  FvwmWharf button back-
-              ground will be moved down and  to  the  right  when
-              pushed.   Especially useful with *FvwmWharfNoBorder
-              textures.
-              Specifies  the  FvwmWharf  window  location  and/or
-              size.  If the size is not specified, FvwmWharf will
-              auto-size itself in a reasonable manner.  The geom-
-              etry  is  a standard X11 window geometry specifica-
-              tion.  This option is pre-set in  the  Nextstep(tm)
-              style  section  for a consistent look and feel with
-              NEXTSTEP(tm). Secondary FvwmWharf invocations  from
-              links may have their own geometry.
-
-
-       *FvwmWharfMaxColors <font color="yellow">number</font color="yellow">
-              Specifies  the maximum <font color="yellow">number</font color="yellow"> of colors to use on a
-              gradient fill.
-
-
-       *FvwmWharfNoBorder
-              Denotes that beveled borders should  not  be  drawn
-              around  the FvwmWharf button.  Useful with textures
-              that include their own bevels.
-
-
-       *FvwmWharfPixmap <font color="yellow">pixmap</font color="yellow">
-              Sets the pixmap file to be used as <font color="yellow">FvwmWharf</font color="yellow">'s but-
-              ton.  To be used with <font color="yellow">*FvwmWharfTextureType</font color="yellow"> <font color="yellow">128</font color="yellow">.
-
-
-       *FvwmWharfTextureColor <font color="yellow">from</font color="yellow"> <font color="yellow">to</font color="yellow">
-              When  used  with a <font color="yellow">*FvwmWharfTextureType</font color="yellow"> of 1 to 5,
-              designates the ends of the  gradient  range  to  be
-              used on <font color="yellow">FvwmWharf</font color="yellow">'s buttons.
-
-
-       *FvwmWharfTextureType  <font color="yellow">type</font color="yellow">
-              Specifies  the  type of gradient fill to be used on
-              <font color="yellow">FvwmWharf</font color="yellow">'s buttons.  Valid values are:
-              0 - No texture - use <font color="yellow">FvwmWharfBgColor</font color="yellow"> to set the desired color
-              1 - Gradient from upper-left to lower right
-              2 - Horizontal one way gradient from top to bottom
-              3 - Horizontal cylindrical gradient from top/bottom to center
-              4 - Vertical one way gradient from left to right
-              5 - Vertical cylindrical gradient from left/right to center
-              128 - User specified pixmap
-              The  default  is  the  builtin  <font color="yellow">FvwmWharf</font color="yellow">   texture
-              pixmap.
-
-
-       *FvwmWharf <font color="yellow">label</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">
-              Specifies  a  window  manager  built-in  command or
-              folder  to  activate  (folders  will  be  discussed
-              below),  as  described  in the Fvwm man page, which
-              should be executed when a button  is  pressed.  The
-              label  field  is  an  internal  item  that is still
-              or a comma-delimited set of pixmaps containing  the
-              icon(s)  to  display  on the button. FvwmWharf will
-              search through the path specified in the  ImagePath
-              configuration item to find the icon file.
-
-              NOTE:  Icons must have one transparent pixel or the
-              definition of a transparent color in  order  to  be
-              valid.
-
-              If <font color="yellow">command</font color="yellow"> is an Fvwm Exec command, then the button
-              will appear pushed in until  the  mouse  button  is
-              released.
-
-              A single extension to the Fvwm built-in command set
-              is provided.  A command of the form:
-
-              *FvwmWharf junk clock.xpm Swallow "Clock" asclock -shape -12
-
-              will cause FvwmWharf to spawn an  asclock  process,
-              and capture the first window whose name or resource
-              is "Clock", and display it in the button-bar.  This
-              is  handy  for  applications  like  xclock,  xbiff,
-              xload, asclock, and asmail.
-
-              Modules can be swallowed  by  specifying  the  word
-              Module:
-
-              *FvwmWharf pager nil Swallow "Desktop" Module FvwmPager 0 0
-
-              NOTE:  if  you use xclock for this application, you
-              will want to specify xclock -padding 0.
-
-              <font color="yellow">Swallow</font color="yellow"> option tries to force an application to  be
-              48  by  48 pixels.  A special option <font color="yellow">MaxSwallow</font color="yellow"> can
-              be used to leave an application  at  its  own  size
-              (but  less  then 64x64).  MaxSwallow is invoked the
-              same way Swallow is. If you want an application  to
-              fill all the button place, you should start it with
-              a proper geometry flag, like "xload -g  64x64"  or,
-              if you want to leave a 3d-look: "xload -g 60x60".
-
-              Note, not all applications are good for swallowing,
-              some can't be resized at all, some can't be resized
-              exactly  to 48x48 or 64x64, you are responsible for
-              choosing suitable applications to be swallowed.
-
-              To create folder "slide-outs" in <font color="cyan">FvwmWharf</font color="cyan"> the fol-
-              lowing format must be used:
-
-              *FvwmWharf files Folders.xpm Folder
-              *FvwmWharf xftp 3DRings.xpm   Exec xftp
-              *FvwmWharf xdir FolderDeposit.xpm Exec xdir
-
-              The  first  line  of  this set tells FvwmWharf that
-              this button definition will be a  folder.   All  of
-              the  button  definitions between the <font color="yellow">Folder</font color="yellow"> and the
-              line with the  definition  of  <font color="yellow">*FvwmWharf</font color="yellow">  <font color="yellow">~Folders</font color="yellow">
-              will  appear  on  the  "files"  folder  when  it is
-              exposed.  To expose the "files" folder simply click
-              on  the  FvwmWharf button with the Folders.xpm icon
-              showing.  A button bar will appear perpendicular to
-              your  FvwmWharf  bar  and  toward the center of the
-              screen.  On this smaller  bar  will  be  the  three
-              icons  that  were configured between the <font color="yellow">Folder</font color="yellow"> and
-              <font color="yellow">~Folder</font color="yellow"> parts of the FvwmWharf  configuration.   As
-              many folder buttons may be configured as is room on
-              your screen.  The only items that may not  be  con-
-              figured  within  folders are Swallowed applications
-              and more folders.
-
-
+*FvwmWharf nil nil DropExec &quot;<I>program</I>&quot; <I>program</I> %s
+*FvwmWharf <I>program</I> <I>iconname</I> Exec &quot;<I>program</I>&quot; <I>program</I>
 
 </PRE>
-<H2>DRAG AND DROP</H2><PRE>
-       <font color="yellow">FvwmWharf</font color="yellow"> supports the OffiX Drag and Drop  standard.   In
-       order  to  have Drag and Drop enabled on a particular but-
-       ton, the following syntax must be adhered to:
 
-       *FvwmWharf nil nil DropExec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow"> %s
-       *FvwmWharf <font color="yellow">program</font color="yellow"> <font color="yellow">iconname</font color="yellow"> Exec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow">
+<P>
+The button will call <I>program</I> when pushed.  If a file is dragged
+onto into it, <I>program</I> will be called with %s being replaced by
+the dropped filename.
+<P>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>AUTHORS</H2>
 
-
-       The button will call <font color="yellow">program</font color="yellow"> when pushed.  If  a  file  is
-       dragged onto into it, <font color="yellow">program</font color="yellow"> will be called with %s being
-       replaced by the dropped filename.
-
-
-
+<PRE>
+Beat Christen (<A HREF="mailto:bchriste@iiic.ethz.ch">bchriste@iiic.ethz.ch</A>)
+Frank Fejes (<A HREF="mailto:frank@ssax.com">frank@ssax.com</A>)
+Alfredo Kengi Kojima (<A HREF="mailto:kojima@inf.ufrgs.br">kojima@inf.ufrgs.br</A>)
+Dan Weeks (<A HREF="mailto:dan@mango.sfasu.edu">dan@mango.sfasu.edu</A>)
+Bo Yang (<A HREF="mailto:eric@coeus.ucsd.edu">eric@coeus.ucsd.edu</A>)
 </PRE>
-<H2>AUTHORS</H2><PRE>
-       Beat Christen (bchriste@iiic.ethz.ch)
-       Frank Fejes (frank@ssax.com)
-       Alfredo Kengi Kojima (kojima@inf.ufrgs.br)
-       Dan Weeks (dan@mango.sfasu.edu)
-       Bo Yang (eric@coeus.ucsd.edu)
 
+<P>
 
-
-
-
-
-
-
-
-
-
-
-
-</PRE>
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">COPYRIGHTS</A><DD>
+<DT><A HREF="#lbAF">INITIALIZATION</A><DD>
+<DT><A HREF="#lbAG">INVOCATION</A><DD>
+<DT><A HREF="#lbAH">CONFIGURATION OPTIONS</A><DD>
+<DT><A HREF="#lbAI">DRAG AND DROP</A><DD>
+<DT><A HREF="#lbAJ">AUTHORS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="./">man2html</A>,
+using the manual pages.<BR>
+Time: 15:54:10 GMT, July 04, 2001
+</BODY>
+</HTML>
 </pre>
 <hr>
-<!-- This file automatically generated by run_man2html.ksh
-on Wed Jul  4 08:11:59 EDT 2001 -->
+<!-- This file automatically generated by run_man2html.sh
+on Wed Jul  4 18:54:10 IDT 2001 -->
 </body>
 </html>
 

@@ -10,237 +10,292 @@
 </center>
 <pre>
 
-<PRE>
-<!-- Manpage converted by man2html 3.0.1 -->
-       FvwmConsoleC.pl  -  Command  editor for FVWM command input
-       interface
-
-
-</PRE>
-<H2>SYNOPSIS</H2><PRE>
-       FvwmConsole -e /usr/X11/lib/fvwm2/FvwmConsoleC.pl
-
-
-
-</PRE>
-<H2>COPYRIGHT</H2><PRE>
-       Copyright 1996, Toshi Isogai. No guarantees or  warranties
-       are  provided.  Use this program at your own risk. Permis-
-       sion to use this program for any purpose is given, as long
-       as the copyright is kept intact.
-
-
-
-
-</PRE>
-<H2>DESCRIPTION</H2><PRE>
-       FvwmConsoleC.pl  offers  editing  capabilities  while  the
-       user  is entering  the line.  By default, the line editing
-       commands  are  similar  to  those of emacs. It also offers
-       <font color="cyan">substitution</font color="cyan"> , which replaces a pattern to a string before
-       it sends the command.
-
-
-
-</PRE>
-<H2>FUNCTIONS</H2><PRE>
-       Functions  are  bound  to  a  key or key combination to be
-       invoked. The followings are functions available and  their
-       default key bindings.
-
-              <font color="cyan">bind</font color="cyan">   <font color="yellow">Meta-k,</font color="yellow"> <font color="yellow">Cntl-x</font color="yellow"> <font color="yellow">Cntl-b</font color="yellow">
-                     List up key bindings and substitutions.
-
-              <font color="cyan">boh</font color="cyan">
-                     Move to the beginning of history.
-
-              <font color="cyan">boh_ign_mode</font color="cyan">  <font color="yellow">Esc-&lt;</font color="yellow">
-                     Move  to  the beginning of history. If it is
-                     in search mode, continue.
-
-              <font color="cyan">bol</font color="cyan">    <font color="yellow">Home,</font color="yellow"> <font color="yellow">Cntl-a</font color="yellow">
-                     Move cursor to the beginning of the line.
-
-              <font color="cyan">bs[(n)]</font color="cyan"> <font color="yellow">BackSpace,</font color="yellow"> <font color="yellow">Cntl-h</font color="yellow">
-                     Backspace n times. default of n is 1.
-
-              <font color="cyan">cancel</font color="cyan"> <font color="yellow">Cntl-x</font color="yellow"> <font color="yellow">Cntl-k</font color="yellow">
-                     Cancel the current input.
-
-              <font color="cyan">del_back_line</font color="cyan">
-                     Delete the line from the  beginning  to  the
-                     cursor.
-
-              <font color="cyan">del_back_word</font color="cyan"> <font color="yellow">Cntl-w</font color="yellow">
-
-              <font color="cyan">del_char</font color="cyan"> <font color="cyan">[(n)]</font color="cyan"> <font color="yellow">Delete,</font color="yellow"> <font color="yellow">Cntl-d</font color="yellow">
-                     Delete n characters from the cursor  to  the
-                     right. Default of n is 1.
-
-              <font color="cyan">del_forw_line</font color="cyan"> <font color="yellow">Cntl-k</font color="yellow">
-                     Delete  the line from the cursor to the end.
-
-              <font color="cyan">del_forw_word</font color="cyan"> <font color="yellow">Meta-d</font color="yellow">
-                     Delete the word from the cursor to the  end.
-
-              <font color="cyan">del_line</font color="cyan"> <font color="yellow">Cntl-u</font color="yellow">
-                     Delete the entire line.
-
-              <font color="cyan">enter</font color="cyan">  <font color="yellow">Enter,</font color="yellow"> <font color="yellow">Cntl-j,</font color="yellow"> <font color="yellow">Cntl-m</font color="yellow">
-                     Perform  substitution if applicable and send
-                     the line to Fvwm.
-
-              <font color="cyan">enter_wo_subst</font color="cyan"> <font color="yellow">Meta-Enter</font color="yellow">
-                     Send the line to Fvwm without any  substitu-
-                     tion.
-
-              <font color="cyan">eoh</font color="cyan">
-                     Move to the end of history.
-
-              <font color="cyan">eoh_ign_mode</font color="cyan"> <font color="yellow">Esc-&gt;</font color="yellow">
-                     Move  to  the  end  of  history. If it is in
-                     search mode, continue.
-
-              <font color="cyan">eol</font color="cyan">    <font color="yellow">End,</font color="yellow"> <font color="yellow">Cntl-e</font color="yellow">
-                     Move the cursor to the end of line.
-
-              <font color="cyan">ins_char</font color="cyan"> <font color="cyan">(str)</font color="cyan">
-                     Insert string at the cursor.
-
-              <font color="cyan">ins_last_word</font color="cyan"> <font color="yellow">Esc-.</font color="yellow">
-                     Insert the last  argument  of  the  previous
-                     command at the cursor.
-
-              <font color="cyan">ins_nth_word</font color="cyan"> <font color="yellow">Meta-[1..9]</font color="yellow">
-                     Insert  the  n-th  argument  of the previous
-                     command at the cursor.
-
-              <font color="cyan">list_func</font color="cyan"> <font color="yellow">Meta-l</font color="yellow">
-                     List up available editing functions.
-
-              <font color="cyan">next_char</font color="cyan"> <font color="yellow">Right,</font color="yellow"> <font color="yellow">Cntl-f</font color="yellow">
-                     Move the cursor to the next character.
-
-              <font color="cyan">next_line</font color="cyan"> <font color="yellow">Down,</font color="yellow"> <font color="yellow">Cntl-n</font color="yellow">
-                     Move to the next line in history.
-
-                     Move the cursor to the next word.
-
-              <font color="cyan">prefix</font color="cyan">
-                     Wait for the next character  typed  in   for
-                     multi-key binding.
-
-              <font color="cyan">prev_char</font color="cyan"> <font color="yellow">Left,</font color="yellow"> <font color="yellow">Cntl-b</font color="yellow">
-                     Move the cursor to the previous character.
-
-              <font color="cyan">prev_line</font color="cyan"> <font color="yellow">Up,</font color="yellow"> <font color="yellow">Cntl-p</font color="yellow">
-                     Move to the previous line in history.
-
-              <font color="cyan">prev_word</font color="cyan"> <font color="yellow">Meta-b</font color="yellow">
-                     Move the cursor to the previous word.
-
-              <font color="cyan">quote</font color="cyan">  <font color="yellow">Cntl-q</font color="yellow">
-                     Insert  the next character  typed  into  the
-                     buffer literally.
-
-              <font color="cyan">search</font color="cyan"> <font color="yellow">Cntl-s</font color="yellow">
-                     Search pattern in history.
-
-              <font color="cyan">search_rev</font color="cyan"> <font color="yellow">Cntl-r</font color="yellow">
-                     Search pattern in history in reverse  order.
-
-              <font color="cyan">subst</font color="cyan">  <font color="yellow">Meta-s</font color="yellow">
-                     Substitute   all  patterns  to  strings  and
-                     reprint the line.  The substitutions are not
-                     nested  and performed in the order that they
-                     are defined.
-
-
-
-</PRE>
-<H2>CONFIGURATION</H2><PRE>
-       The key binding can be overridden or defined in fvwm  mod-
-       ule configuration.
-
-              *FvwmConsoleKey \ck prev_line
-
-       Non-space character sequence need not be quoted.  In order
-       to undefine, omit the last argument.
-
-              *FvwmConsoleKey \ck
-
-       Note that non-meta character is case sensitive.  \c  means
-       control key, \e means escape, and \m is alt key.
-       It  also  accepts  Subst  configuration. Users often input
-       long fvwm command repeatedly. Subst will replace  particu-
-       lar input sequence to user defined string. Example:
-
-              *FvwmConsoleSubst '^bigx' 'Exec xterm -g 120x60+0+0
-              -fn 10x20 -fg black -bg lemonchiffon'
-
-       'pl' in the middle of the command will  not  be  replaced.
-       Although the format looks different, it takes Perl regular
-       expression.  It just uses single or double  quote  as  the
-       delimiter.   Single  or  double quotes have no difference,
-       although they have to match, and cannot include itself  in
-       the string.
-
-              *FvwmConsoleSubst  '^g\s*(\d+)' 'Desk 0 0\nGotoPage
-              0 $1\nFocus'
-
-       Entering 'g4' or 'g  4' will jump to desk 0 page 0  4  and
-       focus.
-
-
-
-</PRE>
-<H2>INVOCATION</H2><PRE>
-       FvwmConsoleC.pl should be invoked by FvwmConsole.
-
-
-
-</PRE>
-<H2>SEE ALSO</H2><PRE>
-       <B>FvwmConsole(1x)</B>, <B>perlre(1)</B>
-
-
-
-</PRE>
-<H2>AUTHOR</H2><PRE>
-       Toshi Isogai
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</PRE>
+</pre>
+	<style><!--
+	# All these may be commented out
+	#H1, H2 { margin-left: -0; }
+	#BLACKQUOTE { margin-left: +48; }
+	#P { margin-left: +24; }
+	B { color: #FFFFD0; }
+	I { color: #D0FFFF; }
+	--></style>
+    
+<HTML><HEAD><TITLE>Manpage of FvwmConsoleC.pl</TITLE>
+</HEAD><BODY>
+<H1>FvwmConsoleC.pl</H1>
+Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+<A HREF="./">Return to Main Contents</A><HR>
+
+
+<P>
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+FvwmConsoleC.pl - Command editor for FVWM command input interface 
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+FvwmConsole -e /usr/X11/lib/fvwm2/FvwmConsoleC.pl
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>COPYRIGHT</H2>
+
+Copyright 1996, Toshi Isogai. No guarantees or warranties are provided.
+Use this program at your own risk. Permission to use this program for
+any purpose is given, as long as the copyright is kept intact. 
+<P>
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+FvwmConsoleC.pl offers editing capabilities  while  the  user  is
+entering  the line.  By default, the line editing commands
+are similar to those of emacs. It also offers 
+<B>substitution</B>
+
+, which replaces a pattern to a string before it sends the command.
+<P>
+<A NAME="lbAF">&nbsp;</A>
+<H2>FUNCTIONS</H2>
+
+Functions are bound to a key or key combination to be
+invoked. The followings are functions available and their
+default key bindings.
+<DL COMPACT><DT><DD>
+<DL COMPACT>
+<DT><B>bind</B><DD>
+<I>Meta-k, Cntl-x Cntl-b</I>
+<BR>
+
+
+List up key bindings and substitutions.
+<DT><B>boh</B><DD>
+<BR>
+
+Move to the beginning of history.
+<DT><B>boh_ign_mode</B>  <I>Esc-&lt;</I><DD>
+<BR>
+
+Move to the beginning of history. If it is in search mode,
+continue.
+<DT><B>bol</B><DD>
+<I>Home, Cntl-a</I>
+<BR>
+
+Move cursor to the beginning of the line.
+<DT><B>bs[(n)]</B> <I>BackSpace, Cntl-h</I><DD>
+<BR>
+
+Backspace n times. default of n is 1.
+<DT><B>cancel</B><DD>
+<I>Cntl-x Cntl-k</I>
+<BR>
+
+Cancel the current input.
+<DT><B>del_back_line</B><DD>
+<BR>
+
+Delete the line from the beginning to the cursor.
+<DT><B>del_back_word</B> <I>Cntl-w</I><DD>
+<BR>
+
+Delete the word from the beginning to the cursor.
+<DT><B>del_char [(n)]</B> <I>Delete, Cntl-d</I><DD>
+Delete n characters from the cursor to the right. Default of n
+is 1.
+<DT><B>del_forw_line</B> <I>Cntl-k</I><DD>
+<BR>
+
+Delete the line from the cursor to the end.
+<DT><B>del_forw_word</B> <I>Meta-d</I><DD>
+<BR>
+
+Delete the word from the cursor to the end.
+<DT><B>del_line</B> <I>Cntl-u</I><DD>
+<BR>
+
+Delete the entire line.
+<DT><B>enter</B><DD>
+<I>Enter, Cntl-j, Cntl-m</I>
+<BR>
+
+Perform substitution if applicable and send the line to Fvwm.
+<DT><B>enter_wo_subst</B> <I>Meta-Enter</I><DD>
+<BR>
+
+Send the line to Fvwm without any substitution.
+<DT><B>eoh</B><DD>
+<BR>
+
+Move to the end of history.
+<DT><B>eoh_ign_mode</B> <I>Esc-&gt;</I><DD>
+<BR>
+
+Move to the end of history. If it is in search mode, continue.
+<DT><B>eol</B><DD>
+<I>End, Cntl-e</I>
+<BR>
+
+Move the cursor to the end of line.
+<DT><B>ins_char (str)</B><DD>
+<BR>
+
+Insert string at the cursor.
+<DT><B>ins_last_word</B> <I>Esc-.</I><DD>
+<BR>
+
+Insert the last argument of the previous command at the cursor.
+<DT><B>ins_nth_word</B> <I>Meta-[1..9]</I><DD>
+<BR>
+
+Insert the n-th argument of the previous command at the cursor.
+<DT><B>list_func</B> <I>Meta-l</I><DD>
+<BR>
+
+List up available editing functions.
+<DT><B>next_char</B> <I>Right, Cntl-f</I><DD>
+<BR>
+
+Move the cursor to the next character.
+<DT><B>next_line</B> <I>Down, Cntl-n</I><DD>
+<BR>
+
+Move to the next line in history.
+<DT><B>next_word</B> <I>Meta-f</I><DD>
+<BR>
+
+Move the cursor to the next word.
+<DT><B>prefix</B><DD>
+<BR>
+
+Wait for the next character typed in  for multi-key binding. 
+<DT><B>prev_char</B> <I>Left, Cntl-b</I><DD>
+<BR>
+
+Move the cursor to the previous character.
+<DT><B>prev_line</B> <I>Up, Cntl-p</I><DD>
+<BR>
+
+Move to the previous line in history.
+<DT><B>prev_word</B> <I>Meta-b</I><DD>
+<BR>
+
+Move the cursor to the previous word.
+<DT><B>quote</B><DD>
+<I>Cntl-q</I>
+<BR>
+
+Insert the next character  typed  into  the  buffer literally.
+<DT><B>search</B><DD>
+<I>Cntl-s</I>
+<BR>
+
+Search pattern in history.
+<DT><B>search_rev</B> <I>Cntl-r</I><DD>
+<BR>
+
+Search pattern in history in reverse order.
+<DT><B>subst</B><DD>
+<I>Meta-s</I>
+<BR>
+
+Substitute all patterns to strings and reprint the line.
+The substitutions are not nested and performed in the order
+that they are defined. 
+</DL>
+</DL>
+
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>CONFIGURATION</H2>
+
+The key binding can be overridden or defined
+in fvwm module configuration.
+<P>
+<DL COMPACT><DT><DD>
+*FvwmConsoleKey \ck prev_line
+</DL>
+
+<P>
+Non-space character sequence need not be quoted.
+In order to undefine, omit the last argument.
+<P>
+<DL COMPACT><DT><DD>
+*FvwmConsoleKey \ck
+</DL>
+
+<P>
+Note that non-meta character is case sensitive. 
+\c means control key, \e means escape, and \m is alt key.
+<BR>
+
+It also accepts Subst configuration. Users often input long fvwm command
+repeatedly. Subst will replace particular input sequence to user defined
+string. Example:
+<P>
+<DL COMPACT><DT><DD>
+*FvwmConsoleSubst '^bigx' 'Exec xterm -g 120x60+0+0 -fn 10x20 -fg black -bg lemonchiffon'
+</DL>
+
+<P>
+Typing 'bigx&lt;return&gt;' in FvwmConsole will launch xterm. '^' denotes 
+the beginning of line in 
+<B>regular expression. </B>
+
+'pl' in the middle
+of the command will not be replaced. Although the format looks different,
+it takes Perl regular expression. 
+It just uses single or double quote as the delimiter.
+Single or double quotes have no difference, although they have to match,
+and cannot include itself in the string.
+<P>
+<DL COMPACT><DT><DD>
+*FvwmConsoleSubst '^g\s*(\d+)' 'Desk 0 0\nGotoPage 0 $1\nFocus'
+</DL>
+
+<P>
+Entering 'g4' or 'g  4' will jump to desk 0 page 0 4 and focus.
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H2>INVOCATION</H2>
+
+FvwmConsoleC.pl should be invoked by FvwmConsole.
+<P>
+<A NAME="lbAI">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<A HREF="./?1x+FvwmConsole">FvwmConsole</A>(1x), <A HREF="http://localhost/cgi-bin/man/man2html?1+perlre">perlre</A>(1)
+<P>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+Toshi Isogai  
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">COPYRIGHT</A><DD>
+<DT><A HREF="#lbAE">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAF">FUNCTIONS</A><DD>
+<DT><A HREF="#lbAG">CONFIGURATION</A><DD>
+<DT><A HREF="#lbAH">INVOCATION</A><DD>
+<DT><A HREF="#lbAI">SEE ALSO</A><DD>
+<DT><A HREF="#lbAJ">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="./">man2html</A>,
+using the manual pages.<BR>
+Time: 15:54:08 GMT, July 04, 2001
+</BODY>
+</HTML>
 </pre>
 <hr>
-<!-- This file automatically generated by run_man2html.ksh
-on Wed Jul  4 08:11:22 EDT 2001 -->
+<!-- This file automatically generated by run_man2html.sh
+on Wed Jul  4 18:54:08 IDT 2001 -->
 </body>
 </html>
 

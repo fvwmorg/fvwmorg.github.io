@@ -10,229 +10,197 @@
 </center>
 <pre>
 
-<PRE>
-<!-- Manpage converted by man2html 3.0.1 -->
-       FvwmRearrange - rearrange FVWM windows
-
-
-</PRE>
-<H2>SYNOPSIS</H2><PRE>
-       FvwmRearrange is spawned by fvwm, so no command line invo-
-       cation will work.
-
-
-
-</PRE>
-<H2>DESCRIPTION</H2><PRE>
-       This module can be called to tile or cascade windows.
-
-       When tiling the module attempts to  tile  windows  on  the
-       current screen subject to certain constraints.  Horizontal
-       or vertical tiling is performed so that each  window  does
-       not overlap another, and by default each window is resized
-       to its nearest resize increment (note sometimes some space
-       might appear between tiled windows -- this is why).
-
-       When  cascading  the module attempts to cascade windows on
-       the current screen subject to certain constraints.  Layer-
-       ing  is  performed  so consecutive windows will have their
-       window titles visible underneath the previous.
-
-
-
-</PRE>
-<H2>INVOCATION</H2><PRE>
-       FvwmRearrange is best invoked from a menu, pop up or  but-
-       ton.  There are a number of command line options which can
-       be used to constrain the  layering,  these  are  described
-       below.   As  an example case, one could call FvwmRearrange
-       with the following arguments:
-
-            FvwmRearrange -tile -h 10 10 90 90
-
-       or
-
-            FvwmRearrange -cascade -resize 10 2 80 70
-
-
-       The first invocation will horizontally tile windows with a
-       bounding  box  which  starts  at 10 by 10 percent into and
-       down the screen and ends at 90 by 90 percent into and down
-       the screen.
-
-       The  second invocation will cascade windows starting 10 by
-       2 percent into and down the screen.  Windows will be  con-
-       strained  to  80  by  70 percent of the screen dimensions.
-       Since the  <font color="yellow">resize</font color="yellow">  is  also  specified,  windows  will  be
-       resized to the given constrained width and height.
-
-       FvwmRearrange  can  be  called as FvwmTile or FvwmCascade.
-       This is equivalent to  providing  the  -tile  or  -cascade
-       option.  This  form is obsolete and supplied for backwards
-       compatibility only.
-       described here.
-
-       -a     Causes  <font color="yellow">all</font color="yellow"> window styles to be affected, even ones
-              with the WindowListSkip style.
-
-       -cascade
-              Cascade windows. This argument must be the first on
-              the command line.  This is the default.
-
-       -desk  Causes all windows on the desk to be cascaded/tiled
-              instead of the current screen only.
-
-       -flatx Inhibits border width  increment.  Only  used  when
-              cascading.
-
-       -flaty Inhibits  border  height  increment. Only used when
-              cascading.
-
-       -h     Tiles horizontally (default is to tile vertically).
-              Used for tiling only.
-
-       -incx <font color="yellow">arg</font color="yellow">
-              Specifies  a  horizontal increment which is succes-
-              sively added to cascaded windows.  <font color="yellow">arg</font color="yellow">  is  a  per-
-              centage  of  screen width, or pixel value if a <font color="yellow">p</font color="yellow"> is
-              suffixed.  Default is zero. Used only  for  cascad-
-              ing.
-
-       -incy <font color="yellow">arg</font color="yellow">
-              Specifies  a  vertical  increment  which is succes-
-              sively added to cascaded windows.  <font color="yellow">arg</font color="yellow">  is  a  per-
-              centage  of screen height, or pixel value if a <font color="yellow">p</font color="yellow"> is
-              suffixed.  Default is zero. Used only  for  cascad-
-              ing.
-
-
-       -m     Causes   maximized  windows  to  also  be  affected
-              (implied by -all).
-
-       -mn <font color="yellow">arg</font color="yellow">
-              Tiles up to <font color="yellow">arg</font color="yellow"> windows in tile direction.  If more
-              windows  exist,  a  new  direction row or column is
-              created (in effect, a matrix is created). Used only
-              when tiling windows.
-
-       -noraise
-              Inhibits window raising, leaving the depth ordering
-              intact.
-
-       -noresize
-              Inhibits  window  resizing,  leaving  window  sizes
-              intact. This is the default when cascading windows.
-              If tiling: inhibits  window  growth  to  fit  tile.
-              Windows   are  shrunk  to  fit  the  tile  but  not
-              expanded.
-
-              If cascading: inhibits window expansion when  using
-              the  -resize  option.   Windows will only shrink to
-              fit the maximal width and height (if given).
-
-       -r     Reverses the window sequence.
-
-       -resize
-              Forces all windows to  resize  to  the  constrained
-              width  and  height  (if given). This is the default
-              when tiling windows.
-
-       -s     Causes sticky windows to also be affected  (implied
-              by -all).
-
-       -t     Causes   transient  windows  to  also  be  affected
-              (implied by -all).
-
-       -tile  Tile windows. This argument must be  the  first  on
-              the command line.
-
-       -u     Causes   untitled   windows  to  also  be  affected
-              (implied by -all).
-
-              Up to four numbers can be  placed  on  the  command
-              line that are not switches.  The first pair specify
-              an x  and  y  offset  to  start  the  first  window
-              (default  is 0, 0).  The meaning of the second pair
-              depends on operation mode:
-
-              When tiling windows it specifies an absolute  coor-
-              dinate  reference denoting the lower right bounding
-              box for tiling.
-
-              When cascading it specifies  a  maximal  width  and
-              height for the layered windows. If an affected win-
-              dow exceeds either this  width  or  height,  it  is
-              resized to the maximal width or height.
-
-              If  any  number is suffixed with the letter p, then
-              it is taken to be a pixel value,  otherwise  it  is
-              interpreted  as  a  screen  percentage.  Specifying
-              zero for any parameter is equivalent to not  speci-
-              fying it.
-
-
-
-</PRE>
-<H2>BUGS</H2><PRE>
-       It  is  probably  not  a good idea to delete windows while
-       windows are being rearranged.
-       Andrew Veliath (original FvwmTile and FvwmCascade modules)
-       Dominik Vogt (merged FvwmTile and FvwmCascade to FvwmRear-
-       range)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</PRE>
+</pre>
+	<style><!--
+	# All these may be commented out
+	#H1, H2 { margin-left: -0; }
+	#BLACKQUOTE { margin-left: +48; }
+	#P { margin-left: +24; }
+	B { color: #FFFFD0; }
+	I { color: #D0FFFF; }
+	--></style>
+    
+<HTML><HEAD><TITLE>Manpage of FvwmRearrange</TITLE>
+</HEAD><BODY>
+<H1>FvwmRearrange</H1>
+Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+<A HREF="./">Return to Main Contents</A><HR>
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+FvwmRearrange - rearrange FVWM windows
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+FvwmRearrange is spawned by fvwm, so no command line invocation will work.
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+This module can be called to tile or cascade windows.
+<P>
+When tiling the module attempts to tile windows on the current screen
+subject to certain constraints.  Horizontal or vertical tiling is performed
+so that each window does not overlap another, and by default each window
+is resized to its nearest resize increment (note sometimes some space
+might appear between tiled windows -- this is why).
+<P>
+When cascading the module attempts to cascade windows on the current screen
+subject to certain constraints.  Layering is performed so consecutive
+windows will have their window titles visible underneath the previous.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>INVOCATION</H2>
+
+FvwmRearrange is best invoked from a menu, pop up or button.  There are a
+number of command line options which can be used to constrain the
+layering, these are described below.  As an example case, one could
+call FvwmRearrange with the following arguments:
+
+
+<P>
+
+
+<PRE><blockquote>FvwmRearrange -tile -h 10 10 90 90</blockquote></PRE>
+<P>
+
+
+
+or
+
+
+<P>
+
+
+<PRE><blockquote>FvwmRearrange -cascade -resize 10 2 80 70</blockquote></PRE>
+<P>
+
+
+
+<P>
+The first invocation will horizontally tile windows with a bounding box
+which starts at 10 by 10 percent into and down the screen and ends at
+90 by 90 percent into and down the screen.
+<P>
+The second invocation will cascade windows starting 10 by 2 percent into and
+down the screen.  Windows will be constrained to 80 by 70 percent of
+the screen dimensions.  Since the <I>resize</I> is also specified,
+windows will be resized to the given constrained width and height.
+<P>
+FvwmRearrange can be called as FvwmTile or FvwmCascade. This is equivalent
+to providing the -tile or -cascade option. This form is obsolete and
+supplied for backwards compatibility only.
+<P>
+Command-line arguments passed to FvwmRearrange are described here.
+<DL COMPACT>
+<DT>-a<DD>
+Causes <I>all</I> window styles to be affected, even ones with the
+WindowListSkip style.
+<DT>-cascade<DD>
+Cascade windows. This argument must be the first on the command line.
+This is the default.
+<DT>-desk<DD>
+Causes all windows on the desk to be cascaded/tiled instead of the
+current screen only.
+<DT>-flatx<DD>
+Inhibits border width increment. Only used when cascading.
+<DT>-flaty<DD>
+Inhibits border height increment. Only used when cascading.
+<DT>-h<DD>
+Tiles horizontally (default is to tile vertically). Used for tiling only.
+<DT>-incx <I>arg</I><DD>
+Specifies a horizontal increment which is successively added to
+cascaded windows.  <I>arg</I> is a percentage of screen width, or pixel
+value if a <I>p</I> is suffixed.  Default is zero. Used only for cascading.
+<DT>-incy <I>arg</I><DD>
+Specifies a vertical increment which is successively added to cascaded
+windows.  <I>arg</I> is a percentage of screen height, or pixel value
+if a <I>p</I> is suffixed.  Default is zero. Used only for cascading.
+<P>
+<DT>-m<DD>
+Causes maximized windows to also be affected (implied by -all).
+<DT>-mn <I>arg</I><DD>
+Tiles up to <I>arg</I> windows in tile direction.  If more windows
+exist, a new direction row or column is created (in effect, a matrix
+is created). Used only when tiling windows.
+<DT>-noraise<DD>
+Inhibits window raising, leaving the depth ordering intact.
+<DT>-noresize<DD>
+Inhibits window resizing, leaving window sizes intact. This is the default
+when cascading windows.
+<DT>-nostretch<DD>
+If tiling: inhibits window growth to fit tile.  Windows are shrunk to fit the
+tile but not expanded.
+<P>
+If cascading: inhibits window expansion when using the -resize option.  Windows
+will only shrink to fit the maximal width and height (if given).
+<DT>-r<DD>
+Reverses the window sequence.
+<DT>-resize<DD>
+Forces all windows to resize to the constrained width and height (if
+given). This is the default when tiling windows.
+<DT>-s<DD>
+Causes sticky windows to also be affected (implied by -all).
+<DT>-t<DD>
+Causes transient windows to also be affected (implied by -all).
+<DT>-tile<DD>
+Tile windows. This argument must be the first on the command line.
+<DT>-u<DD>
+Causes untitled windows to also be affected (implied by -all).
+<P>
+Up to four numbers can be placed on the command line that are not
+switches.  The first pair specify an x and y offset to start the first
+window (default is 0, 0).
+The meaning of the second pair depends on operation mode:
+<P>
+When tiling windows it specifies an absolute coordinate reference
+denoting the lower right bounding box for tiling.
+<P>
+When cascading it specifies a maximal width and height for the layered
+windows. If an affected window exceeds either this width or height, it
+is resized to the maximal width or height.
+<P>
+If any number is suffixed with the letter p, then it is taken to be a
+pixel value, otherwise it is interpreted as a screen percentage.
+Specifying zero for any parameter is equivalent to not specifying it.
+<P>
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>BUGS</H2>
+
+It is probably not a good idea to delete windows while windows are
+being rearranged.
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>AUTHORS</H2>
+
+Andrew Veliath (original FvwmTile and FvwmCascade modules)
+Dominik Vogt (merged FvwmTile and FvwmCascade to FvwmRearrange)
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">INVOCATION</A><DD>
+<DT><A HREF="#lbAF">BUGS</A><DD>
+<DT><A HREF="#lbAG">AUTHORS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="./">man2html</A>,
+using the manual pages.<BR>
+Time: 15:54:09 GMT, July 04, 2001
+</BODY>
+</HTML>
 </pre>
 <hr>
-<!-- This file automatically generated by run_man2html.ksh
-on Wed Jul  4 08:11:46 EDT 2001 -->
+<!-- This file automatically generated by run_man2html.sh
+on Wed Jul  4 18:54:09 IDT 2001 -->
 </body>
 </html>
 

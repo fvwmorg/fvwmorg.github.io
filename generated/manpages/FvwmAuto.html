@@ -10,123 +10,132 @@
 </center>
 <pre>
 
+</pre>
+	<style><!--
+	# All these may be commented out
+	#H1, H2 { margin-left: -0; }
+	#BLACKQUOTE { margin-left: +48; }
+	#P { margin-left: +24; }
+	B { color: #FFFFD0; }
+	I { color: #D0FFFF; }
+	--></style>
+    
+<HTML><HEAD><TITLE>Manpage of FvwmAuto</TITLE>
+</HEAD><BODY>
+<H1>FvwmAuto</H1>
+Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+<A HREF="./">Return to Main Contents</A><HR>
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<I>FvwmAuto</I> - the FVWM auto-raise module
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<I>FvwmAuto</I> is spawned by fvwm, so no command line invocation will work.
+The correct syntax is:
+<PRE><blockquote>Module FvwmAuto Timeout [EnterCommand [LeaveCommand]]
+
+AddToMenu Modules
++ &quot;Auto Raise (300 ms)&quot;  Module FvwmAuto 300
++ &quot;Auto Raise/Lower&quot;     Module FvwmAuto 300 &quot;Silent Raise&quot; &quot;Silent Lower&quot;</blockquote></PRE>
+<P>
+
+
+
+
+The <I>Timeout</I> argument is required. It specifies how long a window must
+retain the keyboard input focus before the command is executed. The
+delay is measured in milliseconds, and any integer 0 or greater is
+acceptable.
+<P>
+<I>EnterCommand</I> and <I>LeaveCommand</I> are optional.
+<I>EnterCommand</I> is executed <I>Timeout</I> milliseconds after a
+window gets the input focus, <I>LeaveCommand</I> is executed
+<I>Timeout</I> milliseconds after the window has lost focus.
+Note that you always should use the 'Silent' keyword before
+the command itself.  FvwmAuto prepends &quot;Silent &quot; to the command
+string on its own if yor forget this.  Without this prefix fvwm would
+ask you for a window to act on if the window has died before the
+command sent by FvwmAuto has been processed by fvwm.  This can for
+example happen with popup menus.
+<P>
+&quot;Silent Raise&quot; is the default for <I>EnterCommand</I>, but any fvwm function
+is allowed. I would not use &quot;Close&quot; or &quot;Destroy&quot; with a low timeout,
+though.  The <I>LeaveCommand</I> can be handy for a tidy desktop.
+Experiment with:
+<PRE><blockquote>Module FvwmAuto 0 Nop &quot;Silent Lower&quot;
+Module FvwmAuto 0 Nop &quot;Silent Iconify&quot;</blockquote></PRE>
+<P>
+
+
+
+<P>
+More complex example (three FvwmAuto's are running):
+<PRE><blockquote>DestroyFunc RestoreIconified
+AddToFunc   RestoreIconified
++ I Current (Iconic) Iconify false
+
+DestroyFunc RegisterFocus
+AddToFunc   RegisterFocus
++ I Exec echo &quot;`date +%T` $n focussed&quot; &gt;&gt;/tmp/focus-stats.txt
+
+DestroyFunc RegisterUnfocus
+AddToFunc   RegisterUnfocus
++ I Exec echo &quot;`date +%T` $n unfocussed&quot; &gt;&gt;/tmp/focus-stats.txt
+
+KillModule FvwmAuto
+Module FvwmAuto 250 Raise Nop
+Module FvwmAuto 800 RestoreIconified Nop
+Module FvwmAuto   0 RegisterFocus RegisterUnfocus</blockquote></PRE>
+<P>
+
+
+
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>NOTES</H2>
+
+<P>
+There is a special Raise/Lower support in FvwmAuto. It was added to improve
+Raise/Lower callbacks, since most of FvwmAuto usages is auto-raising or
+auto-lowering. This imrovement includes locking on M_RAISE_WINDOW and
+M_LOWER_WINDOW packets and not raising/lowering explicitely raised windows.
+The special Raise/Lower support is enabled only when either
+<I>EnterCommand</I> or <I>LeaveCommand</I> contain substring &quot;Raise&quot; or
+&quot;Lower&quot;. You can use this fact to enable/disable any special support by
+renaming these commands, if FvwmAuto does not automatically do want you
+expect it to do.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>AUTHOR</H2>
+
 <PRE>
-<!-- Manpage converted by man2html 3.0.1 -->
-       <font color="yellow">FvwmAuto</font color="yellow"> - the FVWM auto-raise module
-
-
-</PRE>
-<H2>SYNOPSIS</H2><PRE>
-       <font color="yellow">FvwmAuto</font color="yellow"> is spawned by fvwm, so no command line invocation
-       will work.  The correct syntax is:
-
-            Module FvwmAuto Timeout [EnterCommand [LeaveCommand]]
-
-            AddToMenu Modules
-            + "Auto Raise (300 ms)"  Module FvwmAuto 300
-            + "Auto Raise/Lower"     Module FvwmAuto 300 "Silent Raise" "Silent Lower"
-
-       The <font color="yellow">Timeout</font color="yellow"> argument is required. It specifies how long  a
-       window  must  retain  the  keyboard input focus before the
-       command is executed. The delay is  measured  in  millisec-
-       onds, and any integer 0 or greater is acceptable.
-
-       <font color="yellow">EnterCommand</font color="yellow">  and <font color="yellow">LeaveCommand</font color="yellow"> are optional.  <font color="yellow">EnterCommand</font color="yellow">
-       is executed <font color="yellow">Timeout</font color="yellow"> milliseconds after a window  gets  the
-       input focus, <font color="yellow">LeaveCommand</font color="yellow"> is executed <font color="yellow">Timeout</font color="yellow"> milliseconds
-       after the window has lost focus.   Note  that  you  always
-       should use the 'Silent' keyword before the command itself.
-       FvwmAuto prepends "Silent " to the command string  on  its
-       own  if  yor  forget this.  Without this prefix fvwm would
-       ask you for a window to act on  if  the  window  has  died
-       before  the command sent by FvwmAuto has been processed by
-       fvwm.  This can for example happen with popup menus.
-
-       "Silent Raise" is the default for  <font color="yellow">EnterCommand</font color="yellow">,  but  any
-       fvwm  function  is  allowed.  I  would  not use "Close" or
-       "Destroy" with a low timeout,  though.   The  <font color="yellow">LeaveCommand</font color="yellow">
-       can be handy for a tidy desktop.  Experiment with:
-
-            Module FvwmAuto 0 Nop "Silent Lower"
-            Module FvwmAuto 0 Nop "Silent Iconify"
-
-
-       More complex example (three FvwmAuto's are running):
-
-            DestroyFunc RestoreIconified
-            AddToFunc   RestoreIconified
-            + I Current (Iconic) Iconify false
-
-            DestroyFunc RegisterFocus
-            AddToFunc   RegisterFocus
-            + I Exec echo "`date +%T` $n focussed" &gt;&gt;/tmp/focus-stats.txt
-
-            DestroyFunc RegisterUnfocus
-            AddToFunc   RegisterUnfocus
-            + I Exec echo "`date +%T` $n unfocussed" &gt;&gt;/tmp/focus-stats.txt
-
-            KillModule FvwmAuto
-            Module FvwmAuto   0 RegisterFocus RegisterUnfocus
-
-
-
+FvwmAuto just appeared one day, nobody knows how.
+FvwmAuto was simply rewritten 09/96, nobody knows by whom.
 
 </PRE>
-<H2>NOTES</H2><PRE>
-       There is a special Raise/Lower support in FvwmAuto. It was
-       added to improve Raise/Lower callbacks, since most of Fvw-
-       mAuto   usages  is  auto-raising  or  auto-lowering.  This
-       imrovement  includes   locking   on   M_RAISE_WINDOW   and
-       M_LOWER_WINDOW    packets    and    not   raising/lowering
-       explicitely raised windows.  The special Raise/Lower  sup-
-       port is enabled only when either <font color="yellow">EnterCommand</font color="yellow"> or <font color="yellow">LeaveCom-</font color="yellow">
-       <font color="yellow">mand</font color="yellow"> contain substring "Raise" or  "Lower".  You  can  use
-       this  fact to enable/disable any special support by renam-
-       ing these commands, if FvwmAuto does not automatically  do
-       want you expect it to do.
-
-
-
-</PRE>
-<H2>AUTHOR</H2><PRE>
-       FvwmAuto just appeared one day, nobody knows how.
-       FvwmAuto was simply rewritten 09/96, nobody knows by whom.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</PRE>
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">NOTES</A><DD>
+<DT><A HREF="#lbAE">AUTHOR</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="./">man2html</A>,
+using the manual pages.<BR>
+Time: 15:54:07 GMT, July 04, 2001
+</BODY>
+</HTML>
 </pre>
 <hr>
-<!-- This file automatically generated by run_man2html.ksh
-on Wed Jul  4 08:11:09 EDT 2001 -->
+<!-- This file automatically generated by run_man2html.sh
+on Wed Jul  4 18:54:07 IDT 2001 -->
 </body>
 </html>
 

@@ -10,189 +10,188 @@
 </center>
 <pre>
 
+</pre>
+	<style><!--
+	# All these may be commented out
+	#H1, H2 { margin-left: -0; }
+	#BLACKQUOTE { margin-left: +48; }
+	#P { margin-left: +24; }
+	B { color: #FFFFD0; }
+	I { color: #D0FFFF; }
+	--></style>
+    
+<HTML><HEAD><TITLE>Manpage of FvwmBacker</TITLE>
+</HEAD><BODY>
+<H1>FvwmBacker</H1>
+Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+<A HREF="./">Return to Main Contents</A><HR>
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+FvwmBacker - the FVWM background changer module
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+FvwmBacker is spawned by fvwm, so no command line invocation will work.
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+The FvwmBacker module provides functionality to change the background
+when changing desktops.  Any command can be executed to change the
+backgrounds.  Actually, any arbitrary command can be sent to fvwm to
+execute, so you could also do things such as changing window border
+colors, etc.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>COPYRIGHTS</H2>
+
+The FvwmBacker module is the original work of Mike Finger.
+<P>
+Copyright 1994, Mike Finger. The author makes no guarantees or
+warranties of any kind about the use of this module.  Use this modules
+at your own risk.  You may freely use this module or any portion of it
+for any purpose as long as the copyright is kept intact.
+<P>
+<A NAME="lbAF">&nbsp;</A>
+<H2>INITIALIZATION</H2>
+
+During initialization, <I>FvwmBacker</I> will scan the same
+configuration file that FVWM used during startup to find the options
+that pertain to it.  These options are discussed in a later section.
+<P>
+<A NAME="lbAG">&nbsp;</A>
+<H2>INVOCATION</H2>
+
+FvwmBacker can be invoked by fvwm during initialization by inserting
+the line
+<P>
 <PRE>
-<!-- Manpage converted by man2html 3.0.1 -->
-       FvwmBacker - the FVWM background changer module
+AddToFunc StartFunction I Module FvwmBacker
+</PRE>
 
+<P>
+in the .fvwm2rc file.
+<P>
+FvwmBacker can be started using a 'Module FvwmBacker' command or stopped
+using a 'KillModule FvwmBacker' command at any time when fvwm is running.
+<P>
+FvwmBacker must reside in a directory that is listed in the ModulePath
+option of FVWM for it to be executed by FVWM.
+<P>
+<A NAME="lbAH">&nbsp;</A>
+<H2>CONFIGURATION OPTIONS</H2>
+
+The following is the only supported option at present:
+<P>
+<DL COMPACT>
+<DT>*FvwmBacker: Command <I>(Desk d, Page x y) command</I><DD>
+Specifies the <I>command</I> to execute when the viewport matches the
+arguments for the desk d, page x coordinate and y coordinate. Any or all of
+these three numeric arguments can be replaced with an asterisk (*) to indicate
+that any value matches, in this case Desk or Page parts can be skipped.
+<P>
+If the <I>command</I> is <I>-solid</I> FvwmBacker uses the next
+argument as a color in the X database and sets the background to that
+color without generating a system call to xsetroot (only single word
+color names may be used).
+<P>
+If the <I>command</I> is <I>colorset</I> FvwmBacker uses the background
+specified in colorset <I>n</I> for the given desk.  Please refer to
+the man page of the FvwmTheme module for details about colorsets.
+<P>
+Otherwise the command is sent to fvwm to execute.
+<P>
+Note these three lines are equivalent:
+<P>
+<PRE>
+
+*FvwmBacker: Command (Page * *, Desk *) -solid navy
+*FvwmBacker: Command () -solid navy
+*FvwmBacker: Command -solid navy
 
 </PRE>
-<H2>SYNOPSIS</H2><PRE>
-       FvwmBacker  is spawned by fvwm, so no command line invoca-
-       tion will work.
 
+<P>
+</DL>
+<A NAME="lbAI">&nbsp;</A>
+<H2>OLD-STYLE OPTIONS</H2>
 
+There is continued support for the now deprecated option:
+<P>
+<DL COMPACT>
+<DT>*FvwmBacker: Desk <I>d command</I><DD>
+<P>
+It is functionally equivalent to using an asterisk for both page
+coordinates with <I>*FvwmBacker: Command</I>.
+<P>
+</DL>
+<A NAME="lbAJ">&nbsp;</A>
+<H2>SAMPLE CONFIGURATION</H2>
 
-</PRE>
-<H2>DESCRIPTION</H2><PRE>
-       The FvwmBacker module provides functionality to change the
-       background  when  changing  desktops.   Any command can be
-       executed to change the backgrounds.  Actually,  any  arbi-
-       trary command can be sent to fvwm to execute, so you could
-       also do things such as changing window border colors, etc.
+The following are excepts from an .fvwm2rc file which describe
+FvwmBacker initialization commands:
+<P>
+<PRE>
 
-
-
-</PRE>
-<H2>COPYRIGHTS</H2><PRE>
-       The FvwmBacker module is the original work of Mike Finger.
-
-       Copyright 1994, Mike Finger. The author makes  no  guaran-
-       tees  or warranties of any kind about the use of this mod-
-       ule.  Use this modules at your own risk.  You  may  freely
-       use  this  module  or any portion of it for any purpose as
-       long as the copyright is kept intact.
-
-
-
-</PRE>
-<H2>INITIALIZATION</H2><PRE>
-       During initialization, <font color="yellow">FvwmBacker</font color="yellow"> will scan the same  con-
-       figuration  file that FVWM used during startup to find the
-       options that pertain to it.  These options  are  discussed
-       in a later section.
-
-
+####
+# Set Up Backgrounds for different desktop pages (2 desks, 3x2 pages).
+####
+*FvwmBacker: Command (Page 2 *) -solid steelblue
+*FvwmBacker: Command (Desk 0, Page 0 0) Exec xpmroot $[HOME]/bg2.xpm
+*FvwmBacker: Command (Desk 0, Page 0 1) -solid midnightblue
+*FvwmBacker: Command (Desk 0, Page 1 *) -solid yellow
+*FvwmBacker: Command (Desk 1, Page * 0) -solid navy
+*FvwmBacker: Command (Desk 1, Page * 1) Colorset 5
 
 </PRE>
-<H2>INVOCATION</H2><PRE>
-       FvwmBacker can be invoked by fvwm during initialization by
-       inserting the line
 
-       AddToFunc StartFunction I Module FvwmBacker
-
-       in the .fvwm2rc file.
-
-       FvwmBacker can be started using a 'Module FvwmBacker' com-
-       mand or stopped using a 'KillModule FvwmBacker' command at
-       any time when fvwm is running.
-
-       FvwmBacker must reside in a directory that  is  listed  in
-       the  ModulePath  option  of  FVWM for it to be executed by
-       FVWM.
-
-
-
-</PRE>
-<H2>CONFIGURATION OPTIONS</H2><PRE>
-       The following is the only supported option at present:
-
-              Specifies the <font color="yellow">command</font color="yellow"> to execute when the  viewport
-              matches  the arguments for the desk d, page x coor-
-              dinate and y coordinate. Any or all of these  three
-              numeric  arguments can be replaced with an asterisk
-              (*) to indicate that any  value  matches,  in  this
-              case Desk or Page parts can be skipped.
-
-              If  the  <font color="yellow">command</font color="yellow"> is <font color="yellow">-solid</font color="yellow"> FvwmBacker uses the next
-              argument as a color in the X database and sets  the
-              background  to that color without generating a sys-
-              tem call to xsetroot (only single word color  names
-              may be used).
-
-              If  the  <font color="yellow">command</font color="yellow">  is  <font color="yellow">colorset</font color="yellow">  FvwmBacker uses the
-              background specified in colorset <font color="yellow">n</font color="yellow">  for  the  given
-              desk.    Please  refer  to  the  man  page  of  the
-              FvwmTheme module for details about colorsets.
-
-              Otherwise the command is sent to fvwm to execute.
-
-              Note these three lines are equivalent:
-
-
-              *FvwmBacker: Command (Page * *, Desk *) -solid navy
-              *FvwmBacker: Command () -solid navy
-              *FvwmBacker: Command -solid navy
-
-
-
-
-</PRE>
-<H2>OLD-STYLE OPTIONS</H2><PRE>
-       There is continued support for the now deprecated option:
-
-
-       *FvwmBacker: Desk <font color="yellow">d</font color="yellow"> <font color="yellow">command</font color="yellow">
-
-              It is functionally equivalent to using an  asterisk
-              for  both  page  coordinates with <font color="yellow">*FvwmBacker:</font color="yellow"> <font color="yellow">Com-</font color="yellow">
-              <font color="yellow">mand</font color="yellow">.
-
-
-
-</PRE>
-<H2>SAMPLE CONFIGURATION</H2><PRE>
-       The following are excepts  from  an  .fvwm2rc  file  which
-       describe FvwmBacker initialization commands:
-
-
-       ####
-       # Set Up Backgrounds for different desktop pages (2 desks, 3x2 pages).
-       ####
-       *FvwmBacker: Command (Page 2 *) -solid steelblue
-       *FvwmBacker: Command (Desk 0, Page 0 0) Exec xpmroot $[HOME]/bg2.xpm
-       *FvwmBacker: Command (Desk 0, Page 0 1) -solid midnightblue
-       *FvwmBacker: Command (Desk 0, Page 1 *) -solid yellow
-
-
-
-
-</PRE>
-<H2>AUTHOR</H2><PRE>
-       Mike Finger (mfinger@mermaid.micro.umn.edu)
-                   (Mike_Finger@atk.com)
-                   (doodman on IRC, check the #linux channel)
-
-
-</PRE>
-<H2>Modified by</H2><PRE>
-       Andrew Davison (davison@cs.monash.edu.au)
-
-       Michael Han (mikehan@best.com)
-
-       Mikhael Goikhman (migo@homemail.com)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</PRE>
+<P>
+<A NAME="lbAK">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+Mike Finger (<A HREF="mailto:mfinger@mermaid.micro.umn.edu">mfinger@mermaid.micro.umn.edu</A>)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<A HREF="mailto:Mike_Finger@atk.com">Mike_Finger@atk.com</A>)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(doodman&nbsp;on&nbsp;IRC,&nbsp;check&nbsp;the&nbsp;#linux&nbsp;channel)
+<A NAME="lbAL">&nbsp;</A>
+<H2>Modified by</H2>
+
+Andrew Davison (<A HREF="mailto:davison@cs.monash.edu.au">davison@cs.monash.edu.au</A>)
+<P>
+Michael Han (<A HREF="mailto:mikehan@best.com">mikehan@best.com</A>)
+<P>
+Mikhael Goikhman (<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>)
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">COPYRIGHTS</A><DD>
+<DT><A HREF="#lbAF">INITIALIZATION</A><DD>
+<DT><A HREF="#lbAG">INVOCATION</A><DD>
+<DT><A HREF="#lbAH">CONFIGURATION OPTIONS</A><DD>
+<DT><A HREF="#lbAI">OLD-STYLE OPTIONS</A><DD>
+<DT><A HREF="#lbAJ">SAMPLE CONFIGURATION</A><DD>
+<DT><A HREF="#lbAK">AUTHOR</A><DD>
+<DT><A HREF="#lbAL">Modified by</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="./">man2html</A>,
+using the manual pages.<BR>
+Time: 15:54:07 GMT, July 04, 2001
+</BODY>
+</HTML>
 </pre>
 <hr>
-<!-- This file automatically generated by run_man2html.ksh
-on Wed Jul  4 08:11:10 EDT 2001 -->
+<!-- This file automatically generated by run_man2html.sh
+on Wed Jul  4 18:54:07 IDT 2001 -->
 </body>
 </html>
 
