@@ -5,6 +5,8 @@ DestroyDecor DecorDemo
 AddToDecor   DecorDemo
 + TitleStyle Height 30 LeftJustified
 + TitleStyle -- Raised
++ BorderStyle -- HiddenHandles
++ ButtonStyle Reset
 # Up arrow    ( ^ )
 + ButtonStyle 1 8 40x80@1 40x50@1 20x50@1 50x20@1 80x50@0 60x50@0 60x80@0 40x80@0
 # Down arrow  ( v )

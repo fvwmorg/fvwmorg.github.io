@@ -5,6 +5,7 @@ DestroyDecor DecorDemo
 AddToDecor   DecorDemo
 + TitleStyle Height 30 LeftJustified
 + TitleStyle -- Raised
++ BorderStyle -- HiddenHandles
 + ButtonStyle Reset
 # Large box
 + ButtonStyle 1  5 25x25@1 25x75@1 75x75@0 75x25@0 25x25@1

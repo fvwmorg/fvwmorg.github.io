@@ -1,3 +1,9 @@
+2001-01-20  Dan Espen  <dane@mk.telcordia.com>
+
+	* vector-buttons/DecorDemo1-4.fvwmrc/gif: Hide the handles.
+	* vector-buttons/testbed.fvwmrc: Update grab instructions to account
+	for windowshading.
+
 2001-01-21  Mikhael Goikhman  <migo@homemail.com>
 
 	* vector-buttons/testbed.fvwmrc:

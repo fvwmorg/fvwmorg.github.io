@@ -5,6 +5,7 @@ DestroyDecor DecorDemo
 AddToDecor   DecorDemo
 + TitleStyle Height 30 LeftJustified
 + TitleStyle -- Raised
++ BorderStyle -- HiddenHandles
 + ButtonStyle Reset
 # From: Jeff Walker <jwalker@matchlogic.com>
 # This demonstrates the trick of using AddButtonStyle to build up an image

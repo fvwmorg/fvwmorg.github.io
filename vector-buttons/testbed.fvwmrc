@@ -9,7 +9,8 @@
 #  - With help from Dominik.
 
 # Test bed for vector buttons
-# - I found it very helpful to create a link from my home directory
+# - I found it very helpful to create a link from FVWM_USERDIR
+#   ($HOME/.fvwm),
 #   to where the vector-buttons source was sitting.
 #   The following assumes you have a "vb" link in your home directory
 #   to the "fvwm-web/vector-buttons" directory.
@@ -24,8 +25,11 @@
 #       button_demo
 #
 #   Then type "Ctrl-G" (grab), hit return, and select the xv window.
+#   Unshade the window.  Button 3 on the buttons on either side of the
+#   title will unshade.
 #   Then type "n" (Image size Normal).
-#   Then save the image.
+#   Then save the image.  (Hint, when you save the button, you can use the
+#   link you created above, Ie. save .fvwm/vb/DecorDemoN.gif.)
 #   
 #   Look at the last Decor N for an example of what to do if you don't have an
 #   exact multiple of 10 buttons.
