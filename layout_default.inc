@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 12:54:59 uwp>
+//-  Last modified : <07.04.2003 13:07:46 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -129,7 +129,7 @@ function decoration_pic($direction) {
 }
 
 function decoration_cell_start($position, $string, $css, 
-			       $bg_repeat="both", $bg_pos="top", 
+			       $bg_repeat="repeat", $bg_pos="top", 
 			       $td_options="") {
   global $decoration_path, $this_site, $window_border_bg, $rel_path;
 
@@ -154,7 +154,7 @@ function decoration_cell_start($position, $string, $css,
 }
 
 function decoration_top_left_cell_start($string="", $css="") {
-  decoration_cell_start("top_left",$string,$css,"none");
+  decoration_cell_start("top_left",$string,$css,"no-repeat");
 }
 function decoration_top_left_cell($string="", $css="") {
   decoration_top_left_cell_start($string,$css,"repeat-x","bottom");
@@ -170,7 +170,7 @@ function decoration_top_cell($string="", $css="") {
 }
 
 function decoration_top_right_cell_start($string="", $css="") {
-  decoration_cell_start("top_right",$string,$css,"none");
+  decoration_cell_start("top_right",$string,$css,"no-repeat");
 }
 function decoration_top_right_cell($string="", $css="") {
   decoration_top_right_cell_start($string,$css);
@@ -311,7 +311,7 @@ function decoration_window_start($string="",$width="100%",$height="800",$padding
   echo '<tr>'."\n";
   echo '<td valign="top" align="left"';
   if(strlen($height)> 0) echo ' height="'.$height.'"';
-  echo ' class="window_contents">';
+  echo ' class="windowcontents">';
 }
 
 function decoration_window_end() {
@@ -708,9 +708,9 @@ function insert_quick_jump_list($site_array,$col_num=2) {
          text-align:left; 
        }
        .intern { 
-         color: ffffff; 
+         color: #ffffff; 
        }
-       .window_contents {
+       .windowcontents {
 	 padding-left:5%;
 	 padding-right:5%;
        }
