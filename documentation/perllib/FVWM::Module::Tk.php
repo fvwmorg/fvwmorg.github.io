@@ -49,7 +49,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("Manual page for FVWM::Module::Tk in unstable branch (2.5.8)"); ?>
 
 <H1>FVWM::Module::Tk</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2003-06-10<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Tk.pm">FVWM/Module/Tk.pm</a><br>
+Section: FVWM Perl library (3)<BR>Updated: 2003-10-26<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Tk.pm">FVWM/Module/Tk.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
@@ -61,27 +61,51 @@ FVWM::Module::Tk - FVWM::Module with the Tk widget library attached
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
-<blockquote><pre>  use lib `fvwm-perllib dir`;
-  use FVWM::Module::Tk;
-  use Tk;</pre></blockquote>
+Name this module TestModuleTk, make it executable and place in ModulePath:
 <P>
 
-<blockquote><pre>  my $top = new MainWindow;
-  my $module = new FVWM::Module::Tk $top;</pre></blockquote>
+<blockquote><pre>    #!/usr/bin/perl -w</pre></blockquote>
 <P>
 
-<blockquote><pre>  $module-&gt;addHandler(M_CONFIGURE_WINDOW, \&amp;configure_toplevel);
-  $module-&gt;addHandler(M_CONFIG_INFO, \&amp;some_other_sub);</pre></blockquote>
+<blockquote><pre>    use lib `fvwm-perllib dir`;
+    use FVWM::Module::Tk;
+    use Tk;  # preferably in this order</pre></blockquote>
 <P>
 
-<blockquote><pre>  $module-&gt;eventLoop;</pre></blockquote>
+<blockquote><pre>    my $top = new MainWindow(-name =&gt; &quot;Simple Test&quot;);
+    my $id = $top-&gt;wrapper-&gt;[0];</pre></blockquote>
+<P>
+
+<blockquote><pre>    my $module = new FVWM::Module::Tk(
+        TopWindow =&gt; $top,
+        Mask =&gt; M_ICONIFY | M_ERROR,  # Mask may be omitted
+        Debug =&gt; 2,
+    );
+    $top-&gt;Button(
+        -text =&gt; &quot;Close&quot;, -command =&gt; sub { $top-&gt;destroy; }
+    )-&gt;pack;</pre></blockquote>
+<P>
+
+<blockquote><pre>    $module-&gt;addDefaultErrorHandler;
+    $module-&gt;addHandler(M_ICONIFY, sub {
+        my $id0 = $_[1]-&gt;_win_id;
+        $module-&gt;send(&quot;Iconify off&quot;, $id) if $id0 == $id;
+    });
+    $module-&gt;track('Scheduler')-&gt;schedule(60, sub {
+        $module-&gt;showMessage(&quot;You run this module for 1 minute&quot;)
+    });</pre></blockquote>
+<P>
+
+<blockquote><pre>    $module-&gt;send('Style &quot;*imple Test&quot; Sticky');
+    $module-&gt;eventLoop;</pre></blockquote>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-The <B><u>FVWM::Module::Tk</u></B> package is a sub-class of <B><a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a></B> that
-overloads the methods <B>new</B>, <B>eventLoop</B> and <B>showError</B> to manage
-Tk objects as well. It also adds new methods <B>topLevel</B> and <B>winId</B>.
+The <B><u>FVWM::Module::Tk</u></B> class is a sub-class of <B><a href="<?php echo conv_link_target('./FVWM::Module::Toolkit.php');?>">FVWM::Module::Toolkit</a></B>
+that overloads the methods <B>new</B>, <B>eventLoop</B>, <B>showMessage</B>,
+<B>showDebug</B> and <B>showError</B> to manage Tk objects as well. It also adds new
+method <B>topWindow</B>.
 <P>
 
 This manual page details only those differences. For details on the
@@ -90,12 +114,11 @@ This manual page details only those differences. For details on the
 <H2>METHODS</H2>
 
 <A NAME="ixAAE"></A>
-Only methods that are not available in <B><a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a></B>, or are overloaded
-are covered here:
+Only overloaded or new methods are covered here:
 <DL COMPACT>
-<DT><B>new</B> <I>top param-hash</I><DD>
+<DT><B>new</B> <I>param-hash</I><DD>
 <A NAME="ixAAF"></A>
-$module = new FVWM::Module::Tk <TT>$top</TT>, <TT>%params</TT>
+$module = new <B><u>FVWM::Module::Tk</u></B> <I>TopWindow</I> =&gt; <TT>$top</TT>, <TT>%params</TT>
 
 
 <P>
@@ -104,8 +127,16 @@ $module = new FVWM::Module::Tk <TT>$top</TT>, <TT>%params</TT>
 Create and return an object of the <B><u>FVWM::Module::Tk</u></B> class.
 This <B>new</B> method is identical to the (grand-)parent class method, with the
 exception that a Tk top-level of some sort (MainWindow, TopLevel, Frame,
-etc.) must be passed before the hash of options. The options <I>param-hash</I>
-are the same as specified in FVWM::Module.
+etc.) may be passed in the hash of options using the <I>TopWindow</I> named value.
+Other options in <I>param-hash</I> are the same as described in FVWM::Module.
+
+
+<P>
+
+
+If no top-level window is specified in the constructor, such dummy window
+is created and immediatelly withdrawn. This top-level window is needed to
+create Tk dialogs.
 <DT><B>eventLoop</B><DD>
 <A NAME="ixAAG"></A>
 From outward appearances, this methods operates just as the parent
@@ -124,36 +155,73 @@ all error dialogs that may be open on the screen at that time.
 
 
 Good for diagnostics of a Tk based module.
-<DT><B>topLevel</B><DD>
+<DT><B>showMessage</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAI"></A>
-Returns the Tk toplevel that this object was created with.
-<DT><B>winId</B><DD>
+Creates a message window with one ``Ok'' button.
+
+
+<P>
+
+
+Useful for notices by a Tk based module.
+<DT><B>showDebug</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAJ"></A>
-A shortcut for <TT>$self</TT>-&gt;topLevel-&gt;id, exists for efficiency reasons.
+Creates a debug window with 3 buttons ``Close'', ``Clear'' and ``Save''.
+All debug messages are added to the debug window.
+
+
+<P>
+
+
+``Close'' withdraws the window until the next debug message arrives.
+
+
+<P>
+
+
+``Clear'' erases the current contents of the debug window.
+
+
+<P>
+
+
+``Save'' dumps the current contents of the debug window to the selected file.
+
+
+<P>
+
+
+Useful for debugging a Tk based module.
+<DT><B>topWindow</B><DD>
+<A NAME="ixAAK"></A>
+Returns the Tk toplevel that this object was created with.
 </DL>
 <A NAME="lbAF">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixAAK"></A>
+<A NAME="ixAAL"></A>
 Would not surprise me in the least.
 <A NAME="lbAG">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-<A NAME="ixAAL"></A>
+<A NAME="ixAAM"></A>
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
-<P>
-
-Randy J. Ray &lt;<A HREF="mailto:randy@byz.org">randy@byz.org</A>&gt;, author of the old classes
-<B>X11::Fvwm</B> and <B>X11::Fvwm::Tk</B>.
 <A NAME="lbAH">&nbsp;</A>
 <H2>THANKS TO</H2>
 
-<A NAME="ixAAM"></A>
+<A NAME="ixAAN"></A>
+Randy J. Ray &lt;<A HREF="mailto:randy@byz.org">randy@byz.org</A>&gt;, author of the old classes
+<B>X11::Fvwm</B> and <B>X11::Fvwm::Tk</B>.
+<P>
+
+Scott Smedley &lt;<A HREF="mailto:ss@aao.gov.au">ss@aao.gov.au</A>&gt;.
+<P>
+
 Nick Ing-Simmons &lt;<A HREF="mailto:Nick.Ing-Simmons@tiuk.ti.com">Nick.Ing-Simmons@tiuk.ti.com</A>&gt; for Tk Perl extension.
 <A NAME="lbAI">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixAAN"></A>
+<A NAME="ixAAO"></A>
 For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a> and Tk.
 <P>
 
@@ -173,9 +241,9 @@ For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Mo
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 02:17:10 GMT, June 10, 2003
+Time: 00:48:54 GMT, November 01, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by perllib2php on 10-Jun-2003 -->
+<!-- Automatically generated by perllib2php on 01-Nov-2003 -->

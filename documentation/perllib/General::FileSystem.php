@@ -49,7 +49,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("Manual page for General::FileSystem in unstable branch (2.5.8)"); ?>
 
 <H1>General::FileSystem</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2003-06-10<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/General/FileSystem.pm">General/FileSystem.pm</a><br>
+Section: FVWM Perl library (3)<BR>Updated: 2003-10-26<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/General/FileSystem.pm">General/FileSystem.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
@@ -138,7 +138,8 @@ Loads file with given file-name from local filesystem.
 <blockquote><pre>  * fileName - name of the file to be loaded.</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixAAK"></A>
-Reference to file content string on success, otherwise throws exception.
+Reference to file content string on success, otherwise either dies or warns
+and returns undef as configured.
 </DL>
 <A NAME="lbAH">&nbsp;</A>
 <H2>saveFile</H2>
@@ -158,7 +159,7 @@ Saves file-content to local filesystem with given file-name.
   * createSubdirs - optional flag (default is 0 - don't create subdirs)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixAAP"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAI">&nbsp;</A>
 <H2>appendFile</H2>
@@ -177,7 +178,7 @@ Appends file-append-content to local filesystem with given file-name.
   * fileAppendContentRef - reference to file-append-content string</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixAAU"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAJ">&nbsp;</A>
 <H2>removeFile</H2>
@@ -195,7 +196,7 @@ Removes all files from given directory.
 <blockquote><pre>  * fileName - name of the file to be deleted</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixAAZ"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAK">&nbsp;</A>
 <H2>makeDir</H2>
@@ -214,7 +215,7 @@ Removes all files from given directory.
   * optional creating dir permissions (default is $DEFAULT_DIR_PERM)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixABE"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAL">&nbsp;</A>
 <H2>makePath</H2>
@@ -233,7 +234,7 @@ Removes all files from given directory.
   * optional creating dir permissions (default is $DEFAULT_DIR_PERM)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixABJ"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAM">&nbsp;</A>
 <H2>copyFile</H2>
@@ -252,7 +253,7 @@ Copies a file to another location.
   * file name to copy to</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixABO"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAN">&nbsp;</A>
 <H2>moveFile</H2>
@@ -271,7 +272,7 @@ Moves (or renames) a file to another location.
   * file name to move to</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixABT"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAO">&nbsp;</A>
 <H2>cleanDir</H2>
@@ -294,7 +295,7 @@ Removes all files from given directory.
     3 - unlink given directory</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixABY"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAP">&nbsp;</A>
 <H2>removeDir</H2>
@@ -313,7 +314,7 @@ This is an alias to <TT>cleanDir(3)</TT>.
 <blockquote><pre>  * directory to clean</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixACD"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAQ">&nbsp;</A>
 <H2>copyDir</H2>
@@ -341,7 +342,7 @@ to remove it before copying.
   * optional creating dir permissions (default is $DEFAULT_DIR_PERM)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixACI"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAR">&nbsp;</A>
 <H2>moveDir</H2>
@@ -367,7 +368,7 @@ to remove it before copying.
   * destination directory to move to (must not exist)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixACN"></A>
-<TT>1</TT> on success, otherwise throws exception.
+<TT>1</TT> on success, otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAS">&nbsp;</A>
 <H2>listFileNames</H2>
@@ -392,7 +393,8 @@ Returns the file names in the given directory including all types of files
   * optional flag, 1 means work recursively, the default is 0</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixACS"></A>
-Array ref of scalars (file names). Throws exception on error.
+Array ref of scalars (file names) on success.
+Otherwise either dies or warns and returns undef as configured.
 </DL>
 <A NAME="lbAT">&nbsp;</A>
 <H2>findFile</H2>
@@ -465,13 +467,13 @@ The default of this package is 0775.
 <P>
 
 
-If no parameters specified, nothing is set (only current value is returned).
+If no parameters specified, the current value is returned.
 <DT>usage<DD>
 <A NAME="ixADF"></A>
 <blockquote><pre> defaultDirPerm(0700);</pre></blockquote>
 <DT>parameters<DD>
 <A NAME="ixADG"></A>
-<blockquote><pre> * optional default directory permission (integer)</pre></blockquote>
+<blockquote><pre>  * optional default directory permission (integer)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixADH"></A>
 Previous value.
@@ -517,10 +519,10 @@ The default of this package is 0.
 If no parameters specified, nothing is set (only current value is returned).
 <DT>usage<DD>
 <A NAME="ixADK"></A>
-<blockquote><pre> preserveStat(1);</pre></blockquote>
+<blockquote><pre>  preserveStat(1);</pre></blockquote>
 <DT>parameters<DD>
 <A NAME="ixADL"></A>
-<blockquote><pre> * optional flag (currently 0 or 1)</pre></blockquote>
+<blockquote><pre>  * optional flag (currently 0 or 1)</pre></blockquote>
 <DT>returns<DD>
 <A NAME="ixADM"></A>
 Previous value.
@@ -619,9 +621,9 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 02:17:24 GMT, June 10, 2003
+Time: 00:49:08 GMT, November 01, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by perllib2php on 10-Jun-2003 -->
+<!-- Automatically generated by perllib2php on 01-Nov-2003 -->

@@ -42,10 +42,10 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.7)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.8)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.7 (1)<BR>Updated: 30 May 2003<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.8 (1)<BR>Updated: 31 October 2003<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -74,7 +74,9 @@ fvwm - F? Virtual Window Manager for X11
 
 [<B>-r</B>]
 
-[<B>-s</B>]
+[<B>-s</B>
+
+<I>[screen_num]</I>]
 
 [<B>-V</B>]
 
@@ -129,12 +131,12 @@ commonly called fvwm2 to distinguish it from the former version
 version 2.x a long time ago we simply call version 2.x and all
 versions to come, fvwm, throughout this document, and the
 executable program is named fvwm.  There is an fvwm offspring
-called fvwm95, it is mostly a patch for fvwm-2.0.43.  The main
-goal of fvwm95 was to supply a Windows 95 like look and feel.
-Since then fvwm has been greatly enhanced and practically all
-fvwm95 features can be imitated by fvwm.
+called fvwm95, it is mostly a patched version of fvwm-2.0.43.  The
+main goal of fvwm95 was to supply a Windows 95 like look and feel.
+Since then, fvwm has been greatly enhanced and practically all
+fvwm95 features can be achieved by fvwm.
 <P>
-Fvwm provides both a large
+Fvwm provides both, a large
 <I>virtual desktop</I>
 
 and
@@ -150,17 +152,16 @@ unrelated to the others.
 Fvwm provides
 <I>keyboard accelerators</I>
 
-which allow you to perform most window-manager functions,
+which allow you to perform most window manager functions,
 including moving and resizing windows, and operating the menus,
 using keyboard shortcuts.
 <P>
-Fvwm has also blurred the distinction between configuration
-commands and action commands that most window-managers make.
+Fvwm has also overcome the distinction between configuration
+commands and action commands that most window managers make.
 Configuration commands typically set fonts, colors, menu contents,
 key and mouse function bindings, while action commands
 do things like raise and lower windows.  Fvwm makes no such
-distinction, and allows, to the extent that is practical, anything
-to be changed at any time.
+distinction, and allows anything to be changed at any time.
 <P>
 Other noteworthy differences between fvwm and other X11 window
 managers are the introduction of the
@@ -180,7 +181,7 @@ policy is provided for use with windows into which one never types
 SloppyFocus terminal window has focus, moving the pointer over a
 <I>NeverFocus</I>
 
-decoration window won't deprive the terminal of focus.
+decoration window does not deprive the terminal of focus.
 <P>
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
@@ -269,14 +270,14 @@ as its initialization file.  This is equivalent to
 
 <DD>
 A short usage description is printed.
-<DT><B>-r</B> | <B>-replace</B>
+<DT><B>-r</B> | <B>--replace</B>
 
 <DD>
 Try to take over from a previously running wm.  This does not work
 unless the other wm is
 <FONT>ICCCM</FONT>
 2.0 compliant.
-<DT><B>-F</B> | <B>-restore </B>
+<DT><B>-F</B> | <B>--restore </B>
 
 <DD>
 <I>state-file</I>
@@ -286,6 +287,8 @@ Should not be used by a user.
 <DT><B>-s</B> | <B>--single-screen</B>
 
 <DD>
+[<I>screen_num</I>]
+
 On a multi-screen display, run fvwm only on the screen named in
 the
 <I>$DISPLAY</I>
@@ -293,7 +296,11 @@ the
 environment variable or provided through the
 <B>-d</B>
 
-option. Normally, fvwm attempts to start up on all screens of a
+option. The optional argument
+<I>screen_num</I>
+
+should be positive or null and override the screen number.
+Normally, fvwm attempts to start up on all screens of a
 multi-screen display.
 <DT><B>-V</B> | <B>--version</B>
 
@@ -370,7 +377,7 @@ pre-allocated palette is auto detected the defaults are as follow:
 
 <blockquote><PRE>            | depth 8 (256 colors)| depth 4 (16 colors)
 ------------|---------------------|--------------------
-PseudoColor | 68 (4 cc + 4 grey)  | 10 (2 cc* + 2 grey)
+PseudoColor | 68 (4 cc + 4 grey)  | 10 (2 cc + 2 grey)
 ------------|---------------------|--------------------
 GrayScale   | 64 regular grey     |  8 regular grey
 ----------- |---------------------|--------------------
@@ -981,7 +988,6 @@ is used instead of ExitFunction.
 
 <blockquote><PRE>DestroyFunc StartFunction
 AddToFunc StartFunction
- + I ModuleSynchronous FvwmTheme
  + I Module FvwmPager * *
  + I Module FvwmButtons
 
@@ -1147,13 +1153,13 @@ states that windows possessing the property
 should not be given the keyboard input focus by the window
 manager. These windows can take the input focus by themselves,
 however.  A number of applications set this property, and yet
-expect the window-manager to give them the keyboard focus anyway,
-so fvwm provides a window-style,
+expect the window manager to give them the keyboard focus anyway,
+so fvwm provides a window style,
 <I>Lenience</I>, 
 
 which allows fvwm to overlook this
 <FONT>ICCCM</FONT>
-rule.  Even with this window-style it is not guaranteed that the
+rule.  Even with this window style it is not guaranteed that the
 application accepts focus.
 <P>
 The differences between
@@ -1211,13 +1217,10 @@ AddToFunc UrgencyDoneFunc
 <P>
 Fvwm attempts to be
 <FONT>GNOME</FONT>
-compliant.  Check
+(version 1) compliant.  Check
 <B><A HREF="http://www.gnome.org">http://www.gnome.org</A></B>
 
-for what that may mean.
-<FONT>GNOME</FONT>
-support is a compile time option which is on by default.  To
-disable GNOME hints for some or all windows, the
+for what that may mean. To disable GNOME hints for some or all windows, the
 <I>GNOMEIgnoreHints</I>
 
 style can be used.
@@ -1241,9 +1244,7 @@ version 2 and other applications which respect this specification
 version 2). Applications which respect this specification are
 called ewmh compliant applications.
 <P>
-This support is a compile time option.  If selected at compile
-time, this support is configurable with styles and commands.
-<P>
+This support is configurable with styles and commands.
 These styles and commands have
 <FONT>EWMH</FONT>
 as the prefix (so you can find them easily in this man page).
@@ -1297,11 +1298,6 @@ reserved space as explained in the
 <B>EwmhBaseStruts</B>
 
 command.
-<P>
-This support can be disabled at compile time
-(use the --disable-ewmh option to configure).
-
-
 <P>
 <A NAME="lbAQ">&nbsp;</A>
 <H2>MWM COMPATIBILITY</H2>
@@ -1838,34 +1834,34 @@ character.  The
 
 are a space separated list of fvwm directions:
 <P>
-<I>N</I>, <I>North</I>, <I>Top</I>, <I>t</I>, <I>Up</I>, <I>u</I>
+<I>N</I>, <I>North</I>, <I>Top</I>, <I>t</I>, <I>Up</I>, <I>u</I>, <I>-</I>
 
 <P>
-<I>E</I>, <I>East</I>, <I>Right</I>, <I>r</I>, <I>Right</I>, <I>r</I>
+<I>E</I>, <I>East</I>, <I>Right</I>, <I>r</I>, <I>Right</I>, <I>r</I>, <I>]</I>
 
 <P>
-<I>S</I>, <I>South</I>, <I>Bottom</I>, <I>b</I>, <I>Down</I>, <I>d</I>
+<I>S</I>, <I>South</I>, <I>Bottom</I>, <I>b</I>, <I>Down</I>, <I>d</I>, <I>_</I>
 
 <P>
-<I>W</I>, <I>West</I>, <I>Left</I>, <I>l</I>, <I>Left</I>, <I>l</I>
+<I>W</I>, <I>West</I>, <I>Left</I>, <I>l</I>, <I>Left</I>, <I>l</I>, <I>[</I>
 
 <P>
-<I>NE</I>, <I>NorthEast</I>, <I>TopRight</I>, <I>tr</I>, <I>UpRight</I>, <I>ur</I>
+<I>NE</I>, <I>NorthEast</I>, <I>TopRight</I>, <I>tr</I>, <I>UpRight</I>, <I>ur</I>, <I>^</I>
 
 <P>
-<I>SE</I>, <I>SouthEast</I>, <I>BottomRight</I>, <I>br</I>, <I>DownRight</I>, <I>dr</I>
+<I>SE</I>, <I>SouthEast</I>, <I>BottomRight</I>, <I>br</I>, <I>DownRight</I>, <I>dr</I>, <I>&gt;</I>
 
 <P>
-<I>SW</I>, <I>SouthWest</I>, <I>BottomLeft</I>, <I>bl</I>, <I>DownLeft</I>, <I>dl</I>
+<I>SW</I>, <I>SouthWest</I>, <I>BottomLeft</I>, <I>bl</I>, <I>DownLeft</I>, <I>dl</I>, <I>v</I>
 
 <P>
-<I>NW</I>, <I>NorthWest</I>, <I>TopLeft</I>, <I>tl</I>, <I>UpLeft</I>, <I>ul</I>
+<I>NW</I>, <I>NorthWest</I>, <I>TopLeft</I>, <I>tl</I>, <I>UpLeft</I>, <I>ul</I>, <I>&lt;</I>
 
 <P>
-<I>C</I>, <I>Center</I>, <I>Centre</I>
+<I>C</I>, <I>Center</I>, <I>Centre</I>, <I>.</I>
 
 <P>
-a shadow is displayed in each given direction.
+A shadow is displayed in each given direction.
 <I>All</I>
 
 is equivalent to all the directions.  The default
@@ -2144,7 +2140,7 @@ module called &quot;HelpMe&quot;.
 <P>
 Note: There are many commands that affect look and feel of
 specific, some or all windows, like
-<B>Style</B>, <B>Mouse</B>, <B>Colorset,</B>, <B>TitleStyle</B>
+<B>Style</B>, <B>Mouse</B>, <B>Colorset</B>, <B>TitleStyle</B>
 
 and many others.  For performance reasons such changes are
 not applied immediately but only when fvwm is idle, i.e. no user
@@ -2202,15 +2198,15 @@ kinds of quotes.
 <H2>COMMAND EXPANSION</H2>
 
 <P>
-Whenever a fvwm command line is executed, fvwm performs parameter
+Whenever an fvwm command line is executed, fvwm performs parameter
 expansion.  A parameter is a '$' followed by a word enclosed in
 brackets ($[...]) or a single special character.  If fvwm encounters
 an unquoted parameter on the command line it expands it to a string
 indicated by the parameter name.  Unknown parameters are left
-untouched. Parameter expansion is performed before quoting.  To
-quote a '$' use &quot;$$&quot;.
+untouched.  Parameter expansion is performed before quoting.  To
+get a literal '$' use &quot;$$&quot;.
 <P>
-In the past some single letter variables were supported.  It is
+In the past, some single letter variables were supported.  It is
 deprecated now, since they cause a number of problems.  You should
 use the longer substitutes instead.
 <P>
@@ -2222,7 +2218,7 @@ Example:
 
 
 <blockquote><PRE># Print the current desk number, horizontal page number
-# and the window's class (unexpended here, no window).
+# and the window's class (unexpanded here, no window).
 Echo $[desk.n] $[page.nx] $[w.class]</PRE></blockquote>
 <P>
 
@@ -2519,6 +2515,25 @@ in the command list.
 </blockquote>
 <P>
 <blockquote>
+$[func.context]
+<blockquote>
+The context character of the running command as used in the
+
+command.  This is useful for example with:
+
+
+<P>
+
+
+<blockquote><PRE>Mouse 3 FS N WindowShade $$[func.context]</PRE></blockquote>
+<P>
+
+
+
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
 $[gt.str]
 <blockquote>
 return the translation of
@@ -2571,13 +2586,13 @@ real life applications of scripting.  Please refer to the sections
 and
 <B>CONDITIONAL COMMANDS</B>
 
-for details.  A word of warning:  During execution of complex
+for details.  A word of warning:  during execution of complex
 functions, fvwm needs to take all input from the mouse pointer
 (the pointer is &quot;grabbed&quot; in the slang of X).  No other programs
 can receive any input from the pointer while a function is run.
 This can confuse some programs.  For example, the xwd program
 refuses to make screen shots when run from a complex function.  To
-achieve the same functionality you can use the.
+achieve the same functionality you can use the
 <B>Read</B> or <B>PipeRead</B>
 
 command instead.
@@ -2594,7 +2609,7 @@ usefulness to the newcomer.
 <P>
 
 
-<blockquote><PRE>- Commands for menus
+<blockquote><PRE>- Menu commands
 - Miscellaneous commands
 - Commands affecting window movement and placement
 - Commands for focus and mouse movement
@@ -2614,10 +2629,290 @@ usefulness to the newcomer.
 
 <P>
 <A NAME="lbBM">&nbsp;</A>
-<H3>COMMANDS FOR MENUS</H3>
+<H3>MENUS</H3>
 
 <P>
+Before a menu can be opened, it has to be populated with menu
+items using the
+<B>AddToMenu</B>
+
+command and bound to a key or mouse button with the
+<B>Key</B>, <B>PointerKey</B> or <B>Mouse</B>
+
+command (there are many other ways to invoke a menu too).  This is
+usually done in the configuration file.
+<P>
+Fvwm menus are extremely configurable in look and feel.  Even the
+slightest nuances can be changed to the user's liking, including
+the menu item fonts, the background, delays before popping up sub
+menus, generating menus dynamically and many other features.
+Please refer to the
+<B>MenuStyle</B>
+
+command to learn more.
+<P>
 <DL COMPACT>
+<DT><B>Types of Menus</B>
+
+<DD>
+<P>
+In fvwm there are four slightly different types of menus:
+<P>
+<I>Popup menus</I>
+
+can appear everywhere on the screen on their own or attached to a
+part of a window.  The
+<B>Popup</B>
+
+command opens popup menus.  If the popup menu was invoked with a
+mouse button held down, it is closed when the button is released.
+THe item under the pointer is then activated and the associated
+action is executed.
+<P>
+<B>Menu</B>
+
+is a very similar command, but the menus it opens are slightly less
+transient.  When invoked by clicking a mouse button, it stays open
+and can be navigated with no button held.  But if it is invoked by
+a button press followed by mouse motion, it behaves exactly like a
+popup menu.
+<P>
+<I>Tear off menus</I> or <I>Pin up menus</I>
+
+are menus from either of the above two commands that have been
+&quot;torn off&quot; their original context and pinned on the desktop like a
+normal window.  They are created from other menus by certain key
+presses or mouse sequences or with the
+<B>TearMenuOff</B>
+
+command from inside a menu.
+<P>
+<I>Sub menus</I>
+
+are menus inside menus.  When a menu item that has the
+<B>Popup</B>
+
+command as its action is selected, the named menu is opened as an
+inferior menu to the parent.  Any type of menu can have sub menus.
+<P>
+<DT><B>Menu Anatomy</B>
+
+<DD>
+<P>
+Menus consist of any number of titles which are inactive menu
+items that usually appear at the top of the menu, normal items
+triggering various actions when selected, separator lines between
+the items, tear off bars (a horizontal broken line) that tear off
+the menu when selected, and sub menu items indicated with a
+triangle pointing left or right, depending on the direction in
+which the sub menu appears.  All the above menu items are
+optional.
+<P>
+Additionally, if the menu is too long to fit on the screen, the
+excess menu items are put in a continuation menu and a sub menu
+with the string &quot;More...&quot; is placed at the bottom of the menu.
+Finally, there may be a picture running up either side of the menu
+(a &quot;side bar&quot;).
+<P>
+<DT><B>Menu Navigation</B>
+
+<DD>
+<P>
+Menus can be navigated either with the keyboard or with the
+mouse.  Many people prefer to use the mouse, but it can be rather
+tedious.  Once you get the hang of it, keyboard navigation can be
+much faster.  While fvwm displays a menu, it can do nothing else.
+For example, new windows do not appear before the menu is closed.
+However, this is not exactly true for tear off menus.  See the
+<B>Tear Off Menus</B>
+
+section for details.
+<P>
+<DT><B>Mouse Navigation</B>
+
+<DD>
+<P>
+Moving the pointer over a menu selects the item below it.
+Normally this is indicated by a 3d border around the item, but not
+all parts of a menu can be selected.  Pressing any mouse button
+while a menu is open activates the item below it.  Items of a
+popup menu are also activated by releasing a held mouse button.
+In case of an item that hides a sub menu, the sub menu is
+displayed if the pointer hovers over the item long enough or moves
+close to the triangle indicating the sub menu.  This behaviour can
+be tuned with menu styles.
+<P>
+Clicking on a selected item activates it - what happens exactly
+depends on the type of the item.
+<P>
+Clicking on a title, a separator, the side bar, or outside the
+menu closes the menu (exception:  tear off menus can not be closed
+this way).  Pressing mouse button 2 over a menu title or
+activating a tear off bar creates a tear off menu from the current
+menu.  Clicking on a normal menu item invokes the command that is
+bound to it, and clicking on a sub menu item either closes all
+open menus and replaces them with the sub menu or posts the menu
+(default).
+<P>
+Posting menus is meant to ease mouse navigation.  Once a sub menu
+is posted, only items from that sub menu can be selected.  This
+can be very useful to navigate the menu if the pointer tends to
+stray off the menu.  To unpost the menu and revert back to normal
+operation, either click on the same sub menu item or press any
+key.
+<P>
+<DT><B>Keyboard Navigation</B>
+
+<DD>
+<P>
+Just like with mouse navigation, the item below the pointer is
+selected.  This is achieved by warping the pointer to the menu
+items when necessary.  While a menu is open, all key presses are
+intercepted by the menu.  No other application can get keyboard
+input (although this is not the case for tear off menus).
+<P>
+Items can be selected directly by pressing a hotkey that can be
+configured individually for each menu item.  The hotkey is
+indicated by underlining it in the menu item label.  With the
+<I>AutomaticHotkeys</I>
+
+menu style fvwm automatically assigns hotkeys to all menu items.
+<P>
+The most basic keys to navigate through menus are the cursor keys
+(move up or down one item, enter or leave a sub menu),
+<FONT>Space</FONT>
+(activate item) and
+<FONT>Escape</FONT>
+(close menu).  Numerous other keys can be used to navigate through
+menus:
+<P>
+<FONT><I>Enter</I>,</FONT>
+<FONT><I>Return</I>,</FONT>
+<FONT><I>Space</I></FONT>
+activate the current item.
+<P>
+<FONT><I>Escape</I>,</FONT>
+<FONT><I>Delete</I>,</FONT>
+<FONT><I>Ctrl-G</I></FONT>
+exit the current sequence of menus or destroy a tear off menu.
+<P>
+<FONT><I>J</I>,</FONT>
+<FONT><I>N</I>,</FONT>
+<FONT><I>Cursor-Down</I>,</FONT>
+<FONT><I>Tab</I>,</FONT>
+<FONT><I>Meta-Tab</I>,</FONT>
+<FONT><I>Ctrl-F</I>,</FONT>
+move to the next item.
+<P>
+<FONT><I>K</I>,</FONT>
+<FONT><I>P</I>,</FONT>
+<FONT><I>Cursor-Up</I>,</FONT>
+<FONT><I>Shift-Tab</I>,</FONT>
+<FONT><I>Shift-Meta-Tab</I>,</FONT>
+<FONT><I>Ctrl-B</I>,</FONT>
+move to the prior item.
+<P>
+<FONT><I>L</I>,</FONT>
+<FONT><I>Cursor-Right</I>,</FONT>
+<FONT><I>F</I></FONT>
+enter a sub menu.
+<P>
+<FONT><I>H</I>,</FONT>
+<FONT><I>Cursor-Left</I>,</FONT>
+<FONT><I>B</I></FONT>
+return to the prior menu.
+<P>
+<FONT><I>Ctrl-Cursor-Up</I>,</FONT>
+<FONT><I>Ctrl-K</I></FONT>
+<FONT><I>Ctrl-P</I>,</FONT>
+<FONT><I>Shift-Ctrl-Meta-Tab</I>,</FONT>
+<FONT><I>Page-Up</I></FONT>
+move up five items.
+<P>
+<FONT><I>Ctrl-Cursor-Down</I>,</FONT>
+<FONT><I>Ctrl-J</I></FONT>
+<FONT><I>Ctrl-N</I>,</FONT>
+<FONT><I>Ctrl-Meta-Tab,P,</I></FONT><I>
+</I><FONT><I>Page-Down</I></FONT>
+move down five items.
+<P>
+<FONT><I>Home</I>,</FONT>
+<FONT><I>Shift-Cursor-Up</I>,</FONT>
+<FONT><I>Ctrl-A</I></FONT>
+move to the first item.
+<P>
+<FONT><I>End</I>,</FONT>
+<FONT><I>Shift-Cursor-Down</I>,</FONT>
+<FONT><I>Ctrl-E</I></FONT>
+move to the last item.
+<P>
+<FONT><I>Meta-Cursor-Up</I>,</FONT>
+<FONT><I>Ctrl-Cursor-Left</I>,</FONT>
+<FONT><I>Shift-Ctrl-Tab</I></FONT>
+move up just below the next separator.
+<P>
+<FONT><I>Meta-Cursor-Down</I>,</FONT>
+<FONT><I>Ctrl-Cursor-Right</I>,</FONT>
+<FONT><I>Ctrl-Tab</I></FONT>
+move down just below the next separator.
+<P>
+<FONT><I>Insert</I></FONT>
+opens the &quot;More...&quot; sub menu if any.
+<P>
+<FONT><I>Backspace</I></FONT>
+tears off the menu.
+<P>
+<DT><B>Tear Off Menus</B>
+
+<DD>
+<P>
+A tear off menu is any menu that has been &quot;torn off&quot; the window it
+was attached to and pinned to the root window.  There are three
+ways to tear off a menu:  click on the menu title with mouse
+button 2, press
+<FONT>Backspace</FONT>
+in the menu or activate its tear off bar (a horizontal bar with a
+broken line).  Tear off bars must be added to the menu as any
+other item by assigning them the command
+<B>TearMenuOff</B>.
+
+The window containing the menu is placed as any other window would
+be.  If you find it confusing to have your tear off menus appear
+at random positions on the screen, put this line in your
+configuration file:
+
+
+<P>
+
+
+<blockquote><PRE>Style fvwm_menu UsePPosition</PRE></blockquote>
+<P>
+
+
+
+<P>
+A tear off menu is a cross breeding between a window and a menu.
+The menu is swallowed by a window and its title is stripped off
+and displayed in the window title.  The main advantage is that the
+menu becomes permanent - activating an item does not close the
+menu.  Therefore, it can be used multiple times without reopening
+it.  To destroy such a menu, close its window or press the
+<FONT>Escape</FONT>
+key.
+<P>
+Tear off menus behave somewhat differently than normal menus and
+windows.  They do not take the keyboard focus, but while the
+pointer is over one of them, all key presses are sent to the
+menu.  Other fvwm key bindings are disabled as long as the pointer
+is inside the tear off menu or one of its sub menus.  When the
+pointer leaves this area, all sub menus are closed immediately.
+Note that the window containing a tear off menu is never hilighted
+as if it had the focus.
+<P>
+A tear off menu is an independent copy of the menu it originated
+from.  As such, it is not affected by adding items to that menu or
+changing its menu style.
+<P>
 <DT><B>AddToMenu </B><I>menu-name</I><B> [</B><I>menu-label</I><B> </B><I>action</I><B>]</B>
 
 <DD>
@@ -2761,7 +3056,7 @@ The keyword
 <I>MissingSubmenuFunction</I>
 
 has a similar meaning.  It is executed whenever you try to pop up
-a sub-menu that does not exist.  With this function you can define
+a sub menu that does not exist.  With this function you can define
 and destroy menus on the fly.  You can use any command after the
 keyword, but the name of an item (that is a submenu) defined with
 <B>AddToFunc</B>
@@ -2809,7 +3104,7 @@ AddToMenu SomeMenu
 
 
 This is another implementation of the file browser that uses
-sub-menus for subdirectories.
+sub menus for subdirectories.
 <P>
 Titles can be used within the menu. If you add the option
 <I>top</I>
@@ -3037,9 +3332,11 @@ cannot destroy the default menu style.
 
 
 <P>
-<DT><B>Menu</B> <I>menu-name</I> <B>[</B><I>position</I><B>] [</B><I>double-click-action</I><B>]</B><DD>
+<DT><B>Menu </B><I>menu-name</I> [<I>position</I>] [<I>double-click-action</I>]
+
+<DD>
 Causes a previously defined menu to be popped up in a sticky
-manner. That is, if the user invokes the menu with a click action
+manner.  That is, if the user invokes the menu with a click action
 instead of a drag action, the menu stays up.  The command
 <I>double-click-action</I>
 
@@ -3052,78 +3349,8 @@ double click action is not given, double clicking invokes the
 first item of the menu (but only if the pointer really was over
 the item).
 <P>
-Several other commands affect menu operation.  See
-<B>MenuStyle</B> and <B>SetAnimation</B>.
-
-When in a menu, keyboard shortcuts work as expected.  Cursor
-keystrokes are also allowed. Specifically,
-<FONT>Tab,</FONT>
-<FONT>Meta-Tab,</FONT>
-<FONT>Cursor-Down,</FONT>
-<FONT>Ctrl-F,</FONT>
-<FONT>Ctrl-N,</FONT>
-or
-<FONT>Ctrl-J</FONT>
-move to the next item;
-<FONT>Shift-Tab,</FONT>
-<FONT>Shift-Meta-Tab,</FONT>
-<FONT>Cursor-Up,</FONT>
-<FONT>Ctrl-B,</FONT>
-<FONT>Ctrl-P,</FONT>
-or
-<FONT>Ctrl-K</FONT>
-move to the prior item;
-<FONT>Cursor-Left</FONT>
-or
-<FONT>Ctrl-B</FONT>
-returns to the prior menu;
-<FONT>Cursor-Right</FONT>
-or
-<FONT>Ctrl-F</FONT>
-pop up the next menu;
-<FONT>Ctrl-Cursor-Up,</FONT>
-<FONT>Shift-Ctrl-Meta-Tab</FONT>
-and
-<FONT>Page-Up</FONT>
-move up five items;
-<FONT>Ctrl-Cursor-Down,</FONT>
-<FONT>Ctrl-Meta-Tab</FONT>
-and
-<FONT>Page-Down</FONT>
-move down five items, respectively;
-<FONT>Home,</FONT>
-<FONT>Shift-Cursor-Up,</FONT>
-<FONT>Ctrl-A</FONT>
-or
-<FONT>End,</FONT>
-<FONT>Shift-Cursor-Down,</FONT>
-<FONT>Ctrl-E</FONT>
-move to the first or last item, respectively;
-<FONT>Meta-Cursor-Up,</FONT>
-<FONT>Ctrl-Cursor-Left</FONT>
-or
-<FONT>Meta-Cursor-Down</FONT>
-<FONT>Ctrl-Cursor-Right</FONT>
-move just behind the next or previous separator;
-<FONT>Shift-Ctrl-Tab</FONT>
-or
-<FONT>Ctrl-Tab</FONT>
-work exactly the same;
-<FONT>Enter,</FONT>
-<FONT>Return,</FONT>
-or
-<FONT>Space</FONT>
-executes the current item;
-<FONT>Insert</FONT>
-opens the &quot;More...&quot; sub-menu if any;
-<FONT>Escape,</FONT>
-<FONT>Delete</FONT>
-or
-<FONT>Ctrl-G</FONT>
-exit the current sequence of menus.
-<P>
 The pointer is warped to where it was when the menu was invoked if
-it was both invoked and terminated with a keystroke.
+it was both invoked and closed with a keystroke.
 <P>
 The
 <I>position</I>
@@ -3303,10 +3530,10 @@ AddToMenu foobar-menu
 
 
 
-Note that you can put a sub-menu far off the current menu so you
+Note that you can put a sub menu far off the current menu so you
 could not reach it with the mouse without leaving the menu.  If
 the pointer leaves the current menu in the general direction of
-the sub-menu the menu stays up.
+the sub menu the menu stays up.
 <P>
 The
 <I>special-options</I>:
@@ -3331,20 +3558,20 @@ you want it where the position arguments say, use the
 option.  If you want the pointer on the title of the menu, use
 <I>SelectWarp</I>
 
-too. Note that these options apply only if the
+too.  Note that these options apply only if the
 <I>PopupAsRootMenu </I><B>MenuStyle</B>
 
 option is used.
 <P>
-The pointer is warped to the title of a sub-menu whenever the
-pointer would be on an item when the sub-menu is popped up
+The pointer is warped to the title of a sub menu whenever the
+pointer would be on an item when the sub menu is popped up
 (<I>fvwm</I>
 
 menu style) or never warped to the title at all
 (<I>Mwm</I> or <I>Win</I>
 
-menu styles). You can force (forbid) warping whenever the sub-menu
-is opened with the
+menu styles).  You can force (forbid) warping whenever the
+sub menu is opened with the
 <I>WarpTitle</I> (<I>NoWarp</I>) option.
 
 <P>
@@ -3425,7 +3652,7 @@ versions of fvwm.  The default for new menu styles is
 style.  These options override all others except
 <I>Foreground</I>, <I>Background</I>, <I>Greyed</I>, <I>HilightBack</I>, 
 
-<I>HilightFore</I> and <I>PopupDelay</I>,
+<I>ActiveFore</I> and <I>PopupDelay</I>,
 
 so they should be used only as the first option specified for a
 menu style or to reset the style to defined behavior.  The same
@@ -3433,14 +3660,14 @@ effect can be created by setting all the other options one by one.
 <P>
 <I>Mwm</I> and <I>Win</I>
 
-style menus popup sub-menus automatically.
+style menus popup sub menus automatically.
 <I>Win</I>
 
 menus indicate the current menu item by changing the background to
 dark.
 <I>Fvwm</I>
 
-sub-menus overlap the parent menu,
+sub menus overlap the parent menu,
 <I>Mwm</I> and <I>Win</I>
 
 style menus never overlap the parent menu.
@@ -3601,9 +3828,9 @@ The above three commands are equivalent to a thickness of 2, 1 and
 <P>
 <I>Animation</I> and <I>AnimationOff</I>
 
-turn menu animation on or off.  When animation is on, sub-menus
+turn menu animation on or off.  When animation is on, sub menus
 that don't fit on the screen cause the parent menu to be shifted
-to the left so the sub-menu can be seen.
+to the left so the sub menu can be seen.
 <P>
 <I>Font</I>
 
@@ -3667,8 +3894,8 @@ MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;</PRE></blockquote>
 
 
 
-Make sure sub-menus do not overlap the parent menu. This can
-prevent menus being redrawn every time a sub-menu pops up or down.
+Make sure sub menus do not overlap the parent menu. This can
+prevent menus being redrawn every time a sub menu pops up or down.
 
 
 <P>
@@ -3698,17 +3925,17 @@ xinit to start X).
 <I>PopupDelay</I>
 
 requires one numeric argument.  This value is the delay in
-milliseconds before a sub-menu is popped up when the pointer moves
-over a menu item that has a sub-menu.  If the value is zero no
+milliseconds before a sub menu is popped up when the pointer moves
+over a menu item that has a sub menu.  If the value is zero no
 automatic pop up is done.  If the argument is omitted the built-in
 default is used. Note that the popup delay has no effect if the
 <I>PopupImmediately</I>
 
-option is used since sub-menus pop up immediately then.
+option is used since sub menus pop up immediately then.
 <P>
 <I>PopupImmediately</I>
 
-makes menu items with sub-menus pop up it up as soon as the
+makes menu items with sub menus pop up it up as soon as the
 pointer enters the item.  The
 <I>PopupDelay option</I>
 
@@ -3732,16 +3959,16 @@ style.
 <P>
 <I>PopdownImmediately</I>
 
-makes sub-menus vanish as soon as the pointer leaves the sub-menu
+makes sub menus vanish as soon as the pointer leaves the sub menu
 and the correspondent item in the parent menu.  With the opposite
 option
 <I>PopdownDelayed</I>
 
-the sub-menu only pops down after the time specified with the
+the sub menu only pops down after the time specified with the
 <I>PopdownDelay</I>
 
 option.  This comes handy when the pointer often strays off the
-menu item when trying to move into the sub-menu.  Whenever there
+menu item when trying to move into the sub menu.  Whenever there
 is a conflict between the
 <I>PopupImmediately</I>, <I>PopupDelayed</I>, <I>PopupDelay</I>
 
@@ -3759,9 +3986,9 @@ styles win when navigating with the keyboard.
 <I>PopupOffset</I>
 
 requires two integer arguments.  Both values affect where
-sub-menus are placed relative to the parent menu.  If both values
-are zero, the left edge of the sub-menu overlaps the left edge of
-the parent menu.  If the first value is non-zero the sub-menu is
+sub menus are placed relative to the parent menu.  If both values
+are zero, the left edge of the sub menu overlaps the left edge of
+the parent menu.  If the first value is non-zero the sub menu is
 shifted that many pixels to the right (or left if negative).  If
 the second value is non-zero the menu is moved by that many
 percent of the parent menu's width to the right or left.
@@ -3780,7 +4007,7 @@ value is given.
 <P>
 <I>TitleWarp</I> and <I>TitleWarpOff</I>
 
-affect if the pointer warps to the menu title when a sub-menu is
+affect if the pointer warps to the menu title when a sub menu is
 opened or not. Note that regardless of this setting the pointer is
 not warped if the menu does not pop up under the pointer.
 <P>
@@ -3796,7 +4023,7 @@ few pixels to the edges of the menu.
 <P>
 <I>TrianglesSolid</I> and <I>TrianglesRelief</I>
 
-affect how the small triangles for sub-menus is drawn.  Solid
+affect how the small triangles for sub menus is drawn.  Solid
 triangles are filled with a color while relief triangles are
 hollow.
 <P>
@@ -3833,17 +4060,17 @@ If the color name is omitted the side color option is switched off.
 <I>PopupAsRootMenu</I> and <I>PopupAsSubmenu</I>
 
 change the behavior when you click on a menu item that opens a
-sub-menu. With
+sub menu. With
 <I>PopupAsRootMenu</I>
 
-the original menu is closed before the sub-menu appears, with
+the original menu is closed before the sub menu appears, with
 <I>PopupAsSubmenu</I>
 
 it is not, so you can navigate back into the
 parent menu.  Furthermore, with
 <I>PopupAsSubmenu</I>
 
-the sub-menu is held open (posted) regardless of where you move
+the sub menu is held open (posted) regardless of where you move
 the mouse.  Depending on your menu style this may simplify
 navigating through the menu.  Any keystroke while a menu is posted
 reverts the menu back to the normal behavior.
@@ -3853,11 +4080,11 @@ is the default.
 <P>
 <I>RemoveSubmenus</I>
 
-instructs fvwm to remove sub-menus when you move back into the
+instructs fvwm to remove sub menus when you move back into the
 parent menu.  With
 <I>HoldSubmenus</I>
 
-the sub-menu remains visible.  You probably want to use
+the sub menu remains visible.  You probably want to use
 <I>HoldSubmenus</I>
 
 if you are using the
@@ -3922,7 +4149,7 @@ Inserts the mini icon.
 <B>%&gt;</B> and <B>%&lt;</B>
 
 <blockquote>
-Insert the sub-menu triangle pointing either to the right
+Insert the sub menu triangle pointing either to the right
 (<B>%&gt;</B>)
 
 or to the left
@@ -4060,7 +4287,7 @@ Is the default string used by fvwm: (side picture + 4 pixels gap)
 (beginning of the hilighted area + 1 pixel gap) (mini icon + 5p)
 (first column left aligned + 5p) (second column left aligned + 5p)
 (third column right aligned + 5p) (second mini icon + 5p) (2p +
-sub-menu triangle + 3p) (1p + end of hilighted area).
+sub menu triangle + 3p) (1p + end of hilighted area).
 
 
 <P>
@@ -4092,8 +4319,8 @@ one pixel above the item or title and two below.
 <P>
 <I>SubmenusLeft</I>
 
-mirrors the menu layout and behavior.  Sub-menus pop up to the
-left, the sub-menu triangle is drawn left and the mini icon and
+mirrors the menu layout and behavior.  Sub menus pop up to the
+left, the sub menu triangle is drawn left and the mini icon and
 side picture are drawn at the right side of the menu.  The default
 is
 <I>SubmenusRight</I>.
@@ -4166,14 +4393,14 @@ which changes the appearance and operation of the menus.
 <P>
 <I>Mwm</I> and <I>Win</I>
 
-style menus popup sub-menus automatically.
+style menus popup sub menus automatically.
 <I>win</I>
 
 menus indicate the current menu item by changing the background to
 black.
 <I>fvwm</I>
 
-sub-menus overlap the parent menu,
+sub menus overlap the parent menu,
 <I>Mwm</I> and <I>win</I>
 
 style menus never overlap the parent menu.
@@ -4181,8 +4408,8 @@ style menus never overlap the parent menu.
 When the
 <I>anim</I>
 
-option is given, sub-menus that don't fit on the screen cause the
-parent menu to be shifted to the left so the sub-menu can be
+option is given, sub menus that don't fit on the screen cause the
+parent menu to be shifted to the left so the sub menu can be
 seen. See also
 <B>SetAnimation</B>
 
@@ -4192,7 +4419,7 @@ command.
 
 <DD>
 This command has two purposes: to bind a menu to a key or mouse
-button, and to bind a sub-menu into a menu.  The formats for the
+button, and to bind a sub menu into a menu.  The formats for the
 two purposes differ slightly.  The
 <I>position</I>
 
@@ -4238,10 +4465,10 @@ enter keys.
 </blockquote>
 <P>
 To bind a previously defined pop-up menu to another menu, for use
-as a sub-menu:
+as a sub menu:
 <P>
 <blockquote>
-The following example defines a sub-menu &quot;Quit-Verify&quot; and binds
+The following example defines a sub menu &quot;Quit-Verify&quot; and binds
 it into a main menu, called &quot;RootMenu&quot;:
 
 
@@ -4299,7 +4526,30 @@ menus stay up on a click action.  See the
 
 command for an explanation of the interactive behavior of menus. A
 menu can be open up to ten times at once, so a menu may even use
-itself or any of its predecessors as a sub-menu.
+itself or any of its predecessors as a sub menu.
+<P>
+<DT><B>TearMenuOff</B>
+
+<DD>
+When assigned to a menu item, it inserts a tear off bar into the
+menu (a horizontal broken line).  Activating that item tears off
+the menu.  If the menu item has a label, it is shown instead of
+the broken line.  If used outside menus, this command does
+nothing.  Examples:
+
+
+<P>
+
+
+<blockquote><PRE>AddToMenu WindowMenu
++ I &quot;&quot; TearMenuOff
+
+AddToMenu RootMenu
++ I &quot;click here to tear me off&quot; TearMenuOff</PRE></blockquote>
+<P>
+
+
+
 <P>
 <DT><B>Title</B>
 
@@ -4554,7 +4804,9 @@ cursor is in.  If you use
 then the installed colormap is the one for the window that
 currently has the keyboard focus.
 <P>
-<DT><B>CursorStyle</B> <I>context</I> <B>[</B><I>number</I><B>|</B> <I>name</I> <B>|</B> <I>xpm</I> <B>|</B> <I>None</I> <B>|</B> <I>Tiny</I> <B>[</B><I>fore back</I><B>]]</B><DD>
+<DT><B>CursorStyle </B><I>context</I> [<I>number</I>| <I>name</I> | <I>xpm</I> | <I>None</I> | <I>Tiny</I> [<I>fore back</I>]]
+
+<DD>
 Defines a new cursor for the specified context.  Note that this
 command can not control the shapes an applications uses, for
 example, to indicate that it is busy.  The various contexts are:
@@ -5506,7 +5758,9 @@ Please use
 
 instead.
 <P>
-<DT><B>WindowList [(</B><I>conditions</I><B>)] [</B><I>position</I><B>] [</B><I>options</I><B>] [</B><I>double-click-action</I><B>]</B><DD>
+<DT><B>WindowList [(</B><I>conditions</I>)] [<I>position</I>] [<I>options</I>] [<I>double-click-action</I>]
+
+<DD>
 Generates a pop-up menu (and pops it up) in which the title and
 geometry of each of the windows currently on the desktop are
 shown.
@@ -5615,8 +5869,10 @@ list to a key (or button) like this:
 <P>
 
 
-<blockquote><PRE># Here we call an existing function, but it may be different
-# See the default WindowListFunc definition earlier in this doc
+<blockquote><PRE># Here we call an existing function, but
+# it may be different.  See the default
+# WindowListFunc definition earlier in this
+# man page.
 AddToFunc SwitchToWindow
 + I WindowListFunc
 
@@ -5965,7 +6221,9 @@ only in its layer.  To bring a window to the absolute bottom, use
 
 
 <P>
-<DT><B>Move [[</B><I>w</I><B> | </B><I>m</I><B>]</B><I>x</I><B>[</B><I>p</I><B>] [</B><I>w</I><B> | </B><I>m</I><B>]</B><I>y</I><B>[</B><I>p</I><B>] [</B><I>Warp</I><B>]] | [</B><I>pointer</I><B>]</B><DD>
+<DT><B>Move [[</B><I>w</I><BR>&nbsp;|&nbsp;<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]
+
+<DD>
 Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
@@ -6025,7 +6283,7 @@ Simple Examples:
 
 <blockquote><PRE># Interactive move
 Mouse 1 T A Move
-# Move window so top left is at (10%,10%)
+# Move window to top left is at (10%,10%)
 Mouse 2 T A Move 10 10
 # Move top left to (10pixels,10pixels)
 Mouse 3 T A Move 10p 10p</PRE></blockquote>
@@ -6044,6 +6302,10 @@ keystrokes, etc.; only the command is shown, though):
 # right of screen
 Move -0 -0
 
+# Move window so top left corner is 10 pixels
+# off the top left screen edge
+Move +-10 +-10
+
 # Move window 5% to the right, and to the
 # middle vertically
 Move w+5 50
@@ -6053,7 +6315,6 @@ Move w+5 50
 Move 40p w-10p
 
 # Move window to the mouse pointer location
-#
 Move m+0 m+0</PRE></blockquote>
 <P>
 
@@ -6099,7 +6360,9 @@ to 3, which is now the default value.  If
 is negative or omitted the default value (which might be increased
 when 16000x9000 pixel displays become affordable) is restored.
 <P>
-<DT><B>MoveToPage [</B><I>x</I><B>[</B><I>p</I><B>]</B> <I>y</I><B>[</B><I>p</I><B>]] | [</B><I>prev</I><B>]</B><DD>
+<DT><B>MoveToPage [</B><I>x</I>[<I>p</I>] <I>y</I>[<I>p</I>]] | [<I>prev]</I>
+
+<DD>
 Moves the selected window to another page (x,y).  The upper left
 page is (0,0), the upper right is (M,0), where M is one less than
 the current number of horizontal pages specified in the
@@ -6257,7 +6520,9 @@ style is used; see
 
 command) otherwise it is lowered.
 <P>
-<DT><B>Resize [[</B><I>frame</I>] <I>width</I> <B>[</B><I>p</I> <B>|</B> <I>c</I><B>]</B> <I>height</I> <B>[</B><I>p</I> <B>|</B> <I>c</I><B>]] | [</B><I>bottomright</I> <B>|</B> <I>br x y</I><B>]</B><DD>
+<DT><B>Resize [[</B><I>frame] width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [<I>bottomright</I> | <I>br x y</I>]
+
+<DD>
 Allows for resizing a window.  If called from somewhere in a window
 or its border, then that window is resized.  If called from the
 root window then the user is allowed to select the target window.
@@ -6466,7 +6731,9 @@ motion appear more cartoonish, by briefly moving slightly in the
 opposite direction of the main motion.  The above settings are the
 default.
 <P>
-<DT><B>SnapAttraction [</B><I>proximity</I> <B>[</B><I>behavior</I><B>] [</B><I>Screen</I><B>]]</B><DD>
+<DT><B>SnapAttraction [</B><I>proximity</I> [<I>behavior</I>] [<I>Screen</I>]]
+
+<DD>
 If during an interactive move the window or icon comes within
 <I>proximity</I>
 
@@ -6816,7 +7083,8 @@ positive number instead of &quot;True&quot;, or a negative number instead
 of &quot;False&quot;.  Note that this syntax is obsolete, and will be removed
 in the future.
 <P>
-<DT><DT><B>Maximize [</B><I>flags</I><B>] [</B><I>bool</I><B>] [</B><I>horizontal</I><B>[</B><I>p</I><B>]] [</B><I>vertical</I> <B>[</B><I>p</I><B>]]</B><DD>
+<DT><B>Maximize [</B><I>flags</I>] [<I>bool</I>] [<I>horizontal</I>[<I>p</I>]] [<I>vertical</I> [<I>p</I>]]
+
 <DD>
 Without its optional arguments (or if the
 <I>bool</I>
@@ -6876,10 +7144,8 @@ screen (containing the mouse pointer), 'g' for the global screen
 or the screen number itself (counting from zero).  This option is
 only useful with multiple Xinerama screens.
 <P>
-Here are some examples.
-The following
-adds a title-bar button to switch a window to the full vertical
-size of the screen:
+Here are some examples.  The following adds a title-bar button to
+switch a window to the full vertical size of the screen:
 
 
 <P>
@@ -7082,7 +7348,8 @@ command.  Examples:
 <P>
 
 
-<blockquote><PRE>Style * WindowShadeShrinks, WindowShadeSteps 20, WindowShadeLazy
+<blockquote><PRE>Style * WindowShadeShrinks, \
+WindowShadeSteps 20, WindowShadeLazy
 Mouse 1 S - WindowShade North
 Mouse 1 S [ WindowShade West
 Mouse 1 S ] WindowShade E
@@ -7874,12 +8141,20 @@ recommended. For example:
 This removes all settings for the style named &quot;Application*&quot;, NOT
 all styles starting with &quot;Application&quot;.
 <P>
+<DT><B>DestroyWindowStyle</B>
+
+<DD>
+deletes the styles set by the
+<B>WindowStyle</B>
+
+command on the selected window. The changes take effect immediately.
+<P>
 <DT><B>UpdateStyles</B>
 
 <DD>
 All pending updates of all windows' styles and looks are applied
 immediately.  E.g. if
-<B>Style</B> or <B>TitleStyle</B>
+<B>Style</B>, <B>WindowStyle</B> or <B>TitleStyle</B>
 
 commands were issued inside a fvwm function.
 <P>
@@ -8189,7 +8464,9 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>EWMHPlacementIgnoreWorkingArea</I> / <I>EWMHPlacementUseWorkingArea</I>
 
-<I>EWMHPlacementUseDynamicWorkingArea</I>.
+<I>EWMHPlacementUseDynamicWorkingArea</I>,
+
+<I>MoveByProgramMethod</I>.
 
 <P>
 
@@ -8347,9 +8624,9 @@ command.
 The
 <I>FPSortWindowlistByFocus</I> and <I>!FPSortWindowlistByFocus</I>
 
-styles control if the internal window list is sorted in the order
-the windows were focused or in the order they were created.  The
-latter is the default for
+styles control whether the internal window list is sorted in the
+order the windows were focused or in the order they were created.
+The latter is the default for
 <I>ClickToFocus</I> and <I>SloppyFocus</I>.
 
 <P>
@@ -8985,8 +9262,8 @@ command.  For example:
 
 
 A Style command with the IconBox option replaces any icon box
-previously defined for the same style.  Thats why the backslash in
-the previous example is required.
+defined previously by another Style command for the same style.
+Thats why the backslash in the previous example is required.
 <P>
 Note: The geometry for the icon box command takes the additional
 screen specifier &quot;@w&quot; in case a Xinerama setup is used.  This
@@ -9357,6 +9634,39 @@ styles.  The
 style may screw up window dimensions for some applications.  Don't
 use this style in this case.
 <P>
+<I>MoveByProgramMethod</I>
+
+affects how fvwm reacts to requests by the application to move its
+windows.  By default, fvwm tries to detect which method to use,
+but it sometimes detects the wrong method.  You may come across a
+window that travels across the screen by a few pixels when the
+application resizes it, moves to a screen border with the frame
+decorations off screen, that remembers its position for the next
+time it starts but appears in a slighly shifted position, or that
+attepmts to become full screen but has the.  Try out both options,
+<I>UseGravity</I> and <I>IgnoreGravity</I>
+
+on the window (and that window only) and see if that helps.  By
+default, fvwm uses the
+<I>AutoDetect</I>
+
+method.  Once the method was detected, it is never changed again.
+As long as fvwm can not detect the proper method, it uses
+<I>IgnoreGravity</I>.
+
+To force fvwm to retry the detection, use one of the other two
+options first and then use
+<I>AutoDetect</I>
+
+again.
+<P>
+Note:  This option was introduced to alleviate a problem with the
+ICCCM2 specification.  The ICCCM2 clearly states that the
+<I>UseGravity</I>
+
+option should be used, but traditionally applications ignored this
+rule.
+<P>
 <I>Closable</I>
 
 enables the functions
@@ -9431,7 +9741,7 @@ are the percentage of the total screen area.  If the letter
 is appended to either of the values, the numbers are interpreted
 as pixels. This command is useful to force large application
 windows to be fully visible.  Neither
-<I>height</I> or <I>width</I>
+<I>height</I> nor <I>width</I>
 
 may be less than 100 pixels.  If you omit the parameters or their
 values are invalid, both limits are set to 32767 pixels (which is
@@ -9710,19 +10020,22 @@ Style * DumbPlacement, ActivePlacement
   --&gt;
 Style * ManualPlacement
 
-Style * SmartPlacement + RandomPlacement + CleverPlacementOff
+Style * SmartPlacement, \
+RandomPlacement, CleverPlacementOff
   --&gt;
 Style * TileCascadePlacement
 
-Style * SmartPlacement + ActivePlacement + CleverPlacementOff
+Style * SmartPlacement, \
+ActivePlacement, CleverPlacementOff
   --&gt;
 Style * TileManualPlacement
 
-Style * SmartPlacement + CleverPlacement
+Style * SmartPlacement, CleverPlacement
   --&gt;
 Style * MinOverlapPlacement
 
-Style * SmartPlacement, ActivePlacement, CleverPlacement
+Style * SmartPlacement, \
+ActivePlacement, CleverPlacement
   --&gt;
 Style * MinOverlapPercentPlacement
 
@@ -10393,13 +10706,27 @@ Style FvwmPager Icon</PRE></blockquote>
 
 
 <P>
+<DT><B>WindowStyle </B><I>options</I>
+
+<DD>
+sets attributes (styles) on the selected window. The
+<I>options</I>
+
+are exactly the same as for the
+<B>Style</B>
+
+command.
+<P>
 </DL>
 <A NAME="lbBT">&nbsp;</A>
 <H3>OTHER COMMANDS CONTROLLING WINDOW STYLES</H3>
 
 <P>
 <DL COMPACT>
-<DT><B>AddButtonStyle</B> <I>button</I> <B>[</B><I>state</I><B>] [</B><I>style</I><B>] [-- [!]</B> <I>flag</I> <B>...]</B><DD>
+<DT><B>AddButtonStyle </B><I>button</I> [<I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
+
+
+<DD>
 <P>
 Adds a button style to
 <I>button</I>.
@@ -10484,7 +10811,10 @@ is used to place additional pixmaps for both &quot;ActiveUp&quot; and
 &quot;ActiveDown&quot; states and a vector button style is drawn on top of
 all state.
 <P>
-<DT><B>AddTitleStyle [</B><I>state</I><B>] [</B><I>style</I><B>] [-- [!]</B> <I>flag</I> <B>...]</B><DD>
+<DT><B>AddTitleStyle [</B><I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
+
+
+<DD>
 Adds a title style to the title-bar.
 <I>state</I>
 
@@ -10633,7 +10963,10 @@ and now apply the style again:
 
 
 <P>
-<DT><B>BorderStyle [</B><I>state</I><B>] [</B><I>style</I><B>] [-- [!]</B> <I>flag</I> <B>...]</B><DD>
+<DT><B>BorderStyle [</B><I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
+
+
+<DD>
 Defines a border style for windows.
 <I>state</I>
 
@@ -10752,7 +11085,9 @@ flag (see
 <B>ButtonStyle</B>).
 
 <P>
-<DT><B>ButtonState [</B><I>ActiveDown</I> bool<B>]<BR>&nbsp;[</B><I>Inactive</I>&nbsp;bool<B>]&nbsp;[</B><I>InactiveDown</I>&nbsp;bool<B>]</B><DD>
+<DT><B>ButtonState [</B><I>ActiveDown</I> bool]<BR>&nbsp;[<I>Inactive</I>&nbsp;bool]&nbsp;[<I>InactiveDown</I>&nbsp;bool]
+
+<DD>
 The
 <B>ButtonState</B>
 
@@ -10792,7 +11127,10 @@ is &quot;True&quot;), the pressed titles and title buttons in non-focussed
 windows are drawn using &quot;InactiveUp&quot; or &quot;ActiveUp&quot; states
 depending on the values of the other key words.
 <P>
-<DT><B>ButtonStyle</B> <I>button</I> <B>[</B><I>state</I><B>] [</B><I>style</I><B>] [-- [!]</B> <I>flag</I> <B>...]</B><DD>
+<DT><B>ButtonStyle </B><I>button</I> [<I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
+
+
+<DD>
 Sets the button style for a title-bar button.
 <I>button</I>
 
@@ -11132,10 +11470,12 @@ A more complex example of
 <P>
 
 
-<blockquote><PRE>ButtonStyle 8 Vector 10 45x65@2 45x75@3 20x75@3 20x50@3 \
-  35x50@3 35x65@1 35x25@1 75x25@1 75x65@0 35x65@0
-ButtonStyle 0 Vector 10 45x65@2 45x75@0 20x75@0 20x50@1 \
-  45x50@1 45x65@0 75x65@3 75x25@3 35x25@3 35x47@3</PRE></blockquote>
+<blockquote><PRE>ButtonStyle 8 Vector 10 45x65@2 45x75@3 \
+  20x75@3 20x50@3 35x50@3 35x65@1 35x25@1 \
+  75x25@1 75x65@0 35x65@0
+ButtonStyle 0 Vector 10 45x65@2 45x75@0 \
+  20x75@0 20x50@1 45x50@1 45x65@0 75x65@3 \
+  75x25@3 35x25@3 35x47@3</PRE></blockquote>
 <P>
 
 
@@ -11164,10 +11504,11 @@ button number 4 all different pixmaps.
 
 <blockquote><PRE>ButtonStyle 2 Pixmap my_pixmap.xpm
 ButtonStyle 4 \
-    ActiveUp   (Pixmap activeup.xpm) \
-    ActiveDown (Pixmap activedown.xpm) \
-    Inactive   (Pixmap inactiveup.xpm)
-ButtonStyle 4 InactiveDown Pixmap inactivedown.xpm</PRE></blockquote>
+  ActiveUp   (Pixmap activeup.xpm) \
+  ActiveDown (Pixmap activedown.xpm) \
+  Inactive   (Pixmap inactiveup.xpm)
+ButtonStyle 4 \
+  InactiveDown Pixmap inactivedown.xpm</PRE></blockquote>
 <P>
 
 
@@ -11456,7 +11797,10 @@ is Example:
 
 
 <P>
-<DT><B>TitleStyle [</B><I>state</I><B>] [</B><I>style</I><B>] [-- [!]</B> <I>flag</I> <B>...]</B><DD>
+<DT><B>TitleStyle [</B><I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
+
+
+<DD>
 Sets the style for the title-bar.
 See also
 <B>AddTitleStyle</B> and <B>ButtonStyle</B>.
@@ -11730,7 +12074,9 @@ does.
 
 <P>
 <DL COMPACT>
-<DT><B>Desk</B> <I>arg1</I> <B>[</B><I>arg2</I><B>] [</B><I>min max</I><B>]</B><DD>
+<DT><B>Desk </B><I>arg1</I> [<I>arg2</I>] [<I>min max</I>]
+
+<DD>
 This command has been renamed.  Please see
 <B>GotoDesk</B>
 
@@ -12014,7 +12360,9 @@ or if
 is null.  Note that negative desktops are not supported by the
 ewmh specification.  The default is 4 0.
 <P>
-<DT><B>GotoDesk</B> <I>prev</I> <B>|</B> <I>arg1</I> <B>[</B><I>arg2</I><B>] [</B><I>min max</I><B>]</B><DD>
+<DT><B>GotoDesk </B><I>prev</I> | <I>arg1</I> [<I>arg2</I>] [<I>min max</I>]
+
+<DD>
 Switches the current viewport to another desktop (workspace,
 room).
 <P>
@@ -12086,7 +12434,9 @@ and the new page is
 (<I>xpage</I>,<I>ypage</I>).
 
 <P>
-<DT><B>GotoPage</B> <I>prev</I> <B>|</B> <I>x</I> <B>[</B><I>p</I><B>]</B> <I>y</I> <B>[</B><I>p</I><B>]</B><DD>
+<DT><B>GotoPage </B><I>prev</I> | <I>x</I> [<I>p</I>] <I>y</I> [<I>p</I>]
+
+<DD>
 Moves the desktop viewport to page (x,y).  The upper left page is
 (0,0), the upper right is (M,0), where M is one less than the
 current number of horizontal pages specified in the
@@ -12132,7 +12482,9 @@ GotoPage +2p -1p</PRE></blockquote>
 
 
 <P>
-<DT><B>Scroll</B> <I>horizonal</I> <B>[</B><I>p</I><B>]</B> <I>vertical</I> <B>[</B><I>p</I><B>]</B><DD>
+<DT><B>Scroll </B><I>horizonal</I> [<I>p</I>] <I>vertical</I> [<I>p</I>]
+
+<DD>
 Scrolls the virtual desktop's viewport by
 <I>horizontal</I>
 
@@ -12320,7 +12672,8 @@ all.
 <P>
 
 
-<blockquote><PRE>XineramaSlsScreens 3 512x768+0+0 512x300+512+0 512 300 512 468
+<blockquote><PRE>XineramaSlsScreens 3 \
+  512x768+0+0 512x300+512+0 512 300 512 468
 XineramaSlsOn
 XineramaPrimaryScreen 1
 XineramaOn</PRE></blockquote>
@@ -12336,7 +12689,9 @@ XineramaOn</PRE></blockquote>
 
 <P>
 <DL COMPACT>
-<DT><B>AddToFunc [</B><I>name</I> <B>[</B><I>I</I> <B>|</B> <I>M</I> <B>|</B> <I>C</I> <B>|</B> <I>H</I> <B>|</B> <I>D action</I><B>]]</B><DD>
+<DT><B>AddToFunc [</B><I>name</I> [<I>I</I> | <I>M</I> | <I>C</I> | <I>H</I> | <I>D action</I>]]
+
+<DD>
 Begins or adds to a function definition.  Here is an example:
 
 
@@ -12855,7 +13210,14 @@ this disables error messages.
 <P>
 <B>Silent</B>
 
-also disables the error message for non-existent commands.
+also disables the error message for non-existent commands.  Note:
+This command is treated as a prefix to its
+<I>command</I>.
+
+Expansion of the command line is done as if
+<B>Silent</B>
+
+was not there.
 <P>
 Examples:
 
@@ -12936,59 +13298,92 @@ command.
 <H3>CONDITIONAL COMMANDS</H3>
 
 <P>
-There are several commands that are only executed if certain
-conditions are met.  Most of the conditional commands described
-in this section work on windows, like
+Conditional command are command that are only executed if certain
+conditions are met.  Most conditional commands work on windows,
+like
 <B>Next</B>, <B>ThisWindow</B> or <B>All</B>.
 
 There is one conditional command
-<B>On</B>
+<B>Test</B>
 
-that works on global topics unrelated to windows.
-The syntax of the conditions is described below.  All commands
-in this section (unless specifically stated for the command)
-also have a return code that can be 1 (if the condition was met)
-or 0 (if the condition was not met).  Some commands may return -1
-which means that an error occurred and the return code is useless.
-The return code is used by the commands
-<B>Cond</B>
+that works on global conditions unrelated to windows.  The syntax
+of the conditions is described below.  For readability, the list
+of conditions is located at the end of this section.
+<P>
+<A NAME="lbBX">&nbsp;</A>
+<H3>Return Codes</H3>
 
-and
-<B>CondCase</B>.
+<P>
+All commands in this section (unless specifically stated for the
+command) also have a return code that can be 1 (if the condition
+was met) or 0 (if the condition was not met).  Some commands may
+return -1 which means that an error occurred and the return code
+is useless.  The
+<B>Break</B>
 
-Please refer to the commands' description for examples.  The
-return code can also be accessed through the variable
+command returns -2.  Additionally, the return codes of commands
+run in a complex functions are passed to the invoking complex
+function.  The return code is used by the
+<B>TestRc</B>
+
+command.  Please refer to the commands' description for examples.
+The return code can also be accessed through the variable
 <I>$[cond.rc]</I>.
 
-The default return code for non conditional commands is 0.
-Important note: Return codes are only defined inside functions
-created with the
+Non conditional commands do not modify the return code of the last
+conditional command.  Important note:  return codes are only
+defined inside functions created with the
 <B>AddToFunc</B>
 
-command and are not inherited by sub functions.
+command and are not inherited by sub functions.  To run a command
+without altering the return code, the
+<B>KeepRc</B>
+
+command can be used.
+<P>
+<A NAME="lbBY">&nbsp;</A>
+<H3>The Ring of Windows</H3>
+
+<P>
+Fvwm stores windows in a ring internally.  Think of the focused
+window as a cursor on the current position in the ring.  The
+<B>Next</B>
+
+command and many other command searche forwards through the ring
+for a matching window, and
+<B>Prev</B>
+
+searches backwards.  The windows in the ring are either ordered by
+creation time (if the
+<I>FPSortWindowlistByFocus</I>
+
+respecively
+<I>NeverFocus</I> or <I>MouseFocus</I>
+
+styles are used) or by the last time they had the focus.
+<P>
+<A NAME="lbBZ">&nbsp;</A>
+<H3>List of Conditional Commands</H3>
+
 <P>
 <DL COMPACT>
 <DT><B>All [(</B><I>conditions</I><B>)] </B><I>command</I>
 
 <DD>
-Execute.
+Execute
 <I>command</I>
 
-on all windows meeting the conditions.
-<I>Conditions</I>
+on all windows meeting the conditions.  It returns 1 if any window
+matches the condition and 0 otherwise.
+See <B>Conditions</B> section below for a list of contitions.
 
-are used exactly as with the
-<B>Current</B>
-
-command.  Returns 1 if any window matches the condition and 0
-otherwise.
-The
-<B>All</B>
-
-command implies the conditions
+<P>
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
-They can be turned off by specifying &quot;!CirculateHit&quot;
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
 etc. explicitly.
 <P>
 <DT><B>Any [(</B><I>conditions</I><B>)] </B><I>command</I>
@@ -13000,19 +13395,25 @@ Performs
 if any window which satisfies all
 <I>conditions</I>
 
-exists.  Conditions are the same as for
-<B>Next</B>.
+exists.  The command is run in the context of the root window.
+See <B>Conditions</B> section below for a list of contitions.
 
 <P>
-<DT><B>Break</B>
+<DT><B>Break [levels]</B>
 
 <DD>
-When the break command is used in a function, function execution
-is terminated immediately.  Further commands of the function are
-not processed.  The
+If the break command is used in a function, function execution is
+terminated immediately.  Further commands of the function are not
+processed.  Normally, all nested invocations of complex functions
+are left.  An optional integer number
+<I>levels</I>
+
+may be given to break out of the given number of nested function
+and continue execution of a higher level function.
+The
 <B>Break</B>
 
-command does not have a return code.  Example:
+command always has the return code -2.  Example:
 
 
 <P>
@@ -13020,62 +13421,12 @@ command does not have a return code.  Example:
 
 <blockquote><PRE>AddToFunc PickWindowRaiseAndDeiconify
 + I Pick
-+ I Cond (Error) Break
++ I TestRc (Error) Break
 + I Raise
 + I Iconify off</PRE></blockquote>
 <P>
 
 
-
-<P>
-<DT><B>Cond [([!]</B><I>returncode</I><B>)] </B><I>command</I>
-
-<DD>
-Performs
-<I>command</I>
-
-if the last conditional command returned the value
-<I>returncode</I>.
-
-Instead of the numeric values 0 (no match), 1 (match) and -1
-(error), the symbolic names &quot;NoMatch&quot;, &quot;Match&quot; and &quot;Error&quot; can be
-used.  If no
-<I>returncode</I>
-
-is given, the default 0 is assumed.  If the return code is
-prefixed with '!', the command is executed if
-<I>returncode</I>
-
-does not match the value returned by the conditional command.
-<B>Cond</B>
-
-command can only be used inside functions.  If the
-<I>command</I>
-
-is another conditional command, the previous return code is
-replaced by the new one.  Example:
-
-
-<P>
-
-
-<blockquote><PRE>AddToFunc ToggleXterm
-+ I Any (my_xtermwindow) Close
-+ I Cond (NoMatch) Exec xterm -T my_xtermwindow</PRE></blockquote>
-<P>
-
-
-
-<P>
-<DT><B>CondCase [(</B><I>returncode</I><B>)] </B><I>command</I>
-
-<DD>
-works exactly like
-<B>Cond</B>
-
-except that the return code is not replaced by the return code of
-the
-<I>command.</I>
 
 <P>
 <DT><B>Current [(</B><I>conditions</I><B>)] </B><I>command</I>
@@ -13087,157 +13438,18 @@ Performs
 on the currently focused window if it satisfies all
 <I>conditions</I>.
 
-The
-<I>conditions</I>
+See <B>Conditions</B> section below for a list of contitions.
 
-are a list of keywords from the list below and are separated by
-commas or whitespace.  Conditions include
-&quot;AcceptsFocus&quot;, &quot;!AcceptsFocus&quot;,
-&quot;Focused&quot;, &quot;!Focused&quot;,
-&quot;HasPointer&quot;, &quot;!HasPointer&quot;,
-&quot;Iconic&quot;, &quot;!Iconic&quot;,
-&quot;Visible&quot;, &quot;!Visible&quot;,
-&quot;Raised&quot;, &quot;!Raised&quot;,
-&quot;Layer [n]&quot;, &quot;!Layer&quot;,
-&quot;State n&quot;, &quot;!State n&quot;,
-&quot;Sticky&quot;, &quot;!Sticky&quot;,
-&quot;FixedSize&quot;, &quot;!FixedSize&quot;,
-&quot;HasHandles&quot;, &quot;!HasHandles&quot;,
-&quot;Closable&quot;, &quot;!Closable&quot;,
-&quot;Iconifiable&quot;, &quot;!Iconifiable&quot;,
-&quot;Maximizable&quot;, &quot;!Maximizable&quot;,
-&quot;StickyAcrossPages&quot;, &quot;!StickyAcrossPages&quot;,
-&quot;StickyAcrossDesks&quot;, &quot;!StickyAcrossDesks&quot;,
-&quot;Maximized&quot;, &quot;!Maximized&quot;,
-&quot;Shaded&quot;, &quot;!Shaded&quot;,
-&quot;Transient&quot;, &quot;!Transient&quot;,
-&quot;PlacedByButton3&quot;, &quot;!PlacedByButton3&quot;,
-&quot;PlacedByFvwm&quot;, &quot;!PlacedByFvwm&quot;,
-&quot;CurrentDesk&quot;, &quot;!CurrentDesk&quot;,
-&quot;CurrentPage&quot;, &quot;!CurrentPage&quot;,
-&quot;CurrentScreen&quot;,&quot;!CurrentScreen&quot;,
-&quot;CurrentGlobalPage&quot;, &quot;!CurrentGlobalPage&quot;,
-&quot;CurrentPageAnyDesk&quot;, &quot;!CurrentPageAnyDesk&quot;,
-and &quot;CurrentGlobalPageAnyDesk&quot;, &quot;!CurrentGlobalPageAnyDesk&quot;.
-In addition, the
-<I>condition</I>
-
-may include one window name to match to.  The window name may
-include the wildcards '*' and '?'.  The window name, icon name,
-class, and resource are considered when attempting to find a
-match.  The window name can begin with '!' which prevents
-<I>command</I>
-
-if any of the window name, icon name, class or resource match.
 <P>
-All options can be negated by prepending an exclamation mark
-('!').  For the options beginning with &quot;!Current&quot; and &quot;!Layer&quot;,
-this simply turns off the opposite option.  For example,
-&quot;!CurrentPage&quot; allows all windows to match not just those that are
-not on the current page.
-<P>
-The &quot;AcceptsFocus&quot; condition excludes all windows that do not want
-the input focus (the application has set the &quot;Input hints&quot; for the
-window to False) and do not use the
-<I>Lenience</I>
-
-option of the
-<B>Style</B>
-
-command.  Also, all windows using the
-<I>NeverFocus</I>
-
-style are ignored.
-<P>
-The &quot;Focused&quot; condition excludes all windows but the one that
-currently has the keyboard focus.  This is not useful for the
-<B>Current</B>
-
-command but can be used with the other conditional commands.
-<P>
-The &quot;HasPointer&quot; condition excludes all windows that do not
-contain the pointer.
-<P>
-The &quot;CurrentDesk&quot; condition excludes all window that are not on
-the current desk.
-<P>
-The &quot;CurrentPage&quot; condition excludes all window that are not on
-the current desk or not on the current page. If Xinerama support
-is enabled, only windows on the screen that contains the mouse
-pointer are considered to match.
-<P>
-The &quot;CurrentGlobalPage&quot; condition excludes all window that are not
-on the current desk or not on the current page. The screen does
-not matter if Xinerama support is enabled.
-<P>
-The &quot;CurrentScreen&quot; and &quot;CurrentPageAnyDesk&quot; conditions exclude
-all window that are not on the current page but that may be on any
-desk.
-<P>
-The &quot;CurrentGlobalPage&quot; condition excludes all window that are not
-on the current desk or not on the current page. If Xinerama
-support is enabled, only windows on the screen that contains the
-mouse pointer are considered to match.
-<P>
-The &quot;CurrentGlobalPageAnyDesk&quot; condition excludes all window that
-are not on the current page but that may be on any desk.  The
-screen does not matter if Xinerama support is enabled.
-<P>
-The &quot;Layer&quot; condition excludes all windows not in the specified
-layer.  The argument of the &quot;Layer&quot; condition defaults to the
-layer of the focus window.
-<P>
-The &quot;State&quot; (or &quot;!State&quot;) conditions include only windows with the
-specified integer state set or (or unset).  See the
-<B>State</B>
-
-command.  The argument may range from 0 to 31.
-<P>
-The condition &quot;FixedSize&quot; excludes all windows that don't have a fixed
-size, either set through WM hints or the style option &quot;FixedSize&quot;.
-<P>
-The condition &quot;HasHandles&quot; excludes all windoows that don't have
-resize handles.
-<P>
-The condition &quot;Closable&quot; excludes all windows that are not possible
-to close.
-<P>
-The condition &quot;Iconifiable&quot; excludes all windows that are not possible
-to iconify.
-<P>
-The condition &quot;Maximizable&quot; excludes all windows that are not possible
-to maximise.
-<P>
-The &quot;PlacedByButton3&quot; condition is fulfilled if the last
-interactive motion of the window (with the
-<B>Move</B>
-
-command) was ended by pressing mouse button 3.  This is especially
-useful with the
-<I>ManualPlacement</I>
-
-option of the
-<B>Style</B>
-
-command.
-<P>
-The &quot;PlacedByFvwm&quot; condition excludes all windows that have been
-placed manually or by using the user or program position hint.
-<P>
-Note that earlier versions of fvwm required the conditions to be
-enclosed in brackets instead of parentheses (this is still
-supported for backward compatibility).
-<P>
-The
-<B>Current</B>
-
-command implies the conditions
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
-They can be turned off by specifying &quot;!CirculateHit&quot;
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
 etc. explicitly.
 <P>
-<DT><B>Direction [</B><I>FromPointer</I><B>] </B><I>direction</I><B> [(</B><I>conditions</I><B>)] </B><I>command</I>
+<DT><B>Direction [</B><I>FromPointer</I>] <I>direction</I> [(<I>conditions</I>)] <I>command</I>
 
 <DD>
 Performs
@@ -13249,11 +13461,8 @@ Performs
 on a window in the given direction which satisfies all
 <I>conditions</I>.
 
-Conditions are the same as for
-<B>Current</B>.
-
 Normally, the center of the currently focused window or the
-context window inwhich the command was invoked is taken as the
+context window in which the command was invoked is taken as the
 starting point.  Lacking such a window, or when the
 <I>FromPointer</I>
 
@@ -13272,6 +13481,25 @@ those farther away.  The
 
 direction simply selects the window closest to the starting point.
 Returns -1 if an invalid direction was given.
+See <B>Conditions</B> section below for a list of contitions.
+
+<P>
+<DT><B>KeepRc </B><I>command</I>
+
+<DD>
+Runs the
+<I>command</I>
+
+but does not alter the return code of the previous command.  Note:
+<B>KeepRc</B>
+
+is treated as a prefix to its
+<I>command</I>.
+
+Expansion of the command line is done as if
+<B>KeepRc</B>
+
+was not there.
 <P>
 <DT><B>Next [(</B><I>conditions</I><B>)] </B><I>command</I>
 
@@ -13287,17 +13515,9 @@ on the next window which satisfies all
 
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
-focused window.  Conditions are the same as for
-<B>Current</B>
+focused window.
+See <B>Conditions</B> section below for a list of contitions.
 
-with the addition of &quot;CirculateHit&quot; which overrides the
-<I>CirculateSkip </I><B>Style</B>
-
-attribute, &quot;CirculateHitIcon&quot; which overrides the
-<I>CirculateSkipIcon </I><B>Style</B>
-
-attribute for iconified windows and &quot;CirculateHitShaded&quot; which
-does the same for shaded windows.
 <P>
 <DT><B>None [(</B><I>conditions</I><B>)] </B><I>command</I>
 
@@ -13308,19 +13528,29 @@ Performs
 if no window which satisfies all
 <I>conditions</I>
 
-exists.  Conditions are the same as for
-<B>Next</B>.
-
+exists.  The command is run in the context of the root window.
 Returns 1 if no window matches the conditions and 0 otherwise.
-<P>
-The
-<B>None</B>
+See <B>Conditions</B> section below for a list of contitions.
 
-command implies the conditions
+<P>
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
-They can be turned off by specifying &quot;!CirculateHit&quot;
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
 etc. explicitly.
+<P>
+<DT><B>NoWindow</B><I> command</I>
+
+<DD>
+Performs
+<I>command</I>,
+
+but removes the window context if any.  This is not really a
+conditional command, but a prefix that may be useful in menu items
+that should operate without a window even if such menu is bound to
+window decorations.
 <P>
 <DT><B>Pick [(</B><I>conditions</I><B>)] </B><I>command</I>
 
@@ -13340,18 +13570,16 @@ selections with complex functions.  The command is executed only
 if the given
 <I>conditions</I>
 
-are met.  The conditions are the same as for
-<B>Next</B>.
+are met.  Returns -1 if no window was selected.
+See <B>Conditions</B> section below for a list of contitions.
 
-Returns -1 if no window was selected.
 <P>
-The
-<B>Pick</B>
-
-command implies the conditions
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
-They can be turned off by specifying &quot;!CirculateHit&quot;
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
 etc. explicitly.
 <P>
 <DT><B>PointerWindow [(</B><I>conditions</I><B>)] </B><I>command</I>
@@ -13363,18 +13591,16 @@ Performs
 if the window under the pointer satisfies all
 <I>conditions</I>.
 
-exists.  Conditions are the same as for
-<B>Current</B>.
-
 Returns -1 if there is no window under the pointer.
-<P>
-The
-<B>PointerWindow</B>
+See <B>Conditions</B> section below for a list of contitions.
 
-command implies the conditions
+<P>
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
-They can be turned off by specifying &quot;!CirculateHit&quot;
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
 etc. explicitly.
 <P>
 <DT><B>Prev [(</B><I>conditions</I><B>)] </B><I>command</I>
@@ -13391,19 +13617,11 @@ on the previous window which satisfies all
 
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
-focused window.  Conditions are the same as for
-<B>Current</B>
+focused window.
+See <B>Conditions</B> section below for a list of contitions.
 
-with the addition of &quot;CirculateHit&quot; which overrides the
-<I>CirculateSkip </I><B>Style</B>
-
-attribute, &quot;CirculateHitIcon&quot; which overrides the
-<I>CirculateSkipIcon </I><B>Style</B>
-
-attribute for iconified windows and &quot;CirculateHitShaded&quot; which
-does the same for shaded windows.
 <P>
-<DT><B>ScanForWindow [</B><I>FromPointer</I><B>] </B><I>direction direction2</I><B> [(</B><I>conditions</I><B>)] </B><I>command</I>
+<DT><B>ScanForWindow [</B><I>FromPointer</I>] <I>direction</I> <I>direction2</I> [(<I>conditions</I>)] <I>command</I>
 
 <DD>
 Performs
@@ -13414,9 +13632,6 @@ Performs
 
 on a window in the given direction which satisfies all
 <I>conditions</I>.
-
-Conditions are the same as for
-<B>Current</B>.
 
 Normally, the center of the currently focused window or the
 context window in which the command was invoked is taken as the
@@ -13447,12 +13662,126 @@ If
 is not perfectly perpendicular to
 <I>direction</I>,
 
-ScanForWindow will return a failure.
-When using ScanForWindow repeatedly with the same arguments,
-it is guaranteed that all windows matching the conditions will eventually
-be found.  If the focus reaches a limit along the primary axis,
-it will wrap around to the opposite side.
-Returns -1 if an invalid direction was given.
+ScanForWindow will return a failure.  When using ScanForWindow
+repeatedly with the same arguments, it is guaranteed that all
+windows matching the conditions will eventually be found.  If the
+focus reaches a limit along the primary axis, it will wrap around
+to the opposite side.  Returns -1 if an invalid direction was
+given.
+See <B>Conditions</B> section below for a list of contitions.
+
+<P>
+<DT><B>Test [(</B><I>on-conditions</I><B>)] </B><I>command</I>
+
+<DD>
+Performs
+<I>command</I>
+
+if the all
+<I>on-conditions</I>
+
+are satisfied.  The
+<I>on-conditions</I>
+
+are a list of keywords with possible arguments from the list below
+and are separated by commas or whitespace.  They include
+<I>Version pattern</I>,
+
+<I>Start</I>,
+
+<I>Init</I>,
+
+<I>Restart</I>,
+
+<I>Exit</I>,
+
+<I>Quit</I>and
+
+<I>ToRestart</I>.
+
+An on-condition prefixed with &quot;!&quot; is reverted.
+<P>
+The
+<I>Version pattern</I>
+
+on-condition is fulfilled if the pattern matches the version
+number of the fvwm executable.  The wildcards '*' (any number of
+random characters) and '?' (one random character) may be used in
+the pattern.  The
+<I>Start</I>
+
+on-condition is the same as either
+<I>Init</I> or <I>Restart</I>.
+
+It is only true on startup or restart prior and during
+<B>StartFunction</B>
+
+execution.
+The
+<I>Exit</I>
+
+on-condition is the same as either
+<I>Quit</I> or <I>ToRestart</I>.
+
+It is only valid on shutdown during
+<B>ExitFunction</B>
+
+function execution.
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>AddToFunc StartFunction I Test (Init) Exec exec xterm
+
+AddToFunc VerifyVersion
++ I Test (Version 2.5.*) Echo 2.5.x detected
++ I TestRc (NoMatch) Test (!Version 2.6.*) Echo Future version
++ I TestRc (NoMatch) Echo 2.6.x is detected</PRE></blockquote>
+<P>
+
+
+
+<P>
+<DT><B>TestRc [([!]</B><I>returncode</I><B>)] </B><I>command</I>
+
+<DD>
+Performs
+<I>command</I>
+
+if the last conditional command returned the value
+<I>returncode</I>.
+
+Instead of the numeric values 0 (no match), 1 (match), -1 (error),
+and -2 (break) the symbolic names &quot;NoMatch&quot;, &quot;Match&quot;, &quot;Error&quot; and
+&quot;Break&quot; can be used.  If no
+<I>returncode</I>
+
+is given, the default 0 is assumed.  If the return code is
+prefixed with '!', the command is executed if
+<I>returncode</I>
+
+does not match the value returned by the conditional command.
+<B>TestRc</B>
+
+command can only be used inside functions.  If the
+<I>command</I>
+
+is another conditional command, the previous return code is
+replaced by the new one.  Example:
+
+
+<P>
+
+
+<blockquote><PRE>AddToFunc ToggleXterm
++ I Any (my_xtermwindow) Close
++ I TestRc (NoMatch) Exec xterm -T my_xtermwindow</PRE></blockquote>
+<P>
+
+
+
 <P>
 <DT><B>ThisWindow [(</B><I>conditions</I><B>)] </B><I>command</I>
 
@@ -13467,45 +13796,33 @@ operand window (it is invoked in the root window), the command is
 ignored.
 <B>ThisWindow</B>
 
-is always non-interactive.  The command is executed only if the
-given
+is never interactive.  The command is executed only if the given
 <I>conditions</I>
 
-are met.  The conditions are the same as for
-<B>Current</B>.
+are met.  It returns -1 if used outside a window context.
+See <B>Conditions</B> section below for a list of contitions.
 
-It returns -1 if used outside a window context.
 <P>
-The
-<B>ThisWindow</B>
-
-command implies the conditions
+This command implies the conditions
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 
 They can be turned off by specifying &quot;!CirculateHit&quot;
 etc. explicitly.
 <P>
-<DT><B>WindowId [</B><I>id</I><B>] [(</B><I>conditions</I><B>)] | [</B><I>root</I> <B>[</B><I>screen</I><B>]]</B> <I>command<DD>
+<DT><B>WindowId [</B><I>id</I>] [(<I>conditions</I>)] | [<I>root</I> [<I>screen</I>]] <I>command</I>
+
+<DD>
 The
-</I><B>WindowId</B>
+<B>WindowId</B>
 
-function is similar to the
-<B>Next</B> and <B>Prev</B>
-
-functions, except that it looks for a specific window
+command looks for a specific window
 <I>id</I>
 
 and runs the specified
 <I>command</I>
 
-on it.  The optional
-<I>conditions</I>
-
-are the same as for
-<B>Current</B>.
-
-The second form of syntax retrieves the window id of the root
-window of the given
+on it.  The second form of syntax retrieves the window id of the
+root window of the given
 <I>screen</I>.
 
 If no
@@ -13520,6 +13837,19 @@ windows, there are some exceptions, for example the
 <B>WarpToWindow</B>
 
 command.
+Returns -1 if no window with the given id exists.
+See <B>Conditions</B> section below for a list of contitions.
+
+<P>
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
+
+They can be turned off by specifying
+<I>!CirculateHit</I>
+
+etc. explicitly.
+<P>
+Examples:
 
 
 <P>
@@ -13555,67 +13885,326 @@ WindowId $[BOOKMARKED_WINDOW] WarpToWindow</PRE></blockquote>
 
 
 
-Returns -1 if no window with the given id exists.
 <P>
-<DT><B>NoWindow</B><I> command</I>
+</DL>
+<A NAME="lbCA">&nbsp;</A>
+<H3>Conditions</H3>
 
-<DD>
-Performs
-<I>command</I>,
-
-but removes the window context if any.
-This is not really a conditional command, but a prefix that may be
-useful in menu items that should operate without a window even if
-such menu is bound to window decorations.
 <P>
-<DT><B>On [(</B><I>condition</I><B>)] </B><I>command</I>
-
-<DD>
-Performs
-<I>command</I>
-
-if the all
-<I>conditions</I>
-
-are satisfied.
 The
 <I>conditions</I>
 
-are a list of keywords with possible arguments from the list below
-and are separated by commas or whitespace.  Conditions include
-&quot;Version pattern&quot;,
-&quot;Start&quot;, &quot;Init&quot;, &quot;Restart&quot;,
-&quot;Exit&quot;, &quot;Quit&quot;, ToRestart&quot;.
-A condition prefixed with &quot;!&quot; is reverted.
+that may be given as an argument to any conditional command are a
+list of keywords separated by commas or whitespace, enclosed in
+parentheses.  Unless stated otherwise, conditional commands accept
+all the conditions listed below.  Note that earlier versions of
+fvwm required the conditions to be enclosed in brackets instead of
+parentheses (this is still supported for backward compatibility).
 <P>
-The &quot;Start&quot; condition is the same as either &quot;Init&quot; or &quot;Restart&quot;,
-it is only valid on startup or restart prior and during
-<B>StartFunction</B>
+In addition, the
+<I>conditions</I>
 
-function execution.
-The &quot;Exit&quot; condition is the same as either &quot;Quit&quot; or &quot;ToRestart&quot;,
-it is only valid on shutdown during
-<B>ExitFunction</B>
+may include one window name to match to.  The window name may
+include the wildcards '*' and '?'.  The window name, icon name,
+class, and resource are considered when attempting to find a
+match.  The window name can begin with '!' which prevents
+<I>command</I>
 
-function execution.
+if any of the window name, icon name, class or resource match.
+<P>
+Any condition can be negated by using a an exclamation mark ('!')
+directly in front of its name.
+<P>
+<I>AcceptsFocus</I>,
 
+<I>CirculateHit</I>,
+
+<I>CirculateHitIcon</I>,
+
+<I>CirculateHitShaded</I>,
+
+<I>Closable</I>,
+
+<I>CurrentDesk</I>,
+
+<I>CurrentGlobalPage</I>,
+
+<I>CurrentGlobalPageAnyDesk</I>,
+
+<I>CurrentPage</I>,
+
+<I>CurrentPageAnyDesk</I>,
+
+<I>CurrentScreen</I>,
+
+<I>FixedSize</I>,
+
+<I>Focused</I>,
+
+<I>HasHandles</I>,
+
+<I>HasPointer</I>,
+
+<I>Iconic</I>,
+
+<I>Iconifiable</I>,
+
+<I>Layer [n]</I>,
+
+<I>Maximizable</I>,
+
+<I>Maximized</I>,
+
+<I>PlacedByButton3</I>,
+
+<I>PlacedByFvwm</I>,
+
+<I>Raised</I>,
+
+<I>Shaded</I>,
+
+<I>State n</I>,
+
+<I>Sticky</I>,
+
+<I>StickyAcrossDesks</I>,
+
+<I>StickyAcrossPages</I>,
+
+<I>Transient</I>,
+
+<I>Visible</I>.
 
 <P>
+The
+<I>AcceptsFocus</I>
 
+condition excludes all windows that do not want the input focus
+(the application has set the &quot;Input hints&quot; for the window to
+False) and do not use the
+<I>Lenience</I>
 
-<blockquote><PRE>AddToFunc StartFunction I On (Init) Exec exec xterm
+option of the
+<B>Style</B>
 
-AddToFunc VerifyVersion
-+ I On (Version 2.5.*) Echo 2.5.x detected
-+ I Cond (NoMatch) On (!Version 2.6.*) Echo Future version
-+ I Cond (NoMatch) Echo 2.6.x is detected</PRE></blockquote>
+command.  Also, all windows using the
+<I>NeverFocus</I>
+
+style are ignored.
 <P>
+The
+<I>CirculateHit</I> and <I>CirculateHitIcon</I>
 
+options override the
+<I>CirculateSkip</I>
 
+<B>Style</B>
+
+attribute for normal or iconic windows.  The
+<I>CirculateHitShaded</I>
+
+option overrides the
+<I>CirculateSkipShaded</I>
+
+<B>Style.</B>
+
+All three options are turned on
+by default for the
+<B>Current</B>
+
+command.  They can be turned off by specifying
+<I>!CirculateHit</I>
+
+etc. explicitly.
+<P>
+The
+<I>Closable</I>
+
+matches only windows that are allowed to be closed.
+<P>
+The
+<I>CurrentDesk</I>
+
+contition matches only windows that are on the current desk.
+<P>
+The
+<I>CurrentGlobalPage</I>
+
+condition matches only windows that are on the current page of the
+current desk, regardless of whether Xinerama support is enabled or
+not.  This conditions implicitly activates the
+<I>CurrentDesk</I>
+
+condition.
+<P>
+The
+<I>CurrentGlobalPageAnyDesk</I>
+
+condition matches only windows that are on the current page of any
+desk, regardless of whether Xinerama support is enabled or not.
+<P>
+The
+<I>CurrentPage</I>
+
+condition matches only windows that are on the current page of the
+current desk.  If Xinerama support is enabled, it only matches
+windows that are at least partially on the Xinerama screen
+containing the mouse pointer.  This conditions implicitly
+activates the
+<I>CurrentDesk</I>
+
+condition.
+<P>
+The
+<I>CurrentPageAnyDesk</I> and <I>CurrentScreen</I>
+
+conditions matche only windows that are on the current page of any
+desk.  If Xinerama support is enabled, they only match windows
+that are at least partially on the Xinerama screen containing the
+mouse pointer.
+<P>
+The
+<I>FixedSize</I>
+
+condition excludes all windows that don't have a fixed size,
+either set through WM hints or the
+<B>Style</B>
+
+option
+<I>FixedSize</I>.
 
 <P>
-</DL>
-<A NAME="lbBX">&nbsp;</A>
+The
+<I>Focused</I>
+
+matches on the the window the currently has the keyboard focus.
+This is not useful for the
+<B>Current</B>
+
+command but can be used with the other conditional commands.
+<P>
+The
+<I>HasHandles</I>
+
+condition excludes all windoows that don't have resize handles.
+<P>
+The
+<I>HasPointer</I>
+
+condition excludes all windows that do not contain the pointer.
+<P>
+The
+<I>Iconic</I>
+
+condition matches only iconic windows.
+<P>
+The
+<I>Iconifiable</I>
+
+condition matches only windows that are allowed to be iconified.
+<P>
+The
+<I>Layer [n]</I>
+
+condition matches only windows on the specified layer.  The
+optional argument of the
+<I>Layer</I>
+
+condition defaults to the layer of the focused window.  The
+negation
+<I>!Layer</I>
+
+switches off the
+<I>Layer</I>
+
+condition.
+<P>
+The
+<I>Maximizable</I>
+
+condition matches only windows that are allowed to be maximized.
+<P>
+The
+<I>Maximized</I>
+
+condition matches only maximized windows.
+<P>
+The
+<I>PlacedByButton3</I>
+
+condition is fulfilled if the last interactive motion of the
+window (with the
+<B>Move</B>
+
+command) was ended by pressing mouse button 3.  This is especially
+useful with the
+<I>ManualPlacement</I>
+
+option of the
+<B>Style</B>
+
+command.
+<P>
+The
+<I>PlacedByFvwm</I>
+
+condition excludes all windows that have been placed manually or
+by using the user or program position hint.
+<P>
+The
+<I>Raised</I>
+
+conditions matches only windows that are fully visible on the
+current viewport and not overlapped by any other window.
+<P>
+The
+<I>Shaded</I>
+
+conditions matches only shaded windows (see
+<B>WindowShade</B>
+
+command).
+<P>
+The
+<I>State n</I> or <I>!State n</I>
+
+conditions match only windows with the specified integer state set
+(or unset).  See the
+<B>State</B>
+
+command for details.  The argument may range from 0 to 31.
+<P>
+The
+<I>Sticky</I>, <I>StickyAcrossDesks</I> and <I>StickyAcrossPages</I>
+
+match only windows that are currently sticky, sticky across all
+desks or sticky across all pages.  Please refer to the
+<B>Style</B>
+
+options with the same name and the commands
+<B>Stick</B>, <B>StickAcrossDesks</B> and <B>StickAcrossPages</B>
+
+for details.
+<P>
+The
+<I>Transient</I>
+
+condition matches only windows that have the &quot;transient&quot;
+property set by the application.  This it usually the case for
+application popup menus and dialogs.  The
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>
+
+module can be used to find out whether a specific window is
+transient.
+<P>
+The
+<I>Visible</I>
+
+conditions matches only windows that are at least partially
+visible on the current viewport and not completely overlapped by
+other windows.
+<P>
+<A NAME="lbCB">&nbsp;</A>
 <H3>MODULE COMMANDS</H3>
 
 <P>
@@ -13973,7 +14562,7 @@ complex commands in modules.
 <P>
 <P>
 </DL>
-<A NAME="lbBY">&nbsp;</A>
+<A NAME="lbCC">&nbsp;</A>
 <H3>QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</H3>
 
 <P>
@@ -14041,7 +14630,7 @@ If you need a native restart, we suggest only to use
 
 command without parameters unless there is a reason not to.  If you
 still use an old command 'Restart fvwm2' that was correct in 2.2.x,
-all current command line arguments are lost.  On Restart without
+all current command line arguments are lost.  On a restart without
 parameters or with --pass-args, they are preserved.  Here are some
 cases when 'Restart fvwm2' or 'Restart fvwm' cause troubles:
 
@@ -14051,8 +14640,10 @@ cases when 'Restart fvwm2' or 'Restart fvwm' cause troubles:
 
 <blockquote><PRE>* running fvwm under a session manager
 * running fvwm with multi headed displays
-* having command line arguments, like -f themes-rc or -cmd
-* if the first fvwm2 in the $PATH is a different one</PRE></blockquote>
+* having command line arguments, like
+  -f themes-rc or -cmd
+* if the first fvwm2 in the $PATH is a
+  different one</PRE></blockquote>
 <P>
 
 
@@ -14133,7 +14724,7 @@ xsm remotely.
 <P>
 <P>
 </DL>
-<A NAME="lbBZ">&nbsp;</A>
+<A NAME="lbCD">&nbsp;</A>
 <H3>COLORSETS</H3>
 
 <P>
@@ -14180,7 +14771,7 @@ Resets a definition of all colorsets.
 <P>
 <P>
 </DL>
-<A NAME="lbCA">&nbsp;</A>
+<A NAME="lbCE">&nbsp;</A>
 <H3>COLOR GRADIENTS</H3>
 
 <P>
@@ -14232,7 +14823,8 @@ Example:
 <P>
 
 
-<blockquote><PRE>TitleStyle VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0</PRE></blockquote>
+<blockquote><PRE>TitleStyle VGradient 20 \
+rgb:b8/ce/bc rgb:5b/85/d0</PRE></blockquote>
 <P>
 
 
@@ -14286,7 +14878,7 @@ Colorset 0 Blue Red HGradient \
 
 <P>
 </DL>
-<A NAME="lbCB">&nbsp;</A>
+<A NAME="lbCF">&nbsp;</A>
 <H2>ENVIRONMENT</H2>
 
 <P>
@@ -14334,7 +14926,7 @@ Note, the state files are named
 and normally are removed automatically when not used anymore.
 <P>
 </DL>
-<A NAME="lbCC">&nbsp;</A>
+<A NAME="lbCG">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -14343,7 +14935,7 @@ was written by Tom LaStrange.  After Robert Nation came Charles
 Hines, followed by Brady Montz. Currently fvwm is developed by a
 number of people on the fvwm-workers mailing list.
 <P>
-<A NAME="lbCD">&nbsp;</A>
+<A NAME="lbCH">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 <P>
@@ -14354,7 +14946,7 @@ distribution are subject to the GNU General Public License
 
 file that came with fvwm for details.
 <P>
-<A NAME="lbCE">&nbsp;</A>
+<A NAME="lbCI">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -14427,7 +15019,7 @@ The official fvwm homepage is
 <DT><A HREF="#lbBK">SCRIPTING AND COMPLEX FUNCTIONS</A><DD>
 <DT><A HREF="#lbBL">THE LIST OF FVWM COMMANDS</A><DD>
 <DL>
-<DT><A HREF="#lbBM">COMMANDS FOR MENUS</A><DD>
+<DT><A HREF="#lbBM">MENUS</A><DD>
 <DT><A HREF="#lbBN">MISCELLANEOUS COMMANDS</A><DD>
 <DT><A HREF="#lbBO">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
 <DT><A HREF="#lbBP">COMMANDS FOR FOCUS AND MOUSE MOVEMENT</A><DD>
@@ -14438,23 +15030,27 @@ The official fvwm homepage is
 <DT><A HREF="#lbBU">COMMANDS CONTROLLING THE VIRTUAL DESKTOP</A><DD>
 <DT><A HREF="#lbBV">COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</A><DD>
 <DT><A HREF="#lbBW">CONDITIONAL COMMANDS</A><DD>
-<DT><A HREF="#lbBX">MODULE COMMANDS</A><DD>
-<DT><A HREF="#lbBY">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
-<DT><A HREF="#lbBZ">COLORSETS</A><DD>
-<DT><A HREF="#lbCA">COLOR GRADIENTS</A><DD>
+<DT><A HREF="#lbBX">Return Codes</A><DD>
+<DT><A HREF="#lbBY">The Ring of Windows</A><DD>
+<DT><A HREF="#lbBZ">List of Conditional Commands</A><DD>
+<DT><A HREF="#lbCA">Conditions</A><DD>
+<DT><A HREF="#lbCB">MODULE COMMANDS</A><DD>
+<DT><A HREF="#lbCC">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
+<DT><A HREF="#lbCD">COLORSETS</A><DD>
+<DT><A HREF="#lbCE">COLOR GRADIENTS</A><DD>
 </DL>
-<DT><A HREF="#lbCB">ENVIRONMENT</A><DD>
-<DT><A HREF="#lbCC">AUTHORS</A><DD>
-<DT><A HREF="#lbCD">COPYRIGHT</A><DD>
-<DT><A HREF="#lbCE">BUGS</A><DD>
+<DT><A HREF="#lbCF">ENVIRONMENT</A><DD>
+<DT><A HREF="#lbCG">AUTHORS</A><DD>
+<DT><A HREF="#lbCH">COPYRIGHT</A><DD>
+<DT><A HREF="#lbCI">BUGS</A><DD>
 </DL>
 <HR>
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 23:02:32 GMT, May 30, 2003
+Time: 00:48:04 GMT, November 01, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 31-May-2003 -->
+<!-- Automatically generated by manpages2php on 01-Nov-2003 -->

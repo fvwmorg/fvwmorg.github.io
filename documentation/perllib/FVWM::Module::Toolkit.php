@@ -49,7 +49,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("Manual page for FVWM::Module::Toolkit in unstable branch (2.5.8)"); ?>
 
 <H1>FVWM::Module::Toolkit</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2003-06-10<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Toolkit.pm">FVWM/Module/Toolkit.pm</a><br>
+Section: FVWM Perl library (3)<BR>Updated: 2003-10-26<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Toolkit.pm">FVWM/Module/Toolkit.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
@@ -61,7 +61,25 @@ FVWM::Module::Toolkit - FVWM::Module with abstract widget toolkit attached
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
-Only to be uses to implement concrete toolkit subclasses.
+1) May be used anywhere to require external Perl classes and report error in
+the nice dialog if absent:
+<P>
+
+<blockquote><pre>    use FVWM::Module::Toolkit qw(Tk X11::Protocol Tk::Balloon);</pre></blockquote>
+<P>
+
+<blockquote><pre>    use FVWM::Module::Toolkit qw(Tk=804.024,catch X11::Protocol&gt;=0.52);</pre></blockquote>
+<P>
+
+There is the same syntactic sugar as in ``perl -M'', with an addition
+of ``&gt;='' being fully equivalent to ``=''. The ``&gt;='' form may look better for
+the user in the error message. If the required Perl class is absent,
+FVWM::Module::Toolkit-&gt;<I>showMessage()</I> is used to show the dialog and the
+application dies.
+<P>
+
+2) This class should be uses to implement concrete toolkit subclasses.
+A new toolkit subclass implementation may look like this:
 <P>
 
 <blockquote><pre>    package FVWM::Module::SomeToolkit;
@@ -84,19 +102,23 @@ Only to be uses to implement concrete toolkit subclasses.
 <P>
 
 <blockquote><pre>    sub eventLoop ($$) {
-        my ($self, $event) = @_;</pre></blockquote>
+        my $self = shift;
+        my @params = @_;</pre></blockquote>
 <P>
 
 <blockquote><pre>        # enter the SomeToolkit event loop with hooking $self-&gt;{istream}
+        $self-&gt;eventLoopPrepared(@params);
         fileevent($self-&gt;{istream},
             read =&gt; sub {
                 unless ($self-&gt;processPacket($self-&gt;readPacket)) {
                     $self-&gt;disconnect;
                     $top-&gt;destroy;
                 }
+                $self-&gt;eventLoopPrepared(@params);
             }
         );
         SomeToolkit-&gt;MainLoop;
+        $self-&gt;eventLoopFinished(@params);
     }</pre></blockquote>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
@@ -106,13 +128,14 @@ The <B><u>FVWM::Module::Toolkit</u></B> package is a sub-class of <B><a href="<?
 is intended to be uses as the base of sub-classes that attach widget
 toolkit library, like Perl/Tk or Gtk-Perl. It does some common work to load
 widget toolkit libraries and to show an error in the external window like
-xmessage if the needed libraries are not available.
+xmessage if the required libraries are not available.
 <P>
 
 This class overloads one method <B>addDefaultErrorHandler</B> and expects
-sub-classes to overload the methods <B>showError</B> and <B>showMessage</B> to use
-native widgets (these 2 methods in this class by themselves overwrite the
-superclass versions by adding a title parameter).
+sub-classes to overload the methods <B>showError</B>, <B>showMessage</B> and
+<B>showDebug</B> to use native widgets. These 3 methods are implemented in this
+class, they extend the superclass versions by adding a title parameter and
+using an external dialog tool to show error/message.
 <P>
 
 This manual page details only those differences. For details on the
@@ -121,15 +144,14 @@ This manual page details only those differences. For details on the
 <H2>METHODS</H2>
 
 <A NAME="ixAAE"></A>
-Only those methods that are not available in <B><a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a></B>, or are overloaded
-are covered here:
+Only overloaded or new methods are covered here:
 <DL COMPACT>
 <DT><B>showError</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAF"></A>
 This method is intended to be overridden in subclasses to create a dialog box
 using the corresponding widgets. The default fall back implementation is
-to print an error message (with a title that is the module name by default)
-to <FONT>STDERR</FONT>.
+similar to <B>showMessage</B>, but the error message (with title) is also always
+printed to <FONT>STDERR</FONT>.
 
 
 <P>
@@ -138,10 +160,12 @@ to <FONT>STDERR</FONT>.
 May be good for module diagnostics or any other purpose.
 <DT><B>showMessage</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAG"></A>
-This method is intended to be overridden in subclasses to create a dialog box
-using the corresponding widgets. The default fall back implementation is
-to print a message (with a title that is the module name by default)
-to <FONT>STDERR</FONT>.
+This method is intended to be overridden in subclasses to create a dialog
+box using the corresponding widgets. The default fall back implementation is
+to find a system message application to show the message. The potentially
+used applications are <I>gdialog</I>, <I>Xdialog</I>, <I>gtk-shell</I>, <I>xmessage</I>,
+<I>kdialog</I>, or <I>xterm</I> as the last resort. If not given, <I>title</I> is based
+on the module name.
 
 
 <P>
@@ -193,9 +217,9 @@ For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Mo
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 02:17:12 GMT, June 10, 2003
+Time: 00:48:55 GMT, November 01, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by perllib2php on 10-Jun-2003 -->
+<!-- Automatically generated by perllib2php on 01-Nov-2003 -->
