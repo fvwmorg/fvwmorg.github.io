@@ -62,7 +62,8 @@ I can provide high-resolution, uncompressed TIF on request.  Thanks!
 -->
 </p>
 
-<p><img src="logo-white_bg.png" width="270" height="180"></p>
+<!--<p><img src="logo-white_bg.png" width="270" height="180"></p>-->
+<p><img src="felineinside.png" width="300" height="200"></p>
 
 <p><img src="logo-gradient_bg.png" width="300" height="180"></p>
 

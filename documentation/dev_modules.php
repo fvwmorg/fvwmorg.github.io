@@ -75,16 +75,18 @@ unsigned long header[HEADER_SIZE];
     from fvwm: <!-- dje, from FvwmAnimate.c -->
   </p>
 <pre class="doc">
-static void ParseOptions() {
-    char *buf;
-    while (GetConfigLine(Channel,&amp;buf), buf != NULL) {
-      ParseConfigLine(buf);
-    } /* end config lines */
-  } /* end function */
+static void ParseOptions()
+{
+  char *buf;
+  while (GetConfigLine(Channel,&amp;buf), buf != NULL)
+  {
+    ParseConfigLine(buf);
+  } /* end config lines */
+} /* end function */
 </pre>
   <p>This is the preferred method of getting module-specific
     configuration lines.</p>
-  <p>Starting in fvwm-2.0 pl 1, fvwm2 passes command line arguments
+  <p>Starting in fvwm-2.0 pl 1, fvwm2 (now fvwm) passes command line arguments
     to the modules, so if the user said ``FvwmPager 2 4'', the module
     will see argv[6] = 2 and argv[7] = 4, instead of argv[6] = ``2
     4''.</p>
@@ -271,7 +273,7 @@ void main(int argc, char **argv) {
     see <a href="#M_SENDCONFIG">M_SENDCONFIG</a> in
     <a href="#mod_m2f_communication">module-to-fvwm Communication</a>.</p>
 
-  <h2><a name="mod_colorsets"></a>Colorset support <a href="#top">[top]</a></h2> 
+  <h2><a name="mod_colorsets"></a>Colorset support <a href="#top">[top]</a></h2>
   <p>When a module requests configuration information the configuration
     commands sent are preceded by some global configuration lines and a
     list of colorsets. In order to use colorsets a module must do the
@@ -296,7 +298,7 @@ void main(int argc, char **argv) {
     <li>In the configuration parsing routine look for <em>Colorset</em>
       and pass the line to <em>LoadColorset()</em></li>
     <li>Add additional configuration commands such as
-      <em>*&lt;module_name&gt;Colorset</em> and parse for them. Colorsets
+      <em>*&lt;module_name&gt;: Colorset</em> and parse them. Colorsets
       usually duplicate static settings of foreground and background so
       you probably want a different colorset option for each background
       color option.</li>
@@ -333,7 +335,7 @@ void main(int argc, char **argv) {
       background manually, you have to check that the colorset contains a
       valid pixmap first though:
       <em>(cset.pixmap&nbsp;&amp;&amp;&nbsp;cset.pixmap&nbsp;!=&nbsp;<a href="#transparency">
-	  ParentRelative</a>)</em> . Note that if you call this function with
+	  ParentRelative</a>)</em>. Note that if you call this function with
       a colorset that has no pixmap, it returns a pixmap filled with the
       <em>cset.bg</em> pixel.</li>
     <li><em>SetRectangleBackground()</em> draws the background provided
@@ -407,7 +409,8 @@ XEvent Event;
             Event.xconfigure.send_event = True;
           }
         }
-        if (Event.xconfigure.send_event) {
+        if (Event.xconfigure.send_event)
+        {
           /* may have to redraw even if win_x == Event.xconfigure.x and 
            * win_y = Event.xconfigure.y for the window shaded operation */
           win_x = Event.xconfigure.x;
@@ -457,17 +460,19 @@ and not <em>Obscurity</em> or <em>ParentalIndifference</em></p>
     finished. The following subroutine is provided as an example of a
     suitable method of sending messages to fvwm:</p>
 <pre class="doc">
-void SendText(int *fd, char *message, unsigned long window) {
+void SendText(int *fd, char *message, unsigned long window)
+{
   int w;
-  if (message != NULL) {
-      write(fd[0],&amp;win,sizeof(Window));
-      w=strlen(message);                /* calc the length of the message */
-      write(fd[0],&amp;w,sizeof(int));  /* send the message length */
-      write(fd[0],message,w);           /* send the message itself */
-      /* send a 1, indicating that this module will keep going */
-      /* a 0 would mean that this module is done */
-      w=1;
-      write(fd[0],&amp;w,sizeof(int));
+  if (message != NULL)
+  {
+      write(fd[0], &amp;win, sizeof(Window));
+      w=strlen(message);                  /* calc the length of the message */
+      write(fd[0], &amp;w, sizeof(int));  /* send the message length */
+      write(fd[0], message, w);           /* send the message itself */
+      /* send 1, indicating that this module will keep going */
+      /* 0 would mean that this module is done */
+      w = 1;
+      write(fd[0], &amp;w, sizeof(int));
   }
 }
 </pre>
@@ -503,10 +508,12 @@ SendText(Channel,"Send_WindowList",0);
     this process fairly painless. Here is an example from
     FvwmAnimate.c:</p>
 <pre class="doc">
-static void ParseOptions() {
+static void ParseOptions()
+{
   char *buf;
-  InitGetConfigInfo(Channel,MyName);  /* char *MyName = "*FvwmAnimate" */
-  while (GetConfigLine(Channel,&amp;buf), buf != NULL) {
+  InitGetConfigInfo(Channel, MyName);  /* char *MyName = "*FvwmAnimate" */
+  while (GetConfigLine(Channel, &amp;buf), buf != NULL)
+  {
     ParseConfigLine(buf);
   }
 }
@@ -518,7 +525,7 @@ static void ParseOptions() {
     argument includes the leading asterisk. The match is case
     insensitive.</p>
   <p>InitGetConfigInfo improves performance. Since the command
-    matching is done in fvwm2, time is saved in both fvwm2 and the
+    matching is done in fvwm, time is saved in both fvwm and the
     module. Remember that the module still has to name match if it
     wants to find its own configuration lines since other kinds of
     commands are sent along with module configuration lines.</p>
@@ -552,16 +559,16 @@ SetMessageMask(fvwm_fd, MX_VISIBLE_ICON_NAME);
 
   <h2><a name="M_SENDCONFIG_desc"></a> Dynamic reconfiguration <a href="#top">[top]</a></h2> 
   <p>Fvwm can change configuration whilst running and modules can also
-    share this ability. The <tt>while(GetConfigLine())</tt> loop gets the current
-    configuration but other module config lines may be added at any
+    share this ability. The <tt>while (GetConfigLine())</tt> loop gets the
+    current configuration but other module config lines may be added at any
     time from a variety of sources. If a module wants to be notified of
     any configuration changes it must set the <em>M_SENDCONFIG</em> bit
     in the event mask</p>
 
   <h2>Synchronous vs. Asynchronous Operation <a href="#top">[top]</a></h2> 
-  <p>A module normally runs asynchrously with fvwm2. For example
+  <p>A module normally runs asynchrously with fvwm. For example
     FvwmPager may be updating its display to show a window being
-    iconified while fvwm2 may have already iconfied and de-iconified
+    iconified while fvwm may have already iconfied and de-iconified
     the window. This is usually desirable. Other modules might need to
     synchronize (a part of) their processing with fvwm. If this is the
     case, the module must nform fvwm which packet-types it wishes to be

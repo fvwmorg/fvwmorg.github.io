@@ -1,3 +1,12 @@
+2003-06-08  Mikhael Goikhman  <migo@homemail.com>
+
+	* logo-competition/logos/Aric_Campling/index.php:
+	* logo-competition/logos/Aric_Campling/felineinside.png:
+	added original (a bit larger) image
+
+	* documentation/dev_modules.php:
+	some small fixes in documentation
+
 2003-06-08  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos_new.php (border): 
