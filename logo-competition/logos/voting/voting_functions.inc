@@ -80,7 +80,7 @@ function register_mail_and_id( $email, $id ) {
         fwrite( $handle, trim($email)."   ".trim($id)."\n");
         fwrite( $handle, "# ip          : ".$_SERVER["REMOTE_ADDR"]."\n");
         fwrite( $handle, "# remote host : ".$_SERVER["REMOTE_HOST"]."\n");
-        fwrite( $handle, "# host name   : ".$_SERVER["HTTP_HOST"]."\n");
+        // fwrite( $handle, "# host name   : ".$_SERVER["HTTP_HOST"]."\n");
         fwrite( $handle, "# language    : ".$_SERVER["HTTP_ACCEPT_LANGUAGE"]."\n");
         fwrite( $handle, "# user agent  : ".$_SERVER["HTTP_USER_AGENT"]."\n");
         fwrite( $handle, "# char set    : ".$_SERVER["HTTP_ACCEPT_CHARSET"]."\n");
