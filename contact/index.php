@@ -18,7 +18,7 @@ include($rel_path.'/definitions.inc');
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Contact";
-$link_name      = "FVWM - Contact";
+$link_name      = "Contact";
 $link_picture   = "pictures/icons/contact";
 $parent_site    = "top";
 $child_sites    = array("mail_archive", "mailing_lists");
