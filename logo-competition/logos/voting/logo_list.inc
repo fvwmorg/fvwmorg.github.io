@@ -1,12 +1,18 @@
 <?php 
 
-$logo_array[2] = array("1000Sun/fvwm2_FIN_emblem_1.png",
-                             "1000Sun/fvwm2_FIN_emblem_2.png",
-                             "1000Sun/fvwm2_FIN_emblem_3.png",);
 
 $logo_array[1] = array("1000Sun/fvwm2_FIN_3D_black.png",
                              "1000Sun/fvwm2_FIN_gimmed.png",
                              "1000Sun/fvwm2_FIN_gimmed_no_border.png",);
+
+$logo_array[2] = array("1000Sun/fvwm2_FIN_emblem_1.png",
+                             "1000Sun/fvwm2_FIN_emblem_2.png",
+                             "1000Sun/fvwm2_FIN_emblem_3.png",);
+
+//--------------------------------------------------------------------
+// development time
+// return;
+//--------------------------------------------------------------------
 
 $logo_array[5] = array("1000Sun/fvwm2_FIN_flat.png",);
 
@@ -29,8 +35,8 @@ $logo_array[20] = array("Anna_MacLachlan/clearly1.png",);
 // $logo_array[21] = array("Anna_MacLachlan/jungle-overview.png",);
 // $logo_array[22] = array("Anna_MacLachlan/jungle-set.png",);
 
-$logo_array[23] = array("Anna_MacLachlan/jungle1.png",);
-$logo_array[24] = array("Anna_MacLachlan/jungle2.png",);
+$logo_array[23] = array("Anna_MacLachlan/jungle1.png",
+                        "Anna_MacLachlan/jungle2.png",);
 
 $logo_array[25] = array("Annemarie_Rowson/fvwm.jpg",);
 // $logo_array[26] = array("Annemarie_Rowson/overview.png",);

@@ -12,7 +12,7 @@ $rel_path = "../../..";
 //--------------------------------------------------------------------
 if (strlen("$navigation_check") == 0) include($rel_path."/definitions.inc");
 
-$theme = "plain";
+$theme = "voting";
 $theme_file = theme_file($theme."_theme.inc");
 
 //--------------------------------------------------------------------
@@ -50,65 +50,158 @@ function change_bg_color(color) {
 </script>
 
 <map name="colormap">
-  <area shape="rect" coords="0,0,19,19"  href="javascript:change_bg_color('#ffffff');" alt="white background">
-  <area shape="rect" coords="20,0,39,19" href="javascript:change_bg_color('#d0d0d0');" alt="white background">
-  <area shape="rect" coords="40,0,59,19" href="javascript:change_bg_color('#808080');" alt="white background">
-  <area shape="rect" coords="60,0,79,19" href="javascript:change_bg_color('#505050');" alt="white background">
-  <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000');" alt="white background">
+  <area shape="rect" coords="0,0,19,19"  href="javascript:change_bg_color('#ffffff');" alt="white background" title="white background">
+  <area shape="rect" coords="20,0,39,19" href="javascript:change_bg_color('#d0d0d0');" alt="lite grey background" title="lite grey background">
+  <area shape="rect" coords="40,0,59,19" href="javascript:change_bg_color('#808080');" alt="grey background" title="grey background">
+  <area shape="rect" coords="60,0,79,19" href="javascript:change_bg_color('#505050');" alt="dark grey background" title="dark grey background">
+  <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000');" alt="black background" title="black background">
 </map>
 
 
-<h1><blink>This is a draft page!!! Voting is not possible yet</blink></h1>
+<!-- <h1><blink>This is a draft page!!! Voting is not possible yet</blink></h1> -->
 
 <?php 
 
-if( ! function_exists("insert_color_list") ) {
-    function insert_color_list() {
-        echo 'Change background color:&nbsp;<img src="colors.gif" align="middle" border="1" usemap="#colormap">';
-    }
-}
+include_once(sec_filename("voting_functions.inc"));
 
-decoration_window_start("FVWM Logo Competition Voting Page", "100%", "");
 ?>
 
+<?php 
+$id = trim(get_user_setting("id"));
+if( $email = id_is_registered( $id ) ) :
+?>
+
+<h1>Welcome to fvwm logo voting</h1>
+
+<p>
+You have been validated having email address <b>&lt;<?php echo $email; ?>&gt;</b>
+</p>
 
 <p>
 Using this web site you can vote for logos taking part on the fvwm logo competition.
 </p>
 
-
+<!-- -------------------------------------------------------------------- -->
+<!-- Rules                                                                -->
+<!-- -------------------------------------------------------------------- -->
 <h3>Voting rules</h3>
 <p>
 You can vote for one or more logos. To vote for a logo or a logo group check the box left beside the logo. 
 </p>
 
-<form action="index.php">
+<form action="vote.php" method="GET">
+
 <?php
 //--------------------------------------------------------------------
 //- insert logos 
 //--------------------------------------------------------------------
 $logo_list = "logo_list.inc";
 
+// read logo list
 $logo_array = array();
 include(sec_filename($logo_list));
 
+uasort($logo_array, "random_sort");
+$num_of_logos = 0;
+
 foreach( $logo_array as $number => $logos ) {
-    echo '<input type="checkbox" name="logo'.$number.'" value="1">&nbsp;Vote&nbsp;&nbsp;';
+    echo '<input type="checkbox" name="logo'.$number.'" value="'.$number.'"';
+    if( $stimme[$number] ) {
+        echo " checked";
+    }
+    echo '>&nbsp;Vote&nbsp;&nbsp;';
+    // echo $number;
     foreach( $logos as $logo ) {
         $logo_preview = preg_replace('/...$/', "png", $logo);
         echo '<a href="../'.dirname($logo).'" target="newwindow">';
-        echo '<img src="previews/'.$logo_preview.'" border="0" align="middle">';
+        echo '<img src="previews/'.$logo_preview.'" border="0" align="middle" vspace="3" hspace="3">';
         echo '</a>';
     }
+    echo '<a href="../'.dirname($logo).'" target="newwindow">Author page</a>';
     echo "<br>\n";
     insert_color_list();
     echo '<hr size="1" width="100%" noshade>'."\n";
+    $num_of_logos++;
 }
+    echo "Total $num_of_logos logos\n";
 ?>
-
+    <center>
+      <input name="id" value="<?php if(get_user_setting('id')) { echo get_user_setting('id'); } ?>" type="hidden">
+      <input value="Submit your voting" type="submit">
+    </center>
+    
 </form>
 
 
-<?php decoration_window_end();?>
+<?php
+    else:
+?>
 
+<?php 
+    if( get_user_setting("id") ) {
+        echo "<h1>Your id is not valid. Please insert your email address!!</h1>";
+    } else {
+        echo "<h1>You must be registered before you can vote!!</h1>";
+    }
+?>
+
+<p>
+  Please enter your email address in the text field. 
+  A generated id will be sent to you which allows you 
+  to take part at the logo competition.
+</p>
+<p>
+  Your mail address is only used to send you a authorization
+  key to avoid voting multiple times.
+</p>
+
+<form action="login.php" method="GET">
+  <table cellpadding="2" border="0">
+    <tr>
+      <td>
+	Email Address:
+      </td>
+    </tr>
+    <tr>
+      <td>
+	<input type="text" 
+	       name="email" 
+	       size="30" 
+	       maxlength="100" 
+	       value="<?php if(get_user_setting('email')) { echo get_user_setting('email'); } ?>">
+      </td>
+      <td>
+	<input value="Register" type="submit">
+      </td>
+    </tr>
+  </table>
+  <input name="register" value="1" type="hidden">  
+</form>
+
+<form action="index.php" method="GET">    
+  <table cellpadding="2" border="0">
+    <tr>
+      <td colspan="2" wrap>
+       If you have been registered already <br> you may insert you authorization code here:
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <input type="text" 
+               name="id" 
+               size="30" 
+               maxlength="100" 
+               value="<?php if(get_user_setting('id')) { echo get_user_setting('id'); } ?>">
+      </td>
+      <td>
+        <input value="Login" type="submit">
+      </td>
+    </tr>
+  </table>
+</form>
+
+
+<?php
+    endif;
+?>
 
