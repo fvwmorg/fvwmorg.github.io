@@ -1,3 +1,12 @@
+2002-08-11  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* index.html:
+	* download.html:
+	* generated/AUTHORS.html:
+	* generated/FAQ.html:
+	* generated/NEWS.html:
+	updated for 2.4.9
+
 2002-08-10  Mikhael Goikhman  <migo@homemail.com>
 
 	* generated/manpages/*.html:
@@ -25,7 +34,7 @@
 2002-07-19  Dan Espen  <dane@mk.telcordia.com>
 
 	* screenshots/index.html: Screenshot from Remko Troncon.
-	Screenshot from Christian Michon. 
+	Screenshot from Christian Michon.
 
 2002-06-24  Mikhael Goikhman  <migo@homemail.com>
 
