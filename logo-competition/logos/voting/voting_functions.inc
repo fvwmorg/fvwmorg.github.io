@@ -78,6 +78,7 @@ function register_mail_and_id( $email, $id ) {
     global $register_file;
     if( $handle = fopen ($register_file, "a") ) {
         fwrite( $handle, trim($email)."   ".trim($id)."\n");
+        fwrite( $handle, "# time        : ".date("r")."\n");
         fwrite( $handle, "# ip          : ".$_SERVER["REMOTE_ADDR"]."\n");
         fwrite( $handle, "# remote host : ".$_SERVER["REMOTE_HOST"]."\n");
         // fwrite( $handle, "# host name   : ".$_SERVER["HTTP_HOST"]."\n");
