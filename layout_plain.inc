@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <14.04.2003 07:41:34 uwp>
+//-  Last modified : <14.04.2003 08:40:54 uwp>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -378,7 +378,7 @@ if( strlen($heading) == 0 ) $heading = $title;
     }
     ?>
     <hr>
-    <p><a href="?layout=default">window layout</a></p>
+    <p><a href="<?php echo $requested_file;?>?layout=default">window layout</a></p>
     <!-- bottom of the page - display last modified information -->
     <p style="text-align:right; font-size:xx-small; font-style:italic;">
        <?php insert_timestamp($requested_file); ?>

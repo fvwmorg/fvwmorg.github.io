@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <14.04.2003 07:39:00 uwp>
+//-  Last modified : <14.04.2003 08:42:06 uwp>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -308,7 +308,7 @@ function decoration_bottom_line($string="", $add_css="") {
 // buttons like the window decoration of a window manager
 function decoration_title_bar($string="") {
   global $decoration_path, $this_site, $window_border_bg, 
-         $hilight_fg, $hilight_bg, $no_def_file, $rel_path;
+         $hilight_fg, $hilight_bg, $no_def_file, $rel_path, $requested_file;
 
   $def_file = $decoration_path."/deco_definitions.inc";
   if( file_exists($def_file) ) include(sec_filename($def_file)); 
@@ -341,8 +341,8 @@ function decoration_title_bar($string="") {
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
-    echo '<a href="?layout=plain">';
-    echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>';
+    echo '<a href="'.$requested_file.'?layout=plain">';
+    echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></td>';
     echo '</a>'."\n";
 
     echo '</tr>'."\n";
