@@ -149,6 +149,9 @@ if(!isset($site_has_been_loaded)) {
       <li><a href="http://newton.physics.arizona.edu/~lapeyre/fvwmconf/index.html">John Lapeyre's FvwmConf</a> -
       A module for interactively configuring FVWM (old, 1997)</li>
 
+      <li><a href="http://home.gna.org/felidae/FvwmOsd.html">FvwmOsd</a> - display 
+      an on-screen display (like the one on many TVs) on your X display</li>
+
 <!--
        Whatever happened to this one?  -RBW
        <li><a href="http://www-personal.umich.edu/~markcrim/tkgoodstuff/">
