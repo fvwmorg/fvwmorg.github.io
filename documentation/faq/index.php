@@ -79,7 +79,9 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_2.6"></a>     <a href="#2.6">2.6</a>  I'm a sysadmin, and if I wanted fvwm to look for all of
           its rc files in a hidden directory, say ~/.fvwm, much
           like CDE does, how could I do that?
-<a name="toc_2.7"></a>     <a href="#2.7">2.7</a>  How can I use FVWM with GNOME?
+<a name="toc_2.7"></a>     <a href="#2.7">2.7</a>  How can I use FVWM with GNOME version &lt;= 1?
+<a name="toc_2.8"></a>     <a href="#2.8">2.8</a>  How can I use FVWM with GNOME version &gt;= 2 or KDE
+          version &gt;= 2?
 
 <a name="toc_3."></a><a href="#3.">3.</a> Features, Configuration, Functions &amp; Commands
 
@@ -605,20 +607,19 @@ A: FVWM now supports ~/.fvwm search directory by default.
 
 ----------------------------------------------------------------------
 
-<a name="2.7"></a><a href="#toc_2.7">2.7</a>  How can I use FVWM with GNOME?
+<a name="2.7"></a><a href="#toc_2.7">2.7</a>  How can I use FVWM with GNOME (version &lt;= 1)?
 
 A: Since the latest fvwm versions are mostly GNOME compliant, you may
    simply run GNOME applications, like panel, gmc, gnome-terminal and
-   all others on top of the pure FVWM.
+   all others with FVWM.
 
-   The included fvwm-menu-desktop script with a massive man page may
-   help you build a list of gnome applications in fvwm menus.
+   The included fvwm-menu-desktop script (with a massive man page) will
+   help you build fvwm menus for gnome applications.
 
-   To ensure you will run FVWM and not gnome-session, create .Xclients
+   To ensure you run FVWM and not gnome-session, create .Xclients
    file in your home directory and put a call to fvwm in it.
-   The file ~/.xinitrc can be used for the similar purposes if you want
-   to bypass any system-wide logic put by your distributor or sysadmin.
-
+   The file ~/.xinitrc can be used for the same purpose if you want
+   to bypass any system-wide logic installed by your distributor or sysadmin.
 
    An alternative solution is to run FVWM inside of /usr/bin/gnome-session.
    After you start gnome-session (don't start FVWM yourself), go to the
@@ -629,20 +630,61 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
    and create an entry for FVWM.  FVWM supports session management.
 
    If you run gnome-session, SessionInitFunction and SessionRestartFunction
-   are called instead of InitFunction and RestartFunction, see the man page.
-   StartFunction, where we suggest to run modules, is called as usual.
+   are called instead of InitFunction and RestartFunction, see the fvwm man page.
+   StartFunction, for running modules, is called as usual.
 
 
    Here are examples of the GNOME Window Manager hints support in FVWM:
 
    o If you run gnome panel inside fvwm without GNOME support, you can't
-     fully use GNOME pager applets (if at all); with such support you can
-     see right pages/desks and move windows between them inside applets.
-     You can also use Tasklist applet and manage your windows using it.
+     fully use GNOME pager applets (if at all); with GNOME support you can
+     correctly see pages/desks and move windows between them inside applets.
+     You can also use the GNOME Tasklist applet and manage your windows using it.
 
    o If you run gmc and bind GnomeButton (see the man page), you can pass
      root clicks to a gnome application (i.e. to gmc in this case).
 
+----------------------------------------------------------------------
+
+<a name="2.8"></a><a href="#toc_2.8">2.8</a> How can I use FVWM with GNOME version &gt;= 2 or KDE version &gt;= 2?
+
+A: Most standard applications work as any other application with
+   FVWM. However, some features and special applications such as panels,
+   pagers, taskbars and desktops need a special support. Interaction
+   between the window manager, the desktop environment and applications
+   is standardized in the Extended Window Manager Hints
+   specification. FVWM supports this specification since the 2.5.x
+   series (GNOME, GTK, KDE and QT since their version 2). See the
+   &quot;Extended Window Manager Hints&quot; section of the fvwm manual page and
+   the commands and styles which start with &quot;EWMH&quot; for more details.
+
+   You can use fvwm as the GNOME window manager. For this, start GNOME
+   (gnome-session). The game is to replace the running window manager
+   (sawfish or metacity by default) by fvwm. You may try to type
+   &quot;fvwm --replace&amp;&quot; in a terminal. If this does not work kill fvwm and
+   open the session properties dialog (run &quot;gnome-session-properties&amp;&quot;
+   in a terminal) and change, in the second tab, the metacity (or
+   sawfish) Style value from &quot;Restart&quot; to &quot;Normal&quot; (do not forget to
+   &quot;Apply&quot; this change), so that gnome-session won't restart it when
+   you kill it. Then, run &quot;killall metacity; sleep 1; fvwm &amp;&quot; in a
+   terminal. After you have succeeded starting fvwm you just have to save
+   your session (say via GNOME session logout). The next time you start
+   gnome-session, fvwm will be used (and you do not need to save the
+   session again at logout). Note that if you use gnome-smproxy, and run
+   an FvwmButtons which swallows some applications which use the old
+   session protocol these applications are restarted by gnome-session
+   and FvwmButtons at session restart which can cause trouble.
+
+   You can also use fvwm as the KDE window manager.  KDE is started by a
+   shell script called &quot;startkde&quot;. This script starts ksmserver which
+   starts the window manager (kwin by default). To start fvwm you should
+   add the option &quot;-w fvwm&quot; to the ksmserver command line (close to the
+   end of the script). You may copy startkde to startkde_fvwm somewhere
+   in your path, edit startkde_fvwm and finally replace startkde by
+   startkde_fvwm in your X startup script (e.g., ~/.xinitrc, ~/.Xclients
+   or ~/.xsession). Note that ksmserver does not support the fvwm Restart
+   command. You should use &quot;Restart fvwm&quot; for restarting fvwm. But if you
+   do that it is a bad idea to save the session later. 
 
 ======================================================================
 <a name="3."></a>          <a href="#toc_3.">3</a> - Features, Configuration, Functions &amp; Commands
@@ -2549,7 +2591,8 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
    Also, GNOME and KDE have desktop icon applications gmc and kfm,
    which enable this functionality.  These applications may be run
-   under FVWM.
+   under FVWM. Nautilus (version &gt;= 2) and kdesktop may be run under
+   FVWM version 2.5.1 or better.
 
 ----------------------------------------------------------------------
 
