@@ -60,14 +60,15 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
+<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
-<td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
-<td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
 <td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
 <td><a href="#2.3.31" style="font-weight:normal;">&nbsp;2.3.31&nbsp;</a></td>
 <td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
-<td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
 <td><a href="#2.3.28" style="font-weight:normal;">&nbsp;2.3.28&nbsp;</a></td>
 <td><a href="#2.3.27" style="font-weight:normal;">&nbsp;2.3.27&nbsp;</a></td>
 <td><a href="#2.3.26" style="font-weight:normal;">&nbsp;2.3.26&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
 <td><a href="#2.3.22" style="font-weight:normal;">&nbsp;2.3.22&nbsp;</a></td>
 <td><a href="#2.3.21" style="font-weight:normal;">&nbsp;2.3.21&nbsp;</a></td>
-<td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
 <td><a href="#2.3.19" style="font-weight:normal;">&nbsp;2.3.19&nbsp;</a></td>
 <td><a href="#2.3.18" style="font-weight:normal;">&nbsp;2.3.18&nbsp;</a></td>
 <td><a href="#2.3.17" style="font-weight:normal;">&nbsp;2.3.17&nbsp;</a></td>
@@ -109,9 +110,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
 <td><a href="#2.3.13" style="font-weight:normal;">&nbsp;2.3.13&nbsp;</a></td>
 <td><a href="#2.3.12" style="font-weight:normal;">&nbsp;2.3.12&nbsp;</a></td>
-<td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
 <td><a href="#2.3.10" style="font-weight:normal;">&nbsp;2.3.10&nbsp;</a></td>
 <td><a href="#2.3.9" style="font-weight:normal;">&nbsp;2.3.9&nbsp;</a></td>
 <td><a href="#2.3.8" style="font-weight:normal;">&nbsp;2.3.8&nbsp;</a></td>
@@ -120,9 +121,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
 <td><a href="#2.3.4" style="font-weight:normal;">&nbsp;2.3.4&nbsp;</a></td>
 <td><a href="#2.3.3" style="font-weight:normal;">&nbsp;2.3.3&nbsp;</a></td>
-<td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
 <td><a href="#2.3.1" style="font-weight:normal;">&nbsp;2.3.1&nbsp;</a></td>
 <td><a href="#2.3.0" style="font-weight:normal;">&nbsp;2.3.0&nbsp;</a></td>
 <td><a href="#2.2.5" style="font-weight:normal;">&nbsp;2.2.5&nbsp;</a></td>
@@ -410,6 +411,25 @@ decoration_window_start("Latest News");
   <li> New conditional commands Any and PointerWindow.</li>
   <li> New conditions Focused, !Focused, HasPointer and !HasPointer.</li>
   <li> New commands EWMHBaseStruts and EWMHNumberOfDesktops.</li>
+</ul>
+
+
+<a name="2.4.19"></a>
+<h4>Changes in stable release 2.4.19 (30-Sep-2004) <a href="#top">[top]</a></h4>
+<ul>
+  <li> Fixed BackingStore style option.</li>
+  <li> Fixed MoveToDesk commend with a single argument.</li>
+  <li> Allow whitespace in menu names.</li>
+  <li> Fixed a hang when restarting FvwmCommand or FvwmConsole.</li>
+  <li> A double click no longer occurs when two different mouse  buttons are pressed.</li>
+  <li> Fixed a relief drawing problem in FvwmWinList.</li>
+  <li> Fixed traveling windows on restart if a window used non NorthWest  gravity and changed that before the restart.</li>
+  <li> Fixed installation of FvwmGtk.1 for debian (with DESTDIR set).</li>
+  <li> The clock in FvwmTaskBar is redrawn immediately when its colour  changes.</li>
+  <li> The option CurrentGlobalPageAnyDesk was accidentally named  CurrentGlobbalPageAnyDesk before.</li>
+  <li> Fixed a problem with fvwm startup and shutdown when the pointer  was grabbed by another application.</li>
+  <li> Fixed parsing of the Pointer option to the Move command.</li>
+  <li> Fixed handling of MWM hints on 64 bit machines.</li>
 </ul>
 
 
