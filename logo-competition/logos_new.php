@@ -532,4 +532,43 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Gabriel Feld (3 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Gabriel_Feld/index.php'); ?>">
+
+<p><img src="logos/Gabriel_Feld/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Felix Wieman (6 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Felix_Wiemann/index.php'); ?>">
+
+<p><img src="logos/Felix_Wiemann/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Takashi Toyooka (20 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Takashi_Toyooka/index.php'); ?>">
+
+<p><img src="logos/Takashi_Toyooka/banner-sml-3d.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
