@@ -88,9 +88,30 @@ decoration_window_start("Mailing lists");
   </p>
 
   <p>
-    Also the mailing lists are now <a href="http://www.hpc.uh.edu/fvwm/archive/">archived</a>!
+    Also the mailing lists are <a href="http://www.hpc.uh.edu/fvwm/archive/">archived</a>!
   </p>
 
+  <p>
+    <table cellpadding="0" cellspacing="0" border="0">    
+      <form method="GET"  action="http://www.google.de/search" name="f">
+	<tr>
+	  <td colspan="0" rowspan="0"><b>Search the mail archiv with Google: </b></td>
+          <td>&nbsp;</td>
+	  <td colspan="0" rowspan="0"><input type="text" value="" name="as_q" size="30"> </td>
+      	  <input type="hidden" value="http://www.hpc.uh.edu" name="as_sitesearch">
+<!--	  <td colspan="0" rowspan="0"><select name="as_qdr">-->
+<!--	  				<option value="all">all mails</option>-->
+<!--			  		<option value="m3">last 3 months</option>-->
+<!--	  				<option value="m6">last 6 months</option>-->
+<!--	  				<option value="y">last years</option>-->
+<!--				      </select> </td>-->
+          <td>&nbsp;</td>
+       	  <td colspan="0" rowspan="0"><input type="submit" name="btnG" value="Fvwm Search"></td>
+       	</tr>
+      </form>
+    </table>
+  </p>
+  
   <h4>IRC Channels</h4>
 
   <p>
