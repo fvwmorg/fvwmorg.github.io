@@ -28,19 +28,8 @@ class Theme_Descriptions_Helper {
     }
 
     function set_user_settings() {
-        if( strlen(my_get_global("clear_cookies", "POST")) > 0 ) {
-            foreach( $_COOKIE as $cookie ) {
-                setcookie($cookie, "", time()-60*60*24, "/");
-            }
-            // uwp: I don't know if this correct but it worked on my computer ;-)
-            $_POST   = array();
-            $_GET    = array();
-            $_COOKIE = array();
-            return;
-        }
 
         $propagation_method = get_user_setting("propagation_method", array("GET", "POST", "SESSION", "COOKIE"));
-        $style_description_array = $this->theme_descriptions[$this->selected_theme]["style"];
         // check if cookies can be used to store this values
         if( !strcmp($propagation_method, "cookie") ) {
             // set a cookie for one year - after this time the browser rejects this settings
@@ -52,6 +41,30 @@ class Theme_Descriptions_Helper {
             // propagation method is GET
             $_GET["theme"] = $this->selected_theme;
         }
+
+        // check for cookie clearing
+        if( strlen(my_get_global("clear_cookies", "POST")) || strlen(my_get_global("theme_change", "POST")) ) {
+            foreach( $_COOKIE as $cookie ) {
+                setcookie($cookie, "", time()-60*60*24, "/");
+            }
+            if( strlen(my_get_global("clear_cookies", "POST")) ) {
+                setcookie("cookies_disabled", "true", time()+60*60*24, "/");
+            } else {
+                setcookie("cookies_disabled", "", time()-60*60*24, "/");
+            }
+            // uwp: I don't know if this correct but it worked on my computer ;-)
+            $_POST   = array();
+            $_GET    = array();
+            $_COOKIE = array();
+            return;
+        } else {
+            if( strlen(my_get_global("cookies_disabled", "COOKIE")) ) {
+                setcookie("cookies_disabled", "", time()-60*60*24, "/");
+            }
+        }
+
+        $style_description_array = $this->theme_descriptions[$this->selected_theme]["style"];
+
         // print_r($style_description_array);
         // print_r($_COOKIE);
         foreach( $style_description_array as $style => $style_settings ) {
@@ -97,19 +110,9 @@ class Theme_Descriptions_Helper {
     }
 
     function set_propagation_method() {
-
-        if( $this->propagation_method = my_get_global("propagation_method", "GET") ) {
-            // use GET settings
-        } elseif( $this->propagation_method = my_get_global("propagation_method", "POST") ) {
-            // use POST settings
-        } elseif( $this->propagation_method = my_get_global("propagation_method", "SESSION") ) {
-            // use SESSION settings
-        } elseif( $this->propagation_method = my_get_global("propagation_method", "COOKIE") ) {
-            // use COOKIE settings
-        } else {
-            $this->propagation_method = "session";
-        }
-
+        if ( ! $this->propagation_method = get_user_setting("propagation_method", array("GET", "POST", "SESSION", "COOKIE"))) 
+            $this->propagation_method = "get";
+        
         $regexp = "/^(";
         foreach($this->available_propagation_methods as $method) {
             if( strcmp($regexp, "/^(") )
@@ -122,7 +125,7 @@ class Theme_Descriptions_Helper {
         // set default if not set properly
         if(   strlen($this->propagation_method) == 0 ||
               ! preg_match($regexp, $this->propagation_method) ) {
-            $this->propagation_method = "session";
+            $this->propagation_method = "get";
         }
     }
 

@@ -2,8 +2,6 @@
 //--------------------------------------------------------------------
 //-  File          : definitions.inc
 //-  Project       : PHP Homepage
-//-  Date          : Sun Nov 17 20:57:39 2002
-//-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -126,9 +124,13 @@ function my_get_global($varname, $vartype)  {
                 $mytype = &$_GET;
                 break;
             case "POST":
+                // uwp: check if cookie setting can be used
+                if( strlen($_POST["clear_cookies"]) > 0 && strcmp("clear_cookies",$varname) ) return;
                 $mytype = &$_POST;
                 break;
             case "COOKIE":
+                // uwp: check if cookie setting can be used
+                if( strlen($_POST["clear_cookies"]) || strlen($_COOKIE["cookies_disabled"]) ) return;
                 $mytype = &$_COOKIE;
                 break;
             case "SERVER":
@@ -211,6 +213,11 @@ function get_user_setting($variable, $methods=array("GET", "POST", "SESSION", "C
         if( $value = my_get_global($variable, $method) ) return $value;
     }
 }
+
+// echo "<pre>";
+// print_r($_COOKIE);
+// print_r($_POST);
+// echo "</pre>";
 
 //--------------------------------------------------------------------
 // global definitions for all php files
