@@ -1,3 +1,9 @@
+2004-01-05  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* index.php:
+	* logo-competition/index.php:
+	Updated current state of logo competition.
+
 2004-01-01  Mikhael Goikhman  <migo@homemail.com>
 
 	* screenshots/desktops/GlenLeeEdwards-desk3-1024x768/description.inc:
@@ -18,7 +24,8 @@
 
 2003-11-05  Dan Espen  <dane@mk.telcordia.com>
 
-	* screenshots/windowdecors/DecorDemo4.fvwmrc: Add plus sign from Rik Nilsson.
+	* screenshots/windowdecors/DecorDemo4.fvwmrc:
+	Add plus sign from Rik Nilsson.
 
 2003-11-01  Mikhael Goikhman  <migo@homemail.com>
 
@@ -33,7 +40,7 @@
 
 2003-10-22  Uwe Pross  <uwe.pross@gmx.net>
 
-	* download/index.php: 
+	* download/index.php:
 	Changed package info of alpha/beta release to unstable release.
 
 2003-10-20  Dan Espen  <dane@mk.telcordia.com>
@@ -60,11 +67,11 @@
 
 2003-10-04  Uwe Pross  <uwe.pross@gmx.net>
 
-	* web-theme/themes/voting_theme.inc: 
+	* web-theme/themes/voting_theme.inc:
 	* logo-competition/logos/color_select.inc:
 	* logo-competition/logos/voting/index.php:
 	fixed minor bugs in color change functionality
-	
+
 	* web-theme/classes/default_class.inc:
 	added specification of cell width border cells
 
@@ -72,28 +79,28 @@
 
 	* screenshots/desktops/Klaus_Umbach-1280x1024/*:
 	added screenshot
-	
+
 2003-09-28  Uwe Pross  <uwe.pross@gmx.net>
 
 	* navgen_write/navigation.inc
 	regenerated navgiation array
-		
-	* index.php: 
+
+	* index.php:
 	fixed link in quick jump list to desktop screenshots
 
-	* screenshots/desktops/index.php: 
+	* screenshots/desktops/index.php:
 	changed link name to "Desktop Screenshots"
 
-	* definitions.inc: 
+	* definitions.inc:
 	removed protest page against software patents.
 
 2003-09-03  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/index.php: 
-	* logo-competition/rules.php: 
-	* index.php: 
+	* logo-competition/index.php:
+	* logo-competition/rules.php:
+	* index.php:
 	Updated announcement of voting period.
-	
+
 	* logo-competition/logos/1000Sun/*:
 	added logos
 
@@ -104,27 +111,27 @@
 	* logo-competition/logos/Gabriel_Feld/*:
 	added logos
 
-	* logo-competition/logos_new.php: 
-	* logo-competition/logos/Keran/*: 
+	* logo-competition/logos_new.php:
+	* logo-competition/logos/Keran/*:
 	* logo-competition/logos/Julien_Guertault/*:
 	added logos
 
 	* screenshots/desktops/<directories>/*
-	* screenshots/classes/picture_page.inc: 
+	* screenshots/classes/picture_page.inc:
 	fixed bug in navigation links
 
-	* screenshots/index.php: 
+	* screenshots/index.php:
 	changed links to new desktop page
 
-	* screenshots/desktops.php: 
+	* screenshots/desktops.php:
 	disabled page
 
-	* screenshots/desktops/index.php: 
+	* screenshots/desktops/index.php:
 	enabled page
 
 	* navgen_write/navigation.inc
 	generated new navigation file
-	
+
 2003-08-26  olicha  <olivier.chapuis@free.fr>
 
 	* links.php:
@@ -134,11 +141,11 @@
 
 	* web-theme/themes/against_sw_patents_statement.inc:
 	fixed html code, changed color, added link
-	
-	* customize_theme/theme_descriptions_helper.inc: 
+
+	* customize_theme/theme_descriptions_helper.inc:
 	added javascript element to submit theme changes automatically
-	when they occur 
-	
+	when they occur
+
 	* definitions.inc:
 	activated protest page against software patents.
 
@@ -150,28 +157,28 @@
 2003-08-22  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/Tom_Krietemeyer/*:
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos_new.php:
 	added logo
 
 2003-08-20  Uwe Pross  <uwe.pross@gmx.net>
 
-	* screenshots/classes/screenshot_lister.inc: 
+	* screenshots/classes/screenshot_lister.inc:
 	* screenshots/desktops/update_screenshot_db.cli
 	improved concept - added image dimension and automatic generation
 	of preview images and further checks and outputs
-	
+
 2003-08-19  Uwe Pross  <uwe.pross@gmx.net>
 
-	* screenshots/classes/screenshot_lister.inc: 
+	* screenshots/classes/screenshot_lister.inc:
 	still on the screenshot page concept
-	
+
 	* screenshots/desktops.php:
 	added screenshot from Jules Alberts
 
 2003-08-18  Uwe Pross  <uwe.pross@gmx.net>
 
-	* screenshots/Thomas_Adam-desk-1024x768.php: 
-	* screenshots/Thomas_Adam-desk-1024x768.png: 
+	* screenshots/Thomas_Adam-desk-1024x768.php:
+	* screenshots/Thomas_Adam-desk-1024x768.png:
 	* screenshots/Thomas_Adam-desk-1024x768-thumb.jpg:
 	* screenshots/desktops.php:
 	added screenshot from Thomas Adam
@@ -183,11 +190,11 @@
 
 2003-08-14  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Daniel_J_Parks/*: 
-	* logo-competition/logos/Branko_Collin/*: 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos/Daniel_J_Parks/*:
+	* logo-competition/logos/Branko_Collin/*:
+	* logo-competition/logos_new.php:
 	added logos
-	
+
 2003-08-08  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos_new.php:
@@ -195,38 +202,38 @@
 	added logo
 	* documentation/faq/index.php:
 	updated faq
-	
+
 2003-08-07  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos_new.php:
 	* logo-competition/logos/Patrick_Collison/*:
 	added logo
 
 2003-08-06  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Greg_Rymer/*: 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos/Greg_Rymer/*:
+	* logo-competition/logos_new.php:
 	* logo-competition/logos/Patrick_Collison/*:
 	added logos
 
 2003-08-04  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
-	* logo-competition/logos/Phil_Harper/index.php: 
+	* logo-competition/logos_new.php:
+	* logo-competition/logos/Phil_Harper/index.php:
 	added logo. added overview pics.
 
 2003-07-30  Uwe Pross  <uwe.pross@gmx.net>
 
-	* links.php: 
-	* index.php: 
+	* links.php:
+	* index.php:
 	Added link to wiki page
 
 	* contact/index.php:
 	Added heading for IRC Channels
-	
+
 2003-07-28  Uwe Pross  <uwe.pross@gmx.net>
 
-	* news/news2php: 
+	* news/news2php:
 	* news/index.php:
 	fixed minor bug in news generation script. regenerated news page
 
@@ -237,59 +244,59 @@
 
 2003-07-23  Uwe Pross  <uwe.pross@gmx.net>
 
-	* COPYING: 
+	* COPYING:
 	* definitions.inc:
 	added gpl license file and statement.
-	
+
 2003-07-22  Uwe Pross  <uwe.pross@gmx.net>
 
-	* web-theme/themes/theme_descriptions.inc: 
+	* web-theme/themes/theme_descriptions.inc:
 	* web-theme/classes/pager_on_top_class.inc:
 	changed default look to a more fancy one ;-)
 
 2003-07-21  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos_new.php:
 	* logo-competition/logos/Alex_Wallis/*:
 	added logo of alex wallis
 
 2003-07-18  Uwe Pross  <uwe.pross@gmx.net>
 
-	* customize_theme/theme_descriptions_helper.inc: 
-	* definitions.inc: 
-	fixed problems using cookies for theme ond style selection. 
+	* customize_theme/theme_descriptions_helper.inc:
+	* definitions.inc:
+	fixed problems using cookies for theme ond style selection.
 
 2003-07-17  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos_new.php:
 	* web-theme/classes/pager_on_top_class.inc:
 	* web-theme/themes/pager_on_top_theme.inc:
 	* web-theme/themes/theme_descriptions.inc:
 	* web-theme/themes/plain_theme.inc:
 	changed theme to "pager on top theme"
-	
+
 2003-07-16  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
+	* logo-competition/logos_new.php:
 	* logo-competition/logos/Russell_Martin/*:
 	added logo of russel martin
 
 2003-07-16  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Anthony_Lee/index.php: 
+	* logo-competition/logos/Anthony_Lee/index.php:
 	* logo-competition/logos_new.php:
 	added two more logos
-	
+
 2003-07-15  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Geoffroy_Giraux/: 
+	* logo-competition/logos/Geoffroy_Giraux/:
 	* logo-competition/logos/Annemarie_Rowson/:
 	* logo-competition/logos/Anthony_Lee/:
 	added new logos
-	
+
 2003-07-11  Uwe Pross  <uwe.pross@gmx.net>
 
-	* fvwm-cats/*.php: 
+	* fvwm-cats/*.php:
 	fixed links from cat page to index.php
 
 	* authors/index.php:
@@ -301,12 +308,12 @@
 	* *.php:
 	fixed problem with loading definitions.inc when using command line
 	interface. reduced debugging info of navgen.
-	
-	* documentation/dev_webpage/index.php: 
+
+	* documentation/dev_webpage/index.php:
 	started documentation of web site. contents are hidden at the
 	moment and visible with <url>?show=1
-	
-	* web-theme/classes/birthday_class.inc: 
+
+	* web-theme/classes/birthday_class.inc:
 	changed algorithm to build a navigation desktop so that desktops
 	with more than 4 pages grow horizontaly.
 
@@ -334,23 +341,23 @@
 
 2003-07-02  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Wolf_Bergenheim/index.php: 
+	* logo-competition/logos/Wolf_Bergenheim/index.php:
 	added logo with white background
 
 	* logo-competition/logos/*/index.php:
 	added some email addresses of logo submitters
 
-	* logo-competition/logos/Wolf_Bergenheim/*: 
+	* logo-competition/logos/Wolf_Bergenheim/*:
 	added logos
 
 2003-07-01  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
-	* logo-competition/logos/Tadashi_Hikone/*: 
-	* logo-competition/logos/Colin_May/*: 
+	* logo-competition/logos_new.php:
+	* logo-competition/logos/Tadashi_Hikone/*:
+	* logo-competition/logos/Colin_May/*:
 	* logo-competition/logos/Tian/logo_float*:
 	added logos
-	
+
 2003-06-30  Mikhael Goikhman  <migo@homemail.com>
 
 	* authors/authors2php:
@@ -380,7 +387,7 @@
 
 2003-06-11  Uwe Pross  <uwe.pross@gmx.net>
 
-	* documentation/dev_cvs.php: 
+	* documentation/dev_cvs.php:
 	Fixed Typo.
 
 	* logo-competition/logos/Ludovic_Recourchines/index.php:
@@ -406,25 +413,25 @@
 
 2003-06-08  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php: 
-	* logo-competition/logos/Aric_Campling/index.php: 
+	* logo-competition/logos_new.php:
+	* logo-competition/logos/Aric_Campling/index.php:
 	Added logos from Aric Campling.
 
 2003-06-06  Uwe Pross  <uwe.pross@gmx.net>
 
-	* index.php: 
+	* index.php:
 	Put birthday statement in past. Might be removed at all.
 
-	* web-theme/classes/birthday_class.inc: 
+	* web-theme/classes/birthday_class.inc:
 	Added referer link to the decoration to allow easier navigation.
 
-	* logo-competition/logos/Stefan_Bergmeier/*: 
+	* logo-competition/logos/Stefan_Bergmeier/*:
 	* logo-competition/logos_new.php:
 	Added logos from Stefan Bergmeier.
-	
+
 2003-06-04  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Felix_E_Klee/index.php: 
+	* logo-competition/logos/Felix_E_Klee/index.php:
 	* logo-competition/logos_new.php:
 	Added logos from Felix E. Klee (again.)
 
@@ -444,21 +451,21 @@
 
 2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
 
-	* web-theme/themes/theme_descriptions.inc: 
-	* web-theme/themes/plain_theme.inc: 
+	* web-theme/themes/theme_descriptions.inc:
+	* web-theme/themes/plain_theme.inc:
 	* web-theme/classes/plain_class.inc:
 	Made foreground and background of plain theme customizeable.
 
-	* customize_theme/theme_descriptions_helper.inc: 
+	* customize_theme/theme_descriptions_helper.inc:
 	Fixed propagation of theme variable when using propagation
 	method GET.
 
-	* logo-competition/logos/color_select.inc: 
+	* logo-competition/logos/color_select.inc:
 	Made color selection possible for other themes.
 
 2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/color_select.inc: 
+	* logo-competition/logos/color_select.inc:
 	Disabled color selection for all themes except birthday theme.
 
 	* logo-competition/logos_new.php:
@@ -466,14 +473,14 @@
 
 2003-06-02  Uwe Pross  <uwe.pross@gmx.net>
 
-	* index.php: 
+	* index.php:
 	Added link to download page. Used new function mylink.
 
-	* web-theme/helpers/members2globals.inc: 
+	* web-theme/helpers/members2globals.inc:
 	added function mylink($target, $text, $opt="") to get simpler
 	internal links.
 
-	* web-theme/classes/birthday_class.inc: 
+	* web-theme/classes/birthday_class.inc:
 	disabled cookies and session for birthday theme.
 
 2003-06-02  Mikhael Goikhman  <migo@homemail.com>
@@ -489,21 +496,21 @@
 
 	* birthday/index.php:
 	Corrected typo.
-	
+
 	* logo-competition/logos/Felix_E_Klee/index.php
 	* web-theme/classes/birthday_class.inc
 	* web-theme/themes/theme_descriptions.inc
 	Background color change for the birthday theme possible.
-	
-	* logo-competition/logos_new.php: 
+
+	* logo-competition/logos_new.php:
 	Provided images sizes.
 
 2003-06-01  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos/Felix_E_Klee/index.php: 
+	* logo-competition/logos/Felix_E_Klee/index.php:
 	Added logos by Felix E. Klee
 
-	* web-theme/classes/birthday_class.inc: 
+	* web-theme/classes/birthday_class.inc:
 	* web-theme/classes/default_class.inc:
 	* web-theme/themes/plain_theme.inc:
 	Added link to switch theme.
@@ -535,35 +542,35 @@
 
 	* definitions.inc:
 	set birthday theme as default.
-	
-	* web-theme/themes/birthday_theme.inc: 
+
+	* web-theme/themes/birthday_theme.inc:
 	Added css information for history page
 
-	* history.php: 
+	* history.php:
 	Created history information file
 
-	* latest_news/index.php: 
-	* latest_news/news_template.php_: 
+	* latest_news/index.php:
+	* latest_news/news_template.php_:
 	Added "birthday" site as child
-	
-	* navgen.cli: 
+
+	* navgen.cli:
 	Small fixes. Colored warnings
-	
-	* index.php: 
-	* links.php: 
-	* customize_theme/index.php: 
+
+	* index.php:
+	* links.php:
+	* customize_theme/index.php:
 	Changed customize page as child of "links" page to get history
 	page as child of "home"
-	
-	* authors/authors_template.php_: 
-	* authors/index.php: 
+
+	* authors/authors_template.php_:
+	* authors/index.php:
 	Added link to picture site.
 
 	* index.php:
 	* birthday/index.php:
 	* authors/pictures/index.php:
 	Added size info for pictures.
-	
+
 2003-05-31  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/manpages/manpages2php:
@@ -586,8 +593,8 @@
 
 2003-05-30  Uwe Pross  <uwe.pross@gmx.net>
 
-	* birthday/index.php: 
-	* birthday/developers/* 
+	* birthday/index.php:
+	* birthday/developers/*
 	Birthday stuff
 
 	* index.php
@@ -610,21 +617,21 @@
 2003-05-16  Uwe Pross  <uwe.pross@gmx.net>
 
 	* class + theme files:
-	added functionality to customize the page 
-	
+	added functionality to customize the page
+
 	* web-theme/classes/base_class.inc:
 	use theme description to init style_array
 	changed insert_timestamp to display change instead of access time.
 
 	* screenshots/desktops.php:
 	fixed gif entry in screenshot link.
-	
+
 2003-05-12  Dan Espen  <dane@mk.telcordia.com>
 
         * screenshots/make-php.pl: Fixup comments, fix matching on lines in desktops.php,
         put diff check back.
 
-        * screenshots/desktops.php: New screenshot from Maciej Delmanowski.	
+        * screenshots/desktops.php: New screenshot from Maciej Delmanowski.
 
 2003-05-06  Dominik Vogt  <dominik.vogt@gmx.de>
 
@@ -2123,4 +2130,3 @@ Sun Sep 12 09:20:38 1999  DanEspen  <dje@blue>
 	* xterm-bsd.xpm: Replaced illegally copied xterm-bsd.xpm with a
 	contributed icon from http://www.newsbone.org/~jonas/.
 	There are no copyrights attached to this icon.
-

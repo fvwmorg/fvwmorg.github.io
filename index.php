@@ -64,9 +64,9 @@ and support is excellent.  Check it out!
 </table>
 
 <hr>
-<b>News:</b> The submission period of the 
+<b>News:</b> The 
 <?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
-The final voting stage is in progres until 31-Dec-2003. Please check this site for updates. 
+The winning logo will be announced shortly.
 <hr>
 
 <div align="center">
