@@ -17,13 +17,15 @@
     <h1>The document you requested is not (longer) on this server - Error 404</h1>
 
     <p>
+      You request for document 
+      <b><?php echo $_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];?></b>
+      could be not fulfilled.
+    </p>
+
+    <p>
       Please update your bookmarks to <a href="../index.php"><?php echo $_SERVER["HTTP_HOST"];?></a>
     </p>
     
-    <p>
-      You requested the document &qout;<tt><?php echo $_SERVER["REQUEST_URI"];?></tt>&quot;.
-    </p>
-
     <p>
       You will be redirected after 5 seconds.
     </p>
