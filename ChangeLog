@@ -1,3 +1,8 @@
+2003-04-30  Bob Woodside  <dumbledore@woodsway.com>
+
+	* layout_default.inc:
+        Specified explicit width (minimum) for the pager.
+
 2003-04-30  Mikhael Goikhman  <migo@homemail.com>
 
 	* httpd/error404.php
