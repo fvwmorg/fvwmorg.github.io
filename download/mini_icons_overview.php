@@ -15,7 +15,7 @@ if(!isset($rel_path)) $rel_path = "./..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path.'/definitions.inc'); 
+include_once($rel_path.'/definitions.inc'); 
 
 //--------------------------------------------------------------------
 // Site definitions

@@ -1,3 +1,11 @@
+2004-12-07  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* All php related files:
+	Changed include to include_once when including definitions.inc
+
+	* definitions.inc:
+	Removed check which should avoid double loading.
+
 2004-12-06  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* links.php: 

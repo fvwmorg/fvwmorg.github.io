@@ -11,7 +11,7 @@ if(!isset($rel_path)) $rel_path = ".";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc");
+include_once("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -35,7 +35,7 @@ if(isset($navigation_check)) return;
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
-  include(sec_filename($layout_file));
+  include(sec_filename($theme_file));
   exit();
 }
 ?>

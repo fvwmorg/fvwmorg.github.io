@@ -11,7 +11,7 @@ $rel_path = "..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc'); 
+if (strlen("$navigation_check") == 0) include_once($rel_path.'/definitions.inc'); 
 
 //--------------------------------------------------------------------
 // Site definitions

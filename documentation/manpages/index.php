@@ -12,7 +12,7 @@ $rel_path = "../..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if(!isset($navigation_check)) include($rel_path."/definitions.inc");
+if(!isset($navigation_check)) include_once($rel_path."/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions

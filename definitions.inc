@@ -21,19 +21,13 @@
 //
 // You should have received a copy of  the  GNU  General  Public  License
 // along with this program; if not, write to the Free Software
-// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 
 
 //--------------------------------------------------------------------
 // exclude this file from navgen
 //--------------------------------------------------------------------
 if(isset($navigation_check)) return;
-
-//--------------------------------------------------------------------
-// check if this file has been already read
-//--------------------------------------------------------------------
-if(isset($definitions_has_been_read)) return;
-$definitions_has_been_read = "t";
 
 //--------------------------------------------------------------------
 //  my_get_global --

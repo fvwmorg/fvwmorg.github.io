@@ -17,7 +17,7 @@ if(isset($navigation_check)) return;
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc");
+include_once("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions

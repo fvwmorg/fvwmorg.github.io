@@ -18,7 +18,7 @@ if (strlen("$navigation_check") > 0) return;
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc");
+include_once("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions

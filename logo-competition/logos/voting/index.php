@@ -15,7 +15,7 @@ if(isset($navigation_check)) return;
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if(!isset($navigation_check)) include($rel_path."/definitions.inc");
+if(!isset($navigation_check)) include_once($rel_path."/definitions.inc");
 
 $theme = "voting2";
 $theme_file = theme_file($theme."_theme.inc");
