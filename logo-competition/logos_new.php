@@ -268,4 +268,17 @@ width="197" height="99" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Wolf Bergenheim (6 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Wolf_Bergenheim/index.php'); ?>">
+
+<p class="centered"><img src="logos/Wolf_Bergenheim/overview.png" width="388" height="301" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
