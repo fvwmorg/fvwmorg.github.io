@@ -44,12 +44,11 @@ line arguments.
 <h3>
 Arg 3
 </h3>
-The third command line argument is a character pointer pointing to the
-full path name of the last configuration file that fvwm read in. If there
-was no configuration file this arg points to a string containing "none".
-In fvwm2 there is little reason for a module to use this argument. It is
-there for backward compatibility with old modules and is not guaranteed to
-point to anything useful.
+The third command line argument is a character pointer pointing to the full
+path name of the configuration file from which the module was started. If
+the module was not started from any configuration file (for example, it is
+started from StartFunction), this arg points to a string containing "none".
+This argument is mostly for backward compatibility with old modules.
 
 <h3>
 Arg 4
