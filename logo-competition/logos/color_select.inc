@@ -1,3 +1,7 @@
+<?php 
+// allow color selection only for birthday theme
+if( ! preg_match("/birthday/", $theme_file) ) return;
+?>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">
 <?php $theme_object->decoration_top_line(); ?>

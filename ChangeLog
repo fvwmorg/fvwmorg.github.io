@@ -1,5 +1,8 @@
 2003-06-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
+	* logo-competition/logos/color_select.inc: 
+	Disabled color selection for all themes except birthday theme.
+
 	* logo-competition/logos_new.php:
 	Added Scott Smedley's logos
 
