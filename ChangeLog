@@ -1,3 +1,9 @@
+2003-07-23  Uwe Pross  <uwe.pross@gmx.net>
+
+	* COPYING: 
+	* definitions.inc:
+	added gpl license file and statement.
+	
 2003-07-22  Uwe Pross  <uwe.pross@gmx.net>
 
 	* web-theme/themes/theme_descriptions.inc: 
@@ -10,7 +16,7 @@
 	* logo-competition/logos/Alex_Wallis/*:
 	added logo of alex wallis
 
-2003-07-18  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-18  Uwe Pross  <uwe.pross@gmx.net>
 
 	* customize_theme/theme_descriptions_helper.inc: 
 	* definitions.inc: 
