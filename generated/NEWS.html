@@ -13,7 +13,22 @@
 Note, the changes for the last STABLE release start with release
 <A HREF="#2.2.5">2.2.5</A>.
 
-<b>Changes in beta release 2.3.29 (not released yet)</b>
+<b>Changes in beta release 2.3.31 (not released yet)</b>
+
+<b>Changes in beta release 2.3.30 (2001-03-29)</b>
+
+* The configure option --disable-modality was removed.
+
+* New FvwmCommand -c option to read multiple commands from standard input.
+
+<b>Changes in beta release 2.3.29 (2001-03-02)</b>
+
+* New temporary option -debug_stack_ring.
+
+* New styles IconifyWindowGroupsTogether and IconifyWindowGroupsOff.
+
+* New styles KeepWindowGroupsOnDesk and ScatterWindowGroups to cope with
+  applications using the window group hint incorrectly (mozilla).
 
 * New BugOpts option FlickeringQtDialogsWorkaround.
 
@@ -32,7 +47,7 @@ Note, the changes for the last STABLE release start with release
 
 * New command CopyMenuStyle.
 
-* Replaced Dump/SmartPlacement, Active/RandomPlacement, SmartPlacement/Off
+* Replaced Dumb/SmartPlacement, Active/RandomPlacement, SmartPlacement/Off
   style by ManualPlacement / CascadePlacement / MinOverlapPlacement /
   MinOverlapPercentPlacement / TileManualPlacement /TileCascadePlacement
   (old style still supported).
@@ -73,9 +88,9 @@ Note, the changes for the last STABLE release start with release
 
 * New expanding variables: $., $[page.nx], $[page.ny].
 
-* New command UnsetEnv accomplishes SetEnv.
+* New command UnsetEnv unsets environment variables, compliments SetEnv.
 
-* Pressing mouse button 2 in an FvwmIdent window restart FvwmIdent
+* Pressing mouse button 2 in an FvwmIdent window restarts FvwmIdent
   and asks for a new window.
 
 * New window styles GNOMEIgnoreHints and GNOMEUseHints to disable
@@ -90,7 +105,7 @@ Note, the changes for the last STABLE release start with release
 
 <b>Changes in beta release 2.3.21 (September 2000)</b>
 
-* Module configuration syntax now accepts a delimeter - colon and optional
+* Module configuration syntax now accepts a delimiter - colon and optional
   spaces; the old syntax is supported as usual (but it allows conflicts):
     *FvwmIconBoxMaxIconSize 48x48
     *FvwmIconBox: MaxIconSize 48x48
@@ -138,7 +153,7 @@ Note, the changes for the last STABLE release start with release
 * New options GrowUp, GrowDown, GrowLeft, GrowRight to the Maximize
   command.
 
-* New command ResizeMove combined Move and Resize commands.
+* New command ResizeMove combines Move and Resize commands.
 
 * New options "keep" to Move command to leave either coordinate unchanged.
 
@@ -159,7 +174,7 @@ Note, the changes for the last STABLE release start with release
   the fvwm user directory is now created if needed.
 
 * It is suggested to put all personal fvwm files to $HOME/.fvwm; to simulate
-  the old fvwm behaviour, export FVWM_USERDIR=$HOME .
+  the old fvwm behaviour, export FVWM_USERDIR=$HOME.
 
 * Instalating fvwm goodies is now to share/fvwm (FVWM_DATADIR), not etc/fvwm.
 
@@ -247,7 +262,7 @@ Note, the changes for the last STABLE release start with release
 * Any changes in your configuration file are applied during a restart now.
   (This obsoletes the contrary entry for 2.3.6.)
 
-* New FvwmIconMan options: iconbutton and iconcolorset to control colors for
+* New FvwmIconMan options: IconButton and IconColorset to control colors for
   iconified windows.
 
 <b>Changes in beta release 2.3.10 (December 1999)</b>
@@ -260,7 +275,7 @@ Note, the changes for the last STABLE release start with release
 
 * New commands DefaultColorset and HilightColorset.
 
-* FvwmBacker is now page-aware, a new configuration syntax.
+* FvwmBacker is now page-aware, using a new configuration syntax.
 
 * New styles TitleAtBottom and TitleAtTop.
 
@@ -316,15 +331,16 @@ Note, the changes for the last STABLE release start with release
   the fvwm web site.  (Temporarily only at "xxx.fvwm.org" instead of
   "www.fvwm.org".)
 
-* New command BugOpts allows to enable various former bug fixing compile
+* New command BugOpts enables various former bug fixing compile
   time options to be changed at run time.
 
 * FvwmWharf and FvwmBacker support colorsets.
 
 * A new special fvwm function StartFunction is introduced. It is supposed to
   be used to start modules and for other start commands. This function is
-  executed before InitFunction and RestartFunction and anyone can take out
-  a common part for both of these functions in favor of StartFunction.
+  executed before InitFunction and RestartFunction.  Any commands currently
+  in both the InitFunction and RestartFuction can be moved to the new
+  StartFunction.
 
 <b>Changes in beta release 2.3.7 (August 1999)</b>
 
@@ -460,7 +476,8 @@ Note, the changes for the last STABLE release start with release
 * Include fvwmbug script for reporting bugs.
 
 * New button states ToggledActiveUp, ToggledActiveDown, ToggledInactive
-  for customizing e.g. the "maximized" appearance of the maximize button.
+  for customizing, as an example, the "maximized" appearance of the
+  maximize button.
 
 * New button style flag MWMDecorStick to support toggle buttons for the
   Stick function.
@@ -480,8 +497,8 @@ Note, the changes for the last STABLE release start with release
 
 <b>Changes in alpha release 2.3.2 (May 1999)</b>
 
-* The Meta-Tab binding to invoke the window list as described in the FAQ
-  is  now built-in.  You can  remove it as  described in the fvwm man page.
+* The Alt-Tab binding to invoke the window list as described in the FAQ
+  is  now built-in.  You can remove it as described in the fvwm man page.
 
 * The MoveThreshold command lets the user fine tune the threshold when a click
   becomes a move. It works in FvwmPager too.
@@ -494,7 +511,7 @@ Note, the changes for the last STABLE release start with release
   get the old behaviour run FvwmCommand with the '-i 1' option.
 
 * Dynamic menus are provided by the special menu items 'DynamicPopupAction' and
-  'DynamicPopdownAction'. See manpage on 'AddToMenu' for details.
+  'DynamicPopdownAction'. See the man page on 'AddToMenu' for details.
 
 * System-wide config files are now in ${sysconfdir}/fvwm
   (i.e. /usr/local/etc/fvwm by default) as many files are now installed there.
@@ -511,7 +528,7 @@ Note, the changes for the last STABLE release start with release
 * IgnoreRestack style: forbids clients to change their own stacking
   order position.
 
-* The NoWarp option to the Focus command allow focusing window on a different
+* The NoWarp option to the Focus command for focusing window on a different
   page without switching to that page.
 
 * Fvwm raises icon titles when the pointer is over the icon.
@@ -535,6 +552,8 @@ Note, the changes for the last STABLE release start with release
 
 <b>Changes in alpha release 2.3.0 (February 1999)</b>
 
+* FvwmPipe and FvwmConfig modules have been removed.
+
 * New command: RecaptureWindow captures a single window.
 
 * 'GotoDesk' command replaces former command 'Desk' (the old name is still
@@ -551,7 +570,7 @@ Note, the changes for the last STABLE release start with release
 * New command line argument -replace. fvwm will try to "take over"
   from a running wm only if it is given.
 
-* ImagePath and ModulePath commands will now expand '+' to be the
+* ImagePath and ModulePath commands now expand '+' to be the
   previous value of the path.
 
 * Key and mouse bindings take effect immediately. A 'Recapture' was necessary
@@ -567,9 +586,8 @@ Note, the changes for the last STABLE release start with release
   opposite option is called 'GrabFocus' and can be used in conjunction with
   MouseFocus and SloppyFocus too.
 
-* IgnoreModifiers command allows to ignore this pesky num-lock key to be
-  ignored as far as key and mouse bindings are concerned. Hint: try this
-  command with XFree86:
+* New command IgnoreModifiers for ignoring the pesky num-lock key with
+  key and mouse bindings.  Hint: try this command with XFree86:
 
     IgnoreModifiers L25
 
@@ -647,9 +665,9 @@ Note, the changes for the last STABLE release start with release
 * New start up sequence: all start up scripts etc. are read before the initial
   capture so windows styles will be correct, no need for a recapture.
 
-* EdgeThickness can resize/hide/show panframes in mid function
+* EdgeThickness can resize/hide/show panframes in mid function.
 
-* Support for transparent Eterms etc. during opaque/animated moves
+* Support for transparent Eterms etc. during opaque/animated moves.
 
 * FvwmPager tracks windows during opaque/animated moves.
 
@@ -1657,7 +1675,7 @@ pl1 to pl2
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Mon Feb 26 21:40:47 EST 2001 -->
+     on Fri Mar 30 02:16:51 IST 2001 -->
   </body>
 </html>
 
