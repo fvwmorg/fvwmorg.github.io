@@ -135,8 +135,7 @@ class Base_Theme {
                 $opts = $opts."&".$key."=".$setting;
             }
         }
-        // temporarily disabled until this is the only existing web design
-        //$target = str_replace("index.php", "", $target);
+        $target = str_replace("index.php", "", $target);
         return $target.$opts;
     }
 

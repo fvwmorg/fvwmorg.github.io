@@ -1,3 +1,17 @@
+2003-05-31  Mikhael Goikhman  <migo@homemail.com>
+
+	* **.html:
+	* generated/txt2html.sh:
+	* generated/manpages/manpages2html:
+	* sample-menus/*.fvwmrc:
+	* sample-menus/*.{gif,png,xpm}:
+	* vector-buttons/*.fvwmrc:
+	* vector-buttons/DecorDemo[1-5].gif:
+	removed the old html-based home page version
+
+	* web-theme/classes/base_class.inc:
+	strip trailing index.php to make urls better
+
 2003-05-31  Uwe Pross  <uwe.pross@gmx.net>
 
 	* web-theme/themes/birthday_theme.inc: 
