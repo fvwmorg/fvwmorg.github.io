@@ -10,7 +10,7 @@ $rel_path = "../..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc");
+if(strlen($navigation_check) == 0) include($rel_path."/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -1473,11 +1473,11 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
    position):
 
      AddToFunc press_fvwmbuttons
-     + I SetEnv px $[pointer.x]
-     + I SetEnv py $[pointer.y]
+     + I SetEnv pointer_x $[pointer.x]
+     + I SetEnv pointer_y $[pointer.y]
      + I Next (FvwmButtons, CirculateHit) WarpToWindow $1 $2
      + I FakeClick depth 2 press $0 release $0
-     + I WindowId root WarpToWindow $[px]p $[py]p
+     + I WindowId root WarpToWindow $[pointer_x]p $[pointer_y]p
 
    With this function, you can warp the pointer to the desired
    button to press and simulate a click.  Call it with
@@ -1497,6 +1497,9 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
    You can bind this to a key.  For example:
 
      Key f1 a n press_fvwmbuttons 1 30 10
+
+   Note that this solution does not work well if the mouse is moved at
+   the same time.
 
 ======================================================================
 <a name="5."></a>            <a href="#toc_5.">5</a> - Development, Known Problems &amp; Bug Reports
@@ -1906,8 +1909,10 @@ A: This problem might occur on other applications besides the one
    There are 2 Mainsoft Knowledgebase pages that relate to UNIX
    window managers:
 
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
+         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;</a>
+   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_</a>
+         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;</a>
+   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_</a>
 
    These pages suggest that you export MWWM=allwm or MWWM=MWM before
    starting the application.

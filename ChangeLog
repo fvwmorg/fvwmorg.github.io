@@ -1,3 +1,21 @@
+2003-05-05  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* documentation/faq/index.php: 
+	new generated from current cvs version
+
+	* documentation/faq/faq2php: 
+	changed to new template name - added comment
+
+	* screenshots/windowdecors/index.php: 
+	changed link name to "Window Decoration Screenshots"
+
+	* navgen.cli: 
+	fixed output statements
+
+	* documentation/faq/faq_template.php_: 
+	renamed template.php to this name to hide it from navgen
+	fixed loading of definitions.inc while navgen processing
+	
 2003-05-02  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/*/index.php: 

@@ -160,7 +160,7 @@ function export_nav($this_site, $export_depth = 0) {
                     // check if this php-file has been used already
                     if( $child_array["$child_file"]["is_exported"] || ${$this_name}["is_exported"] ) {
                         // child has been already exported
-                        echo "\034[31;1m".'** Warning: ambiguous site definition - ignore file ';
+                        echo "\033[31;1m".'** Warning: ambiguous site definition - ignore file ';
                         echo $child_array["$child_file"]["file"]."\033[0m\n";
                     } else {
                         // add this child to list of found childs
@@ -388,7 +388,7 @@ reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
     info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
     if( ${$this_site}["is_exported"] != 1 ) {
-        info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n", 0);
+        info_output( "\033[31;1m** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\033[0m\n", 0);
     }
 }
 
@@ -396,7 +396,7 @@ reset($child_file_array);
 while( list($index, $php_file) = each($child_file_array) ) {
     info_output("Checking $php_file for exporting\n", 5);
     if( $child_array["$php_file"]["is_exported"] != 1 ) {
-        info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n", 0);
+        info_output("\033[31;1m** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\033[0m\n", 0);
     }
 }
 

@@ -1,10 +1,11 @@
 #!/bin/gawk -f
-#-*-shell-scipt-*-
+#-*-shell-script-*-
 
 # Usage: faq2php <../../../fvwm/docs/FAQ >index.php
 
 # Author: Uwe Pross
 ## migo: I would like to rewrite it in Perl and enhance it a bit.
+## uwp: What's wrong with awk - simple and powerful for this reason I think ;-)
 
 ## stack functions
 
@@ -43,6 +44,7 @@ BEGIN {
     section=-1;
     found_contents_start=0;
     found_contents_end=0;
+    template_file="faq_template.php_";
 }
 
 #---------------------------------------------------------------------
@@ -102,7 +104,7 @@ next;
 END {
 
     ## export first part of php file
-    while ( (getline < "template.php") > 0 && ! match($0,"@body@") ) {
+    while ( (getline < template_file) > 0 && ! match($0,"@body@") ) {
 	print;
     }
 
@@ -112,7 +114,7 @@ END {
     }
     print "</pre>\n";
 
-    while ( (getline < "template.php") > 0 ) {
+    while ( (getline < template_file) > 0 ) {
 	print;
     }
 }

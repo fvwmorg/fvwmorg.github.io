@@ -17,7 +17,7 @@ if( ! strlen("$navigation_check") ) include($rel_path.'/definitions.inc');
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Window Decoration Screenshots";
-$link_name      = "Window Decorations";
+$link_name      = "Window Decoration Screenshots";
 $link_picture   = "pictures/icons/screenshots_decor";
 $parent_site    = "screenshots";
 $child_sites    = array();
