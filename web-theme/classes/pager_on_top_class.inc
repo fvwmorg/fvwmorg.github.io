@@ -63,7 +63,7 @@ class Pager_On_Top_Theme extends Default_Theme {
         global $heading;
         $width = "100%";
         $padding = "5";
-        Default_Theme::decoration_window_start("Offical FVWM Home Page","100%","","5"); 
+        Default_Theme::decoration_window_start("Official FVWM Home Page","100%","","5"); 
         echo "<center><h1> $heading </h1></center>\n";
         Default_Theme::decoration_window_end();
     }
