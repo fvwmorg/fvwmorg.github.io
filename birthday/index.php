@@ -17,7 +17,7 @@ include("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Happy Birthday FVMW!";
+$title          = "Happy Birthday FVWM!";
 $heading        = '<img src="happy_birthday3.gif" width="582" height="63" border="0" alt="Happy Birthday FVWM!">';
 $link_name      = "FVWM Birthday";
 $link_picture   = "pictures/icons/birthday";
