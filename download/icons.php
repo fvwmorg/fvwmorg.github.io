@@ -61,10 +61,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	banner</a> pixmaps.</li>
     <li>View the <a href="../generated/icon_shots/icons.gif">
 	icon</a> pixmaps.</li>
-    <li>View the <a href="../generated/icon_shots/mini1.gif">
-	button and mini</a> pixmaps (part 1).</li>
-    <li>View the <a href="../generated/icon_shots/mini2.gif">
-	button and mini</a> pixmaps (part 2).</li>
+    <li>View the button and mini pixmaps 
+	<a href="../generated/icon_shots/mini1.gif">(part 1, gif)</a>,
+	<a href="../generated/icon_shots/mini2.gif">(part 2, gif)</a>,
+	<a href="<?php echo conv_link_target('mini_icons_overview.php');?>">(all, png)</a>
+      </li>
   </ul>
   Now we provide a few sounds in .au format for FvwmEvent.
   <ul>
