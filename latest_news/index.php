@@ -20,7 +20,7 @@ $title          = "FVWM - NEWS";
 $link_name      = "News";
 $link_picture   = "pictures/icons/news";
 $parent_site    = "top";
-$child_sites    = array("logo_competition", "birthday");
+$child_sites    = array("logo_competition");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "news";
 
@@ -129,12 +129,13 @@ decoration_window_start("Latest News");
 <ul>
   <li> The commands Cond and CondCase now support checking for  inequality by prefixing the return code with '!'.</li>
   <li> Schedule and Deschedule support hexadecimal and octal command  ids.</li>
-  <li> In FvwmIconMan, windows can move from one manager to another  acoording to the managers' Resolution options.</li>
+  <li> In FvwmIconMan, windows can move from one manager to another  according to the managers' Resolution options.</li>
   <li> In order to fix a problem with StartsOnScreen and applications  that set a user specified position hint, the StartsOnScreen style  no longer works for the following modules:  FvwmBanner,  FvwmButtons, FvwmDragWell, FvwmIconBox, FvwmIconMan, FvwmIdent,  FvwmPager, FvwmScroll, FvwmTaskBar, FvwmWharf, FvwmWinList.  Use  the '@&lt;screen&gt;' bit in the module geometry specification where  applicable.</li>
   <li> Documented variable $[gt.any_string] and LocalePath command  (new in 2.5.5).</li>
   <li> Added gettext support to FvwmScript. New head instruction  UseGettext and WindowLocaleTitle. New widget instruction  LocaleTitle. New instruction ChangeLocaleTitle and new function  Gettext.</li>
-  <li> WindowListFunc is executed now within a window context, so  a prefix &quot;WindowId $0&quot; is not needed in its definition anymore  and it is advised to remove it in user configs.</li>
+  <li> WindowListFunc is executed now within a window context, so  a prefix &quot;WindowId $0&quot; is not needed in its definition anymore,  and it is advised to remove it in user configs.</li>
   <li> FvwmEvent now executes all window related events within a window  context, so PassId is not needed anymore, and all prefixes  &quot;WindowId $0&quot; may be removed in user event handlers.</li>
+  <li> New FvwmTaskBar option NoDefaultStartButton. </li>
 </ul>
 
 
@@ -142,7 +143,7 @@ decoration_window_start("Latest News");
 <h4>Changes in development release 2.5.6 (28-Feb-2003) <a href="#top">[top]</a></h4>
 <ul>
   <li> Fix button 3 drag in FvwmPager so that drag follows the mouse.</li>
-  <li> Fix for gmplayer launched by fvwm. Close stdin on Exec so the  exec'd process knows its not running interactively.</li>
+  <li> Fix for gmplayer launched by fvwm. Close stdin on Exec so the  exec'd process knows it's not running interactively.</li>
   <li> Improvement in MultiPixmap. In particular Colorset and Solid  color can be specified.</li>
   <li> New ButtonStyle and TitleStyle style options AdjustedPixmap,  StretchedPixmap and ShrunkPixmap.</li>
   <li> Use the MIT Shared Memory Extension for XImage.</li>
@@ -179,7 +180,7 @@ decoration_window_start("Latest News");
   <li> New conditional command options StickyAcrossPages and     StickyAcrossDesks.</li>
   <li> New WindowList options NoStickyAcrossPages,     NoStickyAcrossDesks, StickyAcrossPages, StickyAcrossDesks,     OnlyStickyAcrossPages, OnlyStickyAcrossDesks.</li>
   <li> New FvwmRearrange options -sp and -sd.</li>
-  <li> Fixed flickering in FvwmTaskBar, FvwmWinList, FvwmIconBox,  FvwmForm, FvwmScript and FvwmScroll when xft fonts or icons with  an alpha channel is used.</li>
+  <li> Fixed flickering in FvwmTaskBar, FvwmWinList, FvwmIconBox,  FvwmForm, FvwmScript and FvwmScroll when xft fonts or icons with  an alpha channel are used.</li>
   <li> New Colorset option RootTransparent</li>
   <li> The Transparent Colorset option can be tinted under certain  conditions</li>
   <li> New MinHeight option to TitleStyle</li>
@@ -220,8 +221,7 @@ decoration_window_start("Latest News");
 <ul>
   <li> TitleStyle MultiPixmap now works once again.</li>
   <li> Removed the old module interface for ConfigureWindow  packets. External modules relying on this interface no longer  work.</li>
-  <li> Fixed interaction bug between CascadePlacement and StartsOnPage</li>
-  <li> if the target page was at a negative x or y page displacement  from the current view port, the window would be placed on the  wrong page.</li>
+  <li> Fixed interaction bug between CascadePlacement and StartsOnPage:  if the target page was at a negative x or y page displacement  from the current view port, the window would be placed on the  wrong page.</li>
   <li> New Style option IconSize for restricting icon sizes.</li>
   <li> New WindowList options SortClassName, MaxLabelWidth, NoLayer,  ShowScreen, ShowPage, ShowPageX and ShowPageY.</li>
   <li> Restored old way of handling clicks in windows with ClickToFocus  and ClickToFocusPassesClickOff.  This fixes a problem with  click+drag in an unfocused rxvt or aterm window.</li>

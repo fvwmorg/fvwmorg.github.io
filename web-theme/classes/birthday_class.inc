@@ -17,17 +17,17 @@ class Birthday_Theme extends Default_Theme {
            "window_border_bg" => "#c5cecd",
            "window_border_fg" => "#ffffff",
            "window_bg"        => "#001040",
-           "window_fg"        => "#fffa77",
+           "window_fg"        => "#b7c2f9",
            "body_bg"          => "#001040",
            "body_fg"          => "#ffffff",
-           "body_bg_image"    => $this->rel_path."/birthday/ballons7_bg.gif",
-           "pager_bg"         => "#eeea67",
+           "body_bg_image"    => $this->rel_path."/birthday/ballons9_bg.gif",
+           "pager_bg"         => "#9ca7e1",
            "pager_fg"         => "#000000",
-           "hilight_bg"       => "#b10025",
+           "hilight_bg"       => "#4f4a5f",
            "hilight_fg"       => "#ffffff",
-           "link_fg"          => "#fafa77",
+           "link_fg"          => "#c0c0ff",
            "link_visited_fg"  => "#c0c0ff",
-           "heading_fg"       => "#fffa77",
+           "heading_fg"       => "#c7d2f9",
            "code_fg"          => "#ffff99",
            "code_bg"          => "#404040",
            );
@@ -36,6 +36,65 @@ class Birthday_Theme extends Default_Theme {
         }
 //         $_GET=array();
 //         $this->set_user_settings();
+    }
+    // inserts a table row <tr>... </tr> which contains the window
+    // buttons like the window decoration of a window manager
+    function decoration_title_bar($string="") {
+        $def_file = $this->style_array["decoration_path"]."/deco_definitions.inc";
+        if( file_exists($def_file) ) include(sec_filename($def_file));
+        if( isset($title_height) ) {
+            $dimension      ='width="'.$title_height.'" height="'.$title_height.'"';
+            $dimension_deco ='width="'.($title_height*2).'" height="'.$title_height.'"';
+        }
+        if( file_exists($this->decoration_pic("button_1"))) {
+            echo '<tr>'."\n";
+            $this->decoration_left_cell();
+            echo '<td>';
+            if( strlen($title_background) == 0 ) $title_background=$this->style_array["hilight_bg"];
+            echo '<table border="0" cellspacing="0" cellpadding="0" summary="" width="100%" bgcolor="'.$title_background.'">'."\n";
+            echo '<tr>'."\n";
+            $td_opts = 'width="1"';
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_1").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_3").'); " >';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td width="50%" style="background-image:url('.$this->decoration_pic("title").'); " >';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("left_title").'); " >';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension_deco.' alt=""></td>'."\n";
+
+            echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
+            echo ' align="center" nowrap bgcolor="'.$title_background.'">';
+            if( strlen($string) > 0 )
+                echo '<font size="3" color="'.$this->style_array["hilight_fg"].'">&nbsp;'.$string.'</font></td>'."\n";
+            else
+                echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("right_title").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension_deco.' alt=""></td>'."\n";
+
+            echo '<td  width="50%" style="background-image:url('.$this->decoration_pic("title").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_6").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_4").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
+            echo '<a href="./'.$this->requested_file.'?theme=plain" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme" title="plain theme"></a></td>';
+
+            echo '</tr>'."\n";
+            echo '</table>'."\n";
+            echo '</td>';
+            $this->decoration_right_cell();
+            echo '</tr>'."\n";
+        }
     }
 
   function insert_heading() {
@@ -48,10 +107,10 @@ class Birthday_Theme extends Default_Theme {
       //$this->decoration_title_bar($string);
       echo '<tr>'."\n";
       $this->decoration_left_cell();
-      echo '<td bgcolor="'.$this->style_array["window_bg"].'">';
+      echo '<td bgcolor="'.$this->style_array["window_bg"].'" width="99%" valign="middle">';
       echo '<table';
       if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
-      echo ' summary="" width="100%">'."\n";
+      echo ' summary="">'."\n";
       echo '<tr>'."\n";
       echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
       echo ' class="windowcontents">'."\n";
@@ -109,7 +168,7 @@ class Birthday_Theme extends Default_Theme {
         echo "<tr>";
         //echo "$depth - ".count($selected_path)." - ".count($link_array)."<br>";
         while( list($key, $site) = each($link_array) ) {
-            echo '<td><table cellpadding="2" cellspacing="1">';
+            echo '<td><table cellpadding="2" cellspacing="1" summary="">';
             $this->insert_pager_desk($site, $pages_per_desk);
             echo "</table></td>";
         }
