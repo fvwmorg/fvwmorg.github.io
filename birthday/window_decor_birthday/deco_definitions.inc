@@ -1,5 +1,5 @@
 <?php
-  $border_height = 8;
-  $border_width  = 8;
-  $title_height  = 30;
+  $border_height = 4;
+  $border_width  = 4;
+  $title_height  = 23;
 ?>
