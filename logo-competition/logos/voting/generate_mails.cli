@@ -2,7 +2,7 @@
 
 include("voting_functions.inc");
 
-$address_file = "daten/test";
+$address_file = "daten/addresses";
 
 if( file_exists($address_file) ) {
     
@@ -19,8 +19,8 @@ if( file_exists($address_file) ) {
                     }
                 }
                 
-                register_mail_and_id($email, $id);
-                send_mail_to_voter($email, $id);
+                // register_mail_and_id($email, $id);
+                // send_mail_to_voter($email, $id);
                 
                 echo "Sent mail to ".$email." id ".$id."\n";
 

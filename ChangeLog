@@ -1,3 +1,8 @@
+2004-01-15  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* screenshots/desktops/Andrew_Dolgov-1152x864:
+	Added screenshot.
+	
 2004-01-05  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* index.php:
@@ -38,7 +43,7 @@
 	* news/index.php:
 	updated for 2.5.8
 
-2003-10-22  Uwe Pross  <uwe.pross@gmx.net>
+2003-10-22  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* download/index.php:
 	Changed package info of alpha/beta release to unstable release.
@@ -47,7 +52,7 @@
 
 	* download/index.php: Remove download alpha releases link, out of date.
 
-2003-10-11  Uwe Pross  <uwe.pross@gmx.net>
+2003-10-11  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	fixed name of Felix Wiemann - double n was missing
@@ -65,7 +70,7 @@
 	* documentation/faq/index.php:
 	regenerated
 
-2003-10-04  Uwe Pross  <uwe.pross@gmx.net>
+2003-10-04  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/themes/voting_theme.inc:
 	* logo-competition/logos/color_select.inc:
@@ -75,12 +80,12 @@
 	* web-theme/classes/default_class.inc:
 	added specification of cell width border cells
 
-2003-09-30  Uwe Pross  <uwe.pross@gmx.net>
+2003-09-30  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/desktops/Klaus_Umbach-1280x1024/*:
 	added screenshot
 
-2003-09-28  Uwe Pross  <uwe.pross@gmx.net>
+2003-09-28  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* navgen_write/navigation.inc
 	regenerated navgiation array
@@ -94,7 +99,7 @@
 	* definitions.inc:
 	removed protest page against software patents.
 
-2003-09-03  Uwe Pross  <uwe.pross@gmx.net>
+2003-09-03  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/index.php:
 	* logo-competition/rules.php:
@@ -104,7 +109,7 @@
 	* logo-competition/logos/1000Sun/*:
 	added logos
 
-2003-08-29  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-29  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Slava_Finkelsteyn/*:
@@ -137,7 +142,7 @@
 	* links.php:
 	Added a link to the FVWM freshmeat page in a new Miscellaneous section
 
-2003-08-25  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-25  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/themes/against_sw_patents_statement.inc:
 	fixed html code, changed color, added link
@@ -154,20 +159,20 @@
 	* web-theme/themes/against_sw_patents_statement.inc:
 	Some french fixes
 
-2003-08-22  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-22  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Tom_Krietemeyer/*:
 	* logo-competition/logos_new.php:
 	added logo
 
-2003-08-20  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-20  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/classes/screenshot_lister.inc:
 	* screenshots/desktops/update_screenshot_db.cli
 	improved concept - added image dimension and automatic generation
 	of preview images and further checks and outputs
 
-2003-08-19  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-19  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/classes/screenshot_lister.inc:
 	still on the screenshot page concept
@@ -175,7 +180,7 @@
 	* screenshots/desktops.php:
 	added screenshot from Jules Alberts
 
-2003-08-18  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-18  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/Thomas_Adam-desk-1024x768.php:
 	* screenshots/Thomas_Adam-desk-1024x768.png:
@@ -183,19 +188,19 @@
 	* screenshots/desktops.php:
 	added screenshot from Thomas Adam
 
-2003-08-17  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-17  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	added logos from Phil Harper
 
-2003-08-14  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-14  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Daniel_J_Parks/*:
 	* logo-competition/logos/Branko_Collin/*:
 	* logo-competition/logos_new.php:
 	added logos
 
-2003-08-08  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-08  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Krzysztof_Bartczak/*:
@@ -203,26 +208,26 @@
 	* documentation/faq/index.php:
 	updated faq
 
-2003-08-07  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-07  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Patrick_Collison/*:
 	added logo
 
-2003-08-06  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-06  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Greg_Rymer/*:
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Patrick_Collison/*:
 	added logos
 
-2003-08-04  Uwe Pross  <uwe.pross@gmx.net>
+2003-08-04  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Phil_Harper/index.php:
 	added logo. added overview pics.
 
-2003-07-30  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-30  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* links.php:
 	* index.php:
@@ -231,7 +236,7 @@
 	* contact/index.php:
 	Added heading for IRC Channels
 
-2003-07-28  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-28  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* news/news2php:
 	* news/index.php:
@@ -242,31 +247,31 @@
 	* logo-competition/logos_new.php:
 	added logos
 
-2003-07-23  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-23  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* COPYING:
 	* definitions.inc:
 	added gpl license file and statement.
 
-2003-07-22  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-22  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/themes/theme_descriptions.inc:
 	* web-theme/classes/pager_on_top_class.inc:
 	changed default look to a more fancy one ;-)
 
-2003-07-21  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-21  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Alex_Wallis/*:
 	added logo of alex wallis
 
-2003-07-18  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-18  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* customize_theme/theme_descriptions_helper.inc:
 	* definitions.inc:
 	fixed problems using cookies for theme ond style selection.
 
-2003-07-17  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-17  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* web-theme/classes/pager_on_top_class.inc:
@@ -275,26 +280,26 @@
 	* web-theme/themes/plain_theme.inc:
 	changed theme to "pager on top theme"
 
-2003-07-16  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-16  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Russell_Martin/*:
 	added logo of russel martin
 
-2003-07-16  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-16  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Anthony_Lee/index.php:
 	* logo-competition/logos_new.php:
 	added two more logos
 
-2003-07-15  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-15  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Geoffroy_Giraux/:
 	* logo-competition/logos/Annemarie_Rowson/:
 	* logo-competition/logos/Anthony_Lee/:
 	added new logos
 
-2003-07-11  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-11  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* fvwm-cats/*.php:
 	fixed links from cat page to index.php
@@ -302,7 +307,7 @@
 	* authors/index.php:
 	fixex link to picture page
 
-2003-07-10  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-10  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* navgen.cli:
 	* *.php:
@@ -317,7 +322,7 @@
 	changed algorithm to build a navigation desktop so that desktops
 	with more than 4 pages grow horizontaly.
 
-2003-07-08  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-08  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Stephen_Ford/*:
@@ -339,7 +344,7 @@
 	* logo-competition/logos/Wolf_Bergenheim/index.php:
 	small improvements
 
-2003-07-02  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Wolf_Bergenheim/index.php:
 	added logo with white background
@@ -350,7 +355,7 @@
 	* logo-competition/logos/Wolf_Bergenheim/*:
 	added logos
 
-2003-07-01  Uwe Pross  <uwe.pross@gmx.net>
+2003-07-01  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Tadashi_Hikone/*:
@@ -371,7 +376,7 @@
 	* regenerate_pages:
 	new script to regenerate 3 pages at once
 
-2003-06-12  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-12  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Aric_Campling/index.php:
 	* logo-competition/logos_new.php:
@@ -385,7 +390,7 @@
 	* logos/Phil_Harper/fvwmpower2-overview.png:
 	added one overview logo
 
-2003-06-11  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-11  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* documentation/dev_cvs.php:
 	Fixed Typo.
@@ -411,13 +416,13 @@
 	* documentation/dev_modules.php:
 	some small fixes in documentation
 
-2003-06-08  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-08  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Aric_Campling/index.php:
 	Added logos from Aric Campling.
 
-2003-06-06  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-06  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* index.php:
 	Put birthday statement in past. Might be removed at all.
@@ -429,7 +434,7 @@
 	* logo-competition/logos_new.php:
 	Added logos from Stefan Bergmeier.
 
-2003-06-04  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-04  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Felix_E_Klee/index.php:
 	* logo-competition/logos_new.php:
@@ -449,7 +454,7 @@
 	* web-theme/classes/plain_class.inc:
 	print title names in plain theme (were ignored)
 
-2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-03  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/themes/theme_descriptions.inc:
 	* web-theme/themes/plain_theme.inc:
@@ -463,7 +468,7 @@
 	* logo-competition/logos/color_select.inc:
 	Made color selection possible for other themes.
 
-2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-03  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/color_select.inc:
 	Disabled color selection for all themes except birthday theme.
@@ -471,7 +476,7 @@
 	* logo-competition/logos_new.php:
 	Added Scott Smedley's logos
 
-2003-06-02  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* index.php:
 	Added link to download page. Used new function mylink.
@@ -492,7 +497,7 @@
 	* logo-competition/logos_new.php:
 	restored Coji Morishita entry
 
-2003-06-02  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* birthday/index.php:
 	Corrected typo.
@@ -505,7 +510,7 @@
 	* logo-competition/logos_new.php:
 	Provided images sizes.
 
-2003-06-01  Uwe Pross  <uwe.pross@gmx.net>
+2003-06-01  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/Felix_E_Klee/index.php:
 	Added logos by Felix E. Klee
@@ -538,7 +543,7 @@
 	* web-theme/classes/default_class.inc:
 	improved the look of the birthday theme (hopefully)
 
-2003-05-31  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-31  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* definitions.inc:
 	set birthday theme as default.
@@ -591,7 +596,7 @@
 	* birthday/index.php:
 	s/birthday_celebration1.gif/birthday_celebration2.gif/ for now
 
-2003-05-30  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-30  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* birthday/index.php:
 	* birthday/developers/*
@@ -614,7 +619,7 @@
 	* logo-competition/*:
 	updated entries of Coji_Morishita, Anna_MacLachlan, Phil_Harper
 
-2003-05-16  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-16  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* class + theme files:
 	added functionality to customize the page
@@ -638,7 +643,7 @@
 	* contact/index.php:
 	--> ask xmms questions on the XMMS mailing list
 
-2003-05-05  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-05  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* css/default.css:
 	added linebreaks and changed background color for pre.cvs pre.doc
@@ -660,7 +665,7 @@
 	renamed template.php to this name to hide it from navgen
 	fixed loading of definitions.inc while navgen processing
 
-2003-05-02  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* logo-competition/logos/*/index.php:
 	fixed problem with navgen run. files should be excluded from navgen.
@@ -705,7 +710,7 @@
 	* web-theme/classes/default_class.inc:
         Made the pager width still narrower.
 
-2003-05-02  Uwe Pross  <uwe.pross@gmx.net>
+2003-05-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/classes/base_class.inc
 	* web-theme/classes/default_class.inc
@@ -792,7 +797,7 @@
 	Added w3m to the list of browsers for which we set plain
         layout (it's not always used in Emacs).
 
-2003-04-25  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-25  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* definitions.inc:
 	plain layout will be served if $user_agent is contains Emacs or
@@ -818,7 +823,7 @@
 	* screenshots/windowdecors/index.php:
 	minor spelling in link names
 
-2003-04-24  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-24  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* layout_default.inc:
 	added local style property to pager images to have black forground
@@ -855,7 +860,7 @@
 	* logo-competition/rules.php:
 	updated logo competition schedule
 
-2003-04-23  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-23  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* layout_default.inc:
 	changed colors a bit. added new css class for non hover links.
@@ -967,7 +972,7 @@
 	* layout_plain.inc:
 	handle urls of form XXX::YYY, other improvements
 
-2003-04-17  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-17  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
         * download/mini_icons_overview.php
         created overview pic for all mini icons. further may follow.
@@ -981,12 +986,12 @@
 	converted stable and unstable man pages using manpages2php script,
 	more work is needed
 
-2003-04-15  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-15  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* **
 	removed last modified entry in the header
 
-2003-04-14  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-14  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/index.php:
 	inserted table. Created pictures for different screenshot sections.
@@ -999,7 +1004,7 @@
 	* links.php:
 	Some reformating.
 
-2003-04-13  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-13  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* layout_default.inc:
 	Changed the pager algorithm that uneccessary desks won't be shown.
@@ -1022,7 +1027,7 @@
 	fixed laytout passing
 	removed file latest_news.txt
 
-2003-04-11  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-11  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* navgen.cli:
 	Changed navgen.php to navgen.cli can be run through the command
@@ -1035,7 +1040,7 @@
 	Added alternate style sheet example to the layout
 	Checked site with tidy
 
-2003-04-10  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-10  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* documentation/manpages/fvwm.php:
 	Example page.
@@ -1045,7 +1050,7 @@
 	* logo_competition/rules.php
 	Formating changes. Added end tags.
 
-2003-04-09  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-09  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* layout_default.inc:
 	Added entry about last modified date. This entry is taken form the
@@ -1068,7 +1073,7 @@
 	* logo-competition/rules.php:
 	added new pages, currently under "News"
 
-2003-04-08  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-08  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* **:
 	Added author information site and cvs information site
@@ -1077,7 +1082,7 @@
 
 	* layout_default.inc: Add favicon to php page.
 
-2003-04-03  Uwe Pross  <uwe.pross@gmx.net>
+2003-04-03  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/index.php:
 	fixed "decor" child entry
@@ -1107,7 +1112,7 @@
 	* **:
 	some file name rearrangements, small fixes and consistency changes
 
-2003-03-31  Uwe Pross  <uwe.pross@gmx.net>
+2003-03-31  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* **:
 	added new php-based site version

@@ -45,7 +45,11 @@ include_once(sec_filename("voting_functions.inc"));
 
 echo "<hr>";
 
-save_voting();
+if( 0 ) { 
+  save_voting();
+} else {
+  echo "<h1>Sorry - Voting time is over !!!</h1>";
+}
 
 ?>
 

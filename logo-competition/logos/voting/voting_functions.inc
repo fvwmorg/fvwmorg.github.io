@@ -125,6 +125,31 @@ If you have problems access the voting page please reply to this mail.
 Reply-To: FVWM Voting <fvwm-logo@lists.sf.net>");
 }
 
+function send_reminder($email, $id) {
+    $base_url = "http://www.tu-chemnitz.de/~uwp";
+    // $base_url = "http://localhost";
+    mail(
+         $email, 
+         "[FVWM] Reminder - Fvwm logo voting", 
+
+         "This mail is to remind you to vote for a fvwm logo. 
+
+Please vote till the end of this week.
+
+Here is your personal id for participation in the voting:
+
+$id
+
+Please enter this id into the web form at:
+
+$base_url/fvwm-web/logo-competition/logos/voting/index.php
+
+If you have problems access the voting page please reply to this mail.
+",
+         "From: FVWM Workers <fvwm-workers@fvwm.org>
+Reply-To: FVWM Voting <fvwm-logo@lists.sf.net>");
+}
+
 function insert_color_list() {
     echo 'Change background color:&nbsp;<img src="colors.gif" align="middle" border="1" usemap="#colormap">';
 }
