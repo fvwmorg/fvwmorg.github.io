@@ -73,7 +73,7 @@ You have been validated having email address <b>&lt;<?php echo $email; ?>&gt;</b
 </p>
 
 <p>
-Using this web site you can vote for logos taking part on the fvwm logo competition.
+Using this web site you can vote for logos taking part in the fvwm logo competition.
 </p>
 
 <!-- -------------------------------------------------------------------- -->
@@ -164,7 +164,9 @@ foreach( $logo_array as $number => $logos ) {
 </p>
 <p>
   Your mail address is only used to send you an authorization
-  key to avoid voting multiple times.
+  key to avoid voting multiple times. E-mail addresses are stored securly 
+  and are NEVER used to any other purpose than sending you your
+  authorization key for fvwm logo competition voting.
 </p>
 
 <form action="login.php" method="GET">
@@ -201,7 +203,7 @@ foreach( $logo_array as $number => $logos ) {
       <td>
         <input type="text" 
                name="id" 
-               size="30" 
+               size="80" 
                maxlength="100" 
                value="<?php if(get_user_setting('id')) { echo get_user_setting('id'); } ?>">
       </td>

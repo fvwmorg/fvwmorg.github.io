@@ -60,7 +60,8 @@ send_mail_to_voter( $email, $id );
 
 ?>
 
-<h2>A generated id has been sent to your email address.</h2>
+<h2>An automated email should reach you  in a  few minutes assuming no
+unusual network delays.</h2>
 <p>Please check your mail and follow the instructions to get access to the voting page.</p>
   <form action="index.php" method="GET">    
     <table cellpadding="5" border="0">
@@ -71,7 +72,7 @@ send_mail_to_voter( $email, $id );
         <td>
           <input type="text" 
                  name="id" 
-                 size="30" 
+                 size="80" 
                  maxlength="100" 
                  value="<?php if(get_user_setting('id')) { echo get_user_setting('id'); } ?>">
         </td>

@@ -7,31 +7,102 @@
 //--------------------------------------------------------
 $db = array(
       0 => array(
-                 'path' => './Andre_Bonhote-desk-1280x1024',
+                 'path' => './Klaus_Umbach-1280x1024',
                  'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061840431,
-                 'size' => 281832,
+                 'screenshot' => 'screenshot.png',
+                 'date' => 1064918546,
+                 'size' => 507366,
                  'dimension' => '1280x1024',
-                 'description' => ' 	  Second submission by Andre Bonhote.
-           Normally, we show one screenshot per user, but just this once,
- 	  we\'ll show how desktops evolve over time.  This was submitted Dec 2002,
- 	  and the first one was submitted Oct 2000.
-           <p>
- 	  Andre says:
- 	  This screenshot shows fvwm 2.5.5 (from cvs) with a lot of transparency.
- 	  Title bars, borders, menues and pagers (invisible at the moment) are all fully 
- 	  transparent, some are shaded to look blueish. Besides fvwm2, you see my logs 
- 	  in three aterms on the right side of the screen. Below that xchat and a small
- 	  gkrellm. On the left, there\'s mutt in an Eterm. The nice background is done
- 	  by xplanet and refreshed every 15 minutes.
+                 'description' => ' <p>
+ This screenshot shows FVWM 2.5.6 with ROX 2.0.1 and two gkrellms on the
+ right. The icons are available at kde-look.org and the FVWM-theme is made by
+ myself.
+ </p>
+ 
+ <p>
+ The good thing with ROX is, that you can have icons on your desktop
+ without loosing your root-menu.
+ </p>
 ',
                  ),
       1 => array(
+                 'path' => './j_g_a_van_riswick-desk-1152x864',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.gif',
+                 'date' => 1062102107,
+                 'size' => 311149,
+                 'dimension' => '1152x864',
+                 'description' => ' 	  Submitted by J.G.A. van Riswick.
+ This is a screen shot of fvwm mimicking the cde environment.
+ The setup features motif-style window decorations and
+ shadow/hilight color calculations.  The colors are calculated in
+ a perl script, which also generates .xresources and .gtkrc files
+ so that a consistent color scheme is used throughout all
+ applications.  In addition, given background pixmaps are colored
+ in the same colors, who on turn are reflected in the colors of
+ the buttons on the pager.  To mimic the cde front panel (in the
+ bottom) I used the gnome panel with some custom applets added.
+ Left to be done to fully get the cde look are window decorations
+ for icons. 
+ You can dowload
+ CDEmu which includes config files and scripts
+ <a href="http://themes.freshmeat.net/projects/cdemu">
+ here</a>.
+',
+                 ),
+      2 => array(
+                 'path' => './Windows95-desk-1280x1024',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.png',
+                 'date' => 1062102107,
+                 'size' => 157423,
+                 'dimension' => '1280x1024',
+                 'description' => ' 	  Redmond98 theme from <a href="http://fvwm-themes.sf.net/">
+ 	  fvwm-themes</a>.
+ 	  A pretty close Windows 95 look and feel can be duplicated with
+ 	  fvwm.
+',
+                 ),
+      3 => array(
+                 'path' => './Thomas_Adam-desk-1024x768',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.png',
+                 'date' => 1062102107,
+                 'size' => 64260,
+                 'dimension' => '1024x768',
+                 'description' => ' Submitted by Thomas Adam.<br>
+ Thomas says:<br>
+ This screenshot shows FVWM running with a modified fvwm-themes (mostly
+ stolen from \'default\'). I have tried to emulate the look and feel of RH\'s
+ "AnotherLevel", by changing the window colour, and centering the title of
+ the windows.<br>
+ 
+ The icons and the panel that you can see are a customised version of
+ <a href="http://rox.sf.net">Rox-Filer</a> that complements FVWM extremely well.
+',
+                 ),
+      4 => array(
+                 'path' => './Tenebrae-desk-800x600',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.gif',
+                 'date' => 1062102107,
+                 'size' => 209263,
+                 'dimension' => '800x600',
+                 'description' => ' 	  Submitted by Tenebrae.
+ 	  Here\'s my latest screenshot running FVWM 2.2.4 under RedHat Linux 6.2.  I
+ 	  have a light marble GTK+ theme that I\'ve extended manually onto my FVWM
+ 	  buttons, and a custom icon or two.  I made the blue Vampire Princess Miyu
+ 	  background for the Eterm, and threw Vampire Princess Miyu skins that I
+ 	  found onto Licq and xmms.  I also customized the title bars a bit with a
+ 	  textured background that fits in with the overall blueness of the Miyu
+ 	  stuff.  Heres the <a href="Tenebrae.fvwm2rc">config file</a>.
+',
+                 ),
+      5 => array(
                  'path' => './Taviso-desk-1024x768',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.jpg',
-                 'date' => 1061840309,
+                 'date' => 1062102107,
                  'size' => 197535,
                  'dimension' => '1024x768',
                  'description' => ' 	  Submitted by Taviso.
@@ -59,14 +130,74 @@ $db = array(
  blue to match my fvwm theme :)
 ',
                  ),
-      2 => array(
-                 'path' => './Ploum-desk-1152x864',
+      6 => array(
+                 'path' => './Stric-desk1-1152x900',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.gif',
+                 'date' => 1062102107,
+                 'size' => 50149,
+                 'dimension' => '1152x900',
+                 'description' => ' 	  Submitted by Tomas &Ouml;gren,
+ 	  A pretty lean theme without any annoying thick borders.
+           FvwmButtons, xmeter, xbuffy, gimp and some stuff on other pages.
+',
+                 ),
+      7 => array(
+                 'path' => './S_Anderson-desk-1024x768',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.jpg',
-                 'date' => 1061840247,
-                 'size' => 223644,
-                 'dimension' => '1152x864',
-                 'description' => ' 	  Submitted by Ploum.
+                 'date' => 1062102107,
+                 'size' => 159175,
+                 'dimension' => '1024x768',
+                 'description' => ' 	  Submitted by Shawn Anderson.    After seeing An Thi-Nguyen  Le\'s
+ 	  screenshots(they are very nice BTW), I thought I would send one also
+ 	  :-). It is fvwm 2.3.28.
+',
+                 ),
+      8 => array(
+                 'path' => './Robert-desk-1280x1024',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.jpg',
+                 'date' => 1062102107,
+                 'size' => 189939,
+                 'dimension' => '1280x1024',
+                 'description' => ' 	  Submitted by Robert Ford,
+ 	  shows gradients in menus and titlebars, FvwmWharf, FvwmTaskBar,
+ 	  FvwmPager with pixmap backgrounds, some nice icons and mini-icons,
+ 	  and an interesting purple/blue color scheme.',
+                 ),
+      9 => array(
+                 'path' => './Remko_Troncon-desk-1024x768',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.gif',
+                 'date' => 1062102107,
+                 'size' => 224172,
+                 'dimension' => '1024x768',
+                 'description' => ' 	  Submitted by Remko Troncon.
+ Remko says:
+ This screenshot shows a clean and simple desktop 
+ <A HREF="http://www.cs.kuleuven.ac.be/~remko/fvwm/fvwm2rc">setup</A>. 
+ On the top left
+ is FvwmButtons which opens panels of apps I use frequently for a 
+ very short time (like IM\'s). On the top right, 
+ <A HREF="http://www.gkrellm.net">GKrellM</A> is showing
+ all the things I like to monitor. The bottom right corner contains
+ FvwmPager. The background is generated by 
+ <A HREF="http://xplanet.sourceforge.net/">Xplanet</A>.
+ The fonts show the anti-aliasing support of FVWM.
+ The <A HREF="http://www.cs.kuleuven.ac.be/~remko/fvwm/icons.tgz">icons</A> 
+ in the menus are mostly taken from the 
+ <A HREF="http://wm-icons.sourceforge.net/">wm-icons</A> distribution.
+',
+                 ),
+      10 => array(
+                  'path' => './Ploum-desk-1152x864',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062102107,
+                  'size' => 223644,
+                  'dimension' => '1152x864',
+                  'description' => ' 	  Submitted by Ploum.
  Ploum says:
  
  I like a clean desktop. I created a gradient for my fvwm menu and I called
@@ -94,185 +225,22 @@ $db = array(
  
  Yes, I hate taskbars and icons ! ;)
 ',
-                 ),
-      3 => array(
-                 'path' => './S_Anderson-desk-1024x768',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061840181,
-                 'size' => 159175,
-                 'dimension' => '1024x768',
-                 'description' => ' 	  Submitted by Shawn Anderson.    After seeing An Thi-Nguyen  Le\'s
- 	  screenshots(they are very nice BTW), I thought I would send one also
- 	  :-). It is fvwm 2.3.28.
-',
-                 ),
-      4 => array(
-                 'path' => './Robert-desk-1280x1024',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061840125,
-                 'size' => 189939,
-                 'dimension' => '1280x1024',
-                 'description' => ' 	  Submitted by Robert Ford,
- 	  shows gradients in menus and titlebars, FvwmWharf, FvwmTaskBar,
- 	  FvwmPager with pixmap backgrounds, some nice icons and mini-icons,
- 	  and an interesting purple/blue color scheme.',
-                 ),
-      5 => array(
-                 'path' => './Brian_Sturk-desk-1280x1024',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061839969,
-                 'size' => 245284,
-                 'dimension' => '1280x1024',
-                 'description' => ' 	  Submitted by Brian Sturk.
- Brian says:
- I run 2.4.9 on FreeBSD 4.7 and Slackware Linux.   The two
- FvwmButtons on the left top/right toggle showing a pager
- and gkrellm respectively.
-',
-                 ),
-      6 => array(
-                 'path' => './Paul_Johnson-desk-1280x1024',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061729748,
-                 'size' => 316079,
-                 'dimension' => '1280x1024',
-                 'description' => ' 	  Submitted by Paul E. Johnson.
-',
-                 ),
-      7 => array(
-                 'path' => './Kendrick_Vargas-desk-1280x1024',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061729598,
-                 'size' => 257892,
-                 'dimension' => '1280x1024',
-                 'description' => '  	  Submitted by Kendrick Vargas.
- 	  Fvwm2 integrated with GNOME (HelixCode) on RH 7.0 with FvwmGTK Menus,
- 	  FvwmPager swallowed into a gnome-panel and showing Mozilla M18 as the web
- 	  browser. GTK theme used is minEgtk.
-',
-                 ),
-      8 => array(
-                 'path' => './Cameron_Simpson-desk-2560x1024',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061729312,
-                 'size' => 381821,
-                 'dimension' => '2560x1024',
-                 'description' => ' 	  Submitted by Cameron Simpson.  Uses Xinerama.
- This is the
- Zen style by Cameron Simpson,
- <a href="http://www.cskk.ezoshosting.com/cs/fvwm/index.html">details here</a>.
-',
-                 ),
-      9 => array(
-                 'path' => './Dominik-desk2-1152x864',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1061728778,
-                 'size' => 301388,
-                 'dimension' => '1152x864',
-                 'description' => ' 	  Submitted by Dominik Vogt,
- 	  another one of my palettes (a list can be seen in the Palette menu),
- 	  an example of the \'SubmenusLeft\' menu style. I\'m fixing a menu bug
- 	  in the xemacs window in the background while viewing our screenshots
- 	  page with netscape 8-)
-',
-                 ),
-      10 => array(
-                  'path' => './Windows95-desk-1280x1024',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.png',
-                  'date' => 1061586311,
-                  'size' => 157423,
-                  'dimension' => '1280x1024',
-                  'description' => ' 	  Redmond98 theme from <a href="http://fvwm-themes.sf.net/">
- 	  fvwm-themes</a>.
- 	  A pretty close Windows 95 look and feel can be duplicated with
- 	  fvwm.
-',
                   ),
       11 => array(
-                  'path' => './Thomas_Adam-desk-1024x768',
+                  'path' => './Paul_Johnson-desk-1280x1024',
                   'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.png',
-                  'date' => 1061586311,
-                  'size' => 64260,
-                  'dimension' => '1024x768',
-                  'description' => ' Submitted by Thomas Adam.<br>
- Thomas says:<br>
- This screenshot shows FVWM running with a modified fvwm-themes (mostly
- stolen from \'default\'). I have tried to emulate the look and feel of RH\'s
- "AnotherLevel", by changing the window colour, and centering the title of
- the windows.<br>
- 
- The icons and the panel that you can see are a customised version of
- <a href="http://rox.sf.net">Rox-Filer</a> that complements FVWM extremely well.
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062102107,
+                  'size' => 316079,
+                  'dimension' => '1280x1024',
+                  'description' => ' 	  Submitted by Paul E. Johnson.
 ',
                   ),
       12 => array(
-                  'path' => './j_g_a_van_riswick-desk-1152x864',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586311,
-                  'size' => 311149,
-                  'dimension' => '1152x864',
-                  'description' => ' 	  Submitted by J.G.A. van Riswick.
- This is a screen shot of fvwm mimicking the cde environment.
- The setup features motif-style window decorations and
- shadow/hilight color calculations.  The colors are calculated in
- a perl script, which also generates .xresources and .gtkrc files
- so that a consistent color scheme is used throughout all
- applications.  In addition, given background pixmaps are colored
- in the same colors, who on turn are reflected in the colors of
- the buttons on the pager.  To mimic the cde front panel (in the
- bottom) I used the gnome panel with some custom applets added.
- Left to be done to fully get the cde look are window decorations
- for icons. 
- You can dowload
- CDEmu which includes config files and scripts
- <a href="http://themes.freshmeat.net/projects/cdemu">
- here</a>.
-',
-                  ),
-      13 => array(
-                  'path' => './Tenebrae-desk-800x600',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586311,
-                  'size' => 209263,
-                  'dimension' => '800x600',
-                  'description' => ' 	  Submitted by Tenebrae.
- 	  Here\'s my latest screenshot running FVWM 2.2.4 under RedHat Linux 6.2.  I
- 	  have a light marble GTK+ theme that I\'ve extended manually onto my FVWM
- 	  buttons, and a custom icon or two.  I made the blue Vampire Princess Miyu
- 	  background for the Eterm, and threw Vampire Princess Miyu skins that I
- 	  found onto Licq and xmms.  I also customized the title bars a bit with a
- 	  textured background that fits in with the overall blueness of the Miyu
- 	  stuff.  Heres the <a href="Tenebrae.fvwm2rc">config file</a>.
-',
-                  ),
-      14 => array(
-                  'path' => './Stric-desk1-1152x900',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586311,
-                  'size' => 50149,
-                  'dimension' => '1152x900',
-                  'description' => ' 	  Submitted by Tomas &Ouml;gren,
- 	  A pretty lean theme without any annoying thick borders.
-           FvwmButtons, xmeter, xbuffy, gimp and some stuff on other pages.
-',
-                  ),
-      15 => array(
                   'path' => './Parv-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
-                  'date' => 1061586310,
+                  'date' => 1062102107,
                   'size' => 102102,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Parv.
@@ -290,11 +258,41 @@ $db = array(
  annotated version of the screen shot</a>.
   	',
                   ),
-      16 => array(
+      13 => array(
+                  'path' => './Olivier_Chapuis-panelup-800x600',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1062102107,
+                  'size' => 191953,
+                  'dimension' => '800x600',
+                  'description' => ' 	  Submitted by Olivier Chapuis.
+ 	  Two screen shots in a small screen (800x600). The first one all
+ 	  panels up, the second one all panels down and the TaskBar hidden.
+ 	  Panels are quite useful on such a screen.
+ 	  The "Window Maker FvwmButtons" has four panels that
+ 	  run only if I use it: this saves my battery.
+',
+                  ),
+      14 => array(
+                  'path' => './Olivier_Chapuis-paneldown-800x600',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1062102107,
+                  'size' => 244031,
+                  'dimension' => '800x600',
+                  'description' => ' 	  Submitted by Olivier Chapuis.
+ 	  Two screen shots in a small screen (800x600). The first one all
+ 	  panels up, the second one all panels down and the TaskBar hidden.
+ 	  Panels are quite useful on such a screen.
+ 	  The "Window Maker FvwmButtons" has four panels that
+ 	  run only if I use it: this saves my battery.
+',
+                  ),
+      15 => array(
                   'path' => './Mikhael-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
-                  'date' => 1061586310,
+                  'date' => 1062101060,
                   'size' => 205920,
                   'dimension' => '1280x1024',
                   'description' => ' 	  Submitted by Mikhael Goikhman. This is a mix of different
@@ -311,26 +309,23 @@ $db = array(
  	  cvs version, you probably want to wait for the final 0.7.0 to try it.
 ',
                   ),
-      17 => array(
-                  'path' => './Olivier_Chapuis-panelup-800x600',
+      16 => array(
+                  'path' => './Michael-desk-1152x900',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586310,
-                  'size' => 191953,
-                  'dimension' => '800x600',
-                  'description' => ' 	  Submitted by Olivier Chapuis.
- 	  Two screen shots in a small screen (800x600). The first one all
- 	  panels up, the second one all panels down and the TaskBar hidden.
- 	  Panels are quite useful on such a screen.
- 	  The "Window Maker FvwmButtons" has four panels that
- 	  run only if I use it: this saves my battery.
-',
+                  'date' => 1062101060,
+                  'size' => 104175,
+                  'dimension' => '1152x900',
+                  'description' => ' 	  Submitted by Michael Han,
+ 	  multistyle decorations including HGradient titles and a nice
+ 	  FvwmButtons, swallowing FvwmPager, procmeter and FvwmIconMan. Liberal
+ 	  use of MiniIcons.',
                   ),
-      18 => array(
+      17 => array(
                   'path' => './Marc_A_Lehmann-desk-2880x1094',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
-                  'date' => 1061586310,
+                  'date' => 1062101060,
                   'size' => 240160,
                   'dimension' => '2880x1094',
                   'description' => ' 	  Submitted by Marc A. Lehmann.
@@ -353,75 +348,11 @@ $db = array(
  </ul>
   	',
                   ),
-      19 => array(
-                  'path' => './Remko_Troncon-desk-1024x768',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586310,
-                  'size' => 224172,
-                  'dimension' => '1024x768',
-                  'description' => ' 	  Submitted by Remko Troncon.
- Remko says:
- This screenshot shows a clean and simple desktop 
- <A HREF="http://www.cs.kuleuven.ac.be/~remko/fvwm/fvwm2rc">setup</A>. 
- On the top left
- is FvwmButtons which opens panels of apps I use frequently for a 
- very short time (like IM\'s). On the top right, 
- <A HREF="http://www.gkrellm.net">GKrellM</A> is showing
- all the things I like to monitor. The bottom right corner contains
- FvwmPager. The background is generated by 
- <A HREF="http://xplanet.sourceforge.net/">Xplanet</A>.
- The fonts show the anti-aliasing support of FVWM.
- The <A HREF="http://www.cs.kuleuven.ac.be/~remko/fvwm/icons.tgz">icons</A> 
- in the menus are mostly taken from the 
- <A HREF="http://wm-icons.sourceforge.net/">wm-icons</A> distribution.
-',
-                  ),
-      20 => array(
-                  'path' => './Olivier_Chapuis-paneldown-800x600',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586310,
-                  'size' => 244031,
-                  'dimension' => '800x600',
-                  'description' => ' 	  Submitted by Olivier Chapuis.
- 	  Two screen shots in a small screen (800x600). The first one all
- 	  panels up, the second one all panels down and the TaskBar hidden.
- 	  Panels are quite useful on such a screen.
- 	  The "Window Maker FvwmButtons" has four panels that
- 	  run only if I use it: this saves my battery.
-',
-                  ),
-      21 => array(
-                  'path' => './Michael-desk-1152x900',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586310,
-                  'size' => 104175,
-                  'dimension' => '1152x900',
-                  'description' => ' 	  Submitted by Michael Han,
- 	  multistyle decorations including HGradient titles and a nice
- 	  FvwmButtons, swallowing FvwmPager, procmeter and FvwmIconMan. Liberal
- 	  use of MiniIcons.',
-                  ),
-      22 => array(
-                  'path' => './MURAKAMI_Tomokazu-desk-1280x1024',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586310,
-                  'size' => 198953,
-                  'dimension' => '1280x1024',
-                  'description' => ' 	  Submitted by MURAKAMI Tomokazu.
- 	  This is FVWM version 2.3.22. It\'s compiled with the --enable-kanji
- 	  option.  With this, I can use Nipponese satisfactorily.  Furthermore, I set
- 	  up Emacs to be able to use JIS X 0213."
-',
-                  ),
-      23 => array(
+      18 => array(
                   'path' => './Maciej_Delmanowski-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
-                  'date' => 1061586310,
+                  'date' => 1062101060,
                   'size' => 97003,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Maciej_Delmanowski.
@@ -447,22 +378,24 @@ $db = array(
    with additional programs</li>
  </ul>',
                   ),
-      24 => array(
-                  'path' => './Dan-desk-1280x1024',
+      19 => array(
+                  'path' => './MURAKAMI_Tomokazu-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
-                  'size' => 173958,
+                  'date' => 1062101059,
+                  'size' => 198953,
                   'dimension' => '1280x1024',
-                  'description' => ' 	  Submitted by Dan Espen, shows pixmap borders,
- 	  the Fvwm2 setup dialog using FvwmForm,
- 	  shaped icons, and a minimal use of fvwm modules.',
+                  'description' => ' 	  Submitted by MURAKAMI Tomokazu.
+ 	  This is FVWM version 2.3.22. It\'s compiled with the --enable-kanji
+ 	  option.  With this, I can use Nipponese satisfactorily.  Furthermore, I set
+ 	  up Emacs to be able to use JIS X 0213."
+',
                   ),
-      25 => array(
+      20 => array(
                   'path' => './Len_Philpot-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
-                  'date' => 1061586309,
+                  'date' => 1062101059,
                   'size' => 199672,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Len Philpot.
@@ -479,11 +412,11 @@ $db = array(
  FVWM man pages, which launch in their own xterms.
 ',
                   ),
-      26 => array(
+      21 => array(
                   'path' => './Lee_Willis-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062101059,
                   'size' => 296063,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Lee Willis.
@@ -491,11 +424,43 @@ $db = array(
  	  easy on the eye, and hardly any decorations to get in your way :)
 ',
                   ),
-      27 => array(
+      22 => array(
+                  'path' => './Kendrick_Vargas-desk-1280x1024',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062101059,
+                  'size' => 257892,
+                  'dimension' => '1280x1024',
+                  'description' => '  	  Submitted by Kendrick Vargas.
+ 	  Fvwm2 integrated with GNOME (HelixCode) on RH 7.0 with FvwmGTK Menus,
+ 	  FvwmPager swallowed into a gnome-panel and showing Mozilla M18 as the web
+ 	  browser. GTK theme used is minEgtk.
+',
+                  ),
+      23 => array(
+                  'path' => './Jules_Alberts-desk-1024x768',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.png',
+                  'date' => 1062101059,
+                  'size' => 39752,
+                  'dimension' => '1024x768',
+                  'description' => ' Submitted by Jules Alberts.
+ Jules says:
+ The setup is like this: FVWM 2.5.7 on a Red Hat 9 box (PIII 500Mhz). I
+ like the interface to be as simple as possible without losing
+ functionality. GKrellm, a simple pager, a menu, application windows and
+ icons. That\'s it.<br>
+ Things I would
+ like to add is some eye-candy (transparancy) and finally get
+ FvwmTrackFocus.pl working :-) but on the whole I think this setup is nice
+ to work with.
+',
+                  ),
+      24 => array(
                   'path' => './Jason_Kibble-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062101059,
                   'size' => 234850,
                   'dimension' => '1280x1024',
                   'description' => ' 	  Submitted by Jason Kibblewhite.
@@ -506,11 +471,11 @@ $db = array(
  	  one has probably changed since this shot was taken.
 ',
                   ),
-      28 => array(
+      25 => array(
                   'path' => './J_C_Lawrence-desk-1920x1440',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062101059,
                   'size' => 270241,
                   'dimension' => '1920x1440',
                   'description' => ' 	  Submitted by J C Lawrence.
@@ -537,11 +502,11 @@ $db = array(
  </ul>
 ',
                   ),
-      29 => array(
+      26 => array(
                   'path' => './Ives_Aerts-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062101059,
                   'size' => 193778,
                   'dimension' => '1280x1024',
                   'description' => ' 	  Submitted by Ives Aerts.
@@ -555,11 +520,11 @@ $db = array(
  	  mutt (mail reader), switch between windows and desks, etc.
 ',
                   ),
-      30 => array(
+      27 => array(
                   'path' => './GlenLeeEdwards-desk4-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062100241,
                   'size' => 209229,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Glen Lee Edwards.
@@ -572,11 +537,11 @@ $db = array(
  FVWM\'s flexibility. 
 ',
                   ),
-      31 => array(
+      28 => array(
                   'path' => './GlenLeeEdwards-desk3-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062100241,
                   'size' => 178518,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Glen Lee Edwards.
@@ -599,11 +564,11 @@ $db = array(
  screenshots and information.
 ',
                   ),
-      32 => array(
+      29 => array(
                   'path' => './FilipHroch-desk-800x600',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062100241,
                   'size' => 159711,
                   'dimension' => '800x600',
                   'description' => ' 	  Submitted by Filip Hroch.
@@ -615,30 +580,25 @@ $db = array(
  screenshot with a dfm icon manager and a transparent aterm on the root window.
 ',
                   ),
-      33 => array(
-                  'path' => './Jules_Alberts-desk-1024x768',
+      30 => array(
+                  'path' => './Dominik-desk2-1152x864',
                   'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.png',
-                  'date' => 1061586309,
-                  'size' => 39752,
-                  'dimension' => '1024x768',
-                  'description' => ' Submitted by Jules Alberts.
- Jules says:
- The setup is like this: FVWM 2.5.7 on a Red Hat 9 box (PIII 500Mhz). I
- like the interface to be as simple as possible without losing
- functionality. GKrellm, a simple pager, a menu, application windows and
- icons. That\'s it.<br>
- Things I would
- like to add is some eye-candy (transparancy) and finally get
- FvwmTrackFocus.pl working :-) but on the whole I think this setup is nice
- to work with.
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062100241,
+                  'size' => 301388,
+                  'dimension' => '1152x864',
+                  'description' => ' 	  Submitted by Dominik Vogt,
+ 	  another one of my palettes (a list can be seen in the Palette menu),
+ 	  an example of the \'SubmenusLeft\' menu style. I\'m fixing a menu bug
+ 	  in the xemacs window in the background while viewing our screenshots
+ 	  page with netscape 8-)
 ',
                   ),
-      34 => array(
+      31 => array(
                   'path' => './Dominik-desk1-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586309,
+                  'date' => 1062100241,
                   'size' => 193723,
                   'dimension' => '1152x864',
                   'description' => ' 	  Submitted by Dominik Vogt,
@@ -651,11 +611,22 @@ $db = array(
  	  \'Popup menu-name item +100 c\' for this effect).
 ',
                   ),
-      35 => array(
+      32 => array(
+                  'path' => './Dan-desk-1280x1024',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1062100241,
+                  'size' => 173958,
+                  'dimension' => '1280x1024',
+                  'description' => ' 	  Submitted by Dan Espen, shows pixmap borders,
+ 	  the Fvwm2 setup dialog using FvwmForm,
+ 	  shaped icons, and a minimal use of fvwm modules.',
+                  ),
+      33 => array(
                   'path' => './Christian_Michon-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586308,
+                  'date' => 1062100241,
                   'size' => 144593,
                   'dimension' => '1280x1024',
                   'description' => ' Submitted by Christian Michon, who says:
@@ -673,21 +644,59 @@ $db = array(
  </p>
 ',
                   ),
-      36 => array(
-                  'path' => './Christian_Lyra-desk-1024x768',
+      34 => array(
+                  'path' => './Cameron_Simpson-desk-2560x1024',
                   'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061586308,
-                  'size' => 234390,
-                  'dimension' => '1024x768',
-                  'description' => ' 	  Submitted by Christian Lyra.
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062098722,
+                  'size' => 381821,
+                  'dimension' => '2560x1024',
+                  'description' => ' 	  Submitted by Cameron Simpson.  Uses Xinerama.
+ This is the
+ Zen style by Cameron Simpson,
+ <a href="http://www.cskk.ezoshosting.com/cs/fvwm/index.html">details here</a>.
+',
+                  ),
+      35 => array(
+                  'path' => './Brian_Sturk-desk-1280x1024',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062098722,
+                  'size' => 245284,
+                  'dimension' => '1280x1024',
+                  'description' => ' 	  Submitted by Brian Sturk.
+ Brian says:
+ I run 2.4.9 on FreeBSD 4.7 and Slackware Linux.   The two
+ FvwmButtons on the left top/right toggle showing a pager
+ and gkrellm respectively.
+',
+                  ),
+      36 => array(
+                  'path' => './Andre_Bonhote-desk-1280x1024',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062098722,
+                  'size' => 281832,
+                  'dimension' => '1280x1024',
+                  'description' => ' 	  Second submission by Andre Bonhote.
+           Normally, we show one screenshot per user, but just this once,
+ 	  we\'ll show how desktops evolve over time.  This was submitted Dec 2002,
+ 	  and the first one was submitted Oct 2000.
+           <p>
+ 	  Andre says:
+ 	  This screenshot shows fvwm 2.5.5 (from cvs) with a lot of transparency.
+ 	  Title bars, borders, menues and pagers (invisible at the moment) are all fully 
+ 	  transparent, some are shaded to look blueish. Besides fvwm2, you see my logs 
+ 	  in three aterms on the right side of the screen. Below that xchat and a small
+ 	  gkrellm. On the left, there\'s mutt in an Eterm. The nice background is done
+ 	  by xplanet and refreshed every 15 minutes.
 ',
                   ),
       37 => array(
                   'path' => './Andre_Bonhote-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061586308,
+                  'date' => 1062098722,
                   'size' => 127735,
                   'dimension' => '1024x768',
                   'description' => ' 	  Submitted by Andre Bonhote.
@@ -702,40 +711,10 @@ $db = array(
 ',
                   ),
       38 => array(
-                  'path' => './An_Thi_Nguyen_Le-desk3-1152x864',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061361663,
-                  'size' => 120776,
-                  'dimension' => '1024x768',
-                  'description' => ' 	  A third  one by An Thi-Nguyen Le.   Here\'s also a screenshot
- 	  of a   mockup of Gnutopia, a  rather  cheery BlackBox theme,
- 	  with  the large   pager  retracted (another  thing I  fooled
- 	  around  with.  Actually, all  the  buttons retract, just for
- 	  the heck  of  it).    Cheery happy  yellowy  and   all that.
-',
-                  ),
-      39 => array(
-                  'path' => './An_Thi_Nguyen_Le-desk2-1152x864',
-                  'preview' => 'preview.gif',
-                  'screenshot' => 'screenshot.gif',
-                  'date' => 1061361663,
-                  'size' => 217183,
-                  'dimension' => '1024x768',
-                  'description' => ' 	  Another  one  by An  Thi-Nguyen   Le.  I got  really  really
- 	procrast-- I mean, bored, and fooled around with FvwmTheme for
- 	a while.  This particular scheme is borrowing heavily from the
- 	Enlightenment theme  AbsoluteE  (the blue  version) and  makes
- 	heavy use of the stretching pixmap feature  of FvwmTheme.  The
- 	background   is Tigert\'s  Blue   Space, the   GKrellM theme is
- 	something obscure called 3051.
-',
-                  ),
-      40 => array(
                   'path' => './An_Thi_Nguyen_Le-desk1-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
-                  'date' => 1061319231,
+                  'date' => 1062098722,
                   'size' => 178879,
                   'dimension' => '1152x864',
                   'description' => ' 	  Submitted by An Thi-Nguyen Le.
@@ -749,18 +728,71 @@ $db = array(
  	  system monitors.
 ',
                   ),
+      39 => array(
+                  'path' => './Christian_Lyra-desk-1024x768',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1062098722,
+                  'size' => 234390,
+                  'dimension' => '1024x768',
+                  'description' => ' 	  Submitted by Christian Lyra.
+',
+                  ),
+      40 => array(
+                  'path' => './An_Thi_Nguyen_Le-desk3-1152x864',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1061361201,
+                  'size' => 120776,
+                  'dimension' => '1024x768',
+                  'description' => ' A third  one by An Thi-Nguyen Le.   Here\'s also a screenshot
+ 	  of a   mockup of Gnutopia, a  rather  cheery BlackBox theme,
+ 	  with  the large   pager  retracted (another  thing I  fooled
+ 	  around  with.  Actually, all  the  buttons retract, just for
+ 	  the heck  of  it).    Cheery happy  yellowy  and   all that.
+',
+                  ),
       41 => array(
+                  'path' => './An_Thi_Nguyen_Le-desk2-1152x864',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1061360055,
+                  'size' => 217183,
+                  'dimension' => '1024x768',
+                  'description' => ' By An  Thi-Nguyen   Le.  I got  really  really procrast-- I mean, bored, and
+ fooled around with FvwmTheme for a while.  This particular scheme is
+ borrowing heavily from the Enlightenment theme AbsoluteE (the blue version)
+ and makes heavy use of the stretching pixmap feature of FvwmTheme.  The
+ background is Tigert\'s Blue Space, the GKrellM theme is something obscure
+ called 3051.
+',
+                  ),
+      42 => array(
+                  'path' => './An_Thi_Nguyen_Le-1152x864',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.gif',
+                  'date' => 1061326513,
+                  'size' => 178879,
+                  'dimension' => '1152x864',
+                  'description' => ' 	  Submitted by An Thi-Nguyen Le.
+ 	  Simple  window  and    menu   decors  using diagonal     and
+ 	  backwards-diagonal gradients.    Buttons are actual defaults
+ 	  from fvwm.  :) The modules used are FvwmButtons (I\'d use the
+ 	  $fg and $bg variables for the swallowed shell but that makes
+ 	  it harder to read in this case), FvwmPager, FvwmIconMan (the
+ 	  very bestest icon manager around).  Dockapps are xpostit and
+ 	  wmnetselect.  On the right is GKrellM, nice themable stacked
+ 	  system monitors.
+',
+                  ),
+      43 => array(
                   'path' => './Uwe_Pross-896x672',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
-                  'date' => 1058558290,
+                  'date' => 1061240585,
                   'size' => 251660,
                   'dimension' => '896x672',
-                  'description' => ' Submitted by Uwe Pross - This screenshot shows FvwmButtons,
- FvwmTaskBar, a window context menu and a FvwmScript-applet which
- counts down a certain amount of time like kteapot. The window titlebar
- is kept simple. All color setting for x-, kde- and gtk-applications
- are done by fvwm.
+                  'description' => ' bla bla
 ',
                   ),
       );

@@ -145,7 +145,8 @@ function save_voting() {
     if( $handle = fopen ($votes_file, "a") ) {
         fwrite( $handle, trim($id)." ".trim(get_voting())."\n");
         fclose ($handle);
-        echo "<h1>Your voting has been count. Thank you for taking part on the fvwm logo competition voting.</h1>";
+        echo "<h1>Your vote has been counted.</h1>
+<h1>Thank you for taking part in the fvwm logo competition voting.</h1>";
         return 1;
     } else {
         echo "<h1>Error: Failed to save your votings. Please try again later</h1>";
