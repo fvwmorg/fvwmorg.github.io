@@ -273,12 +273,9 @@ $navgen_name = basename(my_get_global("PHP_SELF", "SERVER"));
 while( list($index, $php_file) = each($php_file_array) ) {
 
     // init variables
-    unset($title);
-    unset($link_chapter);
-    unset($link_name);
-    unset($link_picture);
-    unset($parent_site);
-    unset($child_sites);
+    foreach($export_array as $var_name) {
+        unset(${$var_name});
+    }
     unset($this_site);
 
     // load the file

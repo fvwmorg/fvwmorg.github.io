@@ -112,6 +112,9 @@ class Pager_On_Top_Theme extends Default_Theme {
         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
         $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
         
+        // correct pages per desk
+        if( $pages_per_desk%2 ) $pages_per_desk++;
+
         // desk label = link name
         $desk_name = $this->nav_array["$site"]["link_name"];
         // shorten string if needed
@@ -193,8 +196,9 @@ class Pager_On_Top_Theme extends Default_Theme {
                 end($navigation_array);
                 unset($navigation_array[key($navigation_array)]);
             }
-            if( $pages_per_desk < count($sub_sites) + 1 )
+            if( $pages_per_desk < count($sub_sites) + 1 ) {
                 $pages_per_desk = count($sub_sites) + 1;
+            }
             // append sub sites or sub sites of the parent to the navigation_array
             // reset($sub_sites);
             // while( list($key, $site) = each($sub_sites) ) {

@@ -1,0 +1,32 @@
+setenv DIR /home/uwp/fvwm-web/screenshots/vectorbuttons
+setenv COLOR SteelBlue
+
+DestroyDecor $[DECORNAME]
+AddToDecor   $[DECORNAME]
++ TitleStyle Height 30 LeftJustified
++ TitleStyle -- Raised
++ BorderStyle -- HiddenHandles
++ ButtonStyle Reset
++ ButtonStyle 1 $[VECTOR]
+
+Style "$[DECORNAME]" NoButton 0
+Style "$[DECORNAME]" NoButton 2
+Style "$[DECORNAME]" NoButton 3
+Style "$[DECORNAME]" NoButton 4
+Style "$[DECORNAME]" NoButton 5
+Style "$[DECORNAME]" NoButton 6
+Style "$[DECORNAME]" NoButton 7
+Style "$[DECORNAME]" NoButton 8
+Style "$[DECORNAME]" NoButton 9
+Style "$[DECORNAME]" UseDecor $[DECORNAME], BorderWidth 7, HandleWidth 7, BackColor $[COLOR], ForeColor black, HilightBack $[COLOR], HilightFore black, BorderColorset, HilightBorderColorset, ClickToFocus, WindowListSkip
+
+Exec xterm -name $[DECORNAME] -geometry 10x10 -T "$[DECORNAME]"
+wait $[DECORNAME]
+
+Current WindowShade on
+
+Exec import -window "$[DECORNAME]" -frame -silent $[DIR]/$[SHOTNAME]
+Exec echo '<tr><td><img src="$[SHOTNAME]" alt="vector button"></td><td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?> $[VECTOR]</td></tr>' >> $[DIR]/vectorbuttonlist.inc
+
+# Current Close
+

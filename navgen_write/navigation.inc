@@ -70,7 +70,6 @@ $this->nav_array["logo_competition"]["child_sites"] = array("logo_competition_re
 $this->nav_array["logo"]["file"] = "fvwm-logo/index.php"; 
 $this->nav_array["logo"]["rel_path"] = "./.."; 
 $this->nav_array["logo"]["link_name"] = "FVWM Logo"; 
-$this->nav_array["logo"]["short_name"] = "Desktops"; 
 $this->nav_array["logo"]["link_picture"] = "pictures/icons/logo"; 
 $this->nav_array["logo"]["parent_site"] = "news"; 
 $this->nav_array["logo"]["child_sites"] = array(); 
@@ -127,12 +126,19 @@ $this->nav_array["screenshots_menus"]["link_picture"] = "pictures/icons/screensh
 $this->nav_array["screenshots_menus"]["parent_site"] = "screenshots"; 
 $this->nav_array["screenshots_menus"]["child_sites"] = array(); 
 
+$this->nav_array["screenshots_vectorbuttons"]["file"] = "screenshots/vectorbuttons/index.php"; 
+$this->nav_array["screenshots_vectorbuttons"]["rel_path"] = "./../.."; 
+$this->nav_array["screenshots_vectorbuttons"]["link_name"] = "Vectorbuttons"; 
+$this->nav_array["screenshots_vectorbuttons"]["link_picture"] = "pictures/icons/default"; 
+$this->nav_array["screenshots_vectorbuttons"]["parent_site"] = "screenshots"; 
+$this->nav_array["screenshots_vectorbuttons"]["child_sites"] = array(); 
+
 $this->nav_array["screenshots"]["file"] = "screenshots/index.php"; 
 $this->nav_array["screenshots"]["rel_path"] = "./.."; 
 $this->nav_array["screenshots"]["link_name"] = "Screenshots"; 
 $this->nav_array["screenshots"]["link_picture"] = "pictures/icons/screenshots"; 
 $this->nav_array["screenshots"]["parent_site"] = "top"; 
-$this->nav_array["screenshots"]["child_sites"] = array("screenshots_desks", "windowdecors", "screenshots_menus", ); 
+$this->nav_array["screenshots"]["child_sites"] = array("screenshots_desks", "windowdecors", "screenshots_menus", "screenshots_vectorbuttons", ); 
 
 $this->nav_array["faq"]["file"] = "documentation/faq/index.php"; 
 $this->nav_array["faq"]["rel_path"] = "./../.."; 

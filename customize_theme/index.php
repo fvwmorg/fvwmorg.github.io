@@ -83,7 +83,7 @@ decoration_window_start("Please make your selection");
 	  <tr>
 	    <td>Use another theme for this page:</td>
 	    <td><?php $tdh->insert_avail_theme_list(); ?></td>
-	    <td><input type="submit" name="theme_change" value="Use this theme"></td>
+	    <td><input type="submit" name="theme_change" value="Use this theme">&nbsp;&nbsp;<input type="submit" name="clear_cookies" value="Clear cookies"></td>
 	  </tr>
 <!--	  <tr>-->
 <!--	    <td colspan="3"><h2>Options for theme &quot;<?php echo $tdh->get_selected_theme_name();?>&quot;</h2></td>-->

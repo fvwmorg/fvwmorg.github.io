@@ -46,3 +46,7 @@ a:focus, a:hover {
 .showpageprop, .showpagedesc, .showpageprev { 
   background-color:#e0e0e0;
 }
+
+.vectorbutton { 
+  font-size:small;
+}

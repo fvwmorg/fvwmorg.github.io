@@ -66,9 +66,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	<a href="DecorDemo4.fvwmrc"><img src="DecorDemo4.gif"
 					 alt="Collection 4" border="1"></a></td></tr>
     <tr><td>
-	This next one uses the pixel offset feature from the fvwm 2.5.x beta series.
-	Be patient now...</td></tr>
-    <tr><td>
 	<a href="DecorDemo5.fvwmrc"><img src="DecorDemo5.gif"
 					 alt="Collection 5" border="1"></a></td></tr>
   </table>

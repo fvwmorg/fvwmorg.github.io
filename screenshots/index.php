@@ -20,7 +20,7 @@ $title          = "FVWM - Screenshots";
 $link_name      = "Screenshots";
 $link_picture   = "pictures/icons/screenshots";
 $parent_site    = "top";
-$child_sites    = array("screenshots_desks", "windowdecors" ,"screenshots_menus");
+$child_sites    = array("screenshots_desks", "windowdecors" ,"screenshots_menus", "screenshots_vectorbuttons");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "screenshots";
 
