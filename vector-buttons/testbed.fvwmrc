@@ -27,12 +27,10 @@
 #   Then type "n" (Image size Normal).
 #   Then save the image.
 #   
-#   Look at Decor 3 for an example of what to do if you don't have an
+#   Look at the last Decor N for an example of what to do if you don't have an
 #   exact multiple of 10 buttons.
 #
 #   I think it looks better to leave the frame in the gif.
-#   I'm not worrying about the little bit of the xv picture that shows.
-#   It might be nice to put something under the title bar though.
 #
 #   Each time you do a read on a decor it changes all your title bars so
 #   be sure to grab the image right after you do the "button_demo".
@@ -40,10 +38,17 @@
 DestroyFunc button_demo
 AddToFunc   button_demo
  + I 10_buttons
+# Try to reset all default decoration style options for the demo window
  + I Style "button_demo_style*" UseDecor DecorDemo, MWMBorder, HandleWidth 10
+ + I Style "button_demo_style*" ForeColor grey90, BackColor grey50
  + I Style "button_demo_style*" HilightFore white, HilightBack grey
-# Setting the height to either zero or 1 seemed to have the same effect.
- + I Exec xv -name button_demo_style -geometry 300x1
+ + I Style "button_demo_style*" Colorset, HilightColorset
+ + I Style "button_demo_style*" BorderColorset, HilightBorderColorset
+ + I Style "button_demo_style*" Font -adobe-helvetica-*-r-*-*-17-*-*-*-*-*-*-*
+# Launch the demo window and shrink it to borders+title only (480x50)
+ + I Exec xv -name "button_demo_style                      " -geometry 480x270
+ + I Wait button_demo_style*
+ + I Next (button_demo_style*) WindowShade true
 
 # -- Start of 10 button layout --
 DestroyFunc 10_buttons
@@ -55,13 +60,12 @@ AddToFunc   10_buttons
  + I Style "button_demo_style*" Button 4, Button 5, Button 6
  + I Style "button_demo_style*" Button 7, Button 8, Button 9, Button 10
 # I find if I don't bind something to the button, it doesn't appear (dje):
- + I Mouse 3 0 M Nop
- + I Mouse 3 1 M Nop
- + I Mouse 3 2 M Nop
- + I Mouse 3 3 M Nop
- + I Mouse 3 4 M Nop
- + I Mouse 3 5 M Nop
- + I Mouse 3 6 M Nop
- + I Mouse 3 7 M Nop
- + I Mouse 3 8 M Nop
- + I Mouse 3 9 M Nop
+ + I Mouse 3 0 N WindowShade
+ + I Mouse 3 9 N WindowShade
+
+DestroyFunc stop_button_demo
+AddToFunc   stop_button_demo
+ + I All ("button_demo_style*") Close
+# Remove unused titlebar buttons
+ + I Mouse 3 0 N -
+ + I Mouse 3 9 N -

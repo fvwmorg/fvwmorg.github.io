@@ -1,10 +1,10 @@
 # Fvwm Vector Buttons Collection 1.
 # All possible 10 buttons are used.
 # Buttons left to right are numbered 1 3 5 7 9 0 8 6 4 2
-DestroyDecor    DecorDemo
-AddToDecor      DecorDemo
-+ TitleStyle Height 30
-+ TitleStyle (Solid gray -- Flat)
+DestroyDecor DecorDemo
+AddToDecor   DecorDemo
++ TitleStyle Height 30 LeftJustified
++ TitleStyle -- Raised
 + ButtonStyle Reset
 # Large box
 + ButtonStyle 1  5 25x25@1 25x75@1 75x75@0 75x25@0 25x25@1

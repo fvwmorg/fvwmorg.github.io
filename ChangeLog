@@ -1,3 +1,16 @@
+2001-01-21  Mikhael Goikhman  <migo@homemail.com>
+
+	* vector-buttons/testbed.fvwmrc:
+	It is impossible now to get title width 0 (only buttons), so
+	add a full title "button_demo_style", more improvements.
+	Added stop_button_demo function,
+	* vector-buttons/DecorDemo[1-4].fvwmrc:
+	Since title is displayed now, fix TitleStyle definitions.
+	* vector-buttons/DecorDemo[1-4].gif:
+	recreated gifs
+
+	* generated/{FAQ,NEWS}.html: regenerated
+
 2001-01-20  Dan Espen  <dane@mk.telcordia.com>
 
 	* vector-buttons/vector-buttons.html: Add collection 4.

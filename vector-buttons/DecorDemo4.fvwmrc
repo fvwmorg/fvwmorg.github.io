@@ -3,8 +3,8 @@
 # Buttons left to right are numbered 1 3 5 7 9 0 8 6 4 2
 DestroyDecor DecorDemo
 AddToDecor   DecorDemo
-+ TitleStyle Height 30
-+ TitleStyle (Solid gray -- Flat)
++ TitleStyle Height 30 LeftJustified
++ TitleStyle -- Raised
 + ButtonStyle Reset
 # From: Jeff Walker <jwalker@matchlogic.com>
 # This demonstrates the trick of using AddButtonStyle to build up an image
