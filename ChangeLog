@@ -1,12 +1,186 @@
+1999-12-30  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: increased version number to 2.3.12
+
 1999-12-27  olicha <olivier.chapuis@free.fr>
 
 	* fvwm-cats: Added lili.
 
-1999-12-20  Dan Espen  <dane@mk.telcordia.com>
-
-	* download.html: Make the documentation link lead to the man pages.
-
 1999-12-17  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html: changed fvwm-cats/ link to be relative
+
+	* fvwm-cats/index.html:
+	* fvwm-cats/murzilka.jpg:
+	added Murzilka's cat entry
+
+	* screenshots/index.html: renamed from screenshots/screenshots.html
+	* screenshots/Mikhael-desk-{1152x864,thumbnail}.gif:
+	a slightly updated version of the desktop screenshot
+
+1999-12-17  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: increased version number to 2.3.11
+
+1999-12-04  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html:
+	fixed typo
+
+1999-12-07  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html: removed html tag 'MULTICOL' screwing the layout,
+	added missing '</blockquote>', some rewording
+	* cvs.html: removed "-b -B" option advise from "cvs diff"
+
+	* vector-buttons/DecorDemo2.{fvwmrc,gif}:
+	improved diagonal-arrow buttons, changed order of buttons
+	* vector-buttons/testbed.fvwmrc:
+	Added missing 'Read'; commented out 'Mouse' lines (these global
+	binding changes are superfluous); added 'MWMBorder, HandleWidth 10'
+	to demo style.
+
+1999-11-30  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html:
+	* index.html:
+	set stable version to 2.2.4
+
+1999-11-27  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: increased version number to 2.3.10
+
+1999-11-22  Dan Espen  <dane@mk.telcordia.com>
+
+	*    index.html, vector-buttons  directory:   vector-buttons.html,
+ 	testbed.fvwmrc,             DecorDemo1.fvwmrc,     DecorDemo1.gif,
+ 	DecorDemo2.fvwmrc,        DecorDemo2.gif,       DecorDemo3.fvwmrc,
+ 	DecorDemo3.gif : New vector buttons page.
+
+	* screenshots/screenshot.html: fixed reference to background (../).
+
+1999-11-13  olicha  <olivier.chapuis@free.fr>
+
+	* mod_m2f_communication.html: Updated the "Synchronous vs.
+	Asynchronous Operation" section.
+
+	* mod_f2m_communication.html: Replaced M_LOCKONSEND by M_NOTUSED
+
+1999-09-26  Dominik Vogt  <dominik_vogt@gmx.de>
+
+	* mod_initialization.html: more colorset instructions
+
+1999-10-19  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* index.html: added news for 2.2.3
+
+	* download.html: increased stable version number to 2.2.3
+
+1999-10-14  Dan Espen  <dane@mk.telcordia.com>
+
+	* screenshots: Added some screenshots from Lee Willis.
+
+1999-10-08  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: increased version number to 2.3.8
+
+1999-09-19  Dominik Vogt  <dominik_vogt@gmx.de>
+
+	* fvwm-cats/index.html: 'Cats' doesn't blink anymore
+
+	* download.html: increased version number to 2.3.8
+=======
+1999-12-20  Dan Espen  <dane@mk.telcordia.com>
+>>>>>>> 1.30
+
+<<<<<<< ChangeLog
+Sun Sep 12 09:36:37 1999  DanEspen  <dje@blue>
+=======
+	* download.html: Make the documentation link lead to the man pages.
+>>>>>>> 1.30
+
+<<<<<<< ChangeLog
+	* icons.html: New page for downloading and viewing the fvwm icons.
+
+	* fvwm-web/generated: added "icon_download" to hold the tgz file
+	for downloading the icons.  Added "icon_shots" to hold the gif
+	files to picture the icons.
+
+	* developers.html: New file for Fvwm history, (some dates would be
+	nice) and links to developer information.
+
+	* index.html: Try to get scrollbars of the main page.
+	New page for developer history and links to developer information.
+	Go to 3 column link display for Netscape users (maybe a table later).
+	Add more links to eliminate the "Docs, FAQ, Other" category.
+	"docs.html" is now obsolete.
+	Put links in most important first order.
+
+1999-09-10  Hippo
+
+	* modules.html,mod_initialization.html: added section on how to code
+	colorsets
+
+1999-09-08  Dan Espen  <dane@mk.telcordia.com>
+
+	* Moved fvwm-cats into fvwm-web.  Moved the cats changelog here too.
+
+1999-04-15  Bob Woodside  <proteus@pcnet.com>
+	* index.html: made the pets' names bold, minor update to my entry.
+
+1999-04-15  Dominik Vogt  <dominik_vogt@hp.com>
+
+	* fvwm-cats.html: renamed to index.html
+
+1999-04-14  Dominik Vogt  <dominik_vogt@hp.com>
+
+	* fvwm-cats.html: fixed typo
+
+1999-09-01  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: changed latest beta to 2.3.7
+
+Sun Aug 22 19:08:51 1999  DanEspen  <dje@blue>
+
+	* cvs.html: Start describing fvwm-web CVS proceedure.
+
+1999-08-10  Dan Espen  <dane@mk.telcordia.com>
+
+	* 2.2.2 manpages: added.
+
+	* docs.html: Access man pages in generated/manpages directory.
+
+	* generated/run_man2html.sh (curr_section): Add ../../ to reference to
+	background jpg.  Default input is ../../fvwm, default output is
+	./manpages.
+
+	* index.html: access NEWS in "generated" directory.
+
+	* generated/NEWS.html: Generated NEWS.html from current (2.3.6) source.
+
+	* generated/FAQ.html: Generated FAQ.html from current (2.3.6) source.
+
+	* generated/txt2html.sh: Add ../ to reference to background jpg.
+
+	* docs.html: Remove link to the TODO list, access FAQ in "generated"
+	directory.
+
+	* cvs.html: Change reference to the TODO list to the
+	Jitterbug list.
+
+1999-08-09  Dan Espen  <dane@mk.telcordia.com>
+
+	* screenshots/screenshot.html: News screenshot by Ives Aerts.
+
+	* Added generated directory and the 2 generation shells.
+
+	* Moved screenshots into a subdirectory,
+	fixed bad filename for the Windowmaker thumbnail filename.
+
+1999-08-08  Dominik Vogt  <dominik_vogt@gmx.de>
+=======
+1999-12-17  Mikhael Goikhman  <migo@homemail.com>
+>>>>>>> 1.30
 
 	* Icon_Screenshots.ksh: Get rid of xrdb, add some instructions.
 
