@@ -1,3 +1,10 @@
+2001-01-20  Dan Espen  <dane@mk.telcordia.com>
+
+	* vector-buttons/vector-buttons.html: Add collection 4.
+	* vector-buttons/DecorDemo4.fvwmrc: Jeff Walker's arrows with bars.
+	* vector-buttons/testbed.fvwmrc: Put Mouse bindings back, I seem to need
+	them.
+
 2001-01-04  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.html:
