@@ -43,10 +43,18 @@ if (strlen($site_has_been_loaded) == 0) {
 <p>I've got some submissions for the contest, tiger might get resubmitted
 when I've worked out how to draw stripes on the tale that don't look crap. :)
 
-<p><img src="tiger.png">
-<p><img src="feeble.png">
-<p><img src="black.png">
-<p><img src="plain.png">
+<p><i>(update)</i> After much GIMPing around I've got a pretty good fake fur
+look, more realistic ears and half decent tail, enjoy.
+
+<p>
+<img align=middle src="feeble.png">
+<img align=middle src="tiger.png">
+<p>
+<img align=middle src="fakefur.png">
+<img align=middle src="tiger2.png">
+<p>
+<img align=middle src="plain.png">
+<img align=middle src="black.png">
 
 <?php decoration_window_end(); ?>
 

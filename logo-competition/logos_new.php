@@ -83,7 +83,7 @@ border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By Tian", "", "", 0); ?>
+<?php decoration_window_start("By Tian (3 images)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/Tian/index.php');
 ?>" class="nohilight"><img src="logos/Tian/logo_shaded.png"
@@ -96,20 +96,20 @@ border="0" hspace="0" vspace="0" width="266" height="143"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By Phil Harper", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (6 images)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
 ?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png"
 border="0" hspace="0" vspace="0"></a>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
-?>" class="nohilight"><img src="logos/Phil_Harper/black.png"
+?>" class="nohilight"><img src="logos/Phil_Harper/tiger2.png"
 border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By VosVuur", "", "", 0); ?>
+<?php decoration_window_start("By VosVuur (4 images)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/VosVuur/index.php');
 ?>" class="nohilight"><img src="logos/VosVuur/jungle-overview.png"
