@@ -233,9 +233,13 @@ if( strlen($theme) > 0 ) {
           preg_match("/w3m/", $user_agent)) {
     $theme_file = theme_file("plain_theme.inc");
     $theme = "plain";
+//} elseif( preg_match("/logo-competition/", $_SERVER["SCRIPT_FILENAME"]) ) {
+//    $theme_file = theme_file("plain_theme.inc");
+//    $theme = "plain";     
 } else {
     // $theme_file = theme_file("default_theme.inc");
     $theme_file = theme_file("birthday_theme.inc");
+    $theme = "birthday";
 }
 
 // layout file - old version

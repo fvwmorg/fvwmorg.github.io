@@ -37,6 +37,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 	include(sec_filename($layout_file));
 	exit();
 }
+if( file_exists("./logos/color_select.inc") ) include("./logos/color_select.inc");
 ?>
 
 <!-- ============================================================= -->
