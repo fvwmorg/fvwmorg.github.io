@@ -23,7 +23,7 @@
 <HTML><HEAD><TITLE>Manpage of FVWM2</TITLE>
 </HEAD><BODY>
 <H1>FVWM2</H1>
-Section: User Commands  (1)<BR>Updated: 20 May 2001<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 11 Jun 2002<BR><A HREF="#index">Index</A>
 - <A HREF="./">Return to Main Contents</A><HR>
 
 
@@ -136,21 +136,23 @@ to be changed at any time.
 <P>
 Other noteworthy differences between Fvwm and other X11 window
 managers are the introduction of the
+<I>SloppyFocus  and  NeverFocus</I>
+
+focus methods.  Focus policy can be specified for individual
+windows.  Windows using
 <I>SloppyFocus</I>
 
-and per-window focus methods.
-<I>SloppyFocus</I>
+acquire focus when the pointer moves into them and retain focus
+until some other window acquires it.  Such windows do not lose
+focus when the pointer moves into the root window.  The
+<I>NeverFocus</I>
 
-is focus-follows-mouse, but focus is not removed from windows when
-the mouse leaves a window and enters the root window.  When
-<I>SloppyFocus</I>
+policy is provided for use with windows into which one never types
+(e.g. xclock, oclock, xbiff, xeyes, tuxeyes) - for example, if a
+SloppyFocus terminal window has focus, moving the cursor over a
+<I>NeverFocus</I>
 
-is used as the default focus style, it is nice to make windows in
-which you do not typically type into (xmag, xman, xgraph, xclock,
-xbiff, etc.).
-<I>NeverFocus</I>,
-
-so that your terminal window doesn't lose focus unnecessarily.
+decoration window won't deprive the terminal of focus.
 <P>
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
@@ -572,10 +574,10 @@ or only one screen is used, the screen bit is ignored.
 
 
 <P>
-Xinerama support can be configured to use a primary screen.  New
-windows and icons are usually placed on this screen - unless fvwm
-is told otherwise.  The primary screen is screen 0 by default but
-can be changed with the
+Xinerama support can be configured to use a primary screen.  Fwvm
+can be configured to place new windows and icons on this screen.
+The primary screen is screen 0 by default but can be changed with
+the
 <B>XineramaPrimaryScreen</B>
 
 command.
@@ -1228,7 +1230,7 @@ The following commands are built-in to fvwm:
 
 <blockquote><PRE>Key Help R A Popup MenuFvwmRoot
 Key F1 R A Popup MenuFvwmRoot
-Key Tab A M WindowList Root c c NoDeskSort, ReverseOrder
+Key Tab A M WindowList Root c c NoDeskSort
 Key Escape A MC EscapeFunc
 Mouse 0 R N Menu MenuFvwmRoot
 Mouse 1 TS A FuncFvwmRaiseLowerX Move
@@ -2713,7 +2715,7 @@ prevent menus being redrawn every time a sub-menu pops up or down.
 
 
 
-Run you X server with backing storage.  If your X Server is
+Run your X server with backing storage.  If your X Server is
 started with the -bs option, turn it off.  If not try the -wm
 option.
 
@@ -3721,7 +3723,7 @@ command.
 </blockquote>
 </blockquote>
 <P>
-The defaults are shown in parentheses above.  Is you ever want to
+The defaults are shown in parentheses above.  If you ever want to
 restore the default cursor for a specific context you can omit the
 second argument.
 <P>
@@ -4392,6 +4394,8 @@ passed to WindowList can be
 
 <I>NoDeskSort</I>,
 
+<I>CurrentAtEnd</I>,
+
 <I>ReverseOrder</I>,
 
 <I>UseIconName</I>,
@@ -4443,6 +4447,13 @@ defaults to m.  With the
 <I>ReverseOrder</I>
 
 option the order of the windows in the list is reversed.
+<P>
+With the
+<I>CurrentAtEnd</I>
+
+option the currently focused window (if any) is shown at the bottom
+of the list.  This is mostly intended for simulating the Alt-Tab
+behaviour in another GUI.
 <P>
 If you wanted to use the
 <B>WindowList</B>
@@ -5331,7 +5342,7 @@ positive number instead of &quot;True&quot;, or a negative number instead of
 &quot;False&quot;.  Note that this syntax is obsolete, and will be removed
 in the future.
 <P>
-<DT><B>Maximize [</B> <I>screen screen-spec</I> <B>] [</B> <I>horizontal</I> <B>] [</B> <I>bool</I> <B>[</B> <I>p</I> <B>]</B> <I>vertical</I> <B>[</B> <I>p</I> <B>]]</B><DD>
+<DT><B>Maximize [</B><I>screen screen-spec</I><B>] [</B><I>bool</I><B>] [</B><I>horizontal</I><B>[</B><I>p</I><B>]</B> <I>vertical</I><B>[</B><I>p</I><B>]]</B><DD>
 Without its optional arguments (or if the
 <I>bool</I>
 
@@ -5604,7 +5615,7 @@ This command creates a lot of extra network traffic, depending on
 your CPU, network connection, the number of
 <B>Key</B> or <B>Mouse</B>
 
-commands in you configuration file and the number of modifiers you
+commands in your configuration file and the number of modifiers you
 want to ignore.  If you do not have a lightning fast machine or
 very few bindings you should not ignore more than two modifiers.
 I.e. do not ignore
@@ -7320,7 +7331,7 @@ causes fvwm to ignore these settings (including
 <I>StartsOnDesk</I>)
 
 on initial capture.  The default is
-<I>CaptureHonorsStartsOnPage</I>.
+<I>CaptureIgnoresStartsOnPage</I>.
 
 <P>
 <I>RecaptureHonorsStartsOnPage</I>
@@ -7870,9 +7881,9 @@ is similar in usage to the
 <B>AddToMenu</B> and <B>AddToFunc</B>
 
 commands, except that menus and functions are replaced by
-<B>ButtonStyle</B>, <B>AddButtonStyle</B>, <B>TitleStyle</B>, <B>AddTitleStyle</B> and 
+<B>ButtonStyle</B>, <B>AddButtonStyle</B>, <B>TitleStyle</B>,
 
-<B>BorderStyle</B>
+<B>AddTitleStyle</B> and <B>BorderStyle</B>
 
 commands.  Decors created with
 <B>AddToDecor</B>
@@ -8619,7 +8630,7 @@ option.  The decor named &quot;Default&quot; cannot be destroyed.
 
 <DD>
 Sets attributes for the title-bar.  Justifications can be
-<I>Centered ,  RightJustified  or  LeftJustified .</I>
+<I>Centered</I>, <I>RightJustified</I> or <I>LeftJustified</I>.
 
 <I>height</I>
 
@@ -9157,15 +9168,28 @@ Xinerama off</PRE></blockquote>
 <DD>
 Takes an integer number or 'g' or 'c' as its argument.  A number
 is taken as the number of the Xinerama screen that is to be used
-as the primary screen.  The primary screen is the preferred screen
-to place windows.  Any number that is zero or more is taken as the
-primary screen's number.  Instead, the letter 'c' indicates to use
-the curent screen (containing the pointer) whenaver the primary
-screen is used.  This may be very confusing under some
-circumstances.  With 'g', the global screen is used as the primary
-screen, effectively disabling the primary screen.  Calling this
-function with any other argument (including none) resets the
-primary screen to 0.  For Example
+as the primary screen.  The primary screen can be used as the
+preferred screen to place windows with
+
+
+<P>
+
+
+<blockquote><PRE>XineramaPrimaryScreen &lt;screen number&gt;
+Style * StartsOnScreen p</PRE></blockquote>
+<P>
+
+
+
+The primary screen is used in some of the modules and for the
+default icon box too.  Any number that is zero or more is taken as
+the primary screen's number.  Instead, the letter 'c' indicates to
+use the curent screen (containing the pointer) whenever the
+primary screen is used.  This may be very confusing under some
+circumstances.  With
+
+disabling the primary screen.  Calling this function with any
+other argument (including none) resets the primary screen to 0.
 <P>
 <DT><B>XineramaSls [</B><I>bool</I><B>]</B>
 
@@ -9529,7 +9553,7 @@ menu.  If the menu item specification is
 <P>
 
 
-<blockquote><PRE>Nop &quot; &quot;</PRE></blockquote>
+<blockquote><PRE>AddToMenu MyMenu &quot; &quot; Nop</PRE></blockquote>
 <P>
 
 
@@ -9540,7 +9564,7 @@ then a blank line is inserted.  If it looks like
 <P>
 
 
-<blockquote><PRE>Nop &quot;&quot;</PRE></blockquote>
+<blockquote><PRE>+ &quot;&quot; Nop</PRE></blockquote>
 <P>
 
 
@@ -9676,6 +9700,14 @@ anything. If
 is used on a user defined function it affects all function and sub
 function calls until the original function exits.
 <P>
+Another usage of
+<B>Silent</B>
+
+is with binding commands
+<B>Key</B>, <B>PointerKey</B> and <B>Mouse</B>,
+
+this disables error messages.
+<P>
 Examples:
 
 
@@ -9683,7 +9715,9 @@ Examples:
 
 
 <blockquote><PRE>Silent Move 0 0
-Silent User_defined_function</PRE></blockquote>
+Silent User_defined_function
+# don't complain on keabords without &quot;Help&quot; key
+Silent Key Help R A Popup HelpMenu</PRE></blockquote>
 <P>
 
 
@@ -9811,7 +9845,7 @@ option of the
 <B>Style</B>
 
 command.  Also, all windows using the
-<I>NoFocus</I>
+<I>NeverFocus</I>
 
 style are ignored.
 <P>
@@ -9962,6 +9996,28 @@ on the previous window which satisfies all
 Conditions are the same as for
 <B>Next</B>.
 
+<P>
+<DT><B>ThisWindow [(</B><I>conditions</I><B>)] </B><I>command</I>
+
+<DD>
+<B>ThisWindow</B>
+
+executes the specified
+<I>command</I>
+
+in the context of the current operand window.  If there is no
+operand window (it is invoked in the root window), the command is
+ignored.
+<B>ThisWindow</B>
+
+is always non-interactive.  The command is executed only if the
+given
+<I>conditions</I>
+
+are met.  The conditions are the same as for
+<B>Current</B>.
+
+It returns -1 if used outside a window context.
 <P>
 <DT><B>WindowId [</B> <I>id</I> <B>] [(</B> <I>conditions</I> <B>)] | [</B> <I>root</I> <B>[</B> <I>screen</I> <B>]]</B> <I>command<DD>
 The
@@ -10815,13 +10871,13 @@ The official fvwm homepage is
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 22:13:59 GMT, October 12, 2001
+Time: 08:54:40 GMT, August 10, 2002
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Sat Oct 13 00:13:59 IST 2001 -->
+on Sat Aug 10 11:54:40 IDT 2002 -->
 </body>
 </html>
 

@@ -48,19 +48,21 @@ fvwm-menu-headlines - builds headlines menu definition for <FONT SIZE="-1">FVWM<
 [ <B>---icon-title</B> icon ]
 [ <B>---icon-item</B> icon ]
 [ <B>---icon-home</B> icon ]
+[ <B>---icon-error</B> icon ]
 [ <B>---wm-icons</B> ]
 [ <B>---frontpage</B> [where] ]
 [ <B>---proxy</B>|<B>-p</B> host:port ]
 [ <B>---file</B> [file] ]
 [ <B>---fake</B> [file] ]
+[ <B>---timeout</B> seconds ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
 This configurable perl script builds an fvwm menu definition for headlines
-of popular news web sites: FreshMeat, Slashdot, LinuxToday, Segfault, AppWatch,
-LinuxApps, JustLinux, DaemonNews, GNOME-News, KDE-News, FreeKDE, RootPrompt,
-LinuxFr and more.
+of popular news web sites: FreshMeat, Slashdot, LinuxToday, LinuxApps,
+DaemonNews, GNOME-News, KDE-News, RootPrompt,
+LinuxFr, ThinkGeek, <FONT SIZE="-1">CNN</FONT>, BBC-World, BBC-SciTech and more.
 <P>
 
 It is possible to specify a customized menu item format, change a command
@@ -85,27 +87,39 @@ also can be used together with --help to get new defaults.
 Default site: freshmeat.
 <P>
 
-<B>---name</B>, <B>---title</B>, <B>---icon</B> - define menu name, menu title and menu icon
-accordingly given in the following argument. Default is name
-``MenuHeadlinesFreshmeat'', title ``Freshmeat Headlines'' and no mini-icon
-(equivalent to an empty icon argument).
+<B>---name</B>, <B>---title</B> - define menu name and menu title accordingly given
+in the following argument. Default is name ``MenuHeadlinesFreshmeat'' and
+title ``Freshmeat Headlines''.
 <P>
 
 <B>---item</B>, <B>---exec</B> - define menu item or exec format in the following
 argument (what is shown and what is executed when the item is chosen),
-default is '%h\t(%[%Y-%m-%d <TT>%H:</TT>%M])'. <FONT SIZE="-1">TAB</FONT> can be specified as '\t', but
-in fvwmrc you should specify a double backslash or a real <FONT SIZE="-1">TAB</FONT>.
+default is '%h\t%[(%Y-%m-%d <TT>%H:</TT>%M)]'.
+<FONT SIZE="-1">TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double
+backslash or a real <FONT SIZE="-1">TAB</FONT>.
 <P>
 
 Format specifiers for a headline entry:
 <BR>&nbsp;&nbsp;<TT>%h</TT>&nbsp;-&nbsp;headline
 <BR>&nbsp;&nbsp;<TT>%u</TT>&nbsp;-&nbsp;url
-<BR>&nbsp;&nbsp;<TT>%d</TT>&nbsp;-&nbsp;date&nbsp;in&nbsp;native&nbsp;format
-<BR>&nbsp;&nbsp;%[strftime-argument-string]&nbsp;-&nbsp;date,&nbsp;see&nbsp;<I><A HREF="./?3+strftime">strftime</A></I>(3)
-<BR>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;date&nbsp;is&nbsp;represented&nbsp;accourding&nbsp;to&nbsp;the&nbsp;local&nbsp;time
-<BR>&nbsp;&nbsp;%{name}&nbsp;-&nbsp;site-specific-named-value
-<BR>&nbsp;&nbsp;%(text)&nbsp;-&nbsp;arbitrary&nbsp;text
+<BR>&nbsp;&nbsp;<TT>%d</TT>&nbsp;-&nbsp;date&nbsp;in&nbsp;the&nbsp;native&nbsp;format&nbsp;(that&nbsp;site&nbsp;backend&nbsp;supplied)
+<BR>&nbsp;&nbsp;%[strftime-argument-string]&nbsp;-&nbsp;date/time,&nbsp;see&nbsp;<I><A HREF="./?3+strftime">strftime</A></I>(3)
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;date/time&nbsp;is&nbsp;represented&nbsp;accourding&nbsp;to&nbsp;the&nbsp;local&nbsp;time;
+<BR>&nbsp;&nbsp;&nbsp;&nbsp;date&nbsp;and/or&nbsp;time&nbsp;fields&nbsp;that&nbsp;can't&nbsp;be&nbsp;guessed&nbsp;are&nbsp;stripped
 <P>
+
+
+
+<PRE>
+    Example: %[|%d %B %Y| %H:%M %S]
+      If site supplied only date - this becomes %[|%d %B %Y|],
+      if site supplied no date - this becomes an empty string.
+  %{name} - site specific named value, like %{comments}
+  %(text) - arbitrary text, good for escaping or aligning
+
+
+</PRE>
+
 
 These specifiers can receive an optional integer size, positive for right
 adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional
@@ -124,19 +138,20 @@ In fact, --exec=``mozilla '%u''' is equivalent
 to --command=``Exec mozilla '%u'''
 <P>
 
-<B>---icon-title</B>, <B>---icon-item</B>, <B>---icon-home</B> - define menu icon for
-title, regular item and home item respectively given in the following argument.
+<B>---icon-title</B>, <B>---icon-item</B>, <B>---icon-home</B>, <B>---icon-error</B> - define
+menu icon for title, regular item, frontpage item and error item respectively
+given in the following argument.
 Default is no menu icons (equivalent to an empty icon argument).
 <P>
 
 <B>---wm-icons</B> - define icon names suitable for use with wm-icons package.
 Currently this is equivalent to: --icon-title '' --icon-item
-menu/information.xpm --icon-home menu/home.xpm.
+menu/information.xpm --icon-home menu/home.xpm --icon-error menu/choice-no.xpm.
 <P>
 
-<B>---frontpage</B> [where] - show site fronpage item in the menu too. Optional
-value can be used to specify where this item will be placed in the menu -
-'top' or 't', 'bottom' or 'b'.
+<B>---frontpage</B> [where] - add the site frontpage item to the menu.
+Optional value can be used to specify where this item will be placed in
+the menu - 'top' or 't', 'bottom' or 'b'.
 <P>
 
 <B>---proxy</B> host[:port] - define a proxy to use.
@@ -151,16 +166,20 @@ filename, the menu output is written to standard output.
 
 <B>---fake</B> [file] - don't connect to the host using <FONT SIZE="-1">HTTP</FONT> protocol, instead,
 read from <FONT SIZE="-1">WORK_HOME/SITE</FONT>.in file. The following reads input from
-segfault.in (downloaded <A HREF="http://segfault.org/stories.txt)">http://segfault.org/stories.txt)</A> and saves output
-to segfault.menu (both files are in <FONT SIZE="-1">WORK_HOME</FONT>):
-<BR>&nbsp;&nbsp;fvwm-menu-headlines&nbsp;--site&nbsp;segfault&nbsp;--fake&nbsp;--file
+freshmeat.in (downloaded <A HREF="http://freshmeat.net/backend/recentnews.txt)">http://freshmeat.net/backend/recentnews.txt)</A> and
+saves output to segfault.menu (both files are in <FONT SIZE="-1">WORK_HOME</FONT>):
+<BR>&nbsp;&nbsp;fvwm-menu-headlines&nbsp;--site&nbsp;freshmeat&nbsp;--fake&nbsp;--file
+<P>
+
+<B>---timeout</B> seconds - limit a line reading from a socket to this timeout,
+the default timeout is 20 seconds.
 <P>
 
 <FONT SIZE="-1">WORK_HOME</FONT> of this script is ~/.fvwm/.fvwm-menu-headlines.
 It is created if needed.
 <P>
 
-Option parameters can be specified both using '=' and in the next argument.
+Option parameters can be specified either using '=' or in the next argument.
 Short options are ok if not ambiguous: <TT>`-h'</TT>, <TT>`-t'</TT>; but be careful with
 short options, what is now unambiguous, can become ambiguous in the next
 versions.
@@ -239,8 +258,6 @@ In this case your fvwm configuration lines could be:
   + &quot;FreshMeat&quot;  Popup freshmeat
   + &quot;Slashdot&quot;   Popup slashdot
   + &quot;LinuxToday&quot; Popup linuxtoday
-  + &quot;Segfault&quot;   Popup segfault
-  + &quot;AppWatch&quot;   Popup appwatch
   + &quot;GNOME News&quot; Popup gnome-news
   + &quot;KDE News&quot;   Popup kde-news
   + &quot;&quot; Nop
@@ -258,8 +275,6 @@ In this case your fvwm configuration lines could be:
   + I DestroyMenu freshmeat
   + I DestroyMenu linuxtoday
   + I DestroyMenu slashdot
-  + I DestroyMenu segfault
-  + I DestroyMenu appwatch
   + I DestroyMenu gnome-news
   + I DestroyMenu kde-news
 
@@ -278,9 +293,9 @@ from a shell script. Every time you want headlines from some site, execute
 
 
 <PRE>
-  PipeRead &quot;fvwm-menu-headlines --site segfault --name MenuHeadlinesSegfault&quot;
-  # this will take several seconds, you may use: BusyCursor Read true
-  Popup MenuHeadlinesSegfault
+  PipeRead &quot;fvwm-menu-headlines --site newsforge --name MenuHeadlinesNewsForge&quot;
+  # this may take several seconds, you may use: BusyCursor Read true
+  Popup MenuHeadlinesNewsForge
 
 
 </PRE>
@@ -398,13 +413,13 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 22:14:04 GMT, October 12, 2001
+Time: 08:54:44 GMT, August 10, 2002
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Sat Oct 13 00:14:04 IST 2001 -->
+on Sat Aug 10 11:54:44 IDT 2002 -->
 </body>
 </html>
 

@@ -1,3 +1,8 @@
+2002-08-10  Mikhael Goikhman  <migo@homemail.com>
+
+	* generated/manpages/*.html:
+	regenerated man pages
+
 2002-07-22  Bob Woodside  <dumbledore@woodsway.com>
 
 	* links.html:
