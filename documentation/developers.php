@@ -3,7 +3,7 @@
 //-  File          : developers.php
 //-  Project       : Fvwm Home page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <06.04.2003 19:25:57 uwe>
+//-  Last modified : <07.04.2003 08:39:01 uwp>
 //--------------------------------------------------------------------
 
 if( strlen($rel_path)==0 ) $rel_path="./..";
@@ -48,7 +48,7 @@ decoration_window_start("Developer Information");
 
 <p>
 Fvwm was created by Robert Nation, originally derived from
-<emp>twm</emp> code.  Thanks, Rob!
+<em>twm</em> code.  Thanks, Rob!
 </p>
 
 <p> Rob then passed the torch on to Charles Hines, who passed the

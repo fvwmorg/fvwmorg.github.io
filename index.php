@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <06.04.2003 19:02:09 uwe>
+//-  Last modified : <07.04.2003 08:22:18 uwp>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -98,9 +98,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     }
     -->
     </style>
-  <p>
+
     <b>Sub sites to do</b><br><br>
-	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	<table border="0" cellpadding="0" cellspacing="0" width="100%" summary="to do list">
 	  <tr>
 	    <td width="50%">
 	    <ul>
@@ -127,7 +127,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	     </td>
 	</tr>
       </table>
-  </p>
+
       <p>
 	For the time of development latest changes on this web tree are 
 	stated here. This part is going to be removed before the web site
@@ -141,7 +141,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       else
          echo "file latest_news.txt does not exist.";
   
-      echo "</pre>\n";
+      echo ".</pre>\n";
 
       decoration_window_end(); 
       pop_decoration_path();

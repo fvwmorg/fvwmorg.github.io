@@ -114,7 +114,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
           Why?
 <a name="toc_3.15"></a>    <a href="#3.15">3.15</a>  I don't like the gaps in my icon box when I de-iconify an
           application.  Is there some kind of auto arrange function?
-<a name="toc_3.16"></a>    <a href="#3.16">3.16</a>  How do I set up a fvwm menu item that shuts down my Linux machine?
+<a name="toc_3.16"></a>    <a href="#3.16">3.16</a>  How do I set up an fvwm menu item that shuts down my Linux machine?
 <a name="toc_3.17"></a>    <a href="#3.17">3.17</a>  Although the Recapture command is obsolete, do I still need it to
           apply certain style changes?
 <a name="toc_3.18"></a>    <a href="#3.18">3.18</a>  When my specific window (or all windows) pops up, I want it to
@@ -123,6 +123,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
           switch desks/wrap to my app X/popup a menu/start app X...  How?
 <a name="toc_3.20"></a>    <a href="#3.20">3.20</a>  I have a multi head setup (multiple screens used under X).  How
           can I tell fvwm to use different configurations for the screens?
+<a name="toc_3.21"></a>    <a href="#3.21">3.21</a>  How do I maximize a window but not cover up FvwmTaskBar?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -184,7 +185,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
           happened to to rxvt and rclock which Rob Nation used to
           support?  Where can I find them now?
 <a name="toc_6.6"></a>     <a href="#6.6">6.6</a>  How do I set the background with fvwm?
-<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm --- isn't the right color.  Whats wrong?
+<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  Whats wrong?
+<a name="toc_6.8"></a>     <a href="#6.8">6.8</a>  I just got a mouse with 57 buttons.  How do I make Fvwm
+          use them?
 
 <a name="toc_7."></a><a href="#7.">7.</a> Hints and Examples from the Developers
 
@@ -203,7 +206,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <a name="toc_7.10"></a>    <a href="#7.10">7.10</a>  The cat safe desktop :-)
 <a name="toc_7.11"></a>    <a href="#7.11">7.11</a>  Lowering and moving windows.
 <a name="toc_7.12"></a>    <a href="#7.12">7.12</a>  Toggling windows on and off.
-<a name="toc_7.13"></a>    <a href="#7.13">7.13</a>  How do I start applications by clicking on an icon.
+<a name="toc_7.13"></a>    <a href="#7.13">7.13</a>  Starting applications by clicking on an icon (also known
+          as &quot;docking&quot; applications).
+<a name="toc_7.14"></a>    <a href="#7.14">7.14</a>  Positioning a window using arithmetic.
+<a name="toc_7.15"></a>    <a href="#7.15">7.15</a>  Hiding the mouse pointer
+<a name="toc_7.16"></a>    <a href="#7.16">7.16</a>  Finding the mouse pointer
 
 
 ======================================================================
@@ -218,8 +225,8 @@ A: Probably your NumLock, CapsLock or ScrollLock key is pressed.  See
 
 Trivia: In all my years as an fvwm developer this has been by far the
    most frequently asked question.  Whoever can solve this problem so
-   that this question is never asked will me mentioned in big letters
-   on the fvwm home page :-)
+   that this question is never asked again will be mentioned in big
+   letters on the fvwm home page :-)
 
 ======================================================================
 <a name="1."></a>                            <a href="#toc_1.">1</a> - About Fvwm
@@ -235,7 +242,9 @@ A: &quot;Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
      Feeble, Fabulous, Famous, Fast, Foobar, Fantastic, Flexible,
      F!@#$%, Flashy, FVWM (the GNU recursive approach), Free, Final,
      Funky, Fred's (who the heck is Fred?), Freakin', Flawed,
-     Father-of-all, Feivel (the mouse from &quot;An American Tail&quot;), etc.
+     Father-of-all, Feivel (the mouse from &quot;An American Tail&quot;),
+     Frungy (hey, where does that come from?), Floppy, Foxy,
+     Frenzied, Funny, Fumbling etc.
 
    Just pick your Favorite (hey, there's another one!), which will of
    course change depending on your mood and whether or not you've run
@@ -246,7 +255,7 @@ A: &quot;Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
    to do with the discovery that four of the six core developers have
    cats (averaging 1.17 cats)?  Miaow.
 
-   Know what? I found another one while stroking my cats: FOOD :-)
+   Know what? I found another one while stroking my cats: FEEDING :-)
 
    Check this link:
          <a href="http://fvwm.org/fvwm-cats/">http://fvwm.org/fvwm-cats/</a>
@@ -293,21 +302,21 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    comp.windows.x.apps is a good place, but the fvwm mailing list is
    usually better.  The new FVWM discussion mailing list address is:
 
-                         <a href="mailto: fvwm@fvwm.org">  fvwm@fvwm.org</a>
+                           <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>
 
    And there is an announce mailing list as well:
 
-                     <a href="mailto: fvwm-announce@fvwm.org">  fvwm-announce@fvwm.org</a>
+                       <a href="mailto:fvwm-announce@fvwm.org">fvwm-announce@fvwm.org</a>
 
    They are maintained by Jason Tibbitts, and are Majordomo based
    mailing lists.  To subscribe to the list, send &quot;subscribe fvwm&quot; in
-   the body of a message to &lt;list&gt;-request@fvwm.org.  For example, to
+   the body of a message to &lt;list&gt;-<a href="mailto:request@fvwm.org">request@fvwm.org</a>.  For example, to
    subscribe to the fvwm mailing list, send a request to
- <a href="mailto: fvwm-request@fvwm.org">  fvwm-request@fvwm.org</a>.
+   <a href="mailto:fvwm-request@fvwm.org">fvwm-request@fvwm.org</a>.
 
    To unsubscribe from a list, send &quot;unsubscribe fvwm&quot; in the body of a
-   message to &lt;list&gt;-request@fvwm.org.  To report problems, send mail to
- <a href="mailto: fvwm-owner@fvwm.org">  fvwm-owner@fvwm.org</a>.
+   message to &lt;list&gt;-<a href="mailto:request@fvwm.org">request@fvwm.org</a>.  To report problems, send mail to
+   <a href="mailto:fvwm-owner@fvwm.org">fvwm-owner@fvwm.org</a>.
 
    Here's the list descriptions and instructions directly from Jason:
 
@@ -320,8 +329,8 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    This list is for discussion relating to the FVWM window manager,
    which is intended to have a small memory footprint and a rich
    feature set, be extremely customizable and extendable and have a
-   high degree of Motif MWM compatibility.  All relevant discussion is
-   encouraged.  Posting of binaries or irrelevant discussion is
+   high degree of Motif MWM compatibility.  All relevant discussion
+   is encouraged.  Posting of binaries or irrelevant discussion is
    strongly frowned upon.  Posting of short patches (less than 200
    lines) is acceptable, but all patches should also be sent to the
    fvwm-workers list (see Q5.2, below) for inspection and possible
@@ -331,11 +340,11 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    Instructions
    ------------
 
-   To send a message to the list, mail to fvwm@fvwm.org.  For help on
+   To send a message to the list, mail to <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.  For help on
    dealing with the mailing list software (for getting the archives or
    other files which may be made available) send the message &quot;help&quot; to
- <a href="mailto: fvwm-request@fvwm.org">  fvwm-request@fvwm.org</a>.  If you have problems with the mailing list
-   itself and need to talk to a human, send mail to fvwm-owner@fvwm.org.
+   <a href="mailto:fvwm-request@fvwm.org">fvwm-request@fvwm.org</a>.  If you have problems with the mailing list
+   itself and need to talk to a human, send mail to <a href="mailto:fvwm-owner@fvwm.org">fvwm-owner@fvwm.org</a>.
    This address is for mailing list issues only; reports on the FVWM
    software will be sent to /dev/null.
 
@@ -352,7 +361,7 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    high degree of Motif MWM compatibility.
 
    Replies to messages from this list are set by default to go the
-   FVWM discussion list, fvwm@fvwm.org.
+   FVWM discussion list, <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.
 
    The current FVWM distribution is available for ftp at
    <a href="ftp://ftp.fvwm.org/pub/fvwm/">ftp://ftp.fvwm.org/pub/fvwm/</a>
@@ -393,6 +402,8 @@ A: Here's a little table comparing some of them.  It was done on an
       543K  632K twm   (???)
       263K  328K aixwm (a simple ugly window manager included w/ aix)
 
+   Note: This information is terribly outdated.
+
 ----------------------------------------------------------------------
 
 <a name="1.7"></a><a href="#toc_1.7">1.7</a>  Why the rename of the various files (fvwm2, .fvwm2rc, fvwm2.man)?
@@ -408,6 +419,8 @@ A: Some people find this annoying, but let me say that I did that for
           .fvwm2rc file I know that they are running one of the 2.xx
           versions, since they rarely mention exactly what version
           they are running.
+
+   Note, starting from 2.5.1, the executable fvwm2 became fvwm again.
 
 ----------------------------------------------------------------------
 
@@ -433,7 +446,7 @@ A: Very easily, using the '--prefix' flag at configure time.
    needed]'.  Now, after building (&quot;make&quot;) and installing (&quot;make
    install&quot;), you will find the binaries in /home/sam/bin, the
    man pages in /home/sam/man, etc.  The modules will be in
-   /home/sam/libexec, and fvwm2 binary will have this module path
+   /home/sam/libexec, and fvwm binary will have this module path
    built in.
 
 ----------------------------------------------------------------------
@@ -573,7 +586,7 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
    help you build a list of gnome applications in fvwm menus.
 
    To ensure you will run FVWM and not gnome-session, create .Xclients
-   file in your home directory and put a call to fvwm2 in it.
+   file in your home directory and put a call to fvwm in it.
    The file ~/.xinitrc can be used for the similar purposes if you want
    to bypass any system-wide logic put by your distributor or sysadmin.
 
@@ -627,7 +640,7 @@ A: Any version later than 2.0.46 (i.e. 2.1.0 or later) has this
 
      GlobalOpts MouseFocusClickRaises
 
-With the latter 2.3.x betas and after use:
+With the later 2.3.x betas and after use:
 
      Style * MouseFocusClickRaises
 
@@ -779,7 +792,7 @@ A: Although fvwm has commands for binding movements to keystrokes,
       This is the default configuration, but the mechanism allows for nearly
       infinite configurability.
 
-      [thanks to Erik Fortune<a href="mailto:(erik@westworld.engr.sgi.com"> (erik@westworld.engr.sgi.com</a>), 6/96]
+      [thanks to Erik Fortune (<a href="mailto:erik@westworld.engr.sgi.com">erik@westworld.engr.sgi.com</a>), 6/96]
 
 
 
@@ -877,18 +890,18 @@ A: From Jon Mountjoy, one of FVWM's users:
 <a name="3.10"></a><a href="#toc_3.10">3.10</a>  My .fvwmrc from version 1.xx no longer works.  What do I do?
 
 A: Start with a new one or convert your old one.  This can be done by
-   hand or with a little help from the 'fvwmrc_convert' in the
+   hand or with a little help from the 'fvwm-convert-2.2' in the
    utils directory.
 
    And here is a list of rc file command changes compiled by Makoto
-   'MAR_kun' MATSUSHITA &lt;matusita@ics.es.osaka-u.ac.jp&gt;.  It may or
+   'MAR_kun' MATSUSHITA &lt;<a href="mailto:matusita@ics.es.osaka-u.ac.jp">matusita@ics.es.osaka-u.ac.jp</a>&gt;.  It may or
    may not be 100% accurate or complete, especially as changes evolve,
    but it's a good start.
 
    Note that there have been some changes in 2.1.x and up that are
    not reflected in the conversion script yet.
 
-   <u></u> Fvwm-1.xx commands <u></u>                   <u></u> Fvwm-2.0.x equivalent <u></u>
+   ** Fvwm-1.xx commands **                   ** Fvwm-2.0.x equivalent **
 
    AppsBackingStore                           (obsoleted)
    AutoRaise delay                            (obsoleted, use FvwmAuto)
@@ -963,7 +976,7 @@ A: Start with a new one or convert your old one.  This can be done by
    WindowListSkip windowname                  Style (WindowListSkip)
    XORvalue number                            &lt;-
 
-   <u></u> fvwm-1 built-in functions <u></u>*
+   ** fvwm-1 built-in functions ***
 
    Beep                                       &lt;-
    CirculateDown [ name window_name ]         Next (not compatible)
@@ -999,7 +1012,7 @@ A: Start with a new one or convert your old one.  This can be done by
    WindowsDesk new_desk                       (obsoleted, use MoveToDesk)
    WindowList arg1 arg2                       &lt;-
 
-   <u></u><u> New in fvwm-2 </u>*
+   *** New in fvwm-2 **
 
    All
    AnimatedMove
@@ -1093,17 +1106,28 @@ A: Eterm provides its own icon and fvwm does not know if it is a plain
 <a name="3.15"></a><a href="#toc_3.15">3.15</a>  I don't like the gaps in my icon box when I de-iconify an
       application.  Is there some kind of auto arrange function?
 
-A: Assuming you are using the IconBox option of the Style command this
-   can be done with a tricky fvwm function.  Put the DeiconifyAndRearrange
-   function below in your configuration file:
+A: Assuming you are using the IconBox option of the Style command
+   this can be done with a tricky fvwm function.  Put the
+   DeiconifyAndRearrange function below in your configuration file:
+
+     AddToFunc DeiconifyAndRearrange
+      + C Iconify off
+      + C All (CurrentPage Iconic) PlaceAgain Icon
+
+   This works with fvwm-2.5.3 and later.  Older fvwm releases can
+   achieve the same effect with
 
      AddToFunc DeiconifyAndRearrange
       + C Iconify off
       + C All (CurrentPage Iconic) RecaptureWindow
 
-   And then replace all places where you call the Iconify builtin
-   function to de-iconify an icon with a call to the new function.  For
-   example replace
+   However, as the Recapture and RecaptureWindow commands may be
+   removed in the future, please use PlaceAgain instead of
+   Recapture if possible.
+
+   Also, replace all places where you call the Iconify builtin
+   function to de-iconify an icon with a call to the new function.
+   For example, replace
 
      AddToFunc IconFunc
       + C Iconify off
@@ -1129,7 +1153,7 @@ A: Assuming you are using the IconBox option of the Style command this
 
 ----------------------------------------------------------------------
 
-<a name="3.16"></a><a href="#toc_3.16">3.16</a>  How do I set up a fvwm menu item that shuts down my Linux machine?
+<a name="3.16"></a><a href="#toc_3.16">3.16</a>  How do I set up an fvwm menu item that shuts down my Linux machine?
 
 A: Write a little shell script to run the shutdown command.
 
@@ -1155,8 +1179,8 @@ A: Excerpt from the man page:
    or module input is pending.  Specifically, new Style options that
    are set in a function are not applied until after the function has
    completed.  This can sometimes lead to unwanted effects.  To force
-   that all pending changes are applied immediately, use the UpdateStyles,
-   Refresh or RefreshWindow commands.
+   that all pending changes are applied immediately, use the
+   UpdateStyles, Refresh or RefreshWindow commands.
 
 ----------------------------------------------------------------------
 
@@ -1164,9 +1188,9 @@ A: Excerpt from the man page:
       get focus/be moved/be resized/be closed/be shaded...  How?
 
 A: The following discusses a general solution, you should substitute
-   application names used in examples as well as fvwm commands (Move,
-   Iconify, Close) with the ones you need.  To get resource names of
-   an application you want to catch, use FvwmIdent module.
+   the application names used in the examples as well as fvwm commands
+   (Move, Iconify, Close) with the ones you need.  To get resource
+   names of an application you want to catch, use FvwmIdent module.
 
    The first possible approach to achieve what you want is to have a
    separate function to start your application, like:
@@ -1180,10 +1204,10 @@ A: The following discusses a general solution, you should substitute
    This approach has 3 problems:
      1) You need to use StartKedit function to start your application,
         this will not work if you start it from the command line.
-     2) If for some reason the application is not started, FVWM will
-        wait for it in Wait, you will need to press Ctrl-Alt-Esc.
+     2) If for some reason the application is not started, FVWM waits
+        for it in Wait, you will need to press Ctrl-Alt-Esc.
      3) If you have more than one kedit window, it is not guaranteed
-        that the right one will be used.
+        that the right one is resized.
 
    But this approach has one plus - it also enables any fvwm commands
    that you may want to issue before executing your command.  For example,
@@ -1200,7 +1224,7 @@ A: The following discusses a general solution, you should substitute
 
 
    The second approach is to use FvwmEvent, this solves the first two
-   problems (in 2.2) or all three problems (in 2.3 and 2.4).
+   problems (in fvwm 2.2) or all three problems (in fvwm 2.3 and later).
 
    The sample to use with fvwm 2.2.3+ versions (this resizes the newly
    created window &quot;My Window&quot;, supposing you have only one such window):
@@ -1270,12 +1294,12 @@ A: Please read the answer to the previous question to understand better.
 
 A: FVWM spawns itself into all found screens unless -s command line
    parameter is specified, as explained in the man page.  All spawned
-   fvwm2 processes by default use the same configuration on each screen.
+   fvwm processes by default use the same configuration on each screen.
    There are several ways to change the default behavior.
 
    Write your configuration file as you would if you had only one
    screen.  Then move the screen specific lines into separate
-   configuration files and call them for example .fvwm2rc.&lt;screen&gt;
+   configuration files and call them, for example, .fvwm2rc.&lt;screen&gt;
    where &lt;screen&gt; is the screen number.  Usually this will be 0 for
    the main screen and 1 for the secondary screen.  Place the screen
    specific files in the $HOME/.fvwm directory or whatever you set
@@ -1291,13 +1315,23 @@ A: FVWM spawns itself into all found screens unless -s command line
    is to specify a separate file for each screen explicitly.  For this,
    start a separate fvwm for each screen in your .xinitrc (or .Xclients):
 
-     fvwm2 -s -d :0.0 -f .fvwm2rc-0 &amp;
-     fvwm2 -s -d :0.1 -f .fvwm2rc-1 &amp;
-     fvwm2 -s -d :0.2 -f .fvwm2rc-2
+     fvwm -s -d :0.0 -f .fvwm2rc-0 &amp;
+     fvwm -s -d :0.1 -f .fvwm2rc-1 &amp;
+     fvwm -s -d :0.2 -f .fvwm2rc-2
 
    Note that only the last command is without a trailing ampersand.
-   If you wish, .fvwm2rc-* files may all include line &quot;Read .fvwm2rc-common&quot;.
+   If you wish, .fvwm2rc-* files may all include line
+   &quot;Read .fvwm2rc-common&quot;.
 
+----------------------------------------------------------------------
+
+    3.21  How do I maximize a window but not cover up FvwmTaskBar?
+
+
+A: Instead of Maximize use &quot;Maximize 100 -30p&quot; where 30 is the width of
+   your FvwmTaskBar.
+
+   Or use EwmhBaseStruts in Fvwm 2.5.x or later.
 
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules
@@ -1327,10 +1361,13 @@ A: From the FvwmButtons man page:
      swallow xbiff and have a button press bring up the list of
      messages.
 
-A: You can do this, but it's not obvious how.  The button presses
-   normally get passed through to the swallowed application, but if
-   you put a title on the button, you can assign actions to that.
-   Here's an example that someone sent to the mailing list once:
+A: Yes, with the alpha release 2.5.0 or any later release.  For older
+   releases, read on.
+
+   The button presses normally get passed through to the swallowed
+   application, but if you put a title on the button, you can
+   assign actions to that. Here's an example that someone sent to
+   the mailing list once:
 
    *FvwmButtons(1x4,       \
      Title           'System Info', \
@@ -1357,8 +1394,6 @@ A: You can do this, but it's not obvious how.  The button presses
 <a name="4.3"></a><a href="#toc_4.3">4.3</a>  I'm seeing odd things when trying to preprocess files with the
      FvwmM4/Cpp module...
 
-(A: This is partly fixed in version 2.2, and virtually fixed in 2.4)
-
 A: Yup, I imagine that you might be.  Things like the InitFunction not
    being called or windows that were running before FVWM started not
    getting their Borders &amp; Style options set, etc.
@@ -1369,27 +1404,11 @@ A: Yup, I imagine that you might be.  Things like the InitFunction not
    startup is all done and it has already tried to execute the
    InitFunction.
 
-   There are two possible solutions:
+   To force synchronous execution of FvwmM4/Cpp use:
 
-        - Start all your applications inside an InitFunction, or
-        - Put a Recapture in the end of your .fvwm2rc
+     ModuleSunchronous FvwmM4/Cpp -lock filename
 
-   Version 2.2 has a partial fix that makes FvwmCpp/FvwmM4 work if it is
-   the only -cmd or -f command line argument specified.
-
-     fvwm -cmd &quot;FvwmCpp .fvwmrc.cpp&quot;
-
-   will work but the following is unreliable
-
-     fvwm -f /usr/local/X11/etc/system.fvwm2rc -cmd &quot;FvwmCpp .fvwmrc.cpp&quot;
-
-   Version 2.4 has a more compete fix that makes the above line work
-   reliably: any module started by command line arguments is assumed to be
-   a module that sends back config commands.  All command line modules
-   have to quit before fvwm will proceed on to the InitFunction and
-   setting border decorations and styles.  There is a potential deadlock
-   if you start a module other than FvwmCpp/FvwmM4 but there is a timeout
-   so fvwm will eventually get going.
+   See the man page for more details.
 
 ----------------------------------------------------------------------
 
@@ -1508,7 +1527,7 @@ A: First of all, please read the first section of the answer to Q5.1!
 
    Submitting a patch -
 
-        Mail it to the fvwm-workers mailing list &lt;fvwm-workers@fvwm.org&gt;.
+        Mail it to the fvwm-workers mailing list &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;.
 
 	If your patch is large you should compress it (preferably
         with gzip).  Should it still be larger than 25k you might want
@@ -1530,7 +1549,11 @@ A: First of all, please read the first section of the answer to Q5.1!
 
 <a name="5.3"></a><a href="#toc_5.3">5.3</a>  How do I submit a bug report?
 
-A: Please enter a DETAILED description of your problem in our web-based
+A: Please do not report any 'bugs' related to XMMS in the fvwm bug
+   tracking system or the fvwm mailing lists but send them to the XMMS
+   developers instead.
+
+   Please enter a DETAILED description of your problem in our web-based
    bug-tracking system.  You can find a link on our web page (see Q1.3).
    By detailed we mean more than just &quot;my window isn't behaving right&quot; or
    &quot;I found a bug&quot;:
@@ -1577,7 +1600,8 @@ A: First, check your rc file and your .Xdefaults to make sure that
 
 A: Because they are treated as modifiers.  You can use the
    IgnoreModifiers command to turn individual modifiers off for
-   bindings.  With XFree86 the right command is
+   bindings.  With XFree86 and fvwm version 2.4.0 or above, the
+   right command is
 
      IgnoreModifiers L25
 
@@ -1586,11 +1610,12 @@ A: Because they are treated as modifiers.  You can use the
    correspond to the keys you want to switch off.
 
    This command creates a lot of extra network traffic, depending
-   on your CPU, network connection, the number of Key Mouse commands
-   in your configuration file and the number of modifiers you want to
-   ignore.  If you do not have a lightning fast machine or very few
-   bindings you should not ignore more than two modifiers.  So do
-   not ignore scroll-lock if you have no problem with it.
+   on your CPU, network connection, the number of Key, Mouse or
+   PointerKey commands in your configuration file and the number
+   of modifiers you want to ignore.  If you do not have a
+   lightning fast machine or very few bindings you should not
+   ignore more than two modifiers.  So do not ignore scroll-lock
+   if you have no problem with it.
 
    A better way to solve this problem is to modify the keyboard
    mapping of your X server.  The commands
@@ -1599,16 +1624,32 @@ A: Because they are treated as modifiers.  You can use the
      xmodmap -e &quot;clear Mod2&quot;
      xmodmap -e &quot;clear Mod5&quot;
 
-   remove the CapsLock, NumLock and ScrollLock from the keyboard map.
-   Pressing these keys has no effect then.  To re-add them try this:
+   remove the CapsLock, NumLock and ScrollLock from the keyboard
+   map.  Pressing these keys has no effect then.  To re-add them
+   try this:
 
      xmodmap -e &quot;add Lock = Caps_Lock&quot;
      xmodmap -e &quot;add Mod2 = Num_Lock&quot;
      xmodmap -e &quot;add Mod5 = Scroll_Lock&quot;
 
-   Fvwm has to be restarted to use the changes made by xmodmap.
-   Please refer to the man page of the xmodmap command for further
-   details.
+   Fvwm has to be restarted to use the changes made by
+   xmodmap.  Please refer to the man page of the xmodmap command
+   for further details.  If you disable the CapsLock key in your
+   keyboard map in this way, you can speed up fvwm a bit by
+   removing the Lock modifier from the list of ignored modifiers:
+
+     IgnoreModifiers
+
+
+   Since we all occasionally press NumLock or ScrollLock, it makes
+   sense to redefine some main bindings to work with any modifiers.
+   I.e. consider to replace something like this in your configuration:
+
+     Mouse 1 R N Menu MenuFvwmRoot
+
+   with this:
+
+     Mouse 1 R A Menu MenuFvwmRoot
 
 ----------------------------------------------------------------------
 
@@ -1660,9 +1701,9 @@ A: The application won't allow it.  This has only been observed with
 <a name="5.8"></a><a href="#toc_5.8">5.8</a>  How do I capture the output (e.g. errors) of fvwm?
 
 A: Errors are reported to the standard error file.  You can redirect
-   standard error to a file when fvwm is started: &quot;fvwm2 2&gt;
-   fvwm-errors&quot;.  X sessions started by xdm often redirect errors to a
-   file named &quot;.xsession-errors&quot;.
+   standard error to a file when fvwm is started: &quot;fvwm 2&gt; fvwm-errors&quot;.
+   X sessions started by xdm often redirect errors to a file named
+   &quot;.xsession-errors&quot;.
 
    Alternatively, FvwmConsole or &quot;FvwmForm FvwmForm-Talk&quot; modules
    will display error messages.
@@ -1905,7 +1946,7 @@ A: Our naming convention is sometimes a source of confusion, and when
 
    Or if you prefer to see only the current desktop in the pager:
 
-     Module FvwmPager <u> </u>
+     Module FvwmPager * *
 
 ----------------------------------------------------------------------
 
@@ -1967,10 +2008,11 @@ A: Setting the background image is not really part of the window
    most likely, some part of the distribution is setting the background
    for you.
 
-   There is a program that comes with fvwm (xpmroot) which you can use
-   to set the background to a pixmap.  Other programs like &quot;xv&quot;, &quot;xli&quot;,
-   &quot;xloadimage&quot;, and &quot;display&quot; are more robust, they can put most common
-   image types on the root display.
+   There is a program shipped with fvwm (fvwm-root, previously known as
+   xpmroot) that you can use to set the background to an XPM or PNG
+   image.  Other programs like &quot;xv&quot;, &quot;xli&quot;, &quot;xloadimage&quot;, &quot;display&quot; and
+   &quot;Esetroot&quot;, may be used too, they support some image formats that
+   fvwm-root does not.
 
    If you just want a static image on your background, you might invoke
    one of these programs from your .xsession or .xinitrc file.  You can
@@ -1982,7 +2024,7 @@ A: Setting the background image is not really part of the window
 
 ----------------------------------------------------------------------
 
-<a name="6.7"></a><a href="#toc_6.7">6.7</a>  When I use Fvwm --- isn't the right color.  Whats wrong?
+<a name="6.7"></a><a href="#toc_6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  Whats wrong?
 
 A: Under this heading we've had questions about FvwmForm being all
    white, icons not displaying and messages about being unable to
@@ -2020,6 +2062,33 @@ A: Under this heading we've had questions about FvwmForm being all
      and FrameMaker in its default setting.
 
    If you still have problems after this, try the fvwm mailing list.
+
+----------------------------------------------------------------------
+
+<a name="6.8"></a><a href="#toc_6.8">6.8</a>  I just got a mouse with 57 buttons.  How do I make Fvwm use them?
+
+A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
+   seen reports of up to 7 so far.  Starting with Fvwm 2.4.0
+   Fvwm supports all five mouse buttons that X officially
+   supports.  To increase the number of buttons that Fvwm can handle,
+   you have to modify the file libs/defaults.h:
+
+   Replace
+
+     #define NUMBER_OF_MOUSE_BUTTONS		   5
+
+   with
+
+     #define NUMBER_OF_MOUSE_BUTTONS		   7
+
+   and recompile and reinstall fvwm.  However, the buttons with numbers
+   higher than 5 do not work as well as 1 to 5.  This is because X
+   does not provide the necessary interface to handle more that 5
+   buttons in all functions.  This means that some functionality is
+   not available with buttons 6 and higher.
+
+   The maximum possible number you can use is 31.  Any higher value
+   will probably not work and possibly even crash fvwm or its modules.
 
 ======================================================================
 <a name="7."></a>              <a href="#toc_7.">7</a> - Hints and Examples from the Developers
@@ -2075,7 +2144,7 @@ A: Under this heading we've had questions about FvwmForm being all
      AddToFunc MakeBackgroundMenu
       + &quot;I&quot; DestroyMenu BackgroundMenu
       + &quot;I&quot; AddToMenu BackgroundMenu Backgrounds Title
-      + &quot;I&quot; PipeRead 'for i in `/bin/ls $HOME/.fvwm2/backgrounds/<u>.bg.</u>`; \
+      + &quot;I&quot; PipeRead 'for i in `/bin/ls $HOME/.fvwm2/backgrounds/*.bg.*`; \
             do echo -e AddToMenu BackgroundMenu `basename $i | sed -e \
             &quot;s/\.bg\..*$//&quot;` Function SetDefaultBackground $i; done'
 
@@ -2096,7 +2165,7 @@ A: Under this heading we've had questions about FvwmForm being all
 
 
    The MakeBackgroundMenu function builds a menu that contains an item
-   for every file that matches the pattern &quot;<u>.bg.</u>&quot; in the directory
+   for every file that matches the pattern &quot;*.bg.*&quot; in the directory
    $HOME/.fvwm2/backgrounds.  The suffix .bg.* is removed.  When I
    select an item the file is displayed in the background using xv.
    Furthermore the path and filename are stored in
@@ -2312,22 +2381,22 @@ A: Under this heading we've had questions about FvwmForm being all
    FvwmButtons or FvwmWharf that launches an application when used
    the first time and closes it if used a second time.  Although it
    is not obvious how to do this, it is possible.  Let's assume you
-   need a menu item that toggles a FvwmConsole window on and off.
+   need a menu item that toggles an FvwmConsole window on and off.
    Then put the following lines in your .fvwm2rc:
 
      AddToFunc ToggleFvwmConsole
-     + I None (FvwmConsole) Module FvwmConsole
-     + I Next (CurrentPage Visible FvwmConsole) Close
-     + I Next (FvwmConsole) MoveToDesk
-     + I Next (FvwmConsole) MoveToPage
-     + I Next (FvwmConsole) Raise
+     + I None (FvwmConsole, CirculateHit) Module FvwmConsole
+     + I Next (FvwmConsole, CirculateHit, CurrentPage, Visible) Close
+     + I Next (FvwmConsole, CirculateHit) MoveToDesk
+     + I Next (FvwmConsole, CirculateHit) MoveToPage
+     + I Next (FvwmConsole, CirculateHit) Raise
 
      AddToMenu &lt;some menu&gt;
      + &quot;toggle FvwmConsole&quot; Function ToggleFvwmConsole
 
    Or if you prefer a button in the button bar:
 
-     *FvwmButtons(Action ToggleFvwmConsole)
+     *FvwmButtons: (Action ToggleFvwmConsole)
 
    The lines with MoveToDesk, MoveToPage and Raise will bring the
    window to the top of the current page if it is not visible
@@ -2338,10 +2407,11 @@ A: Under this heading we've had questions about FvwmForm being all
    give the window an unique name:
 
      AddToFunc ToggleXMessages
-     + I None (XMessages) Exec ( TERM -T XMessages -n XMessages \
-         -e exec tail -f /var/adm/?* ~/.X.err )
-     + I Next (XMessages) Close
+     + I None (XMessages, CirculateHit) Exec exec \
+        xterm -T XMessages -n XMessages -e tail -f /var/adm/?* ~/.X.err
+     + I Next (XMessages, CirculateHit) Close
 
+   (CirculateHit is needed for windows with Style CirculateSkip.)
    Or for a toggling Netscape button:
 
      AddToFunc ToggleNetscape
@@ -2355,7 +2425,8 @@ A: Under this heading we've had questions about FvwmForm being all
 
 ----------------------------------------------------------------------
 
-<a name="7.13"></a><a href="#toc_7.13">7.13</a>  How do I start applications by clicking on an icon.
+<a name="7.13"></a><a href="#toc_7.13">7.13</a>  Starting applications by clicking on an icon (also known as
+      &quot;docking&quot; applications).
 
    Normally an icon represents a minimized application.
    If you want to turn that around, and launch applications by clicking
@@ -2382,6 +2453,49 @@ A: Under this heading we've had questions about FvwmForm being all
 
    Also, GNOME and KDE have desktop icon applications gmc and kfm, which
    enable this functionality.  These applications may be run under FVWM.
+
+----------------------------------------------------------------------
+
+    7.14  Positioning a window using arithmetic.
+
+    This example shows how to center a window on the screen.
+    Notice how is uses PipeRead and the shell construct
+    $(()) in order to perform arithmetic.
+
+    DestroyFunc CenterWindow
+    AddToFunc   CenterWindow
+    + I ThisWindow Piperead &quot;echo Move \
+      $(( $[vp.width]/2-$[w.width]/2 ))p \
+      $(( $[vp.height]/2-$[w.height]/2 ))p&quot;
+
+    If you had a window named &quot;MyWindow&quot; you would center it using
+    the command:
+
+    Next (MyWindow) CenterWindow
+
+    ThisWindow may be removed, it is only needed to avoid errors when
+    CenterWindow is called without a window context.
+
+----------------------------------------------------------------------
+
+    7.15  Hiding the mouse pointer
+
+    Some users don't like the mouse pointer getting in the way of
+    what they are looking at.  You might want to search for and
+    install the &quot;unclutter&quot; program.  Unclutter hides the mouse
+    pointer after you haven't moved the mouse for a while.
+
+----------------------------------------------------------------------
+
+    7.16  Finding the mouse pointer
+
+    Sometimes its hard to see the mouse pointer.
+    Heres a way to find it:
+
+    Key Super_L A A Exec xmessage -name &quot;SmallBlob&quot; -bg red -fg white\
+      -nearmouse -timeout 1 'I am here!'
+    Style SmallBlob UsePPosition, NoTitle, NoHandles, BorderWidth 10
+
 </pre>
 
 

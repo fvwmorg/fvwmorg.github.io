@@ -5,7 +5,7 @@
 #-  Project       : FVWM Home Page
 #-  Date          : Tue Apr  1 20:48:44 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <03.04.2003 08:34:09 uwp>
+#-  Last modified : <07.04.2003 08:29:42 uwp>
 #---------------------------------------------------------------------
 
 ## stack functions
@@ -44,6 +44,7 @@ function register_release(r) {
 BEGIN {
     release_nr=0;
     out_nr=0;
+    found_first=0;
 }
 
 #---------------------------------------------------------------------
@@ -58,8 +59,14 @@ BEGIN {
 	}
     }
     register_release(release);
-    output("</li>\n");
-    output("</ul>\n\n\n");
+    if( found_first ) {
+	if( open_item ) {
+	    output("</li>\n");
+	}
+	output("</ul>\n\n\n");
+    }
+    found_first = 1;
+    open_item = 0;
     output("<a name=\"" release "\"></a>\n");
     output("<h4>" text2html($0) " <a href=\"#top\">[top]</a></h4>\n");
     output("<ul>\n");
@@ -76,6 +83,7 @@ BEGIN {
     start_list=0;
     item=1;
     output("  <li>");
+    open_item = 1;
     $1 = "";
     output(text2html($0));
     next;
@@ -92,7 +100,7 @@ END {
 
     while ( (getline < "news_template.php_" ) > 0 ) print $0;
 
-    print "<h4>Selection by release:<h4>";
+    print "<h4>Selection by release:</h4>";
 
     print "<center>";
     print "<table border=\"0\" width=\"90%\" cellspacing=\"3\" summary=\"\">";

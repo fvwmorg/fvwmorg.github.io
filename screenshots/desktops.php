@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <05.04.2003 13:01:01 uwe>
+//-  Last modified : <07.04.2003 08:31:48 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "./..";
@@ -452,7 +452,7 @@ screenshot with a dfm icon manager and a transparent aterm on the root window.
 	      border="0" alt="Christian Michon"></a></td>
 	<td valign="middle">
 	  Submitted by Christian Michon, who says:
-<font size="-1"><pre>
+<pre>
 Using fvwm-2.4.6 and loving it.
 * Liberal usage of FvwmWharf, FvwmTheme, FvwmAnimate
 * Plenty of xpm...
@@ -460,7 +460,7 @@ Using fvwm-2.4.6 and loving it.
 were used instead
 
 Fvwm2 *does* rock! Waiting impatiently for native PNG support.
-</pre></font>
+</pre>
 <p>
 (Christian's wish was fulfilled.)
  	</td></tr>

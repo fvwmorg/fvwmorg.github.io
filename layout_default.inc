@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 07:56:45 uwp>
+//-  Last modified : <07.04.2003 08:19:10 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -668,7 +668,6 @@ function insert_quick_jump_list($site_array,$col_num=2) {
     echo "</tr>\n";    
   }
   echo "</table>\n";
-  echo "</center>\n";
 }
 ?>
 

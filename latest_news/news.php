@@ -47,7 +47,7 @@ decoration_window_start("Latest News");
 
 ?>
 
-<h4>Selection by release:<h4>
+<h4>Selection by release:</h4>
 <center>
 <table border="0" width="90%" cellspacing="3" summary="">
 <tr>
@@ -125,10 +125,6 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
-</li>
-</ul>
-
-
 <a name="2.5.7"></a>
 <h4>Changes in development release 2.5.7 (not released yet) <a href="#top">[top]</a></h4>
 <ul>
@@ -698,14 +694,12 @@ decoration_window_start("Latest News");
 <a name="2.3.27"></a>
 <h4>Changes in beta release 2.3.27 (3-Jan-2001) <a href="#top">[top]</a></h4>
 <ul>
-</li>
 </ul>
 
 
 <a name="2.3.26"></a>
 <h4>Changes in beta release 2.3.26 (26-Dec-2000) <a href="#top">[top]</a></h4>
 <ul>
-</li>
 </ul>
 
 

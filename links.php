@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <17.03.2003 19:16:12 uwe>
+//-  Last modified : <07.04.2003 08:41:38 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = ".";
@@ -170,9 +170,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     <ul>
       <li><a href="http://www.PLiG.org/xwinman/">Window Managers for X</a><br>
       <i>Be sure to vote for FVWM in the voting section!</i> :)</li>
+    </ul>
       <br><i><b>Developers' note:</b> Should we email Matt re: the "Comparisons" section
       that FVWM now effectively has "pinnable menus", as he defines the term?</i>
-    </ul>
 
     
 
@@ -192,7 +192,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       - for general X11 discussions and advice.</li>
     </ul>
 
-    <p></p>
+<!-- uwp   <p></p> -->
 
 <!--
       And how about an online version of the ICCCM:

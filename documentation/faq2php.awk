@@ -5,7 +5,7 @@
 #-  Project       : FVWM Home Page
 #-  Date          : Tue Apr  1 20:48:44 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <06.04.2003 15:52:03 uwe>
+#-  Last modified : <07.04.2003 08:37:30 uwp>
 #---------------------------------------------------------------------
 
 ## stack functions
@@ -24,14 +24,13 @@ function text2html(t) {
     gsub("<","\\&lt;",t);
     gsub("\"","\\&quot;",t);
     # underline text
-    gsub("\\*[^\*]*\\*","<u>\&</u>",t);
+    gsub("\\*[a-zA-Z][a-zA-Z 0-9]*\\*","<u>\&</u>",t);
     gsub("<u>\\*","<u>",t);
     gsub("\\*</u>","</u>",t);
     # make urls to links
     gsub("(ftp|http)://[^ ]*","<a href=\"\&\">\&</a>",t);
     # make mail addresses to links
-    gsub(" [^0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*@[0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*\\.[a-zA-Z][a-zA-Z][a-zA-Z]?","<a href=\"mailto:\&\">\&</a>",t);    
-    gsub("href=\"mailto: ","href=\"mailto:",t);
+    gsub("[a-zA-Z_][0-9a-zA-Z\\-_\\.]*@[0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*\\.[a-zA-Z][a-zA-Z][a-zA-Z]?","<a href=\"mailto:\&\">\&</a>",t);    
     return t;
 }
 
