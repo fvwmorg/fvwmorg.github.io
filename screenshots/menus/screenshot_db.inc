@@ -7,6 +7,35 @@
 //--------------------------------------------------------
 $db = array(
       0 => array(
+                 'path' => './Scott_Smedley',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'menu1.png',
+                 'date' => 1078431120,
+                 'size' => 21776,
+                 'dimension' => '235x256',
+                 'description' => ' Sample menu from Scott Smedley.',
+                 'rc' => array(
+                               'name' => 'fvwmrc',
+                               'size' => 2219,
+                               'date' => 1078430648,
+                               ),
+                 ),
+      1 => array(
+                 'path' => './Tavis_Ormandy',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'menu_screenshot.png',
+                 'date' => 1078431085,
+                 'size' => 183687,
+                 'dimension' => '488x419',
+                 'description' => ' From Tavis Ormandy
+',
+                 'rc' => array(
+                               'name' => 'fvwm2rc',
+                               'size' => 15007,
+                               'date' => 1074555431,
+                               ),
+                 ),
+      2 => array(
                  'path' => './Julien_Coron',
                  'preview' => 'preview.gif',
                  'screenshot' => 'menu.png',
@@ -23,7 +52,7 @@ $db = array(
                                'date' => 1075648286,
                                ),
                  ),
-      1 => array(
+      3 => array(
                  'path' => './BlueMarble',
                  'preview' => 'preview.gif',
                  'screenshot' => 'menu.gif',
@@ -37,21 +66,6 @@ $db = array(
                                'name' => 'fvwmrc',
                                'size' => 290,
                                'date' => 1075648299,
-                               ),
-                 ),
-      2 => array(
-                 'path' => './Tavis_Ormandy',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'menu_screenshot.png',
-                 'date' => 1074550891,
-                 'size' => 183687,
-                 'dimension' => '488x419',
-                 'description' => ' From Tavis Ormandy
-',
-                 'rc' => array(
-                               'name' => 'fvwm2rc',
-                               'size' => 15007,
-                               'date' => 1074555431,
                                ),
                  ),
       );

@@ -96,7 +96,7 @@ if(count($menu_shots)) {
     echo "<h2>Menu shots</h2>\n";
     echo "<p>\n";
     foreach($menu_shots as $menu_shot) {
-        echo '<img src="'.$menu_shot.'" vspace="5" hspace="5" alt="menu screenshot">';
+        echo '<img src="'.$menu_shot.'" vspace="5" hspace="5" align="top" alt="menu screenshot">';
     }
     echo "</p>\n\n";
 }

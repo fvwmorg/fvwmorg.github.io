@@ -31,7 +31,7 @@ fclose($os);
 
 echo "Copying index.php to subdirectories.\n";
 foreach($lister->processed_dir_array as $dir) {
-    $cmd = "cp menudir_index.php ".$dir["path"]."/index.php";
+    $cmd = "cp index_submenu.php ".$dir["path"]."/index.php";
     echo "Exec ".$cmd."\n";
     exec($cmd);
 }
