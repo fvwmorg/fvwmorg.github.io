@@ -1,9 +1,13 @@
+2000-01-23  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* download.html: increased version number to 2.3.13
+
 2000-01-19  olicha <olivier.chapuis@free.fr>
 
 	* screenshots/index.html:
 	* screenshots/Olivier_Chapuis-panel{down,up}-{800x600,thumbnail}.gif:
 	Addeed two screenshots in one
-	
+
 2000-01-12  Dan Espen  <dane@mk.telcordia.com>
 
 	* icons.html: Add second banner file to table.
