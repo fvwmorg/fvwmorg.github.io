@@ -20,7 +20,7 @@ include($rel_path."/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition - Anna MacLachlan logos";
+$title          = "FVWM - Logo Competition - Coji Morishita logos";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
@@ -39,37 +39,41 @@ if (strlen($site_has_been_loaded) == 0) {
 ?>
 
 <?php decoration_window_start('By
-<a href="http://gug.sunsite.dk/gallery.php?artist=32">Anna MacLachlan</a>
-(VosVuur)', "100%", ""); ?>
+<a href="http://www.underforest.com/underforest/profile.html">Coji Morishita</a>
+(COS)', "100%", ""); ?>
 
 <p>
 <!--
-Date: Thu, 01 May 2003 05:03:04 -0400
-From: VosVuur@netscape.net (VosVuur)
+Date: Tue, 20 May 2003 21:42:40 +0900 (JST)  
+From: coz@underforest.com
 To: fvwm-logo@lists.sourceforge.net
-Subject: [FVWM-LOGO] entry
-X-Mailer: Atlas Mailer 2.0
-
-[-- Attachment #1 --]
-[-- Type: text/plain, Encoding: 8bit, Size: 0.6K --]
-
-:)
+Subject: [FVWM-LOGO] Works for FVWM Logo Competition
+X-Mailer: Mew version 3.1.53 on Emacs 21.2 / Mule 5.0 (SAKAKI)
+     
+Dear Sirs,
 -->
-Heres an entry for the contest, all requested formats are done... pasted all
-of them onto 1 transparent bg... cut at will... the 300x180 is unfortunately 49k
-bs (as opposed to maximal 40kbs), I'm working on getting that down furthur.
+Here is my
+<a href="http://www.underforest.com/fvwm_logo_competition/">work</a>.
 <!--
-not so far over tho :)
-cheers
-VosVuur
+
+- 
+COZ  
+  
+underforest design
+http://www.underforest.com/
 -->
 </p>
 
-<p class=centered><img src="jungle-set.png">
-
-<p>Another submission... Clearly FVWM... :)
-
-<p class=centered><img src="clearly-fvwm.png">
+<table width="100%" border=0>
+<tr align=center><td><img src="fvwm_banner.png">
+<tr align=center><td><img src="fvwm_logo.png">
+<tr align=center><td><img src="fvwm_logo_plus.png">
+<tr align=center><td><img src="fvwm_sym_logo.png">
+<tr align=center><td><img src="fvwm_sbanner_blue.png">
+<tr align=center><td><img src="fvwm_sbanner_green.png">
+<tr align=center><td><img src="fvwm_sbanner_red.png">
+<tr align=center><td><img src="fvwm_sbanner_yellow.png">
+</table>
 
 <?php decoration_window_end(); ?>
 

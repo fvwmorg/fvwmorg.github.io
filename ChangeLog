@@ -1,3 +1,11 @@
+2003-05-23  Mikhael Goikhman  <migo@homemail.com>
+
+	* css/default.css:
+	fixed a.nohilight
+
+	* logo-competition/*:
+	updated entries of Coji_Morishita, Anna_MacLachlan, Phil_Harper
+
 2003-05-16  Uwe Pross  <uwe.pross@gmx.net>
 
 	* class + theme files:

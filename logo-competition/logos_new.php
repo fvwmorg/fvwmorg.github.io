@@ -60,25 +60,30 @@ border="0" hspace="0" vspace="0"></a>
 <!-- ============================================================ -->
 <?php decoration_window_start("By Ian Remmler", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/3d.png"
-border="0" hspace="0" vspace="0"></a>
+class=centered border="0" hspace="0" vspace="0"></a>
 
-<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/contrast.png"
-border="0" hspace="0" vspace="0"></a>
+class=centered border="0" hspace="0" vspace="0"></a>
 
-<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/future.png"
-border="0" hspace="0" vspace="0"></a>
+class=centered border="0" hspace="0" vspace="0"></a>
 
-<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/groovy-3d.png"
-border="0" hspace="0" vspace="0"></a>
+class=centered border="0" hspace="0" vspace="0"></a>
 
-<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/block.png"
-border="0" hspace="0" vspace="0"></a>
+class=centered border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
@@ -97,9 +102,10 @@ border="0" hspace="0" vspace="0" width="266" height="143"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By Phil Harper (7 images)", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (7 + 4 images)", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
 ?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png"
 border="0" hspace="0" vspace="0" align="middle"></a>
 
@@ -107,6 +113,7 @@ border="0" hspace="0" vspace="0" align="middle"></a>
 ?>" class="nohilight"><img src="logos/Phil_Harper/tiger2.png"
 border="0" hspace="0" vspace="0" align="middle"></a>
 
+<p class=centered>
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
 ?>" class="nohilight"><img src="logos/Phil_Harper/tigerskin6.png"
 border="0" hspace="0" vspace="0" align="middle"></a>
@@ -114,10 +121,31 @@ border="0" hspace="0" vspace="0" align="middle"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By Anna MacLachlan (4 images)", "", "", 0); ?>
+<?php decoration_window_start("By Anna MacLachlan (7 images)", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
 ?>" class="nohilight"><img src="logos/Anna_MacLachlan/jungle-overview.png"
+border="0" hspace="0" vspace="0"></a>
+
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
+?>" class="nohilight"><img src="logos/Anna_MacLachlan/clearly-fvwm-small.png"
+border="0" hspace="0" vspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================ -->
+<?php decoration_window_start("By Coji Morishita (8 images)", "", "", 0); ?>
+
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Coji_Morishita/index.php');
+?>" class="nohilight"><img src="logos/Coji_Morishita/fvwm_sbanner_blue.png"
+border="0" hspace="0" vspace="0"></a>
+
+<p class=centered>
+<a href="<?php echo conv_link_target('logos/Coji_Morishita/index.php');
+?>" class="nohilight"><img src="logos/Coji_Morishita/fvwm_sym_logo.png"
 border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>

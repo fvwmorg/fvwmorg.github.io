@@ -25,7 +25,7 @@ a:focus, a:hover {
 	color: #000000;
 }
 a.nohilight {
-	font-size: xx-small;
+	background-color: transparent;
 }
 a.nohilight:hover, a.nohilight:focus {
 	background-color: transparent;
@@ -103,6 +103,9 @@ h4.doctt {
 	font-family: monospace;
 	font-size: large;
 	text-decoration: underline;
+}
+p.centered {
+        text-align: center;
 }
 -->
 </style>
