@@ -40,7 +40,10 @@ if (strlen($site_has_been_loaded) == 0) {
 if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
-<?php decoration_window_start('By Colin May', "100%", ""); ?>
+<?php 
+decoration_window_start('By Colin May', "100%", "");
+// From: "Col" <col24@ntlworld.com>
+?>
 
 <p class="centered"><img src="Colin1.png" width="200" height="120" align="middle"></p>
 <p class="centered"><img src="Colin2.png" width="200" height="120" align="middle"></p>

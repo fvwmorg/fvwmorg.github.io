@@ -41,7 +41,9 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
 <?php decoration_window_start('By
-<a href="http://www.biggyp.tk/">Phil Harper</a>', "100%", ""); ?>
+<a href="http://www.biggyp.tk/">Phil Harper</a>', "100%", ""); 
+// From: "Phil Harper" <philharper@hotmail.com>
+?>
 
 <p>I've got some submissions for the contest, tiger might get resubmitted
 when I've worked out how to draw stripes on the tale that don't look crap. :)

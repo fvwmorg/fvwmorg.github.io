@@ -40,7 +40,10 @@ if (strlen($site_has_been_loaded) == 0) {
 if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
-<?php decoration_window_start('By Tadashi Hikone', "100%", ""); ?>
+<?php 
+decoration_window_start('By Tadashi Hikone', "100%", ""); 
+// From: say-hikone <ttn4g4p232@mx7.ttcn.ne.jp>
+?>
 
 <p class=centered>
 <img src="logo.png" width="197" height="99" align="middle">

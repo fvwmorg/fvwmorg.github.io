@@ -41,14 +41,10 @@ if (strlen($site_has_been_loaded) == 0) {
 if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
-<?php decoration_window_start("By Stefan Bergmeier", "100%", ""); ?>
-
-<!--
-From: "Stefan Bergmeier" <stefan.bergmeier@web.de>
-Date: Wed, 4 Jun 2003 21:14:55 +0200
-To: <fvwm-logo@lists.sourceforge.net>
-Subject: [FVWM-LOGO] FVWM Logo
--->
+<?php 
+decoration_window_start("By Stefan Bergmeier", "100%", "");
+// From: "Stefan Bergmeier" <stefan.bergmeier@web.de>
+?>
 
 <p><img src="logo-transparent.gif" width="600" height="300"></p>
 

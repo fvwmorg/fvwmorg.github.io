@@ -43,7 +43,9 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 
 <?php decoration_window_start('By <a href="http://www.c-sait.net/">Tian</a>',
 "100%", ""); ?>
-
+<!--
+From: tian-misc@c-sait.net
+-->
 <p>
 The logos can be seen at
 <a href="http://www.c-sait.net/fvwm/">http://www.c-sait.net/fvwm/</a>,
