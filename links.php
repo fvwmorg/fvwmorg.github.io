@@ -73,11 +73,11 @@ if(!isset($site_has_been_loaded)) {
       Jay Kuri's Fvwm Module documentation in Palm Pilot format</a></li>
 -->
 
-      <li><a href="http://www.igs.net/~tril/fvwm/configs/">Suzanne Skinner's
+      <li><a href="http://ironphoenix.org/tril/fvwm/configs/">Suzanne Skinner's
       FVWM site</a> - Stylish screenshots (and config files) from the author
       of the MultiPixmap titlebar feature.
       Don't miss her thoughtful and entertaining essay
-      <a href="http://www.igs.net/~tril/fvwm">"My Quest For The Perfect Window Manager".</a>
+      <a href="http://www.igs.net/~tril/fvwm/">"My Quest For The Perfect Window Manager".</a>
       <i>(The hobbit in us would like to subtitle it "There and Back Again".)</i>
       </li>
 
