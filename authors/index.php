@@ -44,6 +44,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Rafal Bisingier</h4>
+<p class="author">
+WindowLayer and Layers options to the Maximize command. EdgeLeaveCommand
+</p>
+
+<h4 class="author">George Potapov</h4>
+<p class="author">
+ShowOnlyFocused option for FvwmIconMan.
+</p>
+
 <h4 class="author">Jim C. Brown</h4>
 <p class="author">
 MailDir option in FvwmTaskBar.
@@ -57,11 +67,6 @@ Extend conditionals to handle multiple window names.
 <h4 class="author">Funda Wang</h4>
 <p class="author">
 Chinese translations.
-</p>
-
-<h4 class="author">Rafal Bisingier</h4>
-<p class="author">
-WindowLayer and Layers options to the Maximize command.
 </p>
 
 <h4 class="author">Anton Kazennikov</h4>
