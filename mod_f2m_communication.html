@@ -29,7 +29,14 @@ consisting of 4 unsigned long integers, followed by a body of a variable
 length make up a packet. The header always begins with 0xffffffff. This
 is provided to help modules re-synchronize to the data stream if necessary.
 The next entry describes the packet type. Existing packet types are listed
-in the file libs/Module.h:
+in the file libs/Module.h (see table below). Additional packet types will
+be defined in the future. The third entry
+in the header tells the total length of the packet, in unsigned longs,
+including the header. The fourth entry is the last time stamp received
+from the X server, which is expressed in milliseconds.
+<p>
+The body information is packet specific, as described below.
+
 <pre><font color="yellow">
      #define <a href="#M_NEW_PAGE"        >M_NEW_PAGE</a>             (1 &lt;&lt; 0)
      #define <a href="#M_NEW_DESK"        >M_NEW_DESK</a>             (1 &lt;&lt; 1)
@@ -62,14 +69,6 @@ in the file libs/Module.h:
      #define <a href="#M_RESTACK"         >M_RESTACK</a>              (1 &lt;&lt; 28)
      #define <a href="#M_ADD_WINDOW"      >M_ADD_WINDOW</a>           (1 &lt;&lt; 29)
      #define <a href="#M_CONFIGURE_WINDOW">M_CONFIGURE_WINDOW</a>     (1 &lt;&lt; 30)
-
-</font></pre>
-Additional packet types will be defined in the future. The third entry
-in the header tells the total length of the packet, in unsigned longs,
-including the header. The fourth entry is the last time stamp received
-from the X server, which is expressed in milliseconds.
-<p>
-The body information is packet specific, as described below.
 
 <h2><a name="M_NEW_PAGE"></a>
 M_NEW_PAGE
@@ -338,9 +337,9 @@ added.
 M_WINDOW_NAME, M_ICON_NAME, M_RES_CLASS and M_RES_NAME
 </h2>
 These packets contain 3 values, which are the usual window identifiers,
-followed by a variable length character string. The packet size field in
-the header is expressed in units of unsigned longs, and the packet is zero-padded
-until it is the size of an unsigned long. The RES_CLASS and RES_NAME fields
+followed by a variable length character string. The packet size field in the
+header is expressed in units of unsigned longs, and the packet is zero-padded
+until it is the size of an unsigned long.  The RES_CLASS and RES_NAME fields
 are fields in the XClass structure for the window. Icon and Window name
 packets will will be sent upon window creation or whenever the name is
 changed. The RES_CLASS and RES_NAME packets are sent on window creation.
