@@ -357,9 +357,9 @@ MX_VISIBLE_NAME, MX_VISIBLE_ICON_NAME
 </h2>
 These packets are similar to the M_WINDOW_NAME and M_ICON_NAME packets
 (respectively). The difference is that they contain the window and
-icon title that fvwm2 displays (which may be differrent than the
+icon title that fvwm displays (which may be differrent than the
 Window name and the Icon name if the IndexedWindowName and IndexedIconName
-fvwm2 styles are used).
+fvwm styles are used).
 
 <h2>
 <a name="M_END_WINDOWLIST"></a>
@@ -394,8 +394,9 @@ for the global screen or -1 if Xinerama is disabled).
 <p>Note that all the module configuration commands are sent. Each module
 has to check the configuration commands to see if it is a command for that
 specific module. This is actually a feature. This way one module can learn
-about all other modules configurations. Also fvwm2 doesn't currently know
-anything about module aliases.
+about all other modules configurations. Also fvwm doesn't currently know
+anything about module aliases (this is not correct anymore, the alias name
+is guessed from the command line).
 <p>Starting with release 2.0.47, a module can set M_SENDCONFIG on in its
 mask and receive M_CONFIG_INFO packets while it is running. (M_CONFIG_INFO
 has to be on also.) A module can use M_SENDCONFIG to be able to change
@@ -471,7 +472,7 @@ subsequent windows are restacked below it (like XRestackWindows).
 MX_ENTER_WINDOW, MX_LEAVE_WINDOW
 </h2>
 These packets are sent when the pointer enters or leaves a window.
-It contains just the window identifiers. Note that multiple pakets of the
+It contains just the window identifiers. Note that multiple packets of the
 same type for the same window may be sent at any time.
 
 <h2>
@@ -483,9 +484,9 @@ variable length character string. The first value is the type of the
 message, the others values depend on the message type. The message types are:
 <b>MX_PROPERTY_CHANGE_BACKGROUND</b> and <b>MX_PROPERTY_CHANGE_SWALLOW</b>.
 <p>
-<b>MX_PROPERTY_CHANGE_BACKGROUND</b> is sent by fvwm2 and FvwmButtons (and
+<b>MX_PROPERTY_CHANGE_BACKGROUND</b> is sent by fvwm and FvwmButtons (and
 maybe other modules) to indicate a background change. If the 3rd value
-is 0, it means that the root background changed. (fvwm2 sends this message
+is 0, it means that the root background changed. (fvwm sends this message
 when it detects the change).
 If the 3rd value is not zero it is the window id
 of the module which should be concerned by the message.
@@ -502,7 +503,7 @@ maybe other modules) to indicate that the module with the window id given by the
 if the 2nd value is 1 and it is an unswallowed message if the 2nd value is 0.
 The string is not used.
 <br><br>
-There is a fvwm2 command which causes modules to send such message:
+There is a fvwm command which causes modules to send such message:
 <br><br>
 <b>PropertyChange</b> 1st_value 2nd_value 3rd_value "string"
 

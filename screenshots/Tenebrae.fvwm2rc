@@ -243,7 +243,7 @@ AddToMenu "Applications" "Applications" Title
 # This menu is invoked as a sub-menu - it allows you to quit,
 # restart, or switch to another WM.
 AddToMenu "Quit-Verify" "Really Quit Fvwm?" Title
-+ "Restart%mini-turn.xpm%"		Restart fvwm2
++ "Restart%mini-turn.xpm%"		Restart
 + "" 					Nop
 + "Start olvwm%mini-olwm.xpm%"		Restart /usr/openwin/bin/olvwm
 + "Start olwm%mini-olwm.xpm%"		Restart /usr/openwin/bin/olwm

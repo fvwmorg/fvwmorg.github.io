@@ -1,3 +1,18 @@
+2002-04-11  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html:
+	* download.html:
+	* generated/AUTHORS.html:
+	* generated/FAQ.html:
+	* generated/NEWS.html:
+	updated for 2.4.7
+
+	* mod_f2m_communication.html:
+	* screenshots/J_C_Lawrence.fvwm2rc:
+	* screenshots/Tenebrae.fvwm2rc:
+	* screenshots/index.html:
+	handle fvwm2 executable (that was renamed to fvwm)
+
 2002-03-31  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* generated/txt2html.sh (outfile):

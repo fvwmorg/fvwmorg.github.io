@@ -137,7 +137,7 @@ Key KP_Delete	  	A      	C	Exec xmms -s
 
 ### General Keys
 Key Delete	A	CM	Quit
-Key Escape	A	CM	Restart fvwm2
+Key Escape	A	CM	Restart
 Key Escape      A       SCM     Exec xscreensaver-command -lock
 Key Tab		WTSF	M	FlipFocus
 Key S           A       SCM     Stick
@@ -349,7 +349,7 @@ AddToMenu Screen	"Recapture Screen" 	Recapture
 
 AddToMenu Quit-Verify 	"No, Don't Quit"    Nop	
 +		      	""		    Nop	
-+                       "Restart Fvwm2"     Restart fvwm2
++                       "Restart Fvwm"      Restart
 +		      	""		    Nop	
 +		      	"Start WindowMaker" Restart wmaker
 +		      	"Start dummy"       Restart xterm
