@@ -1,5 +1,7 @@
 <?php
 
+$request = $_SERVER["REQUEST_URI"];
+
 //--------------------------------------------------------------------
 // find the best link to the failed request
 //--------------------------------------------------------------------
@@ -63,7 +65,7 @@ header("HTTP/1.0 404 Not Found");
     </p>
 
     <p>
-      Please update your bookmarks to <a href="<?php echo $url;?>"><?php echo $url;?></a>
+      Please update your bookmarks to <b><a href="<?php echo $url;?>"><?php echo $url;?></a></b>
     </p>
     
     <p>

@@ -67,10 +67,15 @@ h5.cats {
 }
 p.cats, h2.cats, h3.cats, h4.cats, h5.cats, ul.cats {
 }
+p.cmdline {
+	border: solid; border-width: thin; border-color: black;
+	color: #ffff99;
+	background: #404040; padding: 5pt;
+}
 pre.cvs, pre.doc {
 	color: #ffff99;
 	/* background: #112266; */
-	padding: 5pt;
+	padding: 10pt;
 }
 .bottominfo {
 	text-align: right;

@@ -1,3 +1,17 @@
+2003-04-30  Mikhael Goikhman  <migo@homemail.com>
+
+	* httpd/error404.php
+	fixed the closest redirection
+
+	* css/default.css:
+	added definition for p.cmdline
+
+	* documentation/dev_cvs.php
+	replaced most of <pre> lines with <p class=cmdline>, updated the bottom
+
+	* documentation/index.php
+	fixed link to FAQ
+
 2003-04-29  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/faq/*:

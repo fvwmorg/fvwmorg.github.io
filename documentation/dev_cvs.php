@@ -139,9 +139,9 @@ cvs -q
     you must login to the server:
   </p>
 
-<pre class="cvs">
-cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
-</pre>
+  <p class="cmdline">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
+  </p>
 
   <p>
     The password is `<code>guest</code>'.  The command outputs nothing if it
@@ -186,9 +186,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
     command, for retrieving the latest code, doesn't require any label:
   </p>
 
-<pre class="cvs">
-cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
-</pre>
+  <p class="cmdline">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
+  </p>
 
   <p> 
     This will create a new directory <code>fvwm</code> in your current
@@ -200,9 +200,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
     code, you can use the branch label on the checkout command line:
   </p>
 
-<pre class="cvs">
-cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
-</pre>
+  <p class="cmdline">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
+  </p>
 
   <p> 
     This will put a copy of the very latest code on the 2.2.x branch
@@ -212,9 +212,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
     <code>checkout -d</code> option:
   </p>
 
-<pre class="cvs">
-cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2.2.x fvwm
-</pre>
+  <p class="cmdline">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2.2.x fvwm
+  </p>
 
   <p> 
     Now the code will be checked out into a directory
@@ -230,9 +230,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2
     command:
   </p>
 
-<pre class="cvs">
-cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r version-2_1_10 -d fvwm-2.1.10 fvwm
-</pre>
+  <p class="cmdline">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r version-2_1_10 -d fvwm-2.1.10 fvwm
+  </p>
   
   <p> 
     Please note that if you check out a specific <em>version</em>, the
@@ -283,13 +283,13 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r version-2_1_10 -d fv
     do is:
   </p>
   
-<pre class="cvs">
-cd fvwm
-aclocal
-acheaders
-automake --add-missing
-autoreconf
-</pre>
+  <p class="cmdline">
+    cd fvwm<br>
+    aclocal<br>
+    acheaders<br>
+    automake --add-missing<br>
+    autoreconf
+  </p>
 
   <p>
     The last command is <code>auto<b>re</b>conf</code>,
@@ -301,9 +301,9 @@ autoreconf
 
   <p>To automate this step we include a shell script</p>
 
-<pre class="cvs">
-utils/configure_dev.sh
-</pre>
+  <p class="cmdline">
+    utils/configure_dev.sh
+  </p>
 
   <p>
     in the cvs tree, it may be run with usual
@@ -315,11 +315,11 @@ utils/configure_dev.sh
     the <code>INSTALL.fvwm</code> and <code>INSTALL</code> files:
   </p>
 
-<pre class="cvs">
-./configure
-make
-make install
-</pre>
+  <p class="cmdline">
+    ./configure<br>
+    make<br>
+    make install
+  </p>
 
   <p>
     with appropriate options and arguments, as you like.
@@ -346,9 +346,9 @@ make install
     repository with any local changes you may have made.
   </p>
 
-<pre class="cvs">
-cvs update
-</pre>
+  <p class="cmdline">
+    cvs update
+  </p>
 
   <p>
     If you didn't use a tag when you checked out, this will update your
@@ -402,10 +402,10 @@ cvs update
     the <em>current</em> sources in the CVS repository.
   </p>
 
-<pre class="cvs">
-cvs update
-cvs diff -u &gt; patchfile
-</pre>
+  <p class="cmdline">
+    cvs update<br>
+    cvs diff -u &gt; patchfile
+  </p>
 
   <p>
     Mail the patch to the fvwm-workers list with a description of what you
@@ -484,9 +484,9 @@ XpmImage    my_image = {0};  /* testing */
     password.  The latter can be obtained with the following Perl snippet:
   </p>
 
-<pre class="cvs">
-perl -e 'print crypt("yourpass",join("",((a..z,A..Z,0..9)[rand(62),rand(62)]))), "\n"'
-</pre>
+  <p class="cmdline">
+    perl -e 'print crypt("yourpass", join("", ((a..z, A..Z, 0..9)[rand(62), rand(62)]))), "\n"'
+  </p>
 
   <p>
     Change <code>yourpass</code> to whatever you want your password to be.
@@ -523,9 +523,9 @@ perl -e 'print crypt("yourpass",join("",((a..z,A..Z,0..9)[rand(62),rand(62)]))),
     To commit all the modified files in your workspace, use:
   </p>
 
-<pre class="cvs">
-cvs commit
-</pre>
+  <p class="cmdline">
+    cvs commit
+  </p>
 
   <p>
     CVS will pop up your favorite editor to allow you to enter comments
@@ -544,9 +544,9 @@ cvs commit
     certain files to be committed:
   </p>
 
-<pre class="cvs">
-cvs commit fvwm/fvwm.1 modules/FvwmAuto/FvwmAuto.1
-</pre>
+  <p class="cmdline">
+    cvs commit fvwm/fvwm.1 modules/FvwmAuto/FvwmAuto.1
+  </p>
 
   <p>
     Again, please sanity-check the list to be sure you have everything.
@@ -561,11 +561,11 @@ cvs commit fvwm/fvwm.1 modules/FvwmAuto/FvwmAuto.1
     `<code>newmod.c</code>':
   </p>
 
-<pre class="cvs">
-cvs add -m "New directory for ..." newdir
-cd newdir
-cvs add -m "File newmod.c is a module that ..." newmod.c
-</pre>
+  <pre class="cmdline">
+    cvs add -m "New directory for ..." newdir<br>
+    cd newdir<br>
+    cvs add -m "File newmod.c is a module that ..." newmod.c
+  </pre>
 
   <p>
     When adding new directories and files, please be sure to take a look
@@ -583,10 +583,10 @@ cvs add -m "File newmod.c is a module that ..." newmod.c
       -dP</code>'.  To delete one or more files:
   </p>
 
-<pre class="cvs">
-cvs remove filename...
-cvs commit -m 'deleted files because' filename...
-</pre>
+  <p class="cmdline">
+    cvs remove filename...<br>
+    cvs commit -m 'deleted files because' filename...
+  </p>
 
   <p>
     Again, when removing directories or files please be sure to update
@@ -633,9 +633,9 @@ cvs commit -m 'deleted files because' filename...
     branch (be sure you're in the root of your checkout):
   </p>
 
-<pre class="cvs">
-cvs rtag -b -r version-2_2_0 branch-2_2 .
-</pre>
+  <p class="cmdline">
+    cvs rtag -b -r version-2_2_0 branch-2_2 .
+  </p>
 
   <p>
     The first thing you'll probably want to do on the new branch is edit
@@ -695,41 +695,25 @@ cvs rtag -b -r version-2_2_0 branch-2_2 .
   <!--  For example, to do an initial checkout of the root: -->
   <!--  To check out a sub-branch: -->
 
-  <p style="font-size:large;font-weight:bold;">
-    The following three paragraphs are taken from the old version of
-    this site. The actual version of the fvwm-tree may be different to
-    the following description. This section is going to be updated soon.
-  </p>
-
   <p>
     Some parts of the fvwm-web tree are generated from
     fvwm tree source files.
-    The generated files are in the directories
-    <code>fvwm-web/generated</code> and
-    <code>fvwm-web/generated/manpages</code>.
-  </p>
+    The generated files are in the directories:
+
+<pre class="cvs">
+fvwm-web/authors/
+fvwm-web/news/
+fvwm-web/documentation/faq/
+fvwm-web/documentation/manpages/
+fvwm-web/documentation/perllib/
+</pre>
 
   <p>
-    There are 3 generated files in <code>fvwm-web/generated</code>:
-    <a href="generated/FAQ.html">FAQ.html</a>,
-    <a href="generated/NEWS.html">NEWS.html</a> and
-    <a href="generated/AUTHORS.html">AUTHORS.html</a>.
-    These 3 files are created with the shell script
-    <i>fvwm-web/generated/txt2html.sh</i>.
-    You would normally run this script whenever you made a change to
-    <i>fvwm/NEWS</i>, <i>fvwm/docs/FAQ</i> or <i>fvwm/AUTHORS</i>
-    that you want to appear on the fvwm web site.
-    Instructions are in the script.
-  </p>
-
-  <p>
-    The sub directory "fvwm-web/generated/manpages" contains
-    man pages and a man page index
-    generated from the latest official (non-beta) release.
-    The man pages are created with the shell script
-    "fvwm-web/generated/run_man2thml.sh".
-    You need "man2html" to be installed to run it.
-    Instructions are in the script.
+    Each directory has a script generating one or more php files.
+    You would normally run these scripts (at least in the first 3 directories)
+    whenever you made a change to <i>fvwm/NEWS</i>, <i>fvwm/docs/FAQ</i> or
+    <i>fvwm/AUTHORS</i> that you want to appear on the fvwm web site.
+    Instructions are in the scripts.
   </p>
 
 <?php decoration_window_end(); ?>
