@@ -58,7 +58,7 @@ CH> in.
 
 <pre class="historydominik">
 DV> Robert Nation started it back in 1993.  The first time anything
-DV> was heard about it in public was on the 1st of July in 1993, when
+DV> was heard about it in public was on the 1st of June in 1993, when
 DV> Rob bundled a development version (0.5.something) with an rxvt
 DV> release (a still popular terminal program).  In the next few
 DV> months, fvwm became an independent package and fvwm-1.0 was
@@ -179,7 +179,7 @@ DV> end of fvwm development.  Seeing this and not willing to give up
 DV> fvwm this easily, I took over the job as fvwm maintainer for the
 DV> moment.  After a lot of discussion we agreed that we should try to
 DV> make a first stable release in the 2.x series as soon as possible.
-DV> With a grat team effort we were able to resolve the most pressing
+DV> With a great team effort we were able to resolve the most pressing
 DV> issues and managed to get the stable 2.2.0 release out the door
 DV> in February 1999.  (I want to thank all the people who helped to
 DV> make it possible back then).
@@ -224,7 +224,7 @@ DV> continue our work.
 DV> What about the future?  Well, the work for the next stable series
 DV> (2.6.x) is proceeding very well.  Fvwm will go into feature freeze
 DV> again near the end of the year so that 2.6 is ready before fvwm's
-DV> tenth birthday on 1st of Junly, 2003.  I have vague plans for a
+DV> tenth birthday on 1st of June, 2003.  I have vague plans for a
 DV> big event on that day to remind people that fvwm is still there
 DV> and that it can easily compete with any other window manager.
 DV> After that there are plans for a version 3.0 that would change a
