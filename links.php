@@ -92,8 +92,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li><a href="http://www.vis.colostate.edu/~scriven/fvwm.php3">Scott
       Scriven's theme page</a>.</li>
 -->
-      <li><a href="http://www.plig.org/~xwinman/fvwm.html">Fvwm
-      decorations</a> - Some screenshots and config files</li>
+      <li><a href="http://www.plig.org/~xwinman/fvwm.html">FVWM
+      Decorations</a> - Some screenshots and config files</li>
 
 <!--       <li><a href="http://fvwm2gnome.fluid.cx/todo.html">fvwm2gnome</a></li> -->
 <!-- 	Themes and Gnome -->
@@ -115,11 +115,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 -->
 
       <li><a href="http://www.blackie.dk/dotfile/">The Dotfile Generator Home Page</a> - 
-      A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files</li>
+      A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files (pretty old)</li>
 
 
       <li><a href="http://newton.physics.arizona.edu/~lapeyre/fvwmconf/index.html">John Lapeyre's FvwmConf</a> -
-      A module for interactively configuring FVWM</li>
+      A module for interactively configuring FVWM (old, 1997)</li>
 
 <!--
        Whatever happened to this one?  -RBW

@@ -21,7 +21,7 @@ $title          = "FVWM - NEWS";
 $link_name      = "News";
 $link_picture   = "pictures/icons/news";
 $parent_site    = "top";
-$child_sites    = array();
+$child_sites    = array("logo_competition", "logo_competition_rules");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "news";
 

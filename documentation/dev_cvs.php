@@ -1,12 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : developers.php
-//-  Project       : Fvwm Home page
+//-  File          : dev_cvs.php
+//-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
 //-  Last modified : <08.04.2003 08:59:56 uwp>
 //--------------------------------------------------------------------
 
-if( strlen($rel_path)==0 ) $rel_path="./..";
+if (strlen($rel_path) == 0) $rel_path = "./..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -47,6 +47,7 @@ decoration_window_start("CVS Information");
 ?>
 
 
+<p>
 FVWM development uses a CVS server.
 
   <p>
@@ -735,6 +736,5 @@ cvs rtag -b -r version-2_2_0 branch-2_2 .
     You need "man2html" to be installed to run it.
     Instructions are in the script.
   </p>
-
 
 <?php decoration_window_end(); ?>

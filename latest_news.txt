@@ -1,6 +1,6 @@
-No latest news for now. :)
+Participate in our new <a href="logo-competition/">Logo Competition</a>.
 
-</pre><!--
+<!--
 migo: This should be documented in ChangeLog, not latest_news.txt
 
 Mon Mar 31 2003 [uwp]:
@@ -49,4 +49,4 @@ Wed Mar 26 2003 [uwp]:
 * Added new empty sub pages doc_faq.php doc_manpages.php and
   download_icons.php.
 
---><pre>
+-->

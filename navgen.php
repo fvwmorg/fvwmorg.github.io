@@ -359,10 +359,16 @@ $nav_file = fopen($navigation_file, "w") or
 
 fputs($nav_file,"<?php\n");
 fputs($nav_file,"//=============================================================\n");
-fputs($nav_file,"// This file has been generated automatically\n");
+fputs($nav_file,"// This file is generated automatically by navgen.php.\n");
+
+/* migo: do not include the following otherwise we will _always_ get cvs */
+/* conflicts; without it conflicts are still possible, but less */
+/*
 fputs($nav_file,"// by ".my_get_global("PHP_SELF", "SERVER")."\n");
 fputs($nav_file,"// Created at ".date("d/m/y H:i", time())."\n");
-fputs($nav_file,"// You should change the order of ".'$top_array'." only !!!\n");
+*/
+
+fputs($nav_file,"// You may change the order of ".'$top_array'." only!\n");
 fputs($nav_file,"// Uwe Pross 2002\n");
 fputs($nav_file,"//=============================================================\n");
 fputs($nav_file,"\n");
@@ -370,11 +376,12 @@ fputs($nav_file,"// names of the top sites - you may change the order if you lik
 fputs($nav_file,'$top_array = array('."\n");
 $site = "";
 list($index,$site) = each($top_array);
-fputs($nav_file,'                   "'.$site.'"');
+fputs($nav_file, "\t\"$site\",\n");
+/* migo: it is always good to have all lines with commas, less conflicts */
 while( list($index,$site) = each($top_array) ) {
-  fputs($nav_file,",\n".'                   "'.$site.'"');
+  fputs($nav_file, "\t\"$site\",\n");
 }
-fputs($nav_file,"\n                   );\n");
+fputs($nav_file,");\n");
 
 // export sites recursivly
 reset($top_array);
@@ -413,28 +420,6 @@ while( list($index,$php_file) = each($child_file_array) ) {
 ?>
 </body>
 </html>
-
-<!-- $Id$ -->
-
-<!-- $Log$
-<!-- Revision 1.4  2003/04/07 06:05:35  uwp
-<!-- Added sites to for the new home page
-<!--
-<!-- Revision 1.3  2003/04/03 06:49:58  uwp
-<!-- Moved news to latest_news directory. New awk script which converts NEWS to html. Added some style sheet definitions for heading tags.
-<!--
-<!-- Revision 1.2  2003/03/31 12:43:15  migo
-<!-- * some file name rearrangements, small fixes and consistency changes
-<!--
-<!-- Revision 1.1  2003/03/31 09:18:00  uwp
-<!-- New version of fvwm web page - Init version
-<!--
-<!-- Revision 1.2  2003/03/23 13:44:57  uwe
-<!-- finished first version of menu navigation
-<!--
-<!-- Revision 1.1.1.1  2003/03/22 17:19:05  uwe
-<!-- init version
-<!-- -->
 
 <!-------------------------------------------------------------------->
 <!-- end of file -->

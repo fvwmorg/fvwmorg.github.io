@@ -47,10 +47,10 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <?php decoration_window_start("Sample menus"); ?>
 
   <p>
-    Fvwm gives you lots of ways to decorate menus.
+    FVWM provides a variety of ways to decorate your menus.
     This page shows sample menus
-    that have been contributed to fvwm.
-    Click on the menu to download the Fvwm commands needed to
+    that have been contributed to the project.
+    Click on the menu to download the commands needed to
     configure the menu.
   </p>
   <table border="0" cellspacing="5" cellpadding="5" frame="void" rules="rows" 

@@ -50,10 +50,10 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   now accessible separately.
   <ul>
     <li><a href="../generated/icon_download/fvwm_icons.tgz">
-	Download</a> Fvwm Icons tgz format.  This archive unpacks
-      into a directory fvwm_icons.</li>
+	Download</a> gzip'ed tarball with traditional old icons.
+        This archive unpacks into a directory fvwm_icons.</li>
     <li><a href="../generated/icon_download/fvwm_icons.tar.bz2">
-	Download</a> Fvwm Icons tar.bz2 format.</li>
+	Download</a> the same icons in bzip2 tarball.</li>
     <li>View the <a href="../generated/icon_shots/side.gif">
 	  side</a> pixmaps.</li>
     <li>View the <a href="../generated/icon_shots/banner.gif">
@@ -70,9 +70,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   Now we provide a few sounds in .au format for FvwmEvent.
   <ul>
     <li><a href="../generated/sounds_download/fvwm_sounds.tgz">
-	Download</a> Fvwm Sounds tgz format.  Make a directory
-      to hold the sounds, say /usr(/local/)share/sounds/fvwm, and unpack the
-      "tgz" ball in this directory.</li>
+	Download</a> tarball with some sound files.  Make a directory
+        to hold the sounds, say /usr(/local/)share/sounds/fvwm,
+        and unpack the "tgz" ball in this directory.</li>
     <li>  <a href="../sounds/clong.au">
 	clong.au</a> can be used for (de)iconify events.</li>
     <li><a href="../sounds/gong.au">

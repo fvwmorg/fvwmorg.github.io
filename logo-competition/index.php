@@ -2,28 +2,28 @@
 //--------------------------------------------------------------------
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
-//-  Programmer    : Uwe Pross
-//-  Last modified : <26.03.2003 22:32:52 uwe>
+//-  Programmer    : Logo Competitor
+//-  Last modified : <08.04.2003 22:32:52 logo>
 //--------------------------------------------------------------------
 
-if (strlen($rel_path) == 0) $rel_path = "..";
+$rel_path = "..";
 
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc");
+include("$rel_path/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM Sub site - @FILENAME@";
-$heading        = "FVWM Sub site - @FILENAME@";
-$link_name      = "@FILENAME@";
+$title          = "FVWM - Logo Competition";
+$heading        = "FVWM - Logo Competition";
+$link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/default";
-$parent_site    = "@PARENT_SITE@";
+$parent_site    = "news";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php", "", $requested_file);
+$this_site      = "logo_competition";
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -44,10 +44,16 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php decoration_window_start("Example Page"); ?>
-<h1>Welcome to Example Page</h1>
-<ul>
-	<li>page content may be here
-	<li>for example
-</ul>
+<?php decoration_window_start("New Logo Competition", "", "", "0"); ?>
+<h1>Welcome to FVWM Logo Competition</h1>
+
+<p>If you like to participate, please read
+<a href="rules.php">the competition rules</a>.
+
+<p>The submitted logos are exhibited here.
+<?php decoration_window_end(); ?>
+
+<p>
+<?php decoration_window_start("Submitted logos", "", "4", "10"); ?>
+<p>to be added
 <?php decoration_window_end(); ?>

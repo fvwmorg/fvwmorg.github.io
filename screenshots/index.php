@@ -44,6 +44,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 ?>
 
-<?php decoration_window_start("Fvwm Screen Shots"); ?>
+<?php decoration_window_start("FVWM Screenshots"); ?>
 
 <?php decoration_window_end(); ?>

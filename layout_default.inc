@@ -1,7 +1,7 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : layout_default.inc
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <08.04.2003 09:04:37 uwp>
@@ -682,13 +682,15 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
     <meta name="generator" content="by hand with a little help of bluefish and xemacs">
-    <meta name="keywords" content="fvwm, window manager, screen shots">
+    <meta name="keywords" content="fvwm, window manager, screenshots, themes">
     <meta name="author" content="Uwe Pross">
-    <meta name="description" content="Fvwm Homepage">
+    <meta name="description" content="The Official FVWM Home Page">
 
+<!--
     <meta http-equiv="content-language" content="de">
     <meta name="robots" content="index">
     <meta name="robots" content="follow">
+-->
 
     <link rel="shortcut icon" href="fvwm.ico">
 

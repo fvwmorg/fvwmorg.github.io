@@ -1,7 +1,7 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : developers.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
 //-  Last modified : <07.04.2003 08:39:01 uwp>
 //--------------------------------------------------------------------
@@ -47,19 +47,19 @@ decoration_window_start("Developer Information");
 ?>
 
 <p>
-Fvwm was created by Robert Nation, originally derived from
-<em>twm</em> code.  Thanks, Rob!
+FVWM was created by Robert Nation, originally derived from
+<em>TWM</em> code.  Thanks, Rob!
 </p>
 
 <p> Rob then passed the torch on to Charles Hines, who passed the
-torch to Brady Montz.  The Fvwm torch is now carried by lots of people
+torch to Brady Montz.  The FVWM torch is now carried by lots of people
 on the <a href="mailto:fvwm-workers@fvwm.org">fvwm-workers</a> list. Jason
 Tibbitts continues to provide infrastructure in the form of mailing
 lists, a web site, an FTP site, a CVS tree, and anonymous rsync.
 </p>
 
 <p> 
-If you are an Fvwm developer or want to become one, or are just
+If you are an FVWM developer or want to become one, or are just
 curious, these links may be of interest to you:
 </p>
 

@@ -47,10 +47,10 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <?php decoration_window_start("Window decorations - vector buttons"); ?>
 
   <p>
-    Fvwm gives you lots of ways to decorate the buttons in the title
+    FVWM provides a variety of ways to decorate the buttons in the title
     bar.  Vector buttons are images drawn using the buttons shadow and
     highlight colors.  This page shows some of the vector buttons
-    that have been contributed to fvwm.
+    that have been contributed to the project.
   </p>
   <p>
     Click on the image to view the file that drew that titlebar or

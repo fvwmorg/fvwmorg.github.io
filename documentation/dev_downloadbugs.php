@@ -1,12 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : developers.php
-//-  Project       : Fvwm Home page
+//-  File          : dev_downloadbugs.php
+//-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
 //-  Last modified : <06.04.2003 19:23:56 uwe>
 //--------------------------------------------------------------------
 
-if( strlen($rel_path)==0 ) $rel_path="./..";
+if (strlen($rel_path) == 0) $rel_path = "./..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -23,7 +23,7 @@ $link_picture   = "pictures/icons/doc_developers";
 $parent_site    = "developers";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here

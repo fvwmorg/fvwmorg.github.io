@@ -1,7 +1,7 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : developers.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
 //-  Last modified : <06.04.2003 19:24:25 uwe>
 //--------------------------------------------------------------------
