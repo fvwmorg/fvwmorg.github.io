@@ -1,6 +1,6 @@
 <?php
 
-$register_file = "daten/register.dat";
+$register_file = "register/register.dat";
 $votes_file    = "daten/stimmen.dat";
 
 // a length of 80 gives 6.705+142 possibilities
@@ -104,8 +104,8 @@ function send_mail_to_voter($email, $id) {
          "Please take part in the first stage of fvwm logo competition voting.
 
 All users which are either subscribed to one of the fvwm mailing lists
-or have submitted a logo for the competition are allowed to vote for
-a new logo for fvwm. 
+or have submitted a logo for the competition are allowed to vote for a
+new logo for fvwm.
 
 Here is your personal id for participation in the voting:
 
@@ -118,6 +118,8 @@ $base_url/fvwm-web/logo-competition/logos/voting/index.php
 Or access the personal voting page directly using this link:
 
 $base_url/fvwm-web/logo-competition/logos/voting/index.php?id=$id
+
+If you have problems access the voting page please reply to this mail.
 ",
          "From: FVWM Workers <fvwm-workers@fvwm.org>
 Reply-To: FVWM Voting <fvwm-logo@lists.sf.net>");
