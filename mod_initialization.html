@@ -176,9 +176,10 @@ changed the module must redraw itself. Don't forget that colorset backgrounds
 have to be redrawn when the window is resized.</li>
 
 <li>
-Accessing colorset N must be done with via <i>Colorset[</i>N<i> % nColorsets]</i>.
-Colorset[] and nColorsets are globals maintained libs/Colorset.c. The pixels
-available are</li>
+Accessing colorset N must be done with via <i>Colorset[</i>N<i>]</i>.
+Colorset[] is a global array maintained libs/Colorset.c. The pixels
+available are. It is a good idea to call AllocColorset(N) whenever N is
+changed befe trying to access Colorset[n].</li>
 
 <ul>
 <li>
@@ -191,7 +192,7 @@ bg: the background pixel</li>
 hilite: the top and left shadow pixel</li>
 
 <li>
-relief: the bottom and right shadow pixel</li>
+shadow: the bottom and right shadow pixel</li>
 </ul>
 
 <li>
