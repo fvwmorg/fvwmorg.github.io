@@ -65,7 +65,7 @@ $this->theme_descriptions = array(
                 "Paper"  => "@REL_PATH@/pictures/backgrounds/paper01.jpg",
                 "Clouds" => "@REL_PATH@/pictures/backgrounds/clouds01.jpg",
                 "Stars"  => "@REL_PATH@/pictures/backgrounds/stars01.jpg",
-		"None"   => "none"
+                "None"   => "none"
                  ),
             "name"    => "Background Image",
             ),

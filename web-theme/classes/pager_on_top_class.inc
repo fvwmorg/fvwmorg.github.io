@@ -13,37 +13,46 @@ class Pager_On_Top_Theme extends Default_Theme {
         $this->init();
     }
 
+
     // inserts a table row <tr>... </tr> which contains the window
     // buttons like the window decoration of a window manager
-    function decoration_title_bar_back($string="") {
+    function decoration_title_bar($string="") {
         $def_file = $this->style_array["decoration_path"]."/deco_definitions.inc";
+        $td_opts = "";
         if( file_exists($def_file) ) include(sec_filename($def_file));
-        if( isset($title_height) ) {
-            $dimension      ='width="'.$title_height.'" height="'.$title_height.'"';
-            $dimension_deco ='width="'.($title_height*2).'" height="'.$title_height.'"';
-        }
+        if( isset($title_height) ) $dimension='width="'.$title_height.'" height="'.$title_height.'"';
         if( file_exists($this->decoration_pic("button_1"))) {
             echo '<tr>'."\n";
             $this->decoration_left_cell();
             echo '<td>';
-//            if( strlen($title_background) == 0 ) $title_background=$this->style_array["hilight_bg"];
-            if (strlen($title_background) == 0) $title_background = "#65abca";
+            if(!isset($title_background)) $title_background=$this->style_array["hilight_bg"];
             echo '<table border="0" cellspacing="0" cellpadding="0" summary="" width="100%" bgcolor="'.$title_background.'">'."\n";
             echo '<tr>'."\n";
-            $td_opts = 'width="1"';
+            // $td_opts = 'width="1"';
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_1").'); ">';
+            echo '<a href="./'.$this->requested_file.'?theme=navigate" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></a></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_3").'); " >';
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-            echo '<td width="99%" style="background-image:url('.$this->decoration_pic("title").'); "';
-            echo ' align="center" nowrap bgcolor="'.$title_background.'">';
-            if( strlen($string) > 0 )
-                echo '<b><font size="3" color="'.$this->style_array["window_border_fg"].'">&nbsp;'.$string.'</font></b></td>'."\n";
+            echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
+            echo ' align="center" width="99%" bgcolor="'.$title_background.'">';
+            if(strlen($string)>0)
+                echo '<font size="3" color="'.$this->style_array["hilight_fg"].'">&nbsp;'.$string.'</font></td>'."\n";
             else
                 echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_6").'); ">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_4").'); ">';
             echo '<a href="./'.$this->requested_file.'?theme=default" class="nohilight">';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme" title="window theme"></a></td>';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></a></td>'."\n";
+
+            echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
+            echo '<a href="./'.$this->requested_file.'?theme=plain" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme" title="plain theme"></a></td>';
 
             echo '</tr>'."\n";
             echo '</table>'."\n";
@@ -52,6 +61,7 @@ class Pager_On_Top_Theme extends Default_Theme {
             echo '</tr>'."\n";
         }
     }
+
 
     function decoration_window_start($string="", $width="100%", $height="400", $padding="5") {
         // echo "<h2>".$string."</h2>";
@@ -249,14 +259,12 @@ class Pager_On_Top_Theme extends Default_Theme {
         echo "
         body {
             background-color:".$this->style_array["window_bg"].";
-            background-image:url(\"".$this->style_array['body_bg_image']."\");
             color:".$this->style_array["window_fg"].";
             margin-right:15pt;
             margin-left:15pt;
         }
         .windowcontents {
         	color:".$this->style_array["window_fg"]."; 
-            background-image:url(\"".$this->style_array['body_bg_image']."\");
         } 
         a:link, a:visited, a:active, a:hover {
         	color:".$this->style_array["link_fg"].";
@@ -284,7 +292,15 @@ class Pager_On_Top_Theme extends Default_Theme {
         	background:".$this->style_array["code_bg"].";
         	color:".$this->style_array["code_fg"].";
         }
-";  
+";
+        // check if background image exists
+        if(isset($this->style_array['body_bg_image']) && file_exists($this->style_array['body_bg_image'])) {
+            echo "
+        body, .windowcontents {
+            background-image:url(\"".$this->style_array['body_bg_image']."\");
+        } 
+";
+        }
     }
 
 }

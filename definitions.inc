@@ -205,7 +205,7 @@ function theme_file($filename) {
     if( file_exists("$file") )
         return $file;
     else
-        return $rel_path."/web-theme/themes/default_theme.inc";
+        return $rel_path."/web-theme/themes/plain_theme.inc";
 }
 
 function class_file($filename) {
@@ -244,7 +244,7 @@ function get_user_setting($variable, $methods=array("GET", "POST", "SESSION", "C
 // global definitions for all php files
 //--------------------------------------------------------------------
 
-if( strlen($rel_path) == 0 ) $rel_path=".";
+if(!isset($rel_path)) $rel_path=".";
 
 $user_agent = my_get_global("HTTP_USER_AGENT", "SERVER");
 

@@ -53,8 +53,12 @@ if(!isset($heading)) $heading = $title;
   <body 
     bgcolor="<?php echo $theme_object->style_array['body_bg'];?>"
     <?php 
-    if (strlen($theme_object->style_array['body_bg_image']) > 0) 
-       echo 'background="'.$theme_object->style_array['body_bg_image'].'"'; 
+    // check if background image exists
+    if(isset($theme_object->style_array['body_bg_image']) 
+       && file_exists($theme_object->style_array['body_bg_image']) 
+       && strlen($theme_object->style_array['body_bg_image']) > 0) { 
+           echo 'background="'.$theme_object->style_array['body_bg_image'].'"'; 
+       }
     ?>
     text="<?php echo $theme_object->style_array['body_fg']; ?>"
     link="#ffff88"

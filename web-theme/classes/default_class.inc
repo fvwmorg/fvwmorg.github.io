@@ -620,7 +620,6 @@ class Default_Theme extends Base_Theme {
         echo "
         body {
             background-color:".$this->style_array["body_bg"].";
-            background-image:url(\"".$this->style_array['body_bg_image']."\");
             color:".$this->style_array["body_fg"].";
         }
         .windowcontents {
@@ -653,6 +652,15 @@ class Default_Theme extends Base_Theme {
         	color:".$this->style_array["code_fg"].";
         }
 ";  
+        // check if background image exists
+        if(isset($this->style_array['body_bg_image']) && file_exists($this->style_array['body_bg_image'])) {
+            echo "
+        body, .windowcontents {
+            background-image:url(\"".$this->style_array['body_bg_image']."\");
+        } 
+";
+
+        }
     }
 
 }
