@@ -77,7 +77,7 @@ if(!isset($site_has_been_loaded)) {
       FVWM site</a> - Stylish screenshots (and config files) from the author
       of the MultiPixmap titlebar feature.
       Don't miss her thoughtful and entertaining essay
-      <a href="http://www.igs.net/~tril/fvwm/">"My Quest For The Perfect Window Manager".</a>
+      <a href="http://ironphoenix.org/tril/fvwm/">"My Quest For The Perfect Window Manager".</a>
       <i>(The hobbit in us would like to subtitle it "There and Back Again".)</i>
       </li>
 
