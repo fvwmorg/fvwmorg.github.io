@@ -239,32 +239,11 @@ $this->theme_descriptions = array(
      "style"  => array(),
      ),
   
-  "birthday"   => array(
-     "name"   => "Birthday",
-     "style"  => array(         
-         "window_bg"  => array(
-            "type"    => "color",
-            "value"   => "#003c3c",
-            "name"    => "Window Background",
-            ),
-         "window_fg"        => array(
-            "type"    => "color",
-            "value"   => "#ffffff",
-            "name"    => "Window Foreground",
-            ),
-         ),
-     ),
-
-  "blue" => array(
-     "name"   => "Blue Theme",
-     "style"  => array(),
-     ),
-
   "navigate" => array(
      "name"   => "Navigation",
      "style"  => array(),
      ),
-
   );
 
 ?>
+

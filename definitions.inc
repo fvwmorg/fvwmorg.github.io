@@ -27,12 +27,12 @@
 //--------------------------------------------------------------------
 // exclude this file from navgen
 //--------------------------------------------------------------------
-if (strlen($navigation_check) > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // check if this file has been already read
 //--------------------------------------------------------------------
-if (strlen($definitions_has_been_read) > 0) return;
+if(isset($definitions_has_been_read)) return;
 $definitions_has_been_read = "t";
 
 //--------------------------------------------------------------------
@@ -145,12 +145,12 @@ function my_get_global($varname, $vartype) {
                 break;
             case "POST":
                 // uwp: check if cookie setting can be used
-                if( strlen($_POST["clear_cookies"]) > 0 && strcmp("clear_cookies",$varname) ) return;
+                if(isset($_POST["clear_cookies"]) && strcmp("clear_cookies",$varname) ) return;
                 $mytype = &$_POST;
                 break;
             case "COOKIE":
                 // uwp: check if cookie setting can be used
-                if( strlen($_POST["clear_cookies"]) || strlen($_COOKIE["cookies_disabled"]) ) return;
+                if(isset($_POST["clear_cookies"]) || isset($_COOKIE["cookies_disabled"])) return;
                 $mytype = &$_COOKIE;
                 break;
             case "SERVER":
@@ -179,12 +179,13 @@ function my_get_global($varname, $vartype) {
             //  Get the variable if it exists.
             if(isset($mytype[$varname]))  {
                 $val = $mytype[$varname];
+            } else {
+                $val = "";
             }
             return $val;
         }
 
     }
-
     return $val;
 }
 
@@ -253,7 +254,7 @@ $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 // $theme = get_user_setting("theme", array("GET", "POST"));
 
 // we can make a decision of default theme here
-if( strlen($theme) > 0 ) {
+if(isset($theme)) {
     // set a variable that shows that the theme was set by the user
     $user_theme = 1;
 } elseif( preg_match("/Emacs/", $user_agent) ||

@@ -11,7 +11,7 @@
 // this manpages should not appear in the navigation structure
 // so we hide its contents from navgen
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 $rel_path = "../../..";
 
@@ -35,7 +35,7 @@ $this_site      = "manpages";
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if (strlen($site_has_been_loaded) == 0) {
+if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
 	include(sec_filename($layout_file));
 	exit();

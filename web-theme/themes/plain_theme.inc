@@ -5,10 +5,10 @@
 //--------------------------------------------------------------------
 
 // exit here in case of a navgen run
-if( strlen("$navigation_check") > 0 ) return;
+if(isset($navigation_check)) return;
 
 // set relative path which is defined in the php files
-if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
+if(!isset($rel_path)) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 // read base class declaration
 require_once(class_file("plain_class.inc"));
@@ -20,7 +20,7 @@ $theme_object = new Plain_Theme();
 include(helper_file("members2globals.inc"));
 
 // correct heading
-if( strlen($heading) == 0 ) $heading = $title;
+if(!isset($heading)) $heading = $title;
 ?>
 
 
@@ -40,10 +40,10 @@ if( strlen($heading) == 0 ) $heading = $title;
     
 <?php
 echo "<body";
-if( preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_bg"]) ) {
+if(isset($theme_object->style_array["window_bg"]) && preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_bg"])) {
      echo ' bgcolor="'.$theme_object->style_array["window_bg"].'"';
 }
-if( preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_fg"]) ) {
+if(isset($theme_object->style_array["window_fg"]) &&  preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_fg"])) {
      echo ' text="'.$theme_object->style_array["window_fg"].'"';
 //      echo ' link="'.$theme_object->style_array["window_fg"].'"';
 //      echo ' vlink="'.$theme_object->style_array["window_fg"].'"';
@@ -67,7 +67,6 @@ echo ">";
       <a href="<?php echo "./$requested_file";?>?theme=default">window theme</a>, 
       <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">pager on top theme</a>, 
       <a href="<?php echo "./$requested_file";?>?theme=navigate">navigation theme</a>, 
-      <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
     </p>
 
     <!-- bottom of the page - display last modified information -->

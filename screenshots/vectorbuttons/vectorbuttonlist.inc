@@ -1,3 +1,6 @@
+<?php
+if(!isset($num)) $num = "";
+?>
 <tr><td><img src="vectorbutton1.gif" alt="vector button"></td><td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?> 5 25x25@1 25x75@1 75x75@0 75x25@0 25x25@1</td></tr>
 <tr><td><img src="vectorbutton2.gif" alt="vector button"></td><td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?> 12 80x80@0 22x80@0 80x40@0 70x25@0 30x25@0 20x35@0 20x30@1 30x20@1 70x20@1 80x30@1 20x75@1 80x75@1</td></tr>
 <tr><td><img src="vectorbutton3.gif" alt="vector button"></td><td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?> 5 40x40@1 60x40@1 60x60@0 40x60@0 40x40@1</td></tr>

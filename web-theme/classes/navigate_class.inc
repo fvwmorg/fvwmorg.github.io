@@ -49,7 +49,11 @@ class Navigate_Theme extends Base_Theme {
 
         echo '<tr><td align="right" class="'.$css_class.'">';
         echo '<a href="'.$target.'" class="'.$css_class; 
-        $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
+        if(isset($this->nav_array["$site"]["short_name"])) {
+            $short_name = $this->nav_array["$site"]["short_name"];
+        } else {
+            $short_name = $this->nav_array["$site"]["link_name"];
+        }
         echo '">'.str_replace(" ", "&nbsp;", $short_name);
         // if($depth) echo "....";
         for( $ii=0; $ii<($depth); $ii++ ) {
@@ -141,7 +145,7 @@ class Navigate_Theme extends Base_Theme {
         while(list($key, $jump) = each($quick_jump_array) ) {
             if( ! is_array($jump) ) {
                 // check it this site exists
-                if( strlen($this->nav_array["$jump"]["file"]) == 0 ) {
+                if(!isset($this->nav_array["$jump"]["file"])) {
                     // if the site does not exists remove from quick jump list
                     unset($quick_jump_array[$key]);
                 }

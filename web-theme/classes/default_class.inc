@@ -31,7 +31,7 @@ class Default_Theme extends Base_Theme {
         if( isset($border_height) ) $dimension=$dimension.'height="'.$border_height.'"';
         $pic=$this->decoration_pic($position);
         echo '<td '.$td_options;
-        if( strlen($bg_color) > 0 )
+        if(isset($bg_color))
             echo ' bgcolor="'.$bg_color.'"';
         else
             echo ' bgcolor="'.$this->style_array["window_border_bg"].'"';
@@ -160,13 +160,14 @@ class Default_Theme extends Base_Theme {
     // buttons like the window decoration of a window manager
     function decoration_title_bar($string="") {
         $def_file = $this->style_array["decoration_path"]."/deco_definitions.inc";
+        $td_opts = "";
         if( file_exists($def_file) ) include(sec_filename($def_file));
         if( isset($title_height) ) $dimension='width="'.$title_height.'" height="'.$title_height.'"';
         if( file_exists($this->decoration_pic("button_1"))) {
             echo '<tr>'."\n";
             $this->decoration_left_cell();
             echo '<td>';
-            if( strlen($title_background) == 0 ) $title_background=$this->style_array["hilight_bg"];
+            if(!isset($title_background)) $title_background=$this->style_array["hilight_bg"];
             echo '<table border="0" cellspacing="0" cellpadding="0" summary="" width="100%" bgcolor="'.$title_background.'">'."\n";
             echo '<tr>'."\n";
             // $td_opts = 'width="1"';
@@ -179,7 +180,7 @@ class Default_Theme extends Base_Theme {
 
             echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
             echo ' align="center" width="99%" bgcolor="'.$title_background.'">';
-            if( strlen($string) > 0 )
+            if(strlen($string)>0)
                 echo '<font size="3" color="'.$this->style_array["hilight_fg"].'">&nbsp;'.$string.'</font></td>'."\n";
             else
                 echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
@@ -188,7 +189,7 @@ class Default_Theme extends Base_Theme {
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_4").'); ">';
-            echo '<a href="./'.$this->requested_file.'?theme=birthday" class="nohilight">';
+            echo '<a href="./'.$this->requested_file.'?theme=pager_on_top" class="nohilight">';
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></a></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
@@ -206,7 +207,7 @@ class Default_Theme extends Base_Theme {
     // inserts the upper and left corner of the window decoration
     function decoration_window_start($string="", $width="100%", $height="400", $padding="5") {
         echo '<table';
-        if(strlen($width)> 0) echo ' width="'.$width.'"';
+        if(strlen($width)>0) echo ' width="'.$width.'"';
         echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
         $this->decoration_top_line();
         $this->decoration_title_bar($string);
@@ -214,11 +215,11 @@ class Default_Theme extends Base_Theme {
         $this->decoration_left_cell();
         echo '<td bgcolor="'.$this->style_array["window_bg"].'">';
         echo '<table';
-        if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
+        if(strlen($padding)>0) echo ' cellpadding="'.$padding.'"';
         echo ' summary="" width="100%">'."\n";
         echo '<tr>'."\n";
         echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
-        if(strlen($height)> 0) echo ' height="'.$height.'"';
+        if(strlen($height)>0) echo ' height="'.$height.'"';
         echo ' class="windowcontents" name="decorated_window">';
     }
 
@@ -334,7 +335,7 @@ class Default_Theme extends Base_Theme {
     // inserts a table cell <td>..</td> which contains one pager page
     function insert_pager_page($site, $do_hilight=1) {
         // echo "\n\n<!-- $site $this->this_site -->\n\n";
-        if( !strcmp($site, $this->this_site) && $do_hilight && strlen($site) > 0 ) {
+        if( !strcmp($site, $this->this_site) && $do_hilight && strlen($site)>0) {
             $bg = $this->style_array["hilight_bg"];
             $fg = $this->style_array["hilight_fg"];
         } else {
@@ -343,7 +344,7 @@ class Default_Theme extends Base_Theme {
         }
         $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
 
-        if( strlen($site) == 0 ) {
+        if(strlen($site)==0) {
             echo '<td '.$td_opt.'>';
             echo '<img src="'.$this->rel_path.'/pictures/icons/pager_empty.gif"';
             echo ' border="0" alt="" hspace="0" vspace="0">';
@@ -393,15 +394,27 @@ class Default_Theme extends Base_Theme {
         $this->insert_pager_page($site);
         // first subsite
         $child_sites = $this->nav_array["$site"]["child_sites"];
-        $this->insert_pager_page($child_sites[0]);
+        if(isset($child_sites[0])) {
+            $this->insert_pager_page($child_sites[0]);
+        } else {
+            $this->insert_pager_page("");
+        }
         echo '</tr>'."\n";
 
         for( $ii=1; $ii<$pages_per_desk-1; $ii=$ii+2) {
             echo '<tr>'."\n";
             // second subsite
-            $this->insert_pager_page($child_sites[$ii]);
+            if(isset($child_sites[$ii])) {
+                $this->insert_pager_page($child_sites[$ii]);
+            } else {
+                $this->insert_pager_page("");
+            }
             // third subsite
-            $this->insert_pager_page($child_sites[$ii+1]);
+            if(isset($child_sites[$ii+1])) {
+                $this->insert_pager_page($child_sites[$ii+1]);
+            } else {
+                $this->insert_pager_page("");
+            }
             echo '</tr>'."\n";
         }
     }
@@ -438,11 +451,14 @@ class Default_Theme extends Base_Theme {
         $parent_site = $this->nav_array["$this->this_site"]["parent_site"];
 
         // check if we are on a top site which has no child sites
-        if( $count < 2 || ( ! strcmp($this->nav_array["$parent_site"]["parent_site"], "top")  &&
-                            count($this->nav_array["$this->this_site"]["child_sites"]) == 0 &&
-                            count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk - 1 )
-            || ( $count == 2 &&
-                 count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk - 1)) {
+        // echo "count ".$count;
+        if($count < 2 
+           || ($count == 2
+               && count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk - 1)
+           || ((isset($this->nav_array["$parent_site"]["parent_site"])
+                && !strcmp($this->nav_array["$parent_site"]["parent_site"], "top"))
+               && count($this->nav_array["$this->this_site"]["child_sites"]) == 0
+               && count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk - 1)) {
             $navigation_array = $this->nav_array["top_array"];
         } else {
             // merge $parent_path and $actual_sub_sites
@@ -453,7 +469,7 @@ class Default_Theme extends Base_Theme {
             if( count($this->nav_array["$this->this_site"]["child_sites"]) > 0 ) {
                 $sub_sites = $this->nav_array["$this->this_site"]["child_sites"];
             } else {
-                // if the actual site has not childs use the childs of the
+                // if the actual site has no children use the children of the
                 // parent as sub sites
                 $parent_site = $this->nav_array["$this->this_site"]["parent_site"];
                 $sub_sites   = $this->nav_array["$parent_site"]["child_sites"];
@@ -530,9 +546,9 @@ class Default_Theme extends Base_Theme {
         // check which sites exist
         reset($quick_jump_array);
         while(list($key, $jump) = each($quick_jump_array) ) {
-            if( ! is_array($jump) ) {
+            if(!is_array($jump)) {
                 // check it this site exists
-                if( strlen($this->nav_array["$jump"]["file"]) == 0 ) {
+                if(!isset($this->nav_array["$jump"]["file"])) {
                     // if the site does not exists remove from quick jump list
                     unset($quick_jump_array[$key]);
                 }
@@ -549,7 +565,7 @@ class Default_Theme extends Base_Theme {
         reset($quick_jump_array);
         $count = count($quick_jump_array);
         echo '<center><table align="center" ';
-        if (strlen($width) > 0) echo 'width="'.$width.'" ';
+        if(strlen($width)>0) echo 'width="'.$width.'" ';
         echo 'border="0" cellpadding="5" cellspacing="0" summary="" style="padding-left:10%; ">'."\n";
         for($ii=0; $ii<ceil($count/$col_num); $ii++) {
             echo "<tr>\n";

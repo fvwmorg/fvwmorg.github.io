@@ -64,7 +64,11 @@ class Picture_Page {
         $size        = $entry["size"];
         $dimension   = $entry["dimension"];
         $description = $entry["description"];
-        $fvwmrc      = $entry["rc"]["name"];
+        if(isset($entry["rc"]["name"])) {
+            $fvwmrc  = $entry["rc"]["name"];
+        } else {
+            $fvwmrc  = "";
+        }
         $td_opts = '';
 
         if( $this->link_target_is_directory ) {

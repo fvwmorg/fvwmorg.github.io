@@ -15,7 +15,7 @@ class Plain_Theme extends Base_Theme {
 
     function get_parent_path($site) {
         // first we should check if the array is consistent
-        if( strlen($this->nav_array["$site"]["parent_site"]) < 1 ) {
+        if(!isset($this->nav_array["$site"]["parent_site"])) {
             // the actual site is not in the navigation array
             // we return the first entry of $this->nav_array["top_array"] here
             return array($this->nav_array["top_array"][0]);
@@ -72,7 +72,7 @@ class Plain_Theme extends Base_Theme {
         while(list($key, $jump) = each($quick_jump_array) ) {
             if( ! is_array($jump) ) {
                 // check it this site exists
-                if( strlen($this->nav_array["$jump"]["file"]) == 0 ) {
+                if(!isset($this->nav_array["$jump"]["file"])) {
                     // if the site does not exists remove from quick jump list
                     unset($quick_jump_array[$key]);
                 }
@@ -85,7 +85,7 @@ class Plain_Theme extends Base_Theme {
         $count = count($quick_jump_array);
         echo '<table align="center" ';
         //echo '<table ';
-        if (strlen($width) > 0) echo 'width="'.$width.'" ';
+        if(strlen($width)>0) echo 'width="'.$width.'" ';
         echo 'border="0" cellpadding="5" cellspacing="0" summary="" style="padding-left:10%;">'."\n";
         for($ii=0; $ii<ceil($count/$col_num); $ii++) {
             echo "<tr>\n";

@@ -21,13 +21,19 @@ class Theme_Descriptions_Helper {
     function init($theme) {
         global $rel_path;
         $this->rel_path = $rel_path;
-        include_once($this->rel_path."/web-theme/themes/theme_descriptions.inc");
-        if( strlen($theme)>2 && array_key_exists($theme, $this->theme_descriptions) ) {
+        $this->theme_descriptions = array();
+        include($this->rel_path."/web-theme/themes/theme_descriptions.inc");
+        if(strlen($theme)>2 && isset($this->theme_descriptions) && 
+           is_array($this->theme_descriptions) && array_key_exists($theme, $this->theme_descriptions)) {
             $this->selected_theme = $theme;
         } else {
             // get the first key by default
-            reset($this->theme_descriptions);
-            $this->selected_theme = key($this->theme_descriptions);
+            if(isset($this->theme_descriptions) && is_array($this->theme_descriptions)) {
+                reset($this->theme_descriptions);
+                $this->selected_theme = key($this->theme_descriptions);
+            } else {
+                $this->selected_theme = "default";
+            }
         }
         $this->available_propagation_methods = array("get", "cookie");
         $this->set_propagation_method();
@@ -69,27 +75,30 @@ class Theme_Descriptions_Helper {
             }
         }
 
-        $style_description_array = $this->theme_descriptions[$this->selected_theme]["style"];
+        if(isset($this->theme_descriptions[$this->selected_theme]["style"]) &&
+           is_array($this->theme_descriptions[$this->selected_theme]["style"])) {
+            $style_description_array = $this->theme_descriptions[$this->selected_theme]["style"];
 
-        // print_r($style_description_array);
-        // print_r($_COOKIE);
-        foreach( $style_description_array as $style => $style_settings ) {
-            // override the member array settings
-            if( $value = get_user_setting($style, array("GET", "POST", "SESSION", "COOKIE"))) {
-                // check if this value differs from the default settings
-                // following line is a little bit sick; -)
-                if( strcmp($this->theme_descriptions[$this->selected_theme]["style"][$style]["value"],$value) ) {
-                    $this->theme_descriptions[$this->selected_theme]["style"][$style]["value"] = $value;
-                    // set a cookie if it is allowed 
-                    if( !strcmp($propagation_method, "cookie") ) {
-                        setcookie($style, $value, time()+60*60*24*365, "/");
-                    } elseif( !strcmp($propagation_method, "get") ) {
-                        $_GET[$style] = $value;
-                    }
-                } else {
-                    // delete the cookie by setting an expiring time in the past
-                    if( !strcmp($propagation_method, "cookie") ) {
+            // print_r($style_description_array);
+            // print_r($_COOKIE);
+            foreach( $style_description_array as $style => $style_settings ) {
+                // override the member array settings
+                if( $value = get_user_setting($style, array("GET", "POST", "SESSION", "COOKIE"))) {
+                    // check if this value differs from the default settings
+                    // following line is a little bit sick; -)
+                    if( strcmp($this->theme_descriptions[$this->selected_theme]["style"][$style]["value"],$value) ) {
+                        $this->theme_descriptions[$this->selected_theme]["style"][$style]["value"] = $value;
+                        // set a cookie if it is allowed 
+                        if( !strcmp($propagation_method, "cookie") ) {
+                            setcookie($style, $value, time()+60*60*24*365, "/");
+                        } elseif( !strcmp($propagation_method, "get") ) {
+                            $_GET[$style] = $value;
+                        }
+                    } else {
+                        // delete the cookie by setting an expiring time in the past
+                        if( !strcmp($propagation_method, "cookie") ) {
                         setcookie($style, $value, time()-60*60*24, "/");
+                        }
                     }
                 }
             }
@@ -104,13 +113,15 @@ class Theme_Descriptions_Helper {
 
     function insert_avail_theme_list() {
         echo '<select name="theme" size="1" onChange="submit();">'."\n";
-        foreach( $this->theme_descriptions as $theme => $theme_name ) {
-            echo '<option value="'.$theme.'"';
-            if(!strcmp($theme, $this->selected_theme)) {
-                echo " selected";
+        if(isset($this->theme_descriptions) && is_array($this->theme_descriptions)) {
+            foreach($this->theme_descriptions as $theme => $theme_name) {
+                echo '<option value="'.$theme.'"';
+                if(!strcmp($theme, $this->selected_theme)) {
+                    echo " selected";
+                }
+                echo ">".$this->theme_descriptions[$theme]["name"];
+                echo "</option>\n";
             }
-            echo ">".$this->theme_descriptions[$theme]["name"];
-            echo "</option>\n";
         }
         echo "</select>";
     }

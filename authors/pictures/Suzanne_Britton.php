@@ -8,12 +8,12 @@
 // ls *jpg | grep -v small | sed 's+.jpg++;s+.*+sed "s/Suzanne Britton/&/g" template.php_ > &.php+' | sh
 
 
-if (strlen($rel_path) == 0) $rel_path = "./../..";
+if(!isset($rel_path)) $rel_path = "./../..";
 
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -35,12 +35,12 @@ $this_site      = "authors";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if (strlen("$site_has_been_loaded") == 0) {
+if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
   include(sec_filename($layout_file));
   exit();

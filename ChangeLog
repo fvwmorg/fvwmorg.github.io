@@ -1,9 +1,14 @@
+2004-08-10  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* almost all files:
+	changed php code so that it does not produce warnings
+
 2004-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* contact/index.php:
 	added rules for writing list mail.
 
-2004-07-25  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>>
+2004-07-25  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* donations.php:
 	* index.php:
@@ -34,7 +39,7 @@
 	* navgen_write/navigation.inc:
 	* httpd/error404.php:
 
-2004-06-27  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>>
+2004-06-27  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/desktops/Piotr_Zielinski-1024x768/*:
 	added screenshot

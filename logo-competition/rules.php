@@ -4,13 +4,15 @@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
 //--------------------------------------------------------------------
+// disabled by uwp
+return;
 
 $rel_path = "..";
 
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -32,7 +34,7 @@ $this_site      = "logo_competition_rules";
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if (strlen($site_has_been_loaded) == 0) {
+if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
 	include(sec_filename($layout_file));
 	exit();

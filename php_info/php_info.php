@@ -1,5 +1,5 @@
 <?php 
-if( strlen("$navigation_check") > 0 ) return; 
+if(isset($navigation_check)) return; 
 // stores a cookie for quite a while
 // setcookie ("TestCookie", "Dass ist ein Testcookie",9999999999);
 ?>

@@ -6,7 +6,7 @@
 //-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
 
-if (strlen($rel_path) == 0) $rel_path = ".";
+if(!isset($rel_path)) $rel_path = ".";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -28,12 +28,12 @@ $this_site      = "home";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if (strlen("$site_has_been_loaded") == 0) {
+if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
   include(sec_filename($layout_file));
   exit();

@@ -150,13 +150,23 @@ class Pager_On_Top_Theme extends Default_Theme {
         } else {
             $this->insert_pager_page($site);
             // first subsite
-            for( $ii=1; $ii<$pages_per_desk-2; $ii+=2)
-                $this->insert_pager_page($child_sites[$ii]);
+            for( $ii=1; $ii<$pages_per_desk-2; $ii+=2) {
+                if(isset($child_sites[$ii])) {
+                    $this->insert_pager_page($child_sites[$ii]);
+                } else {
+                    $this->insert_pager_page("");
+                }
+            }
             echo '</tr>'."\n";
         
             echo '<tr>'."\n";
-            for( $ii=0; $ii<$pages_per_desk-1; $ii+=2) 
-                $this->insert_pager_page($child_sites[$ii]);
+            for( $ii=0; $ii<$pages_per_desk-1; $ii+=2) {
+                if(isset($child_sites[$ii])) {
+                    $this->insert_pager_page($child_sites[$ii]);
+                } else {
+                    $this->insert_pager_page("");
+                }
+            }
             echo '</tr>'."\n";
         }
     }
@@ -190,11 +200,13 @@ class Pager_On_Top_Theme extends Default_Theme {
         $parent_site = $this->nav_array["$this->this_site"]["parent_site"];
 
         // check if we are on a top site which has no child sites
-        if( $count < 2 || ( ! strcmp($this->nav_array["$parent_site"]["parent_site"], "top")  &&
-                            count($this->nav_array["$this->this_site"]["child_sites"]) == 0 &&
-                            count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk )
-            || ( $count == 2 &&
-                 count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk )) {
+        if($count<2 
+           || ($count == 2 && 
+               count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk)
+           || ((isset($this->nav_array["$parent_site"]["parent_site"])
+                && !strcmp($this->nav_array["$parent_site"]["parent_site"], "top"))  
+               && count($this->nav_array["$this->this_site"]["child_sites"]) == 0 
+               && count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk)) {
             $navigation_array = $this->nav_array["top_array"];
         } else {
             // merge $parent_path and $actual_sub_sites

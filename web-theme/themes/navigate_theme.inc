@@ -5,10 +5,10 @@
 //--------------------------------------------------------------------
 
 // exit here in case of a navgen run
-if( strlen("$navigation_check") > 0 ) return;
+if(isset($navigation_check)) return;
 
 // set relative path which is defined in the php files
-if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
+if(!isset($rel_path)) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 // read base class declaration
 require_once(class_file("navigate_class.inc"));
@@ -19,7 +19,7 @@ $theme_object = new Navigate_Theme();
 // include function wrappers
 include(helper_file("members2globals.inc"));
 
-if (strlen($heading) == 0) $heading = $title;
+if(!isset($heading)) $heading = $title;
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -67,7 +67,6 @@ if (strlen($heading) == 0) $heading = $title;
         <a href="<?php echo "./$requested_file";?>?theme=default">:Window theme:</a> 
         <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">:Pager theme:</a> 
         <a href="<?php echo "./$requested_file";?>?theme=plain">:Fast theme:</a> 
-        <a href="<?php echo "./$requested_file";?>?theme=birthday">:Birthday theme:</a>
 
     <a href="http://validator.w3.org/check/referer"><img
        src="http://www.w3.org/Icons/valid-html401"

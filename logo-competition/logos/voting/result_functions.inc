@@ -11,7 +11,7 @@ function get_vote_array($filename) {
                     // print_r( $voter_array );
                     $vote_array[$index]["id"]   = $voter_array[0];
                     $vote_array[$index]["mail"] = $voter_array[1];
-                    for($ii=2; strlen($voter_array[$ii])>0; $ii++) {
+                    for($ii=2; isset($voter_array[$ii]); $ii++) {
                         $vote_array[$index]["votes"][] = $voter_array[$ii];
                     }
                     $index++;

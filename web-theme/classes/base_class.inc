@@ -102,7 +102,7 @@ class Base_Theme {
     // it is mostly used to display this path as links
     function get_parent_path($site) {
         // first we should check if the array is consistent
-        if( strlen($this->nav_array["$site"]["parent_site"]) < 1 ) {
+        if(!isset($this->nav_array["$site"]["parent_site"])) {
             // echo "Error in navigation array<br>";
             // the actual site is not in the navigation array
             // we return the first entry of $this->nav_array["top_array"] here
@@ -128,6 +128,7 @@ class Base_Theme {
     // html here to get a html tree of this web project
     function conv_link_target($target, $adds=array() ) {
         $get_array = array_merge($this->user_settings_array, $adds);
+        $opts = "";
         if( count($get_array) > 0 ) {
             reset($get_array);
             list($key, $setting) = each($get_array);

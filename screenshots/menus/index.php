@@ -9,7 +9,7 @@ $rel_path = "../..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
+if(!isset($navigation_check)) include($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -26,12 +26,12 @@ $this_site      = "screenshots_menus";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if( strlen("$site_has_been_loaded") == 0 ) {
+if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
   include(sec_filename("$layout_file"));
   exit();
@@ -58,6 +58,8 @@ $show_end = $show_start + $show_num - 1;
 if( $show_end >= $total_num_of_screenshots ) {
     $show_end = $total_num_of_screenshots - 1;
 }
+
+if(!isset($user_theme)) $user_theme = "";
 
 //--------------------------------------------------------------------
 //- screenshot table

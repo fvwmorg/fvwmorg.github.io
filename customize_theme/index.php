@@ -5,9 +5,9 @@
 //--------------------------------------------------------------------
 
 // hide from navgen while development
-// if (strlen("$navigation_check") > 0) return;
+// if(isset($navigation_check)) return;
 
-if(strlen($rel_path) == 0) $rel_path = "./..";
+if(!isset($rel_path)) $rel_path = "./..";
 
 // start output buffering - only needed if debuging info is transmitted
 ob_start();
@@ -15,7 +15,7 @@ ob_start();
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") == 0) include($rel_path."/definitions.inc");
+if(!isset($navigation_check)) include($rel_path."/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -32,20 +32,17 @@ $this_site      = "customize_theme";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+if(isset($navigation_check)) return;
 
 //--------------------------------------------------------------------
 // check if settings should be changed
 //--------------------------------------------------------------------
 include_once("./theme_descriptions_helper.inc");
 
-if( ! $site_has_been_loaded ) {
-
+if(!isset($site_has_been_loaded)) {
     // create a theme description helper object
     $tdh = new Theme_Descriptions_Helper($theme);
-
     $tdh->set_user_settings();
-
 }
 
 // finish output buffering
@@ -54,7 +51,7 @@ ob_end_flush();
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if (strlen("$site_has_been_loaded") == 0) {
+if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
   include_once(sec_filename($layout_file));
   exit();
@@ -64,9 +61,8 @@ decoration_window_start("Please make your selection");
 
 // debuging - show the whole description tree 
 // $tdh->insert_theme_description();
-
+// echo $rel_path;
 ?>
-
 <h2>Here you can change the theme of this web site</h2>
 
 <table summary="">
