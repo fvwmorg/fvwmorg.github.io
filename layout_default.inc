@@ -375,7 +375,7 @@ function decoration_window_start($string="", $width="100%", $height="400", $padd
   if(strlen($width)> 0) echo ' width="'.$width.'"';
   echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
   decoration_top_line();
-  decoration_title_bar();
+  decoration_title_bar($string);
   echo '<tr>'."\n";
   decoration_left_cell();
   echo '<td bgcolor="'.$window_bg.'">';
@@ -398,6 +398,7 @@ function decoration_window_end() {
   echo '</tr>'."\n";
   decoration_bottom_line();
   echo '</table>'."\n";
+  echo "<br>";
 }
 
 //--------------------------------------------------------------------

@@ -56,7 +56,6 @@ Mozilla, Konqueror, Galeon, Opera and some others.
 
 <?php decoration_window_end(); ?>
 
-<p>
 <?php decoration_window_start("View submitted logos", "100%", "", 0); ?>
 
 <div align=center>
