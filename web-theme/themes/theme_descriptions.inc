@@ -141,7 +141,7 @@ $this->theme_descriptions = array(
             ),
          "window_border_fg" => array(
             "type"    => "color",
-            "value"   => "#000000",
+            "value"   => "#ffffff",
             "name"    => "Window Border Foreground",
             ),
          "window_bg"        => array(
