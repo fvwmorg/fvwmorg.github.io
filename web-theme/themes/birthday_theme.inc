@@ -46,19 +46,10 @@ if (strlen($heading) == 0) $heading = $title;
     <style type="text/css">
     <!--  
     <?php $theme_object->insert_css_definitions(); ?>
-    body, p, li, td {
-      /* font-size:large;
-      font-weight:bold; */
-      color:#FFBA00;
-    }
-    .link {
-      background-color:#4500a3;
-      color:#FFBA00;
-      border-color:#FFBA00;
-      border-width:1px;
-      padding:3pt;
-      margin:3pt;
-    }
+     a:link, a:visited, a:active, a:hover {
+         text-decoration:underline;
+         font-weight: bold;
+     }
      -->
     </style>
   </head>

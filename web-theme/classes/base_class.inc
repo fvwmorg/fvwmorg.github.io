@@ -41,8 +41,8 @@ class Base_Theme {
     // default settings for this theme
     function init_style_array() {
         include(theme_file("theme_descriptions.inc"));
+        $this->style_array = array();
         if( ! is_array($this->theme_descriptions[$this->theme_name]["style"]) ) {
-            $this->style_array = array();
             return;
         }
         // print_r($_COOKIE);

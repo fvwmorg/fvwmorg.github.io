@@ -120,6 +120,11 @@ $this->theme_descriptions = array(
      "name"   => "Fast Plain Theme",
      "style"  => array(),
      ),
+  
+  "birthday"   => array(
+     "name"   => "Birthday Theme",
+     "style"  => array(),
+     ),
   );
 
 ?>
