@@ -1,0 +1,41 @@
+Sun Mar 30 2003 [uwe]:
+* added fvwm_cats/index.php with pager icon
+* new variable $default_settings_array which holds the default
+  settings of color and image definitions
+  This variable may be passed to sub pages - not implemented yet
+* changed the rules to build the pager, so that sub pages do not get
+  an own desk if the following rules are satisfied:
+    - the site has no subpages
+    - its parent has not more subpages than the number of pages on one
+      desk
+    - it parent is a top site
+  The pager on the web site behaves now more like a pager in fvwm ;-)
+  Maybe more rules are needed to get a better behaviour.
+
+Fri Mar 28 2003 [uwp]:
+* Shell script which generates icons for a text pager:
+    temporary/helpers/create_pager_text_icon.sh
+  and a php script which produces ouput that can be used to used the
+  shell script for the web tree:
+    temporary/helpers/create_pager_text_icon.php
+* Added a new layout with a pager having text instead of mini icons. </pre><a href="http://www-user.tu-chemnitz.de/~uwp/fvwm-web/?layout=text_pager">http://www-user.tu-chemnitz.de/~uwp/fvwm-web/?layout=text_pager</a><pre>
+  The size of the windows in the pager might to be changed.
+* Moved download.php to download/index.php, same for contact.php,
+  documentation.php and screenshots.php
+
+Thu Mar 27 2003 [uwp]:
+* Added the news entry on development of this web site to index.php. 
+* Changed the border of the pager to style "window_deco_ice"
+* Added alt and title attribute to the pager links
+
+Wed Mar 26 2003 [uwp]:
+* Finished the pager navigation algorithm. The pager shows now always
+  the path back to the FVWM Home/Start page.
+* New function "insert_quick_jump_list" to insert a list of direct
+  links on the start page. The entries in the quick jump list are
+  taken from the specification in the file headers.
+* Created a template file and a simple shell schript to produce php
+  files belonging to this file tree.
+* Added new empty sub pages doc_faq.php doc_manpages.php and
+  download_icons.php.
+
