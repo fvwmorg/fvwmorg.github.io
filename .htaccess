@@ -1,2 +1,2 @@
 ErrorDocument 404 /httpd/error404.php
-
+DirectoryIndex index.php index.php4 index.php3 index.cgi index.html

@@ -16,8 +16,8 @@ include("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM Home Page";
-$heading        = "Welcome to The Official FVWM Home Page";
+$title          = "The Official FVWM Home Page";
+$heading        = "The Official FVWM Home Page";
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
@@ -48,7 +48,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php decoration_window_start("The Official Home Page of FVWM"); ?>
+<?php decoration_window_start("Welcome to FVWM"); ?>
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
 window manager for the X&nbsp;Window system.  Development is active,
@@ -143,9 +143,9 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 	</td>
 </tr>
 </table>
--->
 
 <p><a href="index.html">old html version</a></p>
+-->
   
 <?php
 	pop_decoration_path();

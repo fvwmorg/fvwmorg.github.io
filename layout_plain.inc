@@ -140,6 +140,7 @@ function conv_link_target($target) {
       $opts = $opts."&".$key."=".$setting;
     }
   }
+  $target = str_replace("index.php", "", $target);
   return $target.$opts;
 }
 
@@ -259,9 +260,9 @@ function decoration_window_end() {
 //--------------------------------------------------------------------
 // interface function to insert valid links to sub pages
 //--------------------------------------------------------------------
-function insert_quick_jump_list($site_array,
-				$outside_link_array=array(),
-				$col_num=2) {
+function insert_quick_jump_list(
+  $site_array, $outside_link_array = array(), $col_num = 2, $width = "50%")
+{
   global $rel_path, $nav_array;
 
   // check which sites exist
@@ -276,7 +277,9 @@ function insert_quick_jump_list($site_array,
 
   reset($site_array);
   reset($outside_link_array);
-  echo '<table width="70%" border="0" cellpadding="5" cellspacing="0" summary="">'."\n";  
+  echo '<table align="center" ';
+  if (strlen($width) > 0) echo "width=\"$width\" ";
+  echo 'border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
   $count = count($site_array) + count($outside_link_array);
   for($ii=0;$ii<ceil($count/$col_num);$ii++) {
     echo "<tr>\n";

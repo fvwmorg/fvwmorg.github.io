@@ -8,8 +8,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
-   <meta http-equiv="refresh" content="5; URL=http://<?php echo $_SERVER['HTTP_HOST'];?>">
   <head>
+    <meta http-equiv="refresh" content="5; URL=http://<?php echo $_SERVER['HTTP_HOST'];?>/">
     <title>Document is not on this server - Error 404</title>
   </head>
 
@@ -23,7 +23,7 @@
     </p>
 
     <p>
-      Please update your bookmarks to <a href="../index.php"><?php echo $_SERVER["HTTP_HOST"];?></a>
+      Please update your bookmarks to <a href="../"><?php echo $_SERVER["HTTP_HOST"];?></a>
     </p>
     
     <p>

@@ -27,7 +27,7 @@ $this_site      = "fvwm_cats";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if (strlen("$navigation_check") > 0) return;
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -163,6 +163,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       and a picture of her sister.
   </p>
 
+  <h2 class="cats">Mikhael's cats:</h2>
   <h4 class="cats">Murzilka</h4>
   <p class="cats">
     <a href="<?php echo conv_link_target('murzilka.php');?>"><img src="small_murzilka.jpg" border="1" alt=""></a>
@@ -174,7 +175,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
   <h4 class="cats">Cassy</h4>
   <p class="cats">
-      <a href="<?php echo conv_link_target('cassy.php');?>"><img src="small_cassy.jpg" border="1" alt=""></a>
+    <a href="<?php echo conv_link_target('cassy.php');?>"><img src="small_cassy.jpg" border="1" alt=""></a>
     (full name: Cassandra), from Oct 2000. Sometimes a full opposite to Murzilka,
     dominating, highly sociable, lap cat, fearless, loves to stay on two back
     legs and play non-stop with toys.<br>
@@ -184,7 +185,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <h4 class="cats">Lili</h4>
   <p class="cats">
     <a href="<?php echo conv_link_target('lili.php');?>"><img src="small_lili.jpg" border="1" alt=""></a>
-      <a href="<?php echo conv_link_target('blaise.php');?>"><img src="small_blaise.jpg" border="1" alt=""></a>
     A sweet and emotional cat, from September 1992. She does not like especially
     computers except when she wants her diner!
     She likes mouses but I have a touch pad ...
@@ -193,6 +193,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <h2 class="cats">Brad's cat:</h2>
   <h4 class="cats">Blaise</h4>
   <p class="cats">
+    <a href="<?php echo conv_link_target('blaise.php');?>"><img src="small_blaise.jpg" border="1" alt=""></a>
     You guessed it Blaise after Blaise Pascal, what else would you expect from
     a programmer, and a math loving wife. Blaise is in her usual spot waiting
     for dinner, she is good at telling time her clock is just an hour fast.

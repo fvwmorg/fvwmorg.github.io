@@ -11,6 +11,12 @@
 	* layout_default.inc:
 	don't use strict black as background, may be bad in some situations
 
+	* fvwm-cats/index.html:
+	fix ownerships of several cats
+
+	* .htaccess:
+	make index.php preferable over index.html
+
 2003-04-19  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/perrlib/*:

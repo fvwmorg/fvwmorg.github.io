@@ -55,7 +55,7 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <hr>
 
-<p>If you are a developer, you may also read about the
-<a href="<?php echo conv_link_target('../perllib/');?>">Perl library</a>.
+<p>If you want to create your own modules, you may also read about
+the <a href="<?php echo conv_link_target('../perllib/');?>">Perl library</a>.
 
 <?php decoration_window_end(); ?>
