@@ -225,6 +225,7 @@ $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
     $theme_file = theme_file($theme."_theme.inc");
+    // $theme_file = theme_file("birthday_theme.inc");
 } elseif( preg_match("/Emacs/", $user_agent) ||
           preg_match("/Lynx/", $user_agent)  ||
           preg_match("/w3m/", $user_agent)) {
@@ -232,6 +233,7 @@ if( strlen($theme) > 0 ) {
     $theme = "plain";
 } else {
     $theme_file = theme_file("default_theme.inc");
+    // $theme_file = theme_file("birthday_theme.inc");
 }
 
 // layout file - old version

@@ -47,8 +47,8 @@ if (strlen($heading) == 0) $heading = $title;
     <!--  
     <?php $theme_object->insert_css_definitions(); ?>
     body, p, li, td {
-      font-size:large;
-      font-weight:bold;
+      /* font-size:large;
+      font-weight:bold; */
       color:#FFBA00;
     }
     .link {
@@ -78,21 +78,22 @@ if (strlen($heading) == 0) $heading = $title;
     <a name="top"></a>
 
     <!-- wrapper table contains two columns  -->
-    <table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
-      <tr>
-	<td valign="top">
-	  <!-- wrapper table contains two rows - heading and contents -->
-	  <table width="100%" border="0" cellpadding="0" cellspacing="10" summary="">
-	    <tr>
-	      <td align="center" valign="bottom"><h1><?php echo $heading; ?></h1></td>
+    <table width="100%" border="0" cellpadding="0" cellspacing="5" summary="">
+        <tr>
+          <td>
+        <?php
+	    $theme_object->push_decoration_path("pictures/decorations/window_deco_ice");
+	    $theme_object->insert_pager_navigation();
+	    $theme_object->pop_decoration_path();
+        ?>
+          </td>
+        </tr>
+        <tr>
+         <td align="center" valign="bottom"><?php $theme_object->insert_heading(); ?></td>
 	    </tr>
 	    <tr>
 	      <td valign="top"><?php include(sec_filename($requested_file)); ?></td>
 	    </tr>
-	  </table>
-	</td>
-	
-      </tr>
     </table>
     
     <!-- bottom of the page - display last modified information -->
