@@ -79,9 +79,9 @@ $default_settings_array = array(
 // this settings can be passed to sub pages
 $user_settings_array = array();
 reset($default_settings_array);
-while(list($key,$default) = each($default_settings_array) ) {
+while(list($key, $default) = each($default_settings_array) ) {
   if( $$key = my_get_global($key, "GET") ) {
-    $user_settings_array[$key] = str_replace("#","%23",$$key); 
+    $user_settings_array[$key] = str_replace("#", "%23", $$key); 
   } else {
     $$key = $default;
   }
@@ -95,7 +95,8 @@ $decoration_path_stack = array();
 function insert_timestamp($file) {
   if( file_exists($file) ) {
     echo 'Last modified on ';
-    echo date('F d, Y -- H:i --', fileatime("$file"));
+    //echo date('F d, Y -- H:i --', fileatime("$file"));
+    echo date('F d, Y', fileatime("$file"));
   }
 }
 
@@ -417,7 +418,7 @@ if( strlen($heading) == 0 ) $heading = $title;
     <p style="text-align:right; font-size:xx-small; font-style:italic;">
        <?php insert_timestamp($requested_file); ?>
        <!-- we may place a "contact" statement here -->
-       <!-- &nbsp;&nbsp;&lt;<a href="mailto:fvwm-workers@fvwm-org">Fvwm Workers</a>&gt; -->
+       <!-- &nbsp;&nbsp;&lt;<a href="mailto:fvwm-workers@fvwm.org">FVWM Workers</a>&gt; -->
     </p>
 
   </body>

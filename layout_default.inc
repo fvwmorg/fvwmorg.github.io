@@ -98,7 +98,8 @@ $decoration_path_stack = array();
 function insert_timestamp($file) {
   if( file_exists($file) ) {
     echo 'Last modified on ';
-    echo date('F d, Y -- H:i --', fileatime("$file"));
+    //echo date('F d, Y -- H:i --', fileatime("$file"));
+    echo date('F d, Y', fileatime("$file"));
   }
 }
 
@@ -888,6 +889,9 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
 .bottominfo {
        text-align:right;
        margin-right:5pt;
+       margin-top:0pt;
+       margin-bottom:0pt;
+       padding:0pt;
        font-weight:normal;
        }
        a.done {
@@ -913,9 +917,9 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
         <?php
           if(strlen($body_bg_image)>0) echo 'background="'.$body_bg_image.'"';
         ?>
-        link="#ffff44"
-        vlink="#ffff00"
-        alink="#ffff99">
+         link="#ffff88"
+        vlink="#f0c0c0"
+        alink="#ff0000">
 
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
@@ -963,7 +967,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
     <p class="bottominfo">
        <?php insert_timestamp($requested_file); ?>
        <!-- we may place a "contact" statement here -->
-       <!-- &nbsp; &nbsp; &lt; <a href="mailto:fvwm-workers@fvwm-org">Fvwm Workers</a>&gt; -->
+       <!-- &nbsp; &nbsp; &lt; <a href="mailto:fvwm-workers@fvwm.org">FVWM Workers</a>&gt; -->
     </p>
 
   </body>
