@@ -21,14 +21,16 @@ a.link, a.sellink {
   color:#777777;
 }
 
-a.sellink { 
-  color:#000000;
-  background-color:#bbddff;
-}
 
 a:focus, a:hover {
   text-decoration:underline overline;
   color:#000000;
+}
+
+a.sellink, .sellink { 
+  color:#ffffff;
+  background-color:#005599;
+  font-weight:bold;
 }
 
 .navigationcell { 

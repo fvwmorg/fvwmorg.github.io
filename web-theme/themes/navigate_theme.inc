@@ -51,7 +51,7 @@ if (strlen($heading) == 0) $heading = $title;
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
 
-    <table width="100%" cellspacing="0" cellpadding="15" border="0" summary="">
+    <table width="100%" cellspacing="0" cellpadding="10" border="0" summary="">
       <tr>
 	    <th>&nbsp;</th>
 	    <th><h2><?php echo $heading; ?></h2></th>

@@ -113,7 +113,7 @@ class Pager_On_Top_Theme extends Default_Theme {
         $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
         
         // correct pages per desk
-        if( $pages_per_desk%2 ) $pages_per_desk++;
+        $pages_per_desk += $pages_per_desk%2;
 
         // desk label = link name
         $desk_name = $this->nav_array["$site"]["link_name"];
@@ -129,17 +129,29 @@ class Pager_On_Top_Theme extends Default_Theme {
 
         // page 0 0 - the site itself
         echo '<tr>'."\n";
-        $this->insert_pager_page($site);
-        // first subsite
         $child_sites = $this->nav_array["$site"]["child_sites"];
-        for( $ii=1; $ii<$pages_per_desk-2; $ii+=2)
-            $this->insert_pager_page($child_sites[$ii]);
-        echo '</tr>'."\n";
+        // for the moment the following is strait forward
+        if(count($this->nav_array["$site"]["child_sites"])==$pages_per_desk) {
+            for( $ii=0; $ii<$pages_per_desk-1; $ii+=2)
+                $this->insert_pager_page($child_sites[$ii]);
+            echo '</tr>'."\n";
         
-        echo '<tr>'."\n";
-        for( $ii=0; $ii<$pages_per_desk-1; $ii+=2) 
-            $this->insert_pager_page($child_sites[$ii]);
-        echo '</tr>'."\n";
+            echo '<tr>'."\n";
+            for( $ii=1; $ii<$pages_per_desk; $ii+=2) 
+                $this->insert_pager_page($child_sites[$ii]);
+            echo '</tr>'."\n";            
+        } else {
+            $this->insert_pager_page($site);
+            // first subsite
+            for( $ii=1; $ii<$pages_per_desk-2; $ii+=2)
+                $this->insert_pager_page($child_sites[$ii]);
+            echo '</tr>'."\n";
+        
+            echo '<tr>'."\n";
+            for( $ii=0; $ii<$pages_per_desk-1; $ii+=2) 
+                $this->insert_pager_page($child_sites[$ii]);
+            echo '</tr>'."\n";
+        }
     }
 
     // pre function to build the pager
@@ -173,9 +185,9 @@ class Pager_On_Top_Theme extends Default_Theme {
         // check if we are on a top site which has no child sites
         if( $count < 2 || ( ! strcmp($this->nav_array["$parent_site"]["parent_site"], "top")  &&
                             count($this->nav_array["$this->this_site"]["child_sites"]) == 0 &&
-                            count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk - 1 )
+                            count($this->nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk )
             || ( $count == 2 &&
-                 count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk - 1)) {
+                 count($this->nav_array["$this->this_site"]["child_sites"]) <= $pages_per_desk )) {
             $navigation_array = $this->nav_array["top_array"];
         } else {
             // merge $parent_path and $actual_sub_sites
@@ -196,7 +208,7 @@ class Pager_On_Top_Theme extends Default_Theme {
                 end($navigation_array);
                 unset($navigation_array[key($navigation_array)]);
             }
-            if( $pages_per_desk < count($sub_sites) + 1 ) {
+            if( $pages_per_desk < count($sub_sites) ) {
                 $pages_per_desk = count($sub_sites) + 1;
             }
             // append sub sites or sub sites of the parent to the navigation_array

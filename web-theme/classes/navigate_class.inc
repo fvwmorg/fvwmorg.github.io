@@ -17,20 +17,24 @@ class Navigate_Theme extends Base_Theme {
             $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
             $max_depth = count($selected_path);
             if( count($this->nav_array["$this->this_site"]["child_sites"]) == 0 ) $max_depth--;
-                        
-            echo '<a href="'.$target.'" class="'; 
+
             if( !strcmp($site, $this->this_site) ) {
-                echo "sellink";
+                $css_class="sellink";
             } else {
-                echo "link";
+                $css_class="link";
             }
+
+            echo '<tr><td align="right" class="'.$css_class.'">';
+            echo '<a href="'.$target.'" class="'.$css_class; 
             $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
             echo '">'.str_replace(" ", "&nbsp;", $short_name);
             // if($depth) echo "....";
             for( $ii=0; $ii<($depth); $ii++ ) {
                 echo "&nbsp;&nbsp;&nbsp;:";
             }
-            echo '</a><br>'."\n";
+            echo '</a>';
+            // echo '<br>'."\n";
+            echo '</td></tr>';
     }
 
     function insert_link_list($link_array, $depth, $selected_path) {
@@ -55,7 +59,9 @@ class Navigate_Theme extends Base_Theme {
     }
 
     function insert_navigation() {
-        $this->insert_link_list($this->nav_array["top_array"], 0, $this->get_parent_path($this->this_site));        
+        echo '<table summary="" width="100%" cellspacing="0" cellpadding="2">';
+        $this->insert_link_list($this->nav_array["top_array"], 0, $this->get_parent_path($this->this_site));
+        echo '</table>';
     }
 
     //--------------------------------------------------------------------

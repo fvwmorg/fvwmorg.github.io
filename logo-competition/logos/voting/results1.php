@@ -17,6 +17,7 @@ if (strlen("$navigation_check") == 0) include($rel_path."/definitions.inc");
 $title          = "FVWM - Logo Competition - Stage 1 Result Page";
 $heading        = "FVWM - Logo Competition - Stage 1 Result Page";
 $link_name      = "Logo Competition Stage 1 Result Page";
+$short_name     = "Stage 1 Results";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "logo_competition";
 $child_sites    = array();

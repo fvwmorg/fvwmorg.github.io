@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_@branch@_@topic@";
 
 //--------------------------------------------------------------------
 // load the layout file
