@@ -21,7 +21,7 @@ echo "<html>
 <head>
 <title>The Official FVWM Homepage - $name Information</title>
 </head>
-  <body BACKGROUND=\"black-stone1.jpg\"
+  <body BACKGROUND=\"../black-stone1.jpg\"
     bgcolor=\"#000000\" text=\"#ffffff\"
     link=\"#FFFF88\" vlink=\"#EEDDDD\" alink=\"#ff0000\">
 <center>
