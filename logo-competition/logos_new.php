@@ -284,4 +284,70 @@ width="388" height="301" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Stephen Ford (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Stephen_Ford/index.php'); ?>">
+
+<p class="centered"><img src="logos/Stephen_Ford/fvwm.png"
+width="453" height="157" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Ester Wilson (6 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Ester_Wilson/index.php'); ?>">
+
+<p class="centered"><img src="logos/Ester_Wilson/overview.png" width="400" height="259" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Anand Tanna (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Anand_Tanna/index.php'); ?>">
+
+<p class="centered"><img src="logos/Anand_Tanna/overview.png" width="300" height="133" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Olli Kopakkala (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Olli_Kopakkala/index.php'); ?>">
+
+<p class="centered"><img src="logos/Olli_Kopakkala/fvwm_valmis.png" width="320" height="54" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Christopher Culp (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Christopher_Culp/index.php'); ?>">
+
+<p class="centered"><img src="logos/Christopher_Culp/fvwm.png" width="200" height="120" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
