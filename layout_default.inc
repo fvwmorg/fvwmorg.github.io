@@ -144,6 +144,9 @@ function conv_link_target($target) {
     }
   }
   // strip index.php to make link nicer
+  // uwp: this discards some work navgen does and can lead to 
+  //      inconsitence in link description and link target
+  //      currently links in the new page link to old html versions
   $target = str_replace("index.php", "", $target);
   return $target.$opts;
 }
@@ -348,6 +351,7 @@ function decoration_title_bar($string="") {
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
     /* uwp: Why is the "./" before $requested_file neccessary? */
     /* migo: like ChangeLog says, to support FVWM::Module.php in all browsers */
+    /* uwp: I see, so it might be not that good having file names containig : on web trees */
     echo '<a href="./'.$requested_file.'?layout=plain">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></a></td>';
 

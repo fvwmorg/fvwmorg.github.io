@@ -1,3 +1,11 @@
+2003-04-21  Uwe Pross  <uwe.pross@mx.net>
+
+	* layout_default.inc: 
+	comments
+
+	* httpd/error404.php: 
+	added map functionality
+
 2003-04-20  Mikhael Goikhman  <migo@homemail.com>
 
 	* logo-competition/logos/old/*.png:
@@ -28,6 +36,14 @@
 	* layout_default.inc:
 	* layout_plain.inc:
 	handle urls of form XXX::YYY, other improvements
+
+2003-04-17  Uwe Pross  <uwe.pross@gmx.net>
+
+        * download/mini_icons_overview.php
+        created overview pic for all mini icons. further may follow.
+        * navgen.cli:
+        changes the internal array structure using now a multidimensional
+        array. 
 
 2003-04-17  Mikhael Goikhman  <migo@homemail.com>
 
