@@ -44,6 +44,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 decoration_window_start("Mini Icons");
 echo '<center>';
-include(sec_filename($rel_path."/icons/map_mini.html"));
+include(sec_filename("map_mini.html"));
 echo '</center>';
 decoration_window_end(); ?>
