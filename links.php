@@ -42,7 +42,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Links"); ?>
 
-  <h2 style="text-align: center">Other FVWM-related sites</h2>
+  <h2>Other FVWM-related sites</h2>
 
   <p>
     Here are some other sites (besides the 
