@@ -93,7 +93,7 @@ function export_nav($this_site, $export_depth = 0) {
           // check if this php-file has been used already
           if( $child_array["$child_file"]["is_exported"] or ${$this_name}["is_exported"] ) {
             // child has been already exported
-            echo 'Error: ambiguous site definition - ignore file ';
+            echo '** Warning: ambiguous site definition - ignore file ';
             echo $child_array["$child_file"]["file"]."\n";
           } else {
             // add this child to list of found childs
@@ -275,7 +275,7 @@ while( list($index, $php_file) = each($php_file_array) ) {
 
   // check if $this_site is a valid identifier
   if( ! ereg('^[a-zA-Z_][a-zA-Z_0-9]*$', $this_site) and strlen($this_site) > 0 ) {
-    echo "Error while reading \"$php_file\" the definiton \n";
+    echo "!! Error while reading \"$php_file\" the definiton \n";
     echo "of \$this_site = \"$this_site\" is not valid.\n";
     echo "\$this_site must be a valid identifier in form of ".'^[a-zA-Z_][a-zA-Z_0-9]*$'."\n";
     exit;
@@ -346,21 +346,23 @@ fputs($nav_file, "// You may change the order of ".'$top_array'." only!\n");
 fputs($nav_file, "// Uwe Pross 2003\n");
 fputs($nav_file, "//=============================================================\n");
 fputs($nav_file, "\n");
-fputs($nav_file, "// names of the top sites - you may change the order if you like\n");
+fputs($nav_file, "// Names of the top sites - you may change the order if you like.\n");
+fputs($nav_file, "// On the next run navgen will try to keep the order of this array.\n");
 fputs($nav_file, '$top_array = array('."\n");
 $site = "";
-list($index, $site) = each($top_array);
-fputs($nav_file, "\"$site\", \n");
 /* migo: it is always good to have all lines with commas, less conflicts */
 /* uwp: I am not shure about this. 
         The correct php systax should be array(1,2,3) not array(1,2,3,)  */
 /* migo: all C-like languages support trailing comma in declarations */
-while( list($index, $site) = each($top_array) ) {
-  fputs($nav_file, "  \"$site\", \n");
+/* uwp: If so, all top site entries can be written inside the loop 
+        In php4 we can use the foreach construct which more readable 
+   -- we might remove this comments in while ;-) -- */
+foreach( $top_array as $site ) {
+  fputs($nav_file, "  \"$site\",\n");
 }
 fputs($nav_file, "); \n");
 
-// export sites recursivly
+// export sites recursively
 reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
   export_nav($this_site);
@@ -371,14 +373,13 @@ fputs($nav_file, "\n?>\n");
 fclose($nav_file);
 
 //--------------------------------------------------------------------
-// check if all found files were exported
+// check if all imported php files were exported
 //--------------------------------------------------------------------
 reset($top_array);
-info_output( "<hr>");
 while( list($index, $this_site) = each($top_array) ) {
   info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
   if( ${$this_site}["is_exported"] != 1 ) {
-    info_output( "Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n");
+    info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n",0);
   }
 }
 
@@ -386,7 +387,7 @@ reset($child_file_array);
 while( list($index, $php_file) = each($child_file_array) ) {
   info_output("Checking $php_file for exporting\n", 5);
   if( $child_array["$php_file"]["is_exported"] != 1 ) {
-    info_output("Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n");
+    info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n",0);
   }
 }
 

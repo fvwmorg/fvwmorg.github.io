@@ -344,6 +344,7 @@ function decoration_title_bar($string="") {
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
+    /* uwp: Why is the "./" before $requested_file neccessary? */
     echo '<a href="./'.$requested_file.'?layout=plain">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></a></td>';
 
