@@ -39,55 +39,80 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
+<!-- ============================================================ -->
 <?php decoration_window_start("By Michael Gorniak", "", "", 0); ?>
 
-<a href="<?php echo conv_link_target('logos/Michael_Gorniak/index.php');
+<p><a href="<?php echo conv_link_target('logos/Michael_Gorniak/index.php');
 ?>" class="nohilight"><img src="logos/Michael_Gorniak/fvwm-logos.png"
 border="0" hspace="0" vspace="0" width="269" height="252"></a>
 
 <?php decoration_window_end(); ?>
 
+<!-- ============================================================ -->
 <?php decoration_window_start("By David Drummond", "", "", 0); ?>
 
-<a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
+<p><a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
 ?>" class="nohilight"><img src="logos/David_Drummond/yellow_flower_fvwm_logo.png"
 border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
+<!-- ============================================================ -->
 <?php decoration_window_start("By Ian Remmler", "", "", 0); ?>
 
-<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/3d.png"
 border="0" hspace="0" vspace="0"></a>
 
-<p>
-<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/contrast.png"
 border="0" hspace="0" vspace="0"></a>
 
-<p>
-<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/future.png"
 border="0" hspace="0" vspace="0"></a>
 
-<p>
-<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/groovy-3d.png"
 border="0" hspace="0" vspace="0"></a>
 
-<p>
-<a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
+<p><a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
 ?>" class="nohilight"><img src="logos/Ian_Remmler/block.png"
 border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
+<!-- ============================================================ -->
 <?php decoration_window_start("By Tian", "", "", 0); ?>
 
-<a href="<?php echo conv_link_target('logos/Tian/index.php');
+<p><a href="<?php echo conv_link_target('logos/Tian/index.php');
+?>" class="nohilight"><img src="logos/Tian/logo_shaded.png"
+border="0" hspace="0" vspace="0" width="266" height="143"></a>
+
+<p><a href="<?php echo conv_link_target('logos/Tian/index.php');
 ?>" class="nohilight"><img src="logos/Tian/logo_sunny.png"
 border="0" hspace="0" vspace="0" width="266" height="143"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================ -->
+<?php decoration_window_start("By Phil Harper", "", "", 0); ?>
+
+<p><a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+?>" class="nohilight"><img src="logos/Phil_Harper/tiger.png"
+border="0" hspace="0" vspace="0"></a>
+
+<a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png"
+border="0" hspace="0" vspace="0"></a>
+
+<a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+?>" class="nohilight"><img src="logos/Phil_Harper/black.png"
+border="0" hspace="0" vspace="0"></a>
+
+<a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+?>" class="nohilight"><img src="logos/Phil_Harper/plain.png"
+border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
