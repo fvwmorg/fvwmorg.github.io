@@ -62,6 +62,13 @@ Square shapes represent the windows managed by fvwm.
 <p>Sunny version.
 <p><img src="logo_sunny.png">
 
+<p>In next logo, F could mean Floating. It is evokating the sea. 
+<p><img src="logo_float.png" width="251" height="102">
+
+<p>The same one with a background representing water on which the 
+logo is floating.
+<p><img src="logo_float_bg.png" width="251" height="102">
+
 <?php decoration_window_end(); ?>
 
 <p>Return to <a href="<?php echo conv_link_target('../../logos_new.php');?>">index</a>.</p>

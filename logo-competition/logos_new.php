@@ -96,7 +96,7 @@ width="130" height="161" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Tian (3 images)", "", "", 0); ?>
+<?php decoration_window_start("By Tian (5 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Tian/index.php'); ?>">
 
