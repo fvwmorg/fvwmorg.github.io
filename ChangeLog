@@ -1,4 +1,13 @@
-2004-08-12  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>>
+2004-08-14  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* web-theme/classes/blue_class.inc: 
+	* web-theme/themes/blue_theme.inc:
+	Fixed variable access to avoid error logs.
+
+	* robots.txt:
+	Added robots.txt to avoid error messages.
+
+2004-08-12  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* links.php: 
 	Added link from Andrew Dolgov.

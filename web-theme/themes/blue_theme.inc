@@ -7,10 +7,10 @@
 //--------------------------------------------------------------------
 
 // exit here in case of a navgen run
-if( strlen("$navigation_check") > 0 ) return;
+if(isset($navigation_check)) return;
 
 // set relative path which is defined in the php files
-if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
+if(!isset($rel_path)) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 // read base class declaration
 require_once(class_file("blue_class.inc"));
@@ -21,7 +21,7 @@ $theme_object = new Blue_Theme();
 // include function wrappers
 include(helper_file("members2globals.inc"));
 
-if (strlen($heading) == 0) $heading = $title;
+if(!isset($heading)) $heading = $title;
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -51,31 +51,24 @@ if (strlen($heading) == 0) $heading = $title;
   </head>
 
   <body 
-    bgcolor="<?php echo $theme_object->style_array['window_bg'];?>"
-    text="<?php echo $theme_object->style_array['window_fg']; ?>"
+    bgcolor="<?php echo $theme_object->get_style('window_bg');?>"
+    text="<?php echo $theme_object->get_style('window_fg'); ?>"
     link="#ffff88"
     vlink="#f0c0c0"
     alink="#ff0000">
-<?php
-//     leftmargin="0"
-//     topmargin="0" 
-//     marginwidth="0" 
-//     marginheight="0">
-?>
+
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
 
     <table width="100%" cellspacing="0" cellpadding="15" border="0" summary="">
       <tr>
-	    <th bgcolor="<?php echo $theme_object->style_array['menu_bg']?>" height="1%">&nbsp;</th>
-	    <th bgcolor="<?php echo $theme_object->style_array['menu_bg']?>" height="1%"><h2><?php echo $heading; ?></h2></th>
+	    <th height="1%">&nbsp;</th>
+	    <th height="1%"><h2><?php echo $heading; ?></h2></th>
       </tr>
       <tr>
 	<td valign="top" width="15%"
-        bgcolor="<?php echo $theme_object->style_array['menu_bg']?>" 
         height="1000"
-        align="right"><?php 
-                 $theme_object->insert_menu_navigation(); ?></td>
+        align="right"><?php $theme_object->insert_menu_navigation(); ?></td>
 	<td valign="top" align="left"><?php include(sec_filename($requested_file)); ?></td>
       </tr>
     </table>

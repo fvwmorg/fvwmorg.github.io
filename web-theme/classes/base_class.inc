@@ -43,7 +43,8 @@ class Base_Theme {
         include(theme_file("theme_descriptions.inc"));
         $this->style_array = array();
         // echo $this->theme_name;
-        if( ! is_array($this->theme_descriptions[$this->theme_name]["style"]) ) {
+        if(   !isset($this->theme_descriptions[$this->theme_name]["style"])
+           || !is_array($this->theme_descriptions[$this->theme_name]["style"])) {
             return;
         }
         // print_r($_COOKIE);
@@ -60,6 +61,26 @@ class Base_Theme {
         // echo "<pre>";
         // print_r($this->style_array);
         // echo "</pre>";
+    }
+
+    function get_style($style="") {
+        if(isset($this->style_array[$style])) {
+            return $this->style_array[$style];
+        }
+        elseif(isset($this->theme_descriptions["default"]["style"][$style]["value"])) {
+            return $this->theme_descriptions["default"]["style"][$style]["value"];
+        } 
+        // elseif(preg_match("/_fg$/", $style)) {
+        //     // return a meaning full value which show that values are not set
+        //     return "#d03030";
+        // }
+        // elseif(preg_match("/_bg$/", $style)) {
+        //     // return a meaning full value which show that values are not set
+        //     return "#d0d0a0";
+        // }
+        else {
+            return "";
+        }
     }
 
     function globals2internals() {

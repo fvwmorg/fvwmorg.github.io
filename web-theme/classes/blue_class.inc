@@ -42,7 +42,7 @@ class Blue_Theme extends Base_Theme {
 
     // inserts a decoration picture
     function decoration_pic($direction) {
-        return $this->style_array["decoration_path"]."/".$direction.".gif";
+        return $this->get_style("decoration_path")."/".$direction.".gif";
     }
 
     // starts a decoration cell which contains a decoration picture
@@ -85,15 +85,18 @@ class Blue_Theme extends Base_Theme {
     // inserts one menu line
     function insert_menu_link_line($site, $depth, $selected_path) {
         if( !strcmp($site, $this->this_site) ) {
-            $bg = $this->style_array["hilight_bg"];
-            $fg = $this->style_array["hilight_fg"];
+            $bg = $this->get_style("hilight_bg");
+            $fg = $this->get_style("hilight_fg");
         } else {
-            $bg = $this->style_array["menu_item_bg"];
-            $fg = $this->style_array["menu_item_fg"];
+            $bg = $this->get_style("menu_item_bg");
+            $fg = $this->get_style("menu_item_fg");
         }
 
         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
-        $td_opt = 'valign="middle" nowrap="nowrap" bgcolor="'.$bg.'" style="background-color:'.$bg.'; border:1px '.$fg.' solid;"';
+        $td_opt = 'valign="middle" nowrap="nowrap" style="border-width:1px; border-style:solid; "';
+        if(strlen($fg) && strlen($bg)) {
+            $td_opt = $td_opt.' bgcolor="'.$bg.'" style="background-color:'.$bg.'; border-color:'.$fg.';"';
+        }
         $td = '<td '.$td_opt.'>';
 
         echo '<tr>'."\n";
@@ -107,14 +110,16 @@ class Blue_Theme extends Base_Theme {
 
         // text
         echo '<td '.$td_opt.' colspan="'.($max_depth-$depth).'">';
-        // echo '<td '.$td_opt.' colspan="$max_depth">';
-        if( !strcmp($site, $this->this_site) ) {
-            echo '<a href="'.$target.'" style="color:'.$fg.';" class="menu">';
+        $a_opt="";
+        if(strlen($fg)) {
+            $a_opt = $a_opt.' style="color:'.$fg.';"';
+        }        
+        echo '<a href="'.$target.'"'.$a_opt.' class="menu">';
+        if(isset($this->nav_array["$site"]["short_name"])) {
+            $short_name = $this->nav_array["$site"]["short_name"];
         } else {
-            echo '<a href="'.$target.'" style="color:'.$fg.';" class="menu">';
+            $short_name = $this->nav_array["$site"]["link_name"];
         }
-        // echo '<font color="'.$fg.'">';
-            $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
         echo $short_name.' ';
         // echo '</font>';
         echo '</a></td>'."\n";
@@ -135,8 +140,9 @@ class Blue_Theme extends Base_Theme {
                 // insert this
                 $this->insert_menu_link_line($site, $depth, $selected_path);
                 // echo count($this->nav_array["$site"]["child_sites"]).$site."-".$selected_path[$depth+1]."<br>";
-                if( count($this->nav_array["$site"]["child_sites"])> 0 && 
-                    ! strcmp($site, $selected_path[$depth+1]) ) {
+                if(count($this->nav_array["$site"]["child_sites"])> 0 
+                   && isset($selected_path[$depth+1]) 
+                   && !strcmp($site, $selected_path[$depth+1]) ) {
                     $this->insert_menu_link_list($this->nav_array["$site"]["child_sites"], 
                                                  $depth+1, 
                                                  $selected_path);
@@ -161,9 +167,15 @@ class Blue_Theme extends Base_Theme {
         //   echo '<table border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
         //   $this->decoration_top_line();
         //   $this->decoration_left_cell();
-        echo '<td bgcolor="'.$this->style_array["windowlist_bg"].'">';
+        $bg = $this->get_style("windowlist_bg");
+        $fg = $this->get_style("windowlist_fg");
+        $td_opt="";
+        if(strlen($fg) && strlen($bg)) {
+            $td_opt = $td_opt.' bgcolor="'.$bg.'"';
+        }
+        echo '<td'.$td_opt.'>';
         echo '<a href="'.$target.'">';
-        echo '<font size="2" color="'.$this->style_array["windowlist_fg"].'">';
+        echo '<font size="2" color="'.$this->get_style("windowlist_fg").'">';
         echo $this->nav_array["$site"]["link_name"];
         echo '</font>';
         echo '</a>';
@@ -203,7 +215,7 @@ class Blue_Theme extends Base_Theme {
         while(list($key, $jump) = each($quick_jump_array) ) {
             if( ! is_array($jump) ) {
                 // check it this site exists
-                if( strlen($this->nav_array["$jump"]["file"]) == 0 ) {
+                if(!isset($this->nav_array["$jump"]["file"])) {
                     // if the site does not exists remove from quick jump list
                     unset($quick_jump_array[$key]);
                 }
@@ -233,7 +245,8 @@ class Blue_Theme extends Base_Theme {
 
                 if( list($key, $jump) = each($quick_jump_array) ) {
                     if( ! is_array($jump) ) {
-                        if( file_exists($this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif") ) {
+                        if(isset($this->nav_array["$jump"]["link_pic"]) 
+                           && file_exists($this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif") ) {
                             $img = $this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif";
                         } else {
                             $img = $this->rel_path.'/pictures/icons/default_mini.gif';
