@@ -1,0 +1,31 @@
+Sun Sep 12 09:20:38 1999  DanEspen  <dje@blue>
+
+	* Icon_Screenshots.ksh: Add -merge to xrdb.
+
+	* README.side: Updated to describe side.utilities.xpm.
+
+	* fvwm-web/icons: new home for fvwm/icons and
+ 	fvwm/modules/FvwmScript/Scripts/some_nice_icons.
+	All those icons are moved here, with duplicates removed,
+ 	a few renamed.
+
+	* Icon_Screenshots.ksh: shell to use with xbmbrowser and a window
+	dump program (xv), to create fvwm-web/generated/icon_shots/side.gif,
+	mini1.gif, mini2.gif, icons.gif, banner.gif.
+
+1999-02-22  Dominik Vogt  <dominik_vogt@hp.com>
+
+	* Makefile.am (EXTRA_DIST): added Monitor.xpm, button-close.xpm,
+	button-max.xpm, button.xpm, button-horiz.xpm, button-vert.xpm
+	(EXTRA_DIST): added side.fvwm2.xpm (not in distribution before).
+
+1999-02-18  Dan Espen  <dane@mk.bellcore.com>
+
+	* side.fvwm2.xpm: Added side Pixmap and README.side.
+
+1998-11-11  Dan Espen  <dane@mk.bellcore.com>
+
+	* xterm-bsd.xpm: Replaced illegally copied xterm-bsd.xpm with a
+	contributed icon from http://www.newsbone.org/~jonas/.
+	There are no copyrights attached to this icon.
+
