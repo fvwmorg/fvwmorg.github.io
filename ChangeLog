@@ -1,4 +1,8 @@
-2000-11-11  Mikhael Goikhman  <migo@homemail.com>
+2000-11-30  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html, download.html: increased version number to 2.3.24
+
+2000-11-26  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.html:
 	remove "NEWS FLASH", show a beta version too, use 2 columns
