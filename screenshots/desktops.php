@@ -17,7 +17,7 @@ include($rel_path.'/definitions.inc');
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Desktop Screenshots";
-$link_name      = "Desktops";
+$link_name      = "Desktop Screenshots";
 $link_picture   = "pictures/icons/screenshots_desks";
 $parent_site    = "screenshots";
 $child_sites    = array();
