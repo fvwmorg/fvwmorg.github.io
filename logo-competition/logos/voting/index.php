@@ -43,18 +43,21 @@ if (strlen($site_has_been_loaded) == 0) {
 ?>
 
 <script language="JavaScript">
-function change_bg_color(color) {
+function change_bg_color(color, fg) {
     document.bgColor = color;
     document.body.style.backgroundColor = color;
+    document.fgColor = fg;
+    document.body.style.color = fg;
 }
 </script>
 
 <map name="colormap">
-  <area shape="rect" coords="0,0,19,19"  href="javascript:change_bg_color('#ffffff');" alt="white background" title="white background">
-  <area shape="rect" coords="20,0,39,19" href="javascript:change_bg_color('#d0d0d0');" alt="lite grey background" title="lite grey background">
-  <area shape="rect" coords="40,0,59,19" href="javascript:change_bg_color('#808080');" alt="grey background" title="grey background">
-  <area shape="rect" coords="60,0,79,19" href="javascript:change_bg_color('#505050');" alt="dark grey background" title="dark grey background">
-  <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000');" alt="black background" title="black background">
+  <area shape="rect" coords="0,0,19,19"  href="javascript:change_bg_color('#ffffff', '#020202');" alt="white background" title="white background">
+  <area shape="rect" coords="20,0,39,19" href="javascript:change_bg_color('#d0d0d0', '#000000');" alt="lite grey background" title="lite grey background">
+  <area shape="rect" coords="40,0,59,19" href="javascript:change_bg_color('#808080', '#ffff00');" alt="grey background" title="grey background">
+  <area shape="rect" coords="60,0,79,19" href="javascript:change_bg_color('#505050', '#ffffff');" alt="dark grey background" title="dark grey background">
+  <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000', '#e0e0e0');" alt="black background" title="black background">
+  <area shape="rect" coords="100,0,119,19" href="javascript:change_bg_color('#305050', '#e0e0e0');" alt="black background" title="black background">
 </map>
 
 <?php 

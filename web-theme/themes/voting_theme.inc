@@ -38,7 +38,13 @@ if( strlen($heading) == 0 ) $heading = $title;
     <title><?php print $title; ?></title>
   </head>
     
-  <body>
+  <body 
+    text="#e0e0e0"
+    bgcolor="#305050"
+    link="#e0e050"
+    alink="#e05050"
+    vlink="#e05050"
+    >
 
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
