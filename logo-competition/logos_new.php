@@ -40,7 +40,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 ?>
 
 <!-- ============================================================= -->
-<?php decoration_window_start("By Michael Gorniak", "", "", 0); ?>
+<?php decoration_window_start("By Michael Gorniak (7 images)", "", "", 0); ?>
 
 <p class="centered">
 <a href="<?php echo conv_link_target('logos/Michael_Gorniak/index.php');
@@ -50,7 +50,7 @@ width="213" height="358" border="0" vspace="0" hspace="0" class="centered"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================= -->
-<?php decoration_window_start("By David Drummond", "", "", 0); ?>
+<?php decoration_window_start("By David Drummond (1 image)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
 ?>" class="nohilight"><img src="logos/David_Drummond/yellow_flower_fvwm_logo.png"
@@ -59,7 +59,7 @@ width="300" height="180" border="0" vspace="0" hspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================= -->
-<?php decoration_window_start("By Ian Remmler", "", "", 0); ?>
+<?php decoration_window_start("By Ian Remmler (5 images)", "", "", 0); ?>
 
 <p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
@@ -91,11 +91,12 @@ width="130" height="161" border="0" vspace="0" hspace="0" class="centered"></a>
 <!-- ============================================================= -->
 <?php decoration_window_start("By Tian (3 images)", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/Tian/index.php');
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Tian/index.php');
 ?>" class="nohilight"><img src="logos/Tian/logo_shaded.png"
 width="399" height="215" border="0" vspace="0" hspace="0"></a>
 
-&nbsp;
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Tian/index.php');
 ?>" class="nohilight"><img src="logos/Tian/logo_sunny.png"
 width="266" height="143" border="0" vspace="0" hspace="0"></a>
@@ -133,6 +134,21 @@ width="290" height="250" border="0" vspace="0" hspace="0"></a>
 <a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
 ?>" class="nohilight"><img src="logos/Anna_MacLachlan/clearly-fvwm-small.png"
 width="183" height="71" border="0" vspace="0" hspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+<?php decoration_window_start("By Coji Morishita (8 images)", "", "", 0); ?>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Coji_Morishita/index.php');
+?>" class="nohilight"><img src="logos/Coji_Morishita/fvwm_sbanner_blue.png"
+width="335" height="48" border="0" hspace="0" vspace="0"></a>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Coji_Morishita/index.php');
+?>" class="nohilight"><img src="logos/Coji_Morishita/fvwm_sym_logo.png"
+width="240" height="200" border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
