@@ -23,7 +23,7 @@
 <HTML><HEAD><TITLE>Manpage of FvwmForm</TITLE>
 </HEAD><BODY>
 <H1>FvwmForm</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
+Section: User Commands  (1)<BR>Updated: 6 October 2001<BR><A HREF="#index">Index</A>
 - <A HREF="./">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -165,7 +165,10 @@ An example of what this file might contain after a save is:
   *FvwmFormDefault: Colorset -1
   *FvwmFormDefault: ItemFore green
   *FvwmFormDefault: ItemBack gray40
-  *FvwmFormDefault: ItemColorset -1</PRE></blockquote>
+  *FvwmFormDefault: ItemColorset -1
+  *FvwmFormDefault: ButtonPointer hand2
+  *FvwmFormDefault: ButtonInPointer star
+  *FvwmFormDefault: InputPointer gumby</PRE></blockquote>
 <P>
 
 
@@ -242,6 +245,8 @@ The following commands are accepted before the form is displayed:
 <blockquote><PRE>Back
 Button
 ButtonFont
+ButtonInPointer
+ButtonPointer
 Choice
 Command
 Colorset
@@ -250,6 +255,7 @@ Fore
 GrabServer
 Input
 InputFont
+InputPointer
 ItemBack
 ItemColorset
 ItemFore
@@ -308,6 +314,11 @@ This feature is useful for things like logout verification.
 <DD>
 This option makes FvwmForm warp the mouse pointer into its window on startup.
 It saves the user some mouse-traveling.
+<DT><B>*FvwmForm: Geometry </B><I>geometry</I>
+
+<DD>
+Specifies the FvwmForm window location.  This is similar to what
+the Position option does but is more flexible.
 <DT><B>*FvwmForm: Position </B><I>x</I><B> </B><I>y</I><B></B><DD>
 Puts the FvwmForm window at location (<I>x</I>, <I>y</I>) on the screen.
 By convention, a negative <I>x</I> (<I>y</I>) value measures
@@ -531,7 +542,8 @@ if the choice is selected.
 If the choice is not selected, the result is a blank string.
 <P>
 If <I>name</I> corresponds to a selection,
-the result will be a list of the selected values of all its choices.
+the result will be a list of the selected values of all its choices
+separated by spaces.
 <DT><B>$(</B><I>name</I><B>?</B><I>string</I><B>)</B><DD>
 If <I>name</I> is a text input field and its value is not an empty string,
 the result is <I>string</I>,
@@ -551,16 +563,46 @@ preceed the right parenthesis with a backslash.
 <P>
 <DT><B>*FvwmForm: UseData </B><I>datafile</I><B> </B><I>leading</I><B></B><DD>
 Tells FvwmForm to read a data file and extract data from module
-commands that match the &quot;leading&quot; argument and an input
-or choice variable in a form.
+commands that match the &quot;leading&quot; argument and an input,
+choice, or selection variable in a form.
 <P>
 This lets a form display current fvwm module configuration data.
 For an example of how this works, examine the file &quot;FvwmForm-Rlogin&quot;
 which is installed in read-only architecture-independent data directory,
 [PREFIX/share/fvwm] and shown below.
 <P>
-Note that for choices, the setting of the button is represented as the
+For choices, the setting of the button is represented as the
 word &quot;on&quot;,  all other values for a setting are treated as off.
+<P>
+For selections, the setting of each choice button is determined
+by matching the current value of the selection against each
+choice.  Currently, this only works correctly for selections
+that allow a single choice.
+<DT><B>*FvwmForm: ButtonPointer </B><I>pointername</I>
+
+<DD>
+Change the default mouse pointer (hand2) used when hovering over a button.
+The pointername must be one of the names defined in
+the include file X11/cursorfont.h (without the XC_ prefix).
+See DEFAULTS.
+<P>
+<DT><B>*FvwmForm: ButtonInPointer </B><I>pointername</I>
+
+<DD>
+Change the default mouse pointer (hand1) used
+while a button is pressed in.
+The pointername must be one of the names defined in
+the include file X11/cursorfont.h (without the XC_ prefix).
+See DEFAULTS.
+<P>
+<DT><B>*FvwmForm: InputPointer </B><I>pointername</I>
+
+<DD>
+Change the default mouse pointer (xterm) used
+while the pointer is over a text field.
+The pointername must be one of the names defined in
+the include file X11/cursorfont.h (without the XC_ prefix).
+See DEFAULTS.
 <P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
@@ -650,7 +692,7 @@ and opens an xterm window from the remote host.
   '*FvwmForm-RloginDefault: Default $(Default?on)'; /bin/echo \
   '*FvwmForm-RloginDefault: Custom $(Custom?on)' \
 ) &gt; ${FVWM_USERDIR}/.FvwmForm-Rlogin
-*FvwmForm-Rlogin: Button       restart &quot;Clear&quot;
+*FvwmForm-Rlogin: Button       restart &quot;Reset&quot;
 *FvwmForm-Rlogin: Button       quit    &quot;Cancel&quot;        ^[
 *FvwmForm-Rlogin: Command      Nop
 # Tell FvwmForm to read vars from the .FvwmForm-RloginDefault file:
@@ -709,10 +751,6 @@ This example provides a replacement for the module FvwmTalk.
 There are 2 forms, &quot;FvwmForm-Talk.&quot; which executes commands,
 or sends commands to fvwm for execution, and &quot;FvwmForm-TalkHelp.&quot;
 which is a help form.
-<P>
-These 2 forms have names ending in a special character.  This is
-one way to make sure that commands being sent to modules are
-unique.
 <P>
 In the help form, notice how vertical line
 spacing is changed.  Normal FvwmForm line spacing assumes text is
@@ -812,6 +850,7 @@ added unlimited font and color changing, form spacing control,
 configuration file reading, global control of appearance,
 synchronous command execution, Error message display,
 variable substitution,
+configurable pointers,
 and lots of other damage.
 No additional copyright is imposed.
 <P>
@@ -839,13 +878,13 @@ No additional copyright is imposed.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 21:46:49 GMT, July 04, 2001
+Time: 22:14:01 GMT, October 12, 2001
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Thu Jul  5 00:46:49 IDT 2001 -->
+on Sat Oct 13 00:14:01 IST 2001 -->
 </body>
 </html>
 

@@ -39,18 +39,21 @@ FvwmIconMan is spawned by fvwm, so no command line invocation will work.
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
-FvwmIconMan is an icon manager modeled after the TWM icon manager.  The user
-may have multiple icon managers, each of which armed with a list of window
-types which it manages. For example, the user may have one manager which lists
-only emacs windows, and another which lists everything else. You may also
-specify what resolution each icon manager uses, for example, one icon manager
-may manage windows on all desks, and another may manage only those on the
-current desk, or page. FvwmIconMan can display the miniature icons provided
-by fvwm for its managed windows. The managers may have a maximum number
-of columns (and so grows vertically), a maximum number of rows (and then
-grows horizontally), or stay at a fixed size, and adjust the size of the
-window buttons to fit (think win95's Taskbar). And when support is compiled
-in for the X Shape extension, then the manager windows may be shaped.
+FvwmIconMan is an icon manager modeled after the TWM icon manager.
+The user may have multiple icon managers, each of which armed with
+a list of window types which it manages. For example, the user may
+have one manager which lists only emacs windows, and another which
+lists everything else. You may also specify what resolution each
+icon manager uses, for example, one icon manager may manage
+windows on all desks, and another may manage only those on the
+current desk, page or screen. FvwmIconMan can display the
+miniature icons provided by fvwm for its managed windows. The
+managers may have a maximum number of columns (and so grows
+vertically), a maximum number of rows (and then grows
+horizontally), or stay at a fixed size, and adjust the size of the
+window buttons to fit (think win95's Taskbar). And when support is
+compiled in for the X Shape extension, then the manager windows
+may be shaped.
 <P>
 You can specify actions to be run when mouse, or key events are received. For
 example, you could bind the first mouse button to iconify the selected window,
@@ -95,9 +98,10 @@ manager window.
 <A NAME="lbAG">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS REFERENCE CHART</H2>
 
-FvwmIconMan has acquired quite a few options. I assume others share my dislike
-of paging though a long man page, so here is a terse reference chart describing
-the available options. They are described in more detail in the next section.
+FvwmIconMan has acquired quite a few options. I assume others
+share my dislike of paging though a long man page, so here is a
+terse reference chart describing the available options. They are
+described in more detail in the next section.
 <P>
 
 <PRE>
@@ -125,12 +129,13 @@ managergeometry size of manager in buttons 0x1
 noiconaction    animate iconification      NOP
 plainbutton     style for normal buttons   up black grey
 plaincolorset
-resolution      global, desk, or page      global
+resolution      global/desk/page/screen    global
 reverse         normal, icon or none       none
 selectbutton    style for selected buttons flat black grey
 selectcolorset
 shape           use shape extension        false
 show            list of windows to show
+showonlyicons   only icons visible         false
 sort            keep managers sorted       name
 title           manager title              FvwmIconMan
 titlebutton     style for title button     raisededge black grey
@@ -269,13 +274,19 @@ still only be applied with plainbutton.  See FvwmTheme.
 <P>
 <DT>*FvwmIconMan*[id*]resolution <I>resolution</I><DD>
 Specifies when the manager will display an entry for a certain
-window. <I>resolution</I> may take one of the following values: global, desk,
-page, !desk, or !page. If global, then all windows of the appropriate type
-(see the show and dontshow options below) will be shown. If desk, then only
-those windows on the current desk will be down. If page, then only those
-windows on the current page will be shown. !desk reverses the sense of desk,
-displaying only those windows not on the current desk. Likewise, !page shows
-only those windows not on the current page. The default is global.
+window. <I>resolution</I> may take one of the following values:
+global, desk, page, screen, !desk, !page, or !screen. If global,
+then all windows of the appropriate type (see the show and
+dontshow options below) will be shown. If desk, then only those
+windows on the current desk are down. If page, then only those
+windows on the current page are shown. If screen, then only those
+windows on the current Xinerama screen are shown. !desk reverses
+the sense of desk, displaying only those windows not on the
+current desk. Likewise, !page shows only those windows not on the
+current page and !screen shows only those windows not on the
+current Xinerama screen. The default is global. If Xinerama is not
+active or only a single screen is used, page and screen are
+equivalent.
 <P>
 <DT>*FvwmIconMan*[id*]reverse <I>class</I><DD>
 Causes certain classes of buttons to have their relief lines reversed so that
@@ -343,9 +354,16 @@ manager with the lowest id gets it.
 If a window matches one of the patterns in the list, then it may be handled
 by this manager.
 <P>
+<DT>*FvwmIconMan*[id*]show <I>pattern list</I><DD>
+If a window matches one of the patterns in the list, then it may be handled
+by this manager.
+<P>
 <DT>*FvwmIconMan*[id*]dontshow <I>pattern list</I><DD>
 If a window matches one of the patterns in the list, then it may not be
 handled by this manager.
+<P>
+<DT>*FvwmIconMan*[id*]showonlyicons <I>boolean</I><DD>
+Only iconified windows are shown if <I>boolean</I> is true.
 <P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
@@ -753,13 +771,13 @@ for contributing either code or truly keen ideas.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 21:46:50 GMT, July 04, 2001
+Time: 22:14:01 GMT, October 12, 2001
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Thu Jul  5 00:46:50 IDT 2001 -->
+on Sat Oct 13 00:14:01 IST 2001 -->
 </body>
 </html>
 
