@@ -1,3 +1,13 @@
+2002-12-30  Dan Espen  <dane@mk.telcordia.com>
+
+	* screenshots/index.html: Change the link to the full size image to a link
+	to a generated page that contains the full size image.
+	* screenshots/make-html.pl: Script to wrap each image in a generated page
+	with forward and backward links.
+	* screenshots/Cameron_Simpson-desk-2560x1024.png: Added, the link to his page wont
+	work with the script.
+	* XXX.html: Added a bunch of generated html pages, one for each full size image.
+	
 2002-12-29  Dan Espen  <dane@mk.telcordia.com>
 
 	* screenshots/index.html: Added Len Philpot's screenshot.
