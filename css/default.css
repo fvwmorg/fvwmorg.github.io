@@ -72,7 +72,7 @@ p.cmdline {
 	color: #ffff99;
 	background: #404040; padding: 5pt;
 }
-pre.cvs, pre.doc {
+pre.cvs, pre.doc, pre.linebreak {
 	border: solid; border-width: thin; border-color: black;
 	background: #404040; 
 	padding: 5pt;
@@ -80,9 +80,11 @@ pre.cvs, pre.doc {
 	/* background: #112266; */
 	padding: 10pt;
 }
-pre.cvs {
+
+pre.linebreak {
 	white-space:normal;
 }
+
 .bottominfo {
 	text-align: right;
 	font-size: x-small;
