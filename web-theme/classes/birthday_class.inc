@@ -11,8 +11,7 @@ class Birthday_Theme extends Default_Theme {
     function Birthday_Theme () {
         $this->theme_name = "birthday";
         $this->init();
-        // cheating here 
-        $this->style_array = array(
+        $style_array = array(
            "decoration_path"  => $this->rel_path."/birthday/window_decor_birthday3",
            "window_border_bg" => "#9fe0e3",
            "window_border_fg" => "#000000",
@@ -32,8 +31,10 @@ class Birthday_Theme extends Default_Theme {
            "code_bg"          => "#404040",
            "titlebar_fg"      => "#000000",
            );
-        if( $bg = my_get_global("body_bg_image","GET") ) {
-            $this->style_array["body_bg_image"] = $bg;
+        foreach( $style_array as $style => $value ) {
+            if( ! isset($this->style_array["$style"]) ) {
+                $this->style_array["$style"] = $value;
+            }
         }
     }
 

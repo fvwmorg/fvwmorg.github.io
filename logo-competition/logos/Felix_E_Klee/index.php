@@ -40,12 +40,13 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <?php decoration_window_start('Logos by Felix E. Klee', "100%", ""); ?>
 
-<p>
-Felix said:<br>
-I plan, however, to provide separate
-versions of the logos before the voting process begins.
-
-Regards and happy birthday to FVWM</p>
+<!-- <p> -->
+<!-- Felix said:<br> -->
+<!-- I plan, however, to provide separate -->
+<!-- versions of the logos before the voting process begins. -->
+<!--  -->
+<!-- Regards and happy birthday to FVWM -->
+<!-- </p> -->
 
 <p class=centered><img src="logos.png">
 

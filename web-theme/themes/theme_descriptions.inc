@@ -123,7 +123,18 @@ $this->theme_descriptions = array(
   
   "birthday"   => array(
      "name"   => "Birthday Theme",
-     "style"  => array(),
+     "style"  => array(         
+         "window_bg"  => array(
+            "type"    => "color",
+            "value"   => "#003c3c",
+            "name"    => "Window Background",
+            ),
+         "window_fg"        => array(
+            "type"    => "color",
+            "value"   => "#ffffff",
+            "name"    => "Window Foreground",
+            ),
+),
      ),
   );
 

@@ -1,3 +1,13 @@
+2003-06-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* logo-competition/logos/Felix_E_Klee/index.php
+	* web-theme/classes/birthday_class.inc
+	* web-theme/themes/theme_descriptions.inc
+	Background color change for the birthday theme possible.
+	
+	* logo-competition/logos_new.php: 
+	Provided images sizes.
+
 2003-06-01  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/Felix_E_Klee/index.php: 
