@@ -1,8 +1,7 @@
 	  Submitted by Marc A. Lehmann.
 This is an Xinerama desktop showing some interesting side mounted titles,
 flat borders and gradients in the titlebars.
-The
-<a href="fvwm2rc">config file</a>
+The @fvwm2rc@
 is M4 based and contains some interesting stuff too.
 <p>
 Mark says:

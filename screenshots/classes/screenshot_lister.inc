@@ -57,6 +57,10 @@ class Screenshot_Lister extends Directory_Lister {
         return 0;
     }
 
+    function get_rc_entry($dir_content_array, $regexps_array=array("^fvwm2rc", "^fvwmrc")) {
+        return $this->get_entry_by_regexp($dir_content_array, $regexps_array);
+    }
+
     function process_dir_array() {
         
         $my_processed_dir_array = array();
@@ -70,6 +74,7 @@ class Screenshot_Lister extends Directory_Lister {
             // get information form the directory array about preview and screenshot
             $preview_entry     = $this->get_preview_entry($dir_content_array, array("^preview", "^thumb"));
             $screenshot_entry  = $this->get_screenshot_entry($dir_content_array, array("^screen", "^desk", "^shot"));
+            $fvwmrc            = $this->get_rc_entry($dir_content_array, array("^fvwm2rc", "^fvwmrc"));
             
             // get the names, date and size
             $preview     = $preview_entry["name"];
@@ -102,6 +107,9 @@ class Screenshot_Lister extends Directory_Lister {
                 $my_processed_dir_array["${date}_${key}"]["size"]        = $size;
                 $my_processed_dir_array["${date}_${key}"]["dimension"]   = $dimension;
                 $my_processed_dir_array["${date}_${key}"]["description"] = $description;
+                if( $fvwmrc ) {
+                    $my_processed_dir_array["${date}_${key}"]["rc"]      = $fvwmrc;
+                }
             } else {
                 echo ". \033[34;1mFAILED on [";
                 if( ! $preview )     echo " preview";

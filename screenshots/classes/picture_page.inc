@@ -54,19 +54,22 @@ class Picture_Page {
         $size        = $entry["size"];
         $dimension   = $entry["dimension"];
         $description = $entry["description"];
-        $adds        = $entry["additions"];
+        $fvwmrc      = $entry["rc"]["name"];
         $td_opts = '';
         echo '<tr style="border-bottom:1pt '.$bg.' solid;">'."\n";
-        echo "<td".$td_opts.' valign="top">';
+        echo "<td".$td_opts.' valign="middle">';
         echo $ii.'<a href="'.$screenshot.'"><img src="'.$preview.'" border="1" alt="Preview"></a>';
         echo "</td>";
         echo "<td".$td_opts.' align="center">';
         echo date("y/m/d", $date)."<br>";
         echo ceil($size/1024)."k<br>";
         echo $dimension;
+        if( $fvwmrc ) {
+            echo '<br><a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>';
+        }
         echo "</td>";
         echo "<td".$td_opts.">";
-        echo $description;
+        echo str_replace("@fvwm2rc@", '<a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>', $description);
         echo "</td>";
         echo "</tr>\n";
     }

@@ -5,4 +5,4 @@
 	  background for the Eterm, and threw Vampire Princess Miyu skins that I
 	  found onto Licq and xmms.  I also customized the title bars a bit with a
 	  textured background that fits in with the overall blueness of the Miyu
-	  stuff.  Heres the <a href="fvwm2rc">config file</a>.
+	  stuff.  Heres the @fvwm2rc@.

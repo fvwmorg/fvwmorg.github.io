@@ -1,5 +1,5 @@
 	  Submitted by J C Lawrence.
-The basic rules guiding this <a href="fvwm2rc">setup</a>:
+The basic rules guiding this @fvwm2rc@:
 <ul>
 <li>
  Modal interfaces are evil.

@@ -82,25 +82,29 @@ Using this web site you can vote for logos taking part in the fvwm logo competit
 <!-- -------------------------------------------------------------------- -->
 <!-- Rules                                                                -->
 <!-- -------------------------------------------------------------------- -->
-<h2>About Voting</h2>
+<h2>Voting Rules</h2>
+
 <ul>
-   <li>You can vote for any number of logos - there is no limit to the
-     number of votes.<br><b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b></li>
-   <li>To vote for a logo or a logo group check the box left beside the logo. </li>
-   <li>Your are only allowed to vote once.
-     <br><b>Please hit the voting
-	   button at the bottom of this page after your are sure you have checked
-	   ALL logos you want to vote for</b>.<br>Changing your opinion
-   after submitting your voting is not possible.</li>
-   <li>Click on the logo or the link "Author page" to get to a page
-     where all logos of the logo's author are displayed</li>
-   <li>If you have JavaScript enabled you may change the background
-     color of this page to get an impression how this logo looks on
-     different background. This is done by clicking on the grey tone
-     images below the logos.</li>
-   <li>The order of logos at this page is incidental and will change
-     each time you reload this page.</li>
-   <li>During voting time there won't be announced any voting results.</li>
+  <li>You can vote for any number of logos - there is no limit to the
+    number of votes.<br><b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b></li>
+  <li>
+    
+  </li>
+  <li>To vote for a logo or a logo group check the box left beside the logo. </li>
+  <li>Your are only allowed to vote once.
+    <br><b>Please hit the voting
+	  button at the bottom of this page after your are sure you have checked
+	  ALL logos you want to vote for</b>.<br>Changing your opinion
+    after submitting your voting is not possible.</li>
+  <li>Click on the logo or the link "Author page" to get to a page
+    where all logos of the logo's author are displayed</li>
+  <li>If you have JavaScript enabled you may change the background
+    color of this page to get an impression how this logo looks on
+    different background. This is done by clicking on the grey tone
+    images below the logos.</li>
+  <li>The order of logos at this page is incidental and will change
+    each time you reload this page.</li>
+  <li>During voting time there won't be announced any voting results.</li>
 </ul>
 <hr>
 
