@@ -1,0 +1,48 @@
+body { 
+  font-family:sans-serif;
+  color:#444444;
+  background-color:white;
+}
+
+h1, h2, h3, h4, h5 { 
+  color:#005599;
+}
+
+a:link, a:visited, a:hover, a:active, a:focus  { 
+  text-decoration:none;
+  font-weight:bold;
+  color:#777777;
+}
+
+a.link, a.sellink { 
+  font-variant:small-caps;
+  text-decoration:none;
+  font-weight:100;
+  color:#777777;
+}
+
+a.sellink { 
+  color:#000000;
+  background-color:#bbddff;
+}
+
+a:focus, a:hover {
+  text-decoration:underline overline;
+  color:#000000;
+}
+
+.navigationcell { 
+  border-right-width:2pt;
+  border-right-color:#aaaaaa;
+  border-right-style:ridge;
+  text-align:right;
+}
+
+.bottominfo { 
+  text-align:right;
+  font-size:x-small;
+}
+
+.showpageprop, .showpagedesc, .showpageprev { 
+  background-color:#e0e0e0;
+}
