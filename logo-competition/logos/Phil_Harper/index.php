@@ -38,7 +38,9 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("By Phil Harper", "100%", ""); ?>
+<?php decoration_window_start('By
+<a href="http://gug.sunsite.dk/gallery.php?artist=123">Phil Harper</a>
+', "100%", ""); ?>
 
 <p>I've got some submissions for the contest, tiger might get resubmitted
 when I've worked out how to draw stripes on the tale that don't look crap. :)

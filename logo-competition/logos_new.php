@@ -114,10 +114,10 @@ border="0" hspace="0" vspace="0" align="middle"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By VosVuur (4 images)", "", "", 0); ?>
+<?php decoration_window_start("By Anna MacLachlan (4 images)", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/VosVuur/index.php');
-?>" class="nohilight"><img src="logos/VosVuur/jungle-overview.png"
+<p><a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
+?>" class="nohilight"><img src="logos/Anna_MacLachlan/jungle-overview.png"
 border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>

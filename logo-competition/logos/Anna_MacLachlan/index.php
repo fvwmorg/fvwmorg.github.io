@@ -15,7 +15,7 @@ include($rel_path."/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition - VosVuur logos";
+$title          = "FVWM - Logo Competition - Anna MacLachlan logos";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
@@ -38,7 +38,9 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("By VosVuur", "100%", ""); ?>
+<?php decoration_window_start('By
+<a href="http://gug.sunsite.dk/gallery.php?artist=32">Anna MacLachlan</a>
+(VosVuur)', "100%", ""); ?>
 
 <p>
 <!--

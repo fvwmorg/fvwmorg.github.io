@@ -39,7 +39,8 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("By Tian", "100%", ""); ?>
+<?php decoration_window_start('By <a href="http://www.c-sait.net/">Tian</a',
+"100%", ""); ?>
 
 <p>
 The logos can be seen at
