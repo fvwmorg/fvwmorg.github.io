@@ -71,6 +71,9 @@ Participate in our new
 <?php
 echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 ?>
+
+<p><b>UPCOMING!</b> On the 1st of June 2003 we are celebrating fvwm's
+tenth birthday. Stay tuned for updates.
 <hr>
 
 <div align="center">

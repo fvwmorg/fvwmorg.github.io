@@ -33,11 +33,11 @@ elseif( strpos($request,"vector-buttons") )        $file = "/screenshots/windowd
 // elseif( strpos($request,"xxxacknowledgements") ) $file = "/";
 else $file = "/index.php";
 
-if( file_exists("..".$file) ) {
-  $url = "http://".$_SERVER["HTTP_HOST"].$file;
-} else {
-  $url = "http://".$_SERVER["HTTP_HOST"];
+if( ! file_exists("..$file") ) {
+  $file = "/index.php";
 }
+$file = str_replace("index.php", "", $file);
+$url = "http://$_SERVER['HTTP_HOST']$file";
 
 //--------------------------------------------------------------------
 //- Set http header to error 404

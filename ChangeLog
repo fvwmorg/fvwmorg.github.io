@@ -1,3 +1,25 @@
+2003-04-21  Mikhael Goikhman  <migo@homemail.com>
+
+	* httpd/error404.php:
+	strip index.php to make urls better
+
+	* index.php:
+	added UPCOMING message about birthday
+
+	* layout_default.inc:
+	comments
+
+	* authors/authors2php.awk:
+	* authors/index.php:
+	fixed spaces in places of original new lines
+
+	* latest_news/news2php.awk:
+	* latest_news/index.php:
+	make table with less columns, regenerated
+
+	* screenshots/desktops.php:
+	break some <pre>, someone should reformat the page
+
 2003-04-21  Uwe Pross  <uwe.pross@mx.net>
 
 	* layout_default.inc: 

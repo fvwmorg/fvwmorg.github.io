@@ -59,6 +59,7 @@ BEGIN {
 }
 
 found_author == 1 {
+    if (text != "") text = text " "
     text = text $0
     next;
 }

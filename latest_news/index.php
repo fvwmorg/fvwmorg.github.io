@@ -48,7 +48,7 @@ decoration_window_start("Latest News");
 
 <h4>Selection by release:</h4>
 <center>
-<table border="0" width="90%" cellspacing="3" summary="">
+<table border="0" width="100%" cellspacing="2" summary="">
 <tr>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
@@ -59,17 +59,19 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
-</tr>
-<tr>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
@@ -78,9 +80,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.33" style="font-weight:normal;">&nbsp;2.3.33&nbsp;</a></td>
 <td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
 <td><a href="#2.3.31" style="font-weight:normal;">&nbsp;2.3.31&nbsp;</a></td>
+<td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
 <td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
 <td><a href="#2.3.28" style="font-weight:normal;">&nbsp;2.3.28&nbsp;</a></td>
 <td><a href="#2.3.27" style="font-weight:normal;">&nbsp;2.3.27&nbsp;</a></td>
@@ -90,17 +92,19 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
 <td><a href="#2.3.22" style="font-weight:normal;">&nbsp;2.3.22&nbsp;</a></td>
 <td><a href="#2.3.21" style="font-weight:normal;">&nbsp;2.3.21&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
 <td><a href="#2.3.19" style="font-weight:normal;">&nbsp;2.3.19&nbsp;</a></td>
 <td><a href="#2.3.18" style="font-weight:normal;">&nbsp;2.3.18&nbsp;</a></td>
-</tr>
-<tr>
 <td><a href="#2.3.17" style="font-weight:normal;">&nbsp;2.3.17&nbsp;</a></td>
 <td><a href="#2.3.16" style="font-weight:normal;">&nbsp;2.3.16&nbsp;</a></td>
 <td><a href="#2.3.15" style="font-weight:normal;">&nbsp;2.3.15&nbsp;</a></td>
 <td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
 <td><a href="#2.3.13" style="font-weight:normal;">&nbsp;2.3.13&nbsp;</a></td>
 <td><a href="#2.3.12" style="font-weight:normal;">&nbsp;2.3.12&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
 <td><a href="#2.3.10" style="font-weight:normal;">&nbsp;2.3.10&nbsp;</a></td>
 <td><a href="#2.3.9" style="font-weight:normal;">&nbsp;2.3.9&nbsp;</a></td>
@@ -108,10 +112,10 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.7" style="font-weight:normal;">&nbsp;2.3.7&nbsp;</a></td>
 <td><a href="#2.3.6" style="font-weight:normal;">&nbsp;2.3.6&nbsp;</a></td>
 <td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
-</tr>
-<tr>
 <td><a href="#2.3.4" style="font-weight:normal;">&nbsp;2.3.4&nbsp;</a></td>
 <td><a href="#2.3.3" style="font-weight:normal;">&nbsp;2.3.3&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
 <td><a href="#2.3.1" style="font-weight:normal;">&nbsp;2.3.1&nbsp;</a></td>
 <td><a href="#2.3.0" style="font-weight:normal;">&nbsp;2.3.0&nbsp;</a></td>
@@ -127,8 +131,14 @@ decoration_window_start("Latest News");
 <a name="2.5.7"></a>
 <h4>Changes in development release 2.5.7 (not released yet) <a href="#top">[top]</a></h4>
 <ul>
+  <li> The commands Cond and CondCase now support checking for  inequality by prefixing the return code with '!'.</li>
+  <li> Schedule and Deschedule support hexadecimal and octal command  ids.</li>
   <li> In FvwmIconMan, windows can move from one manager to another  acoording to the managers' Resolution options.</li>
   <li> In order to fix a problem with StartsOnScreen and applications  that set a user specified position hint, the StartsOnScreen style  no longer works for the following modules:  FvwmBanner,  FvwmButtons, FvwmDragWell, FvwmIconBox, FvwmIconMan, FvwmIdent,  FvwmPager, FvwmScroll, FvwmTaskBar, FvwmWharf, FvwmWinList.  Use  the '@&lt;screen&gt;' bit in the module geometry specification where  applicable.</li>
+  <li> Documented variable $[gt.any_string] and LocalePath command  (new in 2.5.5).</li>
+  <li> Added gettext support to FvwmScript. New head instruction  UseGettext and WindowLocaleTitle. New widget instruction  LocaleTitle. New instruction ChangeLocaleTitle and new function  Gettext.</li>
+  <li> WindowListFunc is executed now within a window context, so  a prefix &quot;WindowId $0&quot; is not needed in its definition anymore  and it is advised to remove it in user configs.</li>
+  <li> FvwmEvent now executes all window related events within a window  context, so PassId is not needed anymore, and all prefixes  &quot;WindowId $0&quot; may be removed in user event handlers.</li>
 </ul>
 
 
@@ -177,6 +187,7 @@ decoration_window_start("Latest News");
   <li> New Colorset option RootTransparent</li>
   <li> The Transparent Colorset option can be tinted under certain  conditions</li>
   <li> New MinHeight option to TitleStyle</li>
+  <li> Added gettext support. New command LocalePath and new variable  $[gt.string]</li>
 </ul>
 
 

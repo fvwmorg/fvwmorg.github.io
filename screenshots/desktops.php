@@ -458,7 +458,8 @@ Using fvwm-2.4.6 and loving it.
 * Gradients were not used: pixmaps with reduced color
 were used instead
 
-Fvwm2 *does* rock! Waiting impatiently for native PNG support.
+Fvwm2 *does* rock! Waiting impatiently for
+native PNG support.
 </pre>
 <p>
 (Christian's wish was fulfilled.)
@@ -588,7 +589,7 @@ Ploum says:
 I like a clean desktop. I created a gradient for my fvwm menu and I called
 it  "ocean".  I used a blue  gradient  for the active  titlebar  and a grey
 gradient for  inactive.  I  can  easily  switch between viewports  with
-"alt+arrow". The icons are from wm-icons. You  can see in the top left
+"alt+arrow". The icons are from <b>wm-icons</b>. You  can see in the top left
 corner two tiny  fvwm buttons. The first is  to  hide/unhide zinf, the
 audio player, the second is a "swallow" of  my jabber status. Clicking
 on it hides/unhides the psi main window.
@@ -606,7 +607,7 @@ I just discovered today the cool "Aqua" skin for GTK and the "Aqua" skin
 for phoenix, my favourite browser.
 
 I documented a lot my
-<a href="Ploum.fvwm2rc">fvwm2rc</a>file, but in french...
+<a href="Ploum.fvwm2rc">fvwm2rc</a> file, but in french...
 
 Yes, I hate taskbars and icons ! ;)
 
@@ -630,7 +631,7 @@ Taviso's submissions prompted some questions which he graciously answered:
 <br>
 Q: what is your file browser ?
 <br>
-A: its xftree, from the xfce project<a href="http://www.xfce.org/">http://www.xfce.org/</a>
+A: its xftree, from the xfce project <a href="http://www.xfce.org/">http://www.xfce.org/</a>
 <br>
 Q: how do you change the look of this program ? (flat button bar style...)
 <br>

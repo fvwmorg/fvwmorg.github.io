@@ -103,11 +103,11 @@ END {
     print "<h4>Selection by release:</h4>";
 
     print "<center>";
-    print "<table border=\"0\" width=\"90%\" cellspacing=\"3\" summary=\"\">";
+    print "<table border=\"0\" width=\"100%\" cellspacing=\"2\" summary=\"\">";
 
     for(i=0; i<release_nr;) {
 	print "<tr>";
-	for(j=0; j<=12 && i<release_nr; j++) {
+	for(j=0; j<=8 && i<release_nr; j++) {
 	    i++;
 	    print "<td><a href=\"#" release_array[i] "\" style=\"font-weight:normal;\">&nbsp;" release_array[i] "&nbsp;</a></td>";
 	}
