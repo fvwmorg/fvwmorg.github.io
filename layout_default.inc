@@ -345,6 +345,7 @@ function decoration_title_bar($string="") {
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
     /* uwp: Why is the "./" before $requested_file neccessary? */
+    /* migo: like ChangeLog says, to support FVWM::Module.php in all browsers */
     echo '<a href="./'.$requested_file.'?layout=plain">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></a></td>';
 
