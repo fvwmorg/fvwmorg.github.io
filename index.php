@@ -44,6 +44,14 @@ if(!isset($site_has_been_loaded)) {
 decoration_window_start("Welcome to FVWM");
 ?>
 
+<!-- Against Software patents -->  
+<div style="text-align:center;"><a 
+href="http://demo.ffii.org/letter.html"><img 
+src="http://demo.ffii.org/minister_banner60.png" width="468" height="60" border="0"
+style="border-width:5pt;border-color:#0088dd;border-style:ridge;padding:3pt;background:#ffffff;"
+alt="Dear Minister, please click here!"></a></div>
+
+
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
 window manager for the X&nbsp; Window system.  Development is active,
