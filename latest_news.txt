@@ -1,3 +1,8 @@
+Mon Mar 31 2003 [uwp]:
+* user settings given via url like
+   http://www-user.tu-chemnitz.de/~uwp/fvwm-web/screenshots/screenshots_desks.php?window_bg=%234444aa&pager_bg=%23aaaaaa
+  are now propagated to sub pages.
+
 Sun Mar 30 2003 [uwe]:
 * added fvwm_cats/index.php with pager icon
 * new variable $default_settings_array which holds the default

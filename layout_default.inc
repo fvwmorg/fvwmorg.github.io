@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 12:29:07 uwp>
+//-  Last modified : <31.03.2003 13:01:57 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -49,9 +49,14 @@ $default_settings_array = array(
   "hilight_fg"       => "#ffffff",
 );
 
+$user_settings_array = array();
 reset($default_settings_array);
 while(list($key,$default) = each($default_settings_array) ) {
-  $$key = ($$key = my_get_global($key, "GET")) ? $$key : $default;
+  if( $$key = my_get_global($key, "GET") ) {
+    $user_settings_array[$key] = str_replace("#","%23",$$key); 
+  } else {
+    $$key = $default;
+  }
 }
 
 // $body_bg_image = $rel_path."/".$body_bg_image;
@@ -91,7 +96,16 @@ function get_parent_path($site) {
 }
 
 function conv_link_target($target) {
-  return $target;
+  global $user_settings_array;
+  if( count($user_settings_array) > 0 ) {
+    reset($user_settings_array);
+    list($key,$setting) = each($user_settings_array);
+    $opts = "?".$key."=".$setting;  
+    while( list($key,$setting) = each($user_settings_array) ) {
+      $opts = $opts."&".$key."=".$setting;
+    }
+  }
+  return $target.$opts;
 }
 
 function push_decoration_path($path) {
