@@ -3,7 +3,7 @@
 //-  File          : developers.php
 //-  Project       : Fvwm Home page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <08.04.2003 08:23:35 uwp>
+//-  Last modified : <08.04.2003 08:59:56 uwp>
 //--------------------------------------------------------------------
 
 if( strlen($rel_path)==0 ) $rel_path="./..";
@@ -119,12 +119,12 @@ FVWM development uses a CVS server.
     now before going any further.
   </p>
 
-  <pre class="cvs">
+<pre class="cvs">
 diff -u
 checkout -P
 update -d -P
 cvs -q
-  </pre>
+</pre>
 
   <p>
     The last line makes cvs operations quieter, but you still get full
@@ -143,9 +143,9 @@ cvs -q
     you must login to the server:
   </p>
 
-  <pre class="cvs">
+<pre class="cvs">
 cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
-  </pre>
+</pre>
 
   <p>
     The password is `<code>guest</code>'.  The command outputs nothing if it
@@ -154,7 +154,7 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
     `<code>~/.cvspass</code>'.
   </p>
 
-  <a name="checkout"></a> 
+  <a name="checkout"></a>
   <h3>Checking Out Source Code <a href="#top">[top]</a></h3>
 
   <p>
@@ -190,9 +190,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm login
     command, for retrieving the latest code, doesn't require any label:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
-  </pre>
+</pre>
 
   <p> 
     This will create a new directory <code>fvwm</code> in your current
@@ -204,9 +204,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
     code, you can use the branch label on the checkout command line:
   </p>
 
-  <pre class="cvs">
+<pre class="cvs">
 cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
-  </pre>
+</pre>
 
   <p> 
     This will put a copy of the very latest code on the 2.2.x branch
@@ -216,9 +216,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
     <code>checkout -d</code> option:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2.2.x fvwm
-  </pre>
+</pre>
 
   <p> 
     Now the code will be checked out into a directory
@@ -234,9 +234,9 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2
     command:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r version-2_1_10 -d fvwm-2.1.10 fvwm
-  </pre>
+</pre>
   
   <p> 
     Please note that if you check out a specific <em>version</em>, the
@@ -287,13 +287,13 @@ cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r version-2_1_10 -d fv
     do is:
   </p>
   
-  <pre class="cvs"> 
+<pre class="cvs">
 cd fvwm
 aclocal
 acheaders
 automake --add-missing
 autoreconf
-  </pre>
+</pre>
 
   <p>
     The last command is <code>auto<b>re</b>conf</code>,
@@ -305,9 +305,9 @@ autoreconf
 
   <p>To automate this step we include a shell script</p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 utils/configure_dev.sh
-  </pre>
+</pre>
 
   <p>
     in the cvs tree, it may be run with usual
@@ -319,11 +319,11 @@ utils/configure_dev.sh
     the <code>INSTALL.fvwm</code> and <code>INSTALL</code> files:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 ./configure
 make
 make install
-  </pre>
+</pre>
 
   <p>
     with appropriate options and arguments, as you like.
@@ -350,9 +350,9 @@ make install
     repository with any local changes you may have made.
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs update
-  </pre>
+</pre>
 
   <p>
     If you didn't use a tag when you checked out, this will update your
@@ -406,10 +406,10 @@ cvs update
     the <em>current</em> sources in the CVS repository.
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs update
 cvs diff -u &gt; patchfile
-  </pre>
+</pre>
 
   <p>
     Mail the patch to the fvwm-workers list with a description of what you
@@ -426,7 +426,7 @@ cvs diff -u &gt; patchfile
     when you try to update your sources.
   </p>    
 
-  <pre class="cvs">
+<pre class="cvs">
 $ cvs update
 RCS file: /home/cvs/fvwm/fvwm/fvwm/icons.c,v
 retrieving revision 1.5
@@ -435,7 +435,7 @@ Merging differences between 1.5 and 1.6 into icons.c
 rcsmerge: warning: conflicts during merge
 cvs server: conflicts found in fvwm/icons.c
 C fvwm/icons.c
-  </pre>
+</pre>
 
   <p>
     <b>Don't Panic!</b> Your working file, as it
@@ -447,12 +447,12 @@ C fvwm/icons.c
     unwanted version of the lines involved.
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; icons.c
 XpmImage    my_image = {0};  /* testing */
 =======
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 1.6
-  </pre>
+</pre>
   
   <p>
     Don't forget to delete the lines with all the "&lt;", "=", and "&gt;"
@@ -488,9 +488,9 @@ XpmImage    my_image = {0};  /* testing */
     password.  The latter can be obtained with the following Perl snippet:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 perl -e 'print crypt("yourpass",join("",((a..z,A..Z,0..9)[rand(62),rand(62)]))), "\n"'
-  </pre>
+</pre>
 
   <p>
     Change <code>yourpass</code> to whatever you want your password to be.
@@ -527,9 +527,9 @@ perl -e 'print crypt("yourpass",join("",((a..z,A..Z,0..9)[rand(62),rand(62)]))),
     To commit all the modified files in your workspace, use:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs commit
-  </pre>
+</pre>
 
   <p>
     CVS will pop up your favorite editor to allow you to enter comments
@@ -548,9 +548,9 @@ cvs commit
     certain files to be committed:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs commit fvwm/fvwm.1 modules/FvwmAuto/FvwmAuto.1
-  </pre>
+</pre>
 
   <p>
     Again, please sanity-check the list to be sure you have everything.
@@ -565,11 +565,11 @@ cvs commit fvwm/fvwm.1 modules/FvwmAuto/FvwmAuto.1
     `<code>newmod.c</code>':
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs add -m "New directory for ..." newdir
 cd newdir
 cvs add -m "File newmod.c is a module that ..." newmod.c
-  </pre>
+</pre>
 
   <p>
     When adding new directories and files, please be sure to take a look
@@ -587,10 +587,10 @@ cvs add -m "File newmod.c is a module that ..." newmod.c
       -dP</code>'.  To delete one or more files:
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs remove filename...
 cvs commit -m 'deleted files because' filename...
-  </pre>
+</pre>
 
   <p>
     Again, when removing directories or files please be sure to update
@@ -637,9 +637,9 @@ cvs commit -m 'deleted files because' filename...
     branch (be sure you're in the root of your checkout):
   </p>
 
-  <pre class="cvs"> 
+<pre class="cvs">
 cvs rtag -b -r version-2_2_0 branch-2_2 .
-  </pre>
+</pre>
 
   <p>
     The first thing you'll probably want to do on the new branch is edit
