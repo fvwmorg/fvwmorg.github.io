@@ -1,3 +1,12 @@
+2003-06-04  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* logo-competition/logos/Felix_E_Klee/index.php: 
+	* logo-competition/logos_new.php:
+	Added logo from Felix E. Klee (again.)
+
+	* logo-competition/index.php:
+	Added image size info and alt tag
+
 2003-06-04  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/index.php:

@@ -163,15 +163,13 @@ border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================= -->
-<!--
-<?php decoration_window_start("By Felix E. Klee (7 images)", "", "", 0); ?>
+
+<?php decoration_window_start("By Felix E. Klee (8 images)", "", "", 0); ?>
 
 <p class="centered">
 <a href="<?php echo conv_link_target('logos/Felix_E_Klee/index.php');
-?>" class="nohilight"><img src="logos/Felix_E_Klee/logos-overview.png"
-width="290" height="330" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Felix_E_Klee/logos-overview.png" width="255" height="564" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
--->
 
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>

@@ -41,29 +41,43 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
 <?php decoration_window_start('Logos by Felix E. Klee', "100%", ""); ?>
+
 <!--
-Date: Sat, 31 May 2003 22:23:29 +0200
 From: "Felix E. Klee" <felix.klee@inka.de>
-To: fvwm-logo@lists.sourceforge.net
-Subject: [FVWM-LOGO] Some logos
+Subject: Re: [FVWM-LOGO] Some logos 
+Date: Tue, 3 Jun 2003 11:05:30 +0200
 User-Agent: KMail/1.5.1
 
-Hi,
--->
-I created some logos for the Logo Competition. You can find them on
+You can find a smaller one at
+    http://sites.inka.de/~W1787/fvwm/logos/logos.png
 
-<p><a href="http://sites.inka.de/klee/fvwm/logos/index.html">
-http://sites.inka.de/klee/fvwm/logos/index.html</a></p>
-
-Note that they are all together in one big image file and I *do not* want
-this file to be split up for now. I plan, however, to provide separate
-versions of the logos before the voting process begins.
-<!--
-Regards and happy birthday to FVWM,
+For the
+    http://www.fvwm.org/logo-competition/logos/Felix_E_Klee/
+page the big version of the logos can be found at
+    http://sites.inka.de/~W1787/fvwm/logos/logosbig.png
+and here's the text for that page:
 -->
 
-<p class=centered><img src="logos.png">
-
+  <p>
+    In most of my logos I try to reflect the fact that FVWM is a
+    <em>Window</em> Manager. The first five are based on four squares laid
+    out in a geometric "window-like" pattern. The sixth and the eighth were
+    were inspired by the idea of overlapping windows in FVWM. Finally, there
+    is also a feline logo (the seventh one). 
+  </p>
+  <p>
+    The logos below all exist in vector format and I plan to put
+    corresponding DXF or, if possible, SVG files here soon. In addition, I
+    might put variations of the logos and some new logos on this page in the
+    next few weeks.
+  </p>
+  <p>
+    For more info see my personal <a href="http://sites.inka.de/klee/fvwm/logos">FVWM Logo Page</a>.
+  </p>
+  <p>
+    <img src="logos.png" width="543" height="745" border="0" alt="Logo">
+  </p>	
+    
 <?php decoration_window_end(); ?>
 
 <p>Return to <a href="<?php echo conv_link_target('../../logos_new.php');?>">index</a>.</p>

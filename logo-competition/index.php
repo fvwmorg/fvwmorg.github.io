@@ -67,8 +67,8 @@ to see them on another background.
 <table cellpadding="10" cellspacing="0" border="0"
 	width="100%" frame="void" rules="none" summary="">
 <tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>" class="nohilight"><img src="logos_new_overview.png" border="0"></a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>" class="nohilight"><img src="logos_old_overview.png" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>" class="nohilight"><img src="logos_new_overview.png" width="204" height="144" border="0" alt="New logos"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>" class="nohilight"><img src="logos_old_overview.png" width="204" height="144" border="0" alt="Old logos"></a></td>
 </tr>
 <tr>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>">View New Logos</a></td>
