@@ -20,8 +20,8 @@ include($rel_path."/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition - Daniel J Parks logos";
-$heading        = "FVWM - Logo Competition - Daniel J Parks logos";
+$title          = "FVWM - Logo Competition - t'mo logos";
+$heading        = "FVWM - Logo Competition - t'mo logos";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
@@ -41,13 +41,18 @@ if (strlen($site_has_been_loaded) == 0) {
 if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
-<?php decoration_window_start("By Daniel J Parks", "100%", ""); ?>
+<?php decoration_window_start("By t'mo", "100%", ""); ?>
 
 <?php 
 // From: Daniel J Parks <dnsparks@juno.com> 
 // Date: Sun, 10 Aug 2003 00:26:26 -0400
 // To: fvwm-logo@lists.sourceforge.net
 // Subject: [FVWM-LOGO] logo submissions...
+
+// If you need to contact me, please reply to either this address or my
+// alternate address, tapostrophemo@yahoo.com . However, when adding my
+// entries to the logo competition site, please use my online pseudonym -
+// "t'mo". Thank you.
 ?>
 <p><img src="fvwmLogoCatHoriz.png"></p>
 <p><img src="fvwmLogoGlowingChromelike.png"></p>

@@ -454,7 +454,7 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Daniel J Parks (6 images)", "", "", 0); ?>
+<?php decoration_window_start("By t'mo (6 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Daniel_J_Parks/index.php'); ?>">
 
