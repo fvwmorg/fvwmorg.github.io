@@ -1,3 +1,8 @@
+2003-04-23  Uwe Pross  <uwe.pross@gmx.net>
+
+	* layout_default.inc: 
+	changed colors a bit. added new css class for non hover links.
+
 2003-04-23  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.php:

@@ -357,12 +357,7 @@ function decoration_title_bar($string="") {
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").'); ">';
-    /* uwp: Why is the "./" before $requested_file neccessary? */
-    /* migo: like ChangeLog says, to support FVWM::Module.php in all browsers */
-    /* uwp: I see, so it might be not that good having file names containig : on web trees */
-    /* migo: I would like not to change it. Like the real man pages: man IO::Socket::INET */
-    /* uwp: No problem :-) */
-    echo '<a href="./'.$requested_file.'?layout=plain">';
+    echo '<a href="./'.$requested_file.'?layout=plain" class="nohilight">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></a></td>';
 
     echo '</tr>'."\n";
@@ -540,7 +535,7 @@ function insert_pager_page($site, $do_hilight=1) {
   }
 
   echo '<td '.$td_opt.'>';
-  echo '<a href="'.$target.'">';
+  echo '<a href="'.$target.'" class="nohilight">';
   echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
   echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
@@ -567,7 +562,7 @@ function insert_pager_desk($site, $pages_per_desk=4) {
     $desk_name = substr($desk_name, 0, $max_desk_name_len-1);
   echo '<tr>'."\n";
   echo '<td '.$td_opt.' colspan="2">';
-  echo '<a href="'.$target.'" style="font-weight:normal; font-family:monospace; ">';
+  echo '<a href="'.$target.'" style="font-weight:normal; font-family:monospace;" class="nohilight">';
   echo '<font size="2" color="'.$fg.'">&nbsp; '.$desk_name.'&nbsp; </font></a>';
   echo '</td>'."\n";
   echo '</tr>'."\n";
@@ -764,8 +759,8 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
           $target = conv_link_target($rel_path.'/'.$nav_array["$jump"]["file"]);
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
-          echo '<a href="'.$target.'">';
           echo '<img src="'.$rel_path.'/pictures/item_dot_blue.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
+          echo '<a href="'.$target.'">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $nav_array["$jump"]["link_name"];
           echo '</a>';
@@ -780,8 +775,8 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
           }
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap">';
-          echo '<a href="'.$jump[1].'">';
           echo '<img src="'.$rel_path.'/pictures/item_dot_blue.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
+          echo '<a href="'.$jump[1].'">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $jump[0];
           echo '</a>';
@@ -843,11 +838,14 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
        a:link, a:visited, a:active, a:hover {
        text-decoration:none;
        font-weight:bold;
-       color:#41a1ee;
+       color:#fafa77;
        }
-       a:hover {
-       background-color:#41a1ee;
-       color:#ffffff;
+       a:focus, a:hover {
+       background-color:#eaea67;
+       color:#000000;
+       }
+       a.nohilight:hover, a.nohilight:focus {
+       background-color:transparent;
        }
        h2, h3, h4, h5 {
        color:#41a1ee;
@@ -891,7 +889,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
        /* background:#112266; */
        padding:5pt;
        }
-.bottominfo {
+       .bottominfo {
        text-align:right;
        margin-right:5pt;
        margin-top:0pt;
