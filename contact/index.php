@@ -92,25 +92,13 @@ decoration_window_start("Mailing lists");
   </p>
 
   <p>
-    <table cellpadding="0" cellspacing="0" border="0">    
-      <form method="GET"  action="http://www.google.de/search" name="f">
-	<tr>
-	  <td colspan="0" rowspan="0"><b>Search the mail archiv with Google: </b></td>
-          <td>&nbsp;</td>
-	  <td colspan="0" rowspan="0"><input type="text" value="" name="as_q" size="30"> </td>
-      	  <input type="hidden" value="http://www.hpc.uh.edu" name="as_sitesearch">
-<!--	  <td colspan="0" rowspan="0"><select name="as_qdr">-->
-<!--	  				<option value="all">all mails</option>-->
-<!--			  		<option value="m3">last 3 months</option>-->
-<!--	  				<option value="m6">last 6 months</option>-->
-<!--	  				<option value="y">last years</option>-->
-<!--				      </select> </td>-->
-          <td>&nbsp;</td>
-       	  <td colspan="0" rowspan="0"><input type="submit" name="btnG" value="Fvwm Search"></td>
-       	</tr>
-      </form>
-    </table>
-  </p>
+  <form method="GET" action="http://www.google.com/search">
+  <b>Search the mail archive with Google: </b>
+    <input type="text" value="" name="q" size="30">
+    <input type="hidden" name="num" value="100">
+    <input type="hidden" name="as_q" value="site:www.hpc.uh.edu inurl:/fvwm/archive inurl:html -inurl:index -inurl:threads">
+    <input type="submit" name="btnG" value="Search Archives">
+  </form>
   
   <h4>IRC Channels</h4>
 

@@ -1,3 +1,9 @@
+2004-02-20  Mikhael Goikhman  <migo@homemail.com>
+
+	* contact/index.php:
+	replace Google search form: no table needed, don't use German Google,
+	exclude index and threads pages from results, 100 results per page
+
 2004-02-20  Uwe Pross   <keinFruehstuecksfleisch@gmx.net>
 
 	* contact/index.php: 
