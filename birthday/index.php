@@ -12,7 +12,7 @@ if (strlen($rel_path) == 0) $rel_path = "./..";
 // load some global definitions
 //--------------------------------------------------------------------
 $theme = "birthday";
-include("$rel_path/definitions.inc");
+if (strlen("$navigation_check") == 0) include("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions

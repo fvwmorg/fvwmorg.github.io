@@ -15,7 +15,7 @@ ob_start();
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path."/definitions.inc");
+if (strlen("$navigation_check") == 0) include($rel_path."/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions

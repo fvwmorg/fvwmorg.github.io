@@ -1,5 +1,10 @@
 2003-07-10  Uwe Pross  <uwe.pross@gmx.net>
 
+	* navgen.cli:
+	* *.php:
+	fixed problem with loading definitions.inc when using command line
+	interface. reduced debugging info of navgen.
+	
 	* documentation/dev_webpage/index.php: 
 	started documentation of web site. contents are hidden at the
 	moment and visible with <url>?show=1

@@ -7,7 +7,7 @@ include('definitions.inc');
 
 function info_output($sting, $level = 1) {
     global $info_level;
-    if( ! isset($info_level) ) $info_level = 4;
+    if( ! isset($info_level) ) $info_level = 1;
     if( $level <= $info_level ) {
         echo $sting;
     }
