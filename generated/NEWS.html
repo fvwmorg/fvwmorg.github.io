@@ -10,7 +10,112 @@
 </center>
 <pre>
 
+Changes in beta release 2.3.10
+
+* New commands DefaultColorset and HilightColorset.
+
+* FvwmBacker is now page-aware, a new configuration syntax.
+
+* New styles TitleAtBottom and TitleAtTop.
+
+* FvwmIconMan, FvwmTaskBar and FvwmWinList support animatation via
+  FvwmAnimate.
+
+* New command StrokeFunc to handle mouse stroke.
+
+* The default root cursor, unless specified otherwise, is now left pointer.
+
+* New command BusyCursor to control a busy cursor during execution of
+  certain commands.
+
+* CursorStyle can set the root cursor and use X11 cursor name.
+
+* New command EscapeFunc to configure an aborting key sequence
+  (default is Ctrl-Alt-Escape).
+
+* New command HideGeometryWindow to hide the size/position when moving or
+  resizing windows.
+
+* New options for the WindowList command: UseListSkip and OnlySkipList.
+
+* New FvwmPager options SolidSeparators and NoSeparators.
+
+Changes in beta release 2.3.9 (October 1999)
+
+* Color names from colorsets can be used in fvwm command ($[fg.cs&lt;n&gt;],
+  $[bg.cs&lt;n&gt;], $[hilite.cs&lt;n&gt;] and $[shadow.cs&lt;n&gt;]).
+
+* FvwmScript supports colorsets.
+
+* FvwmTaskBar supports colorsets with the options Colorset, IconColorset and
+  TipsColorset.
+
+* New function variable $v.
+
+* Menus can use colorsets with the new MenuStyle options MenuColorset,
+  ActiveColorset and GreyedColorset.
+
+Changes in beta release 2.3.8 (September 1999)
+
+* New Style options ResizeOpaque and ResizeOutline.
+
+* A long-awaited new default FvwmBanner logo.
+
+* RaiseTransient no longer flips main above/below already raised transients.
+  New style FlipTransient turns flipping back on, and additionally does a
+  similar job for LowerTransient at the bottom of the layer.
+  New style StackTransientParent augments Raise/LowerTransient.
+
+* Icons have been removed from the fvwm package and are available at
+  the fvwm web site.  (Temporarily only at "xxx.fvwm.org" instead of
+  "www.fvwm.org".)
+
+* New command BugOpts allows to enable various former bug fixing compile
+  time options to be changed at run time.
+
+* FvwmWharf and FvwmBacker support colorsets.
+
+* A new special fvwm function StartFunction is introduced. It is supposed to
+  be used to start modules and for other start commands. This function is
+  executed before InitFunction and RestartFunction and anyone can take out
+  a common part for both of these functions in favor of StartFunction.
+
 Changes in beta release 2.3.7 (August 1999)
+
+* FvwmButtons and FvwmIconBox support colorsets.
+
+* The old Panels feature of FvwmButtons has been removed. A
+  re-implementation has been written.
+
+* The *FvwmButtonsButtonGeometry option makes sizing the
+  individual buttons very easy.
+
+* FvwmAnimate accepts "animate" commands from other modules or
+  other sources of commands thru "sendtomodule".
+
+* More menu Shortcut keys: Tab moves down, Shift Tab moves up,
+  Space executes.  You can now reasonably operate the built-in
+  windowlist with one hand.
+
+* Six new color gradients can be used in TitleStyle, BorderStyle,
+  ButtonStyle and MenuStyle commands (BGradient, DGradient,
+  SGradient, CGradient, RGradient and YGradient).
+
+* MoveSmoothness command allows to tune smoothness of window
+  moves. Use lower values on fast machines, higher values on
+  slow machines.
+
+* Subwindows can have a private colormap too.
+
+* FvwmButtons uses variables in actions and when swallowing
+  applications ($left, $right, $top, $bottom, $width, $height,
+  $fg, $bg). See man page for details.
+
+* New menu generating scripts fvwm-menu-directory,
+  fvwm-menu-desktop and fvwm-menu-xlock (was BuildXLockMenu).
+  There are man pages and --help option for all fvwm-menu scripts.
+
+* Geometry (-g) command line option to FvwmButtons.
 
 * *FvwmPagerSloppyFocus option: To focus a window, simply move the
   pointer over the window's mini window in the pager.
@@ -19,19 +124,20 @@ Changes in beta release 2.3.6 (August 1999)
 
 * New function variables $c, $r, $n.
 
-* The new commands QuitSession, SaveSession, SaveQuitSession allow to
-  manage the session from the window manager.
+* The new commands QuitSession, SaveSession, SaveQuitSession allow
+  to manage the session from the window manager.
 
 * If you use xsm session manager, which has buggy discard command
   implementation, set environment $SESSION_MANAGER_NAME to "xsm".
-  If you use another SM, unset this variable or set to something else.
+  If you use another SM, unset this variable or set to something
+  else.
 
-* New module FvwmTheme for creating Colorsets that can be shared with
-  fvwm2 and other modules when they have been modified.
+* New module FvwmTheme for creating Colorsets that can be shared
+  with fvwm and other modules when they have been modified.
 
-* If you never define an iconbox, or you fill all the iconboxes, fvwm2
-  has a default icon box that covers the screen, it filled top to bottom,
-  then left to right, and has an 80x80 pixel grid.
+* If you never define an iconbox, or you fill all the iconboxes,
+  fvwm has a default icon box that covers the screen, it filled
+  top to bottom, then left to right, and has an 80x80 pixel grid.
 
 * The new styles LowerTransient and DontLowerTransient allow to control if the
   transients of a window are lowered when the window itself is lowered
@@ -78,7 +184,7 @@ Changes in alpha release 2.3.5 (July 1999)
 
 Changes in alpha release 2.3.4 (June 1999)
 
-* Fvwm2 is GNOME compliant.
+* Fvwm is GNOME compliant.
 
 * Dynamic menus enhancement: The special menu item name 'MissingSubmenuFunc'
   alows to create submenus on the fly. See manpage on 'AddToMenu' for details.
@@ -129,7 +235,7 @@ Changes in alpha release 2.3.3 (June 1999)
 Changes in alpha release 2.3.2 (May 1999)
 
 * The Meta-Tab binding to invoke the window list as described in the FAQ
-  is  now built-in.  You can  remove it as  described in the fvwm2 man page.
+  is  now built-in.  You can  remove it as  described in the fvwm man page.
 
 * The MoveThreshold command lets the user fine tune the threshold when a click
   becomes a move. It works in FvwmPager too.
@@ -238,7 +344,7 @@ Changes in alpha release 2.3.0 (February 1999)
   fvwm keeps windows in. You can now see the order that Next/Prev will take,
   Prev goes down the list, Next goes up (from the bottom).
 
-* WindowID command now takes conditions like Current
+* WindowID command now takes conditions like Current.
 
 * Improved cursor support: CursorStyle now supports changing
   cursor colors and creating cursors from xpm files.
@@ -269,7 +375,7 @@ Changes in alpha release 2.3.0 (February 1999)
 * New utility xselection which can be used with PipeRead to feed the
   content of the X Selection as commands to fvwm.
 
-* Fvwm2 can now "take over" from a running (ICCCM 2 compliant) wm.
+* Fvwm can now "take over" from a running (ICCCM 2 compliant) wm.
 
 * FvwmPager can now handle pixmaps as desk backgrounds.
 
@@ -440,7 +546,7 @@ Changes in alpha release 2.1.0 (October 1998)
 * FvwmCpp and FvwmM4 no longer define FVWMDIR variable; instead they
   define FVWM_MODULEDIR and FVWM_CONFIGDIR
 * FvwmAnimate added.
-* Starting with this release, fvwm2 is in a public CVS tree.
+* Starting with this release, fvwm is in a public CVS tree.
 
 Changes in alpha release 2.1-pre-beta AKA 2.0.47
 
@@ -501,7 +607,7 @@ Changes in alpha release 2.1-pre-beta AKA 2.0.47
 	    M_LOCKONSEND flag (from Afterstep).
 	34. Modules can now be interactively configured with the M_SENDCONFIG
 	    flag.
-	35. Dominik Vogt &lt;dominik_vogt@hp.com&gt; is temporarily the new
+	35. Dominik Vogt &lt;dominik.vogt@fvwm.org&gt; is temporarily the new
 	    maintainer.
 	36. Added menu positioning patch and lots of bugfixes in the menu code.
 	37. Improved FvwmButtons to recognize button geometries and did some
@@ -947,7 +1053,7 @@ them to the fvwm mailing list.
        1. Fixed FvwmPager to die without causing X server to eat CPU if
           running under FvwmButtons &amp; FvwmButtons dies or is killed
        2. Went to new M.I.P version number system in preparation for first
-          official release (which will be 2.1.0 - until then fvwm2 is still
+          official release (which will be 2.1.0 - until then fvwm is still
           pre-official release)
        3. Small fix to makefile for FvwmConfig
        4. More [icon_]name == NULL checks/fixes
@@ -1241,7 +1347,7 @@ pl1 to pl2
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Tue Aug 10 08:46:11 EDT 1999 -->
+     on Fri Nov 26 12:24:06 EST 1999 -->
   </body>
 </html>
 
