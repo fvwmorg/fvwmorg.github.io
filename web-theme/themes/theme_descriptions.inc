@@ -57,7 +57,11 @@ $this->theme_descriptions = array(
             "type"    => "file",
             "value"   => "@REL_PATH@/pictures/backgrounds/default_small.jpg",
             "alt"     => array(
-                "Swirl" => "@REL_PATH@/pictures/backgrounds/default_small.jpg",
+                "Swirl"  => "@REL_PATH@/pictures/backgrounds/default_small.jpg",
+                "Paper"  => "@REL_PATH@/pictures/backgrounds/paper01.jpg",
+                "Clouds" => "@REL_PATH@/pictures/backgrounds/clouds01.jpg",
+                "Stars"  => "@REL_PATH@/pictures/backgrounds/stars01.jpg",
+		"None"   => "none"
                  ),
             "name"    => "Background Image",
             ),
