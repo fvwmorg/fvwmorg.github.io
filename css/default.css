@@ -77,9 +77,11 @@ pre.cvs, pre.doc {
 	background: #404040; 
 	padding: 5pt;
 	color: #ffff99;
-	white-space:normal;
 	/* background: #112266; */
 	padding: 10pt;
+}
+pre.cvs {
+	white-space:normal;
 }
 .bottominfo {
 	text-align: right;
