@@ -53,10 +53,11 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
+<td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
-<td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
-<td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.33" style="font-weight:normal;">&nbsp;2.3.33&nbsp;</a></td>
 <td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
 <td><a href="#2.3.31" style="font-weight:normal;">&nbsp;2.3.31&nbsp;</a></td>
-<td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
 <td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
 <td><a href="#2.3.28" style="font-weight:normal;">&nbsp;2.3.28&nbsp;</a></td>
 <td><a href="#2.3.27" style="font-weight:normal;">&nbsp;2.3.27&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.24" style="font-weight:normal;">&nbsp;2.3.24&nbsp;</a></td>
 <td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
 <td><a href="#2.3.22" style="font-weight:normal;">&nbsp;2.3.22&nbsp;</a></td>
-<td><a href="#2.3.21" style="font-weight:normal;">&nbsp;2.3.21&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.21" style="font-weight:normal;">&nbsp;2.3.21&nbsp;</a></td>
 <td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
 <td><a href="#2.3.19" style="font-weight:normal;">&nbsp;2.3.19&nbsp;</a></td>
 <td><a href="#2.3.18" style="font-weight:normal;">&nbsp;2.3.18&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.15" style="font-weight:normal;">&nbsp;2.3.15&nbsp;</a></td>
 <td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
 <td><a href="#2.3.13" style="font-weight:normal;">&nbsp;2.3.13&nbsp;</a></td>
-<td><a href="#2.3.12" style="font-weight:normal;">&nbsp;2.3.12&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.12" style="font-weight:normal;">&nbsp;2.3.12&nbsp;</a></td>
 <td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
 <td><a href="#2.3.10" style="font-weight:normal;">&nbsp;2.3.10&nbsp;</a></td>
 <td><a href="#2.3.9" style="font-weight:normal;">&nbsp;2.3.9&nbsp;</a></td>
@@ -109,9 +110,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.6" style="font-weight:normal;">&nbsp;2.3.6&nbsp;</a></td>
 <td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
 <td><a href="#2.3.4" style="font-weight:normal;">&nbsp;2.3.4&nbsp;</a></td>
-<td><a href="#2.3.3" style="font-weight:normal;">&nbsp;2.3.3&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.3" style="font-weight:normal;">&nbsp;2.3.3&nbsp;</a></td>
 <td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
 <td><a href="#2.3.1" style="font-weight:normal;">&nbsp;2.3.1&nbsp;</a></td>
 <td><a href="#2.3.0" style="font-weight:normal;">&nbsp;2.3.0&nbsp;</a></td>
@@ -120,6 +121,8 @@ decoration_window_start("Latest News");
 <td><a href="#2.2.3" style="font-weight:normal;">&nbsp;2.2.3&nbsp;</a></td>
 <td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
 <td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
+</tr>
+<tr>
 <td><a href="#" style="font-weight:normal;">&nbsp;&nbsp;</a></td>
 </tr>
 </table>
@@ -328,6 +331,35 @@ decoration_window_start("Latest News");
   <li> New command line option -passid to FvwmAuto.</li>
   <li> New conditional commands Any and PointerWindow.</li>
   <li> New conditions Focused, !Focused, HasPointer and !HasPointer.</li>
+</ul>
+
+
+<a name="2.4.16"></a>
+<h4>Changes in stable release 2.4.16 (30-May-2003) <a href="#top">[top]</a></h4>
+<ul>
+  <li> Fixed a transparency problem in FvwmButtons.</li>
+  <li> The PageOnly option in FvwmTaskBar now works after a desk change  too.</li>
+  <li> Fixed a possible core dump when more than 256 windows are on  the desktop.</li>
+  <li> Initial drawing and final undrawing of wire frame no longer  toggles the pixel in the top left corner of the screen.</li>
+  <li> Fixed parsing of button geometries in FvwmButtons when the  geometry specificaiton appeared after another option with a comma  at the end.</li>
+  <li> FvwmCommand works too when invoked without the DISPLAY variable  set.</li>
+  <li> Fixed displaying iconified windows without an icon in  FvwmIconMan.</li>
+  <li> All single letter variables are deprecated now; new variables:    $[w.id], $[w.name], $[w.iconname], $[w.class], $[w.resource],    $[desk.n], $[version.num], $[version.info], $[version.line],    $[desk.pagesx], $[desk.pagesy]</li>
+  <li> Fixed a bug with aspect pixmaps in colorsets.</li>
+  <li> Iconified windows without an icon do not receive focus.</li>
+  <li> Fixed a bug in FvwmPager that displayed iconified windows without  icon title or picture as not iconified.</li>
+  <li> Fixed parsing of '@&lt;screen&gt;' Xinerama specification in the  ButtonGeometry option of FvwmButtons.</li>
+  <li> The NoWarp menu position hint option works with root menus too.</li>
+  <li> Fixed a problem with styles not being properly applied after a  DestroyStyle command.</li>
+  <li> Fixed a bug introduced in 2.4.14. The pointer was sometimes  warped to another screen during a restart and command execution.</li>
+  <li> Fixed a crash when a window was destroyed twice in a complex  function.</li>
+  <li> Fixed corruption of the window list when windows died at the  wrong time.</li>
+  <li> Fixed problem with empty frame windows if X recycled the window  id of a window that died recently.</li>
+  <li> Fixed loading of application supplied pixmap on 8/24 depth screen.</li>
+  <li> WindowListFunc is executed now within a window context, so  a prefix &quot;WindowId $0&quot; is not needed in its definition anymore  and it is advised to remove it in user configs.</li>
+  <li> FvwmEvent now executes all window related events within a window  context, so PassId is not needed anymore, and all prefixes  &quot;WindowId $0&quot; may be removed in user event handlers.</li>
+  <li> Fixed &quot;GotoDeskAndPage prev&quot; on desks larger than 2x2.</li>
+  <li> Expansion of variables like $[w.name] or $[EMPTY_STRING] that are  empty works.</li>
 </ul>
 
 
