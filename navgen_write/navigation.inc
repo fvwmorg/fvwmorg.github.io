@@ -121,9 +121,9 @@ $faq["link_pic"]     = "pictures/icons/doc_faq";
 $faq["parent_site"]  = "documentation";
 $faq["child_sites"]  = array();
 
-$manpages["file"]         = "documentation/manpages.php";
-$manpages["rel_path"]     = "./..";
-$manpages["link_name"]    = "Man Pages";
+$manpages["file"]         = "documentation/manpages/index.php";
+$manpages["rel_path"]     = "./../..";
+$manpages["link_name"]    = "Man pages";
 $manpages["link_chapter"] = "";
 $manpages["link_pic"]     = "pictures/icons/doc_manpages";
 $manpages["parent_site"]  = "documentation";
@@ -139,7 +139,7 @@ $dev_cvs["child_sites"]  = array();
 
 $dev_modules["file"]         = "documentation/dev_modules.php";
 $dev_modules["rel_path"]     = "./..";
-$dev_modules["link_name"]    = "Developer Info";
+$dev_modules["link_name"]    = "Module Interface";
 $dev_modules["link_chapter"] = "";
 $dev_modules["link_pic"]     = "pictures/icons/doc_developers";
 $dev_modules["parent_site"]  = "developers";

@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <09.04.2003 11:05:09 uwp>
+//-  Last modified : <09.04.2003 11:18:59 uwp>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -75,11 +75,10 @@ and support is excellent.  Check it out!
 		"download",
 		"features",
 		"faq",
-		"screenshots",
 		"manpages",
-		"example_menus",
-		"example_vectorbuttons",
-		"example_pixmapbuttons",
+		"desktops",
+		"menus",
+		"windowdecors",
 		"icons",
 		"mailing_lists",
 		"mail_archive",

@@ -1,12 +1,16 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : documentation/manpages.php
+//-  File          : documentation/manpages/manpages_toc_template.php_
 //-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <27.03.2003 21:46:23 uwe>
+//-  Last modified : <09.04.2003 19:31:13 uwe>
 //--------------------------------------------------------------------
 
-if (strlen($rel_path) == 0) $rel_path = "./..";
+// this is a template file for the table of contents of the manual 
+// pages. 
+// It is used to generate the file documentation/manpages/index.php
+
+if (strlen($rel_path) == 0) $rel_path = "../..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -16,17 +20,17 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Man Pages";
-$heading        = "FVWM - Man Pages";
-$link_name      = "Man Pages";
+$title          = "FVWM - Manual pages";
+$heading        = "FVWM - Manual pages";
+$link_name      = "Man pages";
 $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php", "", "$requested_file");
+$this_site      = "manpages";
 
 //--------------------------------------------------------------------
-// check if we should stop here
+// check if we should stop here in case of a navgen run
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -44,5 +48,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 ?>
 
--- site contents go here --
+<?php decoration_window_start("List of manual pages"); ?>  
 
+<a href="fvwm.php">fvwm</a>
+
+<?php decoration_window_end(); ?>
