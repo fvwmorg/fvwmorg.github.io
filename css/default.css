@@ -73,7 +73,11 @@ p.cmdline {
 	background: #404040; padding: 5pt;
 }
 pre.cvs, pre.doc {
+	border: solid; border-width: thin; border-color: black;
+	background: #404040; 
+	padding: 5pt;
 	color: #ffff99;
+	white-space:normal;
 	/* background: #112266; */
 	padding: 10pt;
 }

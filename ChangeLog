@@ -1,5 +1,9 @@
 2003-05-05  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
+	* css/default.css:
+	added linebreaks and changed background color for pre.cvs pre.doc
+	tags.
+
 	* documentation/faq/index.php: 
 	new generated from current cvs version
 
