@@ -43,17 +43,17 @@ decoration_window_start("FVWM Documentation");
 ?>
 
   <center>
-    <table cellpadding="10" cellspacing="0" border="0" 
+    <table align=center cellpadding="10" cellspacing="0" border="0" 
 	   width="90%" frame="void" rules="none" summary="">
       <tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>"><img src="documentation_faq_overview.jpg" border="0"></a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>"><img src="documentation_manpages_overview.jpg" border="0"></a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>"><img src="documentation_developers_overview.jpg" border="0"></a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>"><img src="documentation_faq_overview.jpg" border="0"></a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>"><img src="documentation_manpages_overview.jpg" border="0"></a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>"><img src="documentation_developers_overview.jpg" border="0"></a></td>
       </tr>
       <tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>">Frequently Asked Questions</a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>">Manual Pages</a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>">Developer Information</a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>">Frequently Asked Questions</a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>">Manual Pages</a></td>
+	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>">Developer Information</a></td>
       </tr>
     </table>
   </center>

@@ -58,7 +58,10 @@ class Plain_Theme extends Base_Theme {
         }
     }
 
-    function decoration_window_start($string="", $width="", $height="", $padding="") {}
+    function decoration_window_start($string="", $width="", $height="", $padding="")
+    {
+        echo "<h3>$string</h3>";
+    }
 
     function decoration_window_end() {}
 

@@ -1,3 +1,14 @@
+2003-06-04  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/index.php:
+	use width for columns so they are properly centered in some browsers
+
+	* web-theme/classes/default_class.inc:
+	make quick list be centered in all browsers
+
+	* web-theme/classes/plain_class.inc:
+	print title names in plain theme (were ignored)
+
 2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
 
 	* web-theme/themes/theme_descriptions.inc: 

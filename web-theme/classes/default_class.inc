@@ -532,24 +532,26 @@ class Default_Theme extends Base_Theme {
             }
         }
 
+        $is_special = 1;
+        if ($col_num < 0) {
+            $col_num *= -1;
+            $is_special = 0;
+        }
         $cell_width = floor(100/$col_num);
 
         reset($quick_jump_array);
         $count = count($quick_jump_array);
-        // uwp: I am not sure if I added the align="center" attribute.
-        //      I don't like it that much since it is not strict html.
-        //      If somebody else did it and like it please uncomment it.
-        // migo: I like it centered. :)
-        echo '<table align="center" ';
-        //echo '<table ';
+        echo '<center><table align="center" ';
         if (strlen($width) > 0) echo 'width="'.$width.'" ';
         echo 'border="0" cellpadding="5" cellspacing="0" summary="" style="padding-left:10%; ">'."\n";
         for($ii=0; $ii<ceil($count/$col_num); $ii++) {
             echo "<tr>\n";
             for($jj=0; $jj<$col_num; $jj++) {
                 $real_cell_width = $cell_width;
-                if ($jj == 0) $real_cell_width += 25;
-                if ($jj == $col_num - 1) $real_cell_width -= 25;
+                if ($is_special) {
+                    if ($jj == 0) $real_cell_width += 25;
+                    if ($jj == $col_num - 1) $real_cell_width -= 25;
+                }
 
                 if( list($key, $jump) = each($quick_jump_array) ) {
                     if( ! is_array($jump) ) {
@@ -588,7 +590,7 @@ class Default_Theme extends Base_Theme {
             }
             echo "</tr>\n";
         }
-        echo "</table>\n";
+        echo "</table></center>\n";
     }
 
     function insert_css_definitions() {
