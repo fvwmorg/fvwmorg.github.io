@@ -1,3 +1,15 @@
+1999-12-07  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html: removed html tag 'MULTICOL' screwing the layout,
+	added missing '</blockquote>', some rewording
+	* cvs.html: removed "-b -B" option advise from "cvs diff"
+	* vector-buttons/DecorDemo2.{fvwmrc,gif}:
+	improved diagonal-arrow buttons, changed order of buttons
+	* vector-buttons/testbed.fvwmrc:
+	Added missing 'Read'; commented out 'Mouse' lines (these global
+	binding changes are superfluous); added 'MWMBorder, HandleWidth 10'
+	to demo style.
+
 1999-11-30  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* download.html:
@@ -17,7 +29,7 @@
 
 	* screenshots/screenshot.html: fixed reference to background (../).
 
-1999-11-13  olicha   <olivier.chapuis@free.fr>
+1999-11-13  olicha  <olivier.chapuis@free.fr>
 
 	* mod_m2f_communication.html: Updated the "Synchronous vs.
 	Asynchronous Operation" section.

@@ -1,5 +1,6 @@
 #  Modification History
 
+#  Some corrections on 08/Dec/1999 by Mikhael Goikhman (migo).
 #  Created on 11/21/99 by Dan Espen (dane):
 #  - With help from Dominik.
 
@@ -9,12 +10,16 @@
 #   The following assumes you have a "vb" link in your home directory
 #   to the "fvwm-web/vector-buttons" directory.
 # - Bring up FvwmTalk or something like that and do:
-#     Read vb/testbed.fvwmrc
-#     vb/DecorDemoN.fvwmrc
+#
+#       Read vb/testbed.fvwmrc
+#       Read vb/DecorDemoN.fvwmrc
+#
 #   (N is the decor number you want to use)
 #   create an xv window using a button decor:
-#     button_demo
-#   Then type "Ctl-G" (grab), hit return, and select the xv window.
+#
+#       button_demo
+#
+#   Then type "Ctrl-G" (grab), hit return, and select the xv window.
 #   Then type "n" (Image size Normal).
 #   Then save the image.
 #   
@@ -26,12 +31,12 @@
 #   It might be nice to put something under the title bar though.
 #
 #   Each time you do a read on a decor it changes all your title bars so
-#   be sure to grab the image right after you do the "button"demo".
+#   be sure to grab the image right after you do the "button_demo".
 
 DestroyFunc button_demo
 AddToFunc   button_demo
 + I 10_buttons
-+ I Style "button_demo_style*" UseDecor DecorDemo
++ I Style "button_demo_style*" UseDecor DecorDemo, MWMBorder, HandleWidth 10
 # Setting the height to either zero or 1 seemed to have the same effect.
 + I Exec xv -name button_demo_style -geometry 300x1
 
@@ -44,13 +49,13 @@ AddToFunc   10_buttons
 + I Style "button_demo_style*" Button 1, Button 2, Button 3
 + I Style "button_demo_style*" Button 4, Button 5, Button 6
 + I Style "button_demo_style*" Button 7, Button 8, Button 9, Button 10
-+ I Mouse 0   1 A     "Iconify"
-+ I Mouse 0   3 A     Nop
-+ I Mouse 0   5 A     Nop
-+ I Mouse 0   7 A     Nop
-+ I Mouse 0   9 A     Nop
-+ I Mouse 0   2 A     Nop
-+ I Mouse 0   4 A     Nop
-+ I Mouse 0   6 A     Nop
-+ I Mouse 0   8 A     Nop
-+ I Mouse 0   0 A     Nop
+#+ I Mouse 0   1 A     "Iconify"
+#+ I Mouse 0   3 A     Nop
+#+ I Mouse 0   5 A     Nop
+#+ I Mouse 0   7 A     Nop
+#+ I Mouse 0   9 A     Nop
+#+ I Mouse 0   2 A     Nop
+#+ I Mouse 0   4 A     Nop
+#+ I Mouse 0   6 A     Nop
+#+ I Mouse 0   8 A     Nop
+#+ I Mouse 0   0 A     Nop
