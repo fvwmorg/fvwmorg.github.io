@@ -1,3 +1,14 @@
+2003-04-23  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.php:
+	* fvwm-logo.gif:
+	added a FvwmBanner like logo
+
+	* layout_default.inc:
+	* layout_plain.inc:
+	* pictures/item_dot.gif:
+	center the jump list and use an item icon in it
+
 2003-04-22  Uwe Pross  <uwe.pross@mx.net>
 
 	* download/index.php: 

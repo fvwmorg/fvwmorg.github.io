@@ -263,7 +263,7 @@ function decoration_window_end() {
 //--------------------------------------------------------------------
 // interface function to insert valid links to sub pages
 //--------------------------------------------------------------------
-function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
+function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
 {
   global $rel_path, $nav_array;
 
@@ -304,6 +304,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
           echo '<a href="'.$target.'">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $nav_array["$jump"]["link_name"];
           echo '</a>';
@@ -319,6 +320,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap">';
           echo '<a href="'.$jump[1].'">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $jump[0];
           echo '</a>';

@@ -722,7 +722,7 @@ function insert_navigation_path() {
 //--------------------------------------------------------------------
 // interface function to insert valid links to sub pages
 //--------------------------------------------------------------------
-function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
+function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
 {
   global $rel_path, $nav_array;
 
@@ -745,8 +745,9 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
   // uwp: I am not sure if I added the align="center" attribute. 
   //      I don't like it that much since it is not strict html.
   //      If somebody else did it and like it please uncomment it.
-  // echo '<table align="center" ';
-  echo '<table ';
+  // migo: I like it centered. :)
+  echo '<table align="center" ';
+  //echo '<table ';
   if (strlen($width) > 0) echo 'width="'.$width.'" ';
   echo 'border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
   for($ii=0; $ii<ceil($count/$col_num); $ii++) {
@@ -763,6 +764,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
           echo '<a href="'.$target.'">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $nav_array["$jump"]["link_name"];
           echo '</a>';
@@ -778,6 +780,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap">';
           echo '<a href="'.$jump[1].'">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $jump[0];
           echo '</a>';

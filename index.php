@@ -48,6 +48,10 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
+<div align="center">
+<img src="fvwm-logo.gif" border="0" alt="[LOGO]">
+</div>
+
 <?php decoration_window_start("Welcome to FVWM"); ?>
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
