@@ -1,3 +1,15 @@
+2003-04-22  Mikhael Goikhman  <migo@homemail.com>
+
+	* layout_default.inc:
+	* layout_plain.inc:
+	temporarily don't strip index.php until we switch to new design
+
+	* logo-competition/index.php:
+	* logo-competition/logos_new_overview.png:
+	* logo-competition/logos_old_overview.png:
+	add "View" words and make the logo overview images less contrast
+	and with border, so it is more clear that these are links
+
 2003-04-21  Mikhael Goikhman  <migo@homemail.com>
 
 	* httpd/error404.php:

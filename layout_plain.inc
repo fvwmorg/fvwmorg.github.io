@@ -140,7 +140,8 @@ function conv_link_target($target) {
       $opts = $opts."&".$key."=".$setting;
     }
   }
-  $target = str_replace("index.php", "", $target);
+  // temporarily disabled until this is the only existing web design
+  //$target = str_replace("index.php", "", $target);
   return $target.$opts;
 }
 
