@@ -1,3 +1,9 @@
+2003-05-01  Bob Woodside  <dumbledore@woodsway.com>
+
+	* layout_default.inc:
+        Made the pager width a little narrower and applied the width
+        spec to the parent table cell as well.
+
 2003-05-01  Mikhael Goikhman  <migo@homemail.com>
 
 	* logo-competition/logos/VosVuur/*:
