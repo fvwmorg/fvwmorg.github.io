@@ -55,6 +55,7 @@ if(!isset($site_has_been_loaded)) {
   </ul>
 
 
+  <!-- -------------------------------------------------------------- -->
   <h2>Window Decors and Other Configuration Tips</h2>
 
     <ul>
@@ -85,9 +86,13 @@ if(!isset($site_has_been_loaded)) {
         decors that can be used with 2.4</a>.
       </li>
 
+      <li><a href="http://ayukawa.spb.ru/~fox/fvwm/">FVWM site from Andrew Dolgov</a> - 
+        Nice screenshots, window decorations, configuration files and shell scripts.</li>
+
     </ul>
 
 
+  <!-- -------------------------------------------------------------- -->
   <h2>Themes</h2>
 
   <p>You say you're into desktop themes? Then one of these sites should be your
@@ -121,6 +126,7 @@ if(!isset($site_has_been_loaded)) {
     </ul>
 
 
+  <!-- -------------------------------------------------------------- -->
   <h2>Add-ons</h2>
 
     <p>And here are some sites featuring programs that are designed
@@ -150,6 +156,7 @@ if(!isset($site_has_been_loaded)) {
     </ul>
 
 
+  <!-- -------------------------------------------------------------- -->
   <h2>Other Window Managers</h2>
 
   <p>  
@@ -194,6 +201,7 @@ if(!isset($site_has_been_loaded)) {
       <li><a href="http://www.PLiG.org/xwinman/">Window Managers for X</a><br>
     </ul>
   
+  <!-- -------------------------------------------------------------- -->
   <h2>General Resources</h2>
 
   <p>Don't forget about Newsgroups:</p>
@@ -221,6 +229,7 @@ if(!isset($site_has_been_loaded)) {
       <li><A HREF="http://tronche.com/gui/x/icccm/">Inter-Client Communication Conventions Manual</A></li>
     </ul>
 
+  <!-- -------------------------------------------------------------- -->
   <h2>Miscellaneous</h2>
 
   <p>
@@ -230,6 +239,5 @@ if(!isset($site_has_been_loaded)) {
 	freshmeat.
     </ul>
   </p>
-      
-  </ul>
+
 <?php decoration_window_end() ?>
