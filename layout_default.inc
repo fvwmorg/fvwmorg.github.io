@@ -541,7 +541,7 @@ function insert_pager_page($site, $do_hilight=1) {
 //  RBW - try this way instead...
   echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
   echo 'width="24" height="22"';
-  echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
+  echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0" style="color:#000000;"></a>';
   echo '</td>'."\n";
 
 }
