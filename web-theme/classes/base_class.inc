@@ -81,6 +81,9 @@ class Base_Theme {
                 // $this->style_array[$key] = $this->user_settings_array[$key];
             }
         }
+        if( $theme = my_get_global("theme", "GET") ) {
+            $this->user_settings_array["theme"] = $theme;
+        }
     }
 
 
