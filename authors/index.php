@@ -10,7 +10,7 @@ $rel_path = "..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if(!isset($navigation_check)) include($rel_path.'/definitions.inc'); 
+if( strlen("$navigation_check") == 0 ) include($rel_path.'/definitions.inc'); 
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -27,12 +27,12 @@ $this_site      = "authors";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if(isset($navigation_check)) return;
+if( strlen("$navigation_check") > 0 ) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if(!isset($site_has_been_loaded)) {
+if( strlen("$site_has_been_loaded") == 0 ) {
   $site_has_been_loaded = "true";
   include(sec_filename("$layout_file"));
   exit();
@@ -43,6 +43,26 @@ if(!isset($site_has_been_loaded)) {
 
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
+
+<h4 class="author">Jim C. Brown</h4>
+<p class="author">
+MailDir option in FvwmTaskBar.
+</p>
+
+<h4 class="author">Norman Yarvin</h4>
+<p class="author">
+Extend conditionals to handle multiple window names.
+</p>
+
+<h4 class="author">Funda Wang</h4>
+<p class="author">
+Chinese translations.
+</p>
+
+<h4 class="author">Rafal Bisingier</h4>
+<p class="author">
+WindowLayer and Layers options to the Maximize command.
+</p>
 
 <h4 class="author">Anton Kazennikov</h4>
 <p class="author">
@@ -66,12 +86,12 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Wrote FvwmTabs and improved Perl/Tk module support. FakeKeyPress command.
+Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: HoverIcon, HoverTitle, HoverColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker.
 </p>
 
 <h4 class="author">Francis Litterio</h4>
 <p class="author">
-Fixed building FvwmScript under cygwin.
+Fixed building FvwmScript under cygwin.  Added CenterPlacement style.
 </p>
 
 <h4 class="author">David Fries</h4>
@@ -297,6 +317,11 @@ Rework of signal handlers (fvwm, FvwmButtons, FvwmIconMan, FvwmPager and FvwmEve
 <h4 class="author">Steven M. Robbins</h4>
 <p class="author">
 Autoconf &amp; automake support, configuration &amp; portability improvements, and general code gadfly a la Paul Smith.
+</p>
+
+<h4 class="author">Chris Ross</h4>
+<p class="author">
+Addition of ReliefThickness feature to FvwmIconMan. Solaris Xinerama support.
 </p>
 
 <h4 class="author">Paul D. Smith</h4>

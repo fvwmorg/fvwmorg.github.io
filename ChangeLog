@@ -1,6 +1,16 @@
+2004-09-30  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated
+
+	* definitions.inc:
+	updated for 2.5.11
+
 2004-08-14  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* web-theme/classes/blue_class.inc: 
+	* web-theme/classes/blue_class.inc:
 	* web-theme/themes/blue_theme.inc:
 	Fixed variable access to avoid error logs.
 
@@ -9,7 +19,7 @@
 
 2004-08-12  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* links.php: 
+	* links.php:
 	Added link from Andrew Dolgov.
 
 2004-08-10  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
