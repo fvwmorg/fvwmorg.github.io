@@ -175,11 +175,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li><a href="http://www.PLiG.org/xwinman/">Window Managers for X</a><br>
       <i>Be sure to vote for FVWM in the voting section!</i> :)</li>
     </ul>
-
-  <p style="color:yellow;background-color:#222299;">
-    <b>Developers' note:</b> Should we email Matt re: the "Comparisons" section
-    that FVWM now effectively has "pinnable menus", as he defines the term?
-  </p>
   
   <h2>General Resources</h2>
 

@@ -1,3 +1,9 @@
+2003-04-24  Bob Woodside  <dumbledore@woodsway.com>
+
+	* links.php: 
+	Removed "Developers' note" line about tear-off menus and the
+        "Window Managers for X" site.
+
 2003-04-24  Mikhael Goikhman  <migo@homemail.com>
 
 	* layout_default.inc:
