@@ -536,8 +536,11 @@ function insert_pager_page($site, $do_hilight=1) {
 
   echo '<td '.$td_opt.'>';
   echo '<a href="'.$target.'" class="nohilight">';
-  $link_name = substr($nav_array["$site"]["link_name"], 0, 9);
-  echo '<img src="'.$img.'" border="0" alt="'.$link_name.'" ';
+//  $link_name = substr($nav_array["$site"]["link_name"], 0, 9);
+//  echo '<img src="'.$img.'" border="0" alt="'.$link_name.'" ';
+//  RBW - try this way instead...
+  echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
+  echo 'width="24" height="22"';
   echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
 

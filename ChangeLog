@@ -1,3 +1,9 @@
+2003-04-24  Bob Woodside  <dumbledore@woodsway.com>
+
+	* layout_default.inc: 
+	Added explicit width & height attributes to the <img> tags for
+        the pager icons. Undid the 9 char limit of the alt attribute.
+
 2003-04-24  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.php:
@@ -23,6 +29,7 @@
 	* logo-competition/rules.php:
 	updated logo competition schedule
 
+>>>>>>> 1.207
 2003-04-23  Uwe Pross  <uwe.pross@gmx.net>
 
 	* layout_default.inc:
