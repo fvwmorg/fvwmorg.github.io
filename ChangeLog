@@ -1,4 +1,11 @@
-2003-07-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-15  Uwe Pross  <uwe.pross@gmx.net>
+
+	* logo-competition/logos/Geoffroy_Giraux/: 
+	* logo-competition/logos/Annemarie_Rowson/:
+	* logo-competition/logos/Anthony_Lee/:
+	added new logos
+	
+2003-07-11  Uwe Pross  <uwe.pross@gmx.net>
 
 	* fvwm-cats/*.php: 
 	fixed links from cat page to index.php
@@ -21,7 +28,7 @@
 	changed algorithm to build a navigation desktop so that desktops
 	with more than 4 pages grow horizontaly.
 
-2003-07-08  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-08  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos_new.php:
 	* logo-competition/logos/Stephen_Ford/*:
@@ -43,7 +50,7 @@
 	* logo-competition/logos/Wolf_Bergenheim/index.php:
 	small improvements
 
-2003-07-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-02  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/Wolf_Bergenheim/index.php: 
 	added logo with white background
@@ -54,7 +61,7 @@
 	* logo-competition/logos/Wolf_Bergenheim/*: 
 	added logos
 
-2003-07-01  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-01  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos_new.php: 
 	* logo-competition/logos/Tadashi_Hikone/*: 
@@ -75,7 +82,7 @@
 	* regenerate_pages:
 	new script to regenerate 3 pages at once
 
-2003-06-12  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-12  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/Aric_Campling/index.php:
 	* logo-competition/logos_new.php:
@@ -89,7 +96,7 @@
 	* logos/Phil_Harper/fvwmpower2-overview.png:
 	added one overview logo
 
-2003-06-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-11  Uwe Pross  <uwe.pross@gmx.net>
 
 	* documentation/dev_cvs.php: 
 	Fixed Typo.
@@ -121,7 +128,7 @@
 	* logo-competition/logos/Aric_Campling/index.php: 
 	Added logos from Aric Campling.
 
-2003-06-06  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-06  Uwe Pross  <uwe.pross@gmx.net>
 
 	* index.php: 
 	Put birthday statement in past. Might be removed at all.
@@ -133,7 +140,7 @@
 	* logo-competition/logos_new.php:
 	Added logos from Stefan Bergmeier.
 	
-2003-06-04  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-04  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/Felix_E_Klee/index.php: 
 	* logo-competition/logos_new.php:
@@ -167,7 +174,7 @@
 	* logo-competition/logos/color_select.inc: 
 	Made color selection possible for other themes.
 
-2003-06-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos/color_select.inc: 
 	Disabled color selection for all themes except birthday theme.
@@ -196,7 +203,7 @@
 	* logo-competition/logos_new.php:
 	restored Coji Morishita entry
 
-2003-06-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-06-02  Uwe Pross  <uwe.pross@gmx.net>
 
 	* birthday/index.php:
 	Corrected typo.
@@ -342,7 +349,7 @@
 	* contact/index.php:
 	--> ask xmms questions on the XMMS mailing list
 
-2003-05-05  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-05-05  Uwe Pross  <uwe.pross@gmx.net>
 
 	* css/default.css:
 	added linebreaks and changed background color for pre.cvs pre.doc
@@ -685,12 +692,12 @@
 	converted stable and unstable man pages using manpages2php script,
 	more work is needed
 
-2003-04-15  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-15  Uwe Pross  <uwe.pross@gmx.net>
 
 	* **
 	removed last modified entry in the header
 
-2003-04-14  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-14  Uwe Pross  <uwe.pross@gmx.net>
 
 	* screenshots/index.php:
 	inserted table. Created pictures for different screenshot sections.
@@ -703,7 +710,7 @@
 	* links.php:
 	Some reformating.
 
-2003-04-13  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-13  Uwe Pross  <uwe.pross@gmx.net>
 
 	* layout_default.inc:
 	Changed the pager algorithm that uneccessary desks won't be shown.
@@ -726,7 +733,7 @@
 	fixed laytout passing
 	removed file latest_news.txt
 
-2003-04-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-11  Uwe Pross  <uwe.pross@gmx.net>
 
 	* navgen.cli:
 	Changed navgen.php to navgen.cli can be run through the command
@@ -739,7 +746,7 @@
 	Added alternate style sheet example to the layout
 	Checked site with tidy
 
-2003-04-10  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-10  Uwe Pross  <uwe.pross@gmx.net>
 
 	* documentation/manpages/fvwm.php:
 	Example page.
@@ -749,7 +756,7 @@
 	* logo_competition/rules.php
 	Formating changes. Added end tags.
 
-2003-04-09  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-09  Uwe Pross  <uwe.pross@gmx.net>
 
 	* layout_default.inc:
 	Added entry about last modified date. This entry is taken form the
@@ -772,7 +779,7 @@
 	* logo-competition/rules.php:
 	added new pages, currently under "News"
 
-2003-04-08  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-08  Uwe Pross  <uwe.pross@gmx.net>
 
 	* **:
 	Added author information site and cvs information site
@@ -781,7 +788,7 @@
 
 	* layout_default.inc: Add favicon to php page.
 
-2003-04-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-04-03  Uwe Pross  <uwe.pross@gmx.net>
 
 	* screenshots/index.php:
 	fixed "decor" child entry
@@ -811,7 +818,7 @@
 	* **:
 	some file name rearrangements, small fixes and consistency changes
 
-2003-03-31  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-03-31  Uwe Pross  <uwe.pross@gmx.net>
 
 	* **:
 	added new php-based site version

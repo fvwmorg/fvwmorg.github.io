@@ -350,4 +350,43 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Anthony Lee (2 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Anthony_Lee/index.php'); ?>">
+
+<p class="centered"><img src="logos/Anthony_Lee/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Annemarie Rowson (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Annemarie_Rowson/index.php'); ?>">
+
+<p class="centered"><img src="logos/Annemarie_Rowson/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Geoffroy Giraux (2 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Geoffroy_Giraux/index.php'); ?>">
+
+<p class="centered"><img src="logos/Geoffroy_Giraux/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
