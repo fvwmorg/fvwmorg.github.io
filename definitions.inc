@@ -265,15 +265,9 @@ if( strlen($theme) > 0 ) {
 }
 
 //--------------------------------------------------------------------
-//- close site for protest against software patents
+//- set the theme file variable
 //--------------------------------------------------------------------
-// if( get_user_setting("no_software_patents") || ! get_user_setting("aswp") ) {
-if( get_user_setting("no_software_patents") || 
-    preg_match('/(www.fvwm.org|tu-chemnitz.de|local)/', $_SERVER["HTTP_REFERER"]) ) {
-    $theme_file = theme_file($theme."_theme.inc");
-} else {
-    $theme_file = theme_file("against_sw_patents_statement.inc");
-}
+$theme_file = theme_file($theme."_theme.inc");
 
 // layout file - old version
 $layout_file = $theme_file;

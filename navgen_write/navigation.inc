@@ -100,7 +100,7 @@ $this->nav_array["download"]["child_sites"] = array("icons", );
 
 $this->nav_array["screenshots_desks"]["file"] = "screenshots/desktops/index.php"; 
 $this->nav_array["screenshots_desks"]["rel_path"] = "./../.."; 
-$this->nav_array["screenshots_desks"]["link_name"] = "Desktops"; 
+$this->nav_array["screenshots_desks"]["link_name"] = "Desktop Screenshots"; 
 $this->nav_array["screenshots_desks"]["link_chapter"] = ""; 
 $this->nav_array["screenshots_desks"]["link_pic"] = "pictures/icons/screenshots_desks"; 
 $this->nav_array["screenshots_desks"]["parent_site"] = "screenshots"; 

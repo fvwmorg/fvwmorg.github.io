@@ -1,3 +1,17 @@
+2003-09-28  Uwe Pross  <uwe.pross@gmx.net>
+
+	* navgen_write/navigation.inc
+	regenerated navgiation array
+		
+	* index.php: 
+	fixed link in quick jump list to desktop screenshots
+
+	* screenshots/desktops/index.php: 
+	changed link name to "Desktop Screenshots"
+
+	* definitions.inc: 
+	removed protest page against software patents.
+
 2003-09-03  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/index.php: 

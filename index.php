@@ -84,7 +84,7 @@ Due the large amount of contributed logos voting will be delayed. Please check t
                       array("Bug Reporting",
 			                "http://www.fvwm.org/cgi-bin/fvwm-bug",
 			                "fvwm_bug_reporting"),
-                      "desktops",
+                      "screenshots_desks",
 
                       "mailing_lists",
                       "menus",
