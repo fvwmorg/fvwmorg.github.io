@@ -1,3 +1,9 @@
+2003-04-25  Uwe Pross  <uwe.pross@gmx.net>
+
+	* definitions.inc: 
+	plain layout will be served if $user_agent is contains Emacs or
+	Lynx. setting can be overridden by GET variables.
+
 2003-04-24  Bob Woodside  <dumbledore@woodsway.com>
 
 	* links.php: 
@@ -21,7 +27,7 @@
 2003-04-24  Uwe Pross  <uwe.pross@gmx.net>
 
 	* layout_default.inc: 
-	Added local style property to pager images to have black forground
+	added local style property to pager images to have black forground
 	in opera if image loading is turned off.
 
 2003-04-24  Bob Woodside  <dumbledore@woodsway.com>

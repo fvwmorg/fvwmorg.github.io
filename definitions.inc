@@ -182,11 +182,21 @@ if( strlen($rel_path) == 0 ) $rel_path=".";
 $layout = my_get_global("layout", "GET");
 
 $layout_file = $rel_path."/layout_default.inc" ;
-if(strlen($layout) > 0 )
-     $layout_file = $rel_path."layout_".$layout.".inc";
 
-if( ! file_exists($layout_file) )
-     $layout_file = $rel_path."/layout_default.inc" ;
+$user_agent = my_get_global("HTTP_USER_AGENT","SERVER");
+// echo $user_agent;
+
+// we can make a decision of default layout here
+if( strlen($layout) > 0 ) {
+  $layout_file = $rel_path."layout_".$layout.".inc";
+} 
+elseif ( ereg("Emacs", $user_agent) || ereg("Lynx", $user_agent)) {
+  $layout_file = $rel_path."/layout_plain.inc" ;
+}
+
+if( ! file_exists($layout_file) ) {
+  $layout_file = $rel_path."/layout_default.inc" ;
+}
 
 $navigation_file = $rel_path."/navgen_write/navigation.inc";
 $navgen_url      = $rel_path."/navgen.php";
