@@ -4,20 +4,44 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <10.04.2003 08:59:15 uwp>
+//-  Last modified : <11.04.2003 23:00:08 uwe>
 //--------------------------------------------------------------------
+
+//--------------------------------------------------------------------
+// This is a layout defintion file for a web page project.
+// This file contains php function definitions which can be 
+// used in the php files and it provides the html frame work 
+// in which the php file is included
+// 
+// Some comments on the concept of this php framework: In same
+// directory as this file a php file called navgen.php should
+// exist. This file can be ran though the php command line
+// interface. navgen looks recursively for all *.php files and
+// creates an array stucture which describes the sturcture of the php
+// files belonging to this web page project. The array structure is
+// written usally to the file navgen_write/navigation.inc
+//     If a php page is requested some definitions are made in the
+// header of this file like $title, $header and after this file is
+// included which describes the layout of the page. In this file the
+// php file is include again and processed to the end.
+//--------------------------------------------------------------------
+
+// exit here in case of a navgen run
 if( strlen("$navigation_check") > 0 ) return;
 
+// $navigation_file should be definined in definitions.inc which 
+// is included in the php file
 if( strlen($navigation_file) < 1 )
      die("<span class=\"error\">No navigation file specified</span><br>");
 
+// include navigation definition
 include(sec_filename($navigation_file));
 
 function debug($string, $level=1) {
   if($level>0) echo $string."<br>";
 }
 
-// override relative path
+// override relative path which is defined in the php files
 $rel_path = ${$this_site}["rel_path"];
 
 //--------------------------------------------------------------------
@@ -43,12 +67,16 @@ $default_settings_array = array(
   "windowlist_bg"    => "#c5cecd",
   "windowlist_fg"    => "#000000",
   "pager_bg"         => "#fafae8",
-  //"pager_bg"         => "#b5bebd",
   "pager_fg"         => "#000000",
   "hilight_bg"       => "#1a6e99",
   "hilight_fg"       => "#ffffff",
 );
 
+// make the global variables from the keys of the
+// $default_settings_array
+// if some variables are given from the user override the default
+// settings and store them in an array $user_settings_array so that
+// this settings can be passed to sub pages
 $user_settings_array = array();
 reset($default_settings_array);
 while(list($key,$default) = each($default_settings_array) ) {
@@ -62,6 +90,8 @@ while(list($key,$default) = each($default_settings_array) ) {
 // $body_bg_image = $rel_path."/".$body_bg_image;
 $decoration_path_stack = array();
 
+// time stampt function to insert a statement on the site when the
+// viewing pages was changed
 function insert_timestamp($file) {
   if( file_exists($file) ) {
     echo 'Last modified at ';
@@ -69,6 +99,10 @@ function insert_timestamp($file) {
   }
 }
 
+// function returns an array which contains the names of pages which
+// are parents from the current pages like
+// home -> photos -> holiday -> beach
+// it is mostly used to display this path as links 
 function get_parent_path($site) {
   global $$site, $top_array;
   // echo "+++checking $site+++<br>";
@@ -93,6 +127,9 @@ function get_parent_path($site) {
   }
 }
 
+// this function is used to have all link targets in the same format
+// and do some conversions here. for exampe one may convert php to
+// html here to get a html tree of this web project
 function conv_link_target($target) {
   global $user_settings_array;
   if( count($user_settings_array) > 0 ) {
@@ -106,12 +143,18 @@ function conv_link_target($target) {
   return $target.$opts;
 }
 
+// pushes the actual decoration path to a stack and set the given
+// argument as decoration path. this function is used to have
+// different window decorations on the same page
 function push_decoration_path($path) {
   global $decoration_path_stack, $decoration_path, $rel_path;
   $decoration_path_stack[] = $decoration_path;
   $decoration_path = $rel_path."/".$path;
 } 
 
+// pops the last value from the stack and sets it to the actual
+// decoration path. this function is used to have different window
+// decorations on the same page
 function pop_decoration_path() {
   global $decoration_path_stack, $decoration_path;
   if( count($decoration_path_stack) == 0 ) return;
@@ -121,11 +164,15 @@ function pop_decoration_path() {
   unset($decoration_path_stack[$key]);
 }
 
+// inserts a decoration picture
 function decoration_pic($direction) {
   global $decoration_path;
   return $decoration_path."/".$direction.".gif";
 }
 
+// starts a decoration cell which contains a decoration picture
+// like <td><img src="picture">
+// not the cell is opend only and not closed
 function decoration_cell_start($position, $string, $css, 
 			       $bg_repeat="repeat", $bg_pos="top", 
 			       $td_options="") {
@@ -151,6 +198,10 @@ function decoration_cell_start($position, $string, $css,
   echo 'border="0" vspace="0" hspace="0" '.$dimension.' alt="">';
 }
 
+//--------------------------------------------------------------------
+// the next functions provide start and complete decoration cell
+// interfaces.
+//--------------------------------------------------------------------
 function decoration_top_left_cell_start($string="", $css="") {
   decoration_cell_start("top_left",$string,$css,"no-repeat");
 }
@@ -223,7 +274,8 @@ function decoration_bottom_right_cell($string="", $css="") {
   echo  '</td>'."\n";
 }
 
-
+// inserts a whole decoration line which contains a table row which 3
+// cells each of them with one picture
 function decoration_top_line($string="", $add_css="") {
   echo "<tr>\n";
   decoration_top_left_cell();
@@ -232,6 +284,8 @@ function decoration_top_line($string="", $add_css="") {
   echo "</tr>\n";  
 }
 
+// inserts a whole decoration line which contains a table row which 3
+// cells each of them with one picture
 function decoration_middle_line($string="", $add_css="") {
   echo "<tr>\n";
   decoration_left_cell();
@@ -240,6 +294,8 @@ function decoration_middle_line($string="", $add_css="") {
   echo "</tr>\n";
 }
 
+// inserts a whole decoration line which contains a table row which 3
+// cells each of them with one picture
 function decoration_bottom_line($string="", $add_css="") {
   echo "<tr>\n";
   decoration_bottom_left_cell();
@@ -248,6 +304,8 @@ function decoration_bottom_line($string="", $add_css="") {
   echo "</tr>\n";
 }
 
+// inserts a table row <tr> ... </tr> which contains the window
+// buttons like the window decoration of a window manager
 function decoration_title_bar($string="") {
   global $decoration_path, $this_site, $window_border_bg, 
          $hilight_fg, $hilight_bg, $no_def_file, $rel_path;
@@ -262,27 +320,27 @@ function decoration_title_bar($string="") {
     if( strlen($title_background) == 0 ) $title_background=$hilight_bg;
     echo '<table border="0" cellspacing="0" cellpadding="0" summary="" width="100%" bgcolor="'.$title_background.'">'."\n";
     echo '<tr>'."\n";
-
-    echo '<td style="background-image:url('.decoration_pic("button_1").');">';
+    // $td_opts = 'width="1"';
+    echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_1").');">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-    echo '<td style="background-image:url('.decoration_pic("button_3").');">';
+    echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_3").');" >';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-    echo '<td style="background-image:url('.decoration_pic("title").');font-size:10pt;"';
+    echo '<td style="background-image:url('.decoration_pic("title").');"';
     echo ' width="99%" bgcolor="'.$title_background.'">';
     if( strlen($string) > 0 )
       echo '<font size="3" color="'.$hilight_fg.'">&nbsp;'.$string.'</font></td>'."\n";
     else
       echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-    echo '<td style="background-image:url('.decoration_pic("button_6").');">';
+    echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_6").');">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-    echo '<td style="background-image:url('.decoration_pic("button_4").');">';
+    echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_4").');">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
-    echo '<td style="background-image:url('.decoration_pic("button_2").');">';
+    echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '</tr>'."\n";
@@ -293,6 +351,7 @@ function decoration_title_bar($string="") {
   }
 }
 
+// inserts the upper and left corner of the window decoration
 function decoration_window_start($string="",$width="100%",$height="800",$padding="5") {
   global $window_bg;
   echo '<table';
@@ -307,11 +366,12 @@ function decoration_window_start($string="",$width="100%",$height="800",$padding
   if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
   echo ' summary="" width="100%">'."\n";
   echo '<tr>'."\n";
-  echo '<td valign="top" align="left"';
+  echo '<td valign="top" align="left" bgcolor="'.$window_bg.'"';
   if(strlen($height)> 0) echo ' height="'.$height.'"';
   echo ' class="windowcontents">';
 }
 
+// insert the right and lower corner of the window decoration
 function decoration_window_end() {
   echo '</td>'."\n";
   echo '</tr>'."\n";
@@ -323,6 +383,12 @@ function decoration_window_end() {
   echo '</table>'."\n";
 }
 
+//--------------------------------------------------------------------
+// functions to draw a menu navigation in style of a fvwm menu
+// [not used at the moment]
+//--------------------------------------------------------------------
+
+// inserts one menu line
 function insert_menu_link_line($site,$depth,$selected_path) {
      
   global $this_site, $rel_path, $top_array, $hilight_bg;
@@ -420,6 +486,11 @@ function insert_menu_navigation() {
   echo '</table>'."\n";
 }
 
+//--------------------------------------------------------------------
+// functions to insert a pager navigation in style of a fvwm pager
+//--------------------------------------------------------------------
+
+// inserts a table cell <td>..</td> which contains one pager page
 function insert_pager_page($site,$do_hilight=1) {
 
   global $this_site, $rel_path, $top_array, $hilight_bg;
@@ -432,7 +503,7 @@ function insert_pager_page($site,$do_hilight=1) {
     $bg = $pager_bg;
     $fg = $pager_fg;
   }
-  $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" style="background-color:'.$bg.';"';
+  $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
 
   if( strlen($site) == 0 ) {
     echo '<td '.$td_opt.'>';
@@ -460,7 +531,7 @@ function insert_pager_page($site,$do_hilight=1) {
 
 }
 
-// make a 2x2 desk containing the sub sites
+// inserts a 2x2 desk containing the sub sites
 function insert_pager_desk($site) {
      
   global $this_site, $rel_path, $top_array, $hilight_bg;
@@ -473,7 +544,7 @@ function insert_pager_desk($site) {
   $fg = $pager_fg;
   
   $target = conv_link_target($rel_path.'/'.${$site}["file"]);
-  $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" style="background-color:'.$bg.';"';
+  $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
 
   // desk label = link name
   echo '<tr>'."\n";
@@ -499,15 +570,15 @@ function insert_pager_desk($site) {
   echo '</tr>'."\n";
 }
 
-function insert_pager_link_list($link_array) {
-  
+// pre function to build the pager
+function insert_pager_link_list($link_array) {  
   $is_first = 1;
   //echo "$depth - ".count($selected_path)." - ".count($link_array)."<br>";
   while( list($key,$site) = each($link_array) ) {
     if( $is_first == 1 ) 
       $is_first = 0; 
     else {
-      echo '<tr><td colspan="2">';
+      echo '<tr><td colspan="2" class="pagerwrap">';
       echo '<img src="'.decoration_pic("transparent").'" width="1" height="1" alt="">';
       echo '</td></tr>';
     }
@@ -515,6 +586,7 @@ function insert_pager_link_list($link_array) {
   }
 }
 
+// pager wrapper function
 function insert_pager_navigation() {
 
   global $this_site, $rel_path, $top_array, $hilight_bg;
@@ -528,7 +600,7 @@ function insert_pager_navigation() {
   decoration_top_line();
   echo "<tr>\n";
   decoration_left_cell();
-  echo '<td bgcolor="'.$pager_fg.'" width="80">';
+  echo '<td bgcolor="'.$pager_fg.'" width="80" class="pagerwrap">';
   // table for the pages
   echo '<table cellpadding="1" cellspacing="1" border="0" width="100%" summary="">'."\n";
   $parent_path = get_parent_path($this_site);
@@ -577,6 +649,10 @@ function insert_pager_navigation() {
   echo '</table>'."\n";  
 }
 
+//--------------------------------------------------------------------
+// function to insert the navigation path
+// [not used at the moment]
+//--------------------------------------------------------------------
 function insert_navigation_path_entry($site) {
   global $this_site, $rel_path, $top_array;
   global $windowlist_bg, $windowlist_fg;
@@ -602,6 +678,7 @@ function insert_navigation_path_entry($site) {
 //   echo '</td>';  
 }
 
+// navigation path wrapper
 function insert_navigation_path() {
   global $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
@@ -626,6 +703,9 @@ function insert_navigation_path() {
   
 }
 
+//--------------------------------------------------------------------
+// interface function to insert valid links to sub pages
+//--------------------------------------------------------------------
 function insert_quick_jump_list($site_array,$col_num=2) {
   global $rel_path;
 
@@ -667,6 +747,16 @@ function insert_quick_jump_list($site_array,$col_num=2) {
   }
   echo "</table>\n";
 }
+
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+//--
+//-- End of function definitions - start of html frame  
+//--
+//--------------------------------------------------------------------
+//--------------------------------------------------------------------
+
+
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -678,53 +768,46 @@ function insert_quick_jump_list($site_array,$col_num=2) {
     <meta name="keywords" content="fvwm, window manager, screenshots, themes">
     <meta name="description" content="The Official FVWM Home Page">
 
-<!--
-    <meta http-equiv="content-language" content="de">
-    <meta name="robots" content="index">
-    <meta name="robots" content="follow">
--->
-
-    <link rel="shortcut icon" href="fvwm.ico">
+    <link rel="shortcut icon" href="<?php echo $rel_path;?>/fvwm.ico">
 
     <title><?php print $title; ?></title>
 
+    <!--  default style sheet defintions for this page -->
     <style type="text/css">
       <!--
        body {
-	 background-color:<?php echo $body_bg;?>;
-	 <?php 
-          if(strlen($body_bg_image)>0) 
-	   echo 'background-image:url("'.$body_bg_image.'");';
-	 ?>
-	 color:<?php echo $body_fg;?>;
-	 margin:0pt;
-	 padding:0pt;
+       background-color:<?php echo $body_bg;?>;
+       <?php 
+           if(strlen($body_bg_image)>0) 
+	     echo 'background-image:url("'.$body_bg_image.'");';
+       ?>
+       color:<?php echo $body_fg;?>;
+       margin:0pt;
+       padding:0pt;
        }
        p {
-         text-align:left; 
+       text-align:left; 
        }
        .intern { 
-         color: #ffffff; 
+       color: #ffffff; 
        }
        .windowcontents {
-	 padding-left:5%;
-	 padding-right:5%;
        }
        a:link,a:visited,a:active,a:hover {
-	 text-decoration:none;
-	 font-weight:bold;
+       text-decoration:none;
+       font-weight:bold;
        }
        h2, h3, h4, h5 { 
        color:#2bbbff;
        }
        h4.author {
-	 margin-top:15pt;
-	 margin-bottom:5pt;
-         padding:0pt;
+       margin-top:15pt;
+       margin-bottom:5pt;
+       padding:0pt;
        }
        p.author {
-	 padding-left:20pt;
-	 margin:0pt;
+       padding-left:20pt;
+       margin:0pt;
        }
        table.screenshots { 
        border-color:#aaaa00;
@@ -757,17 +840,20 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        padding:5pt;
        }
        .bottominfo {
-	 text-align:right;
-	 margin-right:5pt;
-	 font-weight:normal;
+       text-align:right;
+       margin-right:5pt;
+       font-weight:normal;
        }
        a.done {
-	color:#bbbbbb;
-	text-decoration:line-through;
-	font-weight:normal;
+       color:#bbbbbb;
+       text-decoration:line-through;
+       font-weight:normal;
        }
         -->
     </style>
+
+    <!-- provide alternate style sheets -->
+    <link rel="alternate stylesheet" title="alternate" href="<?php echo $rel_path;?>/css/alternate.css">
 
   </head>
 
@@ -780,11 +866,15 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 	vlink="#ffff00" 
 	alink="#ffff99">
 
+    <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
+
+    <!-- wrapper table contains two colums  -->
     <table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
        
        <tr> 
         <td valign="top">
+         <!-- wrapper table contains two rows - heading and contents -->
          <table width="100%" border="0" cellpadding="0" cellspacing="10" summary="">
 
            <tr>
@@ -800,25 +890,25 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 	   
         </table>
        </td>
-       <td valign="top" align="right" width="1"><?php 
+       <!-- second cell of the outer wrapper table which contains the pager -->
+       <td valign="top" align="right" width="1%"><?php 
             push_decoration_path("pictures/decorations/window_deco_ice");
 	    insert_pager_navigation();
             pop_decoration_path();
             // Add links to html and css checkers - hide them for the checker sites 
             // since they seem not to be html-conform.
             // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
-            if( ! ereg("^212.219",$_SERVER["REMOTE_ADDR"]) && 
-		! ereg("mirror.ac.uk", $_SERVER["REMOTE_HOST"]) && 
-		! ereg("validator", $_SERVER["REMOTE_HOST"]) && 
-		! ereg("nordstrom.hrz.tu-chemnitz.de", $_SERVER["REMOTE_HOST"])) {
+            if( my_get_global("checks","GET") ) {
 	      echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp;</a><br>'."\n";
 	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a><br>'."\n";
+	      echo '<a href="http://validator.w3.org/check/referer">w3c check&nbsp;</a>';
 	    }
-       ?><a href="http://validator.w3.org/check/referer">w3c check&nbsp;</a><br></td>
+       ?></td>
       </tr>
 
     </table>
 
+    <!-- bottom of the page - display last modified information -->
     <p class="bottominfo">
        <?php insert_timestamp($requested_file); ?>
        <!-- we may place a "contact" statement here -->

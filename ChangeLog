@@ -1,3 +1,11 @@
+2003-04-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* layout_default.inc: 
+	Added a lot of comments. Fixed a problem with ie. layout has been
+	checked which opera, netscape, mozilla, galeon and ie
+	Added alternate style sheet example to the layout
+	Checked site with tidy
+	
 2003-04-10  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* documentation/manpages/fvwm.php: 
