@@ -60,7 +60,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 	<th>Description</th>
       </tr>
       <tr>
-	<td>1-May-2003 / 31-Aug-2003</td>
+	<td>23-Apr-2003 / 31-Aug-2003</td>
 	<td>Logo contributions are accepted.</td>
       </tr>
       <tr>
