@@ -1,6 +1,12 @@
 2003-05-01  Bob Woodside  <dumbledore@woodsway.com>
 
 	* layout_default.inc:
+	* web-theme/classes/default_class.inc:
+        Made the pager width still narrower.
+
+2003-05-01  Bob Woodside  <dumbledore@woodsway.com>
+
+	* layout_default.inc:
         Made the pager width a little narrower and applied the width
         spec to the parent table cell as well.
 

@@ -559,7 +559,7 @@ class Default_Theme extends Base_Theme {
     function insert_pager_navigation() {
         $pages_per_desk = 4;
         // table for the border
-        echo '<table width="100" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
+        echo '<table width="80" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
         $this->decoration_top_line();
         echo "<tr>\n";
         $this->decoration_left_cell();

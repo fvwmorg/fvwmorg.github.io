@@ -611,7 +611,7 @@ function insert_pager_navigation() {
   $pages_per_desk = 4;
 
   // table for the border
-  echo '<table width="100" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
+  echo '<table width="80" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
   decoration_top_line();
   echo "<tr>\n";
   decoration_left_cell();
@@ -864,7 +864,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
 </td>
 
 <!-- second cell of the outer wrapper table which contains the pager -->
-<td valign="top" align="right" width="100"><?php
+<td valign="top" align="right" width="80"><?php
   push_decoration_path("pictures/decorations/window_deco_ice");
   insert_pager_navigation();
   pop_decoration_path();
