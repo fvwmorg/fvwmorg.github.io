@@ -9,7 +9,7 @@ $rel_path = "../../..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-// if(!isset($navigation_check)) include_once($rel_path.'/definitions.inc');
+// if(strlen("$navigation_check") == 0) include_once($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -25,14 +25,14 @@ $rel_path = "../../..";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if(isset($navigation_check)) return;
+if( strlen("$navigation_check") > 0 ) return;
 
-include_once("../subdir_index.inc");
+include("../subdir_index.inc");
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-// if(!isset($site_has_been_loaded)) {
+// if( strlen("$site_has_been_loaded") == 0 ) {
 //   $site_has_been_loaded = "true";
 //   include_once(sec_filename("$layout_file"));
 //   exit();
