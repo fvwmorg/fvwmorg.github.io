@@ -250,10 +250,8 @@ In order to support transparency a module must do the following:
     non-transparent colorset <em>CreateBackgroundPixmap()</em> must be used
     together with <em>XFillRectangle()</em> to paint the background instead
     of <em>SetWindowBackground()</em>.</li>
-<!needs_lang_check>
-<li>Detect if the parent window background change. This can be achieved
+<li>Detect if the parent window background changes. This can be achieved
     by monitoring the MX_PROPERTY_CHANGE fvwm to module message.
-<!end>
 <li>If the window is likely to be moved or repositions itself the module must
     handle <em>ConfigureNotify</em> events and repaint the whole window
     whenever it is moved. This is because X servers only handle ParentRelative
