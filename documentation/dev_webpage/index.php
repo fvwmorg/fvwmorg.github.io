@@ -38,7 +38,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   exit();
 }
 
-decoration_window_start("Fvwm Web pages");
+decoration_window_start("Information about the FVWM web page");
 
 if( strlen(my_get_global("show", "GET")) == 0 ) {
     echo "<center><h1>This chapter is currently under development.</h1></center>";
@@ -48,15 +48,6 @@ if( strlen(my_get_global("show", "GET")) == 0 ) {
 
 ?>
 
-  <ul>
-    <li><a href="#general">General Information</a></li>
-    <li><a href="#concept">Concept</a></li>
-    <li><a href="#navgen">Running navgen</a></li>
-    <li><a href="#html_coding">HTML Coding</a></li>
-    <li><a href="#creating_new_layout">Creating a new layout</a></li>
-  </ul>
-
-  <a name="general"></a>
   <h3>General information</h3>
   <p>
     The <a href="http://www.fvwm.org">fvwm web site</a> is now based on
@@ -69,7 +60,6 @@ if( strlen(my_get_global("show", "GET")) == 0 ) {
     interface.
   </p>
 
-  <a name="concept"></a>
   <h3>PHP Concept</h3>
 
   <h4>Introduction</h4>
@@ -86,7 +76,7 @@ if( strlen(my_get_global("show", "GET")) == 0 ) {
     navigation aim to an existing file.
   </p>
 
-  <h4>Overview</h4>
+  <h4>File hierarchie during a request</h4>
 
 <pre class="docgraph">
 Navigation Definitions -----> Base-Theme Class Description <---- Theme Options
@@ -104,16 +94,12 @@ Global Definitions --------------> Function Wrapper
                                    Requested File
 </pre>
 
-  <a name="navgen"></a>
-  <h3>Changing the navigation structure</h3>
+  <h3>Adding sub sites</h3>
 
-  <a name="html_coding"></a>
   <h3>HTML Coding</h3>
 
-  <a name="relative_links"></a>
   <h4>Relative links</h4>
 
-  <a name="creating_new_layout"></a>
   <h3>Creating a new layout</h3>
 
 <?php decoration_window_end(); ?>

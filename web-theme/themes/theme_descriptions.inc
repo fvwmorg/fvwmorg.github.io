@@ -122,10 +122,16 @@ $this->theme_descriptions = array(
          "decoration_path"  => array(
             "type"    => "directory",                      
             "name"    => "Window Decoration Name",
-            "value"   => "@REL_PATH@/pictures/decorations/window_deco_default",
+            "value"   => "@REL_PATH@/pictures/decorations/window_deco_simple_steelblue",
             "alt"     => array(
-                "Default"     => "@REL_PATH@/pictures/decorations/window_deco_default",
+                "FireBrick"   => "@REL_PATH@/pictures/decorations/window_deco_simple_firebrick",
                 "Simple Blue" => "@REL_PATH@/pictures/decorations/window_deco_simple_blue",
+                "SteelBlue" => "@REL_PATH@/pictures/decorations/window_deco_simple_steelblue",
+                "Aqua"       => "@REL_PATH@/pictures/decorations/window_deco_aqua",
+                "NanoGUI"    => "@REL_PATH@/pictures/decorations/window_deco_nanogui",
+                "Ice"        => "@REL_PATH@/pictures/decorations/window_deco_ice",
+                "After Step" => "@REL_PATH@/pictures/decorations/window_deco_as",
+                "Ugly"       => "@REL_PATH@/pictures/decorations/window_deco_xp",
                 ),
             ),
          "window_border_bg" => array(
@@ -192,12 +198,12 @@ $this->theme_descriptions = array(
             ),
          "link_fg"       => array(
             "type"    => "color",
-            "value"   => "#fafa77",
+            "value"   => "#fafaca",
             "name"    => "Link Color",
             ),
          "link_visited_fg" => array(
             "type"    => "color",
-            "value"   => "#c0c0ff",
+            "value"   => "#61c1ff",
             "name"    => "Visited Link Color",
             ),
          "heading_fg" => array(

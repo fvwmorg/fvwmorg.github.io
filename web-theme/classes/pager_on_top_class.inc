@@ -15,7 +15,7 @@ class Pager_On_Top_Theme extends Default_Theme {
 
     // inserts a table row <tr>... </tr> which contains the window
     // buttons like the window decoration of a window manager
-    function decoration_title_bar($string="") {
+    function decoration_title_bar_back($string="") {
         $def_file = $this->style_array["decoration_path"]."/deco_definitions.inc";
         if( file_exists($def_file) ) include(sec_filename($def_file));
         if( isset($title_height) ) {
@@ -63,7 +63,7 @@ class Pager_On_Top_Theme extends Default_Theme {
         global $heading;
         $width = "100%";
         $padding = "5";
-        Default_Theme::decoration_window_start("","100%","","5"); 
+        Default_Theme::decoration_window_start("Offical FVWM Home Page","100%","","5"); 
         echo "<center><h1> $heading </h1></center>\n";
         Default_Theme::decoration_window_end();
     }

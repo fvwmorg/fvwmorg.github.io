@@ -171,7 +171,7 @@ class Default_Theme extends Base_Theme {
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
             echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
-            echo ' width="99%" bgcolor="'.$title_background.'">';
+            echo ' align="center" width="99%" bgcolor="'.$title_background.'">';
             if( strlen($string) > 0 )
                 echo '<font size="3" color="'.$this->style_array["hilight_fg"].'">&nbsp;'.$string.'</font></td>'."\n";
             else

@@ -1,3 +1,9 @@
+2003-07-22  Uwe Pross  <uwe.pross@gmx.net>
+
+	* web-theme/themes/theme_descriptions.inc: 
+	* web-theme/classes/pager_on_top_class.inc:
+	changed default look to a more fancy one ;-)
+
 2003-07-21  Uwe Pross  <uwe.pross@gmx.net>
 
 	* logo-competition/logos_new.php: 
