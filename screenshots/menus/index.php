@@ -2,8 +2,6 @@
 //--------------------------------------------------------------------
 //-  File          : screenshots/menus/index.php
 //-  Project       : FVWM Home Page
-//-  Date          : Fri Mar 14 21:32:08 2003
-//-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
 
 $rel_path = "../..";
@@ -11,7 +9,7 @@ $rel_path = "../..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-if( ! strlen("$navigation_check") ) include($rel_path.'/definitions.inc'); 
+if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -22,7 +20,7 @@ $link_picture   = "pictures/icons/screenshots_menu";
 $parent_site    = "screenshots";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "menus";
+$this_site      = "screenshots_menus";
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -39,46 +37,46 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 ?>
 
-<?php decoration_window_start("Sample menus"); ?>
+<?php
+decoration_window_start("FVWM Menu Screenshots");
+include("./screenshot_db.inc");
 
-  <p>
-    FVWM provides a variety of ways to decorate your menus.
-    This page shows sample menus
-    that have been contributed to the project.
-    Click on the menu to download the commands needed to
-    configure the menu.
-  </p>
-  <table border="0" cellspacing="5" cellpadding="5" frame="void" rules="rows" 
-         summary="fvwm screenshots" class="screenshots">
-    <tr valign="top">
-      <td>
-	<a href="BlueMarble.fvwmrc"><img src="BlueMarble.gif"
-					 alt="Blue Marble Menu" border="0"></a></td>
-      <td class="windowcontents">
-	Sample menu submitted by Dan Espen using background pixmaps.
-	Click here for
-	the <a href="weird10dark.xpm">background pixmap</a>.
-      </td>
-    </tr>
-    
-    <!-- Julien Coron - submitted Feb 9, 2003 -->
-    <tr valign="top"><td>
-	<a href="JulienCoron-menu.fvwmrc"><img src="JulienCoron-menu.png"
-					       alt="Julien Coron Menu" border="0"></a></td>
-      <td class="windowcontents">
-	Sample menu submitted by Julien Coron.
-	The pixmaps are available
-	the <a href="http://julien.coron.free.fr/my_icons/">here</a>.
-      </td>
-    </tr>
-  </table>
-  <p>
-    If you have a sample menu that you would like to contribute
-    you can mail it to fvwm-workers@fvwm.org.
-    The sample menu must show one item selected, and one item grayed
-    out.  A grayed out menu item can be created by including a "Delete"
-    selection and bring the menu up on a window that sets the
-    do not delete property.  FvwmTalk can be used for this.
-  </p>
+$total_num_of_screenshots = count($db);
+if( ! $show_start = get_user_setting("start", array("GET", "POST") ) ) $show_start = 0;
+if( ! $show_num   = get_user_setting("num", array("GET", "POST") ) ) $show_num   = 5;
+// correct settings
+if( $show_start >= $total_num_of_screenshots ) {
+    if( $show_num >= $total_num_of_screenshots ) {
+        $show_start = 0;
+    } else {
+        $show_start = $total_num_of_screenshots - $show_num;
+    }
+}
+$show_start = floor($show_start / $show_num) * $show_num;
+$show_end = $show_start + $show_num - 1;
+if( $show_end >= $total_num_of_screenshots ) {
+    $show_end = $total_num_of_screenshots - 1;
+}
+
+//--------------------------------------------------------------------
+//- screenshot table
+//--------------------------------------------------------------------
+include_once("./../classes/picture_page.inc");
+$page = new Picture_Page("screenshot",
+                         "screenshots",
+                         $show_start,
+                         $show_num,
+                         $total_num_of_screenshots,
+                         $theme,
+                         $user_theme);
+
+$page->link_to_directory();
+$page->show_start();
+for( $ii=$show_start; $ii<=$show_end; $ii++) {
+    $page->show_entry($db[$ii]);
+}
+$page->show_end();
+
+?>
 
 <?php decoration_window_end(); ?>

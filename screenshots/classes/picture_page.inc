@@ -15,6 +15,7 @@ class Picture_Page {
     var $max;
     var $user_theme;
     var $theme;
+    var $link_target_is_directory;
 
     function Picture_Page( $singular="screenshot", $plural="screenshots", $start=0, $num=5, $max=10, $theme="", $user_theme=0) {
         $this->item_singular = $singular;
@@ -24,6 +25,15 @@ class Picture_Page {
         $this->max           = $max;
         $this->theme         = $theme;
         $this->user_theme    = $user_theme;
+        $this->link_target_is_directory = 0;
+    }
+
+    function link_to_directory() {
+        $this->link_target_is_directory = 1;
+    }
+
+    function link_to_screenshot() {
+        $this->link_target_is_directory = 0;
     }
 
     function show_start($fg="#ffffff", $bg="#777777") {
@@ -56,9 +66,16 @@ class Picture_Page {
         $description = $entry["description"];
         $fvwmrc      = $entry["rc"]["name"];
         $td_opts = '';
+
+        if( $this->link_target_is_directory ) {
+            $link_target = $entry["path"];
+        } else {
+            $link_target = $screenshot;
+        }
         echo '<tr style="border-bottom:1pt '.$bg.' solid;">'."\n";
         echo "<td".$td_opts.' valign="middle">';
-        echo $ii.'<a href="'.$screenshot.'"><img src="'.$preview.'" border="1" alt="Preview"></a>';
+        mylink($link_target, '<img src="'.$preview.'" border="1" alt="Preview">');
+        // echo '<a href="'.$link_target.'"><img src="'.$preview.'" border="1" alt="Preview"></a>';
         echo "</td>";
         echo "<td".$td_opts.' align="center">';
         echo date("y/m/d", $date)."<br>";
@@ -69,12 +86,15 @@ class Picture_Page {
         }
         echo "</td>";
         echo "<td".$td_opts.">";
-        echo str_replace("@fvwm2rc@", '<a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>', $description);
+        $description = str_replace("@fvwm2rc@", '<a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>', $description);
+        $description = str_replace("@path@", $entry["path"], $description);
+        echo $description;
         echo "</td>";
         echo "</tr>\n";
     }
 
     function insert_prev_next_list() {
+        global $requested_file;
         $num_of_links = 5;
         if( $this->num_per_page <= 0 ) $this->num_per_page = 5;
         if( $this->start - floor($num_of_links*$this->num_per_page/2) < 0 ) {
@@ -111,6 +131,7 @@ class Picture_Page {
     }
 
     function insert_link($from, $to) {
+        global $requested_file;
         // echo "[$from,$to]";
         $num = $this->num_per_page;
         if( $this->max < $to ) $to = $this->max;
@@ -129,7 +150,8 @@ class Picture_Page {
     }
 
     function insert_navigation() {
-        echo '<form action="'.$this->requested_file.'" method="GET">';
+        global $requested_file;
+        echo '<form action="'.$requested_file.'" method="GET">';
         echo '<table border="0" cellpadding="0" width="100%" summary="">';
         echo '<tr>';
         echo '<td>';

@@ -1,0 +1,278 @@
+SetEnv fvwm_video_path $[HOME]/media/video
+SetEnv fvwm_video_exec mplayer
+
+SetEnv fvwm_audio_path $[HOME]/media/audio
+SetEnv fvwm_audio_exec beep-media-player --play
+
+SetEnv fvwm_image_path $[HOME]/media/images
+SetEnv fvwm_image_exec xv
+
+SetEnv fvwm_rom_path $[HOME]/stuff/zsnes
+SetEnv fvwm_rom_exec zsnes
+
+# http://www.fvwm.org/documentation/faq/#3.23
+Colorset 0 fg black, bg grey, sh black, hi black, Translucent #c6cfce 90
+Colorset 1 fg black, bg #9cb2ce, hi #dcdcdc, sh #dcdcdc
+
+MenuStyle * Hilight3DThin, PopupOffset -2 100
+MenuStyle * Font "Shadow=1 1 SE:xft:Bitstream Vera Sans Mono:style=Roman:size=11"
+MenuStyle * MenuColorset 0, HilightBack, ActiveColorset 1
+MenuStyle * BorderWidth 2, TitleUnderlines1, SeparatorsLong, TrianglesSolid, Animation
+MenuStyle * ItemFormat "%.2|%.5i%.5l%.5i%2.3>%2|"
+# MenuStyle * AutomaticHotKeys
+
+#####
+# Menu definitions
+# Beep if theres a missing SubMenu to remind me to write it.
+#################
+DestroyMenu MenuFvwmRoot
+AddToMenu MenuFvwmRoot
++   MissingSubmenuFunction                              Beep
++       %computer_x11.png%"&Xterm"%alt_f1.png%          Exec exec rxvt -title '.: r x v t :.'
++       %computer.png%"&Aterm"                          Exec exec aterm -title '.: a t e r m :.'
++       ""                                              Nop
++       %paper_pencil.png%"Office"                      Popup MenuOffice
++       %world_view_index.png%"Internet"                Popup MenuInternet
++       %text.png%"Editors"                             Popup MenuEditors
++       %film.png%"Multimedia"                          Popup MenuMultimedia
++       %swiss-army-knife.png%"Utilities"               Popup MenuUtilities
++       %function_code_fragment.png%"Development"       Popup MenuDevel
++       %games_puzzles_dice.png%"Games"                 Popup MenuGames
++       %telephone_out.png%"Logins"                     Popup Menulogins
++       ""                                              Nop
++       %gears.png%"&Run..."%alt_f2.png%                Exec exec grun
++       ""                                              Nop
++       %hardware_monitor.png%"FvwmConsole"%alt_f3.png% Module FvwmConsole -terminal rxvt
++       %tools.png%"Preferences"                        Popup MenuFvwmConfig
++       %tool_wrench.png%"Window Controls"              Popup MenuFvwmWindowOps
++       ""                                              Nop
++       %bomb.png%"&Xkill"%win_x.png%                   Pick Destroy
++       %graphics_convert_polaroid.png%"R&efresh"       Refresh
++       %hardware_camera.png%"&Screenshot"              Exec exec scrot --quality 100 '%Y-%m-%d_$wx$h.png'
++       %lock_key_unlocked.png%"&Lock Screen"%win_l.png% Exec exec xscreensaver-command -lock
++       ""                                              Nop
++       %warning_symbol.png%"Exit Fvwm"                 Popup MenuQuit-Verify
+
+DestroyMenu MenuOffice
+AddToMenu MenuOffice
++       %document_letter_word-processor.png%"Word Processor" Exec exec abiword
++       %file_text_view.png%"Acrobat Reader"            Exec exec acroread
++       %calculator.png%"Calculator"%ctl_alt_c.png%     Exec exec xcalc
++       %paper_pencil2.png%"Sticky Notes"               Exec exec xpad
+
+DestroyMenu MenuInternet
+AddToMenu MenuInternet
++       %instant-messenger.png%"Instant Messenger"%ctl_alt_g.png% Exec exec gaim
++       %news_newspaper.png%"News Reader"%ctl_alt_n.png% Exec exec pan
++       %balloon_chat.png%"IRC Client"                   Exec exec xchat-2
++       %network_view.png%"Network Analyser"             Exec exec sudo ethereal
++       %music_notes_view.png%"File Sharing"             Exec exec giFToxic
++       %mail.png%"E-Mail Client"%ctl_alt_m.png%         Exec exec mulberry
++       ""                                               Nop
++       %opera.png%"Opera Web Browser"%ctl_alt_o.png%    Exec exec opera
++       %browser_ship-wheel.png%"Mozilla Firebird"       Exec exec MozillaFirebird
++       %hand_world_web-site.png%"Dillo Fast Web Browser" Exec exec dillo
+
+DestroyMenu MenuEditors
+AddToMenu MenuEditors
++       %gvim.png%"Vim Editor"%ctl_alt_v.png%            Exec exec gvim -geom 115x46
++       %mail_edit.png%"Gedit Editor"                    Exec exec gedit
++       %computer_x11.png%"Xedit Editor"                 Exec exec xedit
+
+DestroyMenu MenuMultimedia
+AddToMenu MenuMultimedia
++       MissingSubmenuFunction FuncFvwmMenuDirectory
++       %audio_horn.png%"Beep Media Player"%ctl_alt_b.png% Exec exec beep-media-player
++       %graphics_woman_panel.png%"Xv Graphics Viewer"     Exec exec xv
++       %graphics_paint_edit.png%"GNU Image Manipulation Program" Exec exec gimp
++       %hardware_audio_cd.png%"Audio CD Player"        Exec exec grip
++       %graph_mixer.png%"OSS Audio Mixer"              Exec exec /opt/oss/ossxmix
++       ""                                              Nop
++       %hardware_video_camera_display.png%"Browse Videos" Popup $[fvwm_video_path]
++       %music_notes_view.png%"Browse Music"            Popup $[fvwm_audio_path]
++       %graphics_presentation_person.png%"Browse Images"  Popup $[fvwm_image_path]
+
+DestroyMenu MenuUtilities
+AddToMenu MenuUtilities
++       %folder_view.png%"Nautilus File Manager"        Exec exec nautilus --no-desktop
++       %hardware_computers.png%"VMware Workstation"    Exec exec vmware
++       %document_graph.png%"3D File System Explorer"   Exec exec fsv
++       %document_database_view.png%"Magnifying Glass"%ctl_alt_x.png% Exec exec xmag
++       %window.png%"Window Information"                Exec exec xmessage "`xwininfo`"
++       %gears.png%"Process Information"                Exec exec rxvt -title '.: t o p :.' -tr -e top
++       ""                                              Nop
++       %graphics_convert_polaroid.png%"Expose Page" FvwmExpose
++       %desk_desktop.png%"Show Desktop"%win_i.png%     All (AcceptsFocus CurrentPage !Iconic !Shaded) Thumbnail
+
+DestroyMenu MenuDevel
+AddToMenu MenuDevel
++       %html_edit.png%"Bluefish Html Editor"           Exec exec bluefish
++       %widget_buttons.png%"Anjuta Development Environment" Exec exec anjuta
+
+DestroyMenu MenuGames
+AddToMenu MenuGames
++       MissingSubmenuFunction FuncFvwmMenuDirectory
++       %games_jesters-cap.png%"MAME Arcade Emulator"   Exec exec gxmame
++       %games_shooters_target.png%"Super Nintendo Emulator" Exec exec zsnes
++       %games_roleplaying_muds_people.png%"Nethack Adventure Game" Exec exec nethack
++       ""                                              Nop
++       %plane.png%"Browse Super Nintendo Games"        Popup $[fvwm_rom_path]
+
+#####
+# I start fvwm from my ~/.xinitrc like this:
+#       exec ssh-agent fvwm2
+# So if i select "Add Agent Identity" from this menu, it adds my default ssh key to ssh-agent.
+#################
+DestroyMenu MenuLogins
+AddToMenu MenuLogins
++       %telephone_out.png%"SDF Public Access UNIX System"%ctl_alt_s.png% Exec exec aterm -g \
+                102x42 -title '.: s d f :.' -e ssh tty.freeshell.org
++       %computer_network.png%"Gentoo Linux Dev Server" Exec exec aterm -g \
+                102x42 -title '.: t e r m i n a l :.' -e ssh dev.gentoo.org
++       %key2.png%"Add Agent Identity"                  Exec ssh-add < /dev/null \
+                || ( test -x /usr/lib/misc/ssh-askpass \
+                        || xmessage "Please install net-misc/x11-ssh-askpass." )
++       ""                                              Nop
++       %computer_x11.png%"Large Terminal Emulator"     Exec exec aterm -g 102x42 -title '.: t e r m i n a l :.'
++       %computer_x11.png%"Mini Terminal Emulator"      Exec exec rxvt -g 63x8 -title '.: m i n i t e r m :.' -e sh
+
+#####
+# You can browse directories and files with fvwm-menu-directory
+#
+# http://www.mail-archive.com/fvwm%40hpc.uh.edu/msg05260.html
+#################
+DestroyFunc FuncFvwmMenuDirectory
+AddToFunc FuncFvwmMenuDirectory
++ I PipeRead 'case $0 in \
+                $[fvwm_rom_path]*) myexec=$[fvwm_rom_exec] mypng=games_puzzles_dice.png;; \
+                $[fvwm_video_path]*) myexec=$[fvwm_video_exec] mypng=film.png;; \
+                $[fvwm_audio_path]*) myexec=$[fvwm_audio_exec] mypng=audio.png;; \
+                $[fvwm_image_path]*) myexec=$[fvwm_image_exec] mypng=graphics_presentation_person.png;; \
+        esac; \
+        fvwm-menu-directory --icon-title folder_view.png --icon-file ${mypng:-file_text_view.png} \
+        --icon-dir folder_paper_closed.png --dir $0 --xterm exec --exec-file ${myexec:-gvim}'
+
+DestroyMenu MenuQuit-Verify
+AddToMenu MenuQuit-Verify
++       %plug.png%"Quit Fvwm Now"%ctl_alt_f4.png%       Quit
++       %gears.png%"Restart Fvwm..."%ctl_alt_r.png%     Restart
++       ""                                              Nop
++       %cursor.png%"Restart twm"                       Restart twm
++       %computer_x11.png%"Restart xterm"               Restart xterm
++       ""                                              Nop
++       %hardware_mouse.png%"Cancel"                    Nop
+
+DestroyMenu MenuFvwmConfig
+AddToMenu MenuFvwmConfig
++       %graphics_palette_view.png%"Colour Browser"     Exec exec gcolor
++       %document_view.png%"Edit fvwm2rc"               Exec exec gvim -geom 115x46 ~/.fvwm/.fvwm2rc
++       ""                                              Nop
++       %widget_buttons.png%"Configure FvwmForm..."     Module FvwmForm FvwmForm-Form
++       %cursor.png%"Configure Cursor..."               Module FvwmForm FvwmForm-RootCursor
++       %television.png%"Configure Screensaver..."      Exec exec xscreensaver-demo 
++       %hardware_mouse.png%"Configure Mouse..."        Module FvwmScript FvwmScript-PointerSetup
++       %hardware_keyboard.png%"Configure Keyboard..."  Module FvwmScript FvwmScript-KeyboardSetup
++       %audio.png%"Configure Bell..."                  Module FvwmScript FvwmScript-BellSetup
++       %tool_wrench.png%"General Settings..."          Module FvwmScript FvwmScript-BaseConfig
++       ""                                              Nop
++       %plug.png%"Fvwm Modules"                        Popup MenuFvwmModules
+
+DestroyMenu FvwmMoveMethods
+AddToMenu FvwmMoveMethods
++       "Move to Top"                                   Pick AnimatedMove keep 0p
++       "Move to Left"                                  Pick AnimatedMove 0p keep
++       "Move to Right"                                 Pick PipeRead \
+                "echo AnimatedMove `expr $[vp.width] - $[w.width]`p keep"
++       "Move to Bottom"                                Pick PipeRead \
+                "echo AnimatedMove keep `expr $[vp.height] - $[w.height]`p"
++       ""                                              Nop
++       %window.png%"Center Window"                     Pick PipeRead \
+        "echo AnimatedMove `expr \\( $[vp.width] - $[w.width] \\) / 2`p \
+        `expr \\( $[vp.height] - $[w.height] \\) / 2`p"
++       ""                                              Nop
++       %hardware_mouse.png%"Pack Up"%alt_sft_up.png%   Pick PackWrapperUp
++       %hardware_mouse.png%"Pack Left"%alt_sft_left.png% Pick PackWrapperLeft
++       %hardware_mouse.png%"Pack right"%alt_sft_right.png% Pick PackWrapperRight
++       %hardware_mouse.png%"Pack down"%alt_sft_down.png% Pick PackWrapperDown
++       ""                                              Nop
++       %numbers_counter.png%"Move To Page"             Popup MenuPageList
++       ""                                              Nop
++       %hardware_mouse.png%"Interactive Move"          Pick Move
+
+DestroyMenu MenuPageList
+AddToMenu MenuPageList
++ "1"   Pick MoveToPage 0 0
++ "2"   Pick MoveToPage 1 0
++ "3"   Pick MoveToPage 2 0
++ "4"   Pick MoveToPage 0 1
++ "5"   Pick MoveToPage 1 1
++ "6"   Pick MoveToPage 2 1
++ "7"   Pick MoveToPage 0 2
++ "8"   Pick MoveToPage 1 2
++ "9"   Pick MoveToPage 2 2
+
+#####
+# WindowOps, Main window controls menu.
+#################
+DestroyMenu MenuFvwmWindowOps
+AddToMenu MenuFvwmWindowOps
++       %paper_geometry.png%"Resize"                    Pick Resize
++       "Iconify   "                                    Pick Iconify
++       "Thumbnail "                                    Pick Thumbnail
++       "Maxmimise"                                     Pick Maximize
++       %hardware_mouse.png%"Move"                      Popup FvwmMoveMethods
++       %window-blind.png%"Shade"                       Pick WindowShade Toggle
++       ""                                              Nop
++       %capture_mouse-trap.png%"Stick"                 Pick Stick
++       %hardware_mouse.png%"Scroll"                    Pick Module FvwmScroll
++       %graphics_convert_polaroid.png%"Refresh"        Pick RefreshWindow
++       ""                                              Nop
++       %label_tag_version.png%"Identify"               Pick Module FvwmIdent
++       %document_database_view.png%"Zoom"              Pick Exec exec xmag -source $[w.width]x$[w.height]+$[w.x]+$[w.y] -mag 2
++       ""                                              Nop
++       %bomb.png%"Close"%alt_f4.png%                   Pick Close
++       %warning_symbol.png%"Destroy"%win_x.png%        Pick Destroy
+
+DestroyMenu MenuFvwmModules
+AddToMenu MenuFvwmModules
++       "Animation          "   Module FvwmAnimate
++       "Button-Bar         "   Module FvwmButtons
++       "Identify           "   Module FvwmIdent
++       "IconMan            "   Module FvwmIconMan
++       "Banner             "   Module FvwmBanner
++       "Console            "   Module FvwmConsole -terminal rxvt
++       "Pager              "   Module FvwmPager 0 1
++       "Backer             "   Module FvwmBacker
++       "ScrollBar          "   Module FvwmScroll 50 50
++       "FvwmTaskBar        "   Module FvwmTaskBar
++       "AutoRaise          "   Module FvwmAuto 200 Raise Nop
++       "WinList            "   Module FvwmWinList
++       ""                      Nop
++       "Stop Module        "   Popup  MenuFvwmStopModule
+
+DestroyMenu MenuFvwmStopModule
+AddToMenu MenuFvwmStopModule
++       "Stop Button-Bar    "   KillModule FvwmButtons
++       "Stop IconMan       "   KillModule FvwmIconMan
++       "Stop Pager         "   KillModule FvwmPager
++       "Stop Backer        "   KillModule FvwmBacker
++       "Stop ScrollBar     "   KillModule FvwmScroll
++       "Stop FvwmTaskBar   "   KillModule FvwmTaskBar
++       "Stop AutoRaise     "   KillModule FvwmAuto
++       "Stop WinList       "   KillModule FvwmWinList
+
+DestroyFunc FvwmExpose
+AddToFunc FvwmExpose
++ I AddToMenu FvwmExposeMenu ".: e x p o s e :." Title
++ I All (!Iconic !Shaded CurrentPage AcceptsFocus)\
+        PipeRead "echo Raise; \
+                xwd -silent -id $[w.id] | convert -scale 128 -frame 1x1 \
+                -mattecolor white -quality 0 xwd:- \
+                png:$[HOME]/.fvwm/icon.exp.$[w.id].png \
+        && echo AddToMenu FvwmExposeMenu \
+        %$[HOME]/.fvwm/icon.exp.$[w.id].png%\\\'\"$[w.name]\"\\\' WindowID $[w.id] WarpToWindow 50 50 \
+                && echo AddToMenu FvwmExposeMenu \\\"\\\" Nop \
+        || Nop"
++ I Popup FvwmExposeMenu
++ I DestroyMenu FvwmExposeMenu
++ I Exec exec rm -f $[HOME]/.fvwm/icon.exp.*

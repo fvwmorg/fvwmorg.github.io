@@ -1,4 +1,11 @@
 <?php
+//--------------------------------------------------------------------
+//-  File          : fvwm-web/screenshots/classes/screenshot_lister.inc
+//-  Project       : FVWM Homepage
+//-  Contents      : Class to create screenshot database                                                 
+//-  Date          : Sun Feb  1 15:22:10 2004                         
+//-  Author        : Uwe Pross                                        
+//--------------------------------------------------------------------
 
 include_once("directory_lister.inc");
 
@@ -8,23 +15,75 @@ class Screenshot_Lister extends Directory_Lister {
     var $database_filename;
     var $old_database;
     var $check_preview_size;
+    var $path;
 
-    function Screenshot_Lister($path=".") {
-        $this->check_preview_size = 0;
-        $this->database_filename = "./screenshot_db.inc";
-        Directory_Lister::get_valid_dir_array($path, array(), array("CVS"));
+    // regular expression definitions
+    var $regexp_preview;
+    var $regexp_description;
+    var $regexp_screenshot;
+    var $regexp_config;
+
+    var $preview_dimension;
+
+    //----------------------------------------------------------------
+    // constructor
+    function Screenshot_Lister($path=".", 
+                               $regexp_preview=array("^preview", "^thumb"),
+                               $regexp_description=array("^desc"),
+                               $regexp_screenshot=array("^screen", "^desk", "^shot"),
+                               $regexp_config=array("^fvwmrc", "^fvwm2rc")) {
+        $this->check_preview_size  = 0;
+        $this->database_filename   = "./screenshot_db.inc";
+        $this->path                = $path;
+        $this->regexp_preview      = $regexp_preview;
+        $this->regexp_description  = $regexp_description;
+        $this->regexp_screenshot   = $regexp_screenshot;
+        $this->regexp_config       = $regexp_config;
         $this->processed_dir_array = array();
-        $this->read_existing_data_base();
-        $this->process_dir_array();
     }
 
+    function set_check_preview_size($check_preview_size=1) {
+        $this->check_preview_size = $check_preview_size;
+    }
+
+    //----------------------------------------------------------------
+    // interface methods to set regular expression
+    function set_regexp_preview($regexp_preview) {
+        if( is_array($regexp_preview) ) {
+            $this->regexp_preview = $regexp_preview;
+        }
+    }
+
+    function set_regexp_description($regexp_description) {
+        if( is_array($regexp_description) ) {
+            $this->regexp_description = $regexp_description;
+        }
+    }
+    
+    function set_regexp_screenshot($regexp_screenshot) {
+        if( is_array($regexp_screenshot) ) {
+            $this->regexp_screenshot = $regexp_screenshot;
+        }
+    }
+    
+    function set_regexp_config($regexp_config) {
+        if( is_array($regexp_config) ) {
+            $this->regexp_config = $regexp_config;
+        }
+    }
+    
+
+    //----------------------------------------------------------------
+    // find the first file matches regular expression
     function get_entry_by_regexp($dir_content_array, $regexps_array) {
         if( ! is_array($dir_content_array) || ! is_array($regexps_array) ) {
             return 0;
         }
         foreach( $regexps_array as $regexp ) {
             foreach( $dir_content_array as $file ) {
+                // echo "Checking ".$file["name"]." - "."$regexp ...\n";
                 if( preg_match("/".$regexp."/", $file["name"])) {
+                    // echo "found\n";
                     return $file;
                 }
             }
@@ -32,20 +91,28 @@ class Screenshot_Lister extends Directory_Lister {
         return 0;
     }
 
-    function get_preview_entry($dir_content_array, $regexps_array=array("^preview", "^thumb")) {
-        return $this->get_entry_by_regexp($dir_content_array, $regexps_array);
+    //----------------------------------------------------------------
+    // find the preview picture
+    function get_preview_entry($dir_content_array) {
+        return $this->get_entry_by_regexp($dir_content_array, $this->regexp_preview);
     }
 
-    function get_description_entry($dir_content_array, $regexps_array=array("^desc")) {
-        return $this->get_entry_by_regexp($dir_content_array, $regexps_array);
+    //----------------------------------------------------------------
+    // find the description file
+    function get_description_entry($dir_content_array) {
+        return $this->get_entry_by_regexp($dir_content_array, $this->regexp_description);
     }
 
-    function get_screenshot_entry($dir_content_array, $regexps_array=array("^screen", "^desk", "^shot")) {
-        return $this->get_entry_by_regexp($dir_content_array, $regexps_array);
+    //----------------------------------------------------------------
+    // find the screenshot file
+    function get_screenshot_entry($dir_content_array) {
+        return $this->get_entry_by_regexp($dir_content_array, $this->regexp_screenshot);
     }
 
-    function get_description($dir_content_array, $path, $regexps_array=array("^desc")) {
-        $file = $this->get_description_entry($dir_content_array, $regexps_array);
+    //----------------------------------------------------------------
+    // extract the description from description file
+    function get_description($dir_content_array, $path) {
+        $file = $this->get_description_entry($dir_content_array);
         $filename = $path."/".$file["name"];
         $desc = "";
         if( $handle = fopen($filename, "r") ) {
@@ -57,11 +124,18 @@ class Screenshot_Lister extends Directory_Lister {
         return 0;
     }
 
-    function get_rc_entry($dir_content_array, $regexps_array=array("^fvwm2rc", "^fvwmrc")) {
-        return $this->get_entry_by_regexp($dir_content_array, $regexps_array);
+    //----------------------------------------------------------------
+    // check if there is config file 
+    function get_rc_entry($dir_content_array) {
+        return $this->get_entry_by_regexp($dir_content_array, $this->regexp_config);
     }
 
+    //----------------------------------------------------------------
+    // build the data base
     function process_dir_array() {
+
+        Directory_Lister::get_valid_dir_array($this->path, array(), array("CVS"));
+        $this->read_existing_data_base();
         
         $my_processed_dir_array = array();
         foreach( $this->dir_array as $key => $dir ) {
@@ -72,16 +146,16 @@ class Screenshot_Lister extends Directory_Lister {
             printf( "Processing %-40s ", ${dirname});
             
             // get information form the directory array about preview and screenshot
-            $preview_entry     = $this->get_preview_entry($dir_content_array, array("^preview", "^thumb"));
-            $screenshot_entry  = $this->get_screenshot_entry($dir_content_array, array("^screen", "^desk", "^shot"));
-            $fvwmrc            = $this->get_rc_entry($dir_content_array, array("^fvwm2rc", "^fvwmrc"));
+            $preview_entry     = $this->get_preview_entry($dir_content_array);
+            $screenshot_entry  = $this->get_screenshot_entry($dir_content_array);
+            $fvwmrc            = $this->get_rc_entry($dir_content_array);
             
             // get the names, date and size
             $preview     = $preview_entry["name"];
             $screenshot  = $screenshot_entry["name"];
             $date        = $screenshot_entry["date"];
             $size        = $screenshot_entry["size"];
-            $description = $this->get_description($dir_content_array, $dirname, array("^desc"));
+            $description = $this->get_description($dir_content_array, $dirname);
             
             if( $screenshot && 
                 ! $preview = $this->check_previev($preview, $screenshot, $dirname, "160x120") ) {
@@ -97,9 +171,8 @@ class Screenshot_Lister extends Directory_Lister {
             if( $preview && $screenshot && $date && $size && $description && $dimension ) {
                 printf( "ok %9s %4sk %s", $dimension, ceil($size/1024), str_replace("screenshot.", "", $screenshot) );
                 if( ceil($size/1024) > 300 ) {
-                    echo " \033[31;2m[size warning]\033[0m";
+                    echo " \033[34;2m[size warning]\033[0m";
                 }
-                echo "\n";
                 $my_processed_dir_array["${date}_${key}"]["path"]        = $dirname;
                 $my_processed_dir_array["${date}_${key}"]["preview"]     = $preview;
                 $my_processed_dir_array["${date}_${key}"]["screenshot"]  = $screenshot;
@@ -109,7 +182,9 @@ class Screenshot_Lister extends Directory_Lister {
                 $my_processed_dir_array["${date}_${key}"]["description"] = $description;
                 if( $fvwmrc ) {
                     $my_processed_dir_array["${date}_${key}"]["rc"]      = $fvwmrc;
+                    echo " \033[31;2m(fvwmrc)\033[0m";
                 }
+                echo "\n";
             } else {
                 echo ". \033[34;1mFAILED on [";
                 if( ! $preview )     echo " preview";
@@ -132,11 +207,14 @@ class Screenshot_Lister extends Directory_Lister {
         }
     }
     
+    //----------------------------------------------------------------
+    // checks if there is a preview picture
     function check_previev($preview, $screenshot, $path, $size="160x120") {
         if( $preview ) {
             $prev = "${path}/${preview}";
             if( $this->check_preview_size ) {
                 // echo "Get preview dimensions ...\n";
+                echo "{preview check} ";
                 $output = exec("convert -verbose ${prev} gif:/dev/null 2> /dev/null");
             } else {
                 $output = "  ".$size;
@@ -157,6 +235,8 @@ class Screenshot_Lister extends Directory_Lister {
         }       
     }
 
+    //----------------------------------------------------------------
+    // get the dimensions of the screenshot
     function get_dimension($screenshot, $path, $date) {
         if( $this->old_database[$path] ) {
             // echo "Found entry in old data base ...\n";
@@ -172,6 +252,8 @@ class Screenshot_Lister extends Directory_Lister {
         return $dim;
     }
 
+    //----------------------------------------------------------------
+    // includes the previous data base
     function read_existing_data_base() {
         if( file_exists($this->database_filename) ) {
             include($this->database_filename);
