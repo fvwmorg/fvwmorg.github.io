@@ -41,6 +41,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Authors of FVWM"); ?>  
 
+<h3>Here are <a href="<?php echo conv_link_target('pictures/index.php');?>">pictures</a> of some FVWM Developers</h3>
 
 <h4 class="author">Nadim Shaikli</h4>
 <p class="author">

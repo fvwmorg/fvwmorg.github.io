@@ -58,13 +58,21 @@ $this->nav_array["logo_competition"]["link_pic"] = "pictures/icons/logo_competit
 $this->nav_array["logo_competition"]["parent_site"] = "news"; 
 $this->nav_array["logo_competition"]["child_sites"] = array(); 
 
+$this->nav_array["birthday"]["file"] = "birthday/index.php"; 
+$this->nav_array["birthday"]["rel_path"] = "./.."; 
+$this->nav_array["birthday"]["link_name"] = "FVWM Birthday"; 
+$this->nav_array["birthday"]["link_chapter"] = ""; 
+$this->nav_array["birthday"]["link_pic"] = "pictures/icons/birthday"; 
+$this->nav_array["birthday"]["parent_site"] = "news"; 
+$this->nav_array["birthday"]["child_sites"] = array(); 
+
 $this->nav_array["news"]["file"] = "latest_news/index.php"; 
 $this->nav_array["news"]["rel_path"] = "./.."; 
 $this->nav_array["news"]["link_name"] = "News"; 
 $this->nav_array["news"]["link_chapter"] = ""; 
 $this->nav_array["news"]["link_pic"] = "pictures/icons/news"; 
 $this->nav_array["news"]["parent_site"] = "top"; 
-$this->nav_array["news"]["child_sites"] = array("logo_competition", ); 
+$this->nav_array["news"]["child_sites"] = array("logo_competition", "birthday", ); 
 
 $this->nav_array["features"]["file"] = "features.php"; 
 $this->nav_array["features"]["rel_path"] = "."; 

@@ -9,11 +9,6 @@
 if (strlen($rel_path) == 0) $rel_path = "./..";
 
 //--------------------------------------------------------------------
-// check if we should stop here
-//--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
-
-//--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
 include("$rel_path/definitions.inc");
@@ -27,16 +22,16 @@ $layout_file = $theme_file;
 //--------------------------------------------------------------------
 $title          = "Happy Birthday FVMW!";
 $heading        = '<img src="happy_birthday.gif" border="0" alt="Happy Birthday FVWM!">';
-$link_name      = "Home";
-$link_picture   = "pictures/icons/home";
-$parent_site    = "top";
-$child_sites    = array("fvwm_cats", "authors", "customize_theme");
+$link_name      = "FVWM Birthday";
+$link_picture   = "pictures/icons/birthday";
+$parent_site    = "news";
+$child_sites    = array();
 //  RBW...
 //  Must be able to cope with register_globals = off.
 //$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 
-$this_site      = "home";
+$this_site      = "birthday";
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -74,84 +69,54 @@ decoration_window_start("Celebrate 10 years of FVWM");
 
     <img src="birthday_celebration1.gif" border="0" alt="The FVWM Birthday Celebration">
 
-      <p>
-	On the 1st of June, 1993, the first version of fvwm, venerable 
-	grandfather of many other window managers, first saw the light of
-	day.  Robert Nation, the original author, bundled the initial
-	release with rxvt, his still widely used terminal program.  After
-	all these years, fvwm still stands strong.
-      </p>
-
-      <p>
-	We, the developers of fvwm, would like to invite you to the fvwm
-	birthday party on Sunday, 1st of June, 2003:
-      </p> 
-
-
-      <ul>
-	<li>Visit the brand new fvwm home page at 
-	  <a href="<?php echo $rel_path;?>/index.php" class="link">http://www.fvwm.org</a>
-	  The special birthday layout will be available only for a couple of
-	  days.</li>
- 
-	<li>Learn more about fvwm's history and its authors and users.</li>
- 
-	<li>Fvwm needs a new, shiny logo.  Participate in the fvwm logo
-	  competition.  The best logo wins 100 Euro.</li>
-	
-	<li>Chat with developers and users via IRC on<br>
-	  <br>
-	  #fvwm on freenode (English channel)<br>
-	  +fvwm.de on IRCnet (German channel)<br><br>
-	</li>
-	
-	<li>Send your congratulations to the 
-	  <a href="mailto:fvwm@fvwm.org" class="link">fvwm@fvwm.org</a> mailing list.</li>
-	
-      </ul>
+  <p>
+  On the 1st of June, 1993, the first version of fvwm, venerable
+  grandfather of many other window managers, first saw the light
+  of day.  Robert Nation, the original author, bundled the initial
+  release with rxvt, his still widely used terminal program.
+  After all these years, fvwm still stands strong.
+  </p>
+  
+  <h3>Join the fvwm birthday party!</h3>
+  
+    <ul>
+	<li>Send your congratulations to the fvwm@fvwm.org mailing list.
+	<blockquote>
+	  If you are or have been a user of fvwm, please tell us when
+	  you first used fvwm, how long you have been using it and
+	  whether you are still using it.
+	</blockquote>
+      </li>
       
-      <p>
-	Please visit the fvwm home page for further details:
-      </p>
-      <p>   
-	<a href="<?php echo $rel_path;?>/index.php" class="link">http://www.fvwm.org</a>
-      </p>
-
-      <h1>Pictures of some FVWM Developers</h1>
-
-<center>
-<table>
-<tr>
-<td align="center" valign="middle"><a href="developers/Cameron_Simpson.php"><img src="developers/Cameron_Simpson_small.jpg" border="1"></a><br>Cameron Simpson</td>
-<td align="center" valign="middle"><a href="developers/Dan_Espen.php"><img src="developers/Dan_Espen_small.jpg" border="1"></a><br>Dan Espen</td>
-<td align="center" valign="middle"><a href="developers/Greg_Badros.php"><img src="developers/Greg_Badros_small.jpg" border="1"></a><br>Greg Badros</td>
-</tr>
-
-<tr>
-<td align="center" valign="middle"><a href="developers/Marcus_Lundblad-2.php"><img src="developers/Marcus_Lundblad-2_small.jpg" border="1"></a><br>Marcus Lundblad</td>
-<td align="center" valign="middle"><a href="developers/Mikhael_Goikhman.php"><img src="developers/Mikhael_Goikhman_small.jpg" border="1"></a><br>Mikhael Goikhman</td>
-<td align="center" valign="middle"><a href="developers/Tomas_Oegren.php"><img src="developers/Tomas_Oegren_small.jpg" border="1"></a><br>Tomas &Ouml;gren</td>
-</tr>
-
-<tr>
-<td align="center" valign="middle"><a href="developers/Dominik_Vogt.php"><img src="developers/Dominik_Vogt_small.jpg" border="1"></a><br>Dominik Vogt</td>
-<td align="center" valign="middle"><a href="developers/Chuck_Hines.php"><img src="developers/Chuck_Hines_small.jpg" border="1"></a><br>Chuck Hines</td>
-<td align="center" valign="middle"><a href="developers/Bob_Woodside.php"><img src="developers/Bob_Woodside_small.jpg" border="1"></a><br>Bob Woodside</td>
-</tr>
-
-<tr>
-<td align="center" valign="middle"><a href="developers/Olivier_Chapuis.php"><img src="developers/Olivier_Chapuis_small.jpg" border="1"></a><br>Olivier Chapuis</td>
-<td align="center" valign="middle"><a href="developers/Richard_Lister.php"><img src="developers/Richard_Lister_small.jpg" border="1"></a><br>Richard Lister</td>
-<td align="center" valign="middle"><a href="developers/Steve_Robbins.php"><img src="developers/Steve_Robbins_small.jpg" border="1"></a><br>Steve Robbins</td>
-</tr>
-
-<tr>
-<td align="center" valign="middle"><a href="developers/Suzanne_Britton.php"><img src="developers/Suzanne_Britton_small.jpg" border="1"></a><br>Suzanne Britton</td>
-<td align="center" valign="middle"><a href="developers/Uwe_Pross.php"><img src="developers/Uwe_Pross_small.jpg" border="1"></a><br>Uwe Pro&szlig;</td>
-</tr>
-</table>
-</center>
-
+    <li>Learn more about <a href="<?php echo conv_link_target('../history/index.php');?>">fvwm's history</a> and its
+	<a href="<?php echo conv_link_target('../authors/pictures/index.php');?>">authors and users</a>.</li>
+      
+    <li>Fvwm needs a new, shiny logo.  Participate in the fvwm logo
+	competition or check out the 
+	<a href="<?php echo conv_link_target('../logo-competition/index.php');?>">contributed logos</a>. 
+	The best logo wins 100 Euro.</li>
+      
+    <li>Chat with developers and users via IRC on
+	<ul>
+	  <li>English channel: #fvwm on freenode
+	    <blockquote>
+	      See <a href="http://freenode.net/irc_servers.shtml">http://freenode.net/irc_servers.shtml</a> for a list of
+	      freenode servers.
+	    </blockquote>
+	  </li>
+          
+	  <li>German channel:  +fvwm.de on IRCnet
+	    <blockquote>
+	    See <a href="http://ircnet.org@irc.tu-ilmenau.de/all_servers/">http://ircnet.org@irc.tu-ilmenau.de/all_servers/</a> for
+	      a list of IRCnet servers.
+	    </blockquote>
+	  </li>
+	</ul>
+	A good time to visit the channels is between 16:00 and
+	22:00 Grennwich Mean Time
+      </li>
+      </ul>
+    
 <?php 
 decoration_window_end(); 
 ?> 
