@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <13.04.2003 14:44:23 uwe>
+//-  Last modified : <14.04.2003 07:41:34 uwp>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -95,7 +95,7 @@ $decoration_path_stack = array();
 // viewing pages was changed
 function insert_timestamp($file) {
   if( file_exists($file) ) {
-    echo 'Last modified at ';
+    echo 'Last modified on ';
     echo date('F d, Y -- H:i --', fileatime("$file"));
   }
 }
@@ -378,6 +378,7 @@ if( strlen($heading) == 0 ) $heading = $title;
     }
     ?>
     <hr>
+    <p><a href="?layout=default">window layout</a></p>
     <!-- bottom of the page - display last modified information -->
     <p style="text-align:right; font-size:xx-small; font-style:italic;">
        <?php insert_timestamp($requested_file); ?>

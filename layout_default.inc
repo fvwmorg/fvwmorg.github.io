@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <13.04.2003 20:54:36 uwe>
+//-  Last modified : <14.04.2003 07:39:00 uwp>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -94,7 +94,7 @@ $decoration_path_stack = array();
 // viewing pages was changed
 function insert_timestamp($file) {
   if( file_exists($file) ) {
-    echo 'Last modified at ';
+    echo 'Last modified on ';
     echo date('F d, Y -- H:i --', fileatime("$file"));
   }
 }
@@ -341,7 +341,9 @@ function decoration_title_bar($string="") {
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
-    echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+    echo '<a href="?layout=plain">';
+    echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>';
+    echo '</a>'."\n";
 
     echo '</tr>'."\n";
     echo '</table>'."\n";    
