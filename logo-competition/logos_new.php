@@ -53,7 +53,8 @@ width="213" height="358" border="0" vspace="0" hspace="0" class="centered"></a>
 <!-- ============================================================= -->
 <?php decoration_window_start("By David Drummond (1 image)", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
 ?>" class="nohilight"><img src="logos/David_Drummond/yellow_flower_fvwm_logo.png"
 width="300" height="180" border="0" vspace="0" hspace="0"></a>
 
@@ -180,6 +181,16 @@ border="0" hspace="0" vspace="0"></a>
 <p class="centered">
 <a href="<?php echo conv_link_target('logos/Stefan_Bergmeier/index.php');
 ?>" class="nohilight"><img src="logos/Stefan_Bergmeier/logos-overview.png" width="300" height="150" border="0" vspace="0" hspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Aric Campling (2 images)", "", "", 0); ?>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Aric_Campling/index.php');
+?>" class="nohilight"><img src="logos/Aric_Campling/logos-overview.png" width="300" height="180" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
