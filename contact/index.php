@@ -10,7 +10,7 @@ if (strlen($rel_path) == 0) $rel_path = "./..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path.'/definitions.inc'); 
+include($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -42,8 +42,13 @@ decoration_window_start("Mailing lists");
 ?>
 
 
+  <p>
+    PLEASE ASK QUESTIONS RELATED TO XMMS ON THE XMMS MAILING LIST.
+    See <a href="http://xmms.org/">http://xmms.org/.
+  </p>
+
   <h4>The mailing list addresses are:</h4>
-  
+
   <ul>
     <li><a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a> (Discussion and questions list)</li>
     <li><a href="mailto:fvwm-announce@fvwm.org">fvwm-announce@fvwm.org</a> (Announcement only list)</li>
@@ -64,7 +69,7 @@ decoration_window_start("Mailing lists");
 
   <h4>*-request addresses are:</h4>
 
-  <p>    
+  <p>
     <ul>
       <li> <a href="mailto:fvwm-request@fvwm.org">fvwm-request@fvwm.org</a></li>
       <li> <a href="mailto:fvwm-announce-request@fvwm.org">fvwm-announce-request@fvwm.org</a></li>
