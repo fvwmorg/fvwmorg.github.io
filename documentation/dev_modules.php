@@ -52,7 +52,7 @@ decoration_window_start("Module Interface");
     <li><a href="#mod_concept">Concept</a></li>
     <li><a href="#mod_security">Security</a></li>
     <li><a href="#mod_initialization">Initialization</a> and 
-      <a href="#mod_initialization_colorsets">Colorsets</a></li>
+      <a href="#mod_colorsets">Colorsets</a></li>
     <li><a href="#mod_m2f_communication">module-to-fvwm Communication</a></li>
     <li><a href="#mod_f2m_communication">fvwm-to-module Communication</a></li>
   </ul>
@@ -275,7 +275,7 @@ void main(int argc, char **argv) {
     see <a href="#M_SENDCONFIG">M_SENDCONFIG</a> in
     <a href="#mod_m2f_communication">module-to-fvwm Communication</a>.</p>
 
-  <h2><a name="colorsets"></a>Colorset support <a href="#top">[top]</a></h2> 
+  <h2><a name="mod_colorsets"></a>Colorset support <a href="#top">[top]</a></h2> 
   <p>When a module requests configuration information the configuration
     commands sent are preceded by some global configuration lines and a
     list of colorsets. In order to use colorsets a module must do the
