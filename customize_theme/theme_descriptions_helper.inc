@@ -45,6 +45,9 @@ class Theme_Descriptions_Helper {
         if( !strcmp($propagation_method, "cookie") ) {
             // set a cookie for one year - after this time the browser rejects this settings
             setcookie("propagation_method", "cookie", time()+60*60*24*365, "/");
+	    
+	    // store selected theme
+	    setcookie("theme", $this->selected_theme, time()+60*60*24*365, "/");
         }
         // print_r($style_description_array);
         // print_r($_COOKIE);

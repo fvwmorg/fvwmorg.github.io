@@ -111,9 +111,9 @@ class Plain_Theme extends Base_Theme {
     }
 
 
-    function conv_link_target($target) {
-        global $theme;
-        if( $theme ) return $target."?theme=".$theme;
-        else return $target;
-    }
+//     function conv_link_target($target) {
+//         global $theme;
+//         if( $theme ) return $target."?theme=".$theme;
+//         else return $target;
+//     }
 }
