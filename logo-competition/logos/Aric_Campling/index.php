@@ -69,6 +69,13 @@ I can provide high-resolution, uncompressed TIF on request.  Thanks!
 
 <p><img src="logo-gradient_bg.png" width="300" height="180"></p>
 
+<p>
+weighing in at 34Kb, a different concept with a clear background.  Thanks.
+Colors on this one are flexible, I may change them around a bit and see
+what else I can come up with.</p>
+
+<p><img src="linecat1.png" width="300" height="180"></p>
+
 <?php decoration_window_end(); ?>
 
 <p>Return to <a href="<?php echo conv_link_target('../../logos_new.php');?>">index</a>.</p>

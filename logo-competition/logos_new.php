@@ -212,7 +212,7 @@ width="300" height="150" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Aric Campling (3 images)", "", "", 0); ?>
+<?php decoration_window_start("By Aric Campling (4 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Aric_Campling/index.php'); ?>">
 
