@@ -1,3 +1,11 @@
+2003-06-10  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/perllib/*.php:
+	regenerated
+
+	* download/index.php:
+	restored links to tarballs
+
 2003-06-08  Mikhael Goikhman  <migo@homemail.com>
 
 	* logo-competition/logos/Aric_Campling/index.php:

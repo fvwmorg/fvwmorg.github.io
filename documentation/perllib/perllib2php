@@ -188,7 +188,7 @@ foreach my $topic (@topics) {
 	s!(the )([Ff]vwm[\w-]*)( manpage)!$1\@link(../manpages/$branch/$2)\@$3!g;
 	s!(<[BbIi]>)($topicRegExp)(</[BbIi]>)!$1\@link($2)\@$3!g;
 	s!(<[BbIi]>)(fvwm|Fvwm[\w]+)(</[BbIi]>)!$1\@link(../manpages/$branch/$2)\@$3!g;
-	s!<H2>SEE ALSO</H2>.+?<H!local $_ = $&; s/( )($topicRegExp)([\., ])/$1\@link($2)\@$3/g; $_!se;
+	s!<H2>SEE ALSO</H2>.+?<H!local $_ = $&; s/(\s)($topicRegExp)([\., ])/$1\@link($2)\@$3/g; $_!se;
 
 	$namespace->{body} = processTemplate($_);
 

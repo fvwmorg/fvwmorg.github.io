@@ -51,12 +51,8 @@ if (strlen($site_has_been_loaded) == 0) {
   
     <li>
       Latest Unstable Release (<b><?php echo $latest_unstable_release; ?></b>):
-<!--
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
--->
-      <a href="http://fvwm.sf.net/tmp/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
-      <a href="http://fvwm.sf.net/tmp/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
 
     <li>
