@@ -56,11 +56,6 @@ if (strlen($site_has_been_loaded) == 0) {
     </li>
 
     <li>
-      Latest Alpha Versions:
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/testing/">here</a>
-    </li>
-    
-    <li>
       Latest snapshot:
       <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/snapshots/">here</a>
     </li>
