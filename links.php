@@ -42,40 +42,60 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Links"); ?>
 
-  <h2>Other FVWM-related sites</h2>
+  <h2 style="text-align: center">Other FVWM-related sites</h2>
 
   <p>
     Here are some other sites (besides the 
     <a href="http://www.fvwm.org/">official</a> one) that have FVWM info:
   </p>
 
+
+  <h2>Window Decors and Other Configuration Tips</h2>
+
     <ul>
-      <li><a href="http://members.fcwm.org/glen/fvwm/">Glen Lee Edward's Screen shots and config files page</a></li>
+      <li><a href="http://members.fcwm.org/glen/fvwm/">Glen Lee Edward's Screen
+        shots and config files page</a> ("FVWM - Do it your way!") - 
+        illustrates FVWM's flexibility with configuration information and, of course,
+        the obligatory screenshots.</li>
 
 <!--  
         RBW - Dead.  www.oneway.com/jay is still there, but no mention of
         anything to do with FVWM.
-      <li><a href="http://www.oneway.com/fvwm/">Jay Kuri's Fvwm Module documentation in Palm Pilot format</a></li>
+      <li><a href="http://www.oneway.com/fvwm/">
+      Jay Kuri's Fvwm Module documentation in Palm Pilot format</a></li>
 -->
-      <li><a href="http://fvwm-ewmh.sourceforge.net">Extended WM Hints for fvwm 2.4</a> - Enables integration with KDE2, GTK+2 and the future GNOME2</li>
 
       <li><a href="http://www.igs.net/~tril/fvwm/configs/">Suzanne Skinner's
-      fvwm site</a> - Stylish screenshots (and config files).<br>
+      FVWM site</a> - Stylish screenshots (and config files) from the author
+      of the MultiPixmap titlebar feature.
       Don't miss her thoughtful and entertaining essay
-      <a href="http://www.igs.net/~tril/fvwm">"My Quest For The Perfect Window Manager"</a><br>
-      <i>(The hobbit in us would like to subtitle it "There and Back Again")</i>
-<!--
-      Question:  Does she prefer to go by Britton or Skinner?
--->
+      <a href="http://www.igs.net/~tril/fvwm">"My Quest For The Perfect Window Manager".</a>
+      <i>(The hobbit in us would like to subtitle it "There and Back Again".)</i>
+      </li>
+
+      <li><a href="http://www.twobarleycorns.net/fvwm-decors.html">Dorothy Robinson's
+        FVWM 2.6 Decors</a> - an impressive collection of window decors showing off
+        FVWM 2.6's visual versatility. All the config files are downloadable. There is
+        also a collection of <a href="http://www.twobarleycorns.net/fvwm24-decors.html">
+        decors that can be used with 2.4</a>.
       </li>
 
     </ul>
 
-  <p>Lots of folks are into themes these days; here are a few themes-related sites:</p>
+
+  <h2>Themes</h2>
+
+  <p>You say you're into desktop themes? Then one of these sites should be your
+  next stop:</p>
 
     <ul>
       <li><a href="http://fvwm-themes.sourceforge.net/">The Official
-      FVWM Themes Home Page</a> - has also links to other theme related sites.</li>
+      FVWM Themes Home Page</a> - highly recommended for novice users. FVWM Themes
+      provides a powerful gui-driven theme engine and a wide variety of preconfigured
+      themes so you can get started without having to learn anything about FVWM
+      configuration commands. If the supplied themes don't suit you, you can create
+      your own, or mix and match components from the existing ones.<br>
+      The site also has links to other theme related sites.</li>
 
       <li><a href="http://wm-icons.sourceforge.net/">The Window Manager Icons Project</a> - 
       an efficient icon distribution to use with fvwm and fvwm-themes.</li>
@@ -95,11 +115,20 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
     </ul>
 
+
+  <h2>Add-ons</h2>
+
     <p>And here are some sites featuring programs that are designed
     to work with or enhance FVWM:</p>
 
     <ul>
-      <li><a href="http://users.tpg.com.au/users/scottie7/fvwmtabs.html">FvwmTabs Module</a> - SCoTT SMeDLeY's FvwmTabs module.</li>
+
+      <li><a href="http://fvwm-ewmh.sourceforge.net">Extended WM Hints for fvwm 2.4</a> - 
+        Enables integration with KDE2, GTK+2 and the future GNOME2 (this support has
+        been integrated by the author into the FVWM 2.6 core)</li>
+
+      <li><a href="http://users.tpg.com.au/users/scottie7/fvwmtabs.html">FvwmTabs Module</a> - 
+        SCoTT SMeDLeY's FvwmTabs module.</li>
 
       <li><a href="http://www.blackie.dk/dotfile/">The Dotfile Generator Home Page</a> - 
       A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files (pretty old)</li>
@@ -109,7 +138,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <!--
        Whatever happened to this one?  -RBW
-       <li><a href="http://www-personal.umich.edu/~markcrim/tkgoodstuff/">The TkGoodStuff Home Page</a> - 
+       <li><a href="http://www-personal.umich.edu/~markcrim/tkgoodstuff/">
+       The TkGoodStuff Home Page</a> - 
        A Tcl/Tk Program that performs like GoodStuff/FvwmButtons.</li> 
 -->
     </ul>
@@ -126,7 +156,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     <ul>
 <!-- 
         RBW - doesn't seem to have been updated in about 2 years (March 2000).
-        Guess they're not active.
+        Guess they're not active. Seems to be just archived at sourceforge,
+        like fvwm95.
 -->
       <li><a href="http://scwm.sourceforge.net/">SCWM</a>
         - The Scheme Configurable Window Manager</li>
