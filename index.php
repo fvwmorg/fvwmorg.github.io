@@ -17,11 +17,11 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "The Official FVWM Home Page";
-$heading        = 'The Official <img src="pictures/fvwm-logo-steelblue.gif" border="0" alt="FVWM" align="middle"> Home Page';
+$heading        = 'The Official <img src="pictures/fvwm-logo-steelblue.gif" width="150" height="100" border="0" alt="FVWM" align="middle"> Home Page';
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
-$child_sites    = array("fvwm_cats", "authors", "customize_theme");
+$child_sites    = array("authors", "history", "fvwm_cats");
 //  RBW...
 //  Must be able to cope with register_globals = off.
 //$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
@@ -71,7 +71,7 @@ Participate in our new
 echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 ?>
 <hr>
-<a href="<?php echo $rel_path;?>/birthday/index.php" class="nohilight"><img src="<?php echo $rel_path;?>/birthday/birthday_celebration1.gif" border="0"></a>
+<a href="<?php echo $rel_path;?>/birthday/index.php" class="nohilight"><img src="<?php echo $rel_path;?>/birthday/birthday_celebration1.gif" border="0" width="596" height="53"></a>
 <h3>On the 1st of June 2003 we are celebrating fvwm's tenth birthday.</h3>
 <hr>
 

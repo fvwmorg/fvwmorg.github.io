@@ -18,14 +18,6 @@ $this->nav_array["top_array"] = array(
   "links", 
 ); 
 
-$this->nav_array["fvwm_cats"]["file"] = "fvwm-cats/index.php"; 
-$this->nav_array["fvwm_cats"]["rel_path"] = "./.."; 
-$this->nav_array["fvwm_cats"]["link_name"] = "Cats"; 
-$this->nav_array["fvwm_cats"]["link_chapter"] = ""; 
-$this->nav_array["fvwm_cats"]["link_pic"] = "pictures/icons/fvwm_cats"; 
-$this->nav_array["fvwm_cats"]["parent_site"] = "home"; 
-$this->nav_array["fvwm_cats"]["child_sites"] = array(); 
-
 $this->nav_array["authors"]["file"] = "authors/index.php"; 
 $this->nav_array["authors"]["rel_path"] = "./.."; 
 $this->nav_array["authors"]["link_name"] = "Authors"; 
@@ -34,13 +26,21 @@ $this->nav_array["authors"]["link_pic"] = "pictures/icons/authors";
 $this->nav_array["authors"]["parent_site"] = "home"; 
 $this->nav_array["authors"]["child_sites"] = array(); 
 
-$this->nav_array["customize_theme"]["file"] = "customize_theme/index.php"; 
-$this->nav_array["customize_theme"]["rel_path"] = "./.."; 
-$this->nav_array["customize_theme"]["link_name"] = "Customize"; 
-$this->nav_array["customize_theme"]["link_chapter"] = ""; 
-$this->nav_array["customize_theme"]["link_pic"] = "pictures/icons/customize_theme"; 
-$this->nav_array["customize_theme"]["parent_site"] = "home"; 
-$this->nav_array["customize_theme"]["child_sites"] = array(); 
+$this->nav_array["history"]["file"] = "history.php"; 
+$this->nav_array["history"]["rel_path"] = "."; 
+$this->nav_array["history"]["link_name"] = "History"; 
+$this->nav_array["history"]["link_chapter"] = ""; 
+$this->nav_array["history"]["link_pic"] = "pictures/icons/history"; 
+$this->nav_array["history"]["parent_site"] = "home"; 
+$this->nav_array["history"]["child_sites"] = array(); 
+
+$this->nav_array["fvwm_cats"]["file"] = "fvwm-cats/index.php"; 
+$this->nav_array["fvwm_cats"]["rel_path"] = "./.."; 
+$this->nav_array["fvwm_cats"]["link_name"] = "Cats"; 
+$this->nav_array["fvwm_cats"]["link_chapter"] = ""; 
+$this->nav_array["fvwm_cats"]["link_pic"] = "pictures/icons/fvwm_cats"; 
+$this->nav_array["fvwm_cats"]["parent_site"] = "home"; 
+$this->nav_array["fvwm_cats"]["child_sites"] = array(); 
 
 $this->nav_array["home"]["file"] = "index.php"; 
 $this->nav_array["home"]["rel_path"] = "."; 
@@ -48,7 +48,7 @@ $this->nav_array["home"]["link_name"] = "Home";
 $this->nav_array["home"]["link_chapter"] = ""; 
 $this->nav_array["home"]["link_pic"] = "pictures/icons/home"; 
 $this->nav_array["home"]["parent_site"] = "top"; 
-$this->nav_array["home"]["child_sites"] = array("fvwm_cats", "authors", "customize_theme", ); 
+$this->nav_array["home"]["child_sites"] = array("authors", "history", "fvwm_cats", ); 
 
 $this->nav_array["logo_competition"]["file"] = "logo-competition/index.php"; 
 $this->nav_array["logo_competition"]["rel_path"] = "./.."; 
@@ -108,7 +108,7 @@ $this->nav_array["desktops"]["child_sites"] = array();
 
 $this->nav_array["windowdecors"]["file"] = "screenshots/windowdecors/index.php"; 
 $this->nav_array["windowdecors"]["rel_path"] = "./../.."; 
-$this->nav_array["windowdecors"]["link_name"] = "Window Decoration Screenshots"; 
+$this->nav_array["windowdecors"]["link_name"] = "Window Decorations"; 
 $this->nav_array["windowdecors"]["link_chapter"] = ""; 
 $this->nav_array["windowdecors"]["link_pic"] = "pictures/icons/screenshots_decor"; 
 $this->nav_array["windowdecors"]["parent_site"] = "screenshots"; 
@@ -178,13 +178,21 @@ $this->nav_array["dev_creating_rpms"]["link_pic"] = "pictures/icons/doc_develope
 $this->nav_array["dev_creating_rpms"]["parent_site"] = "developers"; 
 $this->nav_array["dev_creating_rpms"]["child_sites"] = array(); 
 
+$this->nav_array["dev_webpage"]["file"] = "documentation/dev_webpage.php"; 
+$this->nav_array["dev_webpage"]["rel_path"] = "./.."; 
+$this->nav_array["dev_webpage"]["link_name"] = "Web site"; 
+$this->nav_array["dev_webpage"]["link_chapter"] = ""; 
+$this->nav_array["dev_webpage"]["link_pic"] = "pictures/icons/doc_developers_webpage"; 
+$this->nav_array["dev_webpage"]["parent_site"] = "developers"; 
+$this->nav_array["dev_webpage"]["child_sites"] = array(); 
+
 $this->nav_array["developers"]["file"] = "documentation/developers.php"; 
 $this->nav_array["developers"]["rel_path"] = "./.."; 
 $this->nav_array["developers"]["link_name"] = "Developer Info"; 
 $this->nav_array["developers"]["link_chapter"] = ""; 
 $this->nav_array["developers"]["link_pic"] = "pictures/icons/doc_developers"; 
 $this->nav_array["developers"]["parent_site"] = "documentation"; 
-$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", ); 
+$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", "dev_webpage", ); 
 
 $this->nav_array["documentation"]["file"] = "documentation/index.php"; 
 $this->nav_array["documentation"]["rel_path"] = "./.."; 
@@ -202,12 +210,20 @@ $this->nav_array["mailing_lists"]["link_pic"] = "pictures/icons/contact_mailing_
 $this->nav_array["mailing_lists"]["parent_site"] = "top"; 
 $this->nav_array["mailing_lists"]["child_sites"] = array(); 
 
+$this->nav_array["customize_theme"]["file"] = "customize_theme/index.php"; 
+$this->nav_array["customize_theme"]["rel_path"] = "./.."; 
+$this->nav_array["customize_theme"]["link_name"] = "Customize"; 
+$this->nav_array["customize_theme"]["link_chapter"] = ""; 
+$this->nav_array["customize_theme"]["link_pic"] = "pictures/icons/customize_theme"; 
+$this->nav_array["customize_theme"]["parent_site"] = "links"; 
+$this->nav_array["customize_theme"]["child_sites"] = array(); 
+
 $this->nav_array["links"]["file"] = "links.php"; 
 $this->nav_array["links"]["rel_path"] = "."; 
 $this->nav_array["links"]["link_name"] = "Links"; 
 $this->nav_array["links"]["link_chapter"] = ""; 
 $this->nav_array["links"]["link_pic"] = "pictures/icons/links"; 
 $this->nav_array["links"]["parent_site"] = "top"; 
-$this->nav_array["links"]["child_sites"] = array(); 
+$this->nav_array["links"]["child_sites"] = array("customize_theme", ); 
 
 ?>

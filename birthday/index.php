@@ -18,7 +18,7 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "Happy Birthday FVMW!";
-$heading        = '<img src="happy_birthday.gif" border="0" alt="Happy Birthday FVWM!">';
+$heading        = '<img src="happy_birthday.gif" width="581" height="62" border="0" alt="Happy Birthday FVWM!">';
 $link_name      = "FVWM Birthday";
 $link_picture   = "pictures/icons/birthday";
 $parent_site    = "news";
@@ -49,7 +49,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 decoration_window_start("Celebrate 10 years of FVWM"); 
 ?> 
 
-    <img src="birthday_celebration2.gif" border="0" alt="The FVWM Birthday Celebration">
+    <img src="birthday_celebration2.gif" width="661" height="61" border="0" alt="The FVWM Birthday Celebration">
 
   <p>
   On the 1st of June, 1993, the first version of fvwm, venerable
@@ -70,7 +70,7 @@ decoration_window_start("Celebrate 10 years of FVWM");
 	</blockquote>
       </li>
       
-    <li>Learn more about <a href="<?php echo conv_link_target('../history/index.php');?>">fvwm's history</a> and its
+    <li>Learn more about <a href="<?php echo conv_link_target('../history.php');?>">fvwm's history</a> and its
 	<a href="<?php echo conv_link_target('../authors/pictures/index.php');?>">authors and users</a>.</li>
       
     <li>Fvwm needs a new, shiny logo.  Participate in the fvwm logo

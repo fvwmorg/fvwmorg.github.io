@@ -5,9 +5,9 @@ echo "navgen start";
 
 include('definitions.inc');
 
-function info_output($sting, $level = 2) {
+function info_output($sting, $level = 1) {
     global $info_level;
-    if( ! isset($info_level) ) $info_level = 1;
+    if( ! isset($info_level) ) $info_level = 4;
     if( $level <= $info_level ) {
         echo $sting;
     }
@@ -86,7 +86,7 @@ class Resort_Top_Array {
 function read_directory($directory_name) {
     global $php_file_array;
 
-    if( file_exists($directory_name."/.navgen_ignore") ) {
+    if( file_exists($directory_name."/.navgen_ignore") && strcmp($directory_name,".") ) {
         info_output("Ignoring directory $directory_name\n", 2);
         return;
     }
@@ -147,9 +147,12 @@ function export_nav($this_site, $export_depth = 0) {
 
                     // check if the child site refers to this parent
                     if( strcmp($child_array["$child_file"]["parent_site"], $this_site) ) {
-                        echo 'Child and parent reference do not match. ';
+                        echo 'Child and parent reference do not match.'."\n";
                         echo 'Please check files ';
-                        echo $child_array["$child_file"]["file"].' and '.${$this_site}["file"].'\n</span>';
+                        echo $child_array["$child_file"]["file"];
+                        echo "[".$child_array["$child_file"]["parent_site"]."]";
+                        echo ' and ';
+                        echo ${$this_site}["file"]."[".$this_site."]\n";
                     }
 
                     $found_php_file_for_this_child = 1;
@@ -200,7 +203,13 @@ function export_nav($this_site, $export_depth = 0) {
     if( ${$this_site}["is_exported"] != 1 ) {
         // export information of this file
         fputs($nav_file, "\n");
-        $export_array = array("file", "rel_path", "link_name", "link_chapter", "link_pic", "parent_site", "child_sites");
+        $export_array = array("file", 
+                              "rel_path", 
+                              "link_name", 
+                              "link_chapter", 
+                              "link_pic", 
+                              "parent_site", 
+                              "child_sites");
         foreach( $export_array as $entry) {
             //export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry]);
             export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry], '$this->');
@@ -276,7 +285,7 @@ while( list($index, $php_file) = each($php_file_array) ) {
     info_output('$this_site = <'.$this_site.'> '.strlen($this_site)."\n", 4);
 
     // adapt $this_site for the command line interface
-    if( isset($this_site) and ! strcmp($this_site, $navgen_name) ) {
+    if( isset($this_site) and ( ! strcmp($this_site, $navgen_name) or strlen($this_site) == 0 ) ) {
         $this_site = str_replace(".php", "", basename($php_file));
         info_output("-- Setting \$this_site to \"$this_site\"\n", 3);
     }
@@ -388,7 +397,7 @@ reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
     info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
     if( ${$this_site}["is_exported"] != 1 ) {
-        info_output( "\033[31;1m** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\033[0m\n", 0);
+        info_output( "\033[31;1mWarning: top site $this_site in file ".${$this_site}["file"]." was not exported\033[0m\n", 0);
     }
 }
 
@@ -396,7 +405,7 @@ reset($child_file_array);
 while( list($index, $php_file) = each($child_file_array) ) {
     info_output("Checking $php_file for exporting\n", 5);
     if( $child_array["$php_file"]["is_exported"] != 1 ) {
-        info_output("\033[31;1m** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\033[0m\n", 0);
+        info_output("\033[31;1mWarning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\033[0m\n", 0);
     }
 }
 

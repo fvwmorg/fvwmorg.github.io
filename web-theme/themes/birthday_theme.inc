@@ -50,6 +50,9 @@ if (strlen($heading) == 0) $heading = $title;
          text-decoration:underline;
          font-weight: bold;
      }
+     .historydominik { color:#ffff00;}
+     .historychuck   { color:#00ffff;}
+     .historyrobert  { color:#ffaaff;}
      -->
     </style>
   </head>

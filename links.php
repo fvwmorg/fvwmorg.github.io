@@ -20,7 +20,7 @@ $title          = "FVWM - Links";
 $link_name      = "Links";
 $link_picture   = "pictures/icons/links";
 $parent_site    = "top";
-$child_sites    = array();
+$child_sites    = array("customize_theme");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = str_replace(".php", "", "$requested_file");
 

@@ -1,3 +1,33 @@
+2003-05-31  Uwe Pross  <uwe.pross@gmx.net>
+
+	* web-theme/themes/birthday_theme.inc: 
+	Added css information for history page
+
+	* history.php: 
+	Created history information file
+
+	* latest_news/index.php: 
+	* latest_news/news_template.php_: 
+	Added "birthday" site as child
+	
+	* navgen.cli: 
+	Small fixes. Colored warnings
+	
+	* index.php: 
+	* links.php: 
+	* customize_theme/index.php: 
+	Changed customize page as child of "links" page to get history
+	page as child of "home"
+	
+	* authors/authors_template.php_: 
+	* authors/index.php: 
+	Added link to picture site.
+
+	* index.php:
+	* birthday/index.php:
+	* authors/pictures/index.php:
+	Added size info for pictures.
+	
 2003-05-31  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/manpages/manpages2php:
