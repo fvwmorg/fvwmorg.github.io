@@ -138,7 +138,7 @@ class Theme_Descriptions_Helper {
     function insert_theme_option_list() {
         $style_array = $this->theme_descriptions[$this->selected_theme]["style"];
         if( ! is_array($style_array) || count($style_array) == 0 ) {
-            echo '<tr><td colspan="3" class="windowcontents"><h3>This theme has no options</h3></td></tr>';
+            echo '<tr><td colspan="3" class="windowcontents"><h3>This theme does not have options</h3></td></tr>';
             return;
         }
 
