@@ -80,6 +80,9 @@ logo'ish since the competition is getting very impressive.
 <p class=centered>
 <img src="fvwmpower2.png" width="485" height="304" align="middle">
 
+<p class=centered>
+<img src="fvwmboxes3.png" width="660" height="500" align="middle">
+
 <p>More FVWM related art by this <a href="http://gug.sunsite.dk/gallery.php?artist=123">artist</a>:
 <ul>
   <li><a href="http://fvwm-themes.sf.net/backgrounds/">TigerSkin FVWM Wallpaper (GPL'd source, nice)</a>

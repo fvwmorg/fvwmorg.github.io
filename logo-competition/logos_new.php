@@ -113,7 +113,7 @@ width="266" height="143" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Phil Harper (8 images + 4 bg)", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (9 images + 4 bg)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php'); ?>">
 
@@ -232,6 +232,34 @@ width="300" height="180" border="0" vspace="0" hspace="0">
 
 <p class="centered"><img src="logos/Ludovic_Recourchines/logos-overview.png"
 width="200" height="240" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Tadashi Hikone (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Tadashi_Hikone/index.php'); ?>">
+
+<p class="centered"><img src="logos/Tadashi_Hikone/logo.png"
+width="197" height="99" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Colin May (8 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Colin_May/index.php'); ?>">
+
+<p class="centered"><img src="logos/Colin_May/Colin1.png" width="200" height="120" border="0" vspace="0" hspace="0">
+<p class="centered"><img src="logos/Colin_May/Colin3.png" width="200" height="120" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
