@@ -562,8 +562,8 @@ function insert_pager_desk($site, $pages_per_desk=4) {
     $desk_name = substr($desk_name, 0, $max_desk_name_len-1);
   echo '<tr>'."\n";
   echo '<td '.$td_opt.' colspan="2">';
-  echo '<a href="'.$target.'" style="font-weight:normal; font-family:monospace;" class="nohilight">';
-  echo '<font size="2" color="'.$fg.'">&nbsp; '.$desk_name.'&nbsp; </font></a>';
+  echo '<a href="'.$target.'" style="font-weight:normal;" class="nohilight">';
+  echo '<font size="2" color="'.$fg.'">&nbsp;'.$desk_name.'&nbsp;</font></a>';
   echo '</td>'."\n";
   echo '</tr>'."\n";
 
@@ -841,7 +841,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
        color:#fafa77;
        }
        a:visited {
-       color:#dada57;
+       color:#c0c0ff;
        }
        a:focus, a:hover {
        background-color:#eaea67;
