@@ -1,0 +1,226 @@
+############################################################################
+# Here's FH MWM like configuration,
+# with lots of changes to make it more like the Indigo Magic desktop
+# Filip Hroch <hroch@physics.muni.cz>
+###########################################################################
+
+###########################################################################
+# Set up the major operating modes
+
+AddToDecor flatness
++ ButtonStyle All ActiveUp (-- flat) Inactive (-- flat)
++ TitleStyle -- flat NoInset
++ BorderStyle -- HiddenHandles NoInset
+Style "flatness" UseDecor flatness, Color black/LightGrey, HandleWidth 2
+ 
+Style "*" HilightFore yellow
+Style "*" HilightBack RoyalBlue
+Style "*" UseStyle flatness, Icon xlogo32, MiniIcon mini-x.xpm,BorderWidth 2, HandleWidth 4, KeepWindowGroupsOnDesk
+
+Style "aterm-root" StaysOnBottom, BorderWidth 0, HandleWidth 0, NoTitle, GrabFocusTransientOff, WindowListSkip, CirculateSkip
+
+CursorStyle MENU 132
+CursorStyle SYS 132
+CursorStyle DEFAULT 132
+CursorStyle WAIT 150
+
+# Window placement
+Style "*" SmartPlacement
+Style "*" SkipMapping
+
+# Set the icon box to be at the top of the screen next to the toolchest
+Style "*" IconBox 740 5 800 600
+
+# Set the desk top size in units of physical screen size
+# and the reduction scale used for the panner/pager
+DeskTopSize 1x1
+
+#Animate
+Module FvwmAnimate
+*FvwmAnimate: Effect Frame3D
+*FvwmAnimate: Iterations 12
+*FvwmAnimate: Width 2
+*FvwmAnimate: Twist 0.500000
+*FvwmAnimate: Delay 1
+*FvwmAnimate: Color blue
+
+# Irix-5.2 like pager
+Style "FvwmPager" Handles, NoTitle
+*FvwmPagerGeometry 120x40-1-1
+*FvwmPagerFore Black
+*FvwmPagerBack LightGray
+*FvwmPagerHilight Yellow
+*FvwmPagerLabel 0 Global
+
+############################################################################
+# Configuration of specific windows using the new Style command
+Style "emacs*"	Icon xemacs.xpm, MiniIcon mini.emacs.xpm
+Style "Fvwm*"	StaysOnTop, Sticky, MiniIcon mini.fvwm.xpm 
+Style "rxvt*"	Icon display.xpm, MiniIcon mini-display.xpm
+Style "xterm"	Icon display.xpm, MiniIcon mini-display.xpm
+Style "aterm"	Icon display.xpm, MiniIcon mini-display.xpm 
+Style "xbiff"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
+Style "xcal"   NoTitle, Icon mail1.xpm, MiniIcon mini-mail.xpm
+Style "xclock"   NoTitle, Icon mail1.xpm, MiniIcon mini-clock.xpm
+Style "netscape*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
+Style "mozilla*" Icon nscape.xpm, MiniIcon mini-nscape.xpm
+Style "Procmeter*" Notitle
+
+# Read system and user menu prefixes
+AddToMenu /Debian
++ 	"Debian Menu" 	Title
+Read /etc/X11/fvwm/main-menu-pre.hook
+
+# Read the auto-generated menus
+Read /etc/X11/fvwm/menudefs.hook
+
+# Add in user additions
+Read /etc/X11/fvwm/main-menu.hook
+	
+AddToMenu   "R-Hosts"
++       "Remote Hosts" Title 
++       ""      Nop
++       "Netscape" exec ssh -f -X monoceros "LC_ALL=cs_CZ LANG=cs nice /usr/bin/X11/netscape -geometry 730x550+60+0 -display $DISPLAY -no-about-splash &"
++       "Mozilla" exec ssh -f -X monoceros "LC_CTYPE=cs_CZ nice /usr/local/mozilla/mozilla -geometry 730x550+60+0"
++       "monoceros" exec ssh -f -X monoceros "LC_CTYPE=czech /usr/bin/X11/xterm +cm +sb -sl 500 -ls -j -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white"
++       "indus" exec ssh -f -X indus "/usr/bin/X11/xterm +sb -sl 500 -ls -j  -fn 9x15 -bg black -cr green -fg white"
++       "dior" exec ssh -f -X dior "/usr/openwin/bin/xterm +sb -sl 500 -ls -j -fn  9x15 -bg black -cr green -fg white"
++       "mars" exec ssh -f -X mars "LC_CTYPE=cs_CZ /usr/X11R6/bin/xterm +sb -ls -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white"
+
+AddToMenu "System"
++       "Are you sure to logout ? " Title 
++       ""      Nop
++       "Restart" Restart
++       "Quit"  Quit
+
+# This defines the most common window operations
+AddToMenu "Window-Ops"
++              "Move (Alt-F7)" Move
++              "Minimize" Iconify
++              "Destroy" Destroy
++              "Close" Close
++              "Delete" Delete
+
+#4 root window
+AddToMenu "LongRootMenu" 
++	"Menu" 	Title
++       "" Nop
++       "New Window" Exec aterm +sb -ls -fn '-misc-*-*-*-*--15-*-iso8859-2' -bg black -cr green -fg white -fade 70 &
++ 	"Kill" Exec xkill
++       "Windows List" WindowList
++       "Pager" FvwmPager 0 2
++       "" Nop
++	"R-Hosts" PopUp R-Hosts
++	"Debian" PopUp /Debian
+
+############################################################################
+# Now define some handy complex functions
+
+# This one moves the window if you drag the mouse, raises the window if you
+# click,  or does a RaiseLower if you double-click
+AddToFunc "Move-or-Raise" "M" Move
++              "C" Raise
++              "D" RaiseLower
+
+# This one moves and then lowers the window if you drag the mouse,
+# only lowers the window if you click,  or does a RaiseLower if you double 
+# click
+AddToFunc "Move-or-Lower" "M" Move
++              "M" Lower
++              "C" Lower
++              "D" RaiseLower
+
+# This one resizes and then raises the window if you drag the mouse,
+# only raises the window if you click,  or does a RaiseLower if you double 
+# click
+AddToFunc "Resize-or-Raise" "M" Resize
++              "M" Raise
++              "C" Raise
++              "D" RaiseLower
+
+AddToFunc "Move-or-Iconify" "M" Move
++              "C" PopUp Window-Ops
++              "D" Iconify
+
+DestroyFunc focus-and-raise
+AddToFunc   "Focus-and-Raise" "I" Raise
++ "I" Focus
+
+##############################################################################
+# This defines the mouse bindings
+
+# First, for the mouse in the root window
+# I use the AnyModifier option for the modifier field, so you can hold down
+# any shift-control-whatever combination you want!
+
+#     Button	Context Modifi 	Function
+Mouse 1		R   	A       Menu "LongRootMenu" Nop
+# Mouse button 2 calls up the Tools menu in case GoodStuff doesn't work
+Mouse 2		R    	A       Menu "/Debian" Nop
+Mouse 3		R    	A       Menu "System" Nop
+
+# Now the title bar buttons
+# Any button in the left title-bar button gives the window ops menu
+# Any button in the right title-bar button Iconifies the window
+# Note the use of "Mouse 0" for AnyButton.
+
+#     Button	Context Modifi 	Function
+Mouse 0         1       A       PopUp "Window-Ops" Nop
+Mouse 0		2    	A     	Iconify
+
+# Now the rest of the frame
+# Here I invoke my complex functions for Move-or-lower, Move-or-raise,
+# and Resize-or-Raise. 
+# Button 1 in the corner pieces, with any modifiers, gives resize or raise
+Mouse 1		TFS	A		Function "Resize-or-Raise"
+Mouse 1		WFST	1		Function "Move-or-Raise"
+Mouse 1		WFST	12		Function "Move-or-Raise"
+Mouse 1         T	A		Function "Move-or-Raise"
+Mouse 1		FS	A		Function "Resize-or-Raise"
+Mouse 1		I	A		Function "Move-or-Iconify"
+Mouse 3		WFST	1		PopUp "Window-Ops" Nop
+Mouse 3		WFST	12		PopUp "Window-Ops" Nop
+
+############################################################################
+# Now some keyboard shortcuts.
+
+# press arrow in the root window, and move the pointer by 1% of a page
+Key Left	R	N	CursorMove -1 0
+Key Right	R	N	CursorMove +1 +0
+Key Up		R	N	CursorMove +0 -1
+Key Down	R	N	CursorMove +0 +1
+
+# press shift arrow + control key, and move the pointer by 10% of a page
+Key Left	A	SC	CursorMove -10 +0
+Key Right	A	SC	CursorMove +10 +0
+Key Up		A	SC	CursorMove +0   -10
+Key Down	A	SC	CursorMove +0   +10
+
+# press shift arrow + meta key, and move the pointer by 20% of a page
+Key Left	A	SM	CursorMove -20 +0
+Key Right	A	SM	CursorMove +20 +0
+Key Up		A	SM	CursorMove +0   -20
+Key Down	A	SM	CursorMove +0   +20
+
+# Keyboard accelerators
+
+Key Escape      A       C       PopUp "/Debian" Nop
+Key Return      A       C       PopUp "Window-Ops" Nop
+Key F7		WFST	M	Move
+Key F1          A       S       Menu "LongRootMenu" Nop
+Key Left        A       12       Desk -1 0
+Key Left        A       1       Desk -1 0
+Key Right       A       12       Desk 1 0
+Key Right       A       1       Desk 1 0
+Key Up		A	S	Next [CurrentPage !iconic] Function "Focus-and-Raise"
+Key Down	A	S	Prev [CurrentPage !iconic] Function "Focus-and-Raise"
+Key F1		A	12	Desk 0 0
+Key F1		A	1	Desk 0 0
+Key F2		A	12	Desk 0 1
+Key F2		A	1	Desk 0 1
+Key F3		A	12	Desk 0 2
+Key F3		A	1	Desk 0 2
+
+# nouzove reseni, prepinani klavesnic
+Key Pause A       A       Exec exec /usr/local/bin/xkbchange
+
