@@ -17,7 +17,7 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "The Official FVWM Home Page";
-$heading        = "The Official FVWM Home Page";
+$heading        = 'The Official <img src="pictures/fvwm-logo-steelblue.gif" border="0" alt="[LOGO]" align="middle"> Home Page';
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
@@ -49,7 +49,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 ?>
 
 <div align="center">
-<img src="fvwm-logo.gif" border="0" alt="[LOGO]">
+
 </div>
 
 <?php decoration_window_start("Welcome to FVWM"); ?>
