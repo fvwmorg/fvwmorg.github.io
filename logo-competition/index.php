@@ -44,8 +44,8 @@ if (strlen($site_has_been_loaded) == 0) {
 <h2>Welcome to FVWM Logo Competition</h2>
 
 <p>
-  The submission period is over since 1st of September. <b>Due the large
-  amount of submitted logos the voting period will start a bit later as
+  The submission period is over since 1st of September. <b>The final voting stage is in progres until 31-Dec-2003. Due the large
+  amount of submitted logos the voting period started a bit later as
   it was announced in the <?php mylink("rules.php", "competition rules"); ?></b>
 </p>
 
