@@ -1,21 +1,26 @@
 #!/bin/sh
 
-#  Modification History
-
 #  Created on 01/21/01 by Dan Espen (dane):
 #  - Got tired of using xv to resize these images.
 #  "convert" is in the ImageMagik" package.  Its slow, but does the job.
 
 #  If you just want to create a thumb for all files that
-#  dont already have one, try:  make-thumb.sh *desk*x*.gif
-#  But watch out for Windoze95-desk-thumb.gif which is mis-named.
+#  dont already have one, try:  make-thumb.sh *desk*x*.*
 
-for i in $* ; do
-  new_name=`echo $i | sed -e's/[0-9]*x[0-9]*[.]gif/thumbnail.gif/'`
-  if [ -f $new_name ] ; then
-    echo "$i: File $new_name already exists, skipping"
-    continue
-  fi
-  echo "$i:  Convert to $i"
-  convert -geometry 160x120 $i $new_name
+for infile in $* ; do
+	outfile=`echo "$infile" | sed 's/-[0-9x]*[.]/-thumbnail./' \
+		| sed 's/[.].*/.jpg/'`
+
+	if [ -f "$outfile" ]; then
+		echo "File $outfile already exists, skipping"
+		continue
+	fi
+
+	echo "Creating *$outfile (5 files) for $infile"
+	# We can't know in advance which one from 5 looks better...
+	convert -filter Box -geometry 160x120! -quality 75 -contrast -contrast "$infile" "2-$outfile"
+	convert -filter Box -geometry 160x120! -quality 75 -contrast "$infile" "1-$outfile"
+	convert -filter Box -geometry 160x120! -quality 75 "$infile" "$outfile"
+	convert -filter Box -geometry 160x120! -quality 75 +contrast "$infile" "1+$outfile"
+	convert -filter Box -geometry 160x120! -quality 75 +contrast +contrast "$infile" "2+$outfile"
 done
