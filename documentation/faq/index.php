@@ -22,7 +22,7 @@ $link_picture   = "pictures/icons/doc_faq";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php", "", "$requested_file");
+$this_site      = "faq";
 
 //--------------------------------------------------------------------
 // check if we should stop here

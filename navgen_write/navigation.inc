@@ -208,10 +208,10 @@ $this->nav_array["screenshots"]["parent_site"] = "top";
 $nav_array["screenshots"]["child_sites"] = array("desktops", "windowdecors", "menus", ); 
 $this->nav_array["screenshots"]["child_sites"] = array("desktops", "windowdecors", "menus", ); 
 
-$nav_array["faq"]["file"] = "documentation/faq.php"; 
-$this->nav_array["faq"]["file"] = "documentation/faq.php"; 
-$nav_array["faq"]["rel_path"] = "./.."; 
-$this->nav_array["faq"]["rel_path"] = "./.."; 
+$nav_array["faq"]["file"] = "documentation/faq/index.php"; 
+$this->nav_array["faq"]["file"] = "documentation/faq/index.php"; 
+$nav_array["faq"]["rel_path"] = "./../.."; 
+$this->nav_array["faq"]["rel_path"] = "./../.."; 
 $nav_array["faq"]["link_name"] = "FAQ"; 
 $this->nav_array["faq"]["link_name"] = "FAQ"; 
 $nav_array["faq"]["link_chapter"] = ""; 
