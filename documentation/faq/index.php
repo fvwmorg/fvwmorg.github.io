@@ -138,6 +138,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_3.24"></a>    <a href="#3.24">3.24</a>  How to define transparent modules?
 <a name="toc_3.25"></a>    <a href="#3.25">3.25</a>  How to define transparent decorations?
 <a name="toc_3.26"></a>    <a href="#3.26">3.26</a>  How about transparent applications too?
+<a name="toc_3.27"></a>    <a href="#3.27">3.27</a>  How can I define emacs type multi-keystroke fvwm bindings?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -1631,6 +1632,40 @@ A: This is not really an FVWM related question, you should find X
    There are a lot of other applications supporting transparency not
    listed here, search in FreshMeat, <a href="http://freshmeat.net/.">http://freshmeat.net/.</a>
 
+----------------------------------------------------------------------
+
+<a name="3.27"></a><a href="#toc_3.27">3.27</a>  How can I define emacs type multi-keystroke fvwm bindings?
+
+A: In emacs, keys can be set up as prefix keys, so that once
+   you type the prefix key, a subsequent key has a special meaning.
+   For example, Control-a would normally go to the beginning of a line
+   but Control-c Control-a might do something completely different.
+   There are at least 2 ways to do the same thing with fvwm.
+
+   The simplest technique is to use the prefix key to invoke a menu
+   and then use the menu hot keys as the second key in the binding.
+   Since menu hot keys don't include modifiers, you can only use plain
+   keys for the second key in the sequence.
+
+   This second technique lets you use any key for the second key but
+   only works with 2.5.x or later.
+   This approach invokes a function on the first key that defines the
+   action of the second key for a short time and then removes it: 
+
+   DestroyFunc Ctrl-Alt-F-Action
+   AddToFunc   Ctrl-Alt-F-Action
+   + I Key X A A Exec xterm
+   + I Key C A A Exec xcalc
+   # optionally popup a prompt window here
+   + I Schedule 5000 Key X A A -
+   + I Schedule 5000 Key C A A -
+
+   # Press Ctrl-Alt-F and then &quot;x&quot; or &quot;c&quot;
+   Key F A CM Ctrl-Alt-F-Action
+
+   With this, you press the second key in 5 seconds otherwise the
+   binding for the second key is removed.
+
 
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules
@@ -2365,7 +2400,19 @@ A: Setting the background image is not really part of the window
    .fvwm2rc.
 
    The fvwm module FvwmBacker can be used to change the background
-   depending on the desk you are currently on.
+   depending on the desk you are currently on by calling an external
+   program.  One big disadvantage of external programs is that
+   changing the beckground on the fly can be pretty slow.  FvwmBacker
+   can use the image defined in a colorset and cached by fvwm for fast
+   background changing.  For example:
+
+     Colorset 10 TiledPixmap foo.xpm
+     Colorset 11 Pixmap bar.png
+     FvwmBacker: Command (Desk *, Page * 0) Colorset 10
+     FvwmBacker: Command (Desk *, Page * 1) Colorset 11
+
+   However, fvwm can handle only xpm, xbm and png images.  Other
+   formats must be converted before they can be used in fvwm.
 
 ----------------------------------------------------------------------
 

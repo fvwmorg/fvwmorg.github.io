@@ -44,6 +44,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Anton Kazennikov</h4>
+<p class="author">
+Menu navigation patch.
+</p>
+
 <h4 class="author">Johan Svedberg</h4>
 <p class="author">
 Swedish translations.
