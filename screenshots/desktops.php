@@ -691,5 +691,23 @@ The icons and the panel that you can see are a customised version of
 
  	</td></tr>
 
+<!-- Jules Alberts - submitted 19 Aug 2003 -->
+       <tr valign="top"><td valign="middle" class="windowcontents">
+	  <a href="<?php echo conv_link_target('Jules_Alberts-desk-1024x768.php');?>" target="screenshot_window">
+	    <img src="Jules_Alberts-desk-1024x768-thumb.gif"
+	      border="0" alt="Jules Alberts Desktop"></a></td>
+	  <td valign="middle" class="windowcontents">
+Submitted by Jules Alberts.<br>
+Jules says:<br>
+The setup is like this: FVWM 2.5.7 on a Red Hat 9 box (PIII 500Mhz). I
+like the interface to be as simple as possible without losing
+functionality. GKrellm, a simple pager, a menu, application windows and
+icons. That's it.<br>
+Things I would
+like to add is some eye-candy (transparancy) and finally get
+FvwmTrackFocus.pl working :-) but on the whole I think this setup is nice
+to work with.
+ 	</td></tr>
+
     </table>
 	<?php decoration_window_end(); ?>
