@@ -46,7 +46,7 @@ decoration_window_start("Welcome to FVWM");
 
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
-window manager for the X&nbsp;Window system.  Development is active,
+window manager for the X&nbsp; Window system.  Development is active,
 and support is excellent.  Check it out!
 </p>
 
@@ -69,9 +69,8 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-<b>News:</b> The
-<?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
-FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
+<b>News:</b> Added link 
+<?php mylink("http://fvwm.lair.be", "FVWM Forum"); ?> page.
 <hr>
 <?php
 //--------------------------------------------------------------------
@@ -92,8 +91,8 @@ FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
                       "windowdecors",
 
                       array("Bug Reporting",
-			    "http://www.fvwm.org/cgi-bin/fvwm-bug",
-			    "fvwm_bug_reporting"),
+                            "http://www.fvwm.org/cgi-bin/fvwm-bug",
+                            "fvwm_bug_reporting"),
                       "screenshots_desks",
 
                       "mailing_lists",
@@ -115,11 +114,14 @@ FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
                       "developers",
                       "fvwm_cats",
 
-		      "donations",
-                      array("FVWM Wiki Pages",
-                            "http://www.fvwmwiki.org",
-                            "fvwm_wiki"),
-), 2);
+                      "donations",
+                      // array("FVWM Wiki Pages",
+                            // "http://www.fvwmwiki.org",
+                            // "fvwm_wiki"),
+                      array("FVWM Forum",
+                            "http://fvwm.lair.be",
+                            "fvwm_forum"),
+                      ), 2);
 ?>
 </div>
 

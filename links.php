@@ -50,8 +50,13 @@ if(!isset($site_has_been_loaded)) {
   </p>
 
   <ul>
-      <li><?php mylink('http://rvb.dyndns.org/FvwmWiki/', 'The FVWM Wiki Pages'); ?> are 
-    going to be a shared collection of FVWM related stuff.</li>
+      <!-- ----------------------------------------------------------- -->
+      <!-- Disabled since the wiki seems to be down                    -->
+      <!-- ----------------------------------------------------------- -->
+      <!-- <li><?php mylink('http://rvb.dyndns.org/FvwmWiki/', 'The FVWM Wiki Pages'); ?> are  -->
+      <!-- a shared collection of FVWM related stuff.</li> -->
+  <li><?php mylink('http://fvwm.lair.be', 'The FVWM Forum'); ?> is
+  going to be a sorted collection of user questions and answers.</li>
   </ul>
 
 
