@@ -45,26 +45,11 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-  <style type="text/css">
-  <!--
-    .Color01{ Color: #FFBA00; }
-    .Color02{ Color: #59C400; }
-    .Color03{ Color: #007BBA; }
-    .Color04{ Color: #5B00A1; }
-    .Color05{ Color: #FF2200; }
-    .BgColor01{ background-color: #FFBA00; }
-    .BgColor02{ background-color: #59C400; }
-    .BgColor03{ background-color: #007BBA; }
-    .BgColor04{ background-color: #5B00A1; }
-    .BgColor05{ background-color: #FF2200; }
-   -->
-  </style>
-
 <?php 
 decoration_window_start("Celebrate 10 years of FVWM"); 
 ?> 
 
-    <img src="birthday_celebration1.gif" border="0" alt="The FVWM Birthday Celebration">
+    <img src="birthday_celebration2.gif" border="0" alt="The FVWM Birthday Celebration">
 
   <p>
   On the 1st of June, 1993, the first version of fvwm, venerable
