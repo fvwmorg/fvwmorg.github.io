@@ -164,8 +164,7 @@ width="300" height="400" border="0" hspace="0" vspace="0">
 
 <a href="<?php echo conv_link_target('logos/Felix_E_Klee/index.php'); ?>">
 
-<p><img src="logos/Felix_E_Klee/logos-overview.png"
-width="255" height="564" border="0" vspace="0" hspace="0">
+<p><img src="logos/Felix_E_Klee/logos-overview.png" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
