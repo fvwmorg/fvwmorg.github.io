@@ -1,3 +1,9 @@
+1999-09-19  Dominik Vogt  <dominik_vogt@gmx.de>
+
+	* fvwm-cats/index.html: 'Cats' doesn't blink anymore
+
+	* download.html: increased version number to 2.3.8
+
 Sun Sep 12 09:36:37 1999  DanEspen  <dje@blue>
 
 	* icons.html: New page for downloading and viewing the fvwm icons.
@@ -14,7 +20,7 @@ Sun Sep 12 09:36:37 1999  DanEspen  <dje@blue>
 	Go to 3 column link display for Netscape users (maybe a table later).
 	Add more links to eliminate the "Docs, FAQ, Other" category.
 	"docs.html" is now obsolete.
-	Put links in most important first order.	
+	Put links in most important first order.
 
 1999-09-10  Hippo
 
