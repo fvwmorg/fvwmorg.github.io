@@ -48,6 +48,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_0.1"></a>     <a href="#0.1">0.1</a>  A few minutes after fvwm is started my keyboard and
           mouse bindings stop working.  What can I do?
 <a name="toc_0.2"></a>     <a href="#0.2">0.2</a>  I use XMMS, but it ignores some window styles.
+<a name="toc_0.3"></a>     <a href="#0.3">0.3</a>  I like transparency.  What can I do?
 
 <a name="toc_1."></a><a href="#1.">1.</a> About Fvwm
 
@@ -132,6 +133,10 @@ if (strlen($site_has_been_loaded) == 0) {
           X).  How can I tell fvwm to use different configurations
           for the screens?
 <a name="toc_3.21"></a>    <a href="#3.21">3.21</a>  How do I maximize a window but not cover up FvwmTaskBar?
+<a name="toc_3.22"></a>    <a href="#3.22">3.22</a>  Why don't buttons show on the titlebar of dialog windows?
+<a name="toc_3.23"></a>    <a href="#3.23">3.23</a>  How to define transparent menus?
+<a name="toc_3.24"></a>    <a href="#3.24">3.24</a>  How to define transparent modules?
+<a name="toc_3.25"></a>    <a href="#3.25">3.25</a>  How to define transparent decorations?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -244,6 +249,8 @@ Trivia: In all my years as an fvwm developer this has been by far the
    that this question is never asked again will be mentioned in big
    letters on the fvwm home page :-)
 
+----------------------------------------------------------------------
+
 <a name="0.2"></a><a href="#toc_0.2">0.2</a>  I use XMMS, but it ignores some window styles.
 
 A: XMMS wants to do evrything by itself and overrides many
@@ -257,6 +264,15 @@ A: XMMS wants to do evrything by itself and overrides many
    mailing lists.  No offence meant, but we really have more
    important things to do than providing user support for third
    party software.
+
+----------------------------------------------------------------------
+
+<a name="0.3"></a><a href="#toc_0.3">0.3</a>  I like transparency.  What can I do?
+
+A: See questions 3.23, 3.24, 3.25 that deal with transparency.
+
+   Also see configurations supplied in fvwm-themes package, some
+   themes use transparent menus, modules and/or decorations.
 
 
 ======================================================================
@@ -1424,6 +1440,154 @@ A: Instead of Maximize use &quot;Maximize 100 -30p&quot; where 30 is the width o
    your FvwmTaskBar.
 
    Or use EwmhBaseStruts in Fvwm 2.5.x or later.
+
+----------------------------------------------------------------------
+
+<a name="3.22"></a><a href="#toc_3.22">3.22</a>  I'm having problems making buttons appear on my windows.
+
+A: Fvwm has some builtin idea of what the buttons do, and some
+   applications can request that certain buttons not be shown.
+   For example, its normal for Fvwm to suppress the iconify button
+   (button 2, the second button from the right)
+   on a transient (dialog) window.
+
+   The command:
+
+     Style * DecorateTransient
+
+   Tells Fvwm you want titles and buttons on transient windows.
+
+     Style * MwmFunctions
+
+   Tells Fvwm to accept application hints not to show certain
+   buttons.
+
+     ButtonStyle 2 - Clear MWMDecorMin
+
+   Says button 2 performs the minimize (iconify) function.
+
+     Mouse 0 2 A Iconify
+
+   Makes any mouse button on button 2 iconify the window.
+   Buttons won't show until some action is assigned to them.
+
+   Things to look for in the man page are:
+
+     DecorateTransient, MwmDecorXXX, MwmFunctions
+
+   So, if you use Windows-like buttons, then redefine button hints:
+
+     ButtonStyle 1 - MwmDecorMenu
+     ButtonStyle 6 - MwmDecorMin
+     ButtonStyle 4 - MwmDecorMax
+
+----------------------------------------------------------------------
+
+<a name="3.23"></a><a href="#toc_3.23">3.23</a>  How to define transparent menus?
+
+A: First, it may help to read about colorsets in FvwmTheme man page.
+
+   We speak about transparency, not translucency here.  This means
+   the background in the parent window (for example the root window)
+   will be used for our &quot;transparent&quot; areas, this is not always the
+   window under our &quot;transparent&quot; window.  However, some X servers
+   support real transparency (i.e. translucency) and fvwm supports it.
+
+   To define a transparent colorset, use something like:
+
+     Colorset 23 Transparent, fg rgb:ff/ff/c4, bg darkgray
+
+   (you may use any other number greater than 0 instead of 23)
+
+   There is another way to define transparent colorset, by using
+   RootTransparent instead of Transparent, but please remember,
+   you should use a good utility to set the root background image,
+   like &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;, otherwise RootTransparent
+   will not work:
+
+     Colorset 23 RootTransparent, fg navy, bg average
+
+   The good thing about RootTransparent is that it is possible to tint
+   the visible part of the root image using something like:
+
+     Colorset 23 RootTransparent, fg navy, bg average, \
+       Tint black 20, bgTint black 20
+
+   If you have enough memory, you may use &quot;RootTransparent buffer&quot;
+   to speed up transparent menus, modules or decorations.
+
+   If you are not sure whether you use &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;
+   to set the root background, do not use the RootTransparent option,
+   use Transparent option without tinting.
+
+   Once a transparent colorset is defined, use it in menus:
+
+     MenuStyle MenuColorset 23
+
+----------------------------------------------------------------------
+
+<a name="3.24"></a><a href="#toc_3.24">3.24</a>  How to define transparent modules?
+
+    See question 3.23 to learn how to define a transparent colorset
+    (you may reuse the same transparent colorset or define separate
+    colorsets for different modules).
+
+    Then see the man page for your specific module and specify this
+    transparent colorset(s) to be used in your modules, like:
+
+      *FvwmPager: Colorset * 23
+      *FvwmButtons: Colorset 23
+      *FvwmIconMan: Colorset 23
+
+      Style FvwmPager ParentalRelativity
+      Style FvwmButtons ParentalRelativity
+      Style FvwmIconMan ParentalRelativity
+
+    A side note: the ParentalRelativity option is not always needed.
+    It is not needed if you use RootTransparent or you never intend to
+    move a module inside its parent, or you swallow a module, since
+    FvwmButtons adds ParentalRelativity automatically for swallowed
+    fvwm modules.  Otherwise you need ParentalRelativity.
+
+    Note, that previously &quot;Pixmap none&quot; option was used to define
+    transparency; Pixmap option is obsolete, use colorsets instead.
+
+    If you swallow FvwmPager (or FvwmIconMan) inside FvwmButtons, then
+    you may configure both FvwmPager and FvwmButtons to be transparent
+    or just one of them to be transparent, depending on what you want
+    to achieve.
+
+----------------------------------------------------------------------
+
+<a name="3.25"></a><a href="#toc_3.25">3.25</a>  How to define transparent decorations?
+
+    See question 3.23 to learn how to define a transparent colorset.
+    Only RootTransparent method works for transparent decorations!
+    This basically means that if you have JPG background, you should
+    convert it to PNG or XPM to use with &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;.
+    Please read both 3.23 and 3.25 before asking on the mailing list.
+
+    To get transparent decorations, use a configuration like this:
+
+      AddToFunc StartFunction
+      + I Exec fvwm-root -r $HOME/wallpapers/sea.png
+
+      Colorset 41 RootTransparent buffer, bg average, \
+        Tint cyan 15, bgTint cyan 15  # tint is optional
+      Colorset 42 RootTransparent buffer, bg average, \
+        Tint red  15, bgTint red  15  # tint is optional
+      BorderStyle Active   Colorset 41 -- flat
+      BorderStyle Inactive Colorset 42 -- flat
+      TitleStyle AllActive   Colorset 41 -- flat
+      TitleStyle AllInactive Colorset 42 -- flat
+      ButtonStyle All -- UseTitleStyle flat
+
+    It is possible to define partially transparent decorations too.
+    You may achieve this by adding &quot;AddTitleStyle Colorset NN PP&quot;,
+    or even &quot;TitleStyle Colorset NN PP&quot;.  Please read the man page.
+    Also see fvwm-themes to find whether some theme aready provides
+    the window decoration look similar to what you want to achieve.
+
 
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules
