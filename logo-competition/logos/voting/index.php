@@ -57,6 +57,9 @@ function change_bg_color(color) {
   <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000');" alt="white background">
 </map>
 
+
+<h1><blink>This is a draft page!!! Voting is not possible yet</blink></h1>
+
 <?php 
 
 if( ! function_exists("insert_color_list") ) {
@@ -73,12 +76,17 @@ decoration_window_start("FVWM Logo Competition Voting Page", "100%", "");
 Using this web site you can vote for logos taking part on the fvwm logo competition.
 </p>
 
+
 <h3>Voting rules</h3>
 <p>
 You can vote for one or more logos. To vote for a logo or a logo group check the box left beside the logo. 
 </p>
 
+<form action="index.php">
 <?php
+//--------------------------------------------------------------------
+//- insert logos 
+//--------------------------------------------------------------------
 $logo_list = "logo_list.inc";
 
 $logo_array = array();
@@ -96,7 +104,11 @@ foreach( $logo_array as $number => $logos ) {
     insert_color_list();
     echo '<hr size="1" width="100%" noshade>'."\n";
 }
-
-decoration_window_end(); 
-
 ?>
+
+</form>
+
+
+<?php decoration_window_end();?>
+
+
