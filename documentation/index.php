@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <28.03.2003 07:41:23 uwp>
+//-  Last modified : <06.04.2003 17:55:26 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -21,7 +21,7 @@ $title          = "FVWM - Documentation";
 $link_name      = "Docs";
 $link_picture   = "pictures/icons/documentation";
 $parent_site    = "top";
-$child_sites    = array("faq", "manpages");
+$child_sites    = array("faq", "manpages", "developers");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "documentation";
 

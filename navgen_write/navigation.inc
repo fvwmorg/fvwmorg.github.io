@@ -2,7 +2,7 @@
 //=============================================================
 // This file has been generated automatically
 // by /~uwp/fvwm-web/navgen.php
-// Created at 03/04/03 08:47
+// Created at 07/04/03 08:04
 // You should change the order of $top_array only !!!
 // Uwe Pross 2002
 //=============================================================
@@ -19,7 +19,7 @@ $top_array = array(
                    "links"
                    );
 
-$fvwm_cats["file"]         = "fvwm_cats/index.php";
+$fvwm_cats["file"]         = "fvwm-cats/index.php";
 $fvwm_cats["rel_path"]     = "./..";
 $fvwm_cats["link_name"]    = "Cats";
 $fvwm_cats["link_chapter"] = "";
@@ -59,16 +59,16 @@ $desktops["link_pic"]     = "pictures/icons/screenshots_desks";
 $desktops["parent_site"]  = "screenshots";
 $desktops["child_sites"]  = array();
 
-$windowdecors["file"]         = "screenshots/windowdecors.php";
-$windowdecors["rel_path"]     = "./..";
+$windowdecors["file"]         = "screenshots/windowdecors/index.php";
+$windowdecors["rel_path"]     = "./../..";
 $windowdecors["link_name"]    = "Decors";
 $windowdecors["link_chapter"] = "";
 $windowdecors["link_pic"]     = "pictures/icons/screenshots_decor";
 $windowdecors["parent_site"]  = "screenshots";
 $windowdecors["child_sites"]  = array();
 
-$menus["file"]         = "screenshots/menus.php";
-$menus["rel_path"]     = "./..";
+$menus["file"]         = "screenshots/menus/index.php";
+$menus["rel_path"]     = "./../..";
 $menus["link_name"]    = "Menus";
 $menus["link_chapter"] = "";
 $menus["link_pic"]     = "pictures/icons/screenshots_menu";
@@ -85,7 +85,7 @@ $screenshots["child_sites"]  = array("desktops", "windowdecors", "menus");
 
 $icons["file"]         = "download/icons.php";
 $icons["rel_path"]     = "./..";
-$icons["link_name"]    = "Icons";
+$icons["link_name"]    = "Icons and Sounds";
 $icons["link_chapter"] = "";
 $icons["link_pic"]     = "pictures/icons/download_icons";
 $icons["parent_site"]  = "download";
@@ -115,13 +115,53 @@ $manpages["link_pic"]     = "pictures/icons/doc_manpages";
 $manpages["parent_site"]  = "documentation";
 $manpages["child_sites"]  = array();
 
+$dev_cvs["file"]         = "documentation/dev_cvs.php";
+$dev_cvs["rel_path"]     = "./..";
+$dev_cvs["link_name"]    = "Developer Info";
+$dev_cvs["link_chapter"] = "";
+$dev_cvs["link_pic"]     = "pictures/icons/doc_developers";
+$dev_cvs["parent_site"]  = "developers";
+$dev_cvs["child_sites"]  = array();
+
+$dev_modules["file"]         = "documentation/dev_modules.php";
+$dev_modules["rel_path"]     = "./..";
+$dev_modules["link_name"]    = "Developer Info";
+$dev_modules["link_chapter"] = "";
+$dev_modules["link_pic"]     = "pictures/icons/doc_developers";
+$dev_modules["parent_site"]  = "developers";
+$dev_modules["child_sites"]  = array();
+
+$dev_downloadbugs["file"]         = "documentation/dev_downloadbugs.php";
+$dev_downloadbugs["rel_path"]     = "./..";
+$dev_downloadbugs["link_name"]    = "Developer Info";
+$dev_downloadbugs["link_chapter"] = "";
+$dev_downloadbugs["link_pic"]     = "pictures/icons/doc_developers";
+$dev_downloadbugs["parent_site"]  = "developers";
+$dev_downloadbugs["child_sites"]  = array();
+
+$dev_creating_rpms["file"]         = "documentation/dev_creating_rpms.php";
+$dev_creating_rpms["rel_path"]     = "./..";
+$dev_creating_rpms["link_name"]    = "Developer Info";
+$dev_creating_rpms["link_chapter"] = "";
+$dev_creating_rpms["link_pic"]     = "pictures/icons/doc_developers";
+$dev_creating_rpms["parent_site"]  = "developers";
+$dev_creating_rpms["child_sites"]  = array();
+
+$developers["file"]         = "documentation/developers.php";
+$developers["rel_path"]     = "./..";
+$developers["link_name"]    = "Developer Info";
+$developers["link_chapter"] = "";
+$developers["link_pic"]     = "pictures/icons/doc_developers";
+$developers["parent_site"]  = "documentation";
+$developers["child_sites"]  = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms");
+
 $documentation["file"]         = "documentation/index.php";
 $documentation["rel_path"]     = "./..";
 $documentation["link_name"]    = "Docs";
 $documentation["link_chapter"] = "";
 $documentation["link_pic"]     = "pictures/icons/documentation";
 $documentation["parent_site"]  = "top";
-$documentation["child_sites"]  = array("faq", "manpages");
+$documentation["child_sites"]  = array("faq", "manpages", "developers");
 
 $mail_archive["file"]         = "contact/mail_archive.php";
 $mail_archive["rel_path"]     = "./..";

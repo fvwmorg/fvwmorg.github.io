@@ -1,0 +1,32 @@
+# Fvwm Vector Buttons Collection 5.
+# All possible 10 buttons are used.
+# Buttons left to right are numbered 1 3 5 7 9 0 8 6 4 2
+DestroyDecor DecorDemo
+AddToDecor   DecorDemo
++ TitleStyle Height 30 LeftJustified
++ TitleStyle -- Raised
++ BorderStyle -- HiddenHandles
++ ButtonStyle Reset
+
+# From: Marcus Lundblad <ml@update.uu.se>
+# MWM button styles ...
+# So I made an example using the new pixel offset feature:
+
++ ButtonStyle 1 3    0+4px50+1p@0 100-5px50+1p@0 100-5px50-2p@0
++ AddButtonStyle 1 3 0+4px50+1p@1 0+4px50-2p@1 100-5px50-2p@1
++ ButtonStyle 3 3    0+4px100-5p@0 100-5px100-5p@0 100-5px0+4p@0
++ AddButtonStyle 3 3 0+4px100-5p@1 0+4px0+4p@1 100-5px0+4p@1
++ ButtonStyle 5 3    50-2px50+1p@0 50+1px50+1p@0 50+1px50-2p@0
++ AddButtonStyle 5 3 50-2px50+1p@1 50-2px50-2p@1 50+1px50-2p@1
++ ButtonStyle 7 2 0x0@0 0x100@0
++ ButtonStyle 9 2 0x0@0 0x100@0
++ ButtonStyle 0 2 0x0@0 0x100@0
++ ButtonStyle 8 2 0x0@0 0x100@0
++ ButtonStyle 6 2 0x0@0 0x100@0
++ ButtonStyle 4 2 0x0@0 0x100@0
++ ButtonStyle 2 2 0x0@0 0x100@0
+
+# This features a big square that's fixed 3 pixels from edge of the button
+# (button 2), a small square centred and 4 by 4 pixels, and a bar vertically
+# centred 4 pixels thick and filling the space horisontally with a 3 pixel
+# space on each side.

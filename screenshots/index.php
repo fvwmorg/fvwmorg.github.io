@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <03.04.2003 08:45:59 uwp>
+//-  Last modified : <04.04.2003 20:37:57 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -44,3 +44,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 ?>
 
+<?php decoration_window_start("Fvwm Screen Shots"); ?>
+
+<?php decoration_window_end(); ?>

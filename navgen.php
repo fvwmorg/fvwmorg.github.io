@@ -4,7 +4,7 @@
   <!--  Project       : FVWM Home Page                                    -->
   <!--  Date          : 26.11.2002                                        -->
   <!--  Programmer    : Uwe Pross                                         -->
-  <!--  Last modified : <03.04.2003 08:44:27 uwp>                         -->
+  <!--  Last modified : <05.04.2003 10:38:30 uwe>                         -->
   <!--------------------------------------------------------------------- -->
   <head>
     <title>PHP NavGen - uwp</title>
@@ -52,7 +52,7 @@ if( strlen("$navigation_check") > 0 ) return;
 
 include('definitions.inc');
 
-function info_output($sting, $level = 1) {
+function info_output($sting, $level = 0) {
   global $info_level;
   if( ! isset($info_level) ) $info_level = 0;
   if( $level <= $info_level ) {
@@ -417,6 +417,9 @@ while( list($index,$php_file) = each($child_file_array) ) {
 <!-- $Id$ -->
 
 <!-- $Log$
+<!-- Revision 1.4  2003/04/07 06:05:35  uwp
+<!-- Added sites to for the new home page
+<!--
 <!-- Revision 1.3  2003/04/03 06:49:58  uwp
 <!-- Moved news to latest_news directory. New awk script which converts NEWS to html. Added some style sheet definitions for heading tags.
 <!--

@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <03.04.2003 08:36:41 uwp>
+//-  Last modified : <07.04.2003 07:56:45 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -311,7 +311,7 @@ function decoration_window_start($string="",$width="100%",$height="800",$padding
   echo '<tr>'."\n";
   echo '<td valign="top" align="left"';
   if(strlen($height)> 0) echo ' height="'.$height.'"';
-  echo '>';
+  echo ' class="window_contents">';
 }
 
 function decoration_window_end() {
@@ -628,12 +628,8 @@ function insert_navigation_path() {
   
 }
 
-function insert_quick_jump_list($site_array) {
+function insert_quick_jump_list($site_array,$col_num=2) {
   global $rel_path;
-
-  echo "<center>\n";
-
-  echo "<h2>Quick jumps</h2>\n";
 
   // check which sites exist
   reset($site_array);
@@ -650,9 +646,9 @@ function insert_quick_jump_list($site_array) {
   reset($site_array);
   echo '<table width="70%" border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
   
-  for($ii=0;$ii<ceil($count/2);$ii++) {
+  for($ii=0;$ii<ceil($count/$col_num);$ii++) {
     echo "<tr>\n";
-    for($jj=0; $jj<2; $jj++) {
+    for($jj=0; $jj<$col_num; $jj++) {
       if( list($key,$site) = each($site_array) ) {
 	if( file_exists($rel_path.'/'.${$site}["link_pic"]."_mini.gif") ) {
 	  $img = $rel_path.'/'.${$site}["link_pic"]."_mini.gif";
@@ -705,19 +701,24 @@ function insert_quick_jump_list($site_array) {
 	 color:<?php echo $body_fg;?>;
        }
        p {
-         text-align:justify; 
+         text-align:left; 
        }
        .intern { 
          color: ffffff; 
        }
-       .decorated {
+       .window_contents {
+	 padding-left:5%;
+	 padding-right:5%;
        }
        a:link,a:visited,a:active,a:hover {
 	 text-decoration:none;
 	 font-weight:bold;
        }
-       h2, h4 { 
-       color:#ffff33;
+       h2, h3, h4, h5 { 
+       color:#2bbbff;
+       }
+       table.screenshots { 
+       border-color:#aaaa00;
        }
        h2.cats { 
        text-decoration:underline;
@@ -736,11 +737,10 @@ function insert_quick_jump_list($site_array) {
        h5.cats { 
        font-size:large; 
        font-weight:normal;
+       color:#ffff99;
        margin:0pt;
        }
        p.cats, h2.cats,  h3.cats, h4.cats, h5.cats, ul.cats { 
-       margin-left:5%;
-       margin-right:5%;
        }
         -->
     </style>

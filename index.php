@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <30.03.2003 11:39:38 uwe>
+//-  Last modified : <06.04.2003 19:02:09 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -55,18 +55,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     window manager for the X&nbsp;Window system.  Development is active,
     and support is excellent.  Check it out!
   </p>
-
-<!--
-  <h3>NEWS FLASH!</h3>
-  <p>
-    as of January 2003 FVWM 2.4.15, a stable
-    release, is now available for <a href="download.php">download</a>.
-  </p>
--->
-
-  <a href="index.html">old html version</a>
+    
+  <p><a href="index.html">old html version</a></p>
   
-  <hr></hr>
   <table border="0" cellpadding="0" cellspacing="0" summary="latest news">
     <tr>
       <td>Latest Stable Release: &nbsp;</td>
@@ -77,34 +68,73 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <td><b>2.5.6</b></td>
     </tr>
   </table>
-
-  <!-- migo: names should include subdirs, not to be flat, i.e. "doc/faq" -->
-  <?php insert_quick_jump_list(array(
-    "download",
-    "features",
-    "faq",
-    "screenshots",
-    "manpages",
-    "example_menus",
-    "example_vectorbuttons",
-    "example_pixmapbuttons",
-    "icons",
-    "mailing_lists",
-    "mail_archive",
-    "developer",
-    "acknowledgements",
-    "fvwm_cats"));
-   ?>
- 
-  <hr>
-
-  <b>
-    For the time of development latest changes on this web tree are 
-    stated here. This part is going to be removed before the web site
-    is published officially. The contents of latest_news.txt follows:
-  </b>
-  
-  <pre>
+    
+  <center>
+    <h2>Quick jumps</h2>
+    <?php insert_quick_jump_list(array(
+                                       "download",
+                                       "features",
+                                       "faq",
+                                       "screenshots",
+                                       "manpages",
+                                       "example_menus",
+                                       "example_vectorbuttons",
+                                       "example_pixmapbuttons",
+                                       "icons",
+                                       "mailing_lists",
+                                       "mail_archive",
+                                       "developers",
+                                       "acknowledgements",
+                                       "fvwm_cats"));
+    ?>
+    </center>
+      
+    <style type="text/css">
+    <!--
+    a.done {
+      color:#bbbbbb;
+      text-decoration:line-through;
+      font-weight:normal;
+    }
+    -->
+    </style>
+  <p>
+    <b>Sub sites to do</b><br><br>
+	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+	  <tr>
+	    <td width="50%">
+	    <ul>
+	      <li><a href="download.html" class="done">Download</a></li>
+	      <li><a href="features.html" class="done">Features</a></li>
+	      <li><a href="generated/NEWS.html" class="done">Latest News</a></li>
+	      <li><a href="generated/FAQ.html" class="done">FAQ</a></li>
+	      <li><a href="screenshots/" class="done">Screen Shots</a></li>
+	      <li><a href="generated/manpages/">Manual Pages</a></li>
+	      <li><a href="sample-menus/index.html" class="done">Sample Menus</a></li>
+	      <li><a href="vector-buttons/vector-buttons.html" class="done">Vector Buttons</a></li>
+	    </ul>
+	    </td>
+	    <td width="50%"><ul>
+		<li><a href="icons.html" class="done">Icons and Sounds Download</a></li>
+		<li><a href="links.html" class="done">Links</a></li>
+		<li><a href="mailinglist.html">Mailing List and IRC channel Info</a></li>
+		<li><a href="http://www.hpc.uh.edu/fvwm/archive">Mail Archive</a></li>
+		<li><a href="http://www.fvwm.org/cgi-bin/fvwm-bug">FVWM Bug Reporting</a></li>
+		<li><a href="developers.html">Developer Info (CVS, Modules)</a></li>
+		<li><a href="generated/AUTHORS.html">Acknowledgements</a></li>
+		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>
+	      </ul>
+	     </td>
+	</tr>
+      </table>
+  </p>
+      <p>
+	For the time of development latest changes on this web tree are 
+	stated here. This part is going to be removed before the web site
+	is published officially. The contents of latest_news.txt follows:
+      </p>
+      
+      <pre>
   <?php
       if (file_exists("latest_news.txt"))
          include "latest_news.txt";
