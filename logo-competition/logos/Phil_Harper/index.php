@@ -85,6 +85,9 @@ logo'ish since the competition is getting very impressive.
 <p class=centered>
 <img src="fvwmboxes3.png" width="660" height="500" align="middle">
 
+<p class=centered>
+<img src="fvwmboxes4bw.png" width="581" height="151" align="middle">
+
 <p>More FVWM related art by this <a href="http://gug.sunsite.dk/gallery.php?artist=123">artist</a>:
 <ul>
   <li>
