@@ -672,5 +672,24 @@ include:
 
  	</td></tr>
 
+<!-- Thomas Adam - submitted 18 Aug 2003 -->
+       <tr valign="top"><td valign="middle" class="windowcontents">
+	  <a href="<?php echo conv_link_target('Thomas_Adam-desk-1024x768.php');?>" target="screenshot_window">
+	    <img src="Thomas_Adam-desk-1024x768-thumb.jpg"
+	      border="0" alt="Thomas Adams Desktop"></a></td>
+	  <td valign="middle" class="windowcontents">
+Submitted by Thomas Adam.<br>
+Thomas says:<br>
+This screenshot shows FVWM running with a modified fvwm-themes (mostly
+stolen from 'default'). I have tried to emulate the look and feel of RH's
+"AnotherLevel", by changing the window colour, and centering the title of
+the windows.<br>
+
+The icons and the panel that you can see are a customised version of
+<a href="http://rox.sf.net">Rox-Filer</a> that complements FVWM extremely well.
+
+
+ 	</td></tr>
+
     </table>
 	<?php decoration_window_end(); ?>
