@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 12:57:16 uwp>
+//-  Last modified : <07.04.2003 20:10:20 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -22,7 +22,7 @@ $heading        = "Welcome to The Official FVWM Home Page";
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
-$child_sites    = array("fvwm_cats");
+$child_sites    = array("fvwm_cats","authors");
 //  RBW...
 //  Must be able to cope with register_globals = off.
 //$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
@@ -84,7 +84,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
                                        "mailing_lists",
                                        "mail_archive",
                                        "developers",
-                                       "acknowledgements",
+                                       "authors",
                                        "fvwm_cats"));
     ?>
     </center>
@@ -126,7 +126,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 		<li><a href="http://www.hpc.uh.edu/fvwm/archive">Mail Archive</a></li>
 		<li><a href="http://www.fvwm.org/cgi-bin/fvwm-bug">FVWM Bug Reporting</a></li>
 		<li><a href="developers.html">Developer Info (CVS, Modules)</a></li>
-		<li><a href="generated/AUTHORS.html">Acknowledgements</a></li>
+		<li><a href="generated/AUTHORS.html" class="done">Acknowledgements</a></li>
 		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>
 	      </ul>
 	     </td>

@@ -1,3 +1,8 @@
+2003-04-08  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* **: 
+	Added author information site and cvs information site
+	
 2003-04-07  Dan Espen  <dane@mk.telcordia.com>
 
 	* layout_default.inc: Add favicon to php page.

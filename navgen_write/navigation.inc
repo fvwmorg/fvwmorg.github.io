@@ -1,8 +1,8 @@
 <?php
 //=============================================================
 // This file has been generated automatically
-// by /~uwp/fvwm-web/navgen.php
-// Created at 07/04/03 08:04
+// by /uwe/fvwm-web/navgen.php
+// Created at 07/04/03 20:20
 // You should change the order of $top_array only !!!
 // Uwe Pross 2002
 //=============================================================
@@ -27,13 +27,21 @@ $fvwm_cats["link_pic"]     = "pictures/icons/fvwm_cats";
 $fvwm_cats["parent_site"]  = "home";
 $fvwm_cats["child_sites"]  = array();
 
+$authors["file"]         = "authors/index.php";
+$authors["rel_path"]     = "./..";
+$authors["link_name"]    = "Authors";
+$authors["link_chapter"] = "";
+$authors["link_pic"]     = "pictures/icons/authors";
+$authors["parent_site"]  = "home";
+$authors["child_sites"]  = array();
+
 $home["file"]         = "index.php";
 $home["rel_path"]     = ".";
 $home["link_name"]    = "Home";
 $home["link_chapter"] = "";
 $home["link_pic"]     = "pictures/icons/home";
 $home["parent_site"]  = "top";
-$home["child_sites"]  = array("fvwm_cats");
+$home["child_sites"]  = array("fvwm_cats", "authors");
 
 $news["file"]         = "latest_news/news.php";
 $news["rel_path"]     = "./..";
@@ -117,9 +125,9 @@ $manpages["child_sites"]  = array();
 
 $dev_cvs["file"]         = "documentation/dev_cvs.php";
 $dev_cvs["rel_path"]     = "./..";
-$dev_cvs["link_name"]    = "Developer Info";
+$dev_cvs["link_name"]    = "CVS Information";
 $dev_cvs["link_chapter"] = "";
-$dev_cvs["link_pic"]     = "pictures/icons/doc_developers";
+$dev_cvs["link_pic"]     = "pictures/icons/doc_cvs";
 $dev_cvs["parent_site"]  = "developers";
 $dev_cvs["child_sites"]  = array();
 

@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 13:07:46 uwp>
+//-  Last modified : <08.04.2003 08:29:56 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -723,6 +723,15 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        h2, h3, h4, h5 { 
        color:#2bbbff;
        }
+       h4.author {
+	 margin-top:15pt;
+	 margin-bottom:5pt;
+         padding:0pt;
+       }
+       p.author {
+	 padding-left:20pt;
+	 margin:0pt;
+       }
        table.screenshots { 
        border-color:#aaaa00;
        }
@@ -747,6 +756,10 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        margin:0pt;
        }
        p.cats, h2.cats,  h3.cats, h4.cats, h5.cats, ul.cats { 
+       }
+       pre.cvs {
+       color:#ffff99;
+       margin-left:10pt;  
        }
         -->
     </style>
@@ -788,8 +801,9 @@ function insert_quick_jump_list($site_array,$col_num=2) {
             pop_decoration_path();
             // Add links to html and css checkers - hide them for the checker sites 
             // since they seem not to be html-conform.
-            // echo $_SERVER["REMOTE_ADDR"]."<br>\n";
-            if( ! ereg("^212.219",$_SERVER["REMOTE_ADDR"]) ) {
+            // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
+            if( ! ereg("^212.219",$_SERVER["REMOTE_ADDR"]) && 
+		! ereg("mirror.ac.uk", $_SERVER["REMOTE_HOST"]) ) {
 	      echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp;</a><br>'."\n";
 	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>'."\n";
 	    }
