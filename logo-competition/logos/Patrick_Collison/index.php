@@ -50,6 +50,7 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 // Subject: [FVWM-LOGO] Logo suggestions
 ?>
 <p><img src="FVWM_medium.png" border="0"></p>
+<p><img src="FVWM_transparent.png" border="0"></p>
 
 <?php decoration_window_end(); ?>
 

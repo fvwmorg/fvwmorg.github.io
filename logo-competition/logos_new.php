@@ -428,7 +428,7 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Patrick Collision (1 image)", "", "", 0); ?>
+<?php decoration_window_start("By Patrick Collision (2 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Patrick_Collison/index.php'); ?>">
 
