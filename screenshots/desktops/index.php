@@ -16,11 +16,11 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 $title          = "FVWM - Desktop Screenshots";
 $link_name      = "Desktops";
-$link_picture   = "pictures/icons/screenshots";
-$parent_site    = "top";
+$link_picture   = "pictures/icons/screenshots_desks";
+$parent_site    = "screenshots";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "screenshots_desktops";
+$this_site      = "screenshots_desks";
 
 //--------------------------------------------------------------------
 // check if we should stop here

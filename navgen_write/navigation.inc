@@ -98,13 +98,13 @@ $this->nav_array["download"]["link_pic"] = "pictures/icons/download";
 $this->nav_array["download"]["parent_site"] = "top"; 
 $this->nav_array["download"]["child_sites"] = array("icons", ); 
 
-$this->nav_array["desktops"]["file"] = "screenshots/desktops.php"; 
-$this->nav_array["desktops"]["rel_path"] = "./.."; 
-$this->nav_array["desktops"]["link_name"] = "Desktop Screenshots"; 
-$this->nav_array["desktops"]["link_chapter"] = ""; 
-$this->nav_array["desktops"]["link_pic"] = "pictures/icons/screenshots_desks"; 
-$this->nav_array["desktops"]["parent_site"] = "screenshots"; 
-$this->nav_array["desktops"]["child_sites"] = array(); 
+$this->nav_array["screenshots_desks"]["file"] = "screenshots/desktops/index.php"; 
+$this->nav_array["screenshots_desks"]["rel_path"] = "./../.."; 
+$this->nav_array["screenshots_desks"]["link_name"] = "Desktops"; 
+$this->nav_array["screenshots_desks"]["link_chapter"] = ""; 
+$this->nav_array["screenshots_desks"]["link_pic"] = "pictures/icons/screenshots_desks"; 
+$this->nav_array["screenshots_desks"]["parent_site"] = "screenshots"; 
+$this->nav_array["screenshots_desks"]["child_sites"] = array(); 
 
 $this->nav_array["windowdecors"]["file"] = "screenshots/windowdecors/index.php"; 
 $this->nav_array["windowdecors"]["rel_path"] = "./../.."; 
@@ -128,7 +128,7 @@ $this->nav_array["screenshots"]["link_name"] = "Screenshots";
 $this->nav_array["screenshots"]["link_chapter"] = ""; 
 $this->nav_array["screenshots"]["link_pic"] = "pictures/icons/screenshots"; 
 $this->nav_array["screenshots"]["parent_site"] = "top"; 
-$this->nav_array["screenshots"]["child_sites"] = array("desktops", "windowdecors", "menus", ); 
+$this->nav_array["screenshots"]["child_sites"] = array("screenshots_desks", "windowdecors", "menus", ); 
 
 $this->nav_array["faq"]["file"] = "documentation/faq/index.php"; 
 $this->nav_array["faq"]["rel_path"] = "./../.."; 

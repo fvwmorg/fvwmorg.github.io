@@ -1,3 +1,21 @@
+2003-08-29  Uwe Pross  <uwe.pross@gmx.net>
+
+	* screenshots/desktops/<directories>/*
+	* screenshots/classes/picture_page.inc: 
+	fixed bug in navigation links
+
+	* screenshots/index.php: 
+	changed links to new desktop page
+
+	* screenshots/desktops.php: 
+	disabled page
+
+	* screenshots/desktops/index.php: 
+	enabled page
+
+	* navgen_write/navigation.inc
+	generated new navigation file
+	
 2003-08-26  olicha  <olivier.chapuis@free.fr>
 
 	* links.php:

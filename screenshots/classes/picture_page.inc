@@ -87,7 +87,7 @@ class Picture_Page {
         else {
             // link list is at last
             $display_start = ( (floor($this->max/$this->num_per_page)*$this->num_per_page) 
-                               - ($num_of_links*($this->num_per_page-1)) - 1);
+                               - ($num_of_links*($this->num_per_page-1)));
             $display_end   = $this->max;
         }
 
@@ -108,7 +108,8 @@ class Picture_Page {
     }
 
     function insert_link($from, $to) {
-        $num = $to - $this->start;
+        // echo "[$from,$to]";
+        $num = $this->num_per_page;
         if( $this->max < $to ) $to = $this->max;
         if( $num > 1 ) {
             $pic_range = "".($from+1)."-".$to."";
@@ -116,7 +117,7 @@ class Picture_Page {
             $num = 1;
             $pic_range = "".$from."";
         }
-        if( $actual_start == $from ) {
+        if( $this->start == $from ) {
             echo "<b>".$pic_range."</b>";
         } else {
             mylink( $requested_file, $pic_range, "", array("start" => $from, "num" => $num));
@@ -147,7 +148,7 @@ class Picture_Page {
         if( $this->user_theme ) {
             echo '<input type="hidden" name="theme" value="'.$this->theme.'">';
         }
-        echo '<input type="submit" value="go">';
+        echo '&nbsp;<input type="submit" value="go">';
         echo '</td>';
         echo '</tr>';
         echo '</table>';
