@@ -7,6 +7,10 @@
 ## migo: I would like to rewrite it in Perl and enhance it a bit.
 ## uwp: What's wrong with awk - simple and powerful for this reason I think ;-)
 ## migo: the problem is that it is neither simple enough nor powerful enough.
+## uwp: Well, for me it seems more suitable for simple up to medium text
+##      processing than perl. Sure one can do the same in perl, but using (g)awk
+##      I get faster results.
+##      Is there anything in particular you would like to enhance?
 
 ## stack functions
 
