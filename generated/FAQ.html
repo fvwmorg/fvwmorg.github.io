@@ -14,7 +14,7 @@
                    FVWM Frequently Asked Questions
 ======================================================================
 
-Last updated 14 Nov 1999 for release 2.4.0.
+Last updated 7 Sept 2000 for release 2.3.22
 
 Contents
 
@@ -78,6 +78,8 @@ Contents
     3.15  I don't like the gaps in my icon box when I de-iconify an
           application. Is there some kind of auto arrange function?
     3.16  How do I set up a fvwm menu item that shuts down my Linux machine?
+    3.17  Although the Recapture commands is obsolete, I still need it to
+          apply certain style changes.
 
 4. Modules
 
@@ -123,6 +125,7 @@ Contents
           What can I do about that?
     5.12  The StartsOnPage style does not work for me.  Why?
     5.13  Some modules can not be started when I restart fvwm.
+    5.14  I'm running Rational Rose and fvwm ignores its windows.
 
 6. Miscellaneous
 
@@ -135,6 +138,7 @@ Contents
      6.5  I know this question doesn't have to do with FVWM, but what
           happened to to rxvt and rclock which Rob Nation used to
           support?  Where can I find them now?
+     6.6  How do I set the background with fvwm?
 
 7. Hints and Examples from the Developers
 
@@ -153,6 +157,7 @@ Contents
     7.10  The cat safe desktop :-)
     7.11  Lowering and moving windows.
     7.12  Toggling windows on and off.
+    7.13  How do I start applications by clicking on an icon.
 
 
 ======================================================================
@@ -700,7 +705,10 @@ A: Doubtful, although I'd like to see it too.  I believe that it'd be
 3.8  I really like the horizontal bars that appear on the title bars of
      sticky windows.  Can I get those on other windows as well?
 
-A: Yes.  Put the line "Style * StippledTitle" in your .fvwm2rc.
+A: Yes.  For release 2.3.14 and after,
+   put the line "Style * StippledTitle" in your .fvwm2rc.
+   For releases before then, use "GlobalOpts StipledTitles".
+   (Yes the spelling was inconsistent.)
 
 ----------------------------------------------------------------------
 
@@ -1008,6 +1016,24 @@ A: Write a little shell script to run the shutdown command.
    Add a menu item to your FVWM root menu (or wherever) that invokes
    "sudo /my/script/name".
 
+----------------------------------------------------------------------
+
+3.17  Although the Recapture commands is obsolete, I still need it to
+      apply certain style changes.
+
+A: Excerpt from the man page:
+
+   There are many commands that affect look and feel of specific,
+   some or all windows, like Style, Mouse, the FvwmTheme module and
+   many others.  For performance reasons such changes are not applied
+   immediately but only when fvwm is idle, i.e. no user interaction
+   or module input is pending.  Specifically, new Style options that
+   are set in a function are not applied until after the function has
+   completed.  This can sometimes lead to unwanted effects. To force
+   that all pending changes are applied immediately, use the Refresh
+   or RefreshWindow commands.
+
+
 ======================================================================
                              4 - Modules
 ======================================================================
@@ -1306,6 +1332,7 @@ A: Because they are treated as modifiers. You can use the
      xmodmap -e "add Mod2 = Num_Lock"
      xmodmap -e "add Mod5 = Scroll_Lock"
 
+   Fvwm has to be restarted to use the changes made by xmodmap.
    Please refer to the man page of the xmodmap command for further
    details.
 
@@ -1463,6 +1490,65 @@ A: You may see the following error message on the console:
    (many open windows).
 
 
+----------------------------------------------------------------------
+
+5.14  I'm running Rational Rose and fvwm ignores its windows.
+
+A: This problem might occur on other applications besides the one
+   mentioned.
+
+   The symptoms as reported by Raymond Toy are:
+
+     I've been using FVWM for ages and it's always worked for me just
+     fine.  However, I've started using Rational Rose for Solaris.  FVWM
+     seems to get completely confused.
+     
+     o FVWM doesn't draw any frames around the Rose window like it does for
+       all other windows (except for those I explicit said not to).
+     
+     o The Rose window is always on top.  Nothing I do can bring another
+       window above the Rose window.
+     
+     o Using FVWM's identify window module shows nothing.  No identify
+       window pops up showing the window info.
+     
+     o Focus sometimes seems to be lost.  (I have focus follows mouse).  I
+       have to move the mouse out of the window and back in to get focus.
+       Sometimes I also have to click in the window to get focus.
+     
+     The annoying thing is that this all seems to work with CDE and dtwm.
+     I don't want to have to switch to dtwm so any hints or pointers on
+     where to look to get FVWM to understand this window would help me a
+     lot.
+
+   Heres what we found out:
+
+   Rational Rose  uses software from Mainsoft  that  lets MS Windows
+   applications be recompiled to run on UNIX.
+   
+   There are 2 Mainsoft Knowledgebase pages that relate to UNIX
+   window managers:
+   
+   <A HREF="http://www.mainsoft.com/nbase/mainwin/kb/kbmw0027.htm"
+   >http://www.mainsoft.com/nbase/mainwin/kb/kbmw0027.htm</A>
+   <A HREF="http://www.mainsoft.com/nbase/mainwin/kb/kbmw0034.htm"
+   >http://www.mainsoft.com/nbase/mainwin/kb/kbmw0034.htm</A>
+
+   These pages suggest that you export MWWM=allwm or MWWM=MWM before
+   starting the application.
+
+   Raymond reports:
+
+     This works just fine!   Setting MWWM=allwm, Rose  comes
+     up like a normal X app where  the WM draws the borders.
+     With MWWM=MWM, it works ok too except that for the main
+     window,  no borders are drawn  by the WM and Rose draws
+     it's own  borders (I  have  fvwm respecting   MWM decor
+     hints).   (This  is     correct  as mentioned by    the
+     Knowledgebase pages above.)   I don't  recall what Rose
+     looks like with dtwm, but I suspect it's quite close to
+     all MWWM=MWM.
+   
 ======================================================================
                           6 - Miscellaneous
 ======================================================================
@@ -1545,6 +1631,11 @@ A: If you want more color icons, grab the ones out of the ctwm
    http://www.sct.gu.edu.au/~anthony/icons/ (which has a lot, I
    believe).
 
+   Icons used to be distribued along with fvwm.  Now there is a basic
+   set of icons available at the fvwm web site.  You might find some
+   links at the fvwm web site to other sources of icons.
+
+
 ----------------------------------------------------------------------
 
 6.4  Linux XF86 virtual screen size &amp; fvwm interaction...
@@ -1566,6 +1657,27 @@ A: The official home for rxvt is:
 
    and rclock can be found in that rxvt distribution as well.
 
+----------------------------------------------------------------------
+
+6.6  How do I set the background with fvwm?
+
+A: Setting the background image is not really part of the window
+   manager.  If you are using one of the Linux distributions,
+   most likely, some part of the distribution is setting the background
+   for you.
+
+   There is a program that comes with fvwm (xpmroot) which you can use
+   to set the background to a pixmap.  Other programs like "xv", "xli",
+   "xloadimage", and "display" are more robust, they can put most common
+   image types on the root display.
+
+   If you just want a static image on your background, you might invoke
+   one of these programs from your .xsession or .xinitrc file.  You can
+   also invoke one of these programs from the InitFunction in your
+   .fvwm2rc.
+
+   The fvwm module FvwmBacker can be used to change the background
+   depending on the desk you are currently on.
 
 ======================================================================
               7 - Hints and Examples from the Developers
@@ -1891,10 +2003,37 @@ A: The official home for rxvt is:
    the specified name exists.  They will happily close manually
    opened windows or launch an application multiple times if the
    application is slow to start (e.g. like netscape).
+
+----------------------------------------------------------------------
+
+7.13  How do I start applications by clicking on an icon.
+
+   Normally an icon represents a minimized application.
+   If you want to turn that around, and launch applications by clicking
+   on icons we can't stop you.  Heres a way to do that using
+   FvwmButtons:
+
+     # FvwmButtons icon launcher:
+     DestroyFunc Launcher
+     AddToFunc Launcher
+     + I DestroyModuleConfig $0Launch.*
+     + I *$0Launch.Geometry 64x68
+     + I *$0Launch.Columns 1
+     + I *$0Launch.Rows    4
+     + I *$0Launch.Frame  0
+     + I *$0Launch.(1x3+0+0, Icon $1, Action (Mouse 1) `Exec $2`)
+     + I *$0Launch.Pixmap none
+     + I *$0Launch.(1x1+0+3, Font 9x15, Fore White, Back DarkBlue, \
+                    Title $0, Action (Mouse 1) `Exec $2`)
+     + I Style $0Launch. HandleWidth 0, NoTitle
+     + I Module FvwmButtons $3 $0Launch.
+     # Examples:
+     Launcher RXVT xterm.xpm "rxvt -bg black" "-g +0+0"
+     Launcher XV   xv.xpm    "xv"   "-g +0+100"
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Wed Mar 29 22:09:28 EST 2000 -->
+     on Thu Sep  7 09:05:46 EDT 2000 -->
   </body>
 </html>
 
