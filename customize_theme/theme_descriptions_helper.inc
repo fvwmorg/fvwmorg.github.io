@@ -183,10 +183,10 @@ class Theme_Descriptions_Helper {
         case "file":
         case "directory":
             echo "<tr>\n";
-            echo '<td align="right" class="windowcontents">';
+            echo '<td align="right">';
             echo $option_array["name"];
             echo ": </td>\n";
-            echo '<td align="left" class="windowcontents">';
+            echo '<td align="left">';
             echo '<select name="'.$option.'" onChange="submit();">';
             foreach( $option_array["alt"] as $alt_name => $alt_value ) {
                 echo '<option value="'.$alt_value.'"';
