@@ -1,3 +1,26 @@
+2003-04-13  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* layout_default.inc: 
+	Changed the pager algorithm that uneccessary desks won't be shown.
+	This is more fvwm like but may be confusing.
+	
+	* navgen.cli:
+	Fixed environment problem. Variable $this_site was set to
+	navgen.cli which was certainly wrong
+
+	* documentation/dev_creating_rpms.php
+	* documentation/dev_modules.php
+	* documentation/dev_downloadbugs.php
+	* documentation/dev_cvs.php
+	converted from html version.
+
+	* layout_plain.inc
+	new plain layout style
+
+	* **:
+	fixed laytout passing
+	removed file latest_news.txt
+	
 2003-04-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* navgen.cli: 

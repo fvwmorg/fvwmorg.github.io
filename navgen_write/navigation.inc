@@ -9,10 +9,12 @@
 $top_array = array(
 	"home", 
 	"news", 
+	"features", 
 	"screenshots", 
 	"download", 
 	"documentation", 
-	"contact", 
+	"mailing_lists", 
+	"links", 
 ); 
 
 $fvwm_cats["file"]         = "fvwm-cats/index.php"; 
@@ -55,6 +57,22 @@ $news["link_pic"]     = "pictures/icons/news";
 $news["parent_site"]  = "top"; 
 $news["child_sites"]  = array("logo_competition"); 
 
+$features["file"]         = "features.php"; 
+$features["rel_path"]     = "."; 
+$features["link_name"]    = "Features"; 
+$features["link_chapter"] = ""; 
+$features["link_pic"]     = "pictures/icons/features"; 
+$features["parent_site"]  = "top"; 
+$features["child_sites"]  = array(); 
+
+$desktops["file"]         = "screenshots/desktops.php"; 
+$desktops["rel_path"]     = "./.."; 
+$desktops["link_name"]    = "Desktops"; 
+$desktops["link_chapter"] = ""; 
+$desktops["link_pic"]     = "pictures/icons/screenshots_desks"; 
+$desktops["parent_site"]  = "screenshots"; 
+$desktops["child_sites"]  = array(); 
+
 $windowdecors["file"]         = "screenshots/windowdecors/index.php"; 
 $windowdecors["rel_path"]     = "./../.."; 
 $windowdecors["link_name"]    = "Decors"; 
@@ -77,7 +95,15 @@ $screenshots["link_name"]    = "Screenshots";
 $screenshots["link_chapter"] = ""; 
 $screenshots["link_pic"]     = "pictures/icons/screenshots"; 
 $screenshots["parent_site"]  = "top"; 
-$screenshots["child_sites"]  = array("windowdecors", "menus"); 
+$screenshots["child_sites"]  = array("desktops", "windowdecors", "menus"); 
+
+$icons["file"]         = "download/icons.php"; 
+$icons["rel_path"]     = "./.."; 
+$icons["link_name"]    = "Icons and Sounds"; 
+$icons["link_chapter"] = ""; 
+$icons["link_pic"]     = "pictures/icons/download_icons"; 
+$icons["parent_site"]  = "download"; 
+$icons["child_sites"]  = array(); 
 
 $download["file"]         = "download/index.php"; 
 $download["rel_path"]     = "./.."; 
@@ -85,7 +111,15 @@ $download["link_name"]    = "Download";
 $download["link_chapter"] = ""; 
 $download["link_pic"]     = "pictures/icons/download"; 
 $download["parent_site"]  = "top"; 
-$download["child_sites"]  = array(); 
+$download["child_sites"]  = array("icons"); 
+
+$faq["file"]         = "documentation/faq.php"; 
+$faq["rel_path"]     = "./.."; 
+$faq["link_name"]    = "FAQ"; 
+$faq["link_chapter"] = ""; 
+$faq["link_pic"]     = "pictures/icons/doc_faq"; 
+$faq["parent_site"]  = "documentation"; 
+$faq["child_sites"]  = array(); 
 
 $manpages["file"]         = "documentation/manpages/index.php"; 
 $manpages["rel_path"]     = "./../.."; 
@@ -95,20 +129,68 @@ $manpages["link_pic"]     = "pictures/icons/doc_manpages";
 $manpages["parent_site"]  = "documentation"; 
 $manpages["child_sites"]  = array(); 
 
+$dev_cvs["file"]         = "documentation/dev_cvs.php"; 
+$dev_cvs["rel_path"]     = "./.."; 
+$dev_cvs["link_name"]    = "CVS Information"; 
+$dev_cvs["link_chapter"] = ""; 
+$dev_cvs["link_pic"]     = "pictures/icons/doc_cvs"; 
+$dev_cvs["parent_site"]  = "developers"; 
+$dev_cvs["child_sites"]  = array(); 
+
+$dev_modules["file"]         = "documentation/dev_modules.php"; 
+$dev_modules["rel_path"]     = "./.."; 
+$dev_modules["link_name"]    = "Module Interface"; 
+$dev_modules["link_chapter"] = ""; 
+$dev_modules["link_pic"]     = "pictures/icons/doc_developers_module_interface"; 
+$dev_modules["parent_site"]  = "developers"; 
+$dev_modules["child_sites"]  = array(); 
+
+$dev_downloadbugs["file"]         = "documentation/dev_downloadbugs.php"; 
+$dev_downloadbugs["rel_path"]     = "./.."; 
+$dev_downloadbugs["link_name"]    = "Downloading Bug Reports"; 
+$dev_downloadbugs["link_chapter"] = ""; 
+$dev_downloadbugs["link_pic"]     = "pictures/icons/doc_developers_download_bugs"; 
+$dev_downloadbugs["parent_site"]  = "developers"; 
+$dev_downloadbugs["child_sites"]  = array(); 
+
+$dev_creating_rpms["file"]         = "documentation/dev_creating_rpms.php"; 
+$dev_creating_rpms["rel_path"]     = "./.."; 
+$dev_creating_rpms["link_name"]    = "Creating RPM Packages "; 
+$dev_creating_rpms["link_chapter"] = ""; 
+$dev_creating_rpms["link_pic"]     = "pictures/icons/doc_developers_creating_rmps"; 
+$dev_creating_rpms["parent_site"]  = "developers"; 
+$dev_creating_rpms["child_sites"]  = array(); 
+
+$developers["file"]         = "documentation/developers.php"; 
+$developers["rel_path"]     = "./.."; 
+$developers["link_name"]    = "Developer Info"; 
+$developers["link_chapter"] = ""; 
+$developers["link_pic"]     = "pictures/icons/doc_developers"; 
+$developers["parent_site"]  = "documentation"; 
+$developers["child_sites"]  = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms"); 
+
 $documentation["file"]         = "documentation/index.php"; 
 $documentation["rel_path"]     = "./.."; 
 $documentation["link_name"]    = "Docs"; 
 $documentation["link_chapter"] = ""; 
 $documentation["link_pic"]     = "pictures/icons/documentation"; 
 $documentation["parent_site"]  = "top"; 
-$documentation["child_sites"]  = array("manpages"); 
+$documentation["child_sites"]  = array("faq", "manpages", "developers"); 
 
-$contact["file"]         = "contact/index.php"; 
-$contact["rel_path"]     = "./.."; 
-$contact["link_name"]    = "Contact"; 
-$contact["link_chapter"] = ""; 
-$contact["link_pic"]     = "pictures/icons/contact"; 
-$contact["parent_site"]  = "top"; 
-$contact["child_sites"]  = array(); 
+$links["file"]         = "links.php"; 
+$links["rel_path"]     = "."; 
+$links["link_name"]    = "Links"; 
+$links["link_chapter"] = ""; 
+$links["link_pic"]     = "pictures/icons/links"; 
+$links["parent_site"]  = "top"; 
+$links["child_sites"]  = array(); 
+
+$mailing_lists["file"]         = "contact/index.php"; 
+$mailing_lists["rel_path"]     = "./.."; 
+$mailing_lists["link_name"]    = "Mailing Lists"; 
+$mailing_lists["link_chapter"] = ""; 
+$mailing_lists["link_pic"]     = "pictures/icons/contact_mailing_list"; 
+$mailing_lists["parent_site"]  = "top"; 
+$mailing_lists["child_sites"]  = array(); 
 
 ?>

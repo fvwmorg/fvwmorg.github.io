@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 08:31:48 uwp>
+//-  Last modified : <13.04.2003 14:35:37 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "./..";
@@ -48,7 +48,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     <table border="1" cellpadding="5" frame="void" rules="rows" 
            summary="fvwm screenshots" class="screenshots">
       <tr valign="top"><td valign="middle">
-	  <a href="Mikhael-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Mikhael-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Mikhael-desk-thumbnail.jpg"
 	      border="0" alt="Mikhael Goikhman's Desktop"></a></td>
 	<td valign="middle">
@@ -68,7 +68,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       </tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Dan-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Dan-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Dan-desk-thumbnail.jpg"
 	      border="0" alt="Dan Espen's Desktop"></a></td>
 	<td valign="middle">
@@ -77,7 +77,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  shaped icons, and a minimal use of fvwm modules.</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Michael-desk-1152x900.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Michael-desk-1152x900.php');?>" target="screenshot_window">
 	    <img src="Michael-desk-thumbnail.gif"
 	      border="0" alt="Michael Han's Desktop"></a></td>
 	<td valign="middle">
@@ -87,7 +87,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  use of MiniIcons.</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Robert-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Robert-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Robert-desk-thumbnail.jpg"
 	      border="0" alt="Robert Ford's Desktop"></a></td>
 	<td valign="middle">
@@ -97,7 +97,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  and an interesting purple/blue color scheme.</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Dominik-desk1-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Dominik-desk1-1152x864.php');?>" target="screenshot_window">
 	    <img src="Dominik-desk1-thumbnail.jpg"
 	      border="0" alt="Dominik Vogt's Desktop"></a></td>
 	<td valign="middle">
@@ -112,7 +112,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Dominik-desk2-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Dominik-desk2-1152x864.php');?>" target="screenshot_window">
 	    <img src="Dominik-desk2-thumbnail.jpg"
 	      border="0" alt="Dominik Vogt's Desktop"></a></td>
 	<td valign="middle">
@@ -124,7 +124,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Stric-desk1-1152x900.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Stric-desk1-1152x900.php');?>" target="screenshot_window">
 	    <img src="Stric-desk1-thumbnail.gif"
 	      border="0" alt="Tomas &Ouml;gren's Desktop"></a></td>
 	<td valign="middle">
@@ -134,7 +134,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Windows95-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Windows95-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Windows95-desk-thumbnail.jpg"
 	      border="0" alt="A Windows 95 like screenshot"></a></td>
 	<td valign="middle">
@@ -145,7 +145,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Paul_Johnson-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Paul_Johnson-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Paul_Johnson-desk-thumbnail.jpg"
 	      border="0" alt="A Window Maker like screenshot"></a></td>
 	<td valign="middle">
@@ -153,7 +153,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Ives_Aerts-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Ives_Aerts-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Ives_Aerts-desk-thumbnail.jpg"
 	      border="0" alt="A Window Maker like screenshot"></a></td>
 	<td valign="middle">
@@ -169,7 +169,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Lee_Willis-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Lee_Willis-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Lee_Willis-desk-thumbnail.jpg"
 	      border="0" alt="A fairly simple setup"></a></td>
 	<td valign="middle">
@@ -179,7 +179,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Jason_Kibble-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Jason_Kibble-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Jason_Kibble-desk-thumbnail.jpg"
 	      border="0" alt="Yet another theme"></a></td>
 	<td valign="middle">
@@ -192,10 +192,10 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Olivier_Chapuis-panelup-800x600.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Olivier_Chapuis-panelup-800x600.php');?>" target="screenshot_window">
 	    <img src="Olivier_Chapuis-panelup-thumbnail.jpg"
 	      border="0" alt="Panels up in a small screen"></a>
-	  <a href="Olivier_Chapuis-paneldown-800x600.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Olivier_Chapuis-paneldown-800x600.php');?>" target="screenshot_window">
 	    <img src="Olivier_Chapuis-paneldown-thumbnail.jpg"
 	      border="0" alt="Panels down in a small screen"></a></td>
 	<td valign="middle">
@@ -208,7 +208,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Andre_Bonhote-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Andre_Bonhote-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Andre_Bonhote-desk-thumbnail.jpg"
 	      border="0" alt="Gnome stuff"></a></td>
 	<td valign="middle">
@@ -225,7 +225,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <!-- Second screenshot by Andre Bonhote -->
       <tr valign="top"><td valign="middle">
-	  <a href="Andre_Bonhote-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Andre_Bonhote-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Andre_Bonhote-desk2-thumbnail.jpg"
 	      border="0" alt="Andre_Bonhote second version"></a></td>
 	<td valign="middle">
@@ -244,7 +244,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Kendrick_Vargas-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Kendrick_Vargas-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Kendrick_Vargas-desk-thumbnail.jpg"
 	      border="0" alt="Fvwm Integrated with Gnome"></a></td>
 	<td valign="middle">
@@ -255,7 +255,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Tenebrae-desk-800x600.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Tenebrae-desk-800x600.php');?>" target="screenshot_window">
 	    <img src="Tenebrae-desk-thumbnail.jpg"
 	      border="0" alt="Light Marble GTK+ theme"></a></td>
 	<td valign="middle">
@@ -270,7 +270,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="MURAKAMI_Tomokazu-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('MURAKAMI_Tomokazu-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="MURAKAMI_Tomokazu-desk-thumbnail.jpg"
 	      border="0" alt="Kanji Enabled"></a></td>
 	<td valign="middle">
@@ -281,7 +281,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="An_Thi_Nguyen_Le-desk1-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('An_Thi_Nguyen_Le-desk1-1152x864.php');?>" target="screenshot_window">
 	    <img src="An_Thi_Nguyen_Le-desk1-thumbnail.jpg"
 	      border="0" alt="An_Thi-Nguyen_Le"></a></td>
 	<td valign="middle">
@@ -297,7 +297,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="An_Thi_Nguyen_Le-desk2-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('An_Thi_Nguyen_Le-desk2-1152x864.php');?>" target="screenshot_window">
 	    <img src="An_Thi_Nguyen_Le-desk2-thumbnail.jpg"
 	      border="0" alt="An_Thi_Nguyen_Le2"></a></td>
 	<td valign="middle">
@@ -324,7 +324,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <!-- Shawn Anderson resubmitted 22 Dec 2002 -->
       <tr valign="top"><td valign="middle">
-	  <a href="S_Anderson-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('S_Anderson-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="S_Anderson-desk-thumbnail.gif"
 	      border="0" alt="S_Anderson"></a></td>
 	<td valign="middle">
@@ -334,7 +334,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="GlenLeeEdwards-desk3-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('GlenLeeEdwards-desk3-1024x768.php');?>" target="screenshot_window">
 	    <img src="GlenLeeEdwards-desk3-thumbnail.gif"
 	      border="0" alt="GlenLeeEdwards"></a></td>
 	<td valign="middle">
@@ -359,7 +359,7 @@ screenshots and information.
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="GlenLeeEdwards-desk4-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('GlenLeeEdwards-desk4-1024x768.php');?>" target="screenshot_window">
 	    <img src="GlenLeeEdwards-desk4-thumbnail.gif"
 	      border="0" alt="GlenLeeEdwards"></a></td>
 	<td valign="middle">
@@ -374,7 +374,7 @@ FVWM's flexibility.
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="J_C_Lawrence-desk-1920x1440.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('J_C_Lawrence-desk-1920x1440.php');?>" target="screenshot_window">
 	    <img src="J_C_Lawrence-desk-thumbnail.gif"
 	      border="0" alt="J C Lawrence"></a></td>
 	<td valign="middle">
@@ -402,7 +402,7 @@ The basic rules guiding this <a href="J_C_Lawrence.fvwm2rc">setup</a>:
 </ul>
 	</td></tr>
       <tr valign="top"><td valign="middle">
-	  <a href="Christian_Lyra-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Christian_Lyra-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Christian_Lyra-desk-thumbnail.gif"
 	      border="0" alt="Christian Lyra"></a></td>
 	<td valign="middle">
@@ -410,7 +410,7 @@ The basic rules guiding this <a href="J_C_Lawrence.fvwm2rc">setup</a>:
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="j_g_a_van_riswick-desk-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('j_g_a_van_riswick-desk-1152x864.php');?>" target="screenshot_window">
 	    <img src="j_g_a_van_riswick-desk-thumbnail.jpg"
 	      border="0" alt="J G A van Riswick"></a></td>
 	<td valign="middle">
@@ -433,7 +433,7 @@ here</a>.
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="FilipHroch-desk-800x600.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('FilipHroch-desk-800x600.php');?>" target="screenshot_window">
 	    <img src="FilipHroch-desk-thumbnail.gif"
 	      border="0" alt="Filip Hroch"></a></td>
 	<td valign="middle">
@@ -447,7 +447,7 @@ screenshot with a dfm icon manager and a transparent aterm on the root window.
 	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Christian_Michon-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Christian_Michon-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Christian_Michon-desk-thumbnail.gif"
 	      border="0" alt="Christian Michon"></a></td>
 	<td valign="middle">
@@ -466,7 +466,7 @@ Fvwm2 *does* rock! Waiting impatiently for native PNG support.
  	</td></tr>
 
       <tr valign="top"><td valign="middle">
-	  <a href="Remko_Troncon-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Remko_Troncon-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Remko_Troncon-desk-thumbnail.gif"
 	      border="0" alt="Remko Troncon"></a></td>
 	<td valign="middle">
@@ -489,7 +489,7 @@ in the menus are mostly taken from the
 
 	<!-- Cameron Simpson -->
       <tr valign="top"><td valign="middle">
-	  <a href="Cameron_Simpson-desk-2560x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Cameron_Simpson-desk-2560x1024.php');?>" target="screenshot_window">
 	    <img src="Cameron_Simpson-desk-2560x1024-thumbnail.jpg"
 	      border="0" alt="Cameron Simpson"></a></td>
 	<td valign="middle">
@@ -499,7 +499,7 @@ Zen style by Cameron Simpson,
 <a href="http://www.cskk.ezoshosting.com/cs/fvwm/index.html">details here</a>.
 
       <tr valign="top"><td valign="middle">
-	  <a href="Parv-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Parv-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Parv-desk-thumbnail.jpg"
 	      border="0" alt="Parv"></a></td>
 	  <td valign="middle">
@@ -520,7 +520,7 @@ annotated version of the screen shot</a>.
 
 <!-- Marc A Lehmann - submitted 22 Nov 2002 -->
       <tr valign="top"><td valign="middle">
-	  <a href="Marc_A_Lehmann-desk-2880x1094.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Marc_A_Lehmann-desk-2880x1094.php');?>" target="screenshot_window">
 	    <img src="Marc_A_Lehmann-desk-thumbnail.jpg"
 	      border="0" alt="Marc_A_Lehmann"></a></td>
 	  <td valign="middle">
@@ -546,7 +546,7 @@ following:
 
 <!-- Len Philpot - submitted 27 Dec 2002 -->
       <tr valign="top"><td valign="middle">
-	  <a href="Len_Philpot-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Len_Philpot-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Len_Philpot-desk-thumbnail.jpg"
 	      border="0" alt="Len_Philpot"></a></td>
 	  <td valign="middle">
@@ -566,7 +566,7 @@ FVWM man pages, which launch in their own xterms.
 
 <!-- Brian Sturk - submitted 08 Feb 2003 -->
       <tr valign="top"><td valign="middle">
-	  <a href="Brian_Sturk-desk-1280x1024.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Brian_Sturk-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Brian_Sturk-desk-thumbnail.jpg"
 	      border="0" alt="Brian_Sturk"></a></td>
 	  <td valign="middle">
@@ -579,7 +579,7 @@ and gkrellm respectively.
 
 <!-- Ploum - submitted 17 Feb 2003 -->
       <tr valign="top"><td valign="middle">
-	  <a href="Ploum-desk-1152x864.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Ploum-desk-1152x864.php');?>" target="screenshot_window">
 	    <img src="Ploum-desk-thumbnail.jpg"
 	      border="0" alt="Ploum"></a></td>
 	  <td valign="middle">
@@ -615,7 +615,7 @@ Yes, I hate taskbars and icons ! ;)
 
 <!-- Taviso - submitted 17 Feb 2003 -->
       <tr valign="top"><td valign="middle">
-	  <a href="Taviso-desk-1024x768.php" target="screenshot_window">
+	  <a href="<?php echo conv_link_target('Taviso-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Taviso-desk-thumbnail.jpg"
 	      border="0" alt="Taviso"></a></td>
 	  <td valign="middle">

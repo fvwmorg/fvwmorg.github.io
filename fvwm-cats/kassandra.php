@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 20:24:16 uwe>
+//-  Last modified : <13.04.2003 14:19:39 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -45,5 +45,5 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 ?>
 
   <?php decoration_window_start("kassandra","","","0"); ?>
-  <a href="index.php"><img src="kassandra.jpg" border="0" hspace="0" vspace="0"></a>
+  <a href="<?php echo conv_link_target('index.php');?>"><img src="kassandra.jpg" border="0" hspace="0" vspace="0"></a>
   <?php decoration_window_end(); ?>

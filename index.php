@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <09.04.2003 11:18:59 uwp>
+//-  Last modified : <13.04.2003 21:02:22 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -66,8 +66,15 @@ and support is excellent.  Check it out!
 	<td><b>2.5.6</b></td>
 </tr>
 </table>
-    
-<div align=center>
+
+<hr>   
+Participate in our new 
+<?php
+echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
+?>
+<hr>
+
+<div align="center">
 <h2>Quick jumps</h2>
 
 <?php
@@ -84,18 +91,12 @@ and support is excellent.  Check it out!
 		"mail_archive",
 		"developers",
 		"authors",
+		"links",
 		"fvwm_cats",
 	));
 ?>
 </div>
       
-<hr>
-<?php
-	if (file_exists("latest_news.txt"))
-		include "latest_news.txt";
-	else
-		echo "File latest_news.txt does not exist.";
-?>
 <hr>
 
 <h2>Old pages to convert</h2>
@@ -119,12 +120,13 @@ and support is excellent.  Check it out!
 	<ul>
 		<li><a href="icons.html" class="done">Icons and Sounds Download</a></li>
 		<li><a href="links.html" class="done">Links</a></li>
-		<li><a href="mailinglist.html">Mailing List and IRC channel Info</a></li>
+		<li><a href="mailinglist.html" class="done">Mailing List and IRC channel Info</a></li>
 		<li><a href="http://www.hpc.uh.edu/fvwm/archive">Mail Archive</a></li>
 		<li><a href="http://www.fvwm.org/cgi-bin/fvwm-bug">FVWM Bug Reporting</a></li>
-		<li><a href="developers.html">Developer Info (CVS, Modules)</a></li>
+		<li><a href="developers.html" class="done">Developer Info (CVS, Modules)</a></li>
 		<li><a href="generated/AUTHORS.html" class="done">Acknowledgements</a></li>
 		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>
+		<li><a href="generated/perllib/">Perlib doc</a></li>
 	</ul>
 	</td>
 </tr>

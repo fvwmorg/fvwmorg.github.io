@@ -4,7 +4,7 @@
 //-  Project       : PHP Homepage
 //-  Date          : Sun Nov 17 20:57:39 2002
 //-  Programmer    : Uwe Pross
-//-  Last modified : <27.03.2003 14:20:44 uwp>
+//-  Last modified : <13.04.2003 13:59:13 uwe>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -17,27 +17,6 @@ if( strlen("$navigation_check") > 0 ) return;
 //--------------------------------------------------------------------
 if( strlen($definitions_has_been_read) > 0 ) return;
 $definitions_has_been_read = "x";
-
-//--------------------------------------------------------------------
-// global definitions for all php files
-//--------------------------------------------------------------------
-if( strlen($rel_path) == 0 ) $rel_path=".";
-
-if(strlen($layout) > 0 )
-     $layout_file = $rel_path."layout_".$layout.".inc";
-else
-     $layout_file = $rel_path."/layout_default.inc" ;
-
-$navigation_file = $rel_path."/navgen_write/navigation.inc";
-$navgen_url      = $rel_path."/navgen.php";
-
-function sec_filename($filename) {
-  if( file_exists("$filename") )
-    return $filename;
-  else
-    return "__".$filename."__";
-}
-
 
 //--------------------------------------------------------------------
 //  my_get_global --
@@ -188,6 +167,31 @@ if (is_array($vartype))  {
 
 return $val;
 }
+
+function sec_filename($filename) {
+  if( file_exists("$filename") )
+    return $filename;
+  else
+    return "__".$filename."__";
+}
+
+//--------------------------------------------------------------------
+// global definitions for all php files
+//--------------------------------------------------------------------
+if( strlen($rel_path) == 0 ) $rel_path=".";
+
+$layout = my_get_global("layout", "GET");
+
+$layout_file = $rel_path."/layout_default.inc" ;
+if(strlen($layout) > 0 )
+     $layout_file = $rel_path."layout_".$layout.".inc";
+
+if( ! file_exists($layout_file) )
+     $layout_file = $rel_path."/layout_default.inc" ;
+
+$navigation_file = $rel_path."/navgen_write/navigation.inc";
+$navgen_url      = $rel_path."/navgen.php";
+
 
 ?>
 

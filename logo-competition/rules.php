@@ -3,7 +3,7 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <10.04.2003 08:58:22 uwp>
+//-  Last modified : <13.04.2003 21:01:25 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -108,7 +108,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 	compressed) to email address <b>fvwm-logo@lists.sf.net</b>.</li>
 
       <li>The contributed logos are exhibited at
-	<a href="http://fvwm.org/logo-competition/">http://fvwm.org/logo-competition/</a></li>
+	<a href="<?php echo conv_link_target('index.php');?>">http://fvwm.org/logo-competition/</a></li>
 	
       <li>Logos not created by the submitter or logos with illegal,
 	discriminating or otherwise offensive contents, at the

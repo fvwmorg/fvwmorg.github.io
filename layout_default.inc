@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <11.04.2003 23:00:08 uwe>
+//-  Last modified : <13.04.2003 20:54:36 uwe>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -531,8 +531,8 @@ function insert_pager_page($site,$do_hilight=1) {
 
 }
 
-// inserts a 2x2 desk containing the sub sites
-function insert_pager_desk($site) {
+// inserts a 2x desk containing the sub sites
+function insert_pager_desk($site, $pages_per_desk=4) {
      
   global $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
@@ -547,10 +547,15 @@ function insert_pager_desk($site) {
   $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
 
   // desk label = link name
+  $desk_name = ${$site}["link_name"];
+  // shorten string if needed
+  $max_desk_name_len = 12;
+  if( strlen($desk_name) > $max_desk_name_len ) 
+    $desk_name = substr($desk_name,0,$max_desk_name_len-1);
   echo '<tr>'."\n";
   echo '<td '.$td_opt.' colspan="2">';
   echo '<a href="'.$target.'" style="font-weight:normal; font-family:monospace;">';
-  echo '<font size="2" color="'.$fg.'">&nbsp;'.${$site}["link_name"].'&nbsp;</font></a>';
+  echo '<font size="2" color="'.$fg.'">&nbsp;'.$desk_name.'&nbsp;</font></a>';
   echo '</td>'."\n";
   echo '</tr>'."\n";
 
@@ -562,16 +567,18 @@ function insert_pager_desk($site) {
   insert_pager_page($child_sites[0]);
   echo '</tr>'."\n";
 
-  echo '<tr>'."\n";
-  // second subsite
-  insert_pager_page($child_sites[1]);
-  // third subsite
-  insert_pager_page($child_sites[2]);
-  echo '</tr>'."\n";
+  for( $ii=1; $ii<$pages_per_desk-1; $ii=$ii+2) {
+    echo '<tr>'."\n";
+    // second subsite
+    insert_pager_page($child_sites[$ii]);
+    // third subsite
+    insert_pager_page($child_sites[$ii+1]);
+    echo '</tr>'."\n";
+  }
 }
 
 // pre function to build the pager
-function insert_pager_link_list($link_array) {  
+function insert_pager_link_list($link_array,$pages_per_desk=4) {  
   $is_first = 1;
   //echo "$depth - ".count($selected_path)." - ".count($link_array)."<br>";
   while( list($key,$site) = each($link_array) ) {
@@ -582,7 +589,7 @@ function insert_pager_link_list($link_array) {
       echo '<img src="'.decoration_pic("transparent").'" width="1" height="1" alt="">';
       echo '</td></tr>';
     }
-    insert_pager_desk($site);
+    insert_pager_desk($site,$pages_per_desk);
   }
 }
 
@@ -593,7 +600,7 @@ function insert_pager_navigation() {
   global $hilight_fg, $pager_fg, $pager_bg;
   global $$this_site;
   
-  $number_of_pages = 4;
+  $pages_per_desk = 4;
 
   // table for the border
   echo '<table border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
@@ -611,9 +618,9 @@ function insert_pager_navigation() {
   // check if we are on a top site which has no child sites
   if( $count < 2 || ( ! strcmp(${$parent_site}["parent_site"],"top")  && 
 		      count(${$this_site}["child_sites"]) == 0 && 
-		      count(${$parent_site}["child_sites"]) <= $number_of_pages - 1 )
+		      count(${$parent_site}["child_sites"]) <= $pages_per_desk - 1 )
                  || ( $count == 2 &&
-		      count(${$this_site}["child_sites"]) <= $number_of_pages - 1)) {
+		      count(${$this_site}["child_sites"]) <= $pages_per_desk - 1)) {
     $navigation_array = $top_array;
   } else {
     // merge $parent_path and $actual_sub_sites
@@ -635,12 +642,15 @@ function insert_pager_navigation() {
       end($navigation_array);
       unset($navigation_array[key($navigation_array)]);
     }
-    reset($sub_sites);
-    while( list($key,$site) = each($sub_sites) ) {
-      $navigation_array[] = $site;    
-    }
+    if( $pages_per_desk < count($sub_sites) + 1 )
+      $pages_per_desk = count($sub_sites) + 1;
+    // append sub sites or sub sites of the parent to the navigation_array
+    // reset($sub_sites);
+    // while( list($key,$site) = each($sub_sites) ) {
+      // $navigation_array[] = $site;    
+    // }
   }
-  insert_pager_link_list($navigation_array);
+  insert_pager_link_list($navigation_array,$pages_per_desk);
   echo '</table>';  
   echo "</td>\n";
   decoration_right_cell();
@@ -756,7 +766,6 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 //--------------------------------------------------------------------
 //--------------------------------------------------------------------
 
-
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -834,7 +843,7 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        }
        p.cats, h2.cats,  h3.cats, h4.cats, h5.cats, ul.cats { 
        }
-       pre.cvs {
+       pre.cvs, pre.doc {
        color:#ffff99;
        /* background:#112266; */
        padding:5pt;
@@ -848,6 +857,11 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        color:#bbbbbb;
        text-decoration:line-through;
        font-weight:normal;
+       }
+       h4.doctt {
+       font-family:monospace;
+       font-size:large;
+       text-decoration:underline;
        }
         -->
     </style>
