@@ -39,7 +39,7 @@ Section: FVWM Perl library (3)<BR>Version: FVWM 2.5.4 (from cvs)<BR>Source: <a h
   $module-&gt;send(&quot;Beep&quot;);
 
   # auto-raise all windows
-  sub autoRaise { $_[0]-&gt;send(&quot;Raise&quot;, $_[2]) });
+  sub autoRaise { $_[0]-&gt;send(&quot;Raise&quot;, $_[1]->_win_id) });
   $module-&gt;addHandler(M_FOCUS_CHANGE, \&amp;autoRaise);
 
   $module-&gt;eventLoop;</pre></blockquote>
