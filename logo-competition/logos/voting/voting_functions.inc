@@ -96,12 +96,12 @@ function register_mail_and_id( $email, $id ) {
 }
 
 function send_mail_to_voter($email, $id) {
-    $base_url = "http://www.tu-chemnitz.de/~uwp";
+    $base_url = "www.tu-chemnitz.de/~uwp";
     // $base_url = "http://localhost";
     mail(
          $email, 
          "[FVWM] Fvwm logo competition voting", 
-         "Please take part in the fvwm logo competition voting.
+         "Please take part in the first stage of fvwm logo competition voting.
 
 All users which are either subscribed to one of the fvwm mailing lists
 or have submitted a logo for the competition are allowed to vote for
@@ -119,7 +119,8 @@ Or access the personal voting page directly using this link:
 
 $base_url/fvwm-web/logo-competition/logos/voting/index.php?id=$id
 ",
-         "From: FVWM Voting <fvwm-logo@lists.sf.net>");
+         "From: FVWM Workers <fvwm-workers@fvwm.org>
+Reply-To: FVWM Voting <fvwm-logo@lists.sf.net>");
 }
 
 function insert_color_list() {
@@ -139,6 +140,7 @@ function init_voting($id) {
 function save_voting() {
     global $votes_file;
     $id = trim(get_user_setting("id"));
+    $email = id_is_registered($id);
     if( ! id_is_registered($id) ) {
         echo "<h1>Your id is not registered. Please register first</h1>";
         return 0;
@@ -148,9 +150,9 @@ function save_voting() {
         return 0;
     }
     $votes = get_voting();
-    if( $votes[0] > 0 ) {
+    if( $votes[0] >= 5 ) {
         if( $handle = fopen ($votes_file, "a") ) {
-            fwrite( $handle, trim($id)." ".trim($votes[1])."\n");
+            fwrite( $handle, trim($id)." ".trim($email)." ".trim($votes[1])."\n");
             fclose ($handle);
             echo "<h1>Your vote has been counted.</h1>
 <h1>Thank you for taking part in the fvwm logo competition voting.</h1>";
@@ -163,8 +165,9 @@ function save_voting() {
             return 0;
         }    
     } else {
-        echo "<h1>Please vote at least for one logo.</h1>\n";
-        echo '<a href="index.php?'.$_SERVER["QUERY_STRING"].'"><h1>Vote again.</h1></a>';
+        echo "<h2>You have voted for ".$votes[0]." logos only.</h2>";
+        echo "<h1>Please vote for 5 logos at least.</h1>\n";
+        echo '<h1><a href="index.php?'.$_SERVER["QUERY_STRING"].'">Vote again.</a></h1>';
     }
 }
 

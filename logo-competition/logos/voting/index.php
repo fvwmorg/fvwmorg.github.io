@@ -69,7 +69,7 @@ $id = trim(get_user_setting("id"));
 if( $email = id_is_registered( $id ) ) :
 ?>
 
-<h1>Welcome to fvwm logo voting</h1>
+<h1>Welcome to the first stage of fvwm logo voting</h1>
 
 <p>
 You have been validated having email address <b>&lt;<?php echo $email; ?>&gt;</b>
@@ -85,26 +85,25 @@ Using this web site you can vote for logos taking part in the fvwm logo competit
 <h2>Voting Rules</h2>
 
 <ul>
-  <li>You can vote for any number of logos - there is no limit to the
+  <li>You can vote for 5 or more of logos - there is no limit to the
     number of votes.<br><b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b></li>
-  <li>
-    
-  </li>
-  <li>To vote for a logo or a logo group check the box left beside the logo. </li>
+  <li>To vote for a logo or logo group check the box left beside the logo. </li>
   <li>Your are only allowed to vote once.
     <br><b>Please hit the voting
 	  button at the bottom of this page after your are sure you have checked
-	  ALL logos you want to vote for</b>.<br>Changing your opinion
+	  ALL logos you want to vote for</b>.</li>
+  <li>Changing your opinion
     after submitting your voting is not possible.</li>
   <li>Click on the logo or the link "Author page" to get to a page
-    where all logos of the logo's author are displayed</li>
+    where all logos of this artist are displayed.</li>
   <li>If you have JavaScript enabled you may change the background
     color of this page to get an impression how this logo looks on
     different background. This is done by clicking on the grey tone
     images below the logos.</li>
-  <li>The order of logos at this page is incidental and will change
+  <li>The order of logos at this page is incidental and changes
     each time you reload this page.</li>
-  <li>During voting time there won't be announced any voting results.</li>
+  <li>During voting time no voting results are announced.</li>
+  <li><b>Voting is possible till November 30.</b></li>
 </ul>
 <hr>
 
