@@ -24,8 +24,8 @@ You can change the background color to see transparent logos on different backgr
 <a href="?window_bg=%2300ff00&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">green</a>&nbsp;
 <a href="?window_bg=%230000ff&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">blue</a>&nbsp;
 <a href="?window_bg=%23ffff00&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">yellow</a>&nbsp;
-<a href="?window_bg=%23ff00ff&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">purple</a>&nbsp;
-<a href="?window_bg=%2300ffff&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">magenta</a>&nbsp;
+<a href="?window_bg=%23ff00ff&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">magenta</a>&nbsp;
+<a href="?window_bg=%2300ffff&window_fg=%23000000" style="color:<?php echo $theme_object->style_array['window_fg'];?>">cyan</a>&nbsp;
 <a href="." style="color:<?php echo $theme_object->style_array['window_fg'];?>">default</a>&nbsp;
 </td>
 </tr>
