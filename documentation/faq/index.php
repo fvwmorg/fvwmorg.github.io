@@ -1502,8 +1502,8 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
    There is another way to define transparent colorset, by using
    RootTransparent instead of Transparent, but please remember,
    you should use a good utility to set the root background image,
-   like &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;, otherwise RootTransparent
-   will not work:
+   like &quot;fvwm-root -r&quot; or &quot;Esetroot&quot; or &quot;wmsetbg&quot;, otherwise
+   RootTransparent will not work:
 
      Colorset 23 RootTransparent, fg navy, bg average
 
@@ -1516,9 +1516,9 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
    If you have enough memory, you may use &quot;RootTransparent buffer&quot;
    to speed up transparent menus, modules or decorations.
 
-   If you are not sure whether you use &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;
-   to set the root background, do not use the RootTransparent option,
-   use Transparent option without tinting.
+   If you are not sure whether you use &quot;fvwm-root -r&quot; or similar
+   utility to set the root background, do not use the RootTransparent
+   option, use Transparent option without tinting.
 
    Once a transparent colorset is defined, use it in menus:
 
@@ -1563,29 +1563,31 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
 
     See question 3.23 to learn how to define a transparent colorset.
     Only RootTransparent method works for transparent decorations!
-    This basically means that if you have JPG background, you should
-    convert it to PNG or XPM to use with &quot;fvwm-root -r&quot; or &quot;Esetroot&quot;.
-    Please read both 3.23 and 3.25 before asking on the mailing list.
+    This basically means that you should use external utilities like
+    &quot;wmsetbg&quot; or &quot;Esetroot&quot; to set background in JPG/GIF/TIFF format
+    and our utility &quot;fvwm-root -r&quot; for XPM/PNG images.
 
     To get transparent decorations, use a configuration like this:
 
       AddToFunc StartFunction
       + I Exec fvwm-root -r $HOME/wallpapers/sea.png
 
-      Colorset 41 RootTransparent buffer, bg average, \
+      Colorset 41 RootTransparent buffer, fg white, bg average, \
         Tint cyan 15, bgTint cyan 15  # tint is optional
-      Colorset 42 RootTransparent buffer, bg average, \
+      Colorset 42 RootTransparent buffer, fg white, bg average, \
         Tint red  15, bgTint red  15  # tint is optional
-      BorderStyle Active   Colorset 41 -- flat
+
+      Style * Colorset 41, HilightColorset 42  # to use fg and bg
       BorderStyle Inactive Colorset 42 -- flat
-      TitleStyle AllActive   Colorset 41 -- flat
+      BorderStyle Active   Colorset 41 -- flat
       TitleStyle AllInactive Colorset 42 -- flat
+      TitleStyle AllActive   Colorset 41 -- flat
       ButtonStyle All -- UseTitleStyle flat
 
     It is possible to define partially transparent decorations too.
     You may achieve this by adding &quot;AddTitleStyle Colorset NN PP&quot;,
     or even &quot;TitleStyle Colorset NN PP&quot;.  Please read the man page.
-    Also see fvwm-themes to find whether some theme aready provides
+    Also search in fvwm-themes to see whether some theme provides
     the window decoration look similar to what you want to achieve.
 
 
