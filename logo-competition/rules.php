@@ -3,7 +3,7 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <09.04.2003 08:14:35 uwp>
+//-  Last modified : <09.04.2003 10:33:01 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -44,6 +44,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 ?>
 
 <?php decoration_window_start("Competition Rules"); ?>
+
 <h1>The FVWM Logo Competition</h1>
 
 <p>FVWM stands for F? Virtual Window Manager (see FAQ to get an idea

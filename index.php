@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 20:10:20 uwe>
+//-  Last modified : <09.04.2003 11:05:09 uwp>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -98,21 +98,6 @@ and support is excellent.  Check it out!
 		echo "File latest_news.txt does not exist.";
 ?>
 <hr>
-
-<!--  
-The following is _not_ html conform and will be removed in the
-final version of this site. It is done here to keep debbuging 
-stuff in the same file.
--->
-<style type="text/css">
-<!--
-a.done {
-	color:#bbbbbb;
-	text-decoration:line-through;
-	font-weight:normal;
-}
--->
-</style>
 
 <h2>Old pages to convert</h2>
 

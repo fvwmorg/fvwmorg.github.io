@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <09.04.2003 08:47:07 uwp>
+//-  Last modified : <09.04.2003 11:05:03 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -669,19 +669,13 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 }
 ?>
 
-<?php 
-// <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/transitional.dtd"> 
-?>
-
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
 
   <head>
 
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
     <meta name="generator" content="by hand with a little help of bluefish and xemacs">
     <meta name="keywords" content="fvwm, window manager, screenshots, themes">
-    <meta name="author" content="Uwe Pross">
     <meta name="description" content="The Official FVWM Home Page">
 
 <!--
@@ -767,6 +761,11 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 	 margin-right:5pt;
 	 font-weight:normal;
        }
+       a.done {
+	color:#bbbbbb;
+	text-decoration:line-through;
+	font-weight:normal;
+       }
         -->
     </style>
 
@@ -809,11 +808,13 @@ function insert_quick_jump_list($site_array,$col_num=2) {
             // since they seem not to be html-conform.
             // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
             if( ! ereg("^212.219",$_SERVER["REMOTE_ADDR"]) && 
-		! ereg("mirror.ac.uk", $_SERVER["REMOTE_HOST"]) ) {
+		! ereg("mirror.ac.uk", $_SERVER["REMOTE_HOST"]) && 
+		! ereg("validator", $_SERVER["REMOTE_HOST"]) && 
+		! ereg("nordstrom.hrz.tu-chemnitz.de", $_SERVER["REMOTE_HOST"])) {
 	      echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp;</a><br>'."\n";
 	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>'."\n";
 	    }
-       ?></td>
+       ?><a href="http://validator.w3.org/check/referer">w3c check&nbsp;</a></td>
       </tr>
 
     </table>
