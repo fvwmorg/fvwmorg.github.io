@@ -1324,7 +1324,7 @@ A: FVWM spawns itself into all found screens unless -s command line
 
 ----------------------------------------------------------------------
 
-    3.21  How do I maximize a window but not cover up FvwmTaskBar?
+<a name="3.21"></a><a href="#toc_3.21">3.21</a>  How do I maximize a window but not cover up FvwmTaskBar?
 
 
 A: Instead of Maximize use &quot;Maximize 100 -30p&quot; where 30 is the width of
@@ -2455,7 +2455,7 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
 ----------------------------------------------------------------------
 
-    7.14  Positioning a window using arithmetic.
+<a name="7.14"></a><a href="#toc_7.14">7.14</a>  Positioning a window using arithmetic.
 
     This example shows how to center a window on the screen.
     Notice how is uses PipeRead and the shell construct
@@ -2477,7 +2477,7 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
 ----------------------------------------------------------------------
 
-    7.15  Hiding the mouse pointer
+<a name="7.15"></a><a href="#toc_7.15">7.15</a>  Hiding the mouse pointer
 
     Some users don't like the mouse pointer getting in the way of
     what they are looking at.  You might want to search for and
@@ -2486,7 +2486,7 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
 ----------------------------------------------------------------------
 
-    7.16  Finding the mouse pointer
+<a name="7.16"></a><a href="#toc_7.16">7.16</a>  Finding the mouse pointer
 
     Sometimes its hard to see the mouse pointer.
     Heres a way to find it:
