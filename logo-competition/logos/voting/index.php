@@ -42,7 +42,7 @@ if(isset($navigation_check)) return;
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
-	include(sec_filename($theme_file));
+	include_once(sec_filename($theme_file));
 	exit();
 }
 ?>
@@ -170,7 +170,7 @@ $stage2logos = array (
 
 // read logo list
 $logo_array = array();
-include(sec_filename($logo_list));
+include_once(sec_filename($logo_list));
 
 uasort($logo_array, "random_sort");
 $num_of_logos = 0;

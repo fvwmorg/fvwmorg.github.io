@@ -34,10 +34,10 @@ $this_site      = "logo_competition";
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
-	include(sec_filename($layout_file));
+	include_once(sec_filename($layout_file));
 	exit();
 }
-if( file_exists("./logos/color_select.inc") ) include("./logos/color_select.inc");
+if( file_exists("./logos/color_select.inc") ) include_once("./logos/color_select.inc");
 ?>
 
 <!-- ============================================================= -->

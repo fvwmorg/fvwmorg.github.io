@@ -41,7 +41,7 @@ if(!isset($site_has_been_loaded)) {
 		$file = "$rel_path/layout_$layout.inc";
 		if (file_exists($file)) $layout_file = $file;
 	}
-	include(sec_filename($layout_file));
+	include_once(sec_filename($layout_file));
 	exit();
 }
 ?>

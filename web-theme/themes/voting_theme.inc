@@ -17,7 +17,7 @@ require_once(class_file("plain_class.inc"));
 $theme_object = new Plain_Theme();
 
 // include function wrappers
-include(helper_file("members2globals.inc"));
+include_once(helper_file("members2globals.inc"));
 
 // correct heading
 if( strlen($heading) == 0 ) $heading = $title;

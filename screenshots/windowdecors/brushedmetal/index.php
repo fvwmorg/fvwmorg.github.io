@@ -27,14 +27,14 @@ $rel_path = "../../..";
 //--------------------------------------------------------------------
 if(isset($navigation_check)) return;
 
-include("../subdir_index.inc");
+include_once("../subdir_index.inc");
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
 // if(!isset($site_has_been_loaded)) {
 //   $site_has_been_loaded = "true";
-//   include(sec_filename("$layout_file"));
+//   include_once(sec_filename("$layout_file"));
 //   exit();
 // }
 

@@ -19,7 +19,7 @@ require_once(class_file("blue_class.inc"));
 $theme_object = new Blue_Theme();
 
 // include function wrappers
-include(helper_file("members2globals.inc"));
+include_once(helper_file("members2globals.inc"));
 
 if(!isset($heading)) $heading = $title;
 ?>

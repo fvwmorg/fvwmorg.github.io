@@ -37,7 +37,7 @@ $this_site      = "manpages";
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
-	include(sec_filename($layout_file));
+	include_once(sec_filename($layout_file));
 	exit();
 }
 ?>

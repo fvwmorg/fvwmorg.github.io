@@ -35,7 +35,7 @@ if(isset($navigation_check)) return;
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
   $site_has_been_loaded = "true";
-  include(sec_filename($theme_file));
+  include_once(sec_filename($theme_file));
   exit();
 }
 ?>

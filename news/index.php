@@ -34,7 +34,7 @@ if( strlen("$navigation_check") > 0 ) return;
 //--------------------------------------------------------------------
 if( strlen("$site_has_been_loaded") == 0 ) {
   $site_has_been_loaded = "true";
-  include(sec_filename("$layout_file"));
+  include_once(sec_filename("$layout_file"));
   exit();
 }
 

@@ -33,11 +33,11 @@ $this_site      = "logo_competition";
 //--------------------------------------------------------------------
 if(!isset($site_has_been_loaded)) {
 	$site_has_been_loaded = "true";
-	include(sec_filename($layout_file));
+	include_once(sec_filename($layout_file));
 	exit();
 }
 
-if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
+if( file_exists("./../color_select.inc") ) include_once("./../color_select.inc");
 ?>
 
 <?php decoration_window_start('Logos by Felix E. Klee', "100%", ""); ?>
