@@ -3,7 +3,6 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <26.03.2003 22:32:52 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = "..";

@@ -3,7 +3,6 @@
 //-  File          : contact/mailing_lists.php
 //-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <13.04.2003 20:49:40 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = "./..";

@@ -3,7 +3,6 @@
 //-  File          : authors/index.php
 //-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 19:54:29 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";

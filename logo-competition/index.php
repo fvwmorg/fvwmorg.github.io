@@ -3,7 +3,6 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <13.04.2003 14:12:56 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";

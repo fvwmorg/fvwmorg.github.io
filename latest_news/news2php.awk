@@ -5,7 +5,6 @@
 #-  Project       : FVWM Home Page
 #-  Date          : Tue Apr  1 20:48:44 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <07.04.2003 10:11:01 uwp>
 #---------------------------------------------------------------------
 
 ## stack functions

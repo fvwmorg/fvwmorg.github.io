@@ -5,7 +5,6 @@
 #-  Project       : Fvwm Web site
 #-  Date          : Mon Apr  7 19:24:40 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <07.04.2003 20:06:45 uwe>
 #---------------------------------------------------------------------
 
 function output(s) {

@@ -4,7 +4,6 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <03.04.2003 08:37:18 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = ".";

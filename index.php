@@ -4,7 +4,6 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <14.04.2003 20:57:14 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";

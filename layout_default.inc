@@ -4,26 +4,29 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <14.04.2003 21:29:04 uwe>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
-// This is a layout defintion file for a web page project.
-// This file contains php function definitions which can be 
-// used in the php files and it provides the html frame work 
-// in which the php file is included
+// This is a layout defintion file for a web page project. This
+// file  contains php function definitions which can be used in
+// the php files and it provides the html frame work  in  which
+// the php file is included 
 // 
-// Some comments on the concept of this php framework: In same
-// directory as this file a php file called navgen.php should
-// exist. This file can be ran though the php command line
-// interface. navgen looks recursively for all *.php files and
-// creates an array stucture which describes the sturcture of the php
-// files belonging to this web page project. The array structure is
-// written usally to the file navgen_write/navigation.inc
-//     If a php page is requested some definitions are made in the
-// header of this file like $title, $header and after this file is
-// included which describes the layout of the page. In this file the
-// php file is include again and processed to the end.
+// Some comments on the concept of this php framework: 
+// 
+// In same directory as this file a php file called  navgen.php
+// should  exist.  This  file can be ran though the php command
+// line interface. navgen looks recursively for all *.php files
+// and  creates an array stucture which describes the sturcture
+// of the php files belonging to this  web  page  project.  The
+// array    structure   is   written   usally   to   the   file
+// navgen_write/navigation.inc 
+// 
+// If a php page is requested some definitions are made in  the
+// header of this file like $title, $header and after this file
+// is included which describes the layout of the page. In  this
+// file  the  php  file  is  include again and processed to the
+// end. 
 //--------------------------------------------------------------------
 
 // exit here in case of a navgen run

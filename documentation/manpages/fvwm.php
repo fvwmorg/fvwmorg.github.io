@@ -3,7 +3,6 @@
 //-  File          : documentation/manpages/manpage_template.php_
 //-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <10.04.2003 08:47:10 uwp>
 //--------------------------------------------------------------------
 
 // this is a template file for a manpage file

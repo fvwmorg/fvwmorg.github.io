@@ -3,7 +3,6 @@
 //-  File          : developers.php
 //-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <13.04.2003 11:38:10 uwe>
 //--------------------------------------------------------------------
 
 if( strlen($rel_path)==0 ) $rel_path="./..";

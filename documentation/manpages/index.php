@@ -3,7 +3,6 @@
 //-  File          : documentation/manpages/manpages_toc_template.php_
 //-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <09.04.2003 19:31:13 uwe>
 //--------------------------------------------------------------------
 
 // this is a template file for the table of contents of the manual 

@@ -3,7 +3,6 @@
 #-  Project       : Fvwm web site 
 #-  Date          : Mon Mar 31 09:25:14 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <01.04.2003 16:35:35 uwp>
 #---------------------------------------------------------------------
 
 default:

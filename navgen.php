@@ -4,7 +4,6 @@
   <!--  Project       : FVWM Home Page                                    -->
   <!--  Date          : 26.11.2002                                        -->
   <!--  Programmer    : Uwe Pross                                         -->
-  <!--  Last modified : <09.04.2003 09:45:50 uwp>                         -->
   <!--------------------------------------------------------------------- -->
   <head>
     <title>PHP NavGen - uwp</title>
