@@ -536,7 +536,8 @@ function insert_pager_page($site, $do_hilight=1) {
 
   echo '<td '.$td_opt.'>';
   echo '<a href="'.$target.'" class="nohilight">';
-  echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
+  $link_name = substr($nav_array["$site"]["link_name"], 0, 9);
+  echo '<img src="'.$img.'" border="0" alt="'.$link_name.'" ';
   echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
 
@@ -558,12 +559,11 @@ function insert_pager_desk($site, $pages_per_desk=4) {
   $desk_name = $nav_array["$site"]["link_name"];
   // shorten string if needed
   $max_desk_name_len = 13;
-  if( strlen($desk_name) > $max_desk_name_len )
-    $desk_name = substr($desk_name, 0, $max_desk_name_len-1);
+  $desk_name = substr($desk_name, 0, $max_desk_name_len);
   echo '<tr>'."\n";
   echo '<td '.$td_opt.' colspan="2">';
   echo '<a href="'.$target.'" style="font-weight:normal;" class="nohilight">';
-  echo '<font size="2" color="'.$fg.'">&nbsp;'.$desk_name.'&nbsp;</font></a>';
+  echo '<font size="2" color="'.$fg.'">'.$desk_name.'</font></a>';
   echo '</td>'."\n";
   echo '</tr>'."\n";
 
@@ -803,178 +803,85 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
-  <head>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <meta name="keywords" content="fvwm, window manager, screenshots, themes">
+  <meta name="description" content="The Official FVWM Home Page">
 
-    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-    <meta name="generator" content="by hand with a little help of bluefish and xemacs">
-    <meta name="keywords" content="fvwm, window manager, screenshots, themes">
-    <meta name="description" content="The Official FVWM Home Page">
+  <link rel="shortcut icon" href="<?php echo $rel_path; ?>/fvwm.ico">
 
-    <link rel="shortcut icon" href="<?php echo $rel_path; ?>/fvwm.ico">
+  <link rel="stylesheet" title="default" href="<?php echo $rel_path; ?>/css/default.css">
 
-    <title><?php print $title; ?></title>
+  <!-- provide alternate style sheet -->
+  <!-- the capital "S" is needed to work around the Konqueror 3.1 bug -->
+  <link rel="alternate styleSheet" title="alternative" href="<?php echo $rel_path; ?>/css/alternate.css">
 
-    <!--  default style sheet defintions for this page -->
-    <style type="text/css">
-      <!--
-       body {
-       background-color:<?php echo $body_bg; ?>;
-       <?php
-           if(strlen($body_bg_image)>0)
-             echo 'background-image:url("'.$body_bg_image.'"); ';
-       ?>
-       color:<?php echo $body_fg; ?>;
-       margin:0pt;
-       padding:0pt;
-       }
-       p {
-       text-align:left;
-       }
-       .intern {
-       color: #ffffff;
-       }
-       .windowcontents {
-       }
-       a:link, a:visited, a:active, a:hover {
-       text-decoration:none;
-       font-weight:bold;
-       color:#fafa77;
-       }
-       a:visited {
-       color:#c0c0ff;
-       }
-       a:focus, a:hover {
-       background-color:#eaea67;
-       color:#000000;
-       }
-       a.nohilight:hover, a.nohilight:focus {
-       background-color:transparent;
-       }
-       h2, h3, h4, h5 {
-       color:#41a1ee;
-       }
-       h4.author {
-       margin-top:15pt;
-       margin-bottom:5pt;
-       padding:0pt;
-       }
-       p.author {
-       padding-left:20pt;
-       margin:0pt;
-       }
-       table.screenshots {
-       border-color:#aaaa00;
-       }
-       h2.cats {
-       text-decoration:underline;
-       font-size:xx-large;
-       color:#ffff33;
-       }
-       h3.cats {
-       font-size:xx-large;
-       color:#8888ff;
-       }
-       h4.cats {
-       margin:0pt;
-       font-size:x-large;
-       color:#ff3333;
-       }
-       h5.cats {
-       font-size:large;
-       font-weight:normal;
-       color:#ffff99;
-       margin:0pt;
-       }
-       p.cats, h2.cats, h3.cats, h4.cats, h5.cats, ul.cats {
-       }
-       pre.cvs, pre.doc {
-       color:#ffff99;
-       /* background:#112266; */
-       padding:5pt;
-       }
-       .bottominfo {
-       text-align:right;
-       margin-right:5pt;
-       margin-top:0pt;
-       margin-bottom:0pt;
-       padding:0pt;
-       font-weight:normal;
-       }
-       a.done {
-       color:#bbbbbb;
-       text-decoration:line-through;
-       font-weight:normal;
-       }
-       h4.doctt {
-       font-family:monospace;
-       font-size:large;
-       text-decoration:underline;
-       }
-        -->
-    </style>
+  <title><?php print $title; ?></title>
 
-    <!-- provide alternate style sheets -->
-    <link rel="alternate stylesheet" title="alternate" href="<?php echo $rel_path; ?>/css/alternate.css">
+  <style type="text/css">
+  <!--  
+  body {
+    background-color: <?php echo $body_bg; ?>;
+    <?php
+      if (strlen($body_bg_image) > 0)
+        echo 'background-image: url("'.$body_bg_image.'"); ';
+    ?>
+    color: <?php echo $body_fg; ?>;
+  -->
+  </style>
+</head>
 
-  </head>
+<body bgcolor="<?php echo $body_bg; ?>"
+  text="<?php echo $body_fg; ?>"
+  <?php if (strlen($body_bg_image) > 0) echo 'background="'.$body_bg_image.'"'; ?>
+   link="#ffff88"
+  vlink="#f0c0c0"
+  alink="#ff0000">
 
-  <body bgcolor="<?php echo $body_bg; ?>"
-        text="<?php echo $body_fg; ?>"
-        <?php
-          if(strlen($body_bg_image)>0) echo 'background="'.$body_bg_image.'"';
-        ?>
-         link="#ffff88"
-        vlink="#f0c0c0"
-        alink="#ff0000">
+<!-- make a local link target here so we can jump to the top of this site -->
+<a name="top"></a>
 
-    <!-- make a local link target here so we can jump to the top of this site -->
-    <a name="top"></a>
+<!-- wrapper table contains two columns  -->
+<table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
+<tr>
 
-    <!-- wrapper table contains two colums  -->
-    <table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
+<td valign="top">
+<!-- wrapper table contains two rows - heading and contents -->
+<table width="100%" border="0" cellpadding="0" cellspacing="10" summary="">
+<tr>
+<td align="center" valign="bottom">
+  <?php if (strlen($heading) == 0) $heading = $title; ?>
+  <h1><?php echo $heading; ?></h1>
+</td>
+</tr>
+<tr>
+<td valign="top"><?php
+  include(sec_filename($requested_file));
+?></td>
+</tr>
+</table>
+</td>
 
-       <tr>
-        <td valign="top">
-         <!-- wrapper table contains two rows - heading and contents -->
-         <table width="100%" border="0" cellpadding="0" cellspacing="10" summary="">
+<!-- second cell of the outer wrapper table which contains the pager -->
+<td valign="top" align="right" width="1%"><?php
+  push_decoration_path("pictures/decorations/window_deco_ice");
+  insert_pager_navigation();
+  pop_decoration_path();
+  // Add links to html and css checkers - hide them for the checker sites
+  // since they seem not to be html-conform.
+  // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
+  if (my_get_global("checks", "GET")) {
+    echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp; </a><br>'."\n";
+    echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp; </a><br>'."\n";
+    echo '<a href="http://validator.w3.org/check/referer">w3c check&nbsp; </a>';
+  }
+?></td>
 
-           <tr>
-             <td align="center" valign="bottom">
-                <?php if( strlen($heading) == 0 ) $heading = $title; ?>
-                <h1><?php echo $heading; ?></h1>
-             </td>
-           </tr>
+</tr>
+</table>
 
-           <tr>
-            <td valign="top"><?php include(sec_filename($requested_file)); ?></td>
-          </tr>
+<!-- bottom of the page - display last modified information -->
+<p class="bottominfo"><?php insert_timestamp($requested_file); ?></p>
 
-        </table>
-       </td>
-       <!-- second cell of the outer wrapper table which contains the pager -->
-       <td valign="top" align="right" width="1%"><?php
-            push_decoration_path("pictures/decorations/window_deco_ice");
-            insert_pager_navigation();
-            pop_decoration_path();
-            // Add links to html and css checkers - hide them for the checker sites
-            // since they seem not to be html-conform.
-            // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
-            if( my_get_global("checks", "GET") ) {
-              echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp; </a><br>'."\n";
-              echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp; </a><br>'."\n";
-              echo '<a href="http://validator.w3.org/check/referer">w3c check&nbsp; </a>';
-            }
-       ?></td>
-      </tr>
-
-    </table>
-
-    <!-- bottom of the page - display last modified information -->
-    <p class="bottominfo">
-       <?php insert_timestamp($requested_file); ?>
-       <!-- we may place a "contact" statement here -->
-       <!-- &nbsp; &nbsp; &lt; <a href="mailto:fvwm-workers@fvwm.org">FVWM Workers</a>&gt; -->
-    </p>
-
-  </body>
+</body>
 </html>

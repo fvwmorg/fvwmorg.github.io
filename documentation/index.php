@@ -17,7 +17,7 @@ include($rel_path.'/definitions.inc');
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Documentation";
-$link_name      = "Docs";
+$link_name      = "Documentation";
 $link_picture   = "pictures/icons/documentation";
 $parent_site    = "top";
 $child_sites    = array("faq", "manpages", "developers");

@@ -172,7 +172,7 @@ $nav_array["developers"]["child_sites"]  = array("dev_cvs", "dev_modules", "dev_
 
 $nav_array["documentation"]["file"]         = "documentation/index.php"; 
 $nav_array["documentation"]["rel_path"]     = "./.."; 
-$nav_array["documentation"]["link_name"]    = "Docs"; 
+$nav_array["documentation"]["link_name"]    = "Documentation"; 
 $nav_array["documentation"]["link_chapter"] = ""; 
 $nav_array["documentation"]["link_pic"]     = "pictures/icons/documentation"; 
 $nav_array["documentation"]["parent_site"]  = "top"; 

@@ -1,83 +1,87 @@
+<style type="text/css">
+<!--
 body {
-	background-color:#999999;
-	color:white;
-	margin:0pt;
-	padding:0pt;
-	background-image:none;
-	font-family:curier,monospace;
-	/* font-variant:small-caps; */
+	background-color: #888888;
+	color: white;
+	margin: 0pt;
+	padding: 0pt;
+	background-image: none;
+	font-family: curier,monospace;
+	/* font-variant: small-caps; */
 }
 p {
-	text-align:left; 
+	text-align: left; 
 }
-.intern ,td { 
+.intern, td { 
 	color: #000000;
 }
 .windowcontents {
-	padding-left:10pt;
-	padding-right:10pt;
-	background-color:#c0c0c0;
+	padding-left: 10pt;
+	padding-right: 10pt;
+	background-color: #c0c0c0;
 }
-a:link,a:visited,a:active,a:hover {
-	text-decoration:underline;
-	font-weight:normal;
-	color:#440000;
+a:link, a:visited, a:active, a:hover {
+	text-decoration: underline;
+	font-weight: normal;
+	color: #440000;
 }
 h2, h3, h4, h5 { 
-	color:#550000;
+	color: #550000;
 }
 h4.author {
-	margin-top:15pt;
-	margin-bottom:5pt;
-	padding:0pt;
+	margin-top: 15pt;
+	margin-bottom: 5pt;
+	padding: 0pt;
 }
 td.pagerwrap {
-	background-color:#000000;
+	background-color: #000000;
 }
 td.pager {
-	background-color:#bbbbbb;
+	background-color: #bbbbbb;
 }
 p.author {
-	padding-left:20pt;
-	margin:0pt;
+	padding-left: 20pt;
+	margin: 0pt;
 }
 table.screenshots { 
-	border-color:#aaaa00;
+	border-color: #aaaa00;
 }
 h2.cats { 
-	color:#550000;
-	text-decoration:underline;
-	font-size:xx-large; 
+	color: #550000;
+	text-decoration: underline;
+	font-size: xx-large; 
 }
 h3.cats { 
-	color:#550000;
-	font-size:xx-large; 
+	color: #550000;
+	font-size: xx-large; 
 }
 h4.cats { 
-	color:#550000;
-	margin:0pt;
-	font-size:x-large; 
+	color: #550000;
+	margin: 0pt;
+	font-size: x-large; 
 }
 h5.cats { 
-	color:#550000;
-	font-size:large; 
-	font-weight:normal;
-	margin:0pt;
+	color: #550000;
+	font-size: large; 
+	font-weight: normal;
+	margin: 0pt;
 }
-p.cats, h2.cats,  h3.cats, h4.cats, h5.cats, ul.cats { 
+p.cats, h2.cats, h3.cats, h4.cats, h5.cats, ul.cats { 
 }
 pre.cvs {
-	color:#000088;
-	/* background:#112266; */
-	padding:5pt;
+	color: #000088;
+	/* background: #112266; */
+	padding: 5pt;
 }
 .bottominfo {
-	text-align:right;
-	margin-right:5pt;
-	font-weight:normal;
+	text-align: right;
+	margin-right: 5pt;
+	font-weight: normal;
 }
 a.done {
-	color:#888888;
-	text-decoration:line-through;
-	font-weight:normal;
+	color: #888888;
+	text-decoration: line-through;
+	font-weight: normal;
 }
+-->
+</style>

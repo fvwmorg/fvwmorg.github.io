@@ -1,0 +1,95 @@
+<style type="text/css">
+<!--
+body {
+	margin: 0pt;
+	padding: 0pt;
+}
+p {
+	text-align: left;
+}
+.intern {
+	color: #ffffff;
+}
+.windowcontents {
+}
+a:link, a:visited, a:active, a:hover {
+	text-decoration: none;
+	font-weight: bold;
+	color: #fafa77;
+}
+a:visited {
+	color: #c0c0ff;
+}
+a:focus, a:hover {
+	background-color: #eaea67;
+	color: #000000;
+}
+a.nohilight {
+	font-size: xx-small;
+}
+a.nohilight:hover, a.nohilight:focus {
+	background-color: transparent;
+}
+h2, h3, h4, h5 {
+	color: #41a1ee;
+}
+h4.author {
+	margin-top: 15pt;
+	margin-bottom: 5pt;
+	padding: 0pt;
+}
+p.author {
+	padding-left: 20pt;
+	margin: 0pt;
+}
+table.screenshots {
+	border-color: #aaaa00;
+}
+h2.cats {
+	text-decoration: underline;
+	font-size: xx-large;
+	color: #ffff33;
+}
+h3.cats {
+	font-size: xx-large;
+	color: #8888ff;
+}
+h4.cats {
+	margin: 0pt;
+	font-size: x-large;
+	color: #ff3333;
+}
+h5.cats {
+	font-size: large;
+	font-weight: normal;
+	color: #ffff99;
+	margin: 0pt;
+}
+p.cats, h2.cats, h3.cats, h4.cats, h5.cats, ul.cats {
+}
+pre.cvs, pre.doc {
+	color: #ffff99;
+	/* background: #112266; */
+	padding: 5pt;
+}
+.bottominfo {
+	text-align: right;
+	font-size: x-small;
+	margin-right: 5pt;
+	margin-top: 0pt;
+	margin-bottom: 0pt;
+	padding: 0pt;
+	font-weight: normal;
+}
+a.done {
+	color: #bbbbbb;
+	text-decoration: line-through;
+	font-weight: normal;
+}
+h4.doctt {
+	font-family: monospace;
+	font-size: large;
+	text-decoration: underline;
+}
+-->
+</style>
