@@ -5,12 +5,12 @@
 //-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
 
-if (strlen($rel_path) == 0) $rel_path = "./..";
+$rel_path = "../..";
 
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path.'/definitions.inc'); 
+include("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -27,26 +27,26 @@ $this_site      = str_replace(".php", "", "$requested_file");
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if (strlen($navigation_check) > 0) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if( strlen("$site_has_been_loaded") == 0 ) {
-  $site_has_been_loaded = "true";
-  include(sec_filename("$layout_file"));
-  exit();
+if (strlen($site_has_been_loaded) == 0) {
+	$site_has_been_loaded = "true";
+	include(sec_filename($layout_file));
+	exit();
 }
 ?>
 
-<?php decoration_window_start("Frequently Asked Questions"); ?>  
+<?php decoration_window_start("Frequently Asked Questions"); ?>
 
 <h2>FAQ Contents</h2>
 <pre style="margin-left:5%;">
 <a name="toc_0."></a><a href="#0.">0.</a> <u>The</u> most frequently asked question :)
 
-<a name="toc_0.1"></a>     <a href="#0.1">0.1</a>  A few minutes after fvwm is started my keyboard and mouse
-          bindings stop working.  What can I do?
+<a name="toc_0.1"></a>     <a href="#0.1">0.1</a>  A few minutes after fvwm is started my keyboard and
+          mouse bindings stop working.  What can I do?
 
 <a name="toc_1."></a><a href="#1.">1.</a> About Fvwm
 
@@ -55,8 +55,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <a name="toc_1.3"></a>     <a href="#1.3">1.3</a>  Any WWW Sites about FVWM?
 <a name="toc_1.4"></a>     <a href="#1.4">1.4</a>  Where do I ask questions about FVWM?
 <a name="toc_1.5"></a>     <a href="#1.5">1.5</a>  What are the differences between FVWM 1.xx and 2.xx?
-<a name="toc_1.6"></a>     <a href="#1.6">1.6</a>  What's the relative memory usage for the various window managers
-          out there?
+<a name="toc_1.6"></a>     <a href="#1.6">1.6</a>  What's the relative memory usage for the various window
+          managers out there?
 <a name="toc_1.7"></a>     <a href="#1.7">1.7</a>  Why the rename of the various files (fvwm2, .fvwm2rc,
           fvwm2.man)?
 <a name="toc_1.8"></a>     <a href="#1.8">1.8</a>  When will fvwm release X.Y.Z be ready?
@@ -67,119 +67,137 @@ if( strlen("$site_has_been_loaded") == 0 ) {
           machine.  Can I still install and run it?
 <a name="toc_2.2"></a>     <a href="#2.2">2.2</a>  I'm trying to use fvwm under CDE/COSE, but encountering
           difficulties.  Any suggestions?
-<a name="toc_2.3"></a>     <a href="#2.3">2.3</a>  I'm trying to compile FVWM under SunOS using cc, but the compiler
-          is having lots of problems.  What gives?
+<a name="toc_2.3"></a>     <a href="#2.3">2.3</a>  I'm trying to compile FVWM under SunOS using cc, but the
+          compiler is having lots of problems.  What gives?
 <a name="toc_2.4"></a>     <a href="#2.4">2.4</a>  I want colored icons, but they won't work.  Why not?
-          When I run configure, it reports &quot;no&quot; to &quot;Have XPM support?&quot;  How
-          can I get XPM support?
+          When I run configure, it reports &quot;no&quot; to &quot;Have XPM
+          support?&quot;  How can I get XPM support?
 <a name="toc_2.5"></a>     <a href="#2.5">2.5</a>  I'm a sysadmin, and if I wanted to force fvwm to read a
-          system rc file and then the user's rc file, how would I do
-          that?
+          system rc file and then the user's rc file, how would I
+          do that?
 <a name="toc_2.6"></a>     <a href="#2.6">2.6</a>  I'm a sysadmin, and if I wanted fvwm to look for all of
-          its rc files in a hidden directory, say ~/.fvwm, much like
-          CDE does, how could I do that?
+          its rc files in a hidden directory, say ~/.fvwm, much
+          like CDE does, how could I do that?
 <a name="toc_2.7"></a>     <a href="#2.7">2.7</a>  How can I use FVWM with GNOME?
 
 <a name="toc_3."></a><a href="#3.">3.</a> Features, Configuration, Functions &amp; Commands
 
-<a name="toc_3.1"></a>     <a href="#3.1">3.1</a>  I use FVWM on a RedHat Linux system and can't figure out how to
-          change my FVWM configuration.  I've read the FVWM man page but when
-          I edit my .fvwm2rc nothing seems to happen.  What's going on ?
+<a name="toc_3.1"></a>     <a href="#3.1">3.1</a>  I use FVWM on a RedHat Linux system and can't figure out
+          how to change my FVWM configuration.  I've read the FVWM
+          man page but when I edit my .fvwm2rc nothing seems to
+          happen.  What's going on?
 <a name="toc_3.2"></a>     <a href="#3.2">3.2</a>  Is it possible to raise a window when I click into the
           window itself, not just the border?
 <a name="toc_3.3"></a>     <a href="#3.3">3.3</a>  How do I get Alt-Tab behavior like another GUI?
-<a name="toc_3.4"></a>     <a href="#3.4">3.4</a>  What's the difference between the Focus and FlipFocus commands?
-<a name="toc_3.5"></a>     <a href="#3.5">3.5</a>  You can bind mouse movements to keystrokes, how about mouse
-          presses?
-<a name="toc_3.6"></a>     <a href="#3.6">3.6</a>  I'd like to bind a key to paste/use the current selection,
-          how can I do that?
-<a name="toc_3.7"></a>     <a href="#3.7">3.7</a>  Will FVWM ever support a separate colormap for each desktop?
-<a name="toc_3.8"></a>     <a href="#3.8">3.8</a>  I really like the horizontal bars that appear on the title bars of
-          sticky windows.  Can I get those on other windows as well?
-<a name="toc_3.9"></a>     <a href="#3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an FVWM command?
-          Or more generally, I'm having problems defining key
-          bindings for FVWM - what can I do?
-<a name="toc_3.10"></a>    <a href="#3.10">3.10</a>  My .fvwmrc from version 1.xx no longer works.  What do I do?
+<a name="toc_3.4"></a>     <a href="#3.4">3.4</a>  What's the difference between the Focus and FlipFocus
+          commands?
+<a name="toc_3.5"></a>     <a href="#3.5">3.5</a>  You can bind mouse movements to keystrokes, how about
+          mouse presses?
+<a name="toc_3.6"></a>     <a href="#3.6">3.6</a>  I'd like to bind a key to paste/use the current
+          selection, how can I do that?
+<a name="toc_3.7"></a>     <a href="#3.7">3.7</a>  Will FVWM ever support a separate colormap for each
+          desktop?
+<a name="toc_3.8"></a>     <a href="#3.8">3.8</a>  I really like the horizontal bars that appear on the
+          title bars of sticky windows.  Can I get those on other
+          windows as well?
+<a name="toc_3.9"></a>     <a href="#3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an FVWM
+          command? Or more generally, I'm having problems defining
+          key bindings for FVWM - what can I do?
+<a name="toc_3.10"></a>    <a href="#3.10">3.10</a>  My .fvwmrc from version 1.xx no longer works.  What do I
+          do?
 <a name="toc_3.11"></a>    <a href="#3.11">3.11</a>  What happened to the FVWM 1.xx 'include' command?
 <a name="toc_3.12"></a>    <a href="#3.12">3.12</a>  How do I get window titles on sub windows of ...
-<a name="toc_3.13"></a>    <a href="#3.13">3.13</a>  I just upgraded to version &gt;= 2.3.2, and my configuration settings
-	  disappeared!  How do I get them back?
-<a name="toc_3.14"></a>    <a href="#3.14">3.14</a>  Some applications (e.g. Eterm) don't use the icon I defined for them.
-          Why?
-<a name="toc_3.15"></a>    <a href="#3.15">3.15</a>  I don't like the gaps in my icon box when I de-iconify an
-          application.  Is there some kind of auto arrange function?
-<a name="toc_3.16"></a>    <a href="#3.16">3.16</a>  How do I set up an fvwm menu item that shuts down my Linux machine?
-<a name="toc_3.17"></a>    <a href="#3.17">3.17</a>  Although the Recapture command is obsolete, do I still need it to
-          apply certain style changes?
-<a name="toc_3.18"></a>    <a href="#3.18">3.18</a>  When my specific window (or all windows) pops up, I want it to
-          get focus/be moved/be resized/be closed/be shaded...  How?
-<a name="toc_3.19"></a>    <a href="#3.19">3.19</a>  When my specific window (or all windows) is closed, I want to
-          switch desks/wrap to my app X/popup a menu/start app X...  How?
-<a name="toc_3.20"></a>    <a href="#3.20">3.20</a>  I have a multi head setup (multiple screens used under X).  How
-          can I tell fvwm to use different configurations for the screens?
+<a name="toc_3.13"></a>    <a href="#3.13">3.13</a>  I just upgraded to version &gt;= 2.3.2, and my
+          configuration settings disappeared!  How do I get them
+          back?
+<a name="toc_3.14"></a>    <a href="#3.14">3.14</a>  Some applications (e.g. Eterm) don't use the icon I
+          defined for them. Why?
+<a name="toc_3.15"></a>    <a href="#3.15">3.15</a>  I don't like the gaps in my icon box when I de-iconify
+          an application.  Is there some kind of auto arrange
+          function?
+<a name="toc_3.16"></a>    <a href="#3.16">3.16</a>  How do I set up an fvwm menu item that shuts down my
+          Linux machine?
+<a name="toc_3.17"></a>    <a href="#3.17">3.17</a>  Although the Recapture command is obsolete, do I still
+          need it to apply certain style changes?
+<a name="toc_3.18"></a>    <a href="#3.18">3.18</a>  When my specific window (or all windows) pops up, I want
+          it to get focus/be moved/be resized/be closed/be
+          shaded...  How?
+<a name="toc_3.19"></a>    <a href="#3.19">3.19</a>  When my specific window (or all windows) is closed, I
+          want to switch desks/wrap to my app X/popup a menu/start
+          app X...  How?
+<a name="toc_3.20"></a>    <a href="#3.20">3.20</a>  I have a multi head setup (multiple screens used under
+          X).  How can I tell fvwm to use different configurations
+          for the screens?
 <a name="toc_3.21"></a>    <a href="#3.21">3.21</a>  How do I maximize a window but not cover up FvwmTaskBar?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
-<a name="toc_4.1"></a>     <a href="#4.1">4.1</a>  I'm using FvwmButtons (or GoodStuff in 1.xx), and sometimes the
-          buttons stay depressed, and other times they don't.  Why is that?
-<a name="toc_4.2"></a>     <a href="#4.2">4.2</a>  When having FvwmButtons swallow an app, is it possible to
-          have button presses assigned to actions as well?  For
-          instance, I'd like to swallow xload and have a button press
-          pop up an xterm, or swallow xbiff and have a button press
-          bring up the list of messages.
-<a name="toc_4.3"></a>     <a href="#4.3">4.3</a>  I'm seeing odd things when trying to preprocess files with
-          the FvwmM4/Cpp module...
-<a name="toc_4.4"></a>     <a href="#4.4">4.4</a>  I heard about this FvwmFileMgr module.  Where can I find it?
-<a name="toc_4.5"></a>     <a href="#4.5">4.5</a>  I used to use GoodStuff in FVWM 1.xx, but it's not in the 2.xx
-          distribution.  What do I use now?
-<a name="toc_4.6"></a>     <a href="#4.6">4.6</a>  I want to have the sub panels in FvwmButtons not at their default
-          position near the button but somewhere else on the screen.  Is this
-          possible?
+<a name="toc_4.1"></a>     <a href="#4.1">4.1</a>  I'm using FvwmButtons (or GoodStuff in 1.xx), and
+          sometimes the buttons stay depressed, and other times
+          they don't.  Why is that?
+<a name="toc_4.2"></a>     <a href="#4.2">4.2</a>  When having FvwmButtons swallow an app, is it possible
+          to have button presses assigned to actions as well?  For
+          instance, I'd like to swallow xload and have a button
+          press pop up an xterm, or swallow xbiff and have a
+          button press bring up the list of messages.
+<a name="toc_4.3"></a>     <a href="#4.3">4.3</a>  I'm seeing odd things when trying to preprocess files
+          with the FvwmM4/Cpp module...
+<a name="toc_4.4"></a>     <a href="#4.4">4.4</a>  I heard about this FvwmFileMgr module.  Where can I find
+          it?
+<a name="toc_4.5"></a>     <a href="#4.5">4.5</a>  I used to use GoodStuff in FVWM 1.xx, but it's not in
+          the 2.xx distribution.  What do I use now?
+<a name="toc_4.6"></a>     <a href="#4.6">4.6</a>  I want to have the sub panels in FvwmButtons not at
+          their default position near the button but somewhere
+          else on the screen.  Is this possible?
+<a name="toc_4.7"></a>     <a href="#4.7">4.7</a>  How can I open a sub panel or push buttons in
+          FvwmButtons with a keyboard shortcut?
 
 <a name="toc_5."></a><a href="#5.">5.</a> Development, Known Problems &amp; Bug Reports
 
-<a name="toc_5.1"></a>     <a href="#5.1">5.1</a>  I'd really like to see neat feature XYZ in FVWM.
-          Wouldn't that be cool?  I even have a patch.  When can it
-          be added?
+<a name="toc_5.1"></a>     <a href="#5.1">5.1</a>  I'd really like to see neat feature XYZ in
+          FVWM. Wouldn't that be cool?  I even have a patch.  When
+          can it be added?
 <a name="toc_5.2"></a>     <a href="#5.2">5.2</a>  How do I create/submit/apply patches?
 <a name="toc_5.3"></a>     <a href="#5.3">5.3</a>  How do I submit a bug report?
-<a name="toc_5.4"></a>     <a href="#5.4">5.4</a>  I have a window that is behaving unexpectedly under FVWM, but just
-          fine under (whatever other window manager), or I have just some
-          random bug.  What do I do?
+<a name="toc_5.4"></a>     <a href="#5.4">5.4</a>  I have a window that is behaving unexpectedly under
+          FVWM, but just fine under (whatever other window
+          manager), or I have just some random bug.  What do I do?
 <a name="toc_5.5"></a>     <a href="#5.5">5.5</a>  Why do NumLock, CapsLock and ScrollLock interfere with
           ClickToFocus and/or my mouse bindings?
-<a name="toc_5.6"></a>     <a href="#5.6">5.6</a>  Menus with gradient backgrounds flicker or are very slow.
-<a name="toc_5.7"></a>     <a href="#5.7">5.7</a>  Why won't the StartIconic style work with {Netscape, etc.}?
+<a name="toc_5.6"></a>     <a href="#5.6">5.6</a>  Menus with gradient backgrounds flicker or are very
+          slow.
+<a name="toc_5.7"></a>     <a href="#5.7">5.7</a>  Why won't the StartIconic style work with {Netscape,
+          etc.}?
 <a name="toc_5.8"></a>     <a href="#5.8">5.8</a>  How do I capture the output (e.g. errors) of fvwm?
-<a name="toc_5.9"></a>     <a href="#5.9">5.9</a>  I try to run some program under FVWM, but it dies with an
-          X11 error like BadAccess.  The same program works just fine
-          under MWM or OLWM.  What's going on?
-<a name="toc_5.10"></a>    <a href="#5.10">5.10</a>  Every time I update my install, my currently running fvwm
-          session dies.  Why is that?
-<a name="toc_5.11"></a>    <a href="#5.11">5.11</a>  After I restart fvwm certain windows or icons raise above
-          all other windows and cannot be lowered by any means.  One
-          example are the shortcuts of KFM (the KDE file manager).
-          What can I do about that?
+<a name="toc_5.9"></a>     <a href="#5.9">5.9</a>  I try to run some program under FVWM, but it dies with
+          an X11 error like BadAccess.  The same program works
+          just fine under MWM or OLWM.  What's going on?
+<a name="toc_5.10"></a>    <a href="#5.10">5.10</a>  Every time I update my install, my currently running
+          fvwm session dies.  Why is that?
+<a name="toc_5.11"></a>    <a href="#5.11">5.11</a>  After I restart fvwm certain windows or icons raise
+          above all other windows and cannot be lowered by any
+          means.  One example are the shortcuts of KFM (the KDE
+          file manager).  What can I do about that?
 <a name="toc_5.12"></a>    <a href="#5.12">5.12</a>  The StartsOnPage style does not work for me.  Why?
 <a name="toc_5.13"></a>    <a href="#5.13">5.13</a>  Some modules can not be started when I restart fvwm.
 <a name="toc_5.14"></a>    <a href="#5.14">5.14</a>  I'm running Rational Rose and fvwm ignores its windows.
-<a name="toc_5.15"></a>    <a href="#5.15">5.15</a>  Although I use the WindowListSkip style for my modules they
-          still show up in FvwmIconMan, FvwmWinList etc.
+<a name="toc_5.15"></a>    <a href="#5.15">5.15</a>  Although I use the WindowListSkip style for my modules
+          they still show up in FvwmIconMan, FvwmWinList etc.
 
 <a name="toc_6."></a><a href="#6.">6.</a> Miscellaneous
 
-<a name="toc_6.1"></a>     <a href="#6.1">6.1</a>  What exactly is the difference between a DESK, a PAGE, and
-          the SCREEN?
-<a name="toc_6.2"></a>     <a href="#6.2">6.2</a>  I'd really like {NeXT, Win95, etc} look and feel.  Are you
-          going to support that?
+<a name="toc_6.1"></a>     <a href="#6.1">6.1</a>  What exactly is the difference between a DESK, a PAGE,
+          and the SCREEN?
+<a name="toc_6.2"></a>     <a href="#6.2">6.2</a>  I'd really like {NeXT, Win95, etc} look and feel.  Are
+          you going to support that?
 <a name="toc_6.3"></a>     <a href="#6.3">6.3</a>  Where can I get more XPMs for icons?
 <a name="toc_6.4"></a>     <a href="#6.4">6.4</a>  Linux XF86 virtual screen size &amp; fvwm interaction...
-<a name="toc_6.5"></a>     <a href="#6.5">6.5</a>  I know this question doesn't have to do with FVWM, but what
-          happened to to rxvt and rclock which Rob Nation used to
-          support?  Where can I find them now?
+<a name="toc_6.5"></a>     <a href="#6.5">6.5</a>  I know this question doesn't have to do with FVWM, but
+          what happened to to rxvt and rclock which Rob Nation
+          used to support?  Where can I find them now?
 <a name="toc_6.6"></a>     <a href="#6.6">6.6</a>  How do I set the background with fvwm?
-<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  Whats wrong?
+<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  Whats
+          wrong?
 <a name="toc_6.8"></a>     <a href="#6.8">6.8</a>  I just got a mouse with 57 buttons.  How do I make Fvwm
           use them?
 
@@ -187,10 +205,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <a name="toc_7.1"></a>     <a href="#7.1">7.1</a>  An easy way to test new configurations.
 <a name="toc_7.2"></a>     <a href="#7.2">7.2</a>  Using shell commands for configuration.
-<a name="toc_7.3"></a>     <a href="#7.3">7.3</a>  How to start applications on a page or desk other than the
-          current.
-<a name="toc_7.4"></a>     <a href="#7.4">7.4</a>  How to start applications on a page or desk other than the
-          current without moving the viewport to the new page or desk.
+<a name="toc_7.3"></a>     <a href="#7.3">7.3</a>  How to start applications on a page or desk other than
+          the current.
+<a name="toc_7.4"></a>     <a href="#7.4">7.4</a>  How to start applications on a page or desk other than
+          the current without moving the viewport to the new page
+          or desk.
 <a name="toc_7.5"></a>     <a href="#7.5">7.5</a>  A more efficient MWM menu style.
 <a name="toc_7.6"></a>     <a href="#7.6">7.6</a>  Placing menus on the screen.
 <a name="toc_7.7"></a>     <a href="#7.7">7.7</a>  Are you flipping pages by accident when moving the mouse
@@ -203,9 +222,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <a name="toc_7.13"></a>    <a href="#7.13">7.13</a>  Starting applications by clicking on an icon (also known
           as &quot;docking&quot; applications).
 <a name="toc_7.14"></a>    <a href="#7.14">7.14</a>  Positioning a window using arithmetic.
-<a name="toc_7.15"></a>    <a href="#7.15">7.15</a>  Hiding the mouse pointer
-<a name="toc_7.16"></a>    <a href="#7.16">7.16</a>  Finding the mouse pointer
-
+<a name="toc_7.15"></a>    <a href="#7.15">7.15</a>  Hiding the mouse pointer.
+<a name="toc_7.16"></a>    <a href="#7.16">7.16</a>  Finding the mouse pointer.
+<a name="toc_7.17"></a>    <a href="#7.17">7.17</a>  Autohiding FvwmButtons or other windows.
 
 ======================================================================
 <a name="0."></a>                <a href="#toc_0.">0</a> - The most frequently asked question
@@ -682,9 +701,13 @@ A: The built in command WindowList provides a very close approximation
    Alt-TAB twice in quick succession (like a double click for keys):
 
       DestroyFunc my_dbltab2
-      AddToFunc my_dbltab2 &quot;I&quot; WindowListFunc $w
+      AddToFunc   my_dbltab2
+      + I WindowListFunc
+
       DestroyFunc my_dbltab
-      AddToFunc my_dbltab &quot;I&quot; Prev (CurrentDesk) my_dbltab2
+      AddToFunc   my_dbltab
+      + I Prev (CurrentDesk) my_dbltab2
+
       Key Tab A M WindowList Root c c CurrentDesk NoGeometry my_dbltab
 
    There are a lot of options to the WindowList command to control which
@@ -1233,19 +1256,19 @@ A: The following discusses a general solution, you should substitute
 
      AddToFunc StartFunction I Module FvwmEvent
 
-   The sample to use with fvwm 2.3.21+ versions (this moves a newly
-   created window &quot;My Window&quot; only, and switches to all new windows):
+   The sample to use with latest fvwm 2.4.x and 2.5.x versions.  This
+   moves a newly created window named &quot;My Window&quot;, and wraps a pointer
+   to all new windows regardless of their name:
 
      *FvwmEvent-NewWindow: Cmd
-     *FvwmEvent-NewWindow: PassId
      *FvwmEvent-NewWindow: StartDelay 4
      *FvwmEvent-NewWindow: add_window FuncFocusWindow
 
      DestroyFunc FuncFocusWindow
      AddToFunc   FuncFocusWindow
-     + I WindowId $0 (&quot;My Window&quot;) Move 200p 100p
-     + I WindowId $0 Focus
-     + I WindowId $0 WarpToWindow
+     + I ThisWindow (&quot;My Window&quot;) Move 200p 100p
+     + I Focus
+     + I WarpToWindow
 
      AddToFunc StartFunction I FvwmEvent FvwmEvent-NewWindow
 
@@ -1429,6 +1452,51 @@ A: GoodStuff was renamed to FvwmButtons.  Same module, new name (that
 
 A: Yes, but not with the current implementation of the panels.  Please
    read question 7.12 for instructions.
+
+----------------------------------------------------------------------
+
+<a name="4.7"></a><a href="#toc_4.7">4.7</a>  How can I open a sub panel or push buttons in FvwmButtons
+     with a keyboard shortcut?
+
+A: FvwmButtons does not support keyboard shortcuts itself.  Since
+   fvwm version 2.3.24 the FakeClick command can be used to
+   simulate a click in the FvwmButtons window:
+
+   fvwm-2.3.24 or later:
+
+     DestroyFunc press_fvwmbuttons
+     AddToFunc press_fvwmbuttons
+     + I Next (FvwmButtons, CirculateHit) WarpToWindow $1 $2
+     + I FakeClick depth 2 press $0 release $0
+
+   fvwm-2.5.1 or later (moves the pointer back to the original
+   position):
+
+     AddToFunc press_fvwmbuttons
+     + I SetEnv px $[pointer.x]
+     + I SetEnv py $[pointer.y]
+     + I Next (FvwmButtons, CirculateHit) WarpToWindow $1 $2
+     + I FakeClick depth 2 press $0 release $0
+     + I WindowId root WarpToWindow $[px]p $[py]p
+
+   With this function, you can warp the pointer to the desired
+   button to press and simulate a click.  Call it with
+
+     press_fvwmbuttons btn xoff yoff
+                         ^    ^    ^
+                         |    |    |___ y offset of the button
+                         |    |________ x offset of the button
+                         |_____________ button to press
+
+   For example, if the button of a panel is at 30% of FvwmButtons'
+   width and 10% of its height and you want to simulate mouse
+   button 1, issue
+
+    press_fvwmbuttons 1 30 10
+
+   You can bind this to a key.  For example:
+
+     Key f1 a n press_fvwmbuttons 1 30 10
 
 ======================================================================
 <a name="5."></a>            <a href="#toc_5.">5</a> - Development, Known Problems &amp; Bug Reports
@@ -1838,10 +1906,8 @@ A: This problem might occur on other applications besides the one
    There are 2 Mainsoft Knowledgebase pages that relate to UNIX
    window managers:
 
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;</a>
-   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_</a>
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;</a>
-   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_</a>
+         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
+         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
 
    These pages suggest that you export MWWM=allwm or MWWM=MWM before
    starting the application.
@@ -2422,8 +2488,8 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 <a name="7.13"></a><a href="#toc_7.13">7.13</a>  Starting applications by clicking on an icon (also known as
       &quot;docking&quot; applications).
 
-   Normally an icon represents a minimized application.
-   If you want to turn that around, and launch applications by clicking
+   Normally an icon represents a minimized application.  If you
+   want to turn that around, and launch applications by clicking
    on icons we can't stop you.  Heres a way to do that using
    FvwmButtons:
 
@@ -2445,8 +2511,9 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
      Launcher RXVT xterm.xpm &quot;rxvt -bg black&quot; &quot;-g +0+0&quot;
      Launcher XV   xv.xpm    &quot;xv&quot;   &quot;-g +0+100&quot;
 
-   Also, GNOME and KDE have desktop icon applications gmc and kfm, which
-   enable this functionality.  These applications may be run under FVWM.
+   Also, GNOME and KDE have desktop icon applications gmc and kfm,
+   which enable this functionality.  These applications may be run
+   under FVWM.
 
 ----------------------------------------------------------------------
 
@@ -2472,7 +2539,7 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
 ----------------------------------------------------------------------
 
-<a name="7.15"></a><a href="#toc_7.15">7.15</a>  Hiding the mouse pointer
+<a name="7.15"></a><a href="#toc_7.15">7.15</a>  Hiding the mouse pointer.
 
     Some users don't like the mouse pointer getting in the way of
     what they are looking at.  You might want to search for and
@@ -2481,15 +2548,55 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
 ----------------------------------------------------------------------
 
-<a name="7.16"></a><a href="#toc_7.16">7.16</a>  Finding the mouse pointer
+<a name="7.16"></a><a href="#toc_7.16">7.16</a>  Finding the mouse pointer.
 
     Sometimes its hard to see the mouse pointer.
     Heres a way to find it:
 
-    Key Super_L A A Exec xmessage -name &quot;SmallBlob&quot; -bg red -fg white\
-      -nearmouse -timeout 1 'I am here!'
+    Key Super_L A A Exec xmessage -name &quot;SmallBlob&quot; -bg red \
+      -fg white -nearmouse -timeout 1 'I am here!'
     Style SmallBlob UsePPosition, NoTitle, NoHandles, BorderWidth 10
 
+----------------------------------------------------------------------
+
+<a name="7.17"></a><a href="#toc_7.17">7.17</a>  Autohiding FvwmButtons or other windows.
+
+    Some applications have a feature usually called &quot;autohiding&quot;
+    which allows to withdraw a window to a location where it does
+    not use precious desktop space.  It is possible to write some
+    small functions in fvwm that can hide any window you like:
+
+    fvwm-2.5.7 or later:
+
+      # The autohiding functions
+      AddToFunc autohide
+      + I ThisWindow ($0) Deschedule $[w.id]
+      + I ThisWindow ($0) ThisWindow (shaded) WindowShade off
+      + I Cond (!Match) All ($0, !shaded) autohide_hide $1 $2
+
+      AddToFunc autohide_hide
+      + I Schedule $0 $[w.id] WindowShade $1
+      + I Schedule $0 $[w.id] Deschedule $[w.id]
+
+      # Start FvwmAuto
+      AddToFunc StartFunction
+      + I Module FvwmAuto FvwmAutohide -menter enter_handler
+
+      # Add the windows you want to autohide
+      AddToFunc enter_handler
+      + I autohide FvwmButtons 500 S
+      #            ^           ^   ^
+      #            |           |   |___  Shade direction (optional)
+      #            |           |_______  Hide delay (milliseconds)
+      #            |___________________  Unique window name/resource
+
+    Simply add any windows you like to the enter_handler function
+    as in the example above.  The autohide function is called with
+    two or three parameters.  The first one is the window's name
+    or class, which must be unique.  The second is the delay in
+    milliseconds before the window is hidden after the pointer
+    leaves it, and the last - optional - one indicates the
+    direction in which it is hidden (N, S, E, W, NW, NE, SW or SE).
 </pre>
 
 

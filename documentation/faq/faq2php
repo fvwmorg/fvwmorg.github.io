@@ -1,11 +1,10 @@
 #!/bin/gawk -f
-#-*-shell-script-*-
-#---------------------------------------------------------------------
-#-  File          : news2html.awk
-#-  Project       : FVWM Home Page
-#-  Date          : Tue Apr  1 20:48:44 2003
-#-  Programmer    : Uwe Pross
-#---------------------------------------------------------------------
+#-*-shell-scipt-*-
+
+# Usage: faq2php <../../../fvwm/docs/FAQ >index.php
+
+# Author: Uwe Pross
+## migo: I would like to rewrite it in Perl and enhance it a bit.
 
 ## stack functions
 
@@ -16,7 +15,7 @@ function output(s) {
 function text2html(t) {
     # convert a special link
     gsub("^[ \t]*.*_A HREF=\"","         ",t);
-    gsub("\"_-_.*_-_ *$","",t); 
+    gsub("\"_-_.*_-_ *$","",t);
     # html specials
     gsub("&","\\&amp;",t);
     gsub(">","\\&gt;",t);
@@ -29,7 +28,7 @@ function text2html(t) {
     # make urls to links
     gsub("(ftp|http)://[^ ]*","<a href=\"\&\">\&</a>",t);
     # make mail addresses to links
-    gsub("[a-zA-Z_][0-9a-zA-Z\\-_\\.]*@[0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*\\.[a-zA-Z][a-zA-Z][a-zA-Z]?","<a href=\"mailto:\&\">\&</a>",t);    
+    gsub("[a-zA-Z_][0-9a-zA-Z\\-_\\.]*@[0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*\\.[a-zA-Z][a-zA-Z][a-zA-Z]?","<a href=\"mailto:\&\">\&</a>",t);
     return t;
 }
 
@@ -69,7 +68,7 @@ next;
     next;
 }
 
-/^=======================*/ && found_contents_start && ! found_contents_end { 
+/^=======================*/ && found_contents_start && ! found_contents_end {
     found_contents_end = 1;
 }
 
@@ -79,7 +78,7 @@ next;
 /^     *[0-9][0-9]* - / && found_contents_end {
     line = text2html($0);
     gsub($1,"<a href=\"#toc_\&.\">\&</a>",line);
-    output("<a name=\"" $1 ".\"></a>" line);    
+    output("<a name=\"" $1 ".\"></a>" line);
     next;
 }
 
@@ -87,13 +86,13 @@ next;
 /^[0-9][0-9]*\.[0-9][0-9]* / && found_contents_end {
     line = text2html($0);
     gsub($1,"<a href=\"#toc_\&\">\&</a>",line);
-    output("<a name=\"" $1 "\"></a>" line);    
+    output("<a name=\"" $1 "\"></a>" line);
     next;
 }
 
 
 #---------------------------------------------------------------------
-#- default rule - simple 
+#- default rule - simple
 #---------------------------------------------------------------------
 {
     output(text2html($0));
@@ -103,7 +102,7 @@ next;
 END {
 
     ## export first part of php file
-    while ( (getline < "faq_template.php_") > 0 && ! match($0,"@FAQ@") ) {
+    while ( (getline < "template.php") > 0 && ! match($0,"@body@") ) {
 	print;
     }
 
@@ -113,7 +112,7 @@ END {
     }
     print "</pre>\n";
 
-    while ( (getline < "faq_template.php_") > 0 ) {
+    while ( (getline < "template.php") > 0 ) {
 	print;
     }
 }

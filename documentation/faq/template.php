@@ -5,12 +5,12 @@
 //-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
 
-if (strlen($rel_path) == 0) $rel_path = "./..";
+$rel_path = "../..";
 
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path.'/definitions.inc'); 
+include("$rel_path/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -27,20 +27,20 @@ $this_site      = str_replace(".php", "", "$requested_file");
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if (strlen($navigation_check) > 0) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if( strlen("$site_has_been_loaded") == 0 ) {
-  $site_has_been_loaded = "true";
-  include(sec_filename("$layout_file"));
-  exit();
+if (strlen($site_has_been_loaded) == 0) {
+	$site_has_been_loaded = "true";
+	include(sec_filename($layout_file));
+	exit();
 }
 ?>
 
-<?php decoration_window_start("Frequently Asked Questions"); ?>  
+<?php decoration_window_start("Frequently Asked Questions"); ?>
 
-@FAQ@
+@body@
 
 <?php decoration_window_end(); ?>

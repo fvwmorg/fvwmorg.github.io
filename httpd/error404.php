@@ -7,14 +7,13 @@ if( strpos($request,"creating_rpms") )             $file = "/documentation/dev_c
 elseif( strpos($request,"cvs") )                   $file = "/documentation/dev_cvs.php";
 elseif( strpos($request,"developers") )            $file = "/documentation/developers.php";
 elseif( strpos($request,"manpages") )              $file = "/documentation/manpages/index.php";
-// elseif( strpos($request,"download/map_mini") ) $file = "/";
-elseif( strpos($request,"download") )              $file = "/download/index.php";
 elseif( strpos($request,"downloadbugs") )          $file = "/documentation/dev_downloadbugs.php";
+elseif( strpos($request,"download") )              $file = "/download/index.php";
 elseif( strpos($request,"features") )              $file = "/features.php";
 elseif( strpos($request,"ftp") )                   $file = "/contact/index.php";
 elseif( strpos($request,"fvwm-cats/index") )       $file = "/fvwm-cats/index.php";
 elseif( strpos($request,"generated/AUTHORS") )     $file = "/authors/index.php";
-elseif( strpos($request,"generated/FAQ") )         $file = "/documentation/faq.php";
+elseif( strpos($request,"generated/FAQ") )         $file = "/documentation/faq/index.php";
 elseif( strpos($request,"generated/NEWS") )        $file = "/latest_news/index.php";
 elseif( strpos($request,"perllib") )               $file = "/documentation/perllib/index.php";
 elseif( strpos($request,"icons") )                 $file = "/download/icons.php";
@@ -30,7 +29,7 @@ elseif( strpos($request,"modules") )               $file = "/documentation/dev_m
 elseif( strpos($request,"sample-menus/index") )    $file = "/screenshots/menus/index.php";
 elseif( strpos($request,"screenshots") )           $file = "/screenshots/index.php";
 elseif( strpos($request,"vector-buttons") )        $file = "/screenshots/windowdecors/index.php";
-// elseif( strpos($request,"xxxacknowledgements") ) $file = "/";
+elseif( strpos($request,"documentation/faq.php") ) $file = "/documentation/faq/index.php";
 else $file = "/index.php";
 
 if( ! file_exists("..$file") ) {

@@ -1,3 +1,12 @@
+2003-04-29  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/faq/*:
+	* httpd/error404.php:
+	moved FAQ generation files to its own directory
+
+	* layout_plain.inc:
+	fixed window title text in plain layout
+
 2003-04-28  Mikhael Goikhman  <migo@homemail.com>
 
 	* layout_default.inc:
