@@ -222,10 +222,12 @@ $user_agent = my_get_global("HTTP_USER_AGENT", "SERVER");
 
 $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
+// just allow GET for birthday time - comment out previous line
+// $theme = get_user_setting("theme", array("GET"));
+
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
     $theme_file = theme_file($theme."_theme.inc");
-    // $theme_file = theme_file("birthday_theme.inc");
 } elseif( preg_match("/Emacs/", $user_agent) ||
           preg_match("/Lynx/", $user_agent)  ||
           preg_match("/w3m/", $user_agent)) {
