@@ -63,8 +63,10 @@ echo ">";
     <hr>
 
     <p>
-    Switch to <a href="<?php echo "./$requested_file";?>?theme=default">window theme</a>, 
-    <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
+    Switch to 
+      <a href="<?php echo "./$requested_file";?>?theme=default">window theme</a>, 
+      <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">pager on top theme</a>, 
+      <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
     </p>
     <!-- bottom of the page - display last modified information -->
     <p style="text-align:right; font-size:xx-small; font-style:italic;">

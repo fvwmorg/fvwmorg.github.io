@@ -4,6 +4,7 @@
 	* web-theme/classes/pager_on_top_class.inc:
 	* web-theme/themes/pager_on_top_theme.inc:
 	* web-theme/themes/theme_descriptions.inc:
+	* web-theme/themes/plain_theme.inc:
 	changed theme to "pager on top theme"
 	
 2003-07-16  Uwe Pross  <uwe.pross@gmx.net>
