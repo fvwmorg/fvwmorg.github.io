@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <01.04.2003 15:18:23 uwp>
+//-  Last modified : <02.04.2003 09:29:26 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -27,7 +27,7 @@ $rel_path = ${$this_site}["rel_path"];
 //--------------------------------------------------------------------
 //  Do any sanity checks on any value here...is it ridiculously
 //  long, does the directory exist, etc.
-//  ...or maybe add a generalized function fo doing this?  - RBW
+//  ...or maybe add a generalized function for doing this?  - RBW
 
 $default_settings_array = array(
   "decoration_path"  => $rel_path."/pictures/decorations/window_deco_simple_blue",
@@ -42,7 +42,7 @@ $default_settings_array = array(
   "menu_fg"          => "#000000",
   "windowlist_bg"    => "#c5cecd",
   "windowlist_fg"    => "#000000",
-  "pager_bg"         => "#f0e8d8",
+  "pager_bg"         => "#fafae8",
   //"pager_bg"         => "#b5bebd",
   "pager_fg"         => "#000000",
   "hilight_bg"       => "#1a6e99",

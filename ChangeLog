@@ -1,3 +1,12 @@
+2003-04-02  Bob Woodside  <dumbledore@woodsway.com>
+
+	* layout_default.inc:
+	Lightened up the Pager background a little.
+	* links.php:
+	Merged content from the old Links page into the new PHP
+        version, updated/dropped broken links, minor wording changes
+        and list rearrangement.
+
 2003-03-31  Mikhael Goikhman  <migo@homemail.com>
 
 	* **:
