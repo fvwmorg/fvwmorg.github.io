@@ -27,12 +27,12 @@
 //--------------------------------------------------------------------
 // exclude this file from navgen
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if (strlen($navigation_check) > 0) return;
 
 //--------------------------------------------------------------------
 // check if this file has been already read
 //--------------------------------------------------------------------
-if( strlen($definitions_has_been_read) > 0 ) return;
+if (strlen($definitions_has_been_read) > 0) return;
 $definitions_has_been_read = "t";
 
 //--------------------------------------------------------------------
@@ -47,7 +47,7 @@ $definitions_has_been_read = "t";
 //  "FILES", "SESSION", "REQUEST", or "GLOBALS".
 //--------------------------------------------------------------------
 
-function my_get_global($varname, $vartype)  {
+function my_get_global($varname, $vartype) {
     //  Change this to receive a literal for vartype,
     //  do a case on vartype and load a reference to
     //  the appropriate array, e.g., if $vartype = "SERVER",
@@ -278,8 +278,7 @@ $navgen_url      = $rel_path."/navgen.php";
 //--------------------------------------------------------------------
 // release information
 //--------------------------------------------------------------------
-$latest_stable_release = "2.4.16";
+$latest_stable_release = "2.4.17";
 $latest_unstable_release = "2.5.7";
 
 ?>
-
