@@ -44,7 +44,7 @@ decoration_window_start("Mailing lists");
 
   <p>
     PLEASE ASK QUESTIONS RELATED TO XMMS ON THE XMMS MAILING LIST.
-    See <a href="http://xmms.org/">http://xmms.org/.
+    See <a href="http://xmms.org/">http://xmms.org/</a>.
   </p>
 
   <h4>The mailing list addresses are:</h4>
