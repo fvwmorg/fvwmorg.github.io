@@ -68,16 +68,18 @@
     <hr>
     
     <p>
-      Cette page a &eacute;t&eacute; ferm&eacute;e temporairement en proteste contre les
-      brevets logiciels.  Bient√¥t les pages web pourront &egrave;tre ferm&eacute;es
-      r&eacute;guli&egrave;rement &agrave;† cause de brevets logiciels.  Les brevets logiciels
-      peuvent faire en sorte que vous pourriez &egrave;tre puni a cause de
-      textes que vous avez cr&eacute;&eacute; ind&eacute;pendemment.
+      Cette page a &eacute;t&eacute; ferm&eacute;e temporairement pour protester
+      contre les brevets logiciels.  Bient&ocirc;t les pages web pourront
+      &ecirc;tre
+      ferm&eacute;es r&eacute;guli&egrave;rement &agrave;† cause de brevets
+      logiciels.  Avec les brevets logiciels vous pourrez &egrave;tre
+      condamn&eacute;
+      a cause de textes que vous avez cr&eacute;&eacute; ind&eacute;pendemment.
     </p>
     
     
     <p> 
-      More information about software patents are available at <a href="http://swpat.ffii.org/">swpat.ffii.org</a>.
+      Plus d'informations sur les brevets logiciels sont disponibles &agrave; <a href="http://swpat.ffii.org/">swpat.ffii.org</a>.
       Pour 
-      arriver a v√¥tre d&eacute;stination, veuillez cliquer <a href="<?php echo $requested_file;?>?no_software_patents=for_ever">ici</a>.
+      arriver &agrave; v&ocirc;tre d&eacute;stination, veuillez cliquer <a href="<?php echo $requested_file;?>?no_software_patents=for_ever">ici</a>.
     </p>
