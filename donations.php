@@ -18,7 +18,7 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 $title          = "FVWM - Donations & Hiring";
 $link_name      = "Donations";
 $link_picture   = "pictures/icons/donations";
-$parent_site    = "top";
+$parent_site    = "home";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = str_replace(".php", "", "$requested_file");

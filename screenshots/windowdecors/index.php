@@ -17,7 +17,7 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 $title          = "FVWM - Window Decor Screenshots";
 $link_name      = "Window Decor Screenshots";
 $short_name     = "Window decors";
-$link_picture   = "pictures/icons/screenshots_decors";
+$link_picture   = "pictures/icons/screenshots_window_decoration";
 $parent_site    = "screenshots";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));

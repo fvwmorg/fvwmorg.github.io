@@ -106,8 +106,15 @@ class Pager_On_Top_Theme extends Default_Theme {
     }
 
     function insert_pager_desk($site, $pages_per_desk=4) {
-        $bg = $this->style_array["pager_bg"];
-        $fg = $this->style_array["pager_fg"];
+
+        if(count($this->nav_array["$site"]["child_sites"])==$pages_per_desk && 
+           !strcmp($site, $this->this_site)) {
+            $bg = $this->style_array["hilight_bg"];
+            $fg = $this->style_array["hilight_fg"];
+        } else {
+            $bg = $this->style_array["pager_bg"];
+            $fg = $this->style_array["pager_fg"];
+        }
         
         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
         $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';

@@ -16,7 +16,7 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 $title          = "FVWM - Vectorbuttons";
 $link_name      = "Vectorbuttons";
-$link_picture   = "pictures/icons/default";
+$link_picture   = "pictures/icons/screenshots_vectorbuttons";
 $parent_site    = "screenshots";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));

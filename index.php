@@ -21,7 +21,7 @@ $heading        = 'The Official <img src="fvwm-logo/fvwm-logo-starburst-blue-250
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
-$child_sites    = array("authors", "history", "fvwm_cats");
+$child_sites    = array("authors", "donations", "history", "fvwm_cats");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "home";
 
