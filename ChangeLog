@@ -222,10 +222,7 @@ Sun Aug 22 19:08:51 1999  DanEspen  <dje@blue>
 	* Moved screenshots into a subdirectory,
 	fixed bad filename for the Windowmaker thumbnail filename.
 
-1999-08-08  Dominik Vogt  <dominik_vogt@gmx.de>
-=======
 1999-12-17  Mikhael Goikhman  <migo@homemail.com>
->>>>>>> 1.30
 
 	* Icon_Screenshots.ksh: Get rid of xrdb, add some instructions.
 
