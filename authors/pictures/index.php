@@ -62,7 +62,7 @@ decoration_window_start("FVWM Developers");
 </tr>
 
 <tr>
-<td align="center" valign="middle"><a href="<?php echo conv_link_target('Dominik_Vogt.php'); ?>"><img src="Dominik_Vogt_small.jpg" width="150" height="147" border="1"></a><br>Dominik Vogt</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Dominik_Vogt.php'); ?>"><img src="Dominik_Vogt_small.jpg" width="115" height="150" border="1"></a><br>Dominik Vogt</td>
 <td align="center" valign="middle"><a href="<?php echo conv_link_target('Chuck_Hines.php'); ?>"><img src="Chuck_Hines_small.jpg" width="113" height="150" border="1"></a><br>Chuck Hines</td>
 <td align="center" valign="middle"><a href="<?php echo conv_link_target('Bob_Woodside.php'); ?>"><img src="Bob_Woodside_small.jpg" width="100" height="150" border="1"></a><br>Bob Woodside</td>
 </tr>
