@@ -28,7 +28,7 @@ $this->theme_descriptions = array(
             ),
          "window_border_bg" => array(
             "type"    => "color",
-            "value"   => "#c5cecd",
+            "value"   => "#36648b",
             "name"    => "Window Border Background",
             ),
          "window_border_fg" => array(
@@ -136,7 +136,7 @@ $this->theme_descriptions = array(
             ),
          "window_border_bg" => array(
             "type"    => "color",
-            "value"   => "#bdbebd",
+            "value"   => "#36648b",
             "name"    => "Window Border Background",
             ),
          "window_border_fg" => array(
