@@ -241,12 +241,14 @@
      local connections, as it may use Unix-domain sockets,  which
      are faster.
 
-     <font color="yellow">Fvwm</font color="yellow"> has a two special functions for initialization:   Init-
+     Fvwm has three special functions for initialization:  Start-
+     Function,  which is executed on startups and restarts; Init-
      Function and RestartFunction, which are executed during Ini-
-     tialization and Restarts (respectively).  These may be  cus-
-     tomized  in  the  user's  rc file via the AddToFunc facility
-     (described later) to start up modules, xterms,  or  whatever
-     you'd like have started by <font color="yellow">fvwm</font color="yellow">.
+     tialization  and  Restarts  (respectively) just after Start-
+     Function.  These may be customized in a user's rc  file  via
+     the   AddToFunc  facility  (described  later)  to  start  up
+     modules, xterms, or whatever you'd like to have  started  by
+     fvwm.
 
      <font color="yellow">Fvwm</font color="yellow"> also has a special exit  function:  ExitFunction,  exe-
      cuted when exiting or restarting before actually quitting or
@@ -347,7 +349,6 @@
      get  more  details,  try  man FvwmM4.  In short, if you want
      fvwm to parse your files with  m4,  then  replace  the  word
      "Read" with "FvwmM4" in your .fvwm2rc file (if it appears at
-
      all), and start fvwm with the command
 
           fvwm -cmd "FvwmM4 .fvwm2rc"
@@ -564,10 +565,10 @@
                Style "xterm" UseStyle flatness
 
           An existing  window's  decor  may  be  reassigned  with
-          ChangeDecor,  or  a  Style command followed by a Recap-
-          ture.  The decorations of all windows or of a  specific
-          decor  can  be  updated  with UpdateDecor (useful after
-          decorations  are  modified;  changing   Style   options
+          ChangeDecor,   or   a   Style  command  followed  by  a
+          Recapture.  The decorations of  all  windows  or  of  a
+          specific  decor can be updated with UpdateDecor (useful
+          after decorations are modified; changing Style  options
           requires  a  Recapture  instead).   A decor can be des-
           troyed with DestroyDecor.
 
@@ -613,14 +614,13 @@
 
 
                AddToFunc MailFunction
-                + "I" Next [$0] Iconify -1
-                + "I" Next [$0] focus
-                + "I" None [$0] Exec exec $0 $1
-
+                + "I" Next ($0) Iconify -1
+                + "I" Next ($0) focus
+                + "I" None ($0) Exec exec $0 $1
 
           Then the last line of the function becomes
 
-                + "I" None [xmh] Exec exec xmh -font fixed
+                + "I" None (xmh) Exec exec xmh -font fixed
 
           The expansion is performed as the function is executed,
           so you can use the same function with all sorts of dif-
@@ -1511,12 +1511,21 @@
      Focus
           Moves the viewport or window  as  needed  to  make  the
           selected  window  visible.   Sets the keyboard focus to
-          the selected window.  Raises the window  if  needed  to
-          make  it  visible.   Does not warp the pointer into the
-          selected window (see WarpToWindow function).  Does  not
-          de-iconify.   This  command does not alter the order of
-          the windowlist, it rotates  the  windowlist  around  so
-          that the target window is at the start.
+          the selected window.  Does not automatically raise  the
+          window.   Does  not  warp the pointer into the selected
+          window  (see  WarpToWindow  function).   Does  not  de-
+          iconify.   This command does not alter the order of the
+          windowlist, it rotates the windowlist  around  so  that
+          the target window is at the start.
+
+          To raise and warp a  pointer  together  with  Focus  or
+          FlipFocus, use a function:
+
+               AddToFunc SelectWindow
+               + I Focus
+               + I Raise
+               + I WarpToWindow 50 8p
+
 
 
 
@@ -1551,9 +1560,6 @@
           RecaptureHonorsStartsOnPage/RecaptureIgnoresStartsOnPage,
           ActivePlacementHonorsStartsOnPage/ActivePlacementIgnoresStartsOnPage,
           NoStipledTitles/StipledTitles
-
-
-
 
           Example:
 
@@ -1601,11 +1607,12 @@
           be used in a pop-up menu.
 
 
-
      HilightColor <font color="yellow">textcolor</font color="yellow"> <font color="yellow">backgroundcolor</font color="yellow">
           Specifies  the  text  and  background  colors  for  the
           decorations  on the window which currently has the key-
           board focus.
+
+
 
      IconFont [ <font color="yellow">fontname</font color="yellow"> ]
           Makes <font color="yellow">fvwm</font color="yellow"> use font <font color="yellow">fontname</font color="yellow"> for icon labels. To  reset
@@ -1640,6 +1647,27 @@
 
 
 
+     ImagePath <font color="yellow">path</font color="yellow">
+          Specifies a colon  separated  list  of  directories  in
+          which  to  search  for images (both monochrome and pix-
+          map).
+
+          <font color="yellow">NOTE</font color="yellow">: ImagePath makes obsolete IconPath and  PixmapPath
+          commands in the next fvwm versions. In this version all
+          of the three commands are allowed.
+
+          The ImagePath may contain environment variables such as
+          $HOME  (or  ${HOME}).   Further,  a  '+' in the path is
+          expanded to the previous value of  the  path,  allowing
+          easy appending or prepending to the path.
+
+          For example:
+
+               ImagePath $HOME/icons:+:/usr/include/X11/bitmaps
+
+
+
+
      Key <font color="yellow">keyname</font color="yellow"> <font color="yellow">Context</font color="yellow"> <font color="yellow">Modifiers</font color="yellow"> <font color="yellow">Function</font color="yellow">
           Binds a keyboard key to a specified <font color="yellow">fvwm</font color="yellow"> built-in func-
           tion,  or  removes  the  binding  if  <font color="yellow">Function</font color="yellow">  is '-'.
@@ -1655,10 +1683,6 @@
 
           The following example binds the built in window list to
           pop  up when Alt-Ctrl-Shift-F11 is hit, no matter where
-
-
-
-
           the mouse pointer is:
 
                Key F11 A SCM WindowList
@@ -1763,7 +1787,6 @@
                   the window with the focus.
                Interior
                   the inside of the focused window.
-
                Title
                   the title of the focused window or icon.
                Button&lt;n&gt;
@@ -1816,6 +1839,8 @@
           than this description). The default is 'o0'. The prefix
 
           A prefix of 'c' is equivalent of 'o50'.  Examples:
+
+
                # window list in the middle of the screen
                WindowList Root c c
 
@@ -1920,6 +1945,7 @@
           Hilight3DThin,   ActiveForeOff,   AnimationOff,   Font,
           MenuFace,  PopupOffset  0  67,  TitleWarp,  TitleUnder-
           lines1, SeparatorsShort, TriangleRelief, PopupDelayed.
+
           <font color="yellow">MWM</font color="yellow">   style   is    equivalent    to    HilightBackOff,
           Hilight3DThick,   ActiveForeOff,   AnimationOff,  Font,
           MenuFace, PopupOffset -3 100, TitleWarpOff, TitleUnder-
@@ -1992,6 +2018,9 @@
 
           Turn Hilighting of the active menu item other than for-
           ground color off:
+
+
+
 
 
                MenuStyle &lt;stylename&gt; Hilight3DOff, HilightBackOff
@@ -2076,6 +2105,7 @@
           menu  specific side pixmap (see <font color="yellow">AddToMenu</font color="yellow">). If the file
           name is omitted an existing side pixmap is remove  from
           the menu style.
+
           <font color="yellow">SideColor</font color="yellow"> takes the name of an X11 color  as  an  argu-
           ment.  This  color  is used to colorize the column con-
           taining the side picture  (see  above).  The  SideColor
@@ -2305,8 +2335,6 @@
           CirculateHitIcon which overrides the  CirculateSkipIcon
           style attribute for iconified windows.
 
-
-
      None (<font color="yellow">conditions</font color="yellow">) <font color="yellow">command</font color="yellow">
           Performs <font color="yellow">command</font color="yellow"> if no window which satisfies all  <font color="yellow">con-</font color="yellow">
           <font color="yellow">ditions</font color="yellow"> exists.  Conditions are the same as for <font color="yellow">Next</font color="yellow">.
@@ -2359,7 +2387,6 @@
           a button to invoke the menu and releases it immediately
           again (or hits the key rapidly twice  if  the  menu  is
           bound to a key).
-
           To bind a previously defined pop-up menu to  a  key  or
           mouse button:
 
@@ -2405,8 +2432,8 @@
                  + "Fvwm Modules"      Popup Module-Popup
                  + "Fvwm Window Ops"   Popup Window-Ops
                  + ""                  Nop
-                 + "Previous Focus"    Prev [*] Focus
-                 + "Next Focus"        Next [*] Focus
+                 + "Previous Focus"    Prev (*) Focus
+                 + "Next Focus"        Next (*) Focus
                  + ""                  Nop
                  + "Refresh screen"    Refresh
                  + "Recapture screen"  Recapture
@@ -2567,8 +2594,8 @@
           Sets the delay between frames to  10ms,  and  sets  the
           positions  of  the  16  frames of the animation motion.
           Notice that negative values are allowed, and in partic-
-          ular  can  be  used to make the motion appear more car-
-          toonish, by briefly moving  slightly  in  the  opposite
+          ular  can  be  used  to  make  the  motion  appear more
+          cartoonish, by briefly moving slightly in the  opposite
           direction  of  the main motion.  The above settings are
           the default.
 
@@ -2699,7 +2726,6 @@
           is the icon bitmap or pixmap to use.
 
           <font color="yellow">IconBox</font color="yellow"> takes four numeric arguments or an X11 geometry
-
           string:
 
                IconBox l t r b
@@ -2723,6 +2749,8 @@
           other icons.  Multiple icon boxes  can  be  defined  as
           overflow areas.  When the first icon box is filled, the
           second one is filled.  All the icon boxes for one style
+
+
           must be defined in one command.  For example:
 
                Style "*" IconBox -80x200-1-1, \
@@ -2878,8 +2906,8 @@
           window  when  it is clicked in.  The default <font color="yellow">MouseFocus</font color="yellow">
           (or its alias <font color="yellow">FocusFollowsMouse</font color="yellow">) tells fvwm to give the
           window the focus as soon as the pointer enters the win-
-          dow, and take it away when the pointer leaves the  win-
-          dow.  <font color="yellow">SloppyFocus</font color="yellow">  is  similar, but doesn't give up the
+          dow, and take it  away  when  the  pointer  leaves  the
+          window. <font color="yellow">SloppyFocus</font color="yellow"> is similar, but doesn't give up the
           focus if the pointer leaves the window to pass over the
           root  window or a ClickToFocus window (unless you click
           on it, that is), which makes it possible  to  move  the
@@ -2904,9 +2932,6 @@
           (if specified) will be used as a fall-back method.  For
           the best of all possible worlds use  both  RandomPlace-
           ment and SmartPlacement.
-
-
-
 
           An example:
 
@@ -3008,10 +3033,6 @@
           negated.   Valid flags for each state include "Raised,"
           "Flat," and "Sunk" (these are mutually exclusive).  The
           default is Raised.  See the note in ButtonStyle regard-
-
-
-
-
           ing the ActiveDown state.  Examples:
 
                TitleStyle ActiveUp HGradient 16 navy black
@@ -3041,10 +3062,10 @@
 
 
      UpdateDecor [ <font color="yellow">decor</font color="yellow"> ]
-          Updates window decorations.  <font color="yellow">decor</font color="yellow"> is an optional argu-
-          ment  which  specifies  the <font color="yellow">decor</font color="yellow"> to update.  If given,
-          only windows which  are  assigned  to  that  particular
-          <font color="yellow">decor</font color="yellow">  will  be  updated.   This command is useful, for
+          Updates  window  decorations.   <font color="yellow">decor</font color="yellow">  is  an  optional
+          argument  which  specifies  the  <font color="yellow">decor</font color="yellow">  to  update.  If
+          given, only windows which are assigned to that particu-
+          lar <font color="yellow">decor</font color="yellow"> will be updated.  This command is useful, for
           instance, after a ButtonStyle,  TitleStyle  or  Border-
           Style  (possibly  used in conjunction with AddToDecor).
           Specifying an invalid  decor  results  in  all  windows
@@ -3060,10 +3081,6 @@
           a new window name  <font color="yellow">name</font color="yellow">  appears.  <font color="yellow">Fvwm</font color="yellow">  remains  fully
           functional  during a wait.  This is particularly useful
           in the InitFunction if you are trying to start  windows
-
-
-
-
           on specific desktops:
 
                AddToFunc InitFunction
@@ -3164,10 +3181,6 @@
 
 
           If you wanted to use the WindowList as an icon manager,
-
-
-
-
           you could invoke the following:
 
                WindowList OnlyIcons, Sticky, OnTop, Geometry
@@ -3205,8 +3218,6 @@
           Changes the value with which bits are XOR'ed when doing
           rubber-band  window  moving  or resizing.  Setting this
           value is a trial-and-error process.
-
-
 
      +    Used to continue adding to the  last  specified  decor,
           function  or  menu.  See the discussion for AddToDecor,
@@ -3270,8 +3281,6 @@
           <font color="yellow">fvwm</font color="yellow"> modules.
 
 
-
-
 </PRE>
 <H2>BUGS</H2><PRE>
      As of fvwm 2.2 there were exactly 46.144 unidentified  bugs.
@@ -3306,16 +3315,7 @@
      mailing list (Dan Espen, Steve Robbins,  Paul  Smith,  Jason
      Tibbitts, Dominik Vogt, Bob Woodside and others).
 
-
-
-
-
-
-
-
-
-
-
+     The official FVWM homepage is http://www.fvwm.org/.
 
 
 
@@ -3340,7 +3340,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Aug 10 09:47:39 EDT 1999 -->
+on Mon Feb 26 21:45:58 EST 2001 -->
 </body>
 </html>
 
