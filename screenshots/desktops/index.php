@@ -71,7 +71,10 @@ if( ! function_exists("my_show_shot") ) {
         if( ! $bg = $theme_object->style_array["window_border_bg"] ) {
             $bg = "#c0c0c0";
         }
-        $td_opts = ' bgcolor="'.$bg.'"'; 
+        if( ! $fg = $theme_object->style_array["window_border_fg"] ) {
+            $fg = "#000000";
+        }
+        $td_opts = ' bgcolor="'.$bg.'" style="color:'.$fg.'"'; 
         echo '<table border="0" width="100%" cellspacing="2" cellpadding="5" summary="">';
         echo "<tr>\n";
         echo "<th".$td_opts.">Preview</th>\n";
