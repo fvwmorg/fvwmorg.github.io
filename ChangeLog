@@ -1,8 +1,20 @@
+2003-06-06  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* index.php: 
+	Put birthday statement in past. Might be removed at all.
+
+	* web-theme/classes/birthday_class.inc: 
+	Added referer link to the decoration to allow easier navigation.
+
+	* logo-competition/logos/Stefan_Bergmeier/*: 
+	* logo-competition/logos_new.php:
+	Added logos from Stefan Bergmeier.
+	
 2003-06-04  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* logo-competition/logos/Felix_E_Klee/index.php: 
 	* logo-competition/logos_new.php:
-	Added logo from Felix E. Klee (again.)
+	Added logos from Felix E. Klee (again.)
 
 	* logo-competition/index.php:
 	Added image size info and alt tag

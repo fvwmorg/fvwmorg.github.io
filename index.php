@@ -71,7 +71,7 @@ Participate in our new
 <?php mylink('./birthday/index.php', 
              '<img src="./birthday/birthday_celebration1.gif" border="0" width="596" height="53">',
              'class="nohilight"'); ?>
-<h3>On the 1st of June 2003 we are celebrating fvwm's tenth
+<h3>On the 1st of June 2003 we celebrated fvwm's tenth
 <?php mylink('./birthday/index.php', "birthday"); ?>.</h3>
 </center>
 <hr>

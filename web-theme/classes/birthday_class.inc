@@ -86,7 +86,13 @@ class Birthday_Theme extends Default_Theme {
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("left_title").'); " >';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension_deco.' alt=""></td>'."\n";
+            if( preg_match('/fvwm/', $_SERVER["HTTP_REFERER"]) ) {
+                $target = $_SERVER["HTTP_REFERER"];
+            } else {
+                $target = '.';
+            }
+            echo '<a href="'.$this->conv_link_target($target).'" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension_deco.' alt=""></a></td>'."\n";
 
             echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
             echo ' align="center" nowrap bgcolor="'.$title_background.'">';
@@ -105,12 +111,12 @@ class Birthday_Theme extends Default_Theme {
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_4").'); ">';
-            echo '<a href="./'.$this->requested_file.'?theme=default" class="nohilight">';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="window theme"></a></td>'."\n";
+            echo '<a href="./'.$this->requested_file.'?theme=plain" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme"></a></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
-            echo '<a href="./'.$this->requested_file.'?theme=plain" class="nohilight">';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme" title="plain theme"></a></td>';
+            echo '<a href="./'.$this->requested_file.'?theme=default" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain theme" title="window theme"></a></td>';
 
             echo '</tr>'."\n";
             echo '</table>'."\n";

@@ -173,4 +173,14 @@ border="0" hspace="0" vspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Stefan Bergmeier (2 images)", "", "", 0); ?>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Stefan_Bergmeier/index.php');
+?>" class="nohilight"><img src="logos/Stefan_Bergmeier/logos-overview.png" width="300" height="150" border="0" vspace="0" hspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
