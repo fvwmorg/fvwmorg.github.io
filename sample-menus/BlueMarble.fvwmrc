@@ -1,0 +1,7 @@
+# BlueMarble.fvwmrc:
+MenuStyle * WIN, PopupDelayed, PopupDelay 150
+MenuStyle * Foreground white, Greyed tan
+MenuStyle * Font 9x15bold, Animation, Hilight3DThin
+MenuStyle * MenuFace TiledPixmap weird10dark.xpm
+MenuStyle * ActiveFore yellow, HilightBack dimgrey
+MenuStyle * PopupOffset 1 100
