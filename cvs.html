@@ -195,18 +195,18 @@ to install autoconf and automake, right?)
 do is:
 
 <pre><font color="yellow"> cd fvwm
- automake --add-missing
  autoreconf
+ automake --add-missing
 </font></pre>
 
 <p>The second command is <code>auto<font color="violet">re</font>conf</code>,
 not <code>autoconf</code>!
-You will get some warning messages from <code>automake</code> and
-<code>autoreconf</code>.  As long as you end up with a working configure
-script, you should ignore them.
+You will get some warning messages from <code>autoreconf</code> and
+possibly from <code>automake</code>.  As long as you end up with a
+working configure script, you should ignore them.
 
 <p>Once that's done, you can proceed to build the code as discussed in
-the <code>INSTALL.fvwm</code> and <code>INSTALL</code> scripts:
+the <code>INSTALL.fvwm</code> and <code>INSTALL</code> files:
 
 <pre><font color="yellow"> ./configure
  make
@@ -234,11 +234,16 @@ repository with any local changes you may have made.
 <pre><font color="yellow"> cvs update
 </font></pre>
 
-<p> If you didn't use a tag when you checked out, this will update your
+<p>If you didn't use a tag when you checked out, this will update your
 sources to the latest version on the main branch.  If you used a branch
 tag, it will update to the latest version on that branch.  If you used a
 version tag, it won't do anything (see above).
 
+<p>After updating the local source directory, it is usually enough to
+issue <code>make</code> to rebuild everything.  It is safe to manually
+run <code>aclocal</code>, <code>automake</code> and <code>autoconf</code>
+if you think something should be rebuilt, but this sould be run
+automatically on <code>make</code>.
 
 <H2><a name="newproj"> <font color="turquoise">Starting a Project</font></a></h2>
 

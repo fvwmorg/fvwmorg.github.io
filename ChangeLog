@@ -1,3 +1,7 @@
+2000-10-18  Mikhael Goikhman  <migo@homemail.com>
+
+	* cvs.html: reverse automake & autoreconf order, some additions
+
 2000-10-04  Mikhael Goikhman  <migo@homemail.com>
 
 	* generated/{FAQ,NEWS}.html: regenerated
