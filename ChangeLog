@@ -1,3 +1,11 @@
+2003-06-11  Mikhael Goikhman  <migo@homemail.com>
+
+	* logo-competition/logos_new.php:
+	added "More..." links to all submitter entries
+
+	* logos/Phil_Harper/fvwmpower2-overview.png:
+	added one overview logo
+
 2003-06-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* documentation/dev_cvs.php: 
