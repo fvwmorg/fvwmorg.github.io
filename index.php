@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <13.04.2003 21:02:22 uwe>
+//-  Last modified : <14.04.2003 20:57:14 uwe>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -78,22 +78,34 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 <h2>Quick jumps</h2>
 
 <?php
-	insert_quick_jump_list(array(
-		"download",
-		"features",
-		"faq",
-		"manpages",
-		"desktops",
-		"menus",
-		"windowdecors",
-		"icons",
-		"mailing_lists",
-		"mail_archive",
-		"developers",
-		"authors",
-		"links",
-		"fvwm_cats",
-	));
+	insert_quick_jump_list(
+		array(
+		      "download",
+		      "features",
+		      "faq",
+		      "manpages",
+		      "desktops",
+		      "menus",
+		      "windowdecors",
+		      "icons",
+		      "mailing_lists",
+		      "mail_archive",
+		      "developers",
+		      "authors",
+		      "links",
+		      "fvwm_cats",
+		      ),
+		array(
+		      array("Mailing List Archive",
+			    "http://www.hpc.uh.edu/fvwm/archive",
+			    "mail_archive"),
+		      array("FVWM Bug Reporting",
+			    "http://www.fvwm.org/cgi-bin/fvwm-bug",
+			    "fvwm_bug_reporting"),
+		      array("Fvwm Themes Homepage",
+			    "http://www.fvwm-themes.org",
+			    "fvwm_themes")),
+		2);
 ?>
 </div>
       
@@ -121,8 +133,8 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		<li><a href="icons.html" class="done">Icons and Sounds Download</a></li>
 		<li><a href="links.html" class="done">Links</a></li>
 		<li><a href="mailinglist.html" class="done">Mailing List and IRC channel Info</a></li>
-		<li><a href="http://www.hpc.uh.edu/fvwm/archive">Mail Archive</a></li>
-		<li><a href="http://www.fvwm.org/cgi-bin/fvwm-bug">FVWM Bug Reporting</a></li>
+		<li><a href="http://www.hpc.uh.edu/fvwm/archive" class="done">Mail Archive</a></li>
+		<li><a href="http://www.fvwm.org/cgi-bin/fvwm-bug" class="done">FVWM Bug Reporting</a></li>
 		<li><a href="developers.html" class="done">Developer Info (CVS, Modules)</a></li>
 		<li><a href="generated/AUTHORS.html" class="done">Acknowledgements</a></li>
 		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>

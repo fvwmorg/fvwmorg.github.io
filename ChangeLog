@@ -1,3 +1,16 @@
+2003-04-14  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* screenshots/index.php: 
+	inserted table. Created pictures for different screenshot sections.
+	* layout_plain.inc
+	* layout_default.inc
+	Updated quick jump list function.
+	Fixed link tag in layout_default.inc
+	* download/index.php
+	Adapted links for new site.
+	* links.php: 
+	Some reformating.
+
 2003-04-13  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* layout_default.inc: 

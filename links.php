@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 08:41:38 uwp>
+//-  Last modified : <14.04.2003 21:18:42 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = ".";
@@ -47,9 +47,12 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Links"); ?>
 
-<center><font size="+1">Other FVWM-related sites</font></center>
-<br>
-    Here are some other sites (besides the <a href="http://www.fvwm.org/">official</a> one) that have FVWM info:
+  <h2>Other FVWM-related sites</h2>
+
+  <p>
+    Here are some other sites (besides the 
+    <a href="http://www.fvwm.org/">official</a> one) that have FVWM info:
+  </p>
 
     <ul>
       <li><a href="http://members.fcwm.org/glen/fvwm/">Glen Lee Edward's Screen shots and config files page</a></li>
@@ -64,8 +67,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li><a href="http://www.igs.net/~tril/fvwm/configs/">Suzanne Skinner's
       fvwm site</a> - Stylish screenshots (and config files).<br>
       Don't miss her thoughtful and entertaining essay
-      <a href="http://www.igs.net/~tril/fvwm">"My Quest For The Perfect Window Manager"</a>
-      <br><i>(The hobbit in us would like to subtitle it "There and Back Again")</i>
+      <a href="http://www.igs.net/~tril/fvwm">"My Quest For The Perfect Window Manager"</a><br>
+      <i>(The hobbit in us would like to subtitle it "There and Back Again")</i>
 <!--
       Question:  Does she prefer to go by Britton or Skinner?
 -->
@@ -73,7 +76,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
     </ul>
 
-    Lots of folks are into themes these days; here are a few themes-related sites:
+  <p>Lots of folks are into themes these days; here are a few themes-related sites:</p>
 
     <ul>
       <li><a href="http://fvwm-themes.sourceforge.net/">The Official
@@ -99,8 +102,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <!-- 	Themes and Gnome -->
     </ul>
 
-    And here are some sites featuring programs that are designed
-    to work with or enhance FVWM:
+    <p>And here are some sites featuring programs that are designed
+    to work with or enhance FVWM:</p>
 
     <ul>
       <li><a href="http://users.tpg.com.au/users/scottie7/fvwmtabs.html">FvwmTabs Module</a> - SCoTT SMeDLeY's FvwmTabs module.</li>
@@ -128,14 +131,14 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 -->
     </ul>
 
-    <hr>
 
-<center><font size="+1">Other Window Managers</font></center>
-<br>
+  <h2>Other Window Managers</h2>
+
+  <p>  
     Here are some window managers that were originally created from fvwm
     source, but 
     <strong>please don't ask questions about them on the FVWM lists! </strong>
-    Rather, contact the parties responsible for them directly:
+    Rather, contact the parties responsible for them directly:</p>
 
     <ul>
 <!-- 
@@ -162,50 +165,49 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     And here's an excellent site with all sorts of window manager
     information and comparisons (new location):
 -->
+  <p>
     Matt Chapman's excellent survey of window managers present and past
     (from the famous to the downright obscure)
     should be required reading for anyone choosing a window manager
     (or trying to write one).
+  </p>
 
     <ul>
       <li><a href="http://www.PLiG.org/xwinman/">Window Managers for X</a><br>
       <i>Be sure to vote for FVWM in the voting section!</i> :)</li>
     </ul>
-      <br><i><b>Developers' note:</b> Should we email Matt re: the "Comparisons" section
-      that FVWM now effectively has "pinnable menus", as he defines the term?</i>
 
-    
+  <p style="color:yellow;background-color:#222299;">
+    <b>Developers' note:</b> Should we email Matt re: the "Comparisons" section
+    that FVWM now effectively has "pinnable menus", as he defines the term?
+  </p>
+  
+  <h2>General Resources</h2>
 
-    <hr>
-    <center><font size="+1">General Resources</font></center>
-    <br>
+  <p>Don't forget about Newsgroups:</p>
 
-      Don't forget about Newsgroups:
-
-    <ul>
-      <li><a href="news:comp.windows.x.apps">comp.windows.x.apps</a>
+  <ul>
+    <li><a href="news:comp.windows.x.apps">comp.windows.x.apps</a>
       - for discussing and announcing apps like FVWM.
       (Questions about about are best asked by sending mail to
       <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.)</li>
-
-      <li><a href="news:comp.windows.x">comp.windows.x</a>
+    
+    <li><a href="news:comp.windows.x">comp.windows.x</a>
       - for general X11 discussions and advice.</li>
-    </ul>
-
-<!-- uwp   <p></p> -->
-
-<!--
-      And how about an online version of the ICCCM:
--->
-      Finally, if you want to know why FVWM does some of the things it does
-      (or if you just want to see if we're really behaving properly!),
-      you can peruse the online version of the ICCCM:
+  </ul>
+  
+  <!--
+  And how about an online version of the ICCCM:
+  -->
+  <p>
+    Finally, if you want to know why FVWM does some of the things it does
+    (or if you just want to see if we're really behaving properly!),
+    you can peruse the online version of the ICCCM:
+  </p>
 
     <ul>
       <li><A HREF="http://tronche.com/gui/x/icccm/">Inter-Client Communication Conventions Manual</A></li>
     </ul>
-
-    <hr>
 
 
 <?php decoration_window_end() ?>

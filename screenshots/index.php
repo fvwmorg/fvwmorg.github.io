@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <04.04.2003 20:37:57 uwe>
+//-  Last modified : <14.04.2003 22:10:36 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -45,5 +45,19 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 ?>
 
 <?php decoration_window_start("FVWM Screenshots"); ?>
-
+  <center>
+    <table cellpadding="10" cellspacing="0" border="0" 
+	   width="90%" frame="void" rules="none" summary="">
+      <tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('desktops.php');?>"><img src="screenshots_desktop_overview.jpg" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('windowdecors/index.php');?>"><img src="screenshots_windowdecorations_overview.jpg" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('menus/index.php');?>"><img src="screenshots_menus_overview.jpg" border="0"></a></td>
+      </tr>
+      <tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('desktops.php');?>">Desktop screenshots</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('windowdecors/index.php');?>">Window decoration screenshots</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('menus/index.php');?>">Menu screenshots</a></td>
+      </tr>
+    </table>
+  </center>
 <?php decoration_window_end(); ?>

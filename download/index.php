@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <05.04.2003 13:22:37 uwe>
+//-  Last modified : <14.04.2003 21:05:18 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -108,9 +108,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
   <p>
     If you just have a question, be sure to read our
-    <a href="generated/manpages/">Documentation</a>
-    first, then you might want to try our <a href="mailinglist.html">Mailing
-      List</a>.
+    <a href="<?php echo conv_link_target('../documentation/manpages/');?>">Documentation</a>
+    first, then you might want to try our 
+    <a href="<?php echo conv_link_target('../contact/index.php');?>">Mailing List</a>.
   </p>
   
   <p>
@@ -128,7 +128,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <p>
     Use it if you have no specific reason to use one of the other
     packages.  Questions about the stable releases should be asked on
-    our <a href="mailinglist.html">Mailing List</a>.
+    our <a href="<?php echo conv_link_target('../contact/index.php');?>">Mailing List</a>.
   </p>
 
   <strong>If you use anything else but the latest stable release we will make
@@ -142,7 +142,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   </p>
 
   <strong>Problems in one of the below packages should be discussed on the
-fvwm-workers <a href="mailinglist.html">Mailing List</a>.</strong>
+fvwm-workers <a href="<?php echo conv_link_target('../contact/index.php');?>">Mailing List</a>.</strong>
 
   <h4>Latest Alpha and Beta versions:</h4>
   <p>
@@ -160,7 +160,8 @@ fvwm-workers <a href="mailinglist.html">Mailing List</a>.</strong>
   <h4>CVS access:</h4>
   <p>
     When you must have the latest stuff, up to the minute, or want to contribute
-    heavily. Please read the <a href="cvs.html">CVS</a> instructions.
+    heavily. Please read the 
+    <a href="<?php echo conv_link_target('../documentation/dev_cvs.php');?>">CVS</a> instructions.
   </p>
 
   <h4>FTP source tree:</h4>
@@ -170,7 +171,7 @@ fvwm-workers <a href="mailinglist.html">Mailing List</a>.</strong>
     behind a restrictive firewall or don't need CVS features like easy patch
     generation or commits then you can use an FTP mirroring tool to grab this
     directory. Since this is an exact copy of what you'd get if you did a CVS
-    checkout, you should read up on <a href="cvs.html">CVS</a>.
+    checkout, you should read up on <a href="<?php echo conv_link_target('../documentation/dev_cvs.php');?>">CVS</a>.
   </p>
 
 <?php decoration_window_end(); ?>

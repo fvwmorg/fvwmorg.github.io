@@ -10,11 +10,11 @@ $top_array = array(
 	"home", 
 	"news", 
 	"features", 
-	"download", 
 	"screenshots", 
+	"download", 
 	"documentation", 
 	"mailing_lists", 
-	"links" 
+	"links", 
 ); 
 
 $fvwm_cats["file"]         = "fvwm-cats/index.php"; 
@@ -65,22 +65,6 @@ $features["link_pic"]     = "pictures/icons/features";
 $features["parent_site"]  = "top"; 
 $features["child_sites"]  = array(); 
 
-$icons["file"]         = "download/icons.php"; 
-$icons["rel_path"]     = "./.."; 
-$icons["link_name"]    = "Icons and Sounds"; 
-$icons["link_chapter"] = ""; 
-$icons["link_pic"]     = "pictures/icons/download_icons"; 
-$icons["parent_site"]  = "download"; 
-$icons["child_sites"]  = array(); 
-
-$download["file"]         = "download/index.php"; 
-$download["rel_path"]     = "./.."; 
-$download["link_name"]    = "Download"; 
-$download["link_chapter"] = ""; 
-$download["link_pic"]     = "pictures/icons/download"; 
-$download["parent_site"]  = "top"; 
-$download["child_sites"]  = array("icons"); 
-
 $desktops["file"]         = "screenshots/desktops.php"; 
 $desktops["rel_path"]     = "./.."; 
 $desktops["link_name"]    = "Desktops"; 
@@ -112,6 +96,22 @@ $screenshots["link_chapter"] = "";
 $screenshots["link_pic"]     = "pictures/icons/screenshots"; 
 $screenshots["parent_site"]  = "top"; 
 $screenshots["child_sites"]  = array("desktops", "windowdecors", "menus"); 
+
+$icons["file"]         = "download/icons.php"; 
+$icons["rel_path"]     = "./.."; 
+$icons["link_name"]    = "Icons and Sounds"; 
+$icons["link_chapter"] = ""; 
+$icons["link_pic"]     = "pictures/icons/download_icons"; 
+$icons["parent_site"]  = "download"; 
+$icons["child_sites"]  = array(); 
+
+$download["file"]         = "download/index.php"; 
+$download["rel_path"]     = "./.."; 
+$download["link_name"]    = "Download"; 
+$download["link_chapter"] = ""; 
+$download["link_pic"]     = "pictures/icons/download"; 
+$download["parent_site"]  = "top"; 
+$download["child_sites"]  = array("icons"); 
 
 $faq["file"]         = "documentation/faq.php"; 
 $faq["rel_path"]     = "./.."; 

@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <14.04.2003 08:40:54 uwp>
+//-  Last modified : <14.04.2003 20:56:59 uwe>
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
@@ -255,10 +255,13 @@ function decoration_window_start($string="",$width="100%",$height="800",$padding
 function decoration_window_end() {
 }
 
+
 //--------------------------------------------------------------------
 // interface function to insert valid links to sub pages
 //--------------------------------------------------------------------
-function insert_quick_jump_list($site_array,$col_num=2) {
+function insert_quick_jump_list($site_array,
+				$outside_link_array=array(),
+				$col_num=2) {
   global $rel_path;
 
   // check which sites exist
@@ -272,10 +275,10 @@ function insert_quick_jump_list($site_array,$col_num=2) {
     }
   }
 
-  $count = count($site_array);
   reset($site_array);
-  echo '<table width="70%" border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
-  
+  reset($outside_link_array);
+  echo '<table width="70%" border="0" cellpadding="5" cellspacing="0" summary="">'."\n";  
+  $count = count($site_array) + count($outside_link_array);
   for($ii=0;$ii<ceil($count/$col_num);$ii++) {
     echo "<tr>\n";
     for($jj=0; $jj<$col_num; $jj++) {
@@ -293,6 +296,21 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 	echo ${$site}["link_name"];
 	echo '</a>';
 	echo '</td>'."\n";
+      } 
+      // links outside of this domain
+      elseif ( list($key,$array) = each($outside_link_array) ) {
+	if( file_exists($rel_path.'/pictures/icons/'.$array[2]."_mini.gif") ) {
+	  $img = $rel_path.'/pictures/icons/'.$array[2]."_mini.gif";
+	} else {
+	  $img = $rel_path.'/pictures/icons/default_mini.gif';
+	}
+	// mini icon and text 
+	echo '<td align="left" valign="bottom" nowrap="nowrap">';
+	echo '<a href="'.$array[1].'">';
+	echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
+	echo $array[0];
+	echo '</a>';
+	echo '</td>'."\n";	
       }
     }
     echo "</tr>\n";    
@@ -348,6 +366,7 @@ if( strlen($heading) == 0 ) $heading = $title;
        a.done {
        text-decoration:line-through;
        font-weight:normal;
+       color:#aaaaaa;
        }
         -->
     </style>

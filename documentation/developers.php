@@ -3,7 +3,7 @@
 //-  File          : developers.php
 //-  Project       : FVWM Home page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <11.04.2003 23:53:41 uwe>
+//-  Last modified : <14.04.2003 20:43:18 uwe>
 //--------------------------------------------------------------------
 
 if( strlen($rel_path)==0 ) $rel_path="./..";
@@ -66,6 +66,8 @@ curious, these links may be of interest to you:
 <?php insert_quick_jump_list(array("dev_cvs",
 				   "dev_modules",
 				   "dev_downloadbugs",
-				   "dev_creating_rpms"),1); ?>
+				   "dev_creating_rpms"),
+			     array(),
+			     1); ?>
 
 <?php decoration_window_end(); ?>
