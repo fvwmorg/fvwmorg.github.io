@@ -1,0 +1,16 @@
+<?php
+
+$logo_list = "logo_list.inc";
+
+$logo_array = array();
+include($logo_list);
+
+foreach( $logo_array as $number => $logos ) {
+    foreach( $logos as $logo ) {
+        $logo_preview = preg_replace('/...$/', "png", $logo);
+        echo "echo $logo ...\n";
+        echo "convert -scale 100x100 ".$logo." voting/previews/".$logo_preview."\n";
+    }
+}
+
+?>
