@@ -81,7 +81,7 @@ sub processTemplate ($) {
 	$text =~ s/^\t//mg;
 	$text =~ s/\@foreach\@ (\w+) in (\w+)\n(.*?)\@endforeach\@\n/
 		my ($var, $list, $subTemplate) = ($1, $namespace->{$2}, $3);
-		join('', map { $namespace->{$var} = $_;
+		join('', map { local $namespace->{$var} = $_;
 			processTemplate($subTemplate); } @$list);
 	/seg;
 	$text =~ s/@(\w+)@/$namespace->{$1}/mge;
