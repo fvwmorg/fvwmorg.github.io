@@ -1,3 +1,15 @@
+1999-12-17  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html: changed fvwm-cats/ link to be relative
+
+	* fvwm-cats/index.html:
+	* fvwm-cats/murzilka.jpg:
+	added Murzilka's cat entry
+
+	* screenshots/index.html: renamed from screenshots/screenshots.html
+	* screenshots/Mikhael-desk-{1152x864,thumbnail}.gif:
+	a slightly updated version of the desktop screenshot
+
 1999-12-17  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* download.html: increased version number to 2.3.11
@@ -12,6 +24,7 @@
 	* index.html: removed html tag 'MULTICOL' screwing the layout,
 	added missing '</blockquote>', some rewording
 	* cvs.html: removed "-b -B" option advise from "cvs diff"
+
 	* vector-buttons/DecorDemo2.{fvwmrc,gif}:
 	improved diagonal-arrow buttons, changed order of buttons
 	* vector-buttons/testbed.fvwmrc:
