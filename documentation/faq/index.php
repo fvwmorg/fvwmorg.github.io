@@ -43,10 +43,11 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <h2>FAQ Contents</h2>
 <pre style="margin-left:5%;">
-<a name="toc_0."></a><a href="#0.">0.</a> <u>The</u> most frequently asked question :)
+<a name="toc_0."></a><a href="#0.">0.</a> <u>The</u> most frequently asked questions :)
 
 <a name="toc_0.1"></a>     <a href="#0.1">0.1</a>  A few minutes after fvwm is started my keyboard and
           mouse bindings stop working.  What can I do?
+<a name="toc_0.2"></a>     <a href="#0.2">0.2</a>  I use XMMS, but it ignores some window styles.
 
 <a name="toc_1."></a><a href="#1.">1.</a> About Fvwm
 
@@ -241,6 +242,21 @@ Trivia: In all my years as an fvwm developer this has been by far the
    that this question is never asked again will be mentioned in big
    letters on the fvwm home page :-)
 
+<a name="0.2"></a><a href="#toc_0.2">0.2</a>  I use XMMS, but it ignores some window styles.
+
+A: XMMS wants to do evrything by itself and overrides many
+   settings of the window manager.  Check the options menu in XMMS
+   and if that does not help, ask the XMMS people about it at
+
+        <a href="http://xmms.org/">http://xmms.org/</a>
+
+   <u>Please</u> do not ask XMMS questions on the fvwm mailing lists
+   and so not report XMMS related bugs before you tried the XMMS
+   mailing lists.  No offence meant, but we really have more
+   important things to do than providing user support for third
+   party software.
+
+
 ======================================================================
 <a name="1."></a>                            <a href="#toc_1.">1</a> - About Fvwm
 ======================================================================
@@ -271,7 +287,7 @@ A: &quot;Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
    Know what? I found another one while stroking my cats: FEEDING :-)
 
    Check this link:
-   	<a href="http://fvwm.org/fvwm-cats/">http://fvwm.org/fvwm-cats/</a>
+       <a href="http://fvwm.org/fvwm-cats/">http://fvwm.org/fvwm-cats/</a>
 
 ----------------------------------------------------------------------
 
@@ -497,7 +513,7 @@ A: Sure - here's one from Graeme McCaffery:
      On the other hand, here is a link to a web page that describes how to
      add multiple window managers to the CDE login menu:
 
-     	<a href="http://twirl.mcc.ac.uk/~zzassgl/wm.html">http://twirl.mcc.ac.uk/~zzassgl/wm.html</a>
+        <a href="http://twirl.mcc.ac.uk/~zzassgl/wm.html">http://twirl.mcc.ac.uk/~zzassgl/wm.html</a>
 
 ----------------------------------------------------------------------
 
@@ -970,7 +986,7 @@ A: Start with a new one or convert your old one.  This can be done by
    PagerBackColor colorname                   (obsoleted, use FvwmPager)
    PagerFont fontname                         (obsoleted, use FvwmPager)
    PagingDefault pagingdefaultvalue           (obsoleted)
-   PixmapPath				      ImagePath path
+   PixmapPath                                 ImagePath path
    Popup PopupName                            AddToMenu (not compatible)
    RandomPlacement                            Style (RandomPlacement)
    SaveUnders                                 (obsoleted)
@@ -1256,11 +1272,28 @@ A: The following discusses a general solution, you should substitute
 
      AddToFunc StartFunction I Module FvwmEvent
 
-   The sample to use with latest fvwm 2.4.x and 2.5.x versions.  This
-   moves a newly created window named &quot;My Window&quot;, and wraps a pointer
-   to all new windows regardless of their name:
+   The sample to use with fvwm 2.3.21 to 2.4.15 versions (consider
+   to upgrade and use the version below).  This moves a newly
+   created window named &quot;My Window&quot;, and warps a pointer to all new
+   windows regardless of their name:
 
      *FvwmEvent-NewWindow: Cmd
+     *FvwmEvent-NewWindow: PassId
+     *FvwmEvent-NewWindow: StartDelay 4
+     *FvwmEvent-NewWindow: add_window FuncFocusWindow
+
+     DestroyFunc FuncFocusWindow
+     AddToFunc   FuncFocusWindow
+     + I WindowId $0 (&quot;My Window&quot;) Move 200p 100p
+     + I WindowId $0 Focus
+     + I WindowId $0 WarpToWindow
+
+     AddToFunc StartFunction I FvwmEvent FvwmEvent-NewWindow
+
+   And finally the suggested configuration for 2.5.7+ and 2.4.16+.
+   This moves a newly created window named &quot;My Window&quot;, and wraps a
+   pointer to all new windows regardless of their name:
+
      *FvwmEvent-NewWindow: StartDelay 4
      *FvwmEvent-NewWindow: add_window FuncFocusWindow
 
@@ -1594,14 +1627,14 @@ A: First of all, please read the first section of the answer to Q5.1!
 
         Mail it to the fvwm-workers mailing list &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;.
 
-	If your patch is large you should compress it (preferably
+        If your patch is large you should compress it (preferably
         with gzip).  Should it still be larger than 25k you might want
         to to place it on a web page and email the URL to the mailing
         list or ask on the fvwm-workers list first.
 
-	Be sure to read the answer to Q5.1.
+        Be sure to read the answer to Q5.1.
 
-	Don't forget the ChangeLog and the documentation.
+        Don't forget the ChangeLog and the documentation.
 
    Applying a patch -
 
@@ -1909,8 +1942,8 @@ A: This problem might occur on other applications besides the one
    There are 2 Mainsoft Knowledgebase pages that relate to UNIX
    window managers:
 
-	<a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
-	<a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
+        <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
+        <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
 
    These pages suggest that you export MWWM=allwm or MWWM=MWM before
    starting the application.
@@ -2020,7 +2053,7 @@ A: This is not our primary mission, but we think fvwm does a pretty
    good job of producing these appearances.
 
    You may want to take a look at the
-   	<a href="http://fvwm-themes.sourceforge.net/">http://fvwm-themes.sourceforge.net/</a>
+        <a href="http://fvwm-themes.sourceforge.net/">http://fvwm-themes.sourceforge.net/</a>
    package.
 
 ----------------------------------------------------------------------
@@ -2038,7 +2071,7 @@ A: If you want more color icons, grab the ones out of the ctwm
    links at the fvwm web site to other sources of icons.
 
    You may want to take a look at the
-   	<a href="http://wm-icons.sourceforge.net/">http://wm-icons.sourceforge.net/</a>
+        <a href="http://wm-icons.sourceforge.net/">http://wm-icons.sourceforge.net/</a>
    package.
 
 ----------------------------------------------------------------------
@@ -2099,7 +2132,7 @@ A: Under this heading we've had questions about FvwmForm being all
    it at once.
 
    This is explained in excruciating detail in the
-   	<a href="http://www.sunhelp.org/faq/FrameBuffer.html">http://www.sunhelp.org/faq/FrameBuffer.html</a>
+        <a href="http://www.sunhelp.org/faq/FrameBuffer.html">http://www.sunhelp.org/faq/FrameBuffer.html</a>
 
    If your display can support more than 256 colors, that's the way to
    go.  Look up the documentation for your X server.  You may want to
@@ -2138,11 +2171,11 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 
    Replace
 
-     #define NUMBER_OF_MOUSE_BUTTONS		   5
+     #define NUMBER_OF_MOUSE_BUTTONS               5
 
    with
 
-     #define NUMBER_OF_MOUSE_BUTTONS		   7
+     #define NUMBER_OF_MOUSE_BUTTONS               7
 
    and recompile and reinstall fvwm.  However, the buttons with numbers
    higher than 5 do not work as well as 1 to 5.  This is because X

@@ -8,6 +8,14 @@
 	* documentation/perllib/*.php:
 	regenerated manpages from 2.4.16 and 2.5.7
 
+	* authors/index.php:
+	* documentation/faq/index.php:
+	* latest_news/index.php:
+	updated files for 2.5.7
+
+	* birthday/index.php:
+	s/birthday_celebration1.gif/birthday_celebration2.gif/ for now
+
 2003-05-30  Uwe Pross  <uwe.pross@gmx.net>
 
 	* birthday/index.php: 

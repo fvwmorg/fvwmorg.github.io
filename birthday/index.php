@@ -64,7 +64,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 decoration_window_start("Celebrate 10 years of FVWM"); 
 ?> 
 
-    <img src="birthday_celebration2.gif" border="0" alt="The FVWM Birthday Celebration">
+    <img src="birthday_celebration1.gif" border="0" alt="The FVWM Birthday Celebration">
 
   <p>
   On the 1st of June, 1993, the first version of fvwm, venerable
