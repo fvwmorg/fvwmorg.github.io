@@ -78,14 +78,14 @@ function register_mail_and_id( $email, $id ) {
     global $register_file;
     if( $handle = fopen ($register_file, "a") ) {
         fwrite( $handle, trim($email)."   ".trim($id)."\n");
-        fwrite( $handle, "# time        : ".date("r")."\n");
-        fwrite( $handle, "# ip          : ".$_SERVER["REMOTE_ADDR"]."\n");
-        fwrite( $handle, "# remote host : ".$_SERVER["REMOTE_HOST"]."\n");
+        // fwrite( $handle, "# time        : ".date("r")."\n");
+        // fwrite( $handle, "# ip          : ".$_SERVER["REMOTE_ADDR"]."\n");
+        // fwrite( $handle, "# remote host : ".$_SERVER["REMOTE_HOST"]."\n");
         // fwrite( $handle, "# host name   : ".$_SERVER["HTTP_HOST"]."\n");
-        fwrite( $handle, "# language    : ".$_SERVER["HTTP_ACCEPT_LANGUAGE"]."\n");
-        fwrite( $handle, "# user agent  : ".$_SERVER["HTTP_USER_AGENT"]."\n");
-        fwrite( $handle, "# char set    : ".$_SERVER["HTTP_ACCEPT_CHARSET"]."\n");
-        fwrite( $handle, "# referer     : ".$_SERVER["HTTP_REFERER"]."\n");
+        // fwrite( $handle, "# language    : ".$_SERVER["HTTP_ACCEPT_LANGUAGE"]."\n");
+        // fwrite( $handle, "# user agent  : ".$_SERVER["HTTP_USER_AGENT"]."\n");
+        // fwrite( $handle, "# char set    : ".$_SERVER["HTTP_ACCEPT_CHARSET"]."\n");
+        // fwrite( $handle, "# referer     : ".$_SERVER["HTTP_REFERER"]."\n");
         fclose ($handle);
     } else {
         echo "<h1>Error: Failed to register your email address. Please try again later</h1>";
@@ -100,9 +100,14 @@ function send_mail_to_voter($email, $id) {
     // $base_url = "http://localhost";
     mail(
          $email, 
-         "[Fvwm voting] Your Voting ID", 
-         "Thank you for registering for voting for the fvwm logo competition.
-your id for taking part on voting is
+         "[FVWM] Fvwm logo competition voting", 
+         "Please take part in the fvwm logo competition voting.
+
+All users which are either subscribed to one of the fvwm mailing lists
+or have submitted a logo for the competition are allowed to vote for
+a new logo for fvwm. 
+
+Here is your personal id for taking part in the voting.
 
    $id
 

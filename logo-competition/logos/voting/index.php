@@ -160,52 +160,12 @@ foreach( $logo_array as $number => $logos ) {
     if( get_user_setting("id") ) {
         echo "<h1>Your id is not valid. Please insert your email address!!</h1>";
     } else {
-        echo "<h1>You must be registered before you can vote!!</h1>";
+        echo "<h1>Please enter your voting id.</h1>";
     }
 ?>
 
-<p>
-  Please enter your email address in the text field. 
-  A generated id will be sent to you which allows you 
-  to take part at the logo competition.
-</p>
-<p>
-  Your mail address is only used to send you an authorization
-  key to avoid voting multiple times. E-mail addresses are stored securly 
-  and are NEVER used to any other purpose than sending you your
-  authorization key for fvwm logo competition voting.
-</p>
-
-<form action="login.php" method="GET">
-  <table cellpadding="2" border="0">
-    <tr>
-      <td>
-	Email Address:
-      </td>
-    </tr>
-    <tr>
-      <td>
-	<input type="text" 
-	       name="email" 
-	       size="30" 
-	       maxlength="100" 
-	       value="<?php if(get_user_setting('email')) { echo get_user_setting('email'); } ?>">
-      </td>
-      <td>
-	<input value="Register" type="submit">
-      </td>
-    </tr>
-  </table>
-  <input name="register" value="1" type="hidden">  
-</form>
-
 <form action="index.php" method="GET">    
   <table cellpadding="2" border="0">
-    <tr>
-      <td colspan="2" wrap>
-       If you have been registered already <br> you may insert you authorization code here:
-      </td>
-    </tr>
     <tr>
       <td>
         <input type="text" 
