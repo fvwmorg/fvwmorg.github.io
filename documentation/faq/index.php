@@ -1485,13 +1485,15 @@ A: Fvwm has some builtin idea of what the buttons do, and some
 
 <a name="3.23"></a><a href="#toc_3.23">3.23</a>  How to define transparent menus?
 
-A: First, it may help to read about colorsets in FvwmTheme man page.
+A: First, it may help to read about colorsets in fvwm and FvwmTheme
+   man pages.
 
    We speak about transparency, not translucency here.  This means
-   the background in the parent window (for example the root window)
+   the background of the parent window (for example the root window)
    will be used for our &quot;transparent&quot; areas, this is not always the
    window under our &quot;transparent&quot; window.  However, some X servers
-   support real transparency (i.e. translucency) and fvwm supports it.
+   support real transparency (i.e. translucency) and it is reported
+   that fvwm supports this (I don't have such X server myself).
 
    To define a transparent colorset, use something like:
 
@@ -1522,7 +1524,7 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
 
    Once a transparent colorset is defined, use it in menus:
 
-     MenuStyle MenuColorset 23
+     MenuStyle * MenuColorset 23
 
 ----------------------------------------------------------------------
 
@@ -1532,8 +1534,8 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
     (you may reuse the same transparent colorset or define separate
     colorsets for different modules).
 
-    Then see the man page for your specific module and specify this
-    transparent colorset(s) to be used in your modules, like:
+    Then read the man page for your specific module that you want to
+    make transparent and specify this transparent colorset(s), like:
 
       *FvwmPager: Colorset * 23
       *FvwmButtons: Colorset 23
@@ -1547,12 +1549,13 @@ A: First, it may help to read about colorsets in FvwmTheme man page.
     It is not needed if you use RootTransparent or you never intend to
     move a module inside its parent, or you swallow a module, since
     FvwmButtons adds ParentalRelativity automatically for swallowed
-    fvwm modules.  Otherwise you need ParentalRelativity.
+    fvwm modules.  Otherwise you need Style ParentalRelativity for
+    transparent windows, but doing this for all windows is overhead.
 
     Note, that previously &quot;Pixmap none&quot; option was used to define
     transparency; Pixmap option is obsolete, use colorsets instead.
 
-    If you swallow FvwmPager (or FvwmIconMan) inside FvwmButtons, then
+    If you swallow FvwmPager (or FvwmIconMan) into FvwmButtons, then
     you may configure both FvwmPager and FvwmButtons to be transparent
     or just one of them to be transparent, depending on what you want
     to achieve.
