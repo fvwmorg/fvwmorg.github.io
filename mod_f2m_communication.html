@@ -489,7 +489,7 @@ maybe other modules) to indicate a background change. If the 3rd value
 is 0, it means that the root background changed. (fvwm2 sends this message
 when it detects the change).
 <!dont understand>
-If the 3rd value is not zero it is the id
+If the 3rd value is not zero it is the window id
 of the module which should be concerned by the message and this indicates that
 the parent(s) window background of this module has changed (FvwmButtons
 send this message for the modules that it swallows, when its background
@@ -498,7 +498,7 @@ colorset changes).
 The string and the second value are not used.
 <br><br>
 <b>MX_PROPERTY_CHANGE_SWALLOW</b> is sent by FvwmButtons (and
-maybe other modules) to indicate that the module with the id given by the
+maybe other modules) to indicate that the module with the window id given by the
 3rd value has been swallowed or unswallowed. It is a swallowed message
 if the 2nd value is 1 and it is an unswallowed message if the 2nd value is 0.
 The string is not used.

@@ -1,9 +1,14 @@
+2002-02-03  olicha  <olivier.chapuis@free.fr>
+
+	* mod_f2m_communication.html:
+	s/id/window id/ in MX_PROPERTY_CHANGE description
+
 2002-02-01  Dan Espen  <dane@mk.telcordia.com>
 
 	* mod_f2m_communication.html: Language fix.
 	* mod_initialization.html: Language fix.
 
-2002-01-29 olicha  <olivier.chapuis@free.fr>
+2002-01-29  olicha  <olivier.chapuis@free.fr>
 
 	* mod_f2m_communication.html:
 	Documented the MX_PROPERTY_CHANGE and MX_VISIBLE* messages
