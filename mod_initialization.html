@@ -32,8 +32,9 @@ commands, some other possible uses. Arg 0 is related to the optional arg
 6 described under "Module Aliases".
 <h3>
 Args 1 and 2</h3>
-The pipes are open when the module starts execution. The integer file descriptors
-are passed to the module as the first and second command line arguments.
+The pipes are open when the module starts execution. The integer file
+descriptors are passed to the module as the first and second command
+line arguments.
 <h3>
 Arg 3</h3>
 The third command line argument is a character pointer pointing to the
@@ -114,7 +115,8 @@ In previous implementations, the modules were expected to read and parse
 the .fvwmrc file by themselves. This caused some difficulty if a pre-processor
 was used on the .fvwmrc file. In fvwm-2.0 and later, fvwm retains the module
 command lines (those which start with a ``*''), and passes them to any
-module on request. Modules can request the command list by sending a ``Send_ConfigInfo''
+module on request. Modules can request the command list by sending a
+``Send_ConfigInfo''
 command to fvwm. Modules can request configuration commands interactively,
 see M_SENDCONFIG in
 <a href="mod_f2m_communication.html">Fvwm-to-Module
@@ -137,12 +139,12 @@ make sure <i>-lm</i> is contained in the LDADD variable in Makefile.am</li>
 <li>
 Call InitPictureCMap() just after XOpenDisplay() to get access to the visuals
 that fvwm uses. Sharing pixmaps will not work unless you use the same colormap.
-This means that the module cannot create a top level window with XCreateSimpleWindow().
-It must use XCreateWindow() and specify the visual as
-<i>Pvisual</i>, the
+This means that the module cannot create a top level window with
+XCreateSimpleWindow().
+It must use XCreateWindow() and specify the visual as <i>Pvisual</i>, the
 colormap as <i>Pcmap</i>, the depth as <i>Pdepth</i>, the background and
-border pixels must also be specified otherwise they default to <i>CopyFromParent</i>
-which may give an error.</li>
+border pixels must also be specified otherwise they default to
+<i>CopyFromParent</i> which may give an error.</li>
 
 <li>
 Call AllocColorset(0) to initialize the colorset array.</li>
@@ -170,7 +172,8 @@ The module must wait on select() not XNextEvent(). The select() must include
 the fvwm pipe so that messages from fvwm can be read. Any M_CONFIG_INFO
 message must be passed to the option parser so that a colorset message
 can be passed on to LoadColorset(). If a colorset that is referenced is
-changed the module must redraw itself.</li>
+changed the module must redraw itself. Don't forget that colorset backgrounds
+have to be redrawn when the window is resized.</li>
 
 <li>
 Accessing colorset N must be done with via <i>Colorset[</i>N<i> % nColorsets]</i>.
