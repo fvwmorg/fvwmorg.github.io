@@ -102,4 +102,13 @@ Global Definitions --------------> Function Wrapper
 
   <h3>Creating a new layout</h3>
 
+  <h3>Generated pages</h3>
+  <p>
+    To keep the web page consistent with the actual fvwm version, the
+    web pages about authors, news and faq are generated from the files
+    AUTHORS, NEWS and doc/FAQ in the fvwm tree. In the directories 
+  </p>
+
+  
+
 <?php decoration_window_end(); ?>

@@ -100,7 +100,7 @@ width="251" height="102" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Phil Harper (10 images + 5 bg)", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (12 images + 5 bg)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php'); ?>">
 

@@ -147,12 +147,11 @@ function export_nav($this_site, $export_depth = 0) {
 
                     // check if the child site refers to this parent
                     if( strcmp($child_array["$child_file"]["parent_site"], $this_site) ) {
-                        echo 'Child and parent reference do not match.'."\n";
-                        echo 'Please check files ';
-                        echo $child_array["$child_file"]["file"];
-                        echo "[".$child_array["$child_file"]["parent_site"]."]";
-                        echo ' and ';
-                        echo ${$this_site}["file"]."[".$this_site."]\n";
+                        echo "\033[34;1m".'Child and parent reference do not match.'."\033[0m\n";
+                        echo 'Please check files: '."\n";
+                        echo "\033[34;2m".'    '.$child_array["$child_file"]["file"];
+                        echo "[".$child_array["$child_file"]["parent_site"]."]\n";
+                        echo '    '.${$this_site}["file"]."[".$this_site."]\033[0m\n";
                     }
 
                     $found_php_file_for_this_child = 1;
