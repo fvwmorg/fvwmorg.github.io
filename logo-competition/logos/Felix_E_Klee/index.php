@@ -62,7 +62,7 @@ and here's the text for that page:
     In most of my logos I try to reflect the fact that FVWM is a
     <em>Window</em> Manager. The first five are based on four squares laid
     out in a geometric "window-like" pattern. The sixth and the eighth were
-    were inspired by the idea of overlapping windows in FVWM. Finally, there
+    inspired by the idea of overlapping windows in FVWM. Finally, there
     is also a feline logo (the seventh one). 
   </p>
   <p>
