@@ -22,6 +22,6 @@ I just discovered today the cool "Aqua" skin for GTK and the "Aqua" skin
 for phoenix, my favourite browser.
 
 I documented a lot my
-<a href="Ploum.fvwm2rc">fvwm2rc</a> file, but in french...
+<a href="fvwm2rc">fvwm2rc</a> file, but in french...
 
 Yes, I hate taskbars and icons ! ;)

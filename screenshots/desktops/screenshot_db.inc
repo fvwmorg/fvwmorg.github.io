@@ -95,7 +95,7 @@ $db = array(
  	  background for the Eterm, and threw Vampire Princess Miyu skins that I
  	  found onto Licq and xmms.  I also customized the title bars a bit with a
  	  textured background that fits in with the overall blueness of the Miyu
- 	  stuff.  Heres the <a href="Tenebrae.fvwm2rc">config file</a>.
+ 	  stuff.  Heres the <a href="fvwm2rc">config file</a>.
 ',
                  ),
       5 => array(
@@ -221,7 +221,7 @@ $db = array(
  for phoenix, my favourite browser.
  
  I documented a lot my
- <a href="Ploum.fvwm2rc">fvwm2rc</a> file, but in french...
+ <a href="fvwm2rc">fvwm2rc</a> file, but in french...
  
  Yes, I hate taskbars and icons ! ;)
 ',
@@ -332,7 +332,7 @@ $db = array(
  This is an Xinerama desktop showing some interesting side mounted titles,
  flat borders and gradients in the titlebars.
  The
- <a href="Marc_A_Lehmann.fvwm2rc">config file</a>
+ <a href="fvwm2rc">config file</a>
  is M4 based and contains some interesting stuff too.
  <p>
  Mark says:
@@ -479,7 +479,7 @@ $db = array(
                   'size' => 270241,
                   'dimension' => '1920x1440',
                   'description' => ' 	  Submitted by J C Lawrence.
- The basic rules guiding this <a href="J_C_Lawrence.fvwm2rc">setup</a>:
+ The basic rules guiding this <a href="fvwm2rc">setup</a>:
  <ul>
  <li>
   Modal interfaces are evil.
@@ -574,7 +574,7 @@ $db = array(
                   'description' => ' 	  Submitted by Filip Hroch.
  Filip says: 
  I\'ve been using Fvwm for many years. Two years ago I created by own
- <a href="FilipHroch.fvwm2rc">configuration</a>
+ <a href="fvwm2rc">configuration</a>
  from an IRIX-like configuration. Today I looked at the nice 
  screenshots on the www.fvwm.org site and I\'m therefore sending my 
  screenshot with a dfm icon manager and a transparent aterm on the root window.
