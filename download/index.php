@@ -48,15 +48,15 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <h4>Current packages:</h4>
   <ul>
     <li>
-      Latest Stable Release (<b>2.4.15</b>):
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.4.15.tar.gz">tar.gz</a>,
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.4.15.tar.bz2">tar.bz2</a>
+      Latest Stable Release (<b><?php echo $latest_stable_release; ?></b>):
+      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.gz">tar.gz</a>,
+      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
   
     <li>
-      Latest Unstable Release (<b>2.5.6</b>):
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.5.6.tar.gz">tar.gz</a>,
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-2.5.6.tar.bz2">tar.bz2</a>
+      Latest Unstable Release (<b><?php echo $latest_unstable_release; ?></b>):
+      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
+      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
 
     <li>

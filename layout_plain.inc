@@ -258,68 +258,79 @@ function decoration_window_end() {
 }
 
 
+
+
 //--------------------------------------------------------------------
 // interface function to insert valid links to sub pages
 //--------------------------------------------------------------------
-function insert_quick_jump_list(
-  $site_array, $outside_link_array = array(), $col_num = 2, $width = "50%")
+function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "50%")
 {
   global $rel_path, $nav_array;
 
   // check which sites exist
-  reset($site_array);
-  while(list($key,$site) = each($site_array) ) {
-    // check it this site exists
-    if( strlen($nav_array["$site"]["file"]) == 0 ) {
-      // if the site does not exists remove from quick jump list
-      unset($site_array[$key]);
+  reset($quick_jump_array);
+  while(list($key, $jump) = each($quick_jump_array) ) {
+    if( ! is_array($jump) ) {
+      // check it this site exists
+      if( strlen($nav_array["$jump"]["file"]) == 0 ) {
+	// if the site does not exists remove from quick jump list
+	unset($quick_jump_array[$key]);
+      }
     }
   }
 
-  reset($site_array);
-  reset($outside_link_array);
-  echo '<table align="center" ';
-  if (strlen($width) > 0) echo "width=\"$width\" ";
+  $cell_width = floor(100/$col_num);
+
+  reset($quick_jump_array);
+  $count = count($quick_jump_array);
+  // uwp: I am not sure if I added the align="center" attribute. 
+  //      I don't like it that much since it is not strict html.
+  //      If somebody else did it and like it please uncomment it.
+  // echo '<table align="center" ';
+  echo '<table ';
+  if (strlen($width) > 0) echo 'width="'.$width.'" ';
   echo 'border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
-  $count = count($site_array) + count($outside_link_array);
-  for($ii=0;$ii<ceil($count/$col_num);$ii++) {
+  for($ii=0; $ii<ceil($count/$col_num); $ii++) {
     echo "<tr>\n";
     for($jj=0; $jj<$col_num; $jj++) {
-      if( list($key,$site) = each($site_array) ) {
-	if( file_exists($rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif") ) {
-	  $img = $rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif";
-	} else {
-	  $img = $rel_path.'/pictures/icons/default_mini.gif';
-	}
-	$target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
-	// mini icon and text 
-	echo '<td align="left" valign="bottom" nowrap="nowrap">';
-	echo '<a href="'.$target.'">';
-	//echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
-	echo $nav_array["$site"]["link_name"];
-	echo '</a>';
-	echo '</td>'."\n";
-      } 
-      // links outside of this domain
-      elseif ( list($key,$array) = each($outside_link_array) ) {
-	if( file_exists($rel_path.'/pictures/icons/'.$array[2]."_mini.gif") ) {
-	  $img = $rel_path.'/pictures/icons/'.$array[2]."_mini.gif";
-	} else {
-	  $img = $rel_path.'/pictures/icons/default_mini.gif';
-	}
-	// mini icon and text 
-	echo '<td align="left" valign="bottom" nowrap="nowrap">';
-	echo '<a href="'.$array[1].'">';
-	//echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
-	echo $array[0];
-	echo '</a>';
-	echo '</td>'."\n";	
+      if( list($key, $jump) = each($quick_jump_array) ) {
+        if( ! is_array($jump) ) {
+          if( file_exists($rel_path.'/'.$nav_array["$jump"]["link_pic"]."_mini.gif") ) {
+            $img = $rel_path.'/'.$nav_array["$jump"]["link_pic"]."_mini.gif";
+          } else {
+            $img = $rel_path.'/pictures/icons/default_mini.gif';
+          }
+          $target = conv_link_target($rel_path.'/'.$nav_array["$jump"]["file"]);
+          // mini icon and text
+          echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
+          echo '<a href="'.$target.'">';
+          //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
+          echo $nav_array["$jump"]["link_name"];
+          echo '</a>';
+          echo '</td>'."\n";
+        }
+        // links outside of this domain
+        else {
+          if( file_exists($rel_path.'/pictures/icons/'.$jump[2]."_mini.gif") ) {
+            $img = $rel_path.'/pictures/icons/'.$jump[2]."_mini.gif";
+          } else {
+            $img = $rel_path.'/pictures/icons/default_mini.gif';
+          }
+          // mini icon and text
+          echo '<td align="left" valign="bottom" nowrap="nowrap">';
+          echo '<a href="'.$jump[1].'">';
+          //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
+          echo $jump[0];
+          echo '</a>';
+          echo '</td>'."\n";
+        }
       }
     }
-    echo "</tr>\n";    
+    echo "</tr>\n";
   }
   echo "</table>\n";
 }
+
 
 function insert_parent_path() {
   global $this_site, $rel_path, $top_array ;

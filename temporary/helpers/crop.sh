@@ -4,7 +4,7 @@ convert="convert"
 #convert="echo"
 convert_opts=""
 extension="gif"
-transparent_pic="../pictures/transparent.gif"
+transparent_pic="../transparent.gif"
 
 if [ -z "$1" ] || [ -z "$2" ] || [ -z "$3" ] || [ -z "$4" ]; then
     echo "Usage: $0 {filename} {border_width} {destination directory name} {titlebar_height}"

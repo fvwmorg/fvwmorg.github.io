@@ -20,7 +20,7 @@ $heading        = "FVWM - Developer Information";
 $link_name      = "Developer Info";
 $link_picture   = "pictures/icons/doc_developers";
 $parent_site    = "documentation";
-$child_sites    = array("dev_cvs","dev_modules","dev_downloadbugs","dev_creating_rpms");
+$child_sites    = array("dev_cvs","dev_modules","dev_downloadbugs","dev_creating_rpms","dev_webpage");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = str_replace(".php","","$requested_file");
 
@@ -65,8 +65,8 @@ curious, these links may be of interest to you:
 <?php insert_quick_jump_list(array("dev_cvs",
 				   "dev_modules",
 				   "dev_downloadbugs",
-				   "dev_creating_rpms"),
-			     array(),
+				   "dev_creating_rpms",
+				   "dev_webpage"),
 			     1); ?>
 
 <?php decoration_window_end(); ?>

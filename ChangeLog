@@ -1,3 +1,25 @@
+2003-04-22  Uwe Pross  <uwe.pross@mx.net>
+
+	* download/index.php: 
+	used release variables
+
+	* definitions.inc: 
+	new variables $latest_stable_release and $latest_unstable_release
+	which are useable in all php files
+
+	* index.php: 
+	changed order of quick jump list
+	replaced release information by php variables
+
+	* layout_plain.inc: 
+	* layout_default.inc: 
+	changed/improved insert_quick_jump_list function so that internal
+	and external links can be mixed.
+	fixed coding style [removed trailing spaces, space after comma and
+	semicolon] 
+	no title in the window decoration for the moment
+	changed window decoration picture
+	
 2003-04-22  Mikhael Goikhman  <migo@homemail.com>
 
 	* layout_default.inc:
