@@ -11,13 +11,49 @@
 <pre>
 
 Note, the changes for the last STABLE release start with release
-<A HREF="#2.4.9">2.4.9</A>.
+<A HREF="#2.4.10">2.4.10</A>.
 
 <hr>
-<b>Changes in alpha release 2.5.4 (not released yet)</b>
+<b>Changes in *unstable* development release 2.5.4 (not released yet)</b>
+
+* Style switches can be prefixed with '!' to inverse their meaning.
+  For example, "Style * Sticky" is the same as "Style * !Slippery".
+  This works *only* for pairs of styles that take no arguments and
+  for the Button and NoButton styles.
+
+* New button property Id in FvwmButtons.  FvwmButtons now accepts
+  dynamical actions using SendToModule, see the man page:
+
+    ChangeButton &lt;button-id&gt; &lt;properties-to-change&gt;
+    ExpandButtonVars &lt;button-id&gt; &lt;command-to-expand&gt;
+
+* New Colorset options bgTint, fgTint (which complete Tint), Alpha,
+  IconTint and IconAlpha.
+
+* Alpha blending rendering is supported even without XRender
+  support.
+
+* Enhanced commands [Add]ButtonStyle, [Add]TitleStyle. ButtonState.
+  Titles and buttons now have 4 main states instead of 3: ActiveUp,
+  ActiveDown, InactiveUp and InactiveDown, plus 4 Toggled variants.
+  Several shortcuts added: Active means ActiveUp + ActiveDown,
+  Inactive means InactiveUp + InactiveDown, similarly for shortcuts
+  ToggledActive and ToggledInactive.
+
+* More shortcuts for button states added: AllNormal, AllToggled,
+  AllActive, AllInactive, AllUp, AllDown.  These six shortcuts are
+  actually different masks for 4 individual states (from 8 total).
+
+* FPClickToFocus and FPClickToRaise work with any modifier by
+  default.
+
+* Perl library API regarding event handlers is changed, so personal
+  modules in Perl should be adjusted.
 
 <hr>
 <b>Changes in alpha release 2.5.3 (25-Aug-2002)</b>
+
+* TitleStyle MultiPixmap now works once again.
 
 * Removed the old module interface for ConfigureWindow
   packets. External modules relying on this interface no longer
@@ -317,9 +353,47 @@ Note, the changes for the last STABLE release start with release
 * New conditions Focused, !Focused, HasPointer and !HasPointer.
 
 <hr>
-<A NAME="2.4.9">
-<b>Changes in stable release 2.4.9 (11-Aug-2002)</b>
+<A NAME="2.4.10">
+<b>Changes in stable release 2.4.10 (15-Sep-2002)</b>
 </A>
+
+* The commands Maximize, Resize and ResizeMove can be used on icons
+  as it was in 2.2.x.
+
+* Fixed hilighting of menu items with HGradient and VGradient
+  MenuFace.  Reduced flickering with these options.
+
+* Fixed a minor problem with entering submenus via keyboard.
+
+* Fixed race conditions in FvwmTaskBar with AutoStick that caused
+  it to hang.
+
+* Fixed drawing of pager balloons with BalloonBack option.
+
+* Fixed drawing of SidePic menu background with B/D gradients.
+
+* Fixed drawing of menu item reliefs with gradient menu faces.
+
+* Fixed key bindings on window corners.
+
+* Fixed FvwmTaskBar i18n font loading
+
+* Fixed StackTransientParent style without RaiseTransient or
+  LowerTransient on the parent window.
+
+* StackTransientParent works only on parent window if it is on the
+  same layer.
+
+* Fixed handling of window group hint with the (De)Iconify
+  command.
+
+* No more flickering when a transient overlapping its parent window
+  is lowered.
+
+* Fixed hilighting of unfocused windows.
+
+<hr>
+<b>Changes in stable release 2.4.10 (11-Aug-2002)</b>
 
 * Fixed interaction bug between CascadePlacement and StartsOnPage -
   if the target page was at a negative x or y page displacement
@@ -525,6 +599,7 @@ Note, the changes for the last STABLE release start with release
 
 * Fixed a rare menu placement problem with Xinerama.
 
+<hr>
 <b>Changes in stable release 2.4.5 (27-Jan-2002)</b>
 
 * Fixed minor problems in popping sub menus up and down.
@@ -572,6 +647,7 @@ Note, the changes for the last STABLE release start with release
 
 * Fixed parsing of conditions with more than one comma.
 
+<hr>
 <b>Changes in stable release 2.4.4 (16-Dec-2001)</b>
 
 * Minor title drawing fixes.
@@ -608,6 +684,7 @@ Note, the changes for the last STABLE release start with release
 
 * Restored the default Alt-Tab behaviour from 2.4.0.
 
+<hr>
 <b>Changes in stable release 2.4.3 (08-Oct-2001)</b>
 
 * Fixed activation of shape extension.
@@ -629,6 +706,7 @@ Note, the changes for the last STABLE release start with release
 
 * Some icon placement improvements with Xinerama.
 
+<hr>
 <b>Changes in stable release 2.4.2 (16-Sep-2001)</b>
 
 * Desk and page can be given as X resources in .Xdefaults, for example:
@@ -637,6 +715,7 @@ Note, the changes for the last STABLE release start with release
 
 * Several Shape compilation problems fixed.
 
+<hr>
 <b>Changes in stable release 2.4.1 (15-Sep-2001)</b>
 
 * Added Xinerama and SingleLogicalScreen support.
@@ -774,16 +853,19 @@ Note, the changes for the last STABLE release start with release
 * Fixed shading/unshading shaped windows and windows without title
   and border.
 
+<hr>
 <b>Changes in stable release 2.4.0 (03-Jul-2001)</b>
 
 * Finally released. :)
 
+<hr>
 <b>Changes in beta release 2.3.33 (22-Jun-2001)</b>
 
 * Module configuration commands are now partially expanded similarly to
   any other commands, except that single alphabetic-letter parameters are
   not expanded for backward compatibility.
 
+<hr>
 <b>Changes in beta release 2.3.32 (4-May-2001)</b>
 
 * Fixed several focus problems and several core dumps.
@@ -795,16 +877,19 @@ Note, the changes for the last STABLE release start with release
 
 * Fixed gdk-imlib configure detection for FvwmGtk.
 
+<hr>
 <b>Changes in beta release 2.3.31 (7-Apr-2001)</b>
 
 * New option "recreate" to DestroyDecor command.
 
+<hr>
 <b>Changes in beta release 2.3.30 (29-Mar-2001)</b>
 
 * The configure option --disable-modality was removed.
 
 * New FvwmCommand -c option to read multiple commands from standard input.
 
+<hr>
 <b>Changes in beta release 2.3.29 (2-Mar-2001)</b>
 
 * New temporary option -debug_stack_ring.
@@ -820,6 +905,7 @@ Note, the changes for the last STABLE release start with release
 
 * New option "None" to the IconBox style.
 
+<hr>
 <b>Changes in beta release 2.3.28 (25-Jan-2001)</b>
 
 * Renamed configure option --enable-kanji to --enable-multibyte.
@@ -844,14 +930,18 @@ Note, the changes for the last STABLE release start with release
 * We have two "clever" placement algorithms: MinOverlapPlacement (the old one)
   and MinOverlapPercentPlacement.
 
+<hr>
 <b>Changes in beta release 2.3.27 (3-Jan-2001)</b>
 
+<hr>
 <b>Changes in beta release 2.3.26 (26-Dec-2000)</b>
 
+<hr>
 <b>Changes in beta release 2.3.25 (5-Dec-2000)</b>
 
 * Removed the now obsolete 'Recapture' option of the BusyCursor command.
 
+<hr>
 <b>Changes in beta release 2.3.24 (28-Nov-2000)</b>
 
 * WindowId and WarpToFunction have been enhanced to handle windows on
@@ -859,12 +949,14 @@ Note, the changes for the last STABLE release start with release
 
 * New command FakeClick.
 
+<hr>
 <b>Changes in beta release 2.3.23 (25-Nov-2000)</b>
 
 * New styles UseIconPosition (default) and NoIconPosition.
 
 * Better focus handling on multi head displays.
 
+<hr>
 <b>Changes in beta release 2.3.22 (10-Nov-2000)</b>
 
 * Configuration samples of FvwmForm and FvwmScript installed with fvwm are
@@ -887,6 +979,7 @@ Note, the changes for the last STABLE release start with release
 
 * Improved handling of windows that set the "input focus" hint to "false".
 
+<hr>
 <b>Changes in beta release 2.3.21 (September 2000)</b>
 
 * Module configuration syntax now accepts a delimiter - colon and optional
@@ -900,12 +993,14 @@ Note, the changes for the last STABLE release start with release
 
 * GNOME support is now "on" by default.
 
+<hr>
 <b>Changes in beta release 2.3.20 (July 2000)</b>
 
 * KillModule supports an optional alias parameter as given in Module.
     Module FvwmModule Alias
     KillModule FvwmModule Alias
 
+<hr>
 <b>Changes in beta release 2.3.19 (June 2000)</b>
 
 * New command UpdateStyles forces an immediate style update, even
@@ -918,6 +1013,7 @@ Note, the changes for the last STABLE release start with release
     $[desk.width], $[desk.height], $[vp.x], $[vp.y], $[vp.width], $[vp.height],
     $[w.x], $[w.y], $[w.width], $[w.height], $[screen], $[&lt;env-var&gt;]
 
+<hr>
 <b>Changes in beta release 2.3.18 (May 2000)</b>
 
 * Renamed the MovedButton3 contition to PlacedByButton3.
@@ -929,6 +1025,7 @@ Note, the changes for the last STABLE release start with release
 
 * Removed MoveSmoothness command.
 
+<hr>
 <b>Changes in beta release 2.3.17 (May 2000)</b>
 
 * The commands Refresh and RefreshWindow apply all outstanding visual
@@ -964,6 +1061,7 @@ Note, the changes for the last STABLE release start with release
 
 * fvwm-config utility can be used for querying fvwm instalation.
 
+<hr>
 <b>Changes in beta release 2.3.16 (April 2000)</b>
 
 * Wait command supports quoted window names.
@@ -973,6 +1071,7 @@ Note, the changes for the last STABLE release start with release
 
 * New style option BorderColorset and HilightBorderColorset.
 
+<hr>
 <b>Changes in beta release 2.3.15 (February 2000)</b>
 
 * Reduced memory usage of multiple window styles.
@@ -982,6 +1081,7 @@ Note, the changes for the last STABLE release start with release
 * New parameter 'prev' for GotoDesk, GotoDeskAndPage and MoveToDesk
   commands.
 
+<hr>
 <b>Changes in beta release 2.3.14 (February 2000)</b>
 
 * New style option ParentalRelativity to enable Fvwm modules to use
@@ -997,6 +1097,7 @@ Note, the changes for the last STABLE release start with release
 * New MenuStyle option SelectOnRelease to better emulate Alt-Tab.
   Same option for WindowList command.
 
+<hr>
 <b>Changes in beta release 2.3.13 (January 2000)</b>
 
 * New FvwmTheme option 'Transparent'.
@@ -1005,6 +1106,7 @@ Note, the changes for the last STABLE release start with release
 
 * New style option 'Font' replaces the old WindowFont command.
 
+<hr>
 <b>Changes in beta release 2.3.12 (December 1999)</b>
 
 * New command PointerKey.  Similar to 'Key' command but binds
@@ -1031,6 +1133,7 @@ Note, the changes for the last STABLE release start with release
   of some popular web sites in your fvwm menus. Supported sites:
   FreshMeat, LinuxToday, Slashdot, Segfault and more to come.
 
+<hr>
 <b>Changes in beta release 2.3.11 (December 1999)</b>
 
 * Sticky icon titles are drawn similar to sticky window titles.
@@ -1049,6 +1152,7 @@ Note, the changes for the last STABLE release start with release
 * New FvwmIconMan options: IconButton and IconColorset to control colors for
   iconified windows.
 
+<hr>
 <b>Changes in beta release 2.3.10 (December 1999)</b>
 
 * Fixed build problem without shape extension.
@@ -1085,6 +1189,7 @@ Note, the changes for the last STABLE release start with release
 
 * New FvwmPager options SolidSeparators and NoSeparators.
 
+<hr>
 <b>Changes in beta release 2.3.9 (October 1999)</b>
 
 * Color names from colorsets can be used in fvwm command ($[fg.cs&lt;n&gt;],
@@ -1100,6 +1205,7 @@ Note, the changes for the last STABLE release start with release
 * Menus can use colorsets with the new MenuStyle options MenuColorset,
   ActiveColorset and GreyedColorset.
 
+<hr>
 <b>Changes in beta release 2.3.8 (September 1999)</b>
 
 * New Style options ResizeOpaque and ResizeOutline.
@@ -1126,6 +1232,7 @@ Note, the changes for the last STABLE release start with release
   in both the InitFunction and RestartFuction can be moved to the new
   StartFunction.
 
+<hr>
 <b>Changes in beta release 2.3.7 (August 1999)</b>
 
 * FvwmButtons and FvwmIconBox support colorsets.
@@ -1166,6 +1273,7 @@ Note, the changes for the last STABLE release start with release
 * *FvwmPagerSloppyFocus option: To focus a window, simply move the
   pointer over the window's mini window in the pager.
 
+<hr>
 <b>Changes in beta release 2.3.6 (August 1999)</b>
 
 * New function variables $c, $r, $n.
@@ -1197,6 +1305,7 @@ Note, the changes for the last STABLE release start with release
 * New menu styles VerticalItemSpacing and VerticalTitleSpacing allow control
   over the height of menu items and titles.
 
+<hr>
 <b>Changes in alpha release 2.3.5 (July 1999)</b>
 
 * New special functions Session{Init|Restart|Exit}Function are called instead
@@ -1228,6 +1337,7 @@ Note, the changes for the last STABLE release start with release
 * The cursors used for resizing and selecting windows and handling menus have
   changed.
 
+<hr>
 <b>Changes in alpha release 2.3.4 (June 1999)</b>
 
 * Fvwm is GNOME compliant.
@@ -1241,6 +1351,7 @@ Note, the changes for the last STABLE release start with release
   by Mark Willey(willey@etla.net).
   (http://www.etla.net/~willey/projects/libstroke/)
 
+<hr>
 <b>Changes in alpha release 2.3.3 (June 1999)</b>
 
 * There can be two mini icons per menu label instead of one now.
@@ -1279,6 +1390,7 @@ Note, the changes for the last STABLE release start with release
 * New style DepressableBorder/FirmBorder to influence the appearance
   of the window border under button presses.
 
+<hr>
 <b>Changes in alpha release 2.3.2 (May 1999)</b>
 
 * The Alt-Tab binding to invoke the window list as described in the FAQ
@@ -1300,6 +1412,7 @@ Note, the changes for the last STABLE release start with release
 * System-wide config files are now in ${sysconfdir}/fvwm
   (i.e. /usr/local/etc/fvwm by default) as many files are now installed there.
 
+<hr>
 <b>Changes in alpha release 2.3.1 (April 1999)</b>
 
 * New button style flag MWMDecorShade to support toggle buttons for shaded
@@ -1334,6 +1447,7 @@ Note, the changes for the last STABLE release start with release
 * GrabFocusTransient is a new style that does the same as GrabFocus, but only
   for transient windows.
 
+<hr>
 <b>Changes in alpha release 2.3.0 (February 1999)</b>
 
 * FvwmPipe and FvwmConfig modules have been removed.
@@ -1479,6 +1593,7 @@ Note, the changes for the last STABLE release start with release
   images, no matter what their format are searched for along the
   ImagePath.
 
+<hr>
 <A NAME="2.2.5">
 <b>Changes in official release 2.2.5 (February 2001)</b>
 </A>
@@ -1496,12 +1611,14 @@ Note, the changes for the last STABLE release start with release
 
 * Core dump fix in pixmap code.
 
+<hr>
 <b>Changes in official release 2.2.4 (November 1999)</b>
 
 * Fixed HP-UX 10.20 build problems.
 
 * Fixed build problems without shape extension.
 
+<hr>
 <b>Changes in official release 2.2.3 (October 1999)</b>
 
 * Several minor bugfixes.
@@ -1512,6 +1629,7 @@ Note, the changes for the last STABLE release start with release
 
 * Fixed long-window-name-hangs-X bug.
 
+<hr>
 <b>Changes in official release 2.2.2 (May 1999)</b>
 
 * New "Emulate"  command  for independent  control of the  move/resize
@@ -1540,12 +1658,13 @@ Note, the changes for the last STABLE release start with release
 
 * Miscellaneous bug fixes,  see ChangeLog for details.
 
+<hr>
 <b>Changes in official release 2.2 (February 1999)</b>
 </pre>
     <hr>
-Last updated on 25 August 2002, 11:41 (GMT +0000)
+Last updated on 15 September 2002, 20:27 (GMT +0000)
 <!-- This file automatically generated by txt2html.sh
-     on Sun Aug 25 13:41:24 CEST 2002 -->
+     on Sun Sep 15 22:27:54 CEST 2002 -->
   </body>
 </html>
 
