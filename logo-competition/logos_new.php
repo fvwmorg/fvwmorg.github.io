@@ -454,4 +454,30 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Daniel J Parks (6 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Daniel_J_Parks/index.php'); ?>">
+
+<p><img src="logos/Daniel_J_Parks/fvwmLogoGlowingChromelike200x120.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Branko Collin (2 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Branko_Collin/index.php'); ?>">
+
+<p><img src="logos/Branko_Collin/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
