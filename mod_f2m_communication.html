@@ -30,104 +30,40 @@ length make up a packet. The header always begins with 0xffffffff. This
 is provided to help modules re-synchronize to the data stream if necessary.
 The next entry describes the packet type. Existing packet types are listed
 in the file libs/Module.h:
-<p>
-<table align="center" cellspacing=0 cellpadding=0>
-<tr>
-<td>#define <a href="#M_NEW_PAGE">M_NEW_PAGE</a></td>
-<td>(1 &lt;&lt; 0)</td>
-</tr><tr>
-<td>#define <a href="#M_NEW_DESK">M_NEW_DESK</a></td>
-<td>(1 &lt;&lt; 1)</td>
-</tr><tr>
-<td>#define M_OLD_ADD_WINDOW</td>
-<td>(1 &lt;&lt; 2)</td>
-</tr><tr>
-<td>#define <a href="#M_RAISE_WINDOW">M_RAISE_WINDOW</a></td>
-<td>(1 &lt;&lt; 3)</td>
-</tr><tr>
-<td>#define <a href="#M_LOWER_WINDOW">M_LOWER_WINDOW</a></td>
-<td>(1 &lt;&lt; 4)</td>
-</tr><tr>
-<td>#define M_OLD_CONFIGURE_WINDOW</td>
-<td>(1 &lt;&lt; 5)</td>
-</tr><tr>
-<td>#define <a href="#M_FOCUS_CHANGE">M_FOCUS_CHANGE</a></td>
-<td>(1 &lt;&lt; 6)</td>
-</tr><tr>
-<td>#define <a href="#M_DESTROY_WINDOW">M_DESTROY_WINDOW</a></td>
-<td>(1 &lt;&lt; 7)</td>
-</tr><tr>
-<td>#define <a href="#M_ICONIFY">M_ICONIFY</a></td>
-<td>(1 &lt;&lt; 8)</td>
-</tr><tr>
-<td>#define <a href="#M_DEICONIFY">M_DEICONIFY</a></td>
-<td>(1 &lt;&lt; 9)</td>
-</tr><tr>
-<td>#define <a href="#M_WINDOW_NAME">M_WINDOW_NAME</a></td>
-<td>(1 &lt;&lt; 10)</td>
-</tr><tr>
-<td>#define <a href="#M_ICON_NAME">M_ICON_NAME</a></td>
-<td>(1 &lt;&lt; 11)</td>
-</tr><tr>
-<td>#define <a href="#M_RES_CLASS">M_RES_CLASS</a></td>
-<td>(1 &lt;&lt; 12)</td>
-</tr><tr>
-<td>#define <a href="#M_RES_NAME">M_RES_NAME</a></td>
-<td>(1 &lt;&lt; 13)</td>
-</tr><tr>
-<td>#define <a href="#M_END_WINDOWLIST">M_END_WINDOWLIST</a></td>
-<td>(1 &lt;&lt; 14)</td>
-</tr><tr>
-<td>#define <a href="#M_ICON_LOCATION">M_ICON_LOCATION</a></td>
-<td>(1 &lt;&lt; 15)</td>
-</tr><tr>
-<td>#define <a href="#M_MAP">M_MAP</a></td>
-<td>(1 &lt;&lt; 16)</td>
-</tr><tr>
-<td>#define <a href="#M_ERROR">M_ERROR</a></td>
-<td>(1 &lt;&lt; 17)</td>
-</tr><tr>
-<td>#define <a href="#M_CONFIG_INFO">M_CONFIG_INFO</a></td>
-<td>(1 &lt;&lt; 18)</td>
-</tr><tr>
-<td>#define <a href="#M_END_CONFIG_INFO">M_END_CONFIG_INFO</a></td>
-<td>(1 &lt;&lt; 19)</td>
-</tr><tr>
-<td>#define <a href="#M_ICON_FILE">M_ICON_FILE</a></td>
-<td>(1 &lt;&lt; 20)</td>
-</tr><tr>
-<td>#define <a href="#M_DEFAULTICON">M_DEFAULTICON</a></td>
-<td>(1 &lt;&lt; 21)</td>
-</tr><tr>
-<td>#define <a href="#M_STRING">M_STRING</a></td>
-<td>(1 &lt;&lt; 22)</td>
-</tr><tr>
-<td>#define <a href="#M_MINI_ICON">M_MINI_ICON</a></td>
-<td>(1 &lt;&lt; 23)</td>
-</tr><tr>
-<td>#define <a href="#M_WINDOWSHADE">M_WINDOWSHADE</a></td>
-<td>(1 &lt;&lt; 24)</td>
-</tr><tr>
-<td>#define <a href="#M_DEWINDOWSHADE">M_DEWINDOWSHADE</a></td>
-<td>(1 &lt;&lt; 25)</td>
-</tr><tr>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr><tr>
-<td>#define <a href="#M_SENDCONFIG">M_SENDCONFIG</a></td>
-<td>(1 &lt;&lt; 27)</td>
-</tr><tr>
-<td>#define <a href="#M_RESTACK">M_RESTACK</a></td>
-<td>(1 &lt;&lt; 28)</td>
-</tr><tr>
-<td>#define <a href="#M_ADD_WINDOW">M_ADD_WINDOW</a></td>
-<td>(1 &lt;&lt; 29)</td>
-</tr><tr>
-<td>#define <a href="#M_CONFIGURE_WINDOW">M_CONFIGURE_WINDOW</a></td>
-<td>(1 &lt;&lt; 30)</td>
-</tr>
-</table>
-<p>
+<pre><font color="yellow">
+     #define <a href="#M_NEW_PAGE"        >M_NEW_PAGE</a>             (1 &lt;&lt; 0)
+     #define <a href="#M_NEW_DESK"        >M_NEW_DESK</a>             (1 &lt;&lt; 1)
+     #define <a name="obsolete"           >M_OLD_ADD_WINDOW</a>       (1 &lt;&lt; 2)
+     #define <a href="#M_RAISE_WINDOW"    >M_RAISE_WINDOW</a>         (1 &lt;&lt; 3)
+     #define <a href="#M_LOWER_WINDOW"    >M_LOWER_WINDOW</a>         (1 &lt;&lt; 4)
+     #define <a name="obsolete"           >M_OLD_CONFIGURE_WINDOW</a> (1 &lt;&lt; 5)
+     #define <a href="#M_FOCUS_CHANGE"    >M_FOCUS_CHANGE</a>         (1 &lt;&lt; 6)
+     #define <a href="#M_DESTROY_WINDOW"  >M_DESTROY_WINDOW</a>       (1 &lt;&lt; 7)
+     #define <a href="#M_ICONIFY"         >M_ICONIFY</a>              (1 &lt;&lt; 8)
+     #define <a href="#M_DEICONIFY"       >M_DEICONIFY</a>            (1 &lt;&lt; 9)
+     #define <a href="#M_WINDOW_NAME"     >M_WINDOW_NAME</a>          (1 &lt;&lt; 10)
+     #define <a href="#M_ICON_NAME"       >M_ICON_NAME</a>            (1 &lt;&lt; 11)
+     #define <a href="#M_RES_CLASS"       >M_RES_CLASS</a>            (1 &lt;&lt; 12)
+     #define <a href="#M_RES_NAME"        >M_RES_NAME</a>             (1 &lt;&lt; 13)
+     #define <a href="#M_END_WINDOWLIST"  >M_END_WINDOWLIST</a>       (1 &lt;&lt; 14)
+     #define <a href="#M_ICON_LOCATION"   >M_ICON_LOCATION</a>        (1 &lt;&lt; 15)
+     #define <a href="#M_MAP"             >M_MAP</a>                  (1 &lt;&lt; 16)
+     #define <a href="#M_ERROR"           >M_ERROR</a>                (1 &lt;&lt; 17)
+     #define <a href="#M_CONFIG_INFO"     >M_CONFIG_INFO</a>          (1 &lt;&lt; 18)
+     #define <a href="#M_END_CONFIG_INFO" >M_END_CONFIG_INFO</a>      (1 &lt;&lt; 19)
+     #define <a href="#M_ICON_FILE"       >M_ICON_FILE</a>            (1 &lt;&lt; 20)
+     #define <a href="#M_DEFAULTICON"     >M_DEFAULTICON</a>          (1 &lt;&lt; 21)
+     #define <a href="#M_STRING"          >M_STRING</a>               (1 &lt;&lt; 22)
+     #define <a href="#M_MINI_ICON"       >M_MINI_ICON</a>            (1 &lt;&lt; 23)
+     #define <a href="#M_WINDOWSHADE"     >M_WINDOWSHADE</a>          (1 &lt;&lt; 24)
+     #define <a href="#M_DEWINDOWSHADE"   >M_DEWINDOWSHADE</a>        (1 &lt;&lt; 25)
+
+     #define <a href="#M_SENDCONFIG"      >M_SENDCONFIG</a>           (1 &lt;&lt; 27)
+     #define <a href="#M_RESTACK"         >M_RESTACK</a>              (1 &lt;&lt; 28)
+     #define <a href="#M_ADD_WINDOW"      >M_ADD_WINDOW</a>           (1 &lt;&lt; 29)
+     #define <a href="#M_CONFIGURE_WINDOW">M_CONFIGURE_WINDOW</a>     (1 &lt;&lt; 30)
+
+</font></pre>
 Additional packet types will be defined in the future. The third entry
 in the header tells the total length of the packet, in unsigned longs,
 including the header. The fourth entry is the last time stamp received
@@ -499,7 +435,7 @@ window identifiers
 <a name="M_SENDCONFIG"></a>
 M_SENDCONFIG</h2>
 This is a dummy packet that is never sent by fvwm and is described under
-<a href="mod_m2f_communication.html">Module to Fvwm communication</a>.
+<a href="mod_m2f_communication.html#M_SENDCONFIG">Module to Fvwm communication</a>.
 <h2>
 
 <a name="M_RESTACK"></a>M_RESTACK</h2>
