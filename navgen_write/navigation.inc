@@ -66,7 +66,7 @@ $this->nav_array["birthday"]["link_pic"] = "pictures/icons/birthday";
 $this->nav_array["birthday"]["parent_site"] = "news"; 
 $this->nav_array["birthday"]["child_sites"] = array(); 
 
-$this->nav_array["news"]["file"] = "latest_news/index.php"; 
+$this->nav_array["news"]["file"] = "news/index.php"; 
 $this->nav_array["news"]["rel_path"] = "./.."; 
 $this->nav_array["news"]["link_name"] = "News"; 
 $this->nav_array["news"]["link_chapter"] = ""; 
@@ -178,13 +178,21 @@ $this->nav_array["dev_creating_rpms"]["link_pic"] = "pictures/icons/doc_develope
 $this->nav_array["dev_creating_rpms"]["parent_site"] = "developers"; 
 $this->nav_array["dev_creating_rpms"]["child_sites"] = array(); 
 
+$this->nav_array["dev_webpage"]["file"] = "documentation/dev_webpage/index.php"; 
+$this->nav_array["dev_webpage"]["rel_path"] = "./../.."; 
+$this->nav_array["dev_webpage"]["link_name"] = "Web site"; 
+$this->nav_array["dev_webpage"]["link_chapter"] = ""; 
+$this->nav_array["dev_webpage"]["link_pic"] = "pictures/icons/doc_developers_webpage"; 
+$this->nav_array["dev_webpage"]["parent_site"] = "developers"; 
+$this->nav_array["dev_webpage"]["child_sites"] = array(); 
+
 $this->nav_array["developers"]["file"] = "documentation/developers.php"; 
 $this->nav_array["developers"]["rel_path"] = "./.."; 
 $this->nav_array["developers"]["link_name"] = "Developer Info"; 
 $this->nav_array["developers"]["link_chapter"] = ""; 
 $this->nav_array["developers"]["link_pic"] = "pictures/icons/doc_developers"; 
 $this->nav_array["developers"]["parent_site"] = "documentation"; 
-$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", ); 
+$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", "dev_webpage", ); 
 
 $this->nav_array["documentation"]["file"] = "documentation/index.php"; 
 $this->nav_array["documentation"]["rel_path"] = "./.."; 

@@ -1,3 +1,13 @@
+2003-07-10  Uwe Pross  <uwe.pross@gmx.net>
+
+	* documentation/dev_webpage/index.php: 
+	started documentation of web site. contents are hidden at the
+	moment and visible with <url>?show=1
+	
+	* web-theme/classes/birthday_class.inc: 
+	changed algorithm to build a navigation desktop so that desktops
+	with more than 4 pages grow horizontaly.
+
 2003-07-08  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* logo-competition/logos_new.php:

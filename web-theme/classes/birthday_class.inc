@@ -126,40 +126,40 @@ class Birthday_Theme extends Default_Theme {
         }
     }
 
-  function insert_heading() {
-      global $heading;
-      $width = "100%";
-      $padding = "5";
-      echo '<table';
-      if(strlen($width)> 0) echo ' width="'.$width.'"';
-      echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
-      $this->decoration_top_line();
-      //$this->decoration_title_bar($string);
-      echo '<tr>'."\n";
-      $this->decoration_left_cell();
+    function insert_heading() {
+        global $heading;
+        $width = "100%";
+        $padding = "5";
+        echo '<table';
+        if(strlen($width)> 0) echo ' width="'.$width.'"';
+        echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
+        $this->decoration_top_line();
+        //$this->decoration_title_bar($string);
+        echo '<tr>'."\n";
+        $this->decoration_left_cell();
+        
+        echo '<td bgcolor="'.$this->style_array["window_bg"].'" width="100%" valign="middle">';
+        echo '<table width="100%"';
+        if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
+        echo ' summary="">'."\n";
+        echo '<tr>'."\n";
+        
+        echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
+        echo ' class="windowcontents">'."\n";
+        echo "<h1><center> $heading </center></h1>\n";
+        echo '</td>'."\n";
+        
+        echo '</tr>'."\n";
+        echo '</table>'."\n";
+        echo '</td>'."\n";
+        
+        $this->decoration_right_cell();
+        echo '</tr>'."\n";
+        $this->decoration_bottom_line();
+        echo '</table>'."\n";  
+    }
 
-      echo '<td bgcolor="'.$this->style_array["window_bg"].'" width="100%" valign="middle">';
-      echo '<table width="100%"';
-      if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
-      echo ' summary="">'."\n";
-      echo '<tr>'."\n";
-
-      echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
-      echo ' class="windowcontents">'."\n";
-      echo "<h1><center> $heading </center></h1>\n";
-      echo '</td>'."\n";
-
-      echo '</tr>'."\n";
-      echo '</table>'."\n";
-      echo '</td>'."\n";
-
-      $this->decoration_right_cell();
-      echo '</tr>'."\n";
-      $this->decoration_bottom_line();
-      echo '</table>'."\n";  
-  }
-
-    // inserts a table cell <td>..</td> which contains one pager page
+  // inserts a table cell <td>..</td> which contains one pager page
     function insert_pager_page($site, $do_hilight=1) {
         // echo "\n\n<!-- $site $this->this_site -->\n\n";
         if( !strcmp($site, $this->this_site) && $do_hilight && strlen($site) > 0 ) {
@@ -194,6 +194,40 @@ class Birthday_Theme extends Default_Theme {
         echo ' title="'.$this->nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
         echo '</td>'."\n";
 
+    }
+
+    function insert_pager_desk($site, $pages_per_desk=4) {
+        $bg = $this->style_array["pager_bg"];
+        $fg = $this->style_array["pager_fg"];
+        
+        $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
+        $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
+        
+        // desk label = link name
+        $desk_name = $this->nav_array["$site"]["link_name"];
+        // shorten string if needed
+        $max_desk_name_len = 13;
+        $desk_name = substr($desk_name, 0, $max_desk_name_len);
+        echo '<tr>'."\n";
+        echo '<td '.$td_opt.' colspan="'.floor(($pages_per_desk+1)/2).'">';
+        echo '<a href="'.$target.'" style="font-weight:normal; " class="nohilight">';
+        echo '<font size="2" color="'.$fg.'">'.$desk_name.'</font></a>';
+        echo '</td>'."\n";
+        echo '</tr>'."\n";
+
+        // page 0 0 - the site itself
+        echo '<tr>'."\n";
+        $this->insert_pager_page($site);
+        // first subsite
+        $child_sites = $this->nav_array["$site"]["child_sites"];
+        for( $ii=1; $ii<$pages_per_desk-2; $ii+=2)
+            $this->insert_pager_page($child_sites[$ii]);
+        echo '</tr>'."\n";
+        
+        echo '<tr>'."\n";
+        for( $ii=0; $ii<$pages_per_desk-1; $ii+=2) 
+            $this->insert_pager_page($child_sites[$ii]);
+        echo '</tr>'."\n";
     }
 
     // pre function to build the pager
