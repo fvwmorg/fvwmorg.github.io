@@ -254,22 +254,23 @@ $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
-    $theme_file = theme_file($theme."_theme.inc");
+    // nop
+    $user_theme = 1;
 } elseif( preg_match("/Emacs/", $user_agent) ||
           preg_match("/Lynx/", $user_agent)  ||
           preg_match("/w3m/", $user_agent)) {
-    $theme_file = theme_file("plain_theme.inc");
     $theme = "plain";
 //} elseif( preg_match("/logo-competition/", $_SERVER["SCRIPT_FILENAME"]) ) {
 //    $theme_file = theme_file("plain_theme.inc");
 //    $theme = "plain";     
 } else {
-    // $theme_file = theme_file("default_theme.inc");
-    // $theme = "default";
-    $theme_file = theme_file("pager_on_top_theme.inc");
     $theme = "pager_on_top";
-    // $theme_file = theme_file("birthday_theme.inc");
-    // $theme = "birthday";
+}
+
+if( get_user_setting("no_software_patents") || ! get_user_setting("aswp") ) {
+    $theme_file = theme_file($theme."_theme.inc");
+} else {
+    $theme_file = theme_file("against_sw_patents_statement.inc");
 }
 
 // layout file - old version
@@ -277,7 +278,6 @@ $layout_file = $theme_file;
 
 $navigation_file = $rel_path."/navgen_write/navigation.inc";
 $navgen_url      = $rel_path."/navgen.php";
-
 
 //--------------------------------------------------------------------
 // release information

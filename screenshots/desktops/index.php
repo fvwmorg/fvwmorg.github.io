@@ -45,23 +45,15 @@ $total_num_of_screenshots = count($db);
 if( ! $show_start = get_user_setting("start", array("GET","POST") ) ) $show_start = 0;
 if( ! $show_num   = get_user_setting("num"  , array("GET","POST") ) ) $show_num   = 5;
 // correct settings
-if( $show_start > $total_num_of_screenshots ) {
+if( $show_start >= $total_num_of_screenshots ) {
     if( $show_num >= $total_num_of_screenshots ) {
         $show_start = 0;
     } else {
         $show_start = $total_num_of_screenshots - $show_num;
     }
 }
-if( $show_num + $show_start > $total_num_of_screenshots ) {
-    $show_num = $total_num_of_screenshots - $show_start;
-}
+$show_start = floor($show_start / $show_num) * $show_num;
 ?>
-
-<p>
-Total <?php echo $total_num_of_screenshots;?> screenshots available. 
-Displaying from shot no. <?php echo $show_start + 1; ?> -
-<?php echo $show_start + $show_num; ?>.
-</p>
 
 <?php 
 
@@ -108,8 +100,54 @@ if( ! function_exists("my_show_shot") ) {
     function my_show_end() {
         echo '</table>';
     }
-}
+    function insert_prev_next_list($start, $num) {
+        
+    }
 
+}
+?>
+
+<p>
+  Total <?php echo $total_num_of_screenshots;?> screenshots available. 
+  Displaying from shot no. <?php echo $show_start + 1; ?> -
+  <?php echo $show_start + $show_num; ?>.
+</p>
+
+<form action="<?php echo $requested_file;?>" method="GET">
+  <table border="0" cellpadding="3">
+    <tr>
+      <td>
+        Number of pics per page:
+      </td>
+      <td>
+        <select name="num" size="1">
+          <option>2</option>
+          <option>5</option>
+          <option>10</option>
+          <option>20</option>
+          <option>50</option>
+          <option>100</option>
+        </select>
+      </td>
+       <td>
+         <?php
+           if( $user_theme ) {
+             echo '<input type="hidden" name="theme" value="'.$theme.'">';
+           }
+         ?>
+         <input type="submit" value="go">
+       </td>
+       <td>
+         Next <?php echo $show_num;?> 
+       </td>
+    </tr>
+  </table>
+</form>
+
+<?php
+//--------------------------------------------------------------------
+//- screenshot table
+//--------------------------------------------------------------------
 my_show_start();
 for( $ii=$show_start; $ii<$show_start+$show_num; $ii++) {
     my_show_shot($db[$ii]);
