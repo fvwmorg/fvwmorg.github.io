@@ -1,3 +1,11 @@
+2003-07-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* fvwm-cats/*.php: 
+	fixed links from cat page to index.php
+
+	* authors/index.php:
+	fixex link to picture page
+
 2003-07-10  Uwe Pross  <uwe.pross@gmx.net>
 
 	* navgen.cli:

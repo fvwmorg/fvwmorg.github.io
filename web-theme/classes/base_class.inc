@@ -127,7 +127,6 @@ class Base_Theme {
     // and do some conversions here. for exampe one may convert php to
     // html here to get a html tree of this web project
     function conv_link_target($target) {
-
         if( count($this->user_settings_array) > 0 ) {
             reset($this->user_settings_array);
             list($key, $setting) = each($this->user_settings_array);

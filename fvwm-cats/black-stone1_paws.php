@@ -40,5 +40,5 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 ?>
 
   <?php decoration_window_start("black-stone1_paws","","","0"); ?>
-  <a href="<?php echo conv_link_target('index.php');?>"><img src="black-stone1_paws.jpg" border="0" hspace="0" vspace="0"></a>
+  <a href="<?php echo conv_link_target('./index.php');?>"><img src="black-stone1_paws.jpg" border="0" hspace="0" vspace="0"></a>
   <?php decoration_window_end(); ?>

@@ -41,7 +41,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Authors of FVWM"); ?>
 
-<h3>Here you can see <a href="<?php conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
+<h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
 <h4 class="author">David Lazar</h4>
