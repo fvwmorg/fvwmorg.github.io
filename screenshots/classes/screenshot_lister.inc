@@ -31,7 +31,7 @@ class Screenshot_Lister extends Directory_Lister {
                                $regexp_preview=array("^preview", "^thumb"),
                                $regexp_description=array("^desc"),
                                $regexp_screenshot=array("^screen", "^desk", "^shot"),
-                               $regexp_config=array("^fvwmrc", "^fvwm2rc")) {
+                               $regexp_config=array("^fvwmrc", "^fvwm2rc", "^config")) {
         $this->check_preview_size  = 0;
         $this->database_filename   = "./screenshot_db.inc";
         $this->path                = $path;
