@@ -240,10 +240,10 @@ class Screenshot_Lister extends Directory_Lister {
     function get_dimension($screenshot, $path, $date) {
         if( $this->old_database[$path] ) {
             // echo "Found entry in old data base ...\n";
-            if( $this->old_database[$path]["date"] == $date ) {
+            // if( $this->old_database[$path]["date"] == $date ) {
                 // echo "File has not changed since then - using it\n";
                 return $this->old_database[$path]["dimension"];
-            }
+            // }
         }
         $output = exec("convert -verbose ".$path."/".$screenshot." gif:/dev/null 2> /dev/null");
         // echo $output."\n";

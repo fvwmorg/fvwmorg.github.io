@@ -1,3 +1,13 @@
+2004-05-23  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* screenshots/windowdecors/:
+	new window decor page in the style of the other shot pages, this
+	page is intended to hold _complete_ window decor decorations for
+	fvwm. 
+	
+	* screenshots/windowdecors/simple/:
+	added a first decor - hope others will follow
+
 2004-03-21  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* web-theme/classes/pager_on_top_class.inc: 

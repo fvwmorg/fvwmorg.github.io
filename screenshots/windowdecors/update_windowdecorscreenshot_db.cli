@@ -1,4 +1,5 @@
 <?php
+//-*-php-*-
 //--------------------------------------------------------------------
 //-  File          : fvwm-web/screenshots/menus/update_menuscreenshot_db.cli
 //-  Date          : Sun Feb  1 14:27:10 2004                         
@@ -11,8 +12,8 @@ $lister = new Screenshot_Lister(".");
 
 $lister->set_regexp_preview(array("^preview"));
 $lister->set_regexp_description(array("^desc"));
-$lister->set_regexp_screenshot(array("^menu"));
-$lister->set_regexp_config(array("^config", "fvwmrc", "fvwm2rc"));
+$lister->set_regexp_screenshot(array("^decor", "^shot"));
+$lister->set_regexp_config(array("config", "fvwmrc", "fvwm2rc"));
 $lister->process_dir_array();
 
 $os = fopen("./screenshot_db.inc","w");
@@ -31,7 +32,7 @@ fclose($os);
 
 echo "Copying index.php to subdirectories.\n";
 foreach($lister->processed_dir_array as $dir) {
-    $cmd = "cp subdir_index.php ".$dir["path"]."/index.php";
+    $cmd = "cp subdir_index.php_ ".$dir["path"]."/index.php";
     echo "Exec ".$cmd."\n";
     exec($cmd);
 }

@@ -46,28 +46,12 @@ $this->nav_array["home"]["link_picture"] = "pictures/icons/home";
 $this->nav_array["home"]["parent_site"] = "top"; 
 $this->nav_array["home"]["child_sites"] = array("authors", "history", "fvwm_cats", ); 
 
-$this->nav_array["logo_competition_results1"]["file"] = "logo-competition/logos/voting/results1.php"; 
-$this->nav_array["logo_competition_results1"]["rel_path"] = "./../../.."; 
-$this->nav_array["logo_competition_results1"]["link_name"] = "Logo Competition Stage 1 Result Page"; 
-$this->nav_array["logo_competition_results1"]["short_name"] = "Stage 1 Results"; 
-$this->nav_array["logo_competition_results1"]["link_picture"] = "pictures/icons/logo_competition"; 
-$this->nav_array["logo_competition_results1"]["parent_site"] = "logo_competition"; 
-$this->nav_array["logo_competition_results1"]["child_sites"] = array(); 
-
-$this->nav_array["logo_competition_results2"]["file"] = "logo-competition/logos/voting/results2.php"; 
-$this->nav_array["logo_competition_results2"]["rel_path"] = "./../../.."; 
-$this->nav_array["logo_competition_results2"]["link_name"] = "Logo Competition Final Result Page"; 
-$this->nav_array["logo_competition_results2"]["short_name"] = "Final Results"; 
-$this->nav_array["logo_competition_results2"]["link_picture"] = "pictures/icons/logo_competition"; 
-$this->nav_array["logo_competition_results2"]["parent_site"] = "logo_competition"; 
-$this->nav_array["logo_competition_results2"]["child_sites"] = array(); 
-
-$this->nav_array["logo_competition"]["file"] = "logo-competition/index.php"; 
-$this->nav_array["logo_competition"]["rel_path"] = "./.."; 
-$this->nav_array["logo_competition"]["link_name"] = "Logo Competition"; 
+$this->nav_array["logo_competition"]["file"] = "logo-competition/logos/voting/index.php"; 
+$this->nav_array["logo_competition"]["rel_path"] = "./../../.."; 
+$this->nav_array["logo_competition"]["link_name"] = "Logo Competition Voting Page"; 
 $this->nav_array["logo_competition"]["link_picture"] = "pictures/icons/logo_competition"; 
 $this->nav_array["logo_competition"]["parent_site"] = "news"; 
-$this->nav_array["logo_competition"]["child_sites"] = array("logo_competition_results1", "logo_competition_results2", ); 
+$this->nav_array["logo_competition"]["child_sites"] = array(); 
 
 $this->nav_array["logo"]["file"] = "fvwm-logo/index.php"; 
 $this->nav_array["logo"]["rel_path"] = "./.."; 
@@ -112,13 +96,13 @@ $this->nav_array["screenshots_desks"]["link_picture"] = "pictures/icons/screensh
 $this->nav_array["screenshots_desks"]["parent_site"] = "screenshots"; 
 $this->nav_array["screenshots_desks"]["child_sites"] = array(); 
 
-$this->nav_array["windowdecors"]["file"] = "screenshots/windowdecors/index.php"; 
-$this->nav_array["windowdecors"]["rel_path"] = "./../.."; 
-$this->nav_array["windowdecors"]["link_name"] = "Window Decoration Screenshots"; 
-$this->nav_array["windowdecors"]["short_name"] = "Window Decors"; 
-$this->nav_array["windowdecors"]["link_picture"] = "pictures/icons/screenshots_decor"; 
-$this->nav_array["windowdecors"]["parent_site"] = "screenshots"; 
-$this->nav_array["windowdecors"]["child_sites"] = array(); 
+$this->nav_array["screenshots_windowdecors"]["file"] = "screenshots/windowdecors/index.php"; 
+$this->nav_array["screenshots_windowdecors"]["rel_path"] = "./../.."; 
+$this->nav_array["screenshots_windowdecors"]["link_name"] = "Window Decor Screenshots"; 
+$this->nav_array["screenshots_windowdecors"]["short_name"] = "Window decors"; 
+$this->nav_array["screenshots_windowdecors"]["link_picture"] = "pictures/icons/screenshots_decors"; 
+$this->nav_array["screenshots_windowdecors"]["parent_site"] = "screenshots"; 
+$this->nav_array["screenshots_windowdecors"]["child_sites"] = array(); 
 
 $this->nav_array["screenshots_menus"]["file"] = "screenshots/menus/index.php"; 
 $this->nav_array["screenshots_menus"]["rel_path"] = "./../.."; 
@@ -140,7 +124,7 @@ $this->nav_array["screenshots"]["rel_path"] = "./..";
 $this->nav_array["screenshots"]["link_name"] = "Screenshots"; 
 $this->nav_array["screenshots"]["link_picture"] = "pictures/icons/screenshots"; 
 $this->nav_array["screenshots"]["parent_site"] = "top"; 
-$this->nav_array["screenshots"]["child_sites"] = array("screenshots_desks", "windowdecors", "screenshots_menus", "screenshots_vectorbuttons", ); 
+$this->nav_array["screenshots"]["child_sites"] = array("screenshots_desks", "screenshots_windowdecors", "screenshots_menus", "screenshots_vectorbuttons", ); 
 
 $this->nav_array["faq"]["file"] = "documentation/faq/index.php"; 
 $this->nav_array["faq"]["rel_path"] = "./../.."; 

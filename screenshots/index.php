@@ -20,7 +20,7 @@ $title          = "FVWM - Screenshots";
 $link_name      = "Screenshots";
 $link_picture   = "pictures/icons/screenshots";
 $parent_site    = "top";
-$child_sites    = array("screenshots_desks", "windowdecors" ,"screenshots_menus", "screenshots_vectorbuttons");
+$child_sites    = array("screenshots_desks", "screenshots_windowdecors" ,"screenshots_menus", "screenshots_vectorbuttons");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "screenshots";
 
@@ -47,11 +47,13 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('desktops/index.php');?>"><img src="screenshots_desktop_overview.jpg" border="0"></a></td>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('windowdecors/index.php');?>"><img src="screenshots_windowdecorations_overview.jpg" border="0"></a></td>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('menus/index.php');?>"><img src="screenshots_menus_overview.jpg" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('vectorbuttons/index.php');?>"><img src="screenshots_vectorbuttons_overview.jpg" border="0"></a></td>
       </tr>
       <tr>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('desktops/index.php');?>">Desktop screenshots</a></td>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('windowdecors/index.php');?>">Window decoration screenshots</a></td>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('menus/index.php');?>">Menu screenshots</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('vectorbuttons/index.php');?>">Vectorbuttons screenshots</a></td>
       </tr>
     </table>
   </center>
