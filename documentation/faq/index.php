@@ -271,7 +271,7 @@ A: &quot;Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
    Know what? I found another one while stroking my cats: FEEDING :-)
 
    Check this link:
-         <a href="http://fvwm.org/fvwm-cats/">http://fvwm.org/fvwm-cats/</a>
+   	<a href="http://fvwm.org/fvwm-cats/">http://fvwm.org/fvwm-cats/</a>
 
 ----------------------------------------------------------------------
 
@@ -497,7 +497,7 @@ A: Sure - here's one from Graeme McCaffery:
      On the other hand, here is a link to a web page that describes how to
      add multiple window managers to the CDE login menu:
 
-         <a href="http://twirl.mcc.ac.uk/~zzassgl/wm.html">http://twirl.mcc.ac.uk/~zzassgl/wm.html</a>
+     	<a href="http://twirl.mcc.ac.uk/~zzassgl/wm.html">http://twirl.mcc.ac.uk/~zzassgl/wm.html</a>
 
 ----------------------------------------------------------------------
 
@@ -1909,10 +1909,8 @@ A: This problem might occur on other applications besides the one
    There are 2 Mainsoft Knowledgebase pages that relate to UNIX
    window managers:
 
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0027.html&quot;</a>
-   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0027.html_+_/A_-_</a>
-         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;">http://www.mainsoft.com/kb_mainwin/kbmw0034.html&quot;</a>
-   _-_<a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_">http://www.mainsoft.com/kb_mainwin/kbmw0034.html_+_/A_-_</a>
+	<a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
+	<a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
 
    These pages suggest that you export MWWM=allwm or MWWM=MWM before
    starting the application.
@@ -2022,7 +2020,7 @@ A: This is not our primary mission, but we think fvwm does a pretty
    good job of producing these appearances.
 
    You may want to take a look at the
-         <a href="http://fvwm-themes.sourceforge.net/">http://fvwm-themes.sourceforge.net/</a>
+   	<a href="http://fvwm-themes.sourceforge.net/">http://fvwm-themes.sourceforge.net/</a>
    package.
 
 ----------------------------------------------------------------------
@@ -2040,7 +2038,7 @@ A: If you want more color icons, grab the ones out of the ctwm
    links at the fvwm web site to other sources of icons.
 
    You may want to take a look at the
-         <a href="http://wm-icons.sourceforge.net/">http://wm-icons.sourceforge.net/</a>
+   	<a href="http://wm-icons.sourceforge.net/">http://wm-icons.sourceforge.net/</a>
    package.
 
 ----------------------------------------------------------------------
@@ -2101,7 +2099,7 @@ A: Under this heading we've had questions about FvwmForm being all
    it at once.
 
    This is explained in excruciating detail in the
-         <a href="http://www.sunhelp.org/faq/FrameBuffer.html">http://www.sunhelp.org/faq/FrameBuffer.html</a>
+   	<a href="http://www.sunhelp.org/faq/FrameBuffer.html">http://www.sunhelp.org/faq/FrameBuffer.html</a>
 
    If your display can support more than 256 colors, that's the way to
    go.  Look up the documentation for your X server.  You may want to
