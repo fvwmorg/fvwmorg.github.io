@@ -13,7 +13,10 @@ $db = array(
                  'date' => 1073982377,
                  'size' => 666542,
                  'dimension' => '1152x864',
-                 'description' => ' FVWM Chrome theme from Andrew Dolgov.',
+                 'description' => ' FVWM Chrome theme from Andrew Dolgov. He provides a 
+ <a href="http://iamsotona.narod.ru/fvwm/fvwm-config.tar.bz2">package</a>
+ with configs and pixmaps used at this screenshot.
+',
                  ),
       1 => array(
                  'path' => './Klaus_Umbach-1280x1024',
