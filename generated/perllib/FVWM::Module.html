@@ -82,16 +82,21 @@ The following methods are available:
 <B>deleteHandler</B>,
 <B>addDefaultErrorHandler</B>,
 <B>debug</B>
+<B>isDummy</B>
 <P>
 
-The following methods are a bit less useful, since they are called from
-other methods above:
+The following methods are called from other methods above, but may be useful
+in other situations as well:
 <P>
 
 <B>internalDie</B>,
 <B>name</B>,
 <B>mask</B>,
+<B>xmask</B>,
+<B>isInMask</B>,
 <B>syncMask</B>,
+<B>syncXMask</B>,
+<B>isInSyncMask</B>,
 <B>disconnect</B>,
 <B>getHandlerCategory</B>,
 <B>readPacket</B>,
@@ -409,9 +414,29 @@ this data is only seen if <I>Debug</I> is set to something positive.
 
 
 
-<DT><B>internalDie</B> <I>msg</I><DD>
+<DT><B>isDummy</B><DD>
 
 <A NAME="ixAAT"></A>
+Usually a module should be executed by <I><a href="../manpages/fvwm.html">fvwm</a></I> only. But to help creating
+<FONT>GUI</FONT> applications, the dummy mode is supported when the module is started
+from the command line. No events are received in this case, but with some
+effort they may be emulated:
+
+
+<P>
+
+
+<blockquote><pre>    my $event = new FVWM::Event(M_NEW_DESK, [ 2 ]);
+    $module-&gt;invokeHandler($event) if $module-&gt;isDummy;</pre></blockquote>
+
+<BR>
+
+
+
+
+<DT><B>internalDie</B> <I>msg</I><DD>
+
+<A NAME="ixAAU"></A>
 This may be used to end the module with the corresponding <I>msg</I>.
 For a clean module exit use <B>debug</B> and <B>terminate</B> instead.
 
@@ -422,7 +447,7 @@ For a clean module exit use <B>debug</B> and <B>terminate</B> instead.
 
 <DT><B>name</B> [<I>name</I>]<DD>
 
-<A NAME="ixAAU"></A>
+<A NAME="ixAAV"></A>
 Sets or returns the module name. Called automatically from the constructor.
 
 <BR>
@@ -430,13 +455,19 @@ Sets or returns the module name. Called automatically from the constructor.
 
 
 
-<DT><B>mask</B> [<I>mask</I>]<DD>
+<DT><B>mask</B> [<I>mask</I>] =item <B>xmask</B> [<I>mask</I>]<DD>
 
-<A NAME="ixAAV"></A>
+<A NAME="ixAAW"></A>
 Sets or returns the module mask. Called automatically from the constructor.
-This method should be called twice for regular and extended packet types.
-If <I>M_EXTENDED_MSG</I> is given as a parameter the method returns extended
-mask, all other mask parameters results in setting the mask.
+
+
+<P>
+
+
+Regular and extended event types should never be mixed, this is why there
+are 2 variants of this method, the first is for regular and the second is
+for extended event types. Without a parameter, the module mask is returned,
+the integer parameter indicates a mask to set and the old mask is returned.
 
 
 <P>
@@ -450,11 +481,23 @@ and extended).
 
 
 
-<DT><B>syncMask</B> [<I>mask</I>]<DD>
+<DT><B>isInMask</B> <I>type</I><DD>
 
-<A NAME="ixAAW"></A>
-The same as <B>mask</B>, but sets/returns the synchronization mask of the
-module.
+<A NAME="ixAAX"></A>
+Returns true if the module mask matches the given <I>type</I>.
+Good for both regular and extended event types as long as they are queried
+separately.
+
+<BR>
+
+
+
+
+<DT><B>syncMask</B> [<I>mask</I>] =item <B>syncXMask</B> [<I>mask</I>]<DD>
+
+<A NAME="ixAAY"></A>
+The same as <B>mask</B> and <B>xmask</B>, but sets/returns the synchronization
+mask of the module.
 
 
 <P>
@@ -468,9 +511,21 @@ module synchronization masks (regular and extended).
 
 
 
+<DT><B>isInSyncMask</B> <I>type</I><DD>
+
+<A NAME="ixAAZ"></A>
+Returns true if the module synchronization mask matches the given <I>type</I>.
+Good for both regular and extended event types as long as they are queried
+separately.
+
+<BR>
+
+
+
+
 <DT><B>disconnect</B><DD>
 
-<A NAME="ixAAX"></A>
+<A NAME="ixABA"></A>
 This method invokes <I></I><FONT><I>ON_EXIT</I></FONT><I></I> handlers if any and closes communication.
 It is called automatically from <B>eventLoop</B> before finishing.
 It is safe to call this method more than once.
@@ -489,7 +544,7 @@ proper shutdown.
 
 <DT><B>getHandlerCategory</B> <I>type</I><DD>
 
-<A NAME="ixAAY"></A>
+<A NAME="ixABB"></A>
 Returns one of 3 string ids depending on the event handler <I>type</I> that has
 the same meaning as the corresponding packet type (``regular'' or ``extended'')
 with an addition of ``special'' category for <I></I><FONT><I>ON_EXIT</I></FONT><I></I> handlers.
@@ -501,7 +556,7 @@ with an addition of ``special'' category for <I></I><FONT><I>ON_EXIT</I></FONT><
 
 <DT><B>readPacket</B><DD>
 
-<A NAME="ixAAZ"></A>
+<A NAME="ixABC"></A>
 This is a blocking method that waits until there is a packet on the
 communication end from <I><a href="../manpages/fvwm.html">fvwm</a></I>. Then it returns a list of 2 values,
 packet type and packet data (packed).
@@ -513,7 +568,7 @@ packet type and packet data (packed).
 
 <DT><B>invokeHandler</B> <I>event</I><DD>
 
-<A NAME="ixABA"></A>
+<A NAME="ixABD"></A>
 Dispatches the apropos event handlers with the event data.
 This method is called automatically, so you usually should not worry about it.
 
@@ -524,7 +579,7 @@ This method is called automatically, so you usually should not worry about it.
 
 <DT><B>processPacket</B> [<I>data type</I>]<DD>
 
-<A NAME="ixABB"></A>
+<A NAME="ixABE"></A>
 This method constructs the event object from the packet data and calls
 <B>invokeHandler</B> with it. Prints debug info if requested. Finally calls
 <B>sendUnlock</B> if needed.
@@ -543,7 +598,7 @@ from the event loop.
 
 <DT><B>readConfigInfo</B><DD>
 
-<A NAME="ixABC"></A>
+<A NAME="ixABF"></A>
 Not implemented yet.
 
 <BR>
@@ -553,7 +608,7 @@ Not implemented yet.
 
 <DT><B>isEventExtended</B> <I>type</I><DD>
 
-<A NAME="ixABD"></A>
+<A NAME="ixABG"></A>
 For technical reasons there are 2 categories of <FONT>FVWM</FONT> events, regular and
 extended. This is done to enable more events. With introdution of the
 extended event types (with the highest bit set) it is now possible to have
@@ -569,7 +624,7 @@ is extended or not.
 
 <DT><B>userDataDir</B><DD>
 
-<A NAME="ixABE"></A>
+<A NAME="ixABH"></A>
 Returns the user data directory, usually ~/.fvwm or set by <TT>$FVWM_USERDIR</TT>.
 
 <BR>
@@ -579,7 +634,7 @@ Returns the user data directory, usually ~/.fvwm or set by <TT>$FVWM_USERDIR</TT
 
 <DT><B>siteDataDir</B><DD>
 
-<A NAME="ixABF"></A>
+<A NAME="ixABI"></A>
 Returns the system-wide data directory, the one configured when <FONT>FVWM</FONT> is
 installed. It is also returned by `fvwm-config --fvwm-datadir`.
 
@@ -590,7 +645,7 @@ installed. It is also returned by `fvwm-config --fvwm-datadir`.
 
 <DT><B>searchDirs</B><DD>
 
-<A NAME="ixABG"></A>
+<A NAME="ixABJ"></A>
 It is a good practice for a module to search for the given configuration
 in one of 2 data directories, the user one and the system-wide. This method
 returns a list of both directories in that order.
@@ -598,12 +653,12 @@ returns a list of both directories in that order.
 <A NAME="lbAF">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixABH"></A>
+<A NAME="ixABK"></A>
 Awaiting for your reporting.
 <A NAME="lbAG">&nbsp;</A>
 <H2>CAVEATS</H2>
 
-<A NAME="ixABI"></A>
+<A NAME="ixABL"></A>
 In keeping with the <FONT>UNIX</FONT> philosophy, <B></B><B>FVWM::Module</B> does not keep you from
 doing stupid things, as that would also keep you from doing clever things.
 What this means is that there are several areas with which you can hang your
@@ -612,17 +667,17 @@ flexibility, not bugs.
 <A NAME="lbAH">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-<A NAME="ixABJ"></A>
+<A NAME="ixABM"></A>
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <A NAME="lbAI">&nbsp;</A>
 <H2>THANKS TO</H2>
 
-<A NAME="ixABK"></A>
+<A NAME="ixABN"></A>
 Randy J. Ray &lt;<A HREF="mailto:randy@byz.org">randy@byz.org</A>&gt;.
 <A NAME="lbAJ">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixABL"></A>
+<A NAME="ixABO"></A>
 For more information, see the <a href="../manpages/fvwm.html">fvwm</a> manpage, the <a href="./FVWM::Module::Gtk.html">FVWM::Module::Gtk</a> manpage and the <a href="./FVWM::Module::Tk.html">FVWM::Module::Tk</a> manpage.
 <P>
 
@@ -643,8 +698,8 @@ For more information, see the <a href="../manpages/fvwm.html">fvwm</a> manpage, 
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 18:46:58 GMT, September 17, 2002
+Time: 20:06:40 GMT, October 09, 2002
 <hr>
-<!-- Automatically generated by perllib2html on 17-Sep-2002 21:46:52 -->
+<!-- Automatically generated by perllib2html on 09-Oct-2002 22:06:32 -->
 </body>
 </html>

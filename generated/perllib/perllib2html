@@ -110,6 +110,7 @@ foreach my $topic (@topics) {
 	s!(<H1>)perllib(</H1>)!$1 . "Perl Library " . ucfirst($topic) . $2!e;
 	s!(<BR>)Updated(: )!$1Version$2!;
 	s!http://localhost/cgi-bin/man/man2html!./!g;
+	s!<A HREF="[^"]*?\d\+[\w\d]+">([^>]+)</A>!$1!g;
 
 	# correct example blocks
 	s!%(/?pre)%!<$1>!g;
@@ -123,7 +124,7 @@ foreach my $topic (@topics) {
 	s!(the )($topicRegExp)( manpage)!$1<a href="./$2.html">$2</a>$3!g;
 	s!(the )([Ff]vwm[\w-]*)( manpage)!$1<a href="../manpages/$2.html">$2</a>$3!g;
 	s!(<[BbIi]>)($topicRegExp)(</[BbIi]>)!$1<a href="./$2.html">$2</a>$3!g;
-	s!(<[BbIi]>)(fvwm)(</[BbIi]>)!$1<a href="../manpages/$2.html">$2</a>$3!g;
+	s!(<[BbIi]>)(fvwm|Fvwm[\w]+)(</[BbIi]>)!$1<a href="../manpages/$2.html">$2</a>$3!g;
 	s!<a href="./$topic.html">$topic</a>!$topic!g;  # don't self-link
 
 	saveFile(

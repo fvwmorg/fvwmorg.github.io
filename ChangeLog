@@ -1,3 +1,15 @@
+2002-10-09  Mikhael Goikhman  <migo@homemail.com>
+
+	* screenshots/Mikhael-desk-*:
+	replaced
+
+	* generated/perllib/perllib2html:
+	* generated/perllib/*.html:
+	regenerated plus some new fixes
+
+	* generated/manpages/FvwmGtkDebug.html:
+	added
+
 2002-09-25  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* mod_m2f_communication.html:

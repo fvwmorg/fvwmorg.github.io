@@ -27,20 +27,24 @@ Section: FVWM Perl library (3)<BR>Version: FVWM 2.5.4 (from cvs)<BR><A HREF="#in
 
 tutorial - common techniques for writting <FONT>FVWM</FONT> modules
 <A NAME="lbAC">&nbsp;</A>
-<H2>WHAT IS A WINDOW MANAGER</H2>
+<H2>TUTORIAL</H2>
 
 <A NAME="ixAAC"></A>
+<A NAME="lbAD">&nbsp;</A>
+<H2>What is a window manager</H2>
+
+<A NAME="ixAAD"></A>
 A window manager is a program that runs on top of the X Window
 System and manages windows, menus, key and mouse bindings, virtual
 desktops and pages, draws window decorations using defined colors or
 images, title-bar buttons and fonts.  It may also manage such things
-like root background, mouse cursors, sounds, run applications and
-do a lot of other nice things.
-<A NAME="lbAD">&nbsp;</A>
-<H2>WHAT IS A MODULE</H2>
+as root background, mouse cursors, sounds, run applications and
+do other nice things.
+<A NAME="lbAE">&nbsp;</A>
+<H2>What is a module</H2>
 
-<A NAME="ixAAD"></A>
-In the unix traditions different functionality may be implemented
+<A NAME="ixAAE"></A>
+In the unix traditions, different functionality may be implemented
 by separate programs to reduce a bloat. A module is an optional
 program that is intended to extend the window manager using a defined
 module protocol.
@@ -53,12 +57,12 @@ exit immediately or shortly, and persistent modules that exit
 together with a window manager or when a user requests.  Some
 modules may control windows or other modules. Some modules may supply
 a <FONT>GUI</FONT>, others may be non interactive.
-<A NAME="lbAE">&nbsp;</A>
-<H2>CREATING A SIMPLE MODULE</H2>
+<A NAME="lbAF">&nbsp;</A>
+<H2>Creating a simple module</H2>
 
-<A NAME="ixAAE"></A>
+<A NAME="ixAAF"></A>
 Let's create a module that shows a flash window for one second when
-you change pages. We will use xmessage with nifty options for our
+you change pages. We will use <I>xmessage</I> with nifty options for our
 flash purposes, but you may use your fantasy to do this better.
 <P>
 
@@ -73,13 +77,13 @@ handlers. When an event is processed, the module enters the event
 loop again.
 <P>
 
-In our case, we should listen to an <FONT>FVWM</FONT> event M_NEW_PAGE. The list
+In our case, we should listen to an <FONT>FVWM</FONT> event <I>M_NEW_PAGE</I>. The list
 of all events may be found in the <a href="./FVWM::Constants.html">FVWM::Constants</a> manpage. When we receive
 the event we want to get new page coordinates and display them
 using our special xmessage window.
 <P>
 
-Now from theory to practice. The header of all modules written in
+Now, from theory to practice. The header of all modules written in
 Perl is pretty standard:
 <P>
 
@@ -94,16 +98,21 @@ Then create the actual module object:
         Mask =&gt; M_NEW_PAGE | M_NEW_DESK,
         Debug =&gt; 1,
     );</pre></blockquote>
-The <B>Debug</B> option tells to print the event names we receive to
-help writing a module. The <B>Mask</B> option tells which events a
-module wants to receive. It is ok not to define any event handler
-for <I>M_NEW_DESK</I> and to define two event handlers for
-<I>M_NEW_PAGE</I>. But for our purposes one <I>M_NEW_PAGE</I> would be more
-than enough:
+The <B>Debug</B> option tells to print the event names that a module
+receives to help writing a module, it also echoes all sent commands.
+The <B>Mask</B> option tells which events a module wants to receive, in
+our case these are events generated on the page and desk changes.
+<P>
+
+To handle events, event handlers that are perl functions, should be
+defined. It is ok not to define any event handler for <I>M_NEW_DESK</I>
+and to define two event handlers for <I>M_NEW_PAGE</I>. But for our
+purposes one <I>M_NEW_PAGE</I> would be more than enough:
 <P>
 
 <blockquote><pre>    $module-&gt;addHandler(M_NEW_PAGE, \&amp;gotNewPage);</pre></blockquote>
-It is a time to implement our <TT>`gotNewPage'</TT> function.
+It is a time to implement our <TT>`gotNewPage'</TT> function that will be
+called every time the desktop page is changed.
 <P>
 
 <blockquote><pre>    sub gotNewPage {
@@ -134,11 +143,16 @@ We should do some calculations to get the page numbers from viewport
 coordinates.
 <P>
 
-It is good to set-up the FlashWindow specially:
+The <B>send</B> method passes the command to <I><a href="../manpages/fvwm.html">fvwm</a></I> for execution.
+It would be better to set-up the FlashWindow specially:
 <P>
 
 <blockquote><pre>    $module-&gt;send(&quot;Style FlashWindow StaysOnTop, NoTitle, NoHandles, \
         BorderWidth 10, WindowListSkip, NeverFocus, UsePPosition&quot;);</pre></blockquote>
+Finally, all persistent modules should enter the event loop:
+<P>
+
+<blockquote><pre>    $module-&gt;eventLoop;</pre></blockquote>
 The full module source that we just wrote is available at
 <A HREF="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/module-flash">ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/module-flash</A> .
 To run it execute this fvwm command:
@@ -149,21 +163,103 @@ To kill the module, execute:
 <P>
 
 <blockquote><pre>    KillModule /path/to/module-flash</pre></blockquote>
-<A NAME="lbAF">&nbsp;</A>
-<H2>CREATING MORE COMPLEX MODULES</H2>
-
-<A NAME="ixAAF"></A>
-This tutorial will be enhanced in the future.
 <A NAME="lbAG">&nbsp;</A>
-<H2>EXAMPLES</H2>
+<H2>Creating a more functional module</H2>
 
 <A NAME="ixAAG"></A>
-Currently see <I><A HREF="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/">ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/</A></I>
-for examples.
+Let's extend our new-page-flash example above and add a way to stop
+our module and to define another string format. This would be
+possible using the following <I><a href="../manpages/fvwm.html">fvwm</a></I> commands:
+<P>
+
+<blockquote><pre>    SendToModule /path/to/module-flash stop
+    SendToModule /path/to/module-flash format '[%d %d]'</pre></blockquote>
+To handle such commands, we should define <I>M_STRING</I> event handler.
+<P>
+
+<blockquote><pre>    use General::Parse;
+    my $format = &quot;(%d, %d)&quot;;  # the default format
+
+    $module-&gt;mask($module-&gt;mask | M_STRING);
+    $module-&gt;addHandler(M_STRING, sub {
+        my ($module, $event) = @_;
+        my $line = $event-&gt;_text;
+        my ($action, @args) = getTokens($line);
+
+        if ($action eq &quot;stop&quot;) {
+            $module-&gt;terminate;
+        } elsif ($action eq &quot;format&quot;) {
+            $format = $args[0];
+        }
+    });</pre></blockquote>
+Now, let convert our module to be <FONT>GTK+</FONT> based and not to be
+dependent on <I>xmessage</I>.
+<P>
+
+<blockquote><pre>    use lib `fvwm-perllib dir`;
+    use FVWM::Module::Gtk;
+    use Gtk;
+    init Gtk;
+
+    my $format = &quot;(%d, %d)&quot;;
+    my $module = new FVWM::Module::Gtk(Mask =&gt; M_NEW_PAGE);
+
+    $module-&gt;addHandler(M_NEW_PAGE, sub {
+        my ($module, $event) = @_;
+
+        my $width  = $event-&gt;_vp_width;
+        my $height = $event-&gt;_vp_height;
+
+        if (!$width || !$height) {
+            return;
+        }
+        my $page_nx = int($event-&gt;_vp_x / $width);
+        my $page_ny = int($event-&gt;_vp_y / $height);
+
+        # actually show the flash
+        my ($w, $h) = (80, 50);
+        my $string = sprintf($format, $page_nx, $page_ny);
+
+        my $window = new Gtk::Window('toplevel');
+        $window-&gt;set_title(&quot;FlashWindow&quot;);
+        $window-&gt;set_border_width(5);
+        $window-&gt;set_usize($w, $h);
+        $window-&gt;set_uposition(($width - $w) / 2, ($height - $h) / 2);
+
+        my $frame = new Gtk::Frame();
+        $window-&gt;add($frame);
+        $frame-&gt;set_shadow_type('etched_out');
+
+        my $label = new Gtk::Label($string);
+        $frame-&gt;add($label);
+        $window-&gt;show_all;
+
+        $SIG{ALRM} = sub { $window-&gt;destroy(); };
+        alarm(1);
+    });
+
+    $module-&gt;eventLoop;</pre></blockquote>
+The full module source that we just wrote is available at
+<A HREF="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/module-gtkflash">ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/module-gtkflash</A> .
 <A NAME="lbAH">&nbsp;</A>
-<H2>AUTHOR</H2>
+<H2>EXAMPLES</H2>
 
 <A NAME="ixAAH"></A>
+Currently see <I><A HREF="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/">ftp://ftp.fvwm.org/pub/fvwm/devel/sources/tests/perl/</A></I>
+for examples.
+<P>
+
+Learning the sources of <B><a href="../manpages/FvwmPerl.html">FvwmPerl</a></B>, <B><a href="../manpages/FvwmDebug.html">FvwmDebug</a></B>, <B><a href="../manpages/FvwmGtkDebug.html">FvwmGtkDebug</a></B>
+modules may help too.
+<A NAME="lbAI">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+<A NAME="ixAAI"></A>
+See the <a href="./FVWM::Module.html">FVWM::Module</a> manpage and the <a href="./FVWM::Module::Gtk.html">FVWM::Module::Gtk</a> manpage for the module <FONT>API</FONT>.
+<A NAME="lbAJ">&nbsp;</A>
+<H2>AUTHOR</H2>
+
+<A NAME="ixAAJ"></A>
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <P>
 
@@ -171,19 +267,21 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 <A NAME="index">&nbsp;</A><H2>Index</H2>
 <DL>
 <DT><A HREF="#lbAB">NAME</A><DD>
-<DT><A HREF="#lbAC">WHAT IS A WINDOW MANAGER</A><DD>
-<DT><A HREF="#lbAD">WHAT IS A MODULE</A><DD>
-<DT><A HREF="#lbAE">CREATING A SIMPLE MODULE</A><DD>
-<DT><A HREF="#lbAF">CREATING MORE COMPLEX MODULES</A><DD>
-<DT><A HREF="#lbAG">EXAMPLES</A><DD>
-<DT><A HREF="#lbAH">AUTHOR</A><DD>
+<DT><A HREF="#lbAC">TUTORIAL</A><DD>
+<DT><A HREF="#lbAD">What is a window manager</A><DD>
+<DT><A HREF="#lbAE">What is a module</A><DD>
+<DT><A HREF="#lbAF">Creating a simple module</A><DD>
+<DT><A HREF="#lbAG">Creating a more functional module</A><DD>
+<DT><A HREF="#lbAH">EXAMPLES</A><DD>
+<DT><A HREF="#lbAI">SEE ALSO</A><DD>
+<DT><A HREF="#lbAJ">AUTHOR</A><DD>
 </DL>
 <HR>
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:27:36 GMT, September 17, 2002
+Time: 20:06:35 GMT, October 09, 2002
 <hr>
-<!-- Automatically generated by perllib2html on 17-Sep-2002 17:27:34 -->
+<!-- Automatically generated by perllib2html on 09-Oct-2002 22:06:32 -->
 </body>
 </html>
