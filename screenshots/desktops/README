@@ -1,0 +1,9 @@
+README file for screenshot database
+
+Database is stored in file "screenshot_db.inc" as php code. To update
+the database use
+	
+	php update_screenshot_db.cli
+
+in this directory. This will search all subdirectories for screenshot
+descriptions. 
