@@ -253,27 +253,28 @@ $navgen_name = basename(my_get_global("PHP_SELF", "SERVER"));
 while( list($index, $php_file) = each($php_file_array) ) {
 
   // init variables
-  $title          = "";
-  $link_chapter   = "";
-  $link_name      = "";
-  $link_picture   = "";
-  $parent_site    = "";
-  $child_sites    = "";
-  $this_site      = "";
+  unset($title);
+  unset($link_chapter);
+  unset($link_name);
+  unset($link_picture);
+  unset($parent_site);
+  unset($child_sites);
+  unset($this_site);
 
   // load the file
   $navigation_check = "true";
-  info_output( "Loading $php_file ");
+  info_output("Loading $php_file ", 3);
   include(sec_filename("$php_file"));
+  info_output('$this_site = <'.$this_site.'> '.strlen($this_site)."\n", 4);
 
   // adapt $this_site for the command line interface
-  if( ! strcmp($this_site, $navgen_name) ) {
+  if( isset($this_site) and ! strcmp($this_site, $navgen_name) ) {
     $this_site = str_replace(".php", "", basename($php_file));
     info_output("-- Setting \$this_site to \"$this_site\"\n", 3);
   }
 
   // check if $this_site is a valid identifier
-  if( ! ereg('^[a-zA-Z_][a-zA-Z_0-9]*$', $this_site) && strlen($this_site) > 0 ) {
+  if( ! ereg('^[a-zA-Z_][a-zA-Z_0-9]*$', $this_site) and strlen($this_site) > 0 ) {
     echo "Error while reading \"$php_file\" the definiton \n";
     echo "of \$this_site = \"$this_site\" is not valid.\n";
     echo "\$this_site must be a valid identifier in form of ".'^[a-zA-Z_][a-zA-Z_0-9]*$'."\n";
