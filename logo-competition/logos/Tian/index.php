@@ -42,30 +42,22 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("By Tian", "100%", ""); ?>
 
 <p>
-<!--
-Date: Mon, 28 Apr 2003 01:38:48 +0200
-From: Tian <tian-misc@c-sait.net>
-Reply-To: tian-misc@c-sait.net
-To: fvwm-logo@lists.sourceforge.net
-Subject: [FVWM-LOGO] Logo submission
-User-Agent: KMail/1.5
+The logos can be seen at
+<a href="http://www.c-sait.net/fvwm/">http://www.c-sait.net/fvwm/</a>,
+they were all made using <a href="http://gimp.org/">The Gimp</a>.
 
-Hello,
+<p>I tried to make simple logos but with a modern design. 
+They look like they were made using a construction set.
+Square shapes represent the windows managed by fvwm. 
 
--->
-Please find my logo here :
+<p>This first one is basic. It introduces the logo.
+<p><img src="logo_basic.png">
 
-<p><a href="http://www.c-sait.net/images/logo_fvwm.png"
->http://www.c-sait.net/images/logo_fvwm.png</a>
-<!--
+<p>Some color variations and shading effects.
+<p><img src="logo_shaded.png">
 
-Best regards,
-
-Tian.
--->
-</p>
-
-<p><img src="fvwm_logo.png">
+<p>Sunny version.
+<p><img src="logo_sunny.png">
 
 <?php decoration_window_end(); ?>
 

@@ -86,7 +86,7 @@ border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_start("By Tian", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Tian/index.php');
-?>" class="nohilight"><img src="logos/Tian/fvwm_logo.png"
+?>" class="nohilight"><img src="logos/Tian/logo_sunny.png"
 border="0" hspace="0" vspace="0" width="266" height="143"></a>
 
 <?php decoration_window_end(); ?>
