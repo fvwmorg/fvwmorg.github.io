@@ -4,7 +4,7 @@
   <!--  Project       : FVWM Home Page                                    -->
   <!--  Date          : 26.11.2002                                        -->
   <!--  Programmer    : Uwe Pross                                         -->
-  <!--  Last modified : <05.04.2003 10:38:30 uwe>                         -->
+  <!--  Last modified : <09.04.2003 09:45:50 uwp>                         -->
   <!--------------------------------------------------------------------- -->
   <head>
     <title>PHP NavGen - uwp</title>
@@ -27,10 +27,13 @@
       }
       .warning {
         color: #0000ff;
-        font-weight: bold;
+	background-color: #ffff88;
+        font-weight: medium;
+	font-style: italic;
       }
       .error {
         color: #ff0000;
+	background-color: #ffff88;
 	font-size: medium;
         font-weight: bold;
       }
@@ -52,7 +55,7 @@ if( strlen("$navigation_check") > 0 ) return;
 
 include('definitions.inc');
 
-function info_output($sting, $level = 0) {
+function info_output($sting, $level = 1) {
   global $info_level;
   if( ! isset($info_level) ) $info_level = 0;
   if( $level <= $info_level ) {
@@ -112,6 +115,7 @@ function export_nav($this_site, $export_depth = 1) {
       $found_php_file_for_this_child = 0;
 
       info_output("  Searching for <span class=\"emph\">$searched_child</span><br>", 5);
+
       // go through all php files and check if is describes a child of this parent
       $local_child_file_array = $child_file_array;
       reset($local_child_file_array);
@@ -121,15 +125,23 @@ function export_nav($this_site, $export_depth = 1) {
 
         if( $child_array["$child_file"]["this_site"] == "$searched_child" ) {
 
-	  $found_php_file_for_this_child = 1;
+	  // check if the child site refers to this parent
+	  if( strcmp($child_array["$child_file"]["parent_site"],$this_site) ) {
+	    echo '<span class="warning">Child and parent reference do not match. ';
+	    echo 'Please check files ';
+	    echo $child_array["$child_file"]["file"].' and '.${$this_site}["file"].'<br></span>';
+	  }
 
+	  $found_php_file_for_this_child = 1;
 	  $this_name = $searched_child;
+
 	  if( ! isset($$this_name) ) global $$this_name;
 
 	  // check if this php-file has been used already
           if( $child_array["$child_file"]["is_exported"] or ${$this_name}["is_exported"] ) {
             // child has been already exported
-            echo '<span class="error">Error: ambiguous site definition - ignore file '.$child_array["$child_file"]["file"].'</span><br>';
+            echo '<span class="error">Error: ambiguous site definition - ignore file ';
+	    echo $child_array["$child_file"]["file"].'</span><br>';
           } else {
 	    // add this child to list of found childs
 	    $found_childs[] = $searched_child;
@@ -144,7 +156,6 @@ function export_nav($this_site, $export_depth = 1) {
             ${$this_name}["link_chapter"]= $child_array["$child_file"]["link_chapter"];
             ${$this_name}["link_name"]   = $child_array["$child_file"]["link_name"];
             ${$this_name}["link_pic"]    = $child_array["$child_file"]["link_pic"];
-            // ${$this_name}["parent_site"] = $child_array["$child_file"]["parent_site"];
             ${$this_name}["parent_site"] = $this_site;
             ${$this_name}["child_sites"] = $child_array["$child_file"]["child_sites"];
             export_nav($this_name);
@@ -159,7 +170,8 @@ function export_nav($this_site, $export_depth = 1) {
       
       if( ! $found_php_file_for_this_child ) {
 	// there was no php file found which matches this child
-	echo "<span class=\"error\">No match found for \"$searched_child\"</span><br>";
+	echo '<span class="error">Could not find a php file which is named &quot;'.$searched_child.'&quot;. ';
+	echo 'Please check file &quot;'.${$this_site}["file"].'&quot; and edit the child_array entry.</span><br>';
       }
     }
   }

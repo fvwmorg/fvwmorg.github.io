@@ -3,7 +3,7 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <08.04.2003 22:32:52 logo>
+//-  Last modified : <09.04.2003 08:14:03 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -11,7 +11,7 @@ $rel_path = "..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include("$rel_path/definitions.inc');
+include($rel_path."/definitions.inc");
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -19,7 +19,7 @@ include("$rel_path/definitions.inc');
 $title          = "FVWM - Logo Competition";
 $heading        = "FVWM - Logo Competition";
 $link_name      = "Logo Competition";
-$link_picture   = "pictures/icons/default";
+$link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
@@ -44,7 +44,8 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php decoration_window_start("New Logo Competition", "", "", "0"); ?>
+<?php decoration_window_start("New Logo Competition"); ?>
+
 <h1>Welcome to FVWM Logo Competition</h1>
 
 <p>If you like to participate, please read

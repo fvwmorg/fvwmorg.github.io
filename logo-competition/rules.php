@@ -3,10 +3,15 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <08.04.2003 22:32:52 logo>
+//-  Last modified : <09.04.2003 08:14:35 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
+
+//--------------------------------------------------------------------
+// check if we should stop here
+//--------------------------------------------------------------------
+if (strlen("$navigation_check") > 0) return;
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -22,12 +27,7 @@ $link_picture   = "pictures/icons/default";
 $parent_site    = "news";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "logo_competition_rules";
-
-//--------------------------------------------------------------------
-// check if we should stop here
-//--------------------------------------------------------------------
-if (strlen("$navigation_check") > 0) return;
+$this_site      = "logo_competition";
 
 //--------------------------------------------------------------------
 // load the layout file

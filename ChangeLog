@@ -1,3 +1,17 @@
+2003-04-09  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* layout_default.inc: 
+	Added entry about last modified date. This entry is taken form the
+	timestamp of the requested file.
+
+	* latest_news/news_template.php_: 
+	Added child entry to logo_competition
+
+	* navgen.php: 
+	navgen reports now if a parent's child reference and child's
+	parent reference do not match.
+	Changed some warning and error messages.
+
 2003-04-09  Mikhael Goikhman  <migo@homemail.com>
 
 	* **:

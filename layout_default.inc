@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <08.04.2003 09:04:37 uwp>
+//-  Last modified : <09.04.2003 08:47:07 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -62,14 +62,10 @@ while(list($key,$default) = each($default_settings_array) ) {
 // $body_bg_image = $rel_path."/".$body_bg_image;
 $decoration_path_stack = array();
 
-function insert_timestamp() {
-  global $language, $requested_file;
-  if( $language == "english" ) {
-    print "Last modified at ";
-    print date("d/m/y", fileatime("$requested_file"));
-  } else {
-    print "Letzte &Auml;nderung am ";
-    print date("d.m.Y", filemtime("$requested_file"));
+function insert_timestamp($file) {
+  if( file_exists($file) ) {
+    echo 'Last modified at ';
+    echo date('F d, Y -- H:i --', fileatime("$file"));
   }
 }
 
@@ -78,8 +74,10 @@ function get_parent_path($site) {
   // echo "+++checking $site+++<br>";
   // first we should check if the array is consistent
   if( strlen(${$site}["parent_site"]) < 1 ) {
-    echo "Error in navigation array<br>";
-    return "home";
+    // echo "Error in navigation array<br>";
+    // the actual site is not in the navigation array 
+    // we return the first entry of $top_array here
+    return $top_array[0];
   }
   // check if this site is a parent - if not return the parent
   // of its parent;-)
@@ -764,6 +762,11 @@ function insert_quick_jump_list($site_array,$col_num=2) {
        /* background:#112266; */
        padding:5pt;
        }
+       .bottominfo {
+	 text-align:right;
+	 margin-right:5pt;
+	 font-weight:normal;
+       }
         -->
     </style>
 
@@ -814,6 +817,12 @@ function insert_quick_jump_list($site_array,$col_num=2) {
       </tr>
 
     </table>
+
+    <p class="bottominfo">
+       <?php insert_timestamp($requested_file); ?>
+       <!-- we may place a "contact" statement here -->
+       <!-- &nbsp;&nbsp;&lt;<a href="mailto:fvwm-workers@fvwm-org">Fvwm Workers</a>&gt; -->
+    </p>
 
   </body>
 </html>

@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <02.04.2003 21:01:29 uwe>
+//-  Last modified : <09.04.2003 08:25:19 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -21,7 +21,7 @@ $title          = "FVWM - NEWS";
 $link_name      = "News";
 $link_picture   = "pictures/icons/news";
 $parent_site    = "top";
-$child_sites    = array("logo_competition", "logo_competition_rules");
+$child_sites    = array("logo_competition");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "news";
 
