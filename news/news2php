@@ -1,7 +1,7 @@
 #!/bin/gawk -f
 #-*-shell-script-*-
 
-# Usage: news2php <../../fvwm/NEWS >index.php
+# Usage: news2php <../../fvwm/NEWS > index.php
 
 # Author: Uwe Pross
 
@@ -107,7 +107,8 @@ END {
 		print "<tr>";
 		for (j = 0; j <= 8 && i < release_nr; j++) {
 			i++;
-			print "<td><a href=\"#" release_array[i] "\" style=\"font-weight:normal;\">&nbsp;" release_array[i] "&nbsp;</a></td>";
+			if ( length(release_array[i]) > 2 ) {
+				print "<td><a href=\"#" release_array[i] "\" style=\"font-weight:normal;\">&nbsp;" release_array[i] "&nbsp;</a></td>"; }
 		}
 		print "</tr>";
 	}

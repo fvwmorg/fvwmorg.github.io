@@ -1,4 +1,8 @@
-2003-07-28  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+2003-07-28  Uwe Pross  <uwe.pross@gmx.net>
+
+	* news/news2php: 
+	* news/index.php:
+	fixed minor bug in news generation script. regenerated news page
 
 	* logo-competition/logos/Eric_Hafner/*:
 	* logo-competition/logos/Daniel_Gadziemski/*:

@@ -124,7 +124,6 @@ decoration_window_start("Latest News");
 </tr>
 <tr>
 <td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
-<td><a href="#" style="font-weight:normal;">&nbsp;&nbsp;</a></td>
 </tr>
 </table>
 </center>
@@ -134,6 +133,13 @@ decoration_window_start("Latest News");
   <li> New prefix command KeepRc.</li>
   <li> Renamed the Cond command to TestRc, and the On command to Test.  Removed the CondCase command.  Use &quot;KeepRc TestRc&quot; instead.</li>
   <li> The Break command can be told the number of nested function  levels to break out of.  Break now has a return code of -2  (&quot;Break&quot;).</li>
+  <li> Directions can be abbreviated with -, _, [, ], &lt;, &gt;, v or ^ like  in key or mouse bindings.</li>
+  <li> New extended variable $[func.context].</li>
+  <li> New Style option MoveByProgramMethod. Tries to autodetect  whether application windows are moved honouring the ICCCM or not  (default).  The method can be overridden manually if the  detection does not work.</li>
+  <li> Fvwm supports tear off menus. See the &quot;Tear Off Menus&quot; section  in the man page or press Backspace on any menu to try them out.</li>
+  <li> Added support for new BBC headlines in fvwm-menu-headlines, this  replaces the old BBC-Worlds and BBC-SciTech headlines.</li>
+  <li> Fvwm now handles what Unicode calls &quot;combining characters&quot; (ie. marks  drawn on top of other characters)</li>
+  <li> New commands WindowStyle and DestroyWindowStyle for per window  styles</li>
 </ul>
 
 
