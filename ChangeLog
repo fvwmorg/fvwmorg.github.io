@@ -1,3 +1,9 @@
+2000-10-04  Mikhael Goikhman  <migo@homemail.com>
+
+	* generated/{FAQ,NEWS}.html: regenerated
+	* download.html: added rpm link, currently outside of fvwm.org
+	* cvs.html: small corrections
+
 2000-09-17  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* fvwm-cats/index.html:

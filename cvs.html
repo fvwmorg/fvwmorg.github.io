@@ -74,10 +74,11 @@ now before going any further.
 <pre><font color="yellow"> diff -u
  checkout -P
  update -d -P
+ cvs -q
 </font></pre>
 
-<p>I also recommend a `<code>cvs -q</code>' line which makes cvs
-operations a little quieter.
+<p>The last line makes cvs operations quieter, but you still get full
+error messages.
 
 <p>
 Also, if you are on a slow net link (like a dialup), you'll also want a
@@ -198,8 +199,8 @@ do is:
  autoreconf
 </font></pre>
 
-<p>Be careful: the second command is <code>auto<font
-color="violet">re</font>conf</code>, not <code>autoconf</code>!
+<p>The second command is <code>auto<font color="violet">re</font>conf</code>,
+not <code>autoconf</code>!
 You will get some warning messages from <code>automake</code> and
 <code>autoreconf</code>.  As long as you end up with a working configure
 script, you should ignore them.
@@ -379,7 +380,7 @@ First create the new directories and files locally.  Then, assuming
 the new directory is named `<code>newdir</code>' and the new file is
 `<code>newmod.c</code>':
 
-<pre><font color="yellow"> cvs add -m  "New directory for ..." newdir
+<pre><font color="yellow"> cvs add -m "New directory for ..." newdir
  cd newdir
  cvs add -m "File newmod.c is a module that ..." newmod.c
 </font></pre>
@@ -396,7 +397,7 @@ You don't directly delete directories, you delete all the files in a
 directory and the directory goes away during an `<code>update
 -dP</code>'.  To delete one or more files:
 
-<pre><font color="yellow"> cvs remove -f filename...
+<pre><font color="yellow"> cvs remove filename...
  cvs commit -m 'deleted files because' filename...
 </font></pre>
 
@@ -413,7 +414,7 @@ new file.  In order to preserve some kind of link, please include a
 pointer to the old file in the comments of the new file (and vice
 versa).
 
-<p>Again, when removing directories or files please be sure to update
+<p>Again, when renaming or moving files please be sure to update
 the appropriate <code>Makefile.am</code> files.  See <code>DEVELOPERS</code>.
 
 
@@ -486,19 +487,20 @@ The generated files are in the directories
 
 <p>There are 2 generated files in <code>fvwm-web/generated</code>
 "FAQ.html" and "NEWS.html".  
-These 2 files are created with the shell "fvwm-web/generated/txt2html.sh".
-You would normally run these shells whenever you made a change to
+These 2 files are created with the shell script
+"fvwm-web/generated/txt2html.sh".
+You would normally run this script whenever you made a change to
 "fvwm/NEWS" or "fvwm/docs/FAQ" that you want to appear on the fvwm
 web site.
-Instructions are in the shell.
+Instructions are in the script.
 
 <p>The sub directory "fvwm-web/generated/manpages" contains
 man pages and a man page index
 generated from the latest official (non-beta) release.
-The man pages are created with the shell
+The man pages are created with the shell script
 "fvwm-web/generated/run_man2thml.sh".
-You need "man2html" to be installed to run this shell.
-Instructions are in the shell.
+You need "man2html" to be installed to run it.
+Instructions are in the script.
 
 <hr>
 </body>
