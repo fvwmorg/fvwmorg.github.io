@@ -1,5 +1,10 @@
 2003-08-29  Uwe Pross  <uwe.pross@gmx.net>
 
+	* logo-competition/logos_new.php: 
+	* logo-competition/logos/Keran/*: 
+	* logo-competition/logos/Julien_Guertault/*:
+	added logos
+
 	* screenshots/desktops/<directories>/*
 	* screenshots/classes/picture_page.inc: 
 	fixed bug in navigation links

@@ -493,4 +493,30 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Keran (15 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Keran/index.php'); ?>">
+
+<p><img src="logos/Keran/forward.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Julien Guertault (2 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Julien_Guertault/index.php'); ?>">
+
+<p><img src="logos/Julien_Guertault/Feline-Logo-Color.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
