@@ -41,7 +41,7 @@ DestroyFunc button_demo
 AddToFunc   button_demo
 + I 10_buttons
 + I Style "button_demo_style*" UseDecor DecorDemo, MWMBorder, HandleWidth 10
-+ I Style "button_demo_style*" HilightFore white, HilightBack greym
++ I Style "button_demo_style*" HilightFore white, HilightBack grey
 # Setting the height to either zero or 1 seemed to have the same effect.
 + I Exec xv -name button_demo_style -geometry 300x1
 
@@ -54,13 +54,3 @@ AddToFunc   10_buttons
 + I Style "button_demo_style*" Button 1, Button 2, Button 3
 + I Style "button_demo_style*" Button 4, Button 5, Button 6
 + I Style "button_demo_style*" Button 7, Button 8, Button 9, Button 10
-#+ I Mouse 0   1 A     "Iconify"
-#+ I Mouse 0   3 A     Nop
-#+ I Mouse 0   5 A     Nop
-#+ I Mouse 0   7 A     Nop
-#+ I Mouse 0   9 A     Nop
-#+ I Mouse 0   2 A     Nop
-#+ I Mouse 0   4 A     Nop
-#+ I Mouse 0   6 A     Nop
-#+ I Mouse 0   8 A     Nop
-#+ I Mouse 0   0 A     Nop
