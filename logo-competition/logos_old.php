@@ -44,22 +44,22 @@ if (strlen("$site_has_been_loaded") == 0) {
 ?>
 
 <?php decoration_window_start("Cat Thing", "", "", 0); ?>
-<a href="<?php echo conv_link_target('logos/old/cat_thing_framed.png');?>"><img
+<a href="<?php echo conv_link_target('logos/old/cat_thing_framed.png');?>" class="nohilight"><img
 src="logos/old/cat_thing.png" border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <?php decoration_window_start("Red Cursive", "", "", 0); ?>
-<a href="<?php echo conv_link_target('logos/old/red_cursive_framed.png');?>"><img
+<a href="<?php echo conv_link_target('logos/old/red_cursive_framed.png');?>" class="nohilight"><img
 src="logos/old/red_cursive.png" border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <?php decoration_window_start("Tiger Tail", "", "", 0); ?>
-<a href="<?php echo conv_link_target('logos/old/tiger_tail.png');?>"><img
+<a href="<?php echo conv_link_target('logos/old/tiger_tail.png');?>" class="nohilight"><img
 src="logos/old/tiger_tail.png" border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <?php decoration_window_start("Tiger Head", "", "", 0); ?>
-<a href="<?php echo conv_link_target('logos/old/tiger_head.png');?>"><img
+<a href="<?php echo conv_link_target('logos/old/tiger_head.png');?>" class="nohilight"><img
 src="logos/old/tiger_head.png" border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
