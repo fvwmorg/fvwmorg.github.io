@@ -93,8 +93,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li><a href="http://www.plig.org/~xwinman/fvwm.html">FVWM
       Decorations</a> - Some screenshots and config files</li>
 
-<!--       <li><a href="http://fvwm2gnome.fluid.cx/todo.html">fvwm2gnome</a></li> -->
-<!-- 	Themes and Gnome -->
     </ul>
 
     <p>And here are some sites featuring programs that are designed
@@ -102,19 +100,9 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
     <ul>
       <li><a href="http://users.tpg.com.au/users/scottie7/fvwmtabs.html">FvwmTabs Module</a> - SCoTT SMeDLeY's FvwmTabs module.</li>
-<!--  
-        RBW - Anyone know what happened to this guy? I can't reach this host.
-        Hostname resolves to 199.203.234.16, which has no reverse dns. There
-        appears to be no such domain as dhs.org.
-        Mikhael - was this superseded by wm-icons at sourceforge?
-
-      <li><a href="http://wm-icons.dhs.org/">Window Manager Icons</a> - 
-      an efficient icon distribution to use with fvwm and fvwm-themes.</li>
--->
 
       <li><a href="http://www.blackie.dk/dotfile/">The Dotfile Generator Home Page</a> - 
       A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files (pretty old)</li>
-
 
       <li><a href="http://newton.physics.arizona.edu/~lapeyre/fvwmconf/index.html">John Lapeyre's FvwmConf</a> -
       A module for interactively configuring FVWM (old, 1997)</li>
@@ -132,34 +120,33 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <p>  
     Here are some window managers that were originally created from fvwm
     source, but 
-    <strong>please don't ask questions about them on the FVWM lists! </strong>
+    <strong>please don't ask questions about them on the FVWM lists!</strong>
     Rather, contact the parties responsible for them directly:</p>
 
     <ul>
 <!-- 
-        RBW - this link's dead too, but I know SCWM still has to be around.
-        Gotta do some googling and find a current url.
-        Hmm...doesn't seem to have been updated in about 2 years (March 2000).
+        RBW - doesn't seem to have been updated in about 2 years (March 2000).
         Guess they're not active.
-
-     <li><a href="http://vicarious-existence.mit.edu/scwm/">SCWM</a> - The
-	Scheme Configurable Window Manager</li>
 -->
+      <li><a href="http://scwm.sourceforge.net/">SCWM</a>
+        - The Scheme Configurable Window Manager</li>
 
-      <li><a href="http://scwm.sourceforge.net/">SCWM</a> - The
-	Scheme Configurable Window Manager</li>
+      <li><a href="http://www.afterstep.org/">AfterStep</a>
+        - A window manager that emulates the famous NEXTSTEP<sup>&reg;</sup>
+        look and feel, AfterStep took up where Bo Yang's Bowman (no longer
+        available) left off.</li>
 
-      <li><a href="http://www.afterstep.org/">AfterStep</a> - A window manager
-      that emulates the famous NEXTSTEP<sup>&reg;</sup> look and feel, AfterStep
-      took up where Bo Yang's Bowman (no longer available) left off.</li>
+      <li><a href="http://fvwm95.sourceforge.net/">FVWM-95</a>
+        - An old hack of fvwm-2.0.42 that looks more like (shudder) Win95.</li>
 
-<!--       <li><a href="ftp://mitac11.uia.ac.be/html-test/fvwm95.html">Fvwm95</a> - A hack of an fvwm2 beta that looks more like (shudder) Win95</li> -->
+      <li><a href="http://lesstif.org/">Lesstif's MWM</a>
+        - Intended to simulate a Motif-like window manager.
+        Abandoned in 1997.</li>
+
+      <li><a href="http://xfce.org/">XFwm</a>
+        - A part of the XFce desktop enviroment.</li>
     </ul>
 
-<!--
-    And here's an excellent site with all sorts of window manager
-    information and comparisons (new location):
--->
   <p>
     Matt Chapman's excellent survey of window managers present and past
     (from the famous to the downright obscure)
@@ -169,7 +156,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
     <ul>
       <li><a href="http://www.PLiG.org/xwinman/">Window Managers for X</a><br>
-      <i>Be sure to vote for FVWM in the voting section!</i> :)</li>
     </ul>
   
   <h2>General Resources</h2>

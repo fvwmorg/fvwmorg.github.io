@@ -1,3 +1,10 @@
+2003-04-28  Mikhael Goikhman  <migo@homemail.com>
+
+	* layout_default.inc:
+	* links.php:
+	* httpd/error404.php:
+	minor bg color change, updated links, fixed one php problem
+
 2003-04-25  Bob Woodside  <dumbledore@woodsway.com>
 
 	* definitions.inc: 

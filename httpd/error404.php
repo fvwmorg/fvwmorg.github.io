@@ -37,7 +37,7 @@ if( ! file_exists("..$file") ) {
   $file = "/index.php";
 }
 $file = str_replace("index.php", "", $file);
-$url = "http://$_SERVER['HTTP_HOST']$file";
+$url = "http://".$_SERVER['HTTP_HOST']."$file";
 
 //--------------------------------------------------------------------
 //- Set http header to error 404
