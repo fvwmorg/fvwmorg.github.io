@@ -557,7 +557,7 @@ function insert_pager_desk($site, $pages_per_desk=4) {
   // desk label = link name
   $desk_name = $nav_array["$site"]["link_name"];
   // shorten string if needed
-  $max_desk_name_len = 12;
+  $max_desk_name_len = 13;
   if( strlen($desk_name) > $max_desk_name_len )
     $desk_name = substr($desk_name, 0, $max_desk_name_len-1);
   echo '<tr>'."\n";
@@ -839,6 +839,9 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
        text-decoration:none;
        font-weight:bold;
        color:#fafa77;
+       }
+       a:visited {
+       color:#dada57;
        }
        a:focus, a:hover {
        background-color:#eaea67;

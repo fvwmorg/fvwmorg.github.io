@@ -63,8 +63,8 @@ echo '<a href="'.conv_link_target("rules.php").'">the competition rules</a>.';
 <table cellpadding="10" cellspacing="0" border="0"
 	width="100%" frame="void" rules="none" summary="">
 <tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>"><img src="logos_old_overview.png" border="0"></a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>"><img src="logos_new_overview.png" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>" class="nohilight"><img src="logos_old_overview.png" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>" class="nohilight"><img src="logos_new_overview.png" border="0"></a></td>
 </tr>
 <tr>
 	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>">View Old Logos</a></td>
