@@ -271,29 +271,7 @@ class Blue_Theme extends Base_Theme {
     }
 
     function insert_css_definitions() {
-        echo "
-        body {
-            background-color:".$this->style_array["window_bg"].";
-            color:".$this->style_array["window_fg"].";
-        }
-        a:link, a:visited, a:active {
-        	color:".$this->style_array["link_fg"].";
-        }
-        a:visited {
-        	color:".$this->style_array["link_visited_fg"].";
-        }
-        a:focus, a:hover {
-        	/* color:".$this->style_array["window_bg"]."; */
-        	background-color:".$this->style_array["window_bg"]."; 
-            text-decoration:underline overline;
-        }
-        h2, h3, h4, h5 {
-        	color:".$this->style_array["heading_fg"].";
-        }
-        table.screenshots {
-        	border-color:".$this->style_array["link_fg"].";
-        }
-";  
+        return;  
     }
 
 }

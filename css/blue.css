@@ -45,27 +45,33 @@ h4.author {
 	margin-bottom: 5pt;
 	padding: 0pt;
 }
+
 p.author {
 	padding-left: 20pt;
 	margin: 0pt;
 }
+
 table.screenshots {
 	border-color: #aaaa00;
 }
+
 h2.cats {
 	text-decoration: underline;
 	font-size: xx-large;
 	color: #ffff33;
 }
+
 h3.cats {
 	font-size: xx-large;
 	color: #8888ff;
 }
+
 h4.cats {
 	margin: 0pt;
 	font-size: x-large;
 	color: #ff3333;
 }
+
 h5.cats {
 	font-size: large;
 	font-weight: normal;
@@ -74,6 +80,7 @@ h5.cats {
 }
 p.cats, h2.cats, h3.cats, h4.cats, h5.cats, ul.cats {
 }
+
 p.cmdline {
 	border: solid; border-width: thin; border-color: black;
 	color: #ffff99;
@@ -111,3 +118,29 @@ h4.doctt {
 	font-size: large;
 	text-decoration: underline;
 }
+body {
+            background-color:#bfcfef;
+            background-image:url("");
+            color:#000000;
+        }
+        a:link, a:visited, a:active {
+        	color:#151F34;
+        }
+        a:visited {
+        	color:#293E67;
+        }
+        a:focus, a:hover {
+        	/* color:#bfcfef; */
+        	background-color:#bfcfef; 
+            text-decoration:underline overline;
+        }
+        h2, h3, h4, h5 {
+        	color:#151F34;
+        }
+        table.screenshots {
+        	border-color:#151F34;
+        }
+    body {
+    margin:0pt;
+    padding:0pt;
+    }
