@@ -5,7 +5,7 @@
 //-  Programmer    : Logo Competitor
 //--------------------------------------------------------------------
 
-$rel_path = "..";
+$rel_path = "../../..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -15,8 +15,8 @@ include($rel_path."/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition";
-$heading        = "FVWM - Logo Competition";
+$title          = "FVWM - Logo Competition - Tian logos";
+$heading        = "FVWM - Logo Competition - Tian logos";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
@@ -39,38 +39,38 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("New Logo Competition", "100%", ""); ?>
-
-<h2>Welcome to FVWM Logo Competition</h2>
-
-<p>If you like to participate, please read
-<?php 
-echo '<a href="'.conv_link_target("rules.php").'">the competition rules</a>.';
-?>
-</p>
-
-<p>The submitted works are linked here.
-To view them you need a modern browser with a good PNG support, like
-Mozilla, Konqueror, Galeon, Opera and some others.
-</p>
-
-<?php decoration_window_end(); ?>
+<?php decoration_window_start("By Tian", "100%", ""); ?>
 
 <p>
-<?php decoration_window_start("View submitted logos", "100%", "", 0); ?>
+<!--
+Date: Mon, 28 Apr 2003 01:38:48 +0200
+From: Tian <tian-misc@c-sait.net>
+Reply-To: tian-misc@c-sait.net
+To: fvwm-logo@lists.sourceforge.net
+Subject: [FVWM-LOGO] Logo submission
+User-Agent: KMail/1.5
 
-<div align=center>
-<table cellpadding="10" cellspacing="0" border="0"
-	width="100%" frame="void" rules="none" summary="">
-<tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>" class="nohilight"><img src="logos_old_overview.png" border="0"></a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>" class="nohilight"><img src="logos_new_overview.png" border="0"></a></td>
-</tr>
-<tr>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>">View Old Logos</a></td>
-	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>">View New Logos</a></td>
-</tr>
-</table>
-</div>
+Hello,
+
+-->
+Please find my logo here :
+
+<p><a href="http://www.c-sait.net/images/logo_fvwm.png"
+>http://www.c-sait.net/images/logo_fvwm.png</a>
+<!--
+
+Best regards,
+
+Tian.
+-->
+</p>
+
+<p><img src="3d.png">
+<p><img src="contrast.png">
+<p><img src="future.png">
+<p><img src="groovy-3d.png">
+<p><img src="block.png">
 
 <?php decoration_window_end(); ?>
+
+<p>Return to <a href="<?php echo conv_link_target('../logos_new.php');?>">index</a>.</p>

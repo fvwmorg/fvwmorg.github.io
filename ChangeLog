@@ -5,6 +5,9 @@
 	* httpd/error404.php:
 	minor bg color change, updated links, fixed one php problem
 
+	* logo-competition/**:
+	added submitted logos from 4 artists
+
 2003-04-25  Bob Woodside  <dumbledore@woodsway.com>
 
 	* definitions.inc: 
