@@ -544,7 +544,7 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Felix Wieman (6 images)", "", "", 0); ?>
+<?php decoration_window_start("By Felix Wiemann (6 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Felix_Wiemann/index.php'); ?>">
 
