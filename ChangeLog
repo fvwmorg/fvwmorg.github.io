@@ -1,4 +1,7 @@
-2003-05-02  Uwe Pross  <uwe.pross@mx.net>
+2003-05-02  Uwe Pross  <uwe.pross@gmx.net>
+
+	* logo-competition/logos/*/index.php: 
+	fixed problem with navgen run. files should be excluded from navgen.
 
 	* customize_theme/index.php: 
 	* customize_theme/theme_descriptions_helper.inc
@@ -10,7 +13,9 @@
 	* navgen.cli: 
 	changed resorting function so that it can handle $this->nav_array.
 	navgen creates an array which is usable by the class concept only.
-
+	fixed consistence check
+	added escape sequences for colored output
+	
 	* definitions.inc: 
 	make the old layout files not available. new class files will be
 	used only.

@@ -130,7 +130,7 @@ function export_nav($this_site, $export_depth = 0) {
         if( ! reset(${$this_site}["child_sites"]) ) return;
 
         // go through all childs of this page and find the corresponding php file
-        while( list($i1, $searched_child) = each(${$this_site}["child_sites"]) ) {
+        while( list($key, $searched_child) = each(${$this_site}["child_sites"]) ) {
 
             $found_php_file_for_this_child = 0;
 
@@ -158,10 +158,10 @@ function export_nav($this_site, $export_depth = 0) {
                     if( ! isset($$this_name) ) global $$this_name;
 
                     // check if this php-file has been used already
-                    if( $child_array["$child_file"]["is_exported"] or ${$this_name}["is_exported"] ) {
+                    if( $child_array["$child_file"]["is_exported"] || ${$this_name}["is_exported"] ) {
                         // child has been already exported
-                        echo '** Warning: ambiguous site definition - ignore file ';
-                        echo $child_array["$child_file"]["file"]."\n";
+                        echo "\034[31;1m".'** Warning: ambiguous site definition - ignore file ';
+                        echo $child_array["$child_file"]["file"]."\033[0m\n";
                     } else {
                         // add this child to list of found childs
                         $found_childs[] = $searched_child;
@@ -190,8 +190,9 @@ function export_nav($this_site, $export_depth = 0) {
 
             if( ! $found_php_file_for_this_child ) {
                 // there was no php file found which matches this child
-                echo 'Could not find a php file which is named "'.$searched_child.'". ';
-                echo 'Please check file "'.${$this_site}["file"].'" and edit the child_array entry.'."\n";
+                echo "\033[31;1m".'Could not find a php file which is named "'.$searched_child.'". '."\n";
+                echo 'Please check file "'.${$this_site}["file"].'" and edit the child_array entry.'."\033[0m\n";
+                unset(${$this_site}["child_sites"][$key]);
             }
         }
     }
