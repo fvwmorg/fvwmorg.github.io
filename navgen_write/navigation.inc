@@ -5,16 +5,17 @@
 // Uwe Pross 2003
 //=============================================================
 
-// names of the top sites - you may change the order if you like
+// Names of the top sites - you may change the order if you like.
+// On the next run navgen will try to keep the order of this array.
 $top_array = array(
-"home", 
-  "news", 
-  "features", 
-  "download", 
-  "screenshots", 
-  "documentation", 
-  "mailing_lists", 
-  "links", 
+  "home",
+  "news",
+  "features",
+  "download",
+  "screenshots",
+  "documentation",
+  "mailing_lists",
+  "links",
 ); 
 
 $nav_array["fvwm_cats"]["file"]         = "fvwm-cats/index.php"; 
