@@ -21,7 +21,7 @@ $heading        = 'The Official <img src="pictures/fvwm-logo-steelblue.gif" bord
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
-$child_sites    = array("fvwm_cats", "authors");
+$child_sites    = array("fvwm_cats", "authors", "customize_theme");
 //  RBW...
 //  Must be able to cope with register_globals = off.
 //$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));

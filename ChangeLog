@@ -1,5 +1,16 @@
 2003-05-02  Uwe Pross  <uwe.pross@mx.net>
 
+	* customize_theme/index.php: 
+	* customize_theme/theme_descriptions_helper.inc
+	files to provide a layout change by the user.
+
+	* logo-competition/logos/Phil_Harper/index.php: 
+	excluded file from navgen processing
+
+	* navgen.cli: 
+	changed resorting function so that it can handle $this->nav_array.
+	navgen creates an array which is usable by the class concept only.
+
 	* definitions.inc: 
 	make the old layout files not available. new class files will be
 	used only.

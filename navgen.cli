@@ -5,238 +5,245 @@ echo "navgen start";
 
 include('definitions.inc');
 
-function info_output($sting, $level = 1) {
-  global $info_level;
-  if( ! isset($info_level) ) $info_level = 0;
-  if( $level <= $info_level ) {
-    echo $sting;
-  }
+function info_output($sting, $level = 2) {
+    global $info_level;
+    if( ! isset($info_level) ) $info_level = 1;
+    if( $level <= $info_level ) {
+        echo $sting;
+    }
+}
+
+class Resort_Top_Array {
+
+    var $nav_array;
+
+    function Resort_Top_Array() {
+    }
+
+    //--------------------------------------------------------------------
+    // puts the top array in the right order
+    //--------------------------------------------------------------------
+    function sort($top_array) {
+        global $navigation_file;
+        
+        $new_top_array = $top_array;
+        $sorted_array = array();
+
+        $failsave_file = "navgen_write/navgen.lock";
+        
+        if( file_exists($failsave_file) ) {
+            info_output( "It seems that the sorting algorithm has failed on last run - ");
+            info_output( "skipping it this time - use restart on your browser to run it again\n");
+            if( ! @unlink($failsave_file) )
+                info_output( "The file $failsave_file which causes to skip the sorting algorithm could not be removed. Please remove this file by hand and restart this script\n");
+            return;
+        }
+        
+        if( ! @touch($failsave_file) )
+            info_output( "The sorting file $failsave_file could not be created. The sorting algorithm may cause to fail this script next time. Please set the right permissions that this file can be created next time.\n");
+        
+        if( ! file_exists($navigation_file) ) return;
+        
+        info_output("Reading $navigation_file ...\n",1);
+        include("$navigation_file");
+        
+        if( ! @unlink($failsave_file) )
+            info_output( "The file $failsave_file which causes to skip the sorting algorithm could not be removeed. Please remove this file by hand and restart this script.\n");
+                
+        info_output( "Sorting...\n",1);
+        foreach( $this->nav_array["top_array"] as $key => $value ) {
+            info_output( "looking for $value ",1);
+            reset($new_top_array);
+            while( (list($new_key, $new_value) = each($new_top_array)) && strcmp($value, $new_value) ) {
+                info_output( "$new_value ",1);
+            }
+            if( ! strcmp($value, $new_value) ) {
+                info_output( "$value",1);
+                $sorted_array[] = $value;
+            }
+            info_output("\n",1);
+        }
+        
+        // check if new sites have been added
+        reset($new_top_array);
+        while( list($new_key, $new_value) = each($new_top_array) ) {
+            reset($this->nav_array["top_array"]);
+            while( list($key, $value) = each($this->nav_array["top_array"]) and strcmp($value, $new_value) ) {}
+            if( strcmp($value, $new_value) ) {
+                info_output( "Found new site $new_value\n",1);
+                $sorted_array[] = $new_value;
+            }
+        }
+        
+        return $sorted_array;
+    }
+    
 }
 
 //--------------------------------------------------------------------
 // seach recursively all directories for php files
 //--------------------------------------------------------------------
 function read_directory($directory_name) {
-  global $php_file_array;
+    global $php_file_array;
 
-  if( file_exists($directory_name."/.navgen_ignore") ) {
-    info_output("Ignoring directory $directory_name\n", 2);
-    return;
-  }
-
-  if( ! $directory = @opendir($directory_name) ) {
-    info_output("Failed to open directory $directory_name\n", 0);
-    return;
-  }
-
-  while ($file = readdir($directory)) {
-    if( $file != "." and $file != ".." and filetype("$directory_name/$file") == "dir" ) {
-      info_output("Changing to dir $directory_name\n", 2);
-      read_directory("$directory_name/$file");
-   }
-    //echo "$directory_name/$file <br>";
-    if( ereg("\.php$", "$file") ) {
-      info_output( "Found file $directory_name/$file\n" );
-      $php_file_array[] = ereg_replace("^./", "", "$directory_name/$file");
+    if( file_exists($directory_name."/.navgen_ignore") ) {
+        info_output("Ignoring directory $directory_name\n", 2);
+        return;
     }
-  }
-  closedir($directory);
+
+    if( ! $directory = @opendir($directory_name) ) {
+        info_output("Failed to open directory $directory_name\n", 0);
+        return;
+    }
+
+    while ($file = readdir($directory)) {
+        if( $file != "." and $file != ".." and filetype("$directory_name/$file") == "dir" ) {
+            info_output("Changing to dir $directory_name\n", 2);
+            read_directory("$directory_name/$file");
+        }
+        //echo "$directory_name/$file <br>";
+        if( ereg("\.php$", "$file") ) {
+            info_output( "Found file $directory_name/$file\n" );
+            $php_file_array[] = ereg_replace("^./", "", "$directory_name/$file");
+        }
+    }
+    closedir($directory);
 }
 
 //--------------------------------------------------------------------
 // exports the navigation defintion
 //--------------------------------------------------------------------
 function export_nav($this_site, $export_depth = 0) {
-  global $$this_site, $child_array, $child_file_array, $nav_file;
+    global $$this_site, $child_array, $child_file_array, $nav_file;
 
-  for( $ii=0; $ii<$export_depth; $ii++ ) {
-    echo "    ";
-  }
+    for( $ii=0; $ii<$export_depth; $ii++ ) {
+        echo "    ";
+    }
 
-  info_output("Exporting $this_site - ".${$this_site}["link_name"]."\n", 0);
+    info_output("Exporting $this_site - ".${$this_site}["link_name"]."\n", 0);
 
-  $found_childs = array();
+    $found_childs = array();
 
-  if( count(${$this_site}["child_sites"]) > 0 ) {
+    if( count(${$this_site}["child_sites"]) > 0 ) {
 
-    info_output("Reseting $$this_site\n", 5);
-    if( ! reset(${$this_site}["child_sites"]) ) return;
+        info_output("Reseting $$this_site\n", 5);
+        if( ! reset(${$this_site}["child_sites"]) ) return;
 
-    // go through all childs of this page and find the corresponding php file
-    while( list($i1, $searched_child) = each(${$this_site}["child_sites"]) ) {
+        // go through all childs of this page and find the corresponding php file
+        while( list($i1, $searched_child) = each(${$this_site}["child_sites"]) ) {
 
-      $found_php_file_for_this_child = 0;
+            $found_php_file_for_this_child = 0;
 
-      info_output("  Searching for $searched_child\n", 5);
+            info_output("  Searching for $searched_child\n", 5);
 
-      // go through all php files and check if is describes a child of this parent
-      $local_child_file_array = $child_file_array;
-      reset($local_child_file_array);
-      while( list($i2, $child_file) = each($local_child_file_array) ) {
+            // go through all php files and check if is describes a child of this parent
+            $local_child_file_array = $child_file_array;
+            reset($local_child_file_array);
+            while( list($i2, $child_file) = each($local_child_file_array) ) {
 
-        info_output("  Checking $child_file for $searched_child \n", 5);
+                info_output("  Checking $child_file for $searched_child \n", 5);
 
-        if( $child_array["$child_file"]["this_site"] == "$searched_child" ) {
+                if( $child_array["$child_file"]["this_site"] == "$searched_child" ) {
 
-          // check if the child site refers to this parent
-          if( strcmp($child_array["$child_file"]["parent_site"], $this_site) ) {
-            echo 'Child and parent reference do not match. ';
-            echo 'Please check files ';
-            echo $child_array["$child_file"]["file"].' and '.${$this_site}["file"].'\n</span>';
-          }
+                    // check if the child site refers to this parent
+                    if( strcmp($child_array["$child_file"]["parent_site"], $this_site) ) {
+                        echo 'Child and parent reference do not match. ';
+                        echo 'Please check files ';
+                        echo $child_array["$child_file"]["file"].' and '.${$this_site}["file"].'\n</span>';
+                    }
 
-          $found_php_file_for_this_child = 1;
-          $this_name = $searched_child;
+                    $found_php_file_for_this_child = 1;
+                    $this_name = $searched_child;
 
-          if( ! isset($$this_name) ) global $$this_name;
+                    if( ! isset($$this_name) ) global $$this_name;
 
-          // check if this php-file has been used already
-          if( $child_array["$child_file"]["is_exported"] or ${$this_name}["is_exported"] ) {
-            // child has been already exported
-            echo '** Warning: ambiguous site definition - ignore file ';
-            echo $child_array["$child_file"]["file"]."\n";
-          } else {
-            // add this child to list of found childs
-            $found_childs[] = $searched_child;
-            // export this child with sub childs
-            $child_array["$child_file"]["is_exported"] = 1;
-            // $this_name = $this_site."_".$searched_child;
-            // $this_name = $searched_child;
-            // echo "** $this_name $this_site\n";
-            ${$this_name}["file"]        = $child_array["$child_file"]["file"];
-            ${$this_name}["url"]         = $child_array["$child_file"]["url"];
-            ${$this_name}["rel_path"]    = $child_array["$child_file"]["rel_path"];
-            ${$this_name}["link_chapter"]= $child_array["$child_file"]["link_chapter"];
-            ${$this_name}["link_name"]   = $child_array["$child_file"]["link_name"];
-            ${$this_name}["link_pic"]    = $child_array["$child_file"]["link_pic"];
-            ${$this_name}["parent_site"] = $this_site;
-            ${$this_name}["child_sites"] = $child_array["$child_file"]["child_sites"];
-            export_nav($this_name, $export_depth+1);
-          }
-        } else {
-          // file definitions do not match
-          // echo $child_array["$child_file"]["this_site"]." == "."$searched_child AND ";
-          // echo $child_array["$child_file"]["parent_site"]." == "."$this_site";
-          // echo " failed\n";
+                    // check if this php-file has been used already
+                    if( $child_array["$child_file"]["is_exported"] or ${$this_name}["is_exported"] ) {
+                        // child has been already exported
+                        echo '** Warning: ambiguous site definition - ignore file ';
+                        echo $child_array["$child_file"]["file"]."\n";
+                    } else {
+                        // add this child to list of found childs
+                        $found_childs[] = $searched_child;
+                        // export this child with sub childs
+                        $child_array["$child_file"]["is_exported"] = 1;
+                        // $this_name = $this_site."_".$searched_child;
+                        // $this_name = $searched_child;
+                        // echo "** $this_name $this_site\n";
+                        ${$this_name}["file"]        = $child_array["$child_file"]["file"];
+                        ${$this_name}["url"]         = $child_array["$child_file"]["url"];
+                        ${$this_name}["rel_path"]    = $child_array["$child_file"]["rel_path"];
+                        ${$this_name}["link_chapter"]= $child_array["$child_file"]["link_chapter"];
+                        ${$this_name}["link_name"]   = $child_array["$child_file"]["link_name"];
+                        ${$this_name}["link_pic"]    = $child_array["$child_file"]["link_pic"];
+                        ${$this_name}["parent_site"] = $this_site;
+                        ${$this_name}["child_sites"] = $child_array["$child_file"]["child_sites"];
+                        export_nav($this_name, $export_depth+1);
+                    }
+                } else {
+                    // file definitions do not match
+                    // echo $child_array["$child_file"]["this_site"]." == "."$searched_child AND ";
+                    // echo $child_array["$child_file"]["parent_site"]." == "."$this_site";
+                    // echo " failed\n";
+                }
+            }
+
+            if( ! $found_php_file_for_this_child ) {
+                // there was no php file found which matches this child
+                echo 'Could not find a php file which is named "'.$searched_child.'". ';
+                echo 'Please check file "'.${$this_site}["file"].'" and edit the child_array entry.'."\n";
+            }
         }
-      }
-
-      if( ! $found_php_file_for_this_child ) {
-        // there was no php file found which matches this child
-        echo 'Could not find a php file which is named "'.$searched_child.'". ';
-        echo 'Please check file "'.${$this_site}["file"].'" and edit the child_array entry.'."\n";
-      }
     }
-  }
 
-  if( ${$this_site}["is_exported"] != 1 ) {
-    // export information of this file
-    fputs($nav_file, "\n");
-    $export_array = array("file", "rel_path", "link_name", "link_chapter", "link_pic", "parent_site", "child_sites");
-    foreach( $export_array as $entry) {
-      export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry]);
-      export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry], '$this->');
+    if( ${$this_site}["is_exported"] != 1 ) {
+        // export information of this file
+        fputs($nav_file, "\n");
+        $export_array = array("file", "rel_path", "link_name", "link_chapter", "link_pic", "parent_site", "child_sites");
+        foreach( $export_array as $entry) {
+            //export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry]);
+            export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry], '$this->');
+        }
+        ${$this_site}["is_exported"] = 1;
+    } else {
+        echo "$this_site has been exported already!!\n";
     }
-    ${$this_site}["is_exported"] = 1;
-  } else {
-    echo "$this_site has been exported already!!\n";
-  }
 }
 
 function export_entry($nav_file, $name, $entry, $value, $prefix = '$') {
-  fputs($nav_file, $prefix.'nav_array["'.$name.'"]["'.$entry.'"] = ');
-  if( is_array($value) ) {
-    fputs($nav_file, 'array(');
-    foreach( $value as $element ) {
-      fputs($nav_file, '"'.$element.'", ');
+    fputs($nav_file, $prefix.'nav_array["'.$name.'"]["'.$entry.'"] = ');
+    if( is_array($value) ) {
+        fputs($nav_file, 'array(');
+        foreach( $value as $element ) {
+            fputs($nav_file, '"'.$element.'", ');
+        }
+        fputs($nav_file, "); \n");
+    } else {
+        fputs($nav_file, '"'.$value.'"; '."\n");
     }
-    fputs($nav_file, "); \n");
-  } else {
-    fputs($nav_file, '"'.$value.'"; '."\n");
-  }
 }
 
 //--------------------------------------------------------------------
 //- get the relative path to the "root" directory
 //--------------------------------------------------------------------
 function get_relative_path($file) {
-  $path = dirname($file);
-  if( !strcmp($path, ".") ) return ".";
-  $relative_path = ereg_replace("[^/][^/]*", "..", $path);
-  $relative_path = "./".ereg_replace("^\./", "", $relative_path);
-  $relative_path = ereg_replace("/$", "", $relative_path);
-  return $relative_path;
+    $path = dirname($file);
+    if( !strcmp($path, ".") ) return ".";
+    $relative_path = ereg_replace("[^/][^/]*", "..", $path);
+    $relative_path = "./".ereg_replace("^\./", "", $relative_path);
+    $relative_path = ereg_replace("/$", "", $relative_path);
+    return $relative_path;
 }
 
 //--------------------------------------------------------------------
 // checks if a given element is in a array
 //--------------------------------------------------------------------
 function is_in_array($my_item, $my_array) {
-  reset($my_array);
-  while( list($key, $value) = each($my_array) ) {
-    if( $my_item == $value ) return 1;
-  }
-  return 0;
-}
-
-//--------------------------------------------------------------------
-// puts the top array in the right order
-//--------------------------------------------------------------------
-function resort_top_array() {
-  global $top_array, $navigation_file;
-
-  $new_top_array = $top_array;
-  $sorted_array = array();
-
-  $failsave_file = "navgen_write/navgen.lock";
-
-  if( file_exists($failsave_file) ) {
-    info_output( "It seems that the sorting algorithm has failed on last run - ");
-    info_output( "skipping it this time - use restart on your browser to run it again\n");
-    if( ! @unlink($failsave_file) )
-      info_output( "The file $failsave_file which causes to skip the sorting algorithm could not be removed. Please remove this file by hand and restart this script\n");
-    return;
-  }
-
-  if( ! @touch($failsave_file) )
-    info_output( "The sorting file $failsave_file could not be created. The sorting algorithm may cause to fail this script next time. Please set the right permissions that this file can be created next time.\n");
-
-  if( ! file_exists($navigation_file) ) return;
-
-  include("$navigation_file");
-
-  if( ! @unlink($failsave_file) )
-    info_output( "The file $failsave_file which causes to skip the sorting algorithm could not be removeed. Please remove this file by hand and restart this script.\n");
-
-
-  reset($top_array);
-  info_output( "Sorting...\n");
-  while( list($key, $value) = each($top_array) ) {
-    info_output( "$pre_value ");
-    reset($new_top_array);
-    while( list($new_key, $new_value) = each($new_top_array) and
-           strcmp($value, $new_value) ) {
-      info_output( "$new_value ");
+    reset($my_array);
+    while( list($key, $value) = each($my_array) ) {
+        if( $my_item == $value ) return 1;
     }
-    if( ! strcmp($value, $new_value) ) {
-      info_output( "$value");
-      $sorted_array[] = $value;
-    }
-    info_output("\n");
-  }
-
-  // check if new sites have been added
-  reset($new_top_array);
-  while( list($new_key, $new_value) = each($new_top_array) ) {
-    reset($top_array);
-    while( list($key, $value) = each($top_array) and strcmp($value, $new_value) ) {}
-    if( strcmp($value, $new_value) ) {
-      info_output( "Found new site $new_value\n");
-      $sorted_array[] = $new_value;
-    }
-  }
-
-  $top_array = $sorted_array;
+    return 0;
 }
 
 //====================================================================
@@ -252,90 +259,92 @@ $navgen_name = basename(my_get_global("PHP_SELF", "SERVER"));
 
 while( list($index, $php_file) = each($php_file_array) ) {
 
-  // init variables
-  unset($title);
-  unset($link_chapter);
-  unset($link_name);
-  unset($link_picture);
-  unset($parent_site);
-  unset($child_sites);
-  unset($this_site);
+    // init variables
+    unset($title);
+    unset($link_chapter);
+    unset($link_name);
+    unset($link_picture);
+    unset($parent_site);
+    unset($child_sites);
+    unset($this_site);
 
-  // load the file
-  $navigation_check = "true";
-  info_output("Loading $php_file ", 3);
-  include(sec_filename("$php_file"));
-  info_output('$this_site = <'.$this_site.'> '.strlen($this_site)."\n", 4);
+    // load the file
+    $navigation_check = "true";
+    info_output("Loading $php_file ", 3);
+    include(sec_filename("$php_file"));
+    info_output('$this_site = <'.$this_site.'> '.strlen($this_site)."\n", 4);
 
-  // adapt $this_site for the command line interface
-  if( isset($this_site) and ! strcmp($this_site, $navgen_name) ) {
-    $this_site = str_replace(".php", "", basename($php_file));
-    info_output("-- Setting \$this_site to \"$this_site\"\n", 3);
-  }
-
-  // check if $this_site is a valid identifier
-  if( ! ereg('^[a-zA-Z_][a-zA-Z_0-9]*$', $this_site) and strlen($this_site) > 0 ) {
-    echo "!! Error while reading \"$php_file\" the definiton \n";
-    echo "of \$this_site = \"$this_site\" is not valid.\n";
-    echo "\$this_site must be a valid identifier in form of ".'^[a-zA-Z_][a-zA-Z_0-9]*$'."\n";
-    exit;
-  }
-
-  if( strlen($link_name) and strlen($parent_site) and strlen($this_site) ) {
-
-    if( $this_site == str_replace(".php", "", basename(my_get_global("PHP_SELF", "SERVER"))) ) {
-      $this_site = basename(str_replace(".php", "", "$php_file"));
+    // adapt $this_site for the command line interface
+    if( isset($this_site) and ! strcmp($this_site, $navgen_name) ) {
+        $this_site = str_replace(".php", "", basename($php_file));
+        info_output("-- Setting \$this_site to \"$this_site\"\n", 3);
     }
-    info_output( "$this_site ");
 
-    // check if this a top site
-    if( $parent_site == "top" ) {
-
-      if( ! is_in_array($this_site, $top_array) ) {
-        $top_array[]                 = $this_site;
-        ${$this_site}["file"]        = $php_file;
-        ${$this_site}["url"]         = $php_file;
-        ${$this_site}["rel_path"]    = get_relative_path($php_file);
-        ${$this_site}["link_name"]   = $link_name;
-        ${$this_site}["link_chapter"]= $link_chapter;
-        ${$this_site}["link_pic"]    = $link_picture;
-        ${$this_site}["parent_site"] = $parent_site;
-        ${$this_site}["child_sites"] = $child_sites;
-        ${$this_site}["is_exported"] = 0;
-        info_output( 'top - loaded'."\n");
-      } else {
-        info_output( '>WARNING: '.$this_site.' is defined twice'."\n");
-      }
-    } else {
-
-        $child_file_array[] = "$php_file";
-        $child_array["$php_file"]["file"]        = $php_file;
-        $child_array["$php_file"]["url"]         = $php_file;
-        $child_array["$php_file"]["rel_path"]    = get_relative_path($php_file);
-        $child_array["$php_file"]["this_site"]   = $this_site;
-        $child_array["$php_file"]["link_name"]   = $link_name;
-        $child_array["$php_file"]["link_chapter"]= $link_chapter;
-        $child_array["$php_file"]["link_pic"]    = $link_picture;
-        $child_array["$php_file"]["parent_site"] = $parent_site;
-        $child_array["$php_file"]["child_sites"] = $child_sites;
-        $child_array["$php_file"]["is_exported"]    = 0;
-        info_output( 'loaded'."\n");
-
+    // check if $this_site is a valid identifier
+    if( ! ereg('^[a-zA-Z_][a-zA-Z_0-9]*$', $this_site) and strlen($this_site) > 0 ) {
+        echo "!! Error while reading \"$php_file\" the definiton \n";
+        echo "of \$this_site = \"$this_site\" is not valid.\n";
+        echo "\$this_site must be a valid identifier in form of ".'^[a-zA-Z_][a-zA-Z_0-9]*$'."\n";
+        exit;
     }
-  }
+
+    if( strlen($link_name) and strlen($parent_site) and strlen($this_site) ) {
+
+        if( $this_site == str_replace(".php", "", basename(my_get_global("PHP_SELF", "SERVER"))) ) {
+            $this_site = basename(str_replace(".php", "", "$php_file"));
+        }
+        info_output( "$this_site ");
+
+        // check if this a top site
+        if( $parent_site == "top" ) {
+
+            if( ! is_in_array($this_site, $top_array) ) {
+                $top_array[]                 = $this_site;
+                ${$this_site}["file"]        = $php_file;
+                ${$this_site}["url"]         = $php_file;
+                ${$this_site}["rel_path"]    = get_relative_path($php_file);
+                ${$this_site}["link_name"]   = $link_name;
+                ${$this_site}["link_chapter"]= $link_chapter;
+                ${$this_site}["link_pic"]    = $link_picture;
+                ${$this_site}["parent_site"] = $parent_site;
+                ${$this_site}["child_sites"] = $child_sites;
+                ${$this_site}["is_exported"] = 0;
+                info_output( 'top - loaded'."\n");
+            } else {
+                info_output( '>WARNING: '.$this_site.' is defined twice'."\n");
+            }
+        } else {
+
+            $child_file_array[] = "$php_file";
+            $child_array["$php_file"]["file"]        = $php_file;
+            $child_array["$php_file"]["url"]         = $php_file;
+            $child_array["$php_file"]["rel_path"]    = get_relative_path($php_file);
+            $child_array["$php_file"]["this_site"]   = $this_site;
+            $child_array["$php_file"]["link_name"]   = $link_name;
+            $child_array["$php_file"]["link_chapter"]= $link_chapter;
+            $child_array["$php_file"]["link_pic"]    = $link_picture;
+            $child_array["$php_file"]["parent_site"] = $parent_site;
+            $child_array["$php_file"]["child_sites"] = $child_sites;
+            $child_array["$php_file"]["is_exported"]    = 0;
+            info_output( 'loaded'."\n");
+
+        }
+    }
 }
 
-if( strlen($navigation_file) < 1 )
+if( strlen($navigation_file) < 1 ) {
      die("No navigation file specified\n");
-
+}
+     
 // check the array if it can be resorted
-resort_top_array();
+$resort_object = new Resort_Top_Array();
+$top_array = $resort_object->sort($top_array);
 
 //--------------------------------------------------------------------
 //- start from top sites and find its children
 //--------------------------------------------------------------------
 $nav_file = fopen($navigation_file, "w") or
-   die("File $navigation_file could not be opened for writing!!");
+die("File $navigation_file could not be opened for writing!!");
 
 info_output("Writing to file $navigation_file\n", 0);
 
@@ -349,18 +358,22 @@ fputs($nav_file, "\n");
 fputs($nav_file, "// Names of the top sites - you may change the order if you like.\n");
 fputs($nav_file, "// On the next run navgen will try to keep the order of this array.\n");
 
-fputs($nav_file, '$top_array = array('."\n");
-foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
-fputs($nav_file, "); \n");
+// fputs($nav_file, '$top_array = array('."\n");
+// foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
+// fputs($nav_file, "); \n");
 
 fputs($nav_file, '$this->nav_array["top_array"] = array('."\n");
 foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
 fputs($nav_file, "); \n");
 
+// fputs($nav_file, '$nav_array["top_array"] = array('."\n");
+// foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
+// fputs($nav_file, "); \n");
+
 // export sites recursively
 reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
-  export_nav($this_site);
+    export_nav($this_site);
 }
 
 fputs($nav_file, "\n?>\n");
@@ -372,18 +385,18 @@ fclose($nav_file);
 //--------------------------------------------------------------------
 reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
-  info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
-  if( ${$this_site}["is_exported"] != 1 ) {
-    info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n", 0);
-  }
+    info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
+    if( ${$this_site}["is_exported"] != 1 ) {
+        info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n", 0);
+    }
 }
 
 reset($child_file_array);
 while( list($index, $php_file) = each($child_file_array) ) {
-  info_output("Checking $php_file for exporting\n", 5);
-  if( $child_array["$php_file"]["is_exported"] != 1 ) {
-    info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n", 0);
-  }
+    info_output("Checking $php_file for exporting\n", 5);
+    if( $child_array["$php_file"]["is_exported"] != 1 ) {
+        info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n", 0);
+    }
 }
 
 // phpinfo();
