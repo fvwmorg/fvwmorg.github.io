@@ -76,7 +76,7 @@ New module FvwmWindowLister.
 
 <h4 class="author">Marcus Lundblad</h4>
 <p class="author">
-Vector button offsets patch.
+Vector button offsets patch. New styles restricting window operations (Close,Maximize,Iconify). Implemented support for combining charaters.
 </p>
 
 <h4 class="author">Jason Weber</h4>

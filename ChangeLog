@@ -1,7 +1,15 @@
-2003-10-10  Mikhael Goikhman  <migo@homemail.com>
+2003-10-11  Mikhael Goikhman  <migo@homemail.com>
 
 	* definitions.inc:
 	increased to 2.4.17
+
+	* authors/authors_template.php_:
+	fixed link (added "echo")
+
+	* authors/index.php:
+	* news/index.php:
+	* faq/index.php:
+	regenerated
 
 2003-10-04  Uwe Pross  <uwe.pross@gmx.net>
 

@@ -54,9 +54,10 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
-<td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
+<td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
-<td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 <td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 <td><a href="#2.3.33" style="font-weight:normal;">&nbsp;2.3.33&nbsp;</a></td>
-<td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
 <td><a href="#2.3.31" style="font-weight:normal;">&nbsp;2.3.31&nbsp;</a></td>
 <td><a href="#2.3.30" style="font-weight:normal;">&nbsp;2.3.30&nbsp;</a></td>
 <td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.26" style="font-weight:normal;">&nbsp;2.3.26&nbsp;</a></td>
 <td><a href="#2.3.25" style="font-weight:normal;">&nbsp;2.3.25&nbsp;</a></td>
 <td><a href="#2.3.24" style="font-weight:normal;">&nbsp;2.3.24&nbsp;</a></td>
-<td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
 <td><a href="#2.3.22" style="font-weight:normal;">&nbsp;2.3.22&nbsp;</a></td>
 <td><a href="#2.3.21" style="font-weight:normal;">&nbsp;2.3.21&nbsp;</a></td>
 <td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.17" style="font-weight:normal;">&nbsp;2.3.17&nbsp;</a></td>
 <td><a href="#2.3.16" style="font-weight:normal;">&nbsp;2.3.16&nbsp;</a></td>
 <td><a href="#2.3.15" style="font-weight:normal;">&nbsp;2.3.15&nbsp;</a></td>
-<td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
 <td><a href="#2.3.13" style="font-weight:normal;">&nbsp;2.3.13&nbsp;</a></td>
 <td><a href="#2.3.12" style="font-weight:normal;">&nbsp;2.3.12&nbsp;</a></td>
 <td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
@@ -109,9 +110,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.8" style="font-weight:normal;">&nbsp;2.3.8&nbsp;</a></td>
 <td><a href="#2.3.7" style="font-weight:normal;">&nbsp;2.3.7&nbsp;</a></td>
 <td><a href="#2.3.6" style="font-weight:normal;">&nbsp;2.3.6&nbsp;</a></td>
-<td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
 <td><a href="#2.3.4" style="font-weight:normal;">&nbsp;2.3.4&nbsp;</a></td>
 <td><a href="#2.3.3" style="font-weight:normal;">&nbsp;2.3.3&nbsp;</a></td>
 <td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
@@ -120,9 +121,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.2.5" style="font-weight:normal;">&nbsp;2.2.5&nbsp;</a></td>
 <td><a href="#2.2.4" style="font-weight:normal;">&nbsp;2.2.4&nbsp;</a></td>
 <td><a href="#2.2.3" style="font-weight:normal;">&nbsp;2.2.3&nbsp;</a></td>
-<td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
 <td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
 </tr>
 </table>
@@ -137,9 +138,10 @@ decoration_window_start("Latest News");
   <li> New extended variable $[func.context].</li>
   <li> New Style option MoveByProgramMethod. Tries to autodetect  whether application windows are moved honouring the ICCCM or not  (default).  The method can be overridden manually if the  detection does not work.</li>
   <li> Fvwm supports tear off menus. See the &quot;Tear Off Menus&quot; section  in the man page or press Backspace on any menu to try them out.</li>
-  <li> Added support for new BBC headlines in fvwm-menu-headlines, this  replaces the old BBC-Worlds and BBC-SciTech headlines.</li>
   <li> Fvwm now handles what Unicode calls &quot;combining characters&quot; (ie. marks  drawn on top of other characters)</li>
-  <li> New commands WindowStyle and DestroyWindowStyle for per window  styles</li>
+  <li> New commands WindowStyle and DestroyWindowStyle for individual  (per window) styles.</li>
+  <li> The conditions !Current... and !Layer now work as expected.</li>
+  <li> Added a nice autohide script to the FAQ.</li>
 </ul>
 
 
@@ -240,7 +242,7 @@ decoration_window_start("Latest News");
 <ul>
   <li> TitleStyle MultiPixmap now works once again.</li>
   <li> Removed the old module interface for ConfigureWindow  packets. External modules relying on this interface no longer  work.</li>
-  <li> Fixed interaction bug between CascadePlacement and StartsOnPage:  if the target page was at a negative x or y page displacement  from the current view port, the window would be placed on the  wrong page.</li>
+  <li> Fixed interaction bug between CascadePlacement and StartsOnPage:  if the target page was at a negative x or y page displacement  from the current viewport, the window would be placed on the  wrong page.</li>
   <li> New Style option IconSize for restricting icon sizes.</li>
   <li> New WindowList options SortClassName, MaxLabelWidth, NoLayer,  ShowScreen, ShowPage, ShowPageX and ShowPageY.</li>
   <li> Restored old way of handling clicks in windows with ClickToFocus  and ClickToFocusPassesClickOff.  This fixes a problem with  click+drag in an unfocused rxvt or aterm window.</li>
@@ -347,6 +349,21 @@ decoration_window_start("Latest News");
   <li> New command line option -passid to FvwmAuto.</li>
   <li> New conditional commands Any and PointerWindow.</li>
   <li> New conditions Focused, !Focused, HasPointer and !HasPointer.</li>
+</ul>
+
+
+<a name="2.4.17"></a>
+<h4>Changes in stable release 2.4.17 (10-Oct-2003) <a href="#top">[top]</a></h4>
+<ul>
+  <li> Fixed error message for incorrect --with-SOME-library argument.</li>
+  <li> It is now possible to suppress title action or title completely  in menus created by fvwm-menu-directory.</li>
+  <li> Fixed a compile problem on QNX 4.25.</li>
+  <li> New configure switch --disable-gtk.</li>
+  <li> FvwmGtk.1 is not installed if FvwmGtk is not built.</li>
+  <li> The &quot;Visible&quot; condition does no longer select windows on  different desks.</li>
+  <li> With the styles StartsOnPage, SkipMapping and UsePPosition,  windows that request a specific position are still placed on the  given page.</li>
+  <li> Fixed sending M_NEW_PAGE packets to the modules if the page did  not change.</li>
+  <li> Added support for new BBC headlines in fvwm-menu-headlines, this  replaces the old BBC-Worlds and BBC-SciTech headlines.</li>
 </ul>
 
 

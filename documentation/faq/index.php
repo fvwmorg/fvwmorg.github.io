@@ -684,7 +684,7 @@ A: Most standard applications work as any other application with
    startkde_fvwm in your X startup script (e.g., ~/.xinitrc, ~/.Xclients
    or ~/.xsession). Note that ksmserver does not support the fvwm Restart
    command. You should use &quot;Restart fvwm&quot; for restarting fvwm. But if you
-   do that it is a bad idea to save the session later. 
+   do that it is a bad idea to save the session later.
 
 ======================================================================
 <a name="3."></a>          <a href="#toc_3.">3</a> - Features, Configuration, Functions &amp; Commands
@@ -2630,7 +2630,7 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
 <a name="7.16"></a><a href="#toc_7.16">7.16</a>  Finding the mouse pointer.
 
     Sometimes its hard to see the mouse pointer.
-    Heres a way to find it:
+    Here is a way to find it:
 
     Key Super_L A A Exec xmessage -name &quot;SmallBlob&quot; -bg red \
       -fg white -nearmouse -timeout 1 'I am here!'
@@ -2676,6 +2676,39 @@ A: OK, 93 is a joke, we know you don't have 93 buttons, but we've
     milliseconds before the window is hidden after the pointer
     leaves it, and the last - optional - one indicates the
     direction in which it is hidden (N, S, E, W, NW, NE, SW or SE).
+
+    You can find a slightly more complicated version below.  The
+    difference is that showing the window does not happen
+    immediately, but can be delayed too.
+
+    fvwm-2.5.8 or later:
+
+     AddToFunc autohide
+     + I ThisWindow ($0) Deschedule $[w.id]
+     + I TestRc (!Match) Deschedule -$[w.id]
+     + I ThisWindow ($0) ThisWindow (shaded) autohide_show $1 $3
+     + I TestRc (!Match) All ($0, !shaded) autohide_hide $2 $3
+
+     AddToFunc autohide_show
+     + I Schedule $0 -$[w.id] WindowShade $1 off
+     + I Schedule $0 -$[w.id] Deschedule $[w.id]
+     + I Schedule $0 -$[w.id] Deschedule -$[w.id]
+
+     AddToFunc autohide_hide
+     + I Schedule $0 $[w.id] WindowShade $1 on
+     + I Schedule $0 $[w.id] Deschedule $[w.id]
+     + I Schedule $0 $[w.id] Deschedule -$[w.id]
+
+     AddToFunc StartFunction
+     + I Module FvwmAuto FvwmAutohide -menter enter_handler
+
+     AddToFunc enter_handler
+     + I autohide FvwmButtons 250 500 S
+     #            ^           ^   ^   ^
+     #            |           |   |   |___  Shade direction (optional)
+     #            |           |   |________ Hide delay
+     #            |           |___________  Show delay
+     #            |_______________________  Unique window name/resource
 </pre>
 
 
