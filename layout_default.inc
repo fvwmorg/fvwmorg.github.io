@@ -750,7 +750,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
   echo '<table align="center" ';
   //echo '<table ';
   if (strlen($width) > 0) echo 'width="'.$width.'" ';
-  echo 'border="0" cellpadding="5" cellspacing="0" summary="">'."\n";
+  echo 'border="0" cellpadding="5" cellspacing="0" summary="" style="padding-left:10%;">'."\n";
   for($ii=0; $ii<ceil($count/$col_num); $ii++) {
     echo "<tr>\n";
     for($jj=0; $jj<$col_num; $jj++) {
@@ -765,7 +765,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
           echo '<a href="'.$target.'">';
-          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot_blue.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $nav_array["$jump"]["link_name"];
           echo '</a>';
@@ -781,7 +781,7 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
           // mini icon and text
           echo '<td align="left" valign="bottom" nowrap="nowrap">';
           echo '<a href="'.$jump[1].'">';
-          echo '<img src="'.$rel_path.'/pictures/item_dot.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
+          echo '<img src="'.$rel_path.'/pictures/item_dot_blue.gif" border="0" alt="" hspace="5" vspace="4" align="top">';
           //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
           echo $jump[0];
           echo '</a>';
@@ -835,17 +835,22 @@ function insert_quick_jump_list($quick_jump_array, $col_num = 2, $width = "60%")
        p {
        text-align:left;
        }
-.intern {
+       .intern {
        color: #ffffff;
        }
-.windowcontents {
+       .windowcontents {
        }
        a:link, a:visited, a:active, a:hover {
        text-decoration:none;
        font-weight:bold;
+       color:#41a1ee;
+       }
+       a:hover {
+       background-color:#41a1ee;
+       color:#ffffff;
        }
        h2, h3, h4, h5 {
-       color:#2bbbff;
+       color:#41a1ee;
        }
        h4.author {
        margin-top:15pt;
