@@ -105,6 +105,13 @@ The next 22 identify the location and size, as described in the table below.
 Configure packets will be generated when the viewport on the current desktop
 changes, or when the size or location of the window is changed. The flags
 field is an bitwise OR of the flags defined in fvwm.h.
+
+Important note:  The individual fields of the packet must not be
+accessed directly with the 'body' member of the packet structure.
+THe size of these fields may change in the future and has changed
+in the past, thus breaking any module relying on the exact
+position of the value in the packet.  Instead, use the structures
+defined in libs/vpacket.h.
 <p>
 <table align="center" border>
 <tr>
@@ -494,7 +501,7 @@ This indicates that
 the parent(s) window background of this module has changed.
 (FvwmButtons
 sends this message for the modules that it swallows, when its background
-colorset changes). 
+colorset changes).
 The string and the second value are not used.
 <br><br>
 <b>MX_PROPERTY_CHANGE_SWALLOW</b> is sent by FvwmButtons (and
