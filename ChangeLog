@@ -1,3 +1,12 @@
+1999-11-22  Dan Espen  <dane@mk.telcordia.com>
+
+	*    index.html, vector-buttons  directory:   vector-buttons.html,
+ 	testbed.fvwmrc,             DecorDemo1.fvwmrc,     DecorDemo1.gif,
+ 	DecorDemo2.fvwmrc,        DecorDemo2.gif,       DecorDemo3.fvwmrc,
+ 	DecorDemo3.gif : New vector buttons page.
+
+	* screenshots/screenshot.html: fixed reference to background (../).
+
 1999-11-13  olicha   <olivier.chapuis@free.fr>
 
 	* mod_m2f_communication.html: Updated the "Synchronous vs. 
