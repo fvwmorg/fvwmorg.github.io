@@ -1,3 +1,7 @@
+2001-05-10  Mikhael Goikhman  <migo@homemail.com>
+
+	* generated/{FAQ,NEWS}.html: regenerated
+
 2001-05-04  Jason L Tibbitts III  <tibbs@math.uh.edu>
 
 	* download.html, index.html: update for 2.3.32.
