@@ -46,6 +46,10 @@ decoration_window_start('By Annemarie Rowson', "100%", "");
 // Date: Sat, 12 Jul 2003 01:24:41 -0700 (PDT)
 // To: fvwm-logo@lists.sourceforge.net
 // Subject: [FVWM-LOGO] (no subject)
+//
+//    just an attempt at you logo comp! annemarie, please dont email me back
+//    at the adress use my other one if you can [1]rowson_anne@hotmail.com,
+//    thanksannemarie
 ?>
 
 <p><img src="fvwm.jpg">
