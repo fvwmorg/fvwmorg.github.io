@@ -68,11 +68,10 @@ echo ">";
       <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">pager on top theme</a>, 
       <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
     </p>
+
     <!-- bottom of the page - display last modified information -->
     <p style="text-align:right; font-size:xx-small; font-style:italic;">
        <?php $theme_object->insert_timestamp($requested_file); ?>
-       <!-- we may place a "contact" statement here -->
-       <!-- &nbsp;&nbsp;&lt;<a href="mailto:fvwm-workers@fvwm.org">FVWM Workers</a>&gt; -->
     </p>
 
   </body>

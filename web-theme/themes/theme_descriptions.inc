@@ -9,7 +9,7 @@
 // via the customize_theme page 
 $this->theme_descriptions = array(
   "default" => array(
-     "name"   => "Default Theme",
+     "name"   => "Window",
      "style"  => array(
          "decoration_path"  => array(
             "type"    => "directory",                      
@@ -117,7 +117,7 @@ $this->theme_descriptions = array(
      ),
 
   "pager_on_top" => array(
-     "name"   => "Theme having pager on top",
+     "name"   => "Desktop",
      "style"  => array(
          "decoration_path"  => array(
             "type"    => "directory",                      
@@ -172,8 +172,8 @@ $this->theme_descriptions = array(
                 "Paper"  => "@REL_PATH@/pictures/backgrounds/paper01.jpg",
                 "Clouds" => "@REL_PATH@/pictures/backgrounds/clouds01.jpg",
                 "Stars"  => "@REL_PATH@/pictures/backgrounds/stars01.jpg",
-		"None"   => "none"
-                 ),
+                "None"   => "none"
+                ),
             "name"    => "Background Image",
             ),
          "pager_bg"         => array(
@@ -221,11 +221,21 @@ $this->theme_descriptions = array(
             "value"   => "#404040",
             "name"    => "Source Text Background Color",
             ),
+         "table1" => array(
+            "type"    => "color",
+            "value"   => "#404040",
+            "name"    => "Color for table background",
+            ),
+         "table2" => array(
+            "type"    => "color",
+            "value"   => "#606060",
+            "name"    => "Color for table background",
+            ),
          ),
      ),
    
   "plain"   => array(
-     "name"   => "Fast Plain Theme",
+     "name"   => "Clean",
      "style"  => array(
          "window_bg"  => array(
             "type"    => "color",
@@ -241,7 +251,7 @@ $this->theme_descriptions = array(
      ),
   
   "birthday"   => array(
-     "name"   => "Birthday Theme",
+     "name"   => "Birthday",
      "style"  => array(         
          "window_bg"  => array(
             "type"    => "color",
