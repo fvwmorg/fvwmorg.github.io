@@ -220,10 +220,10 @@ if( strlen($rel_path) == 0 ) $rel_path=".";
 
 $user_agent = my_get_global("HTTP_USER_AGENT", "SERVER");
 
-$theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
+// $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
 // just allow GET for birthday time - comment out previous line
-// $theme = get_user_setting("theme", array("GET"));
+$theme = get_user_setting("theme", array("GET"));
 
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
@@ -234,8 +234,8 @@ if( strlen($theme) > 0 ) {
     $theme_file = theme_file("plain_theme.inc");
     $theme = "plain";
 } else {
-    $theme_file = theme_file("default_theme.inc");
-    // $theme_file = theme_file("birthday_theme.inc");
+    // $theme_file = theme_file("default_theme.inc");
+    $theme_file = theme_file("birthday_theme.inc");
 }
 
 // layout file - old version
