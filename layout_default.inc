@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <01.04.2003 09:09:35 uwp>
+//-  Last modified : <01.04.2003 15:18:23 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -481,7 +481,7 @@ function insert_pager_desk($site) {
   echo '<tr>'."\n";
   echo '<td '.$td_opt.' colspan="2">';
   echo '<a href="'.$target.'" style="font-weight:normal; font-family:monospace;">';
-  echo '<font size="2" color="'.$fg.'">'.${$site}["link_name"].'</font></a>';
+  echo '<font size="2" color="'.$fg.'">&nbsp;'.${$site}["link_name"].'&nbsp;</font></a>';
   echo '</td>'."\n";
   echo '</tr>'."\n";
 
