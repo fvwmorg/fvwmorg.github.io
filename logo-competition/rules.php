@@ -60,15 +60,15 @@ if (strlen("$site_has_been_loaded") == 0) {
 	<th>Description</th>
       </tr>
       <tr>
-	<td>21-Apr-2003 / 10-Aug-2003</td>
+	<td>1-May-2003 / 31-Aug-2003</td>
 	<td>Logo contributions are accepted.</td>
       </tr>
       <tr>
-	<td>15-Aug-2003 / 30-Aug-2003</td>
+	<td>1-Sep-2003 / 15-Sep-2003</td>
 	<td>The winning logo is elected.</td>
       </tr>
       <tr>
-	<td>31-Aug-2003</td>
+	<td>around 20-Sep-2003</td>
 	<td>The winning logo is proclaimed.</td>
       </tr>
     </table>

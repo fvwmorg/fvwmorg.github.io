@@ -1,6 +1,11 @@
+2003-04-23  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* logo-competition/rules.php:
+	updated logo competition schedule
+
 2003-04-23  Uwe Pross  <uwe.pross@gmx.net>
 
-	* layout_default.inc: 
+	* layout_default.inc:
 	changed colors a bit. added new css class for non hover links.
 
 2003-04-23  Mikhael Goikhman  <migo@homemail.com>
@@ -17,26 +22,26 @@
 
 2003-04-22  Uwe Pross  <uwe.pross@mx.net>
 
-	* download/index.php: 
+	* download/index.php:
 	used release variables
 
-	* definitions.inc: 
+	* definitions.inc:
 	new variables $latest_stable_release and $latest_unstable_release
 	which are useable in all php files
 
-	* index.php: 
+	* index.php:
 	changed order of quick jump list
 	replaced release information by php variables
 
-	* layout_plain.inc: 
-	* layout_default.inc: 
+	* layout_plain.inc:
+	* layout_default.inc:
 	changed/improved insert_quick_jump_list function so that internal
 	and external links can be mixed.
 	fixed coding style [removed trailing spaces, space after comma and
-	semicolon] 
+	semicolon]
 	no title in the window decoration for the moment
 	changed window decoration picture
-	
+
 2003-04-22  Mikhael Goikhman  <migo@homemail.com>
 
 	* layout_default.inc:
@@ -73,10 +78,10 @@
 
 2003-04-21  Uwe Pross  <uwe.pross@mx.net>
 
-	* layout_default.inc: 
+	* layout_default.inc:
 	comments
 
-	* httpd/error404.php: 
+	* httpd/error404.php:
 	added map functionality
 
 2003-04-20  Mikhael Goikhman  <migo@homemail.com>
@@ -116,7 +121,7 @@
         created overview pic for all mini icons. further may follow.
         * navgen.cli:
         changes the internal array structure using now a multidimensional
-        array. 
+        array.
 
 2003-04-17  Mikhael Goikhman  <migo@homemail.com>
 
@@ -126,12 +131,12 @@
 
 2003-04-15  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* ** 
+	* **
 	removed last modified entry in the header
 
 2003-04-14  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* screenshots/index.php: 
+	* screenshots/index.php:
 	inserted table. Created pictures for different screenshot sections.
 	* layout_plain.inc
 	* layout_default.inc
@@ -139,15 +144,15 @@
 	Fixed link tag in layout_default.inc
 	* download/index.php
 	Adapted links for new site.
-	* links.php: 
+	* links.php:
 	Some reformating.
 
 2003-04-13  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* layout_default.inc: 
+	* layout_default.inc:
 	Changed the pager algorithm that uneccessary desks won't be shown.
 	This is more fvwm like but may be confusing.
-	
+
 	* navgen.cli:
 	Fixed environment problem. Variable $this_site was set to
 	navgen.cli which was certainly wrong
@@ -164,23 +169,23 @@
 	* **:
 	fixed laytout passing
 	removed file latest_news.txt
-	
+
 2003-04-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* navgen.cli: 
+	* navgen.cli:
 	Changed navgen.php to navgen.cli can be run through the command
 	line interface.
 	Added check for valid identifiers.
 
-	* layout_default.inc: 
+	* layout_default.inc:
 	Added a lot of comments. Fixed a problem with ie. layout has been
 	checked which opera, netscape, mozilla, galeon and ie
 	Added alternate style sheet example to the layout
 	Checked site with tidy
-	
+
 2003-04-10  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* documentation/manpages/fvwm.php: 
+	* documentation/manpages/fvwm.php:
 	Example page.
 	* layout_default.inc:
 	Fixed window size problem.
@@ -190,14 +195,14 @@
 
 2003-04-09  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* layout_default.inc: 
+	* layout_default.inc:
 	Added entry about last modified date. This entry is taken form the
 	timestamp of the requested file.
 
-	* latest_news/news_template.php_: 
+	* latest_news/news_template.php_:
 	Added child entry to logo_competition
 
-	* navgen.php: 
+	* navgen.php:
 	navgen reports now if a parent's child reference and child's
 	parent reference do not match.
 	Changed some warning and error messages.
@@ -213,20 +218,20 @@
 
 2003-04-08  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* **: 
+	* **:
 	Added author information site and cvs information site
-	
+
 2003-04-07  Dan Espen  <dane@mk.telcordia.com>
 
 	* layout_default.inc: Add favicon to php page.
 
 2003-04-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
-	* screenshots/index.php: 
-	fixed "decor" child entry 
-	* screenshots/desktops.php: 
+	* screenshots/index.php:
+	fixed "decor" child entry
+	* screenshots/desktops.php:
 	removed "test" child site
-	* features.php: 
+	* features.php:
 	removed <hr> tags
 	* layout_default.inc
 	added "#top" link target
