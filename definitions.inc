@@ -30,148 +30,175 @@ $definitions_has_been_read = "x";
 //--------------------------------------------------------------------
 
 function my_get_global($varname, $vartype)  {
-//  Change this to receive a literal for vartype,
-//  do a case on vartype and load a reference to
-//  the appropriate array, e.g., if $vartype = "SERVER",
-//  set $mytype = &$_SERVER (or &$HTTP_SERVER_VARS if 4.0,
-//  or maye &$GLOBALS if version 3 - ???).
-//  And let's call $vartype $egpcstype instead.
-//
+    //  Change this to receive a literal for vartype,
+    //  do a case on vartype and load a reference to
+    //  the appropriate array, e.g., if $vartype = "SERVER",
+    //  set $mytype = &$_SERVER (or &$HTTP_SERVER_VARS if 4.0,
+    //  or maye &$GLOBALS if version 3 - ???).
+    //  And let's call $vartype $egpcstype instead.
+    //
 
-//  I have no idea what would happen if you tried to run this thing
-//  under a pre-3.0 version, but if it should get this far, we'll
-//  return an unset variable.  
-if (PHP_VERSION < 3.0)  {
-  return $val;
-  }
-
-//  The caller may have passed a reference to the desired array.
-//  If this arg is an array, assume he knows what he's doing.
-if (is_array($vartype))  {
-  $mytype = $vartype;
-  if (isset($mytype[$varname]))  {
-    $val = $mytype[$varname];
-    }
-  return $val;
-  }  else  {
-  //  The new stuff - we have 3 paths, for 3.0, 4.0, and 4.1 and up.
-
-
-  //  Version 3 had the $GLOBALS array, so just get the value from there.
-  if (PHP_VERSION < 4.0)  {
-    return $GLOBALS[$varname];
-    }
-
-  //  Version 4.0 and above - point to the appropriate global array.
-  if (PHP_VERSION < 4.1)  {
-    switch ($vartype)  {
-      case "ENV":
-        global $HTTP_ENV_VARS;
-        $mytype = &$HTTP_ENV_VARS;
-        break;
-      case "GET":
-        global $HTTP_GET_VARS;
-        $mytype = &$HTTP_GET_VARS;
-        break;
-      case "POST":
-        global $HTTP_POST_VARS;
-        $mytype = &$HTTP_POST_VARS;
-        break;
-      case "COOKIE":
-        global $HTTP_COOKIE_VARS;
-        $mytype = &$HTTP_COOKIE_VARS;
-        break;
-      case "SERVER":
-        global $HTTP_SERVER_VARS;
-        $mytype = &$HTTP_SERVER_VARS;
-        break;
-      case "FILES":
-        global $HTTP_POST_FILES;
-        $mytype = &$HTTP_POST_FILES;
-        break;
-      case "SESSION":
-        global $HTTP_SESSION_VARS;
-        $mytype = &$HTTP_SESSION_VARS;
-        break;
-      case "REQUEST":
-        //  There's no such entity before 4.1.
+    //  I have no idea what would happen if you tried to run this thing
+    //  under a pre-3.0 version, but if it should get this far, we'll
+    //  return an unset variable.  
+    if (PHP_VERSION < 3.0)  {
         return $val;
-        break;
-      case "GLOBALS":
-        global $GLOBALS;        //  Is this necessary?
-        $mytype = &$GLOBALS;
-        break;
-      default:
-        //  Unknown array, return unset var. (Or should we try
-        //  to fetch it from $GLOBALS?)
-        //$mytype = &$GLOBALS;
+    }
+
+    //  The caller may have passed a reference to the desired array.
+    //  If this arg is an array, assume he knows what he's doing.
+    if (is_array($vartype))  {
+        $mytype = $vartype;
+        if (isset($mytype[$varname]))  {
+            $val = $mytype[$varname];
+        }
         return $val;
-        break;
-      }  //  End switch
+    }  else  {
+        //  The new stuff - we have 3 paths, for 3.0, 4.0, and 4.1 and up.
 
-    //  Get the variable if it exists.
-    if (isset($mytype[$varname]))  {
-      $val = $mytype[$varname];
-      }
-    return $val;
+
+        //  Version 3 had the $GLOBALS array, so just get the value from there.
+        if (PHP_VERSION < 4.0)  {
+            return $GLOBALS[$varname];
+        }
+
+        //  Version 4.0 and above - point to the appropriate global array.
+        if (PHP_VERSION < 4.1)  {
+            switch ($vartype)  {
+            case "ENV":
+                global $HTTP_ENV_VARS;
+                $mytype = &$HTTP_ENV_VARS;
+                break;
+            case "GET":
+                global $HTTP_GET_VARS;
+                $mytype = &$HTTP_GET_VARS;
+                break;
+            case "POST":
+                global $HTTP_POST_VARS;
+                $mytype = &$HTTP_POST_VARS;
+                break;
+            case "COOKIE":
+                global $HTTP_COOKIE_VARS;
+                $mytype = &$HTTP_COOKIE_VARS;
+                break;
+            case "SERVER":
+                global $HTTP_SERVER_VARS;
+                $mytype = &$HTTP_SERVER_VARS;
+                break;
+            case "FILES":
+                global $HTTP_POST_FILES;
+                $mytype = &$HTTP_POST_FILES;
+                break;
+            case "SESSION":
+                global $HTTP_SESSION_VARS;
+                $mytype = &$HTTP_SESSION_VARS;
+                break;
+            case "REQUEST":
+                //  There's no such entity before 4.1.
+                return $val;
+                break;
+            case "GLOBALS":
+                global $GLOBALS;        //  Is this necessary?
+                $mytype = &$GLOBALS;
+                break;
+            default:
+                //  Unknown array, return unset var. (Or should we try
+                //  to fetch it from $GLOBALS?)
+                //$mytype = &$GLOBALS;
+                return $val;
+                break;
+            }  //  End switch
+
+            //  Get the variable if it exists.
+            if (isset($mytype[$varname]))  {
+                $val = $mytype[$varname];
+            }
+            return $val;
+
+        }
+
+        //  Version 4.1 and above - 
+        if (PHP_VERSION >= 4.1)  {
+            switch ($vartype)  {
+            case "ENV":
+                $mytype = &$_ENV;
+                break;
+            case "GET":
+                $mytype = &$_GET;
+                break;
+            case "POST":
+                $mytype = &$_POST;
+                break;
+            case "COOKIE":
+                $mytype = &$_COOKIE;
+                break;
+            case "SERVER":
+                $mytype = &$_SERVER;
+                break;
+            case "FILES":
+                $mytype = &$_FILES;
+                break;
+            case "SESSION":
+                $mytype = &$_SESSION;
+                break;
+            case "REQUEST":
+                $mytype = &$_REQUEST;
+                break;
+            case "GLOBALS":
+                $mytype = &$_GLOBALS;
+                break;
+            default:
+                //  Try to get any old global of that name.
+                //  Or should we return unset var instead?
+                $mytype = &$_GLOBALS;   
+                //return $val;
+                break;
+            }  //  End switch
+
+            //  Get the variable if it exists.
+            if (isset($mytype[$varname]))  {
+                $val = $mytype[$varname];
+            }
+            return $val;
+        }
 
     }
 
-  //  Version 4.1 and above - 
-  if (PHP_VERSION >= 4.1)  {
-    switch ($vartype)  {
-      case "ENV":
-        $mytype = &$_ENV;
-        break;
-      case "GET":
-        $mytype = &$_GET;
-        break;
-      case "POST":
-        $mytype = &$_POST;
-        break;
-      case "COOKIE":
-        $mytype = &$_COOKIE;
-        break;
-      case "SERVER":
-        $mytype = &$_SERVER;
-        break;
-      case "FILES":
-        $mytype = &$_FILES;
-        break;
-      case "SESSION":
-        $mytype = &$_SESSION;
-        break;
-      case "REQUEST":
-        $mytype = &$_REQUEST;
-        break;
-      case "GLOBALS":
-        $mytype = &$_GLOBALS;
-        break;
-      default:
-        //  Try to get any old global of that name.
-        //  Or should we return unset var instead?
-        $mytype = &$_GLOBALS;   
-        //return $val;
-        break;
-      }  //  End switch
-
-    //  Get the variable if it exists.
-    if (isset($mytype[$varname]))  {
-      $val = $mytype[$varname];
-      }
     return $val;
-    }
-
-  }
-
-return $val;
 }
 
 function sec_filename($filename) {
-  if( file_exists("$filename") )
-    return $filename;
-  else
-    return "__".$filename."__";
+    if( file_exists("$filename") )
+        return $filename;
+    else
+        return "__".$filename."__";
+}
+
+function theme_file($filename) {
+    global $rel_path;
+    $file = $rel_path."/web-theme/themes/".$filename;
+    if( file_exists("$file") )
+        return $file;
+    else
+        return $rel_path."/web-theme/themes/default_theme.inc";  
+}
+
+function class_file($filename) {
+    global $rel_path;
+    $file = $rel_path."/web-theme/classes/".$filename;
+    if( file_exists("$file") )
+        return $file;
+    else
+        return $rel_path."/web-theme/classes/default_class.inc";  
+}
+
+function helper_file($filename) {
+    global $rel_path;
+    $file = $rel_path."/web-theme/helpers/".$filename;
+    if( file_exists("$file") )
+        return $file;
+    else
+        return "__".$file."__";  
 }
 
 //--------------------------------------------------------------------
@@ -179,22 +206,43 @@ function sec_filename($filename) {
 //--------------------------------------------------------------------
 if( strlen($rel_path) == 0 ) $rel_path=".";
 
-$layout = my_get_global("layout", "GET");
-
 $user_agent = my_get_global("HTTP_USER_AGENT","SERVER");
 
-// we can make a decision of default layout here
-if( strlen($layout) > 0 ) {
-  $layout_file = $rel_path."/layout_".$layout.".inc";
-} elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/", $user_agent)) {
-  $layout_file = $rel_path."/layout_plain.inc" ;
+if( my_get_global("theme","GET") ) {
+
+    $theme = my_get_global("theme", "GET");
+    // we can make a decision of default theme here
+    if( strlen($theme) > 0 ) {
+        $theme_file = theme_file($theme."_theme.inc");
+    } elseif ( preg_match("/Emacs/", $user_agent) || 
+               preg_match("/Lynx/", $user_agent)  || 
+               preg_match("/w3m/", $user_agent)) {
+        $theme_file = theme_file("plain_theme.inc");
+    } else {
+        $theme_file = theme_file("default_theme.inc");
+    }
+    
+    // layout file - old version
+    $layout_file = $theme_file;
 } else {
-  $layout_file = $rel_path."/layout_default.inc" ;
+    //--------------------------------------------------------------------
+    // old version needs to be removed
+    //--------------------------------------------------------------------
+    $layout = my_get_global("layout", "GET");
+    if( strlen($layout) > 0 ) {
+        $layout_file = $rel_path."/layout_".$layout.".inc";
+    } elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/",
+                                                                                                     $user_agent)) {
+        $layout_file = $rel_path."/layout_plain.inc" ;
+    } else {
+        $layout_file = $rel_path."/layout_default.inc" ;
+    }
+    
+    if( ! file_exists($layout_file) ) {
+        $layout_file = $rel_path."/layout_default.inc" ;
+    }
 }
 
-if( ! file_exists($layout_file) ) {
-  $layout_file = $rel_path."/layout_default.inc" ;
-}
 
 $navigation_file = $rel_path."/navgen_write/navigation.inc";
 $navgen_url      = $rel_path."/navgen.php";

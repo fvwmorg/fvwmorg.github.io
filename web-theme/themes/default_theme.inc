@@ -1,6 +1,6 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : layout_default_class.inc
+//-  File          : default_theme.inc
 //-  Project       : Fvwm Home page
 //-  Date          : Sat Apr 19 15:21:26 2003
 //-  Programmer    : Uwe Pross
@@ -13,21 +13,13 @@ if( strlen("$navigation_check") > 0 ) return;
 if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 // read base class declaration
-include(sec_filename($rel_path."/class_layout_base.inc"));
+require_once(class_file("default_class.inc"));
 
-class Layout_Default extends Layout_Base {
-  function conv_link_target($target) {
-    global $layout;
-    if( $layout ) return $target."?layout=".$layout;
-    else return $target;
-  }
-}
-
-// create a object of the layout class
-$layout_object = new Layout_Default();
+// create a object of the theme class
+$theme_object = new Default_Theme();
 
 // include function wrappers
-include(sec_filename($rel_path."/interface_definitions.inc"));
+include(helper_file("members2globals.inc"));
 ?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -51,20 +43,20 @@ include(sec_filename($rel_path."/interface_definitions.inc"));
   <style type="text/css">
   <!--  
   body {
-    background-color: <?php echo $layout_object->properties_array["body_bg"];?>;
-    background-image: url("<?php echo $layout_object->properties_array['body_bg_image'];?>");
-    color: <?php echo $layout_object->properties_array["body_fg"];?>;
+    background-color: <?php echo $theme_object->style_array["body_bg"];?>;
+    background-image: url("<?php echo $theme_object->style_array['body_bg_image'];?>");
+    color: <?php echo $theme_object->style_array["body_fg"];?>;
   -->
   </style>
 </head>
 
 <body 
-    bgcolor="<?php echo $layout_object->properties_array['body_bg'];?>"
+    bgcolor="<?php echo $theme_object->style_array['body_bg'];?>"
     <?php 
-    if (strlen($layout_object->properties_array['body_bg_image']) > 0) 
-       echo 'background="'.$layout_object->properties_array['body_bg_image'].'"'; 
+    if (strlen($theme_object->style_array['body_bg_image']) > 0) 
+       echo 'background="'.$theme_object->style_array['body_bg_image'].'"'; 
     ?>
-    text="<?php echo $layout_object->properties_array['body_fg']; ?>"
+    text="<?php echo $theme_object->style_array['body_fg']; ?>"
     link="#ffff88"
     vlink="#f0c0c0"
     alink="#ff0000">
@@ -93,9 +85,9 @@ include(sec_filename($rel_path."/interface_definitions.inc"));
 
 <!-- second cell of the outer wrapper table which contains the pager -->
 <td valign="top" align="right"><?php
-    $layout_object->push_decoration_path("pictures/decorations/window_deco_ice");
-    $layout_object->insert_pager_navigation();
-    $layout_object->pop_decoration_path();
+    $theme_object->push_decoration_path("pictures/decorations/window_deco_ice");
+    $theme_object->insert_pager_navigation();
+    $theme_object->pop_decoration_path();
   // Add links to html and css checkers - hide them for the checker sites
   // since they seem not to be html-conform.
   // echo $_SERVER["REMOTE_ADDR"]." ".$_SERVER["REMOTE_HOST"]."<br>\n";
@@ -110,7 +102,7 @@ include(sec_filename($rel_path."/interface_definitions.inc"));
 </table>
 
 <!-- bottom of the page - display last modified information -->
-<p class="bottominfo"><?php $layout_object->insert_timestamp($requested_file); ?></p>
+<p class="bottominfo"><?php $theme_object->insert_timestamp($requested_file); ?></p>
 
 </body>
 </html>
