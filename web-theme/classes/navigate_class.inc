@@ -12,29 +12,52 @@ class Navigate_Theme extends Base_Theme {
         $this->init();
     }
 
-        function insert_link($site, $depth, $selected_path) {
+    function get_parent_path($site) {
+        // first we should check if the array is consistent
+        if( strlen($this->nav_array["$site"]["parent_site"]) < 1 ) {
+            // echo "Error in navigation array<br>";
+            // the actual site is not in the navigation array
+            // we return the first entry of $this->nav_array["top_array"] here
+            return $this->nav_array["top_array"][0];
+        }
+        // check if this site is a parent - if not return the parent
+        // of its parent; -)
+        if( ! strcmp( $this->nav_array["$site"]["parent_site"], "top") ) {
+            if( count($this->nav_array["$site"]["child_sites"]) == 0 )
+                return array($site);
+            else
+                return array($this->nav_array["top_array"][0], $site);
+        } else {
+            $parent_path = $this->get_parent_path($this->nav_array["$site"]["parent_site"]);
+            $parent_path[] = $site;
+            return $parent_path;
+        }
+    }
 
-            $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
-            $max_depth = count($selected_path);
-            if( count($this->nav_array["$this->this_site"]["child_sites"]) == 0 ) $max_depth--;
 
-            if( !strcmp($site, $this->this_site) ) {
-                $css_class="sellink";
-            } else {
-                $css_class="link";
-            }
+    function insert_link($site, $depth, $selected_path) {
+        
+        $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
+        $max_depth = count($selected_path);
+        if( count($this->nav_array["$this->this_site"]["child_sites"]) == 0 ) $max_depth--;
 
-            echo '<tr><td align="right" class="'.$css_class.'">';
-            echo '<a href="'.$target.'" class="'.$css_class; 
-            $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
-            echo '">'.str_replace(" ", "&nbsp;", $short_name);
-            // if($depth) echo "....";
-            for( $ii=0; $ii<($depth); $ii++ ) {
-                echo "&nbsp;&nbsp;&nbsp;:";
-            }
-            echo '</a>';
-            // echo '<br>'."\n";
-            echo '</td></tr>';
+        if( !strcmp($site, $this->this_site) ) {
+            $css_class="sellink";
+        } else {
+            $css_class="link";
+        }
+
+        echo '<tr><td align="right" class="'.$css_class.'">';
+        echo '<a href="'.$target.'" class="'.$css_class; 
+        $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
+        echo '">'.str_replace(" ", "&nbsp;", $short_name);
+        // if($depth) echo "....";
+        for( $ii=0; $ii<($depth); $ii++ ) {
+            echo "&nbsp;&nbsp;&nbsp;:";
+        }
+        echo '</a>';
+        // echo '<br>'."\n";
+        echo '</td></tr>';
     }
 
     function insert_link_list($link_array, $depth, $selected_path) {
