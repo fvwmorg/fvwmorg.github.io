@@ -15,23 +15,23 @@
 
 </PRE>
 <H2>NAME</H2><PRE>
-     FvwmCommand - FVWM2 command external interface
+     FvwmCommand - FVWM command external interface
 
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmCommand [-mrvw] [-S  name]  [-i  level]  [-f  name]  [-F
+     FvwmCommand [-cmrvw] [-S name]  [-i  level]  [-f  name]  [-F
      level] [command...]
 
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     FvwmCommand lets you monitor  fvwm2  transaction  and  issue
-     fvwm2 command from a shell command line or scripts. FvwmCom-
-     mand takes each argument as a fvwm2 command. Quotes  can  be
-     used to send commands including spaces.
+     FvwmCommand lets you monitor fvwm transaction and issue fvwm
+     command  from  a shell command line or scripts.  FvwmCommand
+     takes each argument as a fvwm command. Quotes can be used to
+     send commands including spaces.
 
        FvwmCommand 'FvwmPager 0 1'
 
@@ -39,10 +39,10 @@
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
-     FvwmCommandS should be spawned  once  by  fvwm2,  either  in
+     FvwmCommandS should be  spawned  once  by  fvwm,  either  in
      .fvwm2rc  file,  from  menu, or from FvwmConsole.  From then
      on, FvwmCommand can be called from a shell or script to exe-
-     cute fvwm2 commands.
+     cute fvwm commands.
 
      From within .fvwm2rc file:
 
@@ -50,30 +50,35 @@
 
            or
 
-       AddToFunc "InitFunction" "I" Module FvwmBanner
-       +   "I" Module FvwmPager 0 8
-       +   "I" Module  FvwmCommandS
-
-       AddToFunc "RestartFunction" "I" Module  FvwmCommandS
-       +    "I" Module     FvwmPager 0 8
+       AddToFunc StartFunction "I" Module FvwmCommandS
 
 
     Then, in script file or from shell:
 
 
-      FvwmCommand  'popup "Utilities"'
+      FvwmCommand  'popup Utilities'
 
 
 
 
 </PRE>
 <H2>OPTIONS</H2><PRE>
+     -<font color="yellow">c</font color="yellow">  Informs FvwmCommand to read multiple commands  from  the
+         standard  input  instead of the one command specified in
+         the command line arguments.  This disables -<font color="yellow">m</font color="yellow"> or -<font color="yellow">i</font color="yellow">.
+
+
+           (echo "Exec xload"; echo "Beep") | FvwmCommand -c
+
+
+
      -<font color="yellow">F</font color="yellow"> &lt;<font color="yellow">level</font color="yellow">&gt;
-         Specifies the level of fvwm2  window  flags  FvwmCommand
+         Specifies the level of  fvwm  window  flags  FvwmCommand
          outputs.
 
 
          0   No window flags will be printed.
+
          2   Full window flags will  be  printed  if  information
              level, -i option, is 2 or 3.
 
@@ -81,15 +86,15 @@
 
      -<font color="yellow">f</font color="yellow"> &lt;<font color="yellow">name</font color="yellow">&gt;
          Specifies an alternative FIFO set to communicate with  a
-         server.   The  default  FIFO  set  is ~/.FvwmCommand, in
-         which ~/.FvwmCommandC  is  used  to  send  commands  and
-         ~/.FvwmCommandM  is  to  receive messages.  FvwmCommandS
-         must have been invoked with the same &lt;name&gt; as its first
-         argument prior to FvwmCommand invocation. Alternatively,
-         option -S can be used. Refer option -S.  This option  -f
-         is  useful  when  a dedicated connection is necessary to
-         run a background job while another  connection  is  kept
-         for interactive use.
+         server.   The  default FIFO set is /var/tmp/FvwmCommand-
+         ${DISPLAY}C, in which FvwmCommand..C  is  used  to  send
+         commands  and  FvwmCommand..M  is  to  receive messages.
+         FvwmCommandS must have been invoked with the same &lt;name&gt;
+         as  its  first argument prior to FvwmCommand invocation.
+         Alternatively, option -S can be used. Refer  option  -S.
+         This  option -f is useful when a dedicated connection is
+         necessary to run a background job while another  connec-
+         tion is kept for interactive use.
 
 
      -<font color="yellow">i</font color="yellow"> &lt;<font color="yellow">level</font color="yellow">&gt;
@@ -112,7 +117,7 @@
              'foobar' in ModulePath '/usr/lib/X11/fvwm2'
 
 
-          Note that Fvwm2 doesn't return any  error  messages  in
+          Note that Fvwm doesn't return  any  error  messages  in
           cases  like  below  since  'windowid' itself is a valid
           command.
 
@@ -124,7 +129,6 @@
              the default.
 
                FvwmCommand send_windowlist
-
 
             Information like below will show up.
 
@@ -150,10 +154,10 @@
 
            The first column shows the window ID number, which can
            be  used  in  'windowid'  command.   The second column
-           shows the information types. The last column shows the
-           information  contents.  If no information is returned,
-           add -w &lt;time&gt; or -r option. This might  be  needed  in
-           heavily loaded systems.
+           shows the information types.  The  last  column  shows
+           the   information  contents.   If  no  information  is
+           returned, add -w &lt;time&gt; or -r option.  This  might  be
+           needed in heavily loaded systems.
 
          2   Above and static window information.
 
@@ -221,15 +225,18 @@
 
 
 
-     -<font color="yellow">m</font color="yellow">  Monitors fvwm2 window information transaction.  FvwmCom-
+     -<font color="yellow">m</font color="yellow">  Monitors fvwm window information  transaction.  FvwmCom-
          mand  continuously  outputs information that it receives
-         without exiting. This option can be used in a background
-         job  often  combined with -i3 option in order to control
-         windows dynamically.
+         without exiting.  This option can be  used  in  a  back-
+         ground  job  often  combined with -i3 option in order to
+
+         control windows dynamically.
 
            FvwmCommand -mi3 | grep 'iconify'
 
-        It will report when windows are iconified or deiconified.
+        It  will  report  when  windows  are  iconified  or   de-
+        iconified.
+
         Note: FvwmCommand does not block buffer  its  output  but
         many  utilities such as grep or sed use block buffer. The
         output of the next example will not show up until  either
@@ -237,10 +244,10 @@
         filled.
 
           FvwmCommand -mi3 | grep ' map' |
-          sed 's/[0-9a-f]*).*/windowid 1 move 0 0/'
+          sed 's/\(0x[0-9a-f]*\).*/windowid \1 move 0 0/'
 
        Instead, use tools with buffer  control  such  as  pty  or
-       perl. The below will iconify new windows when opened.
+       perl.  The below will iconify new windows when opened.
 
          Fvwm -mi3 | perl -ne '
          $|=1;
@@ -248,15 +255,15 @@
          ' &gt; ~/.FvwmCommandC
 
 
-     -<font color="yellow">r</font color="yellow">  Waits for a reply before it exits. FvwmCommand exits  if
+     -<font color="yellow">r</font color="yellow">  Waits for a reply before it exits.  FvwmCommand exits if
          no information or error is returned in a fixed amount of
          time period. (Refer option -w.)  The option -r overrides
          this  time limit and wait for at least one message back.
          After the initial message, it will wait for another mes-
          sage for the time limit.  This option is useful when the
-         system is too loaded to make any predition when the sys-
-         tem is responding AND the command causes some message to
-         be sent back.
+         system is too loaded to make  any  prediction  when  the
+         system is responding AND the command causes some message
+         to be sent back.
 
 
      -<font color="yellow">S</font color="yellow"> &lt;<font color="yellow">name</font color="yellow">&gt;
@@ -274,7 +281,7 @@
          tion is kept for interactive use.
 
          If the &lt;name&gt; is a relative path name, that is  relative
-         from  where fvwm2 is running, not from where FvwmCommand
+         from  where  fvwm is running, not from where FvwmCommand
          is invoked.
 
 
@@ -293,15 +300,15 @@
 </PRE>
 <H2>WRAPPER</H2><PRE>
      FvwmCommand.sh has bourne shell function definitions to keep
-     the syntax similar to fvwm2 configuration file. This file is
+     the syntax similar to fvwm configuration file.  This file is
      to be sourced:
 
        . FvwmCommand.sh
        DesktopSize 5x5
 
     FvwmCommand.pm is for perl in order to keep the syntax  simi-
-    lar  to  fvwm2  configuration  file.  Commas  can  be used to
-    separate Fvwm2 commands' arguments.
+    lar  to  fvwm  configuration  file.   Commas  can  be used to
+    separate fvwm commands' arguments.
 
       use FvwmCommand;
       if( $ARGV[0] eq 'home' ) {
@@ -311,7 +318,7 @@
       }
 
    Although arguments in FvwmCommand are not  case  sensitive  as
-   fvwm2,   the   functions   defined   in   FvwmCommand.sh   and
+   fvwm,    the   functions   defined   in   FvwmCommand.sh   and
    FvwmCommand.pl are case sensitive.
 
 
@@ -325,15 +332,106 @@
        FvwmCommand error in opening message fifo
        --No such file or directory--
 
-    Fvwm2 modules don't return error messages to fvwm2 but output
+    Fvwm modules don't return error messages to fvwm  but  output
     on stderr. These error messages will not be shown as FvwmCom-
     mand messages.
+
+    FvwmCommand is an interface to send commands to  and  receive
+    information  from  Fvwm2  from  processes  which are not Fvwm
+    modules.
+
+
+
+
+</PRE>
+<H2>EXAMPLES</H2><PRE>
+       test1.pl      - takes 1 argument  't' to invoke FvwmTalk
+                                         'td'  to kill FvwmTalk
+                                         ''  to move windows
+       test2.sh      - takes 1 argument  'b'  to invoke  FvwmBut-
+     tons
+                                         'kb' to kill FvwmButtons
+                                         'r'  to change # of but-
+     ton rows
+                                         'c'  to change # of but-
+     ton columns
+       ex-auto.pl    - auto raise small  windows.  It  will  keep
+     them visible.
+       ex-cascade.pl - cascade windows, then move them back.
+       ex-grpmv.pl    -  choose  a  group  of  windows  to   move
+     together.
+
+       Above examples are not meant to be practical but  to  show
+     how it can
+       be done.
+
+
+
+       focus-link.pl
+          This is a user programmable window focus script.
+          Default behavior is:
+           1. When a window is opened up, focus  the  window  and
+     move the pointer
+              to it. The parent window regains focus when a  win-
+     dow is closed.
+              Parenthood is determined when a window  is  opened.
+     It is the last
+              focused window with the same X class.
+           2. #1 would not occur to AcroRead opening window.
+           3. #1 would not occur when SkipMapping is set and  the
+     window is the
+              only window of its class.
+           4. For Netscape find dialog window,  addition  to  #1,
+     resize the window
+              to 300x150 pixels and move it to East edge  of  the
+     screen.
+              Download/upload windows will not be focused nor  be
+     in focus link
+              list.
+           5. Move appletviewer to NorthWest corner.
+           6. Xterm won't focus back to its parent after closed.
+           7. When a window is de-iconified, focus  it  and  move
+     the pointer.
+       focus-Netscape.pl
+           Focuses pop-up windows, such as 'open URL'  or  'find'
+     whenever
+           opened up. This let the user to  type  in  immediately
+     without
+           moving mouse. This script also moves 'download' window
+     to the
+           right edge to keep it visible. If this is invoked from
+           .fvwm2rc, use as:
+
+               AddToFunc "StartFunction" "I" Module  FvwmCommandS
+               + "I" Exec $HOME/scripts/focus-Netscape.pl
+
+       push-away.pl &lt;direction&gt; &lt;window name&gt;
+           Pushes windows away to avoid overlapping. use as:
+
+               push-away.pl up 'Fvwm Pager'
+
+
+
+     Your comments will be appreciated.
+
+
+     Toshi Isogai
+                   isogai@ucsub.colorado.edu
+
+
+     May 11 '98
+
+
+
+
+
+
 
 
 
 </PRE>
 <H2>SEE ALSO</H2><PRE>
-     fvwm2
+     fvwm
 
 
 
@@ -350,55 +448,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </PRE>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:45:52 EST 2001 -->
+on Tue Jul  3 21:54:34 EDT 2001 -->
 </body>
 </html>
 

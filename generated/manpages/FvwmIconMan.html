@@ -35,14 +35,14 @@
      may also specify what resolution each icon manager uses, for
      example, one icon manager may manage windows on  all  desks,
      and  another  may  manage only those on the current desk, or
-     page. If you have applied the MiniIcons patch to fvwm2, then
-     FvwmIconMan  can display the miniature icons for its managed
-     windows. The managers may have a maximum number  of  columns
-     (and  so  grows  vertically),  a maximum number of rows (and
-     then grows horizontally), or  stay  at  a  fixed  size,  and
-     adjust  the size of the window buttons to fit (think win95's
-     Taskbar). And when support is compiled in for  the  X  Shape
-     extension, then the manager windows may be shaped.
+     page. FvwmIconMan can display the miniature  icons  provided
+     by  fvwm  for  its  managed windows. The managers may have a
+     maximum number of columns (and so grows vertically), a  max-
+     imum  number  of rows (and then grows horizontally), or stay
+     at a fixed size, and adjust the size of the  window  buttons
+     to fit (think win95's Taskbar). And when support is compiled
+     in for the X Shape extension, then the manager  windows  may
+     be shaped.
 
      You can specify actions to be run when mouse, or key  events
      are  received.  For  example, you could bind the first mouse
@@ -73,13 +73,11 @@
 </PRE>
 <H2>INVOCATION</H2><PRE>
      FvwmIconMan can be invoked by  inserting  the  line  'Module
-     FvwmIconMan'  in  the  .fvwmrc file. If FvwmIconMan is to be
-     spawned during fvwm's initialization, then this line  should
-     be  placed  in  the  InitFunction and ResetFunction declara-
-     tions, or it can be bound to a menu, mouse button, or  keys-
-     troke  to  invoke  it later. FvwmIconMan should be placed in
-     the ModulePath (defined in the .fvwmrc file)  in  order  for
-     fvwm to find it.
+     FvwmIconMan'  in  the then this line should be placed in the
+     StartFunction declarations, or it can be bound  to  a  menu,
+     mouse  button,  or keystroke to invoke it later. FvwmIconMan
+     should be placed in the ModulePath (defined in  the  .fvwmrc
+     file) in order for fvwm to find it.
 
      If you wish to run FvwmIconMan in a transient mode, such  as
      with  the  built  in  window list, then pass Transient as an
@@ -99,35 +97,45 @@
 </PRE>
 <H2>CONFIGURATION OPTIONS REFERENCE CHART</H2><PRE>
      FvwmIconMan has acquired quite a few options. I assume  oth-
-     ers  share  my  dislike  of paging though a long manpage, so
+     ers  share  my  dislike of paging though a long man page, so
      here is a terse reference  chart  describing  the  available
      options.  They are described in more detail in the next sec-
      tion.
 
      Name            Description                Default
 
+     <font color="cyan">nummanagers</font color="cyan">     <font color="cyan">number</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">managers</font color="cyan">         <font color="cyan">1</font color="cyan">
      <font color="cyan">action</font color="cyan">          <font color="cyan">binds</font color="cyan"> <font color="cyan">command</font color="cyan"> <font color="cyan">to</font color="cyan"> <font color="cyan">event</font color="cyan">     <font color="cyan">Mouse</font color="cyan"> <font color="cyan">0</font color="cyan"> <font color="cyan">N</font color="cyan"> <font color="cyan">sendcommand</font color="cyan"> <font color="cyan">Iconify</font color="cyan">
      <font color="cyan">background</font color="cyan">      <font color="cyan">default</font color="cyan"> <font color="cyan">background</font color="cyan">         <font color="cyan">gray</font color="cyan">
      <font color="cyan">buttongeometry</font color="cyan">  <font color="cyan">size</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">button</font color="cyan"> <font color="cyan">in</font color="cyan"> <font color="cyan">pixels</font color="cyan">   <font color="cyan">100x17</font color="cyan">
+     <font color="cyan">colorset</font color="cyan">        <font color="cyan">default</font color="cyan"> <font color="cyan">colorset</font color="cyan">
      <font color="cyan">dontshow</font color="cyan">        <font color="cyan">list</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">windows</font color="cyan"> <font color="cyan">to</font color="cyan"> <font color="cyan">ignore</font color="cyan">
-     <font color="cyan">drawicons</font color="cyan">       <font color="cyan">use</font color="cyan"> <font color="cyan">miniicons</font color="cyan">              <font color="cyan">false</font color="cyan">
+     <font color="cyan">drawicons</font color="cyan">       <font color="cyan">use</font color="cyan"> <font color="cyan">mini</font color="cyan"> <font color="cyan">icons</font color="cyan">             <font color="cyan">false</font color="cyan">
      <font color="cyan">focusandselectbutton</font color="cyan">                       <font color="cyan">flat</font color="cyan"> <font color="cyan">grey</font color="cyan"> <font color="cyan">black</font color="cyan">
+     <font color="cyan">focusandselectcolorset</font color="cyan">
      <font color="cyan">focusbutton</font color="cyan">     <font color="cyan">style</font color="cyan"> <font color="cyan">for</font color="cyan"> <font color="cyan">focused</font color="cyan"> <font color="cyan">buttons</font color="cyan">  <font color="cyan">up</font color="cyan"> <font color="cyan">grey</font color="cyan"> <font color="cyan">black</font color="cyan">
+     <font color="cyan">focuscolorset</font color="cyan">
      <font color="cyan">followfocus</font color="cyan">     <font color="cyan">show</font color="cyan"> <font color="cyan">which</font color="cyan"> <font color="cyan">win</font color="cyan"> <font color="cyan">has</font color="cyan"> <font color="cyan">focus</font color="cyan">   <font color="cyan">false</font color="cyan">
      <font color="cyan">font</font color="cyan">                                       <font color="cyan">8x13</font color="cyan">
      <font color="cyan">foreground</font color="cyan">      <font color="cyan">default</font color="cyan"> <font color="cyan">text</font color="cyan"> <font color="cyan">color</font color="cyan">         <font color="cyan">white</font color="cyan">
      <font color="cyan">format</font color="cyan">          <font color="cyan">describes</font color="cyan"> <font color="cyan">button</font color="cyan"> <font color="cyan">label</font color="cyan">     <font color="cyan">"%c:</font color="cyan"> <font color="cyan">%i"</font color="cyan">
      <font color="cyan">iconname</font color="cyan">        <font color="cyan">manger</font color="cyan"> <font color="cyan">icon</font color="cyan"> <font color="cyan">name</font color="cyan">           <font color="cyan">FvwmIconMan</font color="cyan">
+     <font color="cyan">iconbutton</font color="cyan">      <font color="cyan">style</font color="cyan"> <font color="cyan">for</font color="cyan"> <font color="cyan">icon</font color="cyan"> <font color="cyan">buttons</font color="cyan">     <font color="cyan">up</font color="cyan"> <font color="cyan">black</font color="cyan"> <font color="cyan">grey</font color="cyan">
+     <font color="cyan">iconcolorset</font color="cyan">
      <font color="cyan">managergeometry</font color="cyan"> <font color="cyan">size</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">manager</font color="cyan"> <font color="cyan">in</font color="cyan"> <font color="cyan">buttons</font color="cyan"> <font color="cyan">0x1</font color="cyan">
-     <font color="cyan">nummanagers</font color="cyan">     <font color="cyan">number</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">managers</font color="cyan">         <font color="cyan">1</font color="cyan">
+     <font color="cyan">noiconaction</font color="cyan">    <font color="cyan">animate</font color="cyan"> <font color="cyan">iconification</font color="cyan">      <font color="cyan">NOP</font color="cyan">
      <font color="cyan">plainbutton</font color="cyan">     <font color="cyan">style</font color="cyan"> <font color="cyan">for</font color="cyan"> <font color="cyan">normal</font color="cyan"> <font color="cyan">buttons</font color="cyan">   <font color="cyan">up</font color="cyan"> <font color="cyan">black</font color="cyan"> <font color="cyan">grey</font color="cyan">
+     <font color="cyan">plaincolorset</font color="cyan">
      <font color="cyan">resolution</font color="cyan">      <font color="cyan">global,</font color="cyan"> <font color="cyan">desk,</font color="cyan"> <font color="cyan">or</font color="cyan"> <font color="cyan">page</font color="cyan">      <font color="cyan">global</font color="cyan">
+     <font color="cyan">reverse</font color="cyan">         <font color="cyan">normal,</font color="cyan"> <font color="cyan">icon</font color="cyan"> <font color="cyan">or</font color="cyan"> <font color="cyan">none</font color="cyan">       <font color="cyan">none</font color="cyan">
      <font color="cyan">selectbutton</font color="cyan">    <font color="cyan">style</font color="cyan"> <font color="cyan">for</font color="cyan"> <font color="cyan">selected</font color="cyan"> <font color="cyan">buttons</font color="cyan"> <font color="cyan">flat</font color="cyan"> <font color="cyan">black</font color="cyan"> <font color="cyan">grey</font color="cyan">
+     <font color="cyan">selectcolorset</font color="cyan">
      <font color="cyan">shape</font color="cyan">           <font color="cyan">use</font color="cyan"> <font color="cyan">shape</font color="cyan"> <font color="cyan">extension</font color="cyan">        <font color="cyan">false</font color="cyan">
      <font color="cyan">show</font color="cyan">            <font color="cyan">list</font color="cyan"> <font color="cyan">of</font color="cyan"> <font color="cyan">windows</font color="cyan"> <font color="cyan">to</font color="cyan"> <font color="cyan">show</font color="cyan">
      <font color="cyan">sort</font color="cyan">            <font color="cyan">keep</font color="cyan"> <font color="cyan">managers</font color="cyan"> <font color="cyan">sorted</font color="cyan">       <font color="cyan">name</font color="cyan">
      <font color="cyan">title</font color="cyan">           <font color="cyan">manager</font color="cyan"> <font color="cyan">title</font color="cyan">              <font color="cyan">FvwmIconMan</font color="cyan">
      <font color="cyan">titlebutton</font color="cyan">     <font color="cyan">style</font color="cyan"> <font color="cyan">for</font color="cyan"> <font color="cyan">title</font color="cyan"> <font color="cyan">button</font color="cyan">     <font color="cyan">raisededge</font color="cyan"> <font color="cyan">black</font color="cyan"> <font color="cyan">grey</font color="cyan">
+     <font color="cyan">titlecolorset</font color="cyan">
      <font color="cyan">usewinlist</font color="cyan">      <font color="cyan">honor</font color="cyan"> <font color="cyan">WinListSkip?</font color="cyan">         <font color="cyan">true</font color="cyan">
 
 
@@ -183,18 +191,19 @@
           ton height is determined from the font size.  X  and  Y
           coordinates are ignored.
 
+
+     *FvwmIconMan*[id*]colorset <font color="yellow">colorset</font color="yellow">
+          The default colorset  used.  Overrides  background  and
+          foreground. See FvwmTheme.
+
+
      *FvwmIconMan*[id*]drawicons <font color="yellow">value</font color="yellow">
-          If your version of fvwm2 is capable of using MiniIcons,
+          If your version of fvwm is capable of using mini icons,
           then this option determines if FvwmIconMan displays the
-          MiniIcons. Otherwise, it generates  an  error  message.
-          "true"  means  that  MiniIcons  are shown for iconified
-          windows, "false" that MiniIcons are  never  shown,  and
-          "always" that MiniIcons are shown for all windows.
-
-
-     *FvwmIconMan*[id*]focusbutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
-          Same as the plainbutton option, but specifies the  look
-          of buttons whose windows have the keyboard focus.
+          mini icons. Otherwise, it generates an  error  message.
+          "true"  means  that  mini icons are shown for iconified
+          windows, "false" that mini icons are never  shown,  and
+          "always" that mini icons are shown for all windows.
 
 
 <font color="yellow">backcolor</font color="yellow">]
@@ -203,6 +212,27 @@
           of buttons which are both selected, and have  the  key-
           board focus.
 
+
+     *FvwmIconMan*[id*]focusandselectcolorset <font color="yellow">colorset</font color="yellow">
+          Works  like  focusandselectbutton  but  uses  colorsets
+          instead.   The  style setting can still only be applied
+          with focusandselectbutton.  See FvwmTheme.
+
+
+     *FvwmIconMan*[id*]focusbutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
+          Same as the plainbutton option, but specifies the  look
+          of buttons whose windows have the keyboard focus.
+
+
+     *FvwmIconMan*[id*]focuscolorset <font color="yellow">colorset</font color="yellow">
+          Works like focusbutton but uses colorsets instead.  The
+          style  setting can still only be applied with focusbut-
+          ton.  See FvwmTheme.
+
+
+     *FvwmIconMan*[id*]followfocus <font color="yellow">boolean</font color="yellow">
+          If <font color="yellow">true</font color="yellow">, then the button appearance reflects which win-
+          dow currently has focus.  Default is false.
 
      *FvwmIconMan*[id*]font <font color="yellow">font</font color="yellow">
           Specifies the font to be used for labeling the buttons.
@@ -229,6 +259,17 @@
           enclosed in quotes. The default is "FvwmIconMan".
 
 
+     *FvwmIconMan*[id*]iconbutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
+          Same as the plainbutton option, but specifies the  look
+          of buttons whose windows are iconified.
+
+
+     *FvwmIconMan*[id*]iconcolorset <font color="yellow">colorset</font color="yellow">
+          Works like iconbutton but uses colorsets instead.   The
+          style  setting  can still only be applied with iconbut-
+          ton.  See FvwmTheme.
+
+
      *FvwmIconMan*[id*]managergeometry <font color="yellow">geometry</font color="yellow">
           Specifies the initial geometry of the manager, in units
           of  buttons.  If <font color="yellow">height</font color="yellow"> is 0, then the manager will use
@@ -243,6 +284,16 @@
           it will grow downwards.
 
 
+     *FvwmIconMan*[id*]noiconaction  <font color="yellow">action</font color="yellow">
+          Tells FvwmIconMan to do  <font color="yellow">action</font color="yellow">  when  a  NoIcon  style
+          window  is  iconified or de-iconified. Relevant coordi-
+          nates are appended to <font color="yellow">action</font color="yellow"> so that the  icon  can  be
+          traced  to  an FvwmIconMan button. An example action is
+          "*FvwwmIconMan*NoIconAction  SendToModule   FvwmAnimate
+          animate".  A  blank  or  null action turns this feature
+          off.
+
+
      *FvwmIconMan*[id*]plainbutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
           Specifies how normal buttons look. <font color="yellow">style</font color="yellow"> may be one  of
           <font color="yellow">flat</font color="yellow">,  <font color="yellow">up</font color="yellow">, <font color="yellow">down</font color="yellow">, <font color="yellow">raisededge</font color="yellow">, or <font color="yellow">sunkedge</font color="yellow">, and describes
@@ -252,20 +303,42 @@
           is ignored, but must still be set.
 
 
+     *FvwmIconMan*[id*]plaincolorset <font color="yellow">colorset</font color="yellow">
+          Works like plainbutton but uses colorsets instead.  The
+          style  setting can still only be applied with plainbut-
+          ton.  See FvwmTheme.
+
+
      *FvwmIconMan*[id*]resolution <font color="yellow">resolution</font color="yellow">
           Specifies when the manager will display an entry for  a
           certain  window. <font color="yellow">resolution</font color="yellow"> may take one of the follow-
-          ing values: global, desk, or page. If global, then  all
-          windows  of  the  appropriate  type  (see  the show and
-          dontshow options below) will be shown.  If  desk,  then
-          only  those  windows  on the current desk will be down.
-          And if page, then only those  windows  on  the  current
-          page will be shown. The default is global.
+          ing values: global, desk, page,  !desk,  or  !page.  If
+          global,  then  all windows of the appropriate type (see
+          the show and dontshow options below) will be shown.  If
+          desk,  then only those windows on the current desk will
+          be down. If  page,  then  only  those  windows  on  the
+          current page will be shown. !desk reverses the sense of
+          desk, displaying only those windows not on the  current
+          desk.  Likewise,  !page shows only those windows not on
+          the current page. The default is global.
+
+
+     *FvwmIconMan*[id*]reverse <font color="yellow">class</font color="yellow">
+          Causes certain classes of buttons to have their  relief
+          lines reversed so that up and down styles are reversed.
+          This has no affect on flat buttons. The  class  can  be
+          icon, normal or none. The default is none.
 
 
      *FvwmIconMan*[id*]selectbutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
           Same as the plainbutton option, but specifies the  look
           of buttons when the mouse is over them.
+
+
+     *FvwmIconMan*[id*]selectcolorset <font color="yellow">colorset</font color="yellow">
+          Works like selectbutton  but  uses  colorsets  instead.
+          The  style  setting  can  still  only  be  applied with
+          selectbutton.  See FvwmTheme.
 
 
      *FvwmIconMan*[id*]shape <font color="yellow">boolean</font color="yellow">
@@ -278,13 +351,22 @@
           get confused.
 
 
+     *FvwmIconMan*[id*]sort <font color="yellow">value</font color="yellow">
+          If <font color="yellow">name</font color="yellow">, then the manager list is sorted  by  name.  If
+          <font color="yellow">namewithcase</font color="yellow">,  then  it  is sorted by name sensitive to
+          case. If <font color="yellow">id</font color="yellow">, then the manager list  is  sorted  by  the
+          window  id,  which  never  changes  after the window is
+          created. Or it can be set to <font color="yellow">none</font color="yellow">, which results in  no
+          sorting.  Default is <font color="yellow">name</font color="yellow">.
+
+
      *FvwmIconMan*[id*]title <font color="yellow">titlestring</font color="yellow">
           Specifies the window title string for that manager win-
           dow.  <font color="yellow">Titlestring</font color="yellow">  may  either  be  a single word, or a
           string enclosed in quotes. The  default  is  "FvwmIcon-
-          Man". This will be drawn in the titlebar of the manager
-          window, if any, and in the title button, which  is  the
-          button drawn when the manager is empty.
+          Man".  This  will  be  drawn  in  the  title bar of the
+          manager window, if any, and in the title button,  which
+          is the button drawn when the manager is empty.
 
 
      *FvwmIconMan*[id*]titlebutton <font color="yellow">style</font color="yellow"> [<font color="yellow">forecolor</font color="yellow"> <font color="yellow">backcolor</font color="yellow">]
@@ -292,6 +374,12 @@
           of  the title button (the button drawn when the manager
           is empty). The manager's title is drawn  in  the  title
           button.
+
+
+     *FvwmIconMan*[id*]usewinlist <font color="yellow">boolean</font color="yellow">
+          If <font color="yellow">true</font color="yellow">, then honor the WinListSkip style flag.  Other-
+          wise,  all  windows  are subject to possible management
+          according to the show and dontshow lists.
 
 
      The two following options control which windows get  handled
@@ -322,31 +410,11 @@
           then it may not be handled by this manager.
 
 
-     *FvwmIconMan*[id*]usewinlist <font color="yellow">boolean</font color="yellow">
-          If <font color="yellow">true</font color="yellow">, then honor the WinListSkip style flag.  Other-
-          wise,  all  windows  are subject to possible management
-          according to the show and dontshow lists.
-
-
-     *FvwmIconMan*[id*]followfocus <font color="yellow">boolean</font color="yellow">
-          If <font color="yellow">true</font color="yellow">, then the button appearance reflects which win-
-          dow currently has focus.  Default is false.
-
-
-     *FvwmIconMan*[id*]sort <font color="yellow">value</font color="yellow">
-          If <font color="yellow">name</font color="yellow">, then the manager list is sorted  by  name.  If
-          <font color="yellow">namewithcase</font color="yellow">,  then  it  is sorted by name sensitive to
-          case. If <font color="yellow">id</font color="yellow">, then the manager list  is  sorted  by  the
-          window  id,  which  never  changes  after the window is
-          created. Or it can be set to <font color="yellow">none</font color="yellow">, which results in  no
-          sorting.  Default is <font color="yellow">name</font color="yellow">.
-
-
 
 </PRE>
 <H2>ACTIONS</H2><PRE>
      Actions are commands which may be bound to an event  of  the
-     type:  a  keypress,  a  mouse click, or the mouse entering a
+     type:  a  key  press, a mouse click, or the mouse entering a
      window manager button - denoted by  the  action  types  <font color="yellow">Key</font color="yellow">,
      <font color="yellow">Mouse</font color="yellow">, and <font color="yellow">Select</font color="yellow">.
 
@@ -376,7 +444,6 @@
 
      <font color="cyan">Select</font color="cyan"> <font color="cyan">actions</font color="cyan">: Select <font color="yellow">FunctionList</font color="yellow">
 
-
      A <font color="yellow">FunctionList</font color="yellow"> is a sequence of commands separated  by  com-
      mas. They are executed in left to right order, in one shared
      context - which currently only contains  a  pointer  to  the
@@ -393,6 +460,7 @@
      selected  button  does not implicitly follow it around. This
      way, the user can send commands to various windows,  without
      changing which button is selected.
+
      Commands take five types  of  arguments:  <font color="yellow">Integer</font color="yellow">,  <font color="yellow">Manager</font color="yellow">,
      <font color="yellow">Window</font color="yellow">,  <font color="yellow">Button</font color="yellow">,  and <font color="yellow">String</font color="yellow">. A <font color="yellow">String</font color="yellow"> is a string specified
      exactly as for fvwm - either in quotes or as a  single  word
@@ -444,6 +512,7 @@
           then  the  current  button  is set to <font color="yellow">Button</font color="yellow"> modulo the
           number of buttons, in the  whichever  manager  contains
           the selected button, if any.
+
 
      gotomanager <font color="yellow">Manager</font color="yellow">
           Sets button to button 0 of <font color="yellow">Manager</font color="yellow">. This will  only  go
@@ -529,6 +598,8 @@
      that this does not change the selected button.
 
 
+
+
           bif Next 3, gotobutton 0, select, ret, gotobutton Next, select
 
      If a button is selected, and it's the  last  button,  go  to
@@ -549,10 +620,11 @@
 
      Same as previous, but using the label instruction.
 
+
      In addition to being bound to keys and mice, actions can  be
      sent  from fvwm to FvwmIconMan via the SendToModule command.
      Don't quote the command when using SendToModule.  Also,  due
-     to a bug in the current version of fvwm2, don't quote FvwmI-
+     to  a bug in the current version of fvwm, don't quote FvwmI-
      conMan either.
 
 
@@ -603,6 +675,7 @@
 
      Key F8 A N SendToModule FvwmIconMan bif select Select, bif focus Focus, gotomanager 0, select, sendcommand WarpToWindow, ret, label Focus, gotobutton focus, select, sendcommand WarpToWindow, ret, label Select, gotobutton prev, select, sendcommand WarpToWindow
      Key F9 A N SendToModule FvwmIconMan bif select Select, bif focus Focus, gotomanager 0, select, sendcommand WarpToWindow, ret, label Focus, gotobutton focus, select, sendcommand WarpToWindow, ret, label Select, gotobutton next, select, sendcommand WarpToWindow
+
      *FvwmIconMan*numManagers 2
      *FvwmIconMan*Resolution  page
      *FvwmIconMan*background  steelblue
@@ -618,6 +691,7 @@
      *FvwmIconMan*focusbutton          up white brown
      *FvwmIconMan*focusandselectButton down white brown
      *FvwmIconMan*titleButton          raisededge white steelblue
+     *FvwmIconMan*NoIconAction         "SendToModule FvwmAnimate animate"
 
      *FvwmIconMan*1*title           "Emacs windows"
      *FvwmIconMan*1*iconname        "FvwmIconMan: Emacs"
@@ -632,7 +706,6 @@
      *FvwmIconMan*2*dontshow        icon=Untitled
      *FvwmIconMan*2*managergeometry 2x4-0+0
      *FvwmIconMan*2*buttongeometry  200x0
-
      *FvwmIconMan*transient*geometry 194x100
      *FvwmIconMan*transient*dontshow icon=Untitled
      *FvwmIconMan*transient*action   Mouse 0 A sendcommand select select Iconify
@@ -656,8 +729,8 @@
      set to grow upwards or leftwards, on some  machines  it  may
      wander occasionally.
 
-     It  doesn't  handle  windows  without  resource   names   as
-     gracefully as it should.
+     It doesn't handle windows without resource names  as  grace-
+     fully as it should.
 
 
 
@@ -691,33 +764,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </PRE>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:46:03 EST 2001 -->
+on Tue Jul  3 21:54:39 EDT 2001 -->
 </body>
 </html>
 

@@ -13,58 +13,6 @@
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </PRE>
 <H2>NAME</H2><PRE>
      FvwmScript - module to build graphic user interface
@@ -72,7 +20,7 @@
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmScript must be spawned by Fvwm. It will  not  work  from
+     FvwmScript must be spawned by Fvwm.  It will not  work  from
      the command line.
 
 
@@ -80,48 +28,96 @@
 <H2>DESCRIPTION</H2><PRE>
      FvwmScript is a module which allows to build many  graphical
      applications  such as desktop accessories, button panel with
-     popup menu, modal dialog... At the startup, FvwmScript reads
-     the  file  which is specified in the command line. This file
-     contains the script.  This script is  not  included  in  the
-     configuration file of Fvwm.
+     pop up menu, modal  dialog...  At  the  startup,  FvwmScript
+     reads  the file which is specified in the command line. This
+     file contains the script.  This script is  not  included  in
+     the configuration file of Fvwm.
 
 
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
      FvwmScript can be invoked  by  inserting  the  line  `Module
-     FvwmScript  name_of_script' in the .fvwmrc file. All scripts
-     used by FvwmScript are located in a directory whom is speci-
-     fied   in  .fvwmrc  by  the  command  line  `*FvwmScriptPath
-     path_of_the_script_directory'.  This can be placed on a line
-     by itself, if FvwmScript is to be spawned during fvwm's ini-
-     tialization, or can be bound to a menu or  mouse  button  or
-     keystroke  to  invoke  it  later. Fvwm will search directory
-     specified in the ModulePath configuration option to  attempt
-     to locate FvwmScript.
+     FvwmScript  name_of_script'  in  the .fvwmrc file.  The file
+     "name_of_script" can start with a slash, in which case, it's
+     a   fully   qualified  path,  and  the  file  is  read.   If
+     "name_of_script" does not start  with  a  slash,  FvwmScript
+     will look in a few different places.  If  the   .fvwmrc con-
+     tained     the    command     line     `*FvwmScript:    Path
+     path_of_the_script_directory',   FvwmScript  will  try  that
+     directory.  If that doesn't work, FvwmScript tries the  sys-
+     tem  configuration  directory  and  the  user  configuration
+     directory as described under the "Read" command in the fvwm2
+     man page.
 
-     Be sure to set ModulePath in your .fvwmrc  file  to  include
-     FvwmScript's path.
+     The command to start FvwmScript can be placed on a  line  by
+     itself,  if  FvwmScript  is to be spawned during fvwm's ini-
+     tialization, or can be bound to a menu or  mouse  button  or
+     keystroke to invoke it later.
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     The following commands can be placed in the  .fvwm2rc  file.
+     They  are used only if the corresponding script commands are
+     not used in the script.
+
+
+     *FvwmScript: DefaultFont <font color="yellow">font</font color="yellow">
+          Specifies the default font to be used. If not specified
+          with  this  command or in the script with the Font com-
+          mand, fixed font is assumed.
+
+
+     *FvwmScript: DefaultFore <font color="yellow">color</font color="yellow">
+          Specifies the default foreground color to be  used.  If
+          not  specified  with this command or in the script with
+          the ForeColor command, black is used.
+
+     *FvwmScript: DefaultBack <font color="yellow">color</font color="yellow">
+          Specifies the default background color to be  used.  If
+          not  specified  with this command or in the script with
+          the BackColor command, grey85 is used.
+
+
+     *FvwmScript: DefaultHilight <font color="yellow">color</font color="yellow">
+          Specifies the default hilight color to be used. If  not
+          specified  with  this command or in the script with the
+          HilightColor command, grey100 is used.
+
+
+     *FvwmScript: DefaultShadow <font color="yellow">color</font color="yellow">
+          Specifies the default shadow color to be used.  If  not
+          specified  with  this command or in the script with the
+          ShadowColor command, grey55 is used.
+
+
+     *FvwmScript: DefaultColorset <font color="yellow">colorset</font color="yellow">
+          Tells the  module  to  use  colorset  <font color="yellow">colorset</font color="yellow">  as  the
+          default  colorset.  Refer to the FvwmTheme man page for
+          details about colorsets.
+
 
 
 </PRE>
 <H2>ANATOMY OF A SCRIPT</H2><PRE>
-     FvwmScript uses a particular programming langage.  A  script
+     FvwmScript uses a particular programming language. A  script
      is  composed of four parts. Heading contains general charac-
      teristics of the window and default properties for all widg-
      ets. The second part contains instructions whom are executed
-     at the startup  of  the  script.  The  third  part  contains
-     periodic tasks whom is executed every 1 second. And the last
-     one contains the desciption of widgets. A widget consists of
-     eleven types of items: text labels, single-line text inputs,
-     radio buttons, checkbox, push buttons, horizontal and verti-
-     cal  scrollbars,  rectangles,  popup-menus, swallowexecs and
-     mini scrollbars.
+     at the  startup of  the  script.  The  third  part  contains
+     periodic tasks which are executed every second. And the last
+     part contains the description of widgets.  A widget consists
+     of  eleven  types  of  items:  text labels, single-line text
+     inputs, radio buttons, checkbox,  push  buttons,  horizontal
+     and  vertical  scrollbars,  rectangles,  pop up menus, swal-
+     lowexecs and mini scrollbars.
 
 
 </PRE>
 <H2>HEADING OF A SCRIPT</H2><PRE>
-     The syntaxe is as follow:
+     The syntax is as follows:
 
 
      WindowTitle <font color="yellow">string</font color="yellow">
@@ -158,6 +154,10 @@
           ets.
 
 
+     Colorset {<font color="yellow">n</font color="yellow">}
+          This option sets the default colorset for all widgets.
+
+
      Font {<font color="yellow">font</font color="yellow">}
           This option sets the default font color for  all  widg-
           ets.
@@ -182,10 +182,11 @@
 
 
 
-
 </PRE>
 <H2>PERIODIC TASKS</H2><PRE>
      This part of the script contains some instructions whom  are
+
+
      executed every second.  For example:
 
           Periodic Task
@@ -202,15 +203,15 @@
 <H2>MAIN OF A SCRIPT</H2><PRE>
      The second part of the script contains the  description  for
      every  widget which will be used in the program.  A descrip-
-     tion  of  widget  is  composed  of  two  parts.  Fisrt  part
-     describes   initial  properties  and  second  part  contains
+     tion of widget is composed of  two  parts.  The  first  part
+     describes  initial  properties  and the second part contains
      instructions which will be executed when the widget receives
-     messages.   All  widgets  can send and receive messages. All
+     messages.  All  widgets  can  send and receive messages. All
      message are identify by a number. The  message  "UserAction"
      is sent to a widget when user has altered this one. The syn-
      tax is as following:
 
-          Widget         id   # Set the id widget
+          Widget         id   # A number between 1 and 99 inclusive
           Property
            Type          string
            Size width    height
@@ -223,11 +224,13 @@
            ForeColor     { color }
            BackColor     { color }
            HilightColor  { color }
-           ShadowColor   { Color }
+           ShadowColor   { color }
+           Colorset int
            Flags         Hidden and/or NoReliefString
 
      The option 'Flags` is used to specify if the widget is  hid-
-     den or not and if strings are drew with relief or not.
+     den  or not and if strings are drawn with relief or not. The
+     position of every widget must be specified.
 
 
           Main
@@ -256,31 +259,6 @@
      There is fifteen types of widgets.
 
 
-     <font color="cyan">ItemDraw</font color="cyan">: Display an icon and/or a string.
-
-          <font color="cyan">Title</font color="cyan">: string to display.
-
-          <font color="cyan">Icon</font color="cyan">: icon to display.
-
-
-     <font color="cyan">PushButton</font color="cyan">: Display push button with an icon and/or a string.
-
-          <font color="cyan">Title</font color="cyan">:  this  string has the following syntax {Title of
-          the button|Option 1|Option  2|  Option3|...|Option  N}.
-          "Option  1|Option  2|...|Option  N"  is  the popup menu
-          which is displayed when pressing the right button.
-
-          <font color="cyan">Icon</font color="cyan">: icon to display.
-
-
-     <font color="cyan">RadioButton</font color="cyan">: Display radio button with a string.
-
-          <font color="cyan">Title</font color="cyan">: title of the radio button.
-
-          <font color="cyan">Value</font color="cyan">: if Value is equal to 1, the box is checked  else
-          it is not.
-
-
      <font color="cyan">CheckBox</font color="cyan">: Display check box with a string.
 
           <font color="cyan">Title</font color="cyan">: title of the check box.
@@ -288,12 +266,19 @@
           <font color="cyan">Value</font color="cyan">: if Value is equal to 1, the box is checked  else
           it is not.
 
+          The <font color="cyan">Size</font color="cyan"> property is ignored.
 
-be used to edit a single-line string.
-     <font color="cyan">TextField</font color="cyan">: Display a text input field. The text input  field  can
 
-          <font color="cyan">Title</font color="cyan">: content of text field.
-          <font color="cyan">Value</font color="cyan">: position of the insert point.
+     <font color="cyan">HDipstick</font color="cyan">: Display a horizontal dipstick.
+          This widget can be used to display disk usage.
+
+          <font color="cyan">Value</font color="cyan">: specify the current value of the dipstick.
+
+          <font color="cyan">MinValue</font color="cyan">: specify the minimum value of the dipstick.
+
+          <font color="cyan">MaxValue</font color="cyan">: specify the maximum value of the dipstick.
+
+          A minimum size of 30x11 is imposed.
 
 
      <font color="cyan">HScrollBar</font color="cyan">: Display an horizontal scrollbar.
@@ -304,8 +289,52 @@ be used to edit a single-line string.
 
           <font color="cyan">MinValue</font color="cyan">: lower limit of Value.
 
+          The height property is ignored and a minimum  width  is
+          imposed.   The  width should be at least the range plus
+          37 if all values are to be selectable e.g.  a min of  0
+          and  max  of  10 has a range of 11 and therefore should
+          have a minimum width of 48.
 
-     <font color="cyan">VScrollBar</font color="cyan">: Display a vertical scrollbar.
+
+     <font color="cyan">ItemDraw</font color="cyan">: Display an icon and/or a string.
+
+          <font color="cyan">Title</font color="cyan">: string to display.
+
+          <font color="cyan">Icon</font color="cyan">: icon to display.
+
+          The size is made large  enough  to  contain  the  title
+          and/or the icon.
+
+
+     <font color="cyan">List</font color="cyan">: Display a list.
+          List lets user to choose between various options.
+
+          <font color="cyan">Value</font color="cyan">: specify which option is selected.
+
+          <font color="cyan">MinValue</font color="cyan">: First visible option.
+
+          <font color="cyan">Title</font color="cyan">: title contains options displayed  in  the  list.
+          The   syntax   is   the   following:  {Option  1|Option
+          2|...|Option N}. All menus are displayed at the top  of
+          window.
+
+          A minimum height of three  items  is  imposed  and  the
+          width is made to be at least 108.
+
+
+     <font color="cyan">Menu</font color="cyan">: Display a menu whom lets user to choose a option.
+          Items of type Menu are layed out  from  left  to  right
+          along the top of the window. The size and position pro-
+          perties are ignored.
+
+          <font color="cyan">Value</font color="cyan">: specify which option is selected.
+
+          <font color="cyan">Title</font color="cyan">: title contains options displayed  in  the  menu.
+          The   syntax   is   the  following:   {Option  1|Option
+          2|...|Option N}.
+
+
+     <font color="cyan">MiniScroll</font color="cyan">: Display a very small vertical scrollbar.
 
           <font color="cyan">Value</font color="cyan">: position of the thumb.
 
@@ -313,52 +342,78 @@ be used to edit a single-line string.
 
           <font color="cyan">MinValue</font color="cyan">: lower limit of Value.
 
-
-     <font color="cyan">MiniScrollBar</font color="cyan">: Display a very small vertical scrollbar.
-
-          <font color="cyan">Value</font color="cyan">: position of the thumb.
-
-          <font color="cyan">MaxValue</font color="cyan">: upper limit of Value.
-
-          <font color="cyan">MinValue</font color="cyan">: lower limit of Value.
+          The size is set to 19x34.
 
 
-to decorate window.
-     <font color="cyan">Rectangle</font color="cyan">: Display a rectangle. This type of widget can  be  used
+     <font color="cyan">PopupMenu</font color="cyan">: Display a pop up menu.
+
+          <font color="cyan">Value</font color="cyan">: specify what option is selected.
+          <font color="cyan">Title</font color="cyan">: the title has  the  following  syntax:   {Option
+          1|Option  2|...|Option N}."Option 1|Option 2|...|Option
+          N" is the pop up menu which is displayed when  pressing
+          mouse button.
+
+          The size property is ignored.
 
 
-process, and capture the first window whose name or  resource  is
-equal to Title, and display it in the script window.
-     <font color="cyan">SwallowExec</font color="cyan">:  This  type  of widget causes FvwmScript to spawn an
+     <font color="cyan">PushButton</font color="cyan">: Display push button with an icon and/or a string.
 
-          <font color="cyan">Title</font color="cyan">:  specify  the  window name which be captured and
+          <font color="cyan">Title</font color="cyan">:  this  string has the following syntax {Title of
+          the  button|Option  1|Option  2|Option3|...|Option  N}.
+          "Option  1|Option  2|...|Option  N"  is the pop up menu
+          which is displayed when pressing the right button.
+
+          <font color="cyan">Icon</font color="cyan">: icon to display.
+
+          The button is made large enough to fit the icon and  or
+          label.
+
+
+     <font color="cyan">RadioButton</font color="cyan">: Display radio button with a string.
+
+          <font color="cyan">Title</font color="cyan">: title of the radio button.
+
+          <font color="cyan">Value</font color="cyan">: if Value is equal to 1, the box is checked  else
+          it is not.
+
+          The size property is ignored
+
+
+     <font color="cyan">Rectangle</font color="cyan">: Display a rectangle.
+           This type of widget can be used to decorate window.
+
+
+     <font color="cyan">SwallowExec</font color="cyan">
+          This type of widget causes FvwmScript to spawn an  pro-
+          cess,  and  capture  the  first  window  whose  name or
+          resource is equal to  Title,  and  display  it  in  the
+          script window.
+
+          <font color="cyan">Title</font color="cyan">: specify the window name which  be  captured  and
           displayed in the script window.
 
           <font color="cyan">SwallowExec</font color="cyan">: specify the command  line  to  execute  to
-          spawn the process. Modules canalso be swallowed.
+          spawn the process.  Modules can also be swallowed.
 
           <font color="cyan">Value</font color="cyan">: specify the  looking  of  the  border.  Possible
           value: -1, 0, 1.
 
+          The size is made to be at least 30x30
 
-     <font color="cyan">PopupMenu</font color="cyan">: Display a popup menu.
+     <font color="cyan">TextField</font color="cyan">: Display a text input field.
+          The text input field can be used to edit a  single-line
+          string.
 
-          <font color="cyan">Value</font color="cyan">: specify what option is selected.
+          <font color="cyan">Title</font color="cyan">: content of text field.
 
-          <font color="cyan">Title</font color="cyan">: the title  has  the  following  syntax:  {Option
-          1|Option  2|...|Option N}."Option 1|Option 2|...|Option
-          N" is the popup menu which is displayed  when  pressing
-          mouse button.
+          <font color="cyan">Value</font color="cyan">: position of the insert point.
 
+          <font color="cyan">MinValue</font color="cyan">: position of the end of the selection.
 
-to display disk usage.
-     <font color="cyan">HDipstick</font color="cyan">: Display a horizontal dipstick. This widget can be used
+          <font color="cyan">MaxValue</font color="cyan">: first visible character of the title
 
-          <font color="cyan">Value</font color="cyan">: specify the current value of the dipstick.
-
-          <font color="cyan">MinValue</font color="cyan">: specify the minimum value of the dipstick.
-
-          <font color="cyan">MaxValue</font color="cyan">: specify the maximum value of the dipstick.
+          The height property is ignored, the width is made to be
+          at least 40 pixels wider than the initial contents.
 
 
      <font color="cyan">VDipstick</font color="cyan">: Display a vertical dipstick.
@@ -369,25 +424,22 @@ to display disk usage.
 
           <font color="cyan">MaxValue</font color="cyan">: specify the maximum value of the dipstick.
 
-
-options.
-     <font color="cyan">List</font color="cyan">: Display a list. List lets user to  choose  between  various
-
-          <font color="cyan">Value</font color="cyan">: specify which option is selected.
-
-          <font color="cyan">Title</font color="cyan">: title contains options displayed  in  the  list.
-          The   syntaxe   is  the  following:   {Option  1|Option
-          2|...|Option N}. All menus are displayed at the top  of
-          window.
+          The size is made to be at least 11x30.
 
 
-     <font color="cyan">Menu</font color="cyan">: Display a menu whom lets user to choose a option.
+     <font color="cyan">VScrollBar</font color="cyan">: Display a vertical scrollbar.
 
-          <font color="cyan">Value</font color="cyan">: specify which option is selected.
+          <font color="cyan">Value</font color="cyan">: position of the thumb.
 
-          <font color="cyan">Title</font color="cyan">: title contains options displayed  in  the  menu.
-          The   syntaxe   is  the  following:   {Option  1|Option
-          2|...|Option N}.
+          <font color="cyan">MaxValue</font color="cyan">: upper limit of Value.
+
+          <font color="cyan">MinValue</font color="cyan">: lower limit of Value.
+
+          The width property is ignored and a minimum  height  is
+          imposed.   The height should be at least the range plus
+          37 if all values are to be selectable e.g.  a min of  0
+          and  max  of  10 has a range of 11 and therefore should
+          have a minimum height of 48.
 
 
 
@@ -402,72 +454,84 @@ options.
      ShowWidget <font color="yellow">id</font color="yellow">: show the widget numbered <font color="yellow">id</font color="yellow">.
 
 
-<font color="yellow">id2</font color="yellow">.
-     ChangeValue <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">: set the value of the widget numbered <font color="yellow">id1</font color="yellow">  to
+     ChangeValue <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the value of the widget numbered <font color="yellow">id1</font color="yellow"> to <font color="yellow">id2</font color="yellow">.
 
 
-bered <font color="yellow">id1</font color="yellow"> to <font color="yellow">id2</font color="yellow">.
-     ChangeMaxValue  <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">: set the maximum value of the widget num-
+     ChangeMaxValue <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the maximum value of the  widget  numbered  <font color="yellow">id1</font color="yellow">  to
+          <font color="yellow">id2</font color="yellow">.
 
 
-bered <font color="yellow">id1</font color="yellow"> to <font color="yellow">id2</font color="yellow">.
-     ChangeMinValue  <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">: set the minimum value of the widget num-
+     ChangeMinValue <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the minimum value of the  widget  numbered  <font color="yellow">id1</font color="yellow">  to
+          <font color="yellow">id2</font color="yellow">.
 
 
-<font color="yellow">id2</font color="yellow">.
-     ChangeTitle  <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">: set the title of the widget numbered <font color="yellow">id1</font color="yellow"> to
+     ChangeTitle <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the title of the widget numbered <font color="yellow">id1</font color="yellow"> to <font color="yellow">id2</font color="yellow">.
 
 
-<font color="yellow">id2</font color="yellow">.
-     ChangeIcon  <font color="yellow">id1</font color="yellow">  <font color="yellow">id2</font color="yellow">:  set the icon of the widget numbered <font color="yellow">id1</font color="yellow"> to
+     ChangeIcon <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the icon of the widget numbered <font color="yellow">id1</font color="yellow"> to <font color="yellow">id2</font color="yellow">.
 
 
-widget numbered <font color="yellow">id1</font color="yellow"> to {<font color="yellow">color</font color="yellow">}.
-     ChangeForeColor  <font color="yellow">id1</font color="yellow">  {<font color="yellow">color</font color="yellow">}:  set  the  foreground color of the
+     ChangeForeColor <font color="yellow">id1</font color="yellow"> {<font color="yellow">color</font color="yellow">}
+          Set the foreground color of the widget numbered <font color="yellow">id1</font color="yellow">  to
+          {<font color="yellow">color</font color="yellow">}.
 
 
-widget numbered <font color="yellow">id1</font color="yellow"> to {<font color="yellow">color</font color="yellow">}.
-     ChangeBackColor  <font color="yellow">id1</font color="yellow">  {<font color="yellow">color</font color="yellow">}:  set  the  background color of the
+     ChangeBackColor <font color="yellow">id1</font color="yellow"> {<font color="yellow">color</font color="yellow">}
+          Set the background color of the widget numbered <font color="yellow">id1</font color="yellow">  to
+          {<font color="yellow">color</font color="yellow">}.
 
 
-
-(<font color="yellow">x</font color="yellow">,<font color="yellow">y</font color="yellow">).
-     ChangePosition  <font color="yellow">id1</font color="yellow"> <font color="yellow">x</font color="yellow"> <font color="yellow">y</font color="yellow">: move the widget numbered <font color="yellow">id1</font color="yellow"> to position
-
-
-<font color="yellow">id1</font color="yellow"> to (<font color="yellow">width</font color="yellow">,<font color="yellow">height</font color="yellow">).
-     ChangeSize  <font color="yellow">id1</font color="yellow"> <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">: set the size of the widget numbered
+     ChangeColorSet <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Set the colorset of the widget  numbered  <font color="yellow">id1</font color="yellow">  to  <font color="yellow">id2</font color="yellow">.
+          Specifying widget 0 sets the main window colorset.
 
 
-to <font color="yellow">newfont</font color="yellow">.
-     ChangeFont  <font color="yellow">id1</font color="yellow">  <font color="yellow">newfont</font color="yellow">: set the font of the widget numbered <font color="yellow">id1</font color="yellow">
+     ChangePosition <font color="yellow">id1</font color="yellow"> <font color="yellow">x</font color="yellow"> <font color="yellow">y</font color="yellow">
+          Move the widget numbered <font color="yellow">id1</font color="yellow"> to position (<font color="yellow">x</font color="yellow">,<font color="yellow">y</font color="yellow">).
 
 
-<font color="yellow">id</font color="yellow">.
-     WarpPointer  <font color="yellow">id</font color="yellow">:  warp the mouse pointer into the widget numbered
+     ChangeSize <font color="yellow">id1</font color="yellow"> <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
+          Set  the  size  of   the   widget   numbered   <font color="yellow">id1</font color="yellow">   to
+          (<font color="yellow">width</font color="yellow">,<font color="yellow">height</font color="yellow">).
 
 
-<font color="yellow">filename</font color="yellow"> the string which is the concatenation of  all  arguments
-<font color="yellow">str1</font color="yellow">, <font color="yellow">str2</font color="yellow">, etc.
-     WriteToFile  <font color="yellow">filename</font color="yellow">  {<font color="yellow">str1</font color="yellow">}  {<font color="yellow">str2</font color="yellow">}  etc:  write  to  the  file
-
-tion of all arguments <font color="yellow">str1</font color="yellow">, <font color="yellow">str2</font color="yellow">, etc.
-     Do {<font color="yellow">str1</font color="yellow">} {<font color="yellow">str2</font color="yellow">} etc: execute the command which is the concatena-
+     ChangeFont <font color="yellow">id1</font color="yellow"> <font color="yellow">newfont</font color="yellow">
+          Set the font of the widget numbered <font color="yellow">id1</font color="yellow"> to <font color="yellow">newfont</font color="yellow">.
 
 
-and set the variable $<font color="yellow">var</font color="yellow"> to this string.
-     Set $<font color="yellow">var</font color="yellow">={<font color="yellow">str</font color="yellow">1} {<font color="yellow">str2</font color="yellow">} etc: concatenate all arguments to a string
+     WarpPointer <font color="yellow">id</font color="yellow">
+          Warp the mouse pointer into the widget numbered <font color="yellow">id</font color="yellow">.
+
+     WriteToFile <font color="yellow">filename</font color="yellow"> {<font color="yellow">str1</font color="yellow">} {<font color="yellow">str2</font color="yellow">} etc
+          Write to the file <font color="yellow">filename</font color="yellow"> the string which is the con-
+          catenation of all arguments <font color="yellow">str1</font color="yellow">, <font color="yellow">str2</font color="yellow">, etc.
+
+
+     Do {<font color="yellow">str1</font color="yellow">} {<font color="yellow">str2</font color="yellow">} etc
+          Execute the command which is the concatenation  of  all
+          arguments <font color="yellow">str1</font color="yellow">, <font color="yellow">str2</font color="yellow">, etc.
+
+
+     Set $<font color="yellow">var</font color="yellow">={<font color="yellow">str</font color="yellow">1} {<font color="yellow">str2</font color="yellow">} etc
+          Concatenate all arguments to a string and set the vari-
+          able $<font color="yellow">var</font color="yellow"> to this string.
 
 
      Quit: quit the program.
 
 
-     SendSignal <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">: send a message numbered <font color="yellow">id2</font color="yellow"> to widget <font color="yellow">id1</font color="yellow">.
+     SendSignal <font color="yellow">id1</font color="yellow"> <font color="yellow">id2</font color="yellow">
+          Send a message numbered <font color="yellow">id2</font color="yellow"> to widget <font color="yellow">id1</font color="yellow">.
 
 
-script identified by id_script. The message is the  concatenation
-of str1, str2...
-     SendToScript  <font color="yellow">id</font color="yellow">_<font color="yellow">script</font color="yellow"> {<font color="yellow">str1</font color="yellow">1} {<font color="yellow">str2</font color="yellow">} etc: send a message to the
+     SendToScript <font color="yellow">id</font color="yellow">_<font color="yellow">script</font color="yellow"> {<font color="yellow">str1</font color="yellow">1} {<font color="yellow">str2</font color="yellow">} etc
+          Send a message to the script identified  by  id_script.
+          The message is the concatenation of str1, str2...
 
 
 
@@ -491,64 +555,105 @@ of str1, str2...
      Here is the complete list of arguments:
 
 
-     (GetTitle <font color="yellow">id</font color="yellow">): return the title of the widget numbered <font color="yellow">id</font color="yellow">.
+     (GetTitle <font color="yellow">id</font color="yellow">)
+          Return the title of the widget numbered <font color="yellow">id</font color="yellow">.
 
 
-<font color="yellow">id</font color="yellow">.
-     (GetValue <font color="yellow">id</font color="yellow">): return the current value of  the  widget  numbered
+     (GetValue <font color="yellow">id</font color="yellow">)
+          Return the current value of the widget numbered <font color="yellow">id</font color="yellow">.
 
 
-standart output and returns the word which is in  the  line  <font color="yellow">int1</font color="yellow">
-and  in  the  position  <font color="yellow">int2</font color="yellow">.  If  <font color="yellow">int2</font color="yellow"> is equal to -1, GetOutput
-returns the complete line.
-     (GetOutput  {<font color="yellow">str</font color="yellow">}  <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">): executes the command <font color="yellow">str</font color="yellow">, gets the
+     (GetMinValue <font color="yellow">id</font color="yellow">)
+          Return the current Min value of the widget numbered <font color="yellow">id</font color="yellow">.
 
 
-     (NumToHex <font color="yellow">int</font color="yellow">): return the hexadecimal value of <font color="yellow">int</font color="yellow">.
+     (GetMaxValue <font color="yellow">id</font color="yellow">)
+          Return the current Max value of the widget numbered <font color="yellow">id</font color="yellow">.
 
 
-hexadecimal value.
-     (HexToNum {<font color="yellow">str</font color="yellow">}): return the decimal value of <font color="yellow">str</font color="yellow">, <font color="yellow">str</font color="yellow"> must be an
+     (GetFore <font color="yellow">id</font color="yellow">)
+          Return the current RGB foreground value of  the  widget
+          numbered <font color="yellow">id</font color="yellow"> in the hex format RRGGBB.
 
 
-     (Add <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">): return the result of (<font color="yellow">int1</font color="yellow">+<font color="yellow">int2</font color="yellow">).
+     (GetBack <font color="yellow">id</font color="yellow">)
+          Return the current RGB background value of  the  widget
+          numbered <font color="yellow">id</font color="yellow"> in the hex format RRGGBB.
 
 
-     (Mult <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">): return the result of (<font color="yellow">int1</font color="yellow">*<font color="yellow">int2</font color="yellow">).
+     (GetHilight <font color="yellow">id</font color="yellow">)
+          Return the current RGB hilight value of the widget num-
+          bered <font color="yellow">id</font color="yellow"> in the hex format RRGGBB.
 
 
-     (Div <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">): return the result of (<font color="yellow">int1</font color="yellow">/<font color="yellow">int2</font color="yellow">).
+     (GetShadow <font color="yellow">id</font color="yellow">)
+          Return the current RGB shadow value of the widget  num-
+          bered <font color="yellow">id</font color="yellow"> in the hex format RRGGBB.
 
 
-position  int1  and  int2.  For  example,  (StrCopy  {Hello} 1 2)
-returns {He}
-     (StrCopy {<font color="yellow">str</font color="yellow">} <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">): return  the  string  whom  is  between
+     (GetOutput {<font color="yellow">str</font color="yellow">} <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">)
+          Executes the command <font color="yellow">str</font color="yellow">, gets the standard output  and
+          returns  the  word which is in the line <font color="yellow">int1</font color="yellow"> and in the
+          position <font color="yellow">int2</font color="yellow">.  If  <font color="yellow">int2</font color="yellow">  is  equal  to  -1,  GetOutput
+          returns the complete line.
 
 
-and return an identification number. This number is necessary  to
-use these functions SendToScript and ReceivFromScript. The string
-str contains the script name and some arguments.
-     (LaunchScript  {<font color="yellow">str</font color="yellow">}):  this function launch the script named str
+     (NumToHex <font color="yellow">int</font color="yellow">)
+          Return the hexadecimal value of <font color="yellow">int</font color="yellow">.
 
 
-script used in the function LaunchScript.  If  int  is  equal  to
-zero, GetScriptArgument return the name of the script.
-     (GetScriptArgument  {<font color="yellow">int</font color="yellow">}):  this  function  return  the argument
+     (HexToNum {<font color="yellow">str</font color="yellow">})
+          Return the decimal value of <font color="yellow">str</font color="yellow">, <font color="yellow">str</font color="yellow"> must be an hexade-
+          cimal value.
 
 
-of the script father.
-     (GetScriptFather): this function return the identification number
+     (Add <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">)
+          Return the result of (<font color="yellow">int1</font color="yellow">+<font color="yellow">int2</font color="yellow">).
 
 
-by the script numbered int.
-     (ReceivFromScript {<font color="yellow">int</font color="yellow">}): this function return the message sended
+     (Mult <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">)
+          Return the result of (<font color="yellow">int1</font color="yellow">*<font color="yellow">int2</font color="yellow">).
 
 
-of the division (<font color="yellow">int1</font color="yellow">/<font color="yellow">int2</font color="yellow">).
-     (RemainderOfDiv  {<font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">}): this function return the remainder
+     (Div <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">)
+          Return the result of (<font color="yellow">int1</font color="yellow">/<font color="yellow">int2</font color="yellow">).
 
 
-     (GetTime): this function return the time in second.
+     (StrCopy {<font color="yellow">str</font color="yellow">} <font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">)
+          Return the string whom is  between  position  int1  and
+          int2. For example, (StrCopy {Hello} 1 2) returns {He}
+
+
+     (LaunchScript {<font color="yellow">str</font color="yellow">})
+          This function launch the script named str and return an
+          identification number.  This number is necessary to use
+          these functions SendToScript and ReceiveFromScript. The
+          string str contains the script name and some arguments.
+
+
+     (GetScriptArgument {<font color="yellow">int</font color="yellow">})
+          This function return the argument script  used  in  the
+          function  LaunchScript.   If  int  is  equal  to  zero,
+          GetScriptArgument return the name of the script.
+
+
+     (GetScriptFather)
+          This function return the identification number  of  the
+          script father.
+
+
+     (ReceivFromScript {<font color="yellow">int</font color="yellow">})
+          This function return the message sended by  the  script
+          numbered int.
+
+
+     (RemainderOfDiv {<font color="yellow">int1</font color="yellow"> <font color="yellow">int2</font color="yellow">}): t
+          This function return  the  remainder  of  the  division
+          (<font color="yellow">int1</font color="yellow">/<font color="yellow">int2</font color="yellow">).
+
+
+     (GetTime)
+          This function return the time in second.
 
 
 
@@ -585,10 +690,62 @@ of the division (<font color="yellow">int1</font color="yellow">/<font color="ye
 
 
 
+
+</PRE>
+<H2>EXAMPLES</H2><PRE>
+     You will find examples of scripts in the fvwm  configuration
+     directory.
+
+     FvwmScript-BellSetup, FvwmScript-KeyboardSetup,  FvwmScript-
+     PointerSetup and FvwmScript-ScreenSetup are a set of scripts
+     that modify X settings.  These scripts save preferences into
+     a  file  named  ~/.xinit-fvwmrc  (If you want to use another
+     file name, give it as the first argument of the script).  If
+     you  want  to  load  these preferences at every startup, you
+     have to include the line  ".xinit-fvwmrc" in  your  .xinitrc
+     (or .xsession) file before starting fvwm.
+
+     FvwmScript-BaseConfig modifies fvwm focus and  paging  mouse
+     policy,  window placement, opacity and other features of the
+     move and resize commands, snap attraction and shading anima-
+     tion.   This  script  saves  preferences  into  a file named
+     .FvwmBaseConfig  in  the  user's   data   directory   (i.e.,
+     $HOME/.fvwm  or  $FVWM_USERDIR if set).  If you want to load
+     these preferences at every startup you  must  add  the  line
+     "Read  .FvwmBaseConfig" in your fvwm configuration file.  If
+     you want to use another file name,  give  it  as  the  first
+     argument  of  the  script.  When you click on Ok or Apply an
+     fvwm function that you may define named BaseConfigOkFunc  or
+     BaseConfigApplyFunc  is  called.   This allows for reloading
+     specific application styles that the  script  has  destroyed
+     (e.g., AddToFunc  BaseConfigOkFunc I Read MyAppStyle).
+
+     FvwmScript-Buttons is a  buttons  panel  which  can  replace
+     FvwmButtons  (this  script supports popup menus and requires
+     xload,  xclock,  FvwmPager,  TkDesk).    FvwmScript-Colorset
+     allows   you   to   edit   your  colorset  (see  FvwmTheme).
+     FvwmScript-Date  allows  you   to   set   date   and   time.
+     FvwmScript-FileBrowser  is  a file browser used by the other
+     scripts.  FvwmScript-Find  is  an  elementary  front-end  to
+     find.   FvwmScript-Quit allows to quit fvwm, restart fvwm or
+     some other window manager, or shut down and reboot the  com-
+     puter.     FvwmScript-ScreenDump   is   a   screen   dumper.
+     FvwmScript-WidgetDemo is a pure example script.
+
+
+
+</PRE>
+<H2>BUGS</H2><PRE>
+     FvwmScript crashes if widgets are  accessed  that  have  not
+     been defined.
+
+
+
 </PRE>
 <H2>AUTHOR</H2><PRE>
             Frederic   Cordier   (cordie97@cui.unige.ch   or   f-
      cord96@univ-lyon1.fr).
+
 
 
 </PRE>
@@ -617,11 +774,19 @@ of the division (<font color="yellow">int1</font color="yellow">/<font color="ye
 
 
 
+
+
+
+
+
+
+
+
 </PRE>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:45:55 EST 2001 -->
+on Tue Jul  3 21:54:42 EDT 2001 -->
 </body>
 </html>
 

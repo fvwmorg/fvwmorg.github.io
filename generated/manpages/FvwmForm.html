@@ -20,8 +20,10 @@
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmForm must be spawned by Fvwm. It will not work from  the
-     command line.
+     <font color="cyan">Module</font color="cyan"> <font color="cyan">FvwmForm</font color="cyan"> [ <font color="yellow">Alias</font color="yellow"> ]
+
+     FvwmForm must be spawned by Fvwm.  If invoked from the  com-
+     mand line, FvwmForm prints its version number and exits.
 
 
 </PRE>
@@ -36,103 +38,279 @@
      lines, with a very flexible layout.
 
      A text label only serves the  purpose  of  explanation.   It
-     cannot  accept any input.  A text input field can be used to
-     edit a single-line  string.   FvwmForm  accepts  Emacs-style
-     cursor  movement  keys.   No  copying  and pasting functions
-     exist.
+     cannot accept any input.
 
-     A selection consists  of  several  choices.   The  selection
-     itself  is  a  logical  entity that doesn't have any display
-     feature.  Each choice is displayed as a push-button followed
-     by  a  explanatory  text label.  When selected, an exclusive
-     choice shows a circle in the middle, while a multiple choice
-     shows a check.
+     A text input field can be used to edit a single-line string.
+     FvwmForm  accepts  Emacs-style  cursor  movement  keys.  See
+     FvwmFormInput for details.  Mouse copy is not supported, but
+     you can paste.
 
-     An action button, when clicked on, will send a set  of  com-
-     mands  to  Fvwm.  FvwmForm will do variable substitutions in
-     the command text to reflect the user's input.
+     A selection consists of several choices.
+
+     The selection itself is a logical entity that  doesn't  have
+     any display feature.
+
+     Each choice is displayed as  a  push-button  followed  by  a
+     explanatory  text label.  When selected, an exclusive choice
+     shows a circle in the middle, while a multiple choice  shows
+     a check.
+
+     An action button, when activated sends one or more  commands
+     to  Fvwm or executes shell commands.  The shell commands can
+     contain the content of the input  fields  on  the  form  and
+     reflect the setting of choices on the form.
+
+     The action buttons can be activated thru keyboard or mouse.
 
 
 </PRE>
 <H2>INITIALIZATION</H2><PRE>
-     FvwmForm uses the same configuration file  (usually  .fvwmrc
-     in  the user's home directory) as Fvwm.  To use FvwmForm for
-     multiple input forms, simply create symbolic links with dif-
-     ferent names, and they will be treated as different modules.
-     Or, you can invoke  FvwmForm  with  an  optional  parameter,
-     which it will use as the name instead (e.g. 'Module FvwmForm
-     QuitVerify').  That way you don't even have to make  a  sym-
-     bolic link for it!
+     FvwmForm invoked without an alias  uses  configuration  com-
+     mands  starting with "*FvwmForm".
 
-     Be sure to set ModulePath in your .fvwmrc  file  to  include
-     FvwmForm's path.
+     Normally you would invoke FvwmForm with an alias  represent-
+     ing  the name of a form, its configuration commands and con-
+     figuration file.  For example, the command "Module  FvwmForm
+     Rlogin" uses configuration commands starting with "*Rlogin",
+     and reads the optional configuration file "Rlogin".
+
+     All forms, regardless of alias,  scan first  for  configura-
+     tion  commands  that start with  "*FvwmFormDefault".   These
+     commands  normally come from  the  builtin  form  "FvwmForm-
+     Form" which saves commands to the file ".FvwmForm".
+
+     The  physical  reading   of   the   optional   input   file,
+     ".FvwmForm",  is  done  only  the  first  time  FvwmForm  is
+     invoked, or after "FvwmForm-Form" updates the file.
+
+     When the file ".FvwmForm" is read,  it is done   by  sending
+     the  command  "Read .FvwmForm  Quiet"   to fvwm.  Because of
+     the   way the  "read" command works, the file can  reside in
+     your  personal  fvwm  user directory, or be in the fvwm data
+     directory.  See the description of the read command  in  the
+     fvwm2  man  page  for more information about the environment
+     variable $FVWM_USERDIR.
+
+     Then FvwmForm reads the rest of the configuration  fvwm  has
+     stored  up.   Fvwm stores configuration on an ongoing basis.
+     The initial configuration  comes  from  the  .fvwm2rc  file.
+     Other sources, including "Read" commands can define a form.
+
+     When letting  FvwmForm and fvwm  read files,  remember  that
+     these  files  contain commands  that can  execute shell com-
+     mands,  so  you should be careful about setting  permissions
+     on these files.
 
      When FvwmForm is invoked with a window context, e.g. from  a
      window  menu,  all  commands it sends to Fvwm will have that
-     window context.
+     window context.  This would allow FvwmForm  to  control  the
+     window it is invoked from.
+
+     After  all  the  configuration  commands  have  been   read,
+     FvwmForm displays the form defined by the commands.
+
+
+
+</PRE>
+<H2>DEFAULTS</H2><PRE>
+     FvwmForm creates a built-in form named "FvwmForm-Form"  that
+     creates a file called ".FvwmForm".  This file contains saved
+     default form  colors  and  fonts.   Other  forms  use  these
+     defaults unless they are overridden within the form.
+
+     The default creating form would normally be invoked  from  a
+     "module  menu".   For  example, if you call your module menu
+     "Module-Popup", you would add the line:
+
+          AddToMenu "Module-Popup" "FvwmForm Defaults" FvwmForm FvwmForm-Form
+
+     When you select "FvwmForm Defaults" from your module menu, a
+     form is displayed that shows the current defaults and allows
+     you to change them.  If you activate the "Save  Restart  Me"
+     button,  the ".FvwmForm" file is written and "FvwmForm-Form"
+     exits and restarts to show the new defaults.
+
+     An example of what this file might contain after a save is:
+
+            # This file last created by FvwmForm-Form on Sun Nov 28 11:18:26 EST 1999.
+            *FvwmFormDefault: Font 10x20
+            *FvwmFormDefault: InputFont 8x13bold
+            *FvwmFormDefault: ButtonFont 10x20
+            *FvwmFormDefault: Fore white
+            *FvwmFormDefault: Back cornflowerblue
+            *FvwmFormDefault: Colorset -1
+            *FvwmFormDefault: ItemFore green
+            *FvwmFormDefault: ItemBack gray40
+            *FvwmFormDefault: ItemColorset -1
+
+     The commands in this file are just like any  other  FvwmForm
+     command except that they start with "*FvwmFormDefault".
+
+     FvwmForm only reads the file ".FvwmForm" the first  time  it
+     is  started or after the file is changed by "FvwmForm-Form".
+     It does so by sending the  command  "*FvwmFormDefault:  Read
+     x".  With  "x" set to "y" or "n".  "n" makes FvwmForm send a
+     "read .FvwmForm quiet" command to fvwm.
+
+
+
+</PRE>
+<H2>VARIABLE SUBSTITUTION</H2><PRE>
+     If you supply variables and values on the command line  used
+     to start FvwmForm (like this):
+
+
+          Module FvwmForm MyForm ACTION=Browse "TITLE=Browse Form"
+
+
+     Then all FvwmForm input commands undergo variable  substitu-
+     tion.   The  variables  from  the command line are exported.
+     Then every command gets expanded using  the  variables  from
+     the environment.  For example, assuming the above invocation
+     of "MyForm", commands would be changed like this:
+
+
+          Before  *MyForm: Text "$TITLE, Home $HOME, Going to $ACTION"
+          After   *MyForm: TEXT "Browse Form, Home /home/me, Going to Browse"
+
+
+     Using this facility should make it possible for one form  to
+     be used for different sets of input data.
 
 
 
 </PRE>
 <H2>CONFIGURATION</H2><PRE>
-     The following options can be set in the .fvwmrc file.   Note
-     that  the  string  "FvwmForm"  should  be changed if another
-     module with different name is used.
+     The following commands can be set in the  .fvwm2rc  file  or
+     thru  any  of  the other ways that fvwm can accept commands.
+     The simplest technique is to create a file in the  read-only
+     architecture-independent data directory, [PREFIX/share/fvwm]
+     or your personal fvwm directory [$HOME/.fvwm], that  matches
+     the form alias.
 
-     The order of the options DOES matter.   In  general,  colors
-     and  fonts  should  be specified first.  Lines, text labels,
-     and input items should appear in their logical order.
+     In the following paragraphs the string "FvwmForm" would nor-
+     mally be the form alias.
 
-     <font color="cyan">*FvwmFormGrabServer</font color="cyan">
+     FvwmForm reads commands before the form is  ever  displayed,
+     and while the form is being displayed.
+
+     The following commands  are  accepted  before  the  form  is
+     displayed:
+
+          Back
+          Button
+          ButtonFont
+          Choice
+          Command
+          Colorset
+          Font
+          Fore
+          GrabServer
+          Input
+          InputFont
+          ItemBack
+          ItemColorset
+          ItemFore
+          Line
+          Message
+          PadVText
+          Position
+          Selection
+          Text
+          Title
+          UseData
+          WarpPointer
+
+
+     The following  commands  are  accepted  while  the  form  is
+     displayed:
+
+          Map
+          Stop
+          UnMap
+
+
+     The "Map", "UnMap" and "Stop" facility is under  development
+     and is currently not explained in this document, since it is
+     likely to change.
+
+     The order of the options DOES matter.  The first  background
+     text  color,  "*FvwmFormBack", encountered before a display-
+     able item sets the default background color for  the  entire
+     form.
+
+     Other than that, colors, fonts, text,  choices  and  buttons
+     can  be  intermixed in any order.  The are no builtin limits
+     on form size, number of items on a form, or number of  fonts
+     or colors used.
+
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">GrabServer</font color="cyan">
          This option makes FvwmForm grab  the  mouse  pointer  on
          startup.   This feature is useful for things like logout
          verification.
 
-     <font color="cyan">*FvwmFormWarpPointer</font color="cyan">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">WarpPointer</font color="cyan">
          This option makes FvwmForm warp the mouse  pointer  into
          its  window  on  startup.  It saves the user some mouse-
-         travelling.
+         traveling.
 
-     <font color="cyan">*FvwmFormPosition</font color="cyan"> <font color="yellow">x</font color="yellow"> <font color="yellow">y</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Position</font color="cyan"> <font color="yellow">x</font color="yellow"> <font color="yellow">y</font color="yellow">
          Puts the FvwmForm window  at  location  (<font color="yellow">x</font color="yellow">,  <font color="yellow">y</font color="yellow">)  on  the
-         screen.   By  convention,  a  negative <font color="yellow">x</font color="yellow"> (resp. <font color="yellow">y</font color="yellow">) value
-         measures distance from the right (resp. bottom)  of  the
-         screen.
+         screen.   By convention, a negative <font color="yellow">x</font color="yellow"> (<font color="yellow">y</font color="yellow">) value measures
+         distance from the right (bottom) of the screen.
 
-         If this option is omitted, FvwmForm will  start  at  the
-         center of the screen.
+         If this option is omitted, FvwmForm starts at the center
+         of the screen.
 
-     <font color="cyan">*FvwmFormBack</font color="cyan"> <font color="yellow">color</font color="yellow">
-         Specifies the background color of the FvwmForm window.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Colorset</font color="cyan"> <font color="yellow">n</font color="yellow">
+         Tells the module to use colorset <font color="yellow">n</font color="yellow">. See FvwmTheme.
 
-     <font color="cyan">*FvwmFormFore</font color="cyan"> <font color="yellow">color</font color="yellow">
-         Specifies the  foreground  color  for  displaying  plain
-         text.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Back</font color="cyan"> <font color="yellow">color</font color="yellow">
+         Specifies the background color of  the  FvwmForm  window
+         and  any text in the window.  The first background color
+         FvwmForm reads determines the overall screen  background
+         color. Switches off the Colorset option.  See DEFAULTS.
 
-     <font color="cyan">*FvwmFormItemBack</font color="cyan"> <font color="yellow">color</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Fore</font color="cyan"> <font color="yellow">color</font color="yellow">
+         Specifies  the  foreground  color  for  displaying  text
+         labels.    Switches   off   the  Colorset  option.   See
+         DEFAULTS.
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">ItemColorset</font color="cyan"> <font color="yellow">n</font color="yellow">
+         Tells the module  to  use  colorset  <font color="yellow">n</font color="yellow">  for  items.  See
+         FvwmTheme.
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">ItemBack</font color="cyan"> <font color="yellow">color</font color="yellow">
          Specifies the background color for the text  input  win-
-         dows, and the buttons.
+         dows,  and  the  buttons.   Buttons  are displayed as 3D
+         depressible  buttons.   Inputs  are  displayed   as   3D
+         indented  fields.   Medium  shade background colors work
+         best.   Switches  off  the  ItemColorset  option.    See
+         DEFAULTS.
 
-     <font color="cyan">*FvwmFormItemFore</font color="cyan"> <font color="yellow">color</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">ItemFore</font color="cyan"> <font color="yellow">color</font color="yellow">
          Specifies  the  foreground  color  for  the  text  input
-         strings and button markers.
+         strings  and  button text. Switches off the ItemColorset
+         option.  See DEFAULTS.
 
-     <font color="cyan">*FvwmFormFont</font color="cyan"> <font color="yellow">font</font color="yellow">
-         Specifies the font for displaying plain text.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Font</font color="cyan"> <font color="yellow">font</font color="yellow">
+         Specifies the  font  for  displaying  plain  text.   See
+         DEFAULTS.
 
-     <font color="cyan">*FvwmFormButtonFont</font color="cyan"> <font color="yellow">font</font color="yellow">
-         Specifies the font for text marked in  the  action  but-
-         tons.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">ButtonFont</font color="cyan"> <font color="yellow">font</font color="yellow">
+         Specifies the font for text in the action buttons.   See
+         DEFAULTS.
 
-     <font color="cyan">*FvwmFormInputfont</font color="cyan"> <font color="yellow">font</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Inputfont</font color="cyan"> <font color="yellow">font</font color="yellow">
          Specifies the font for text input.  This font must  have
-         fixed width.
+         fixed width.  See DEFAULTS.
 
-     <font color="cyan">*FvwmFormLine</font color="cyan"> <font color="yellow">justification</font color="yellow">
-         Starts a new line.  A  line  can  contain  an  arbitrary
-         number of items whose options should follow.  A FvwmForm
-         window can have an arbitrary number of lines.  The width
-         of the window is that of the longest line.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Line</font color="cyan"> <font color="yellow">justification</font color="yellow">
+         Starts a new line.  A line can  contain  any  number  of
+         text,  input, buttons and choice items.  A FvwmForm win-
+         dow can have any number of lines.  The width of the win-
+         dow is that of the longest line.
 
          Justification of items in the line is specified by  <font color="yellow">jus-</font color="yellow">
          <font color="yellow">tification</font color="yellow">, which can be one of the following:
@@ -148,92 +326,154 @@
 
      <font color="yellow">expand</font color="yellow">          If there is only one item in the  line,  the
                      item  is  centered in the window.  If two or
-                     more items are present, they are spreaded to
+                     more items are present, they are  spread  to
                      fill the whole width of the window.
 
-     <font color="cyan">*FvwmFormText</font color="cyan"> <font color="yellow">string</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Message</font color="cyan">
+         Defines a text area on the form that contains  the  last
+         error  message  from  fvwm.  For purposes of determining
+         form size, the message area is considered to be 80 bytes
+         long.   Its  actual  length  is  the same as the message
+         received.  If the message exceeds 80 bytes, you can  see
+         the rest of the message by resizing the form.
+
+         You should not attempt to put any text, buttons or input
+         fields on the same line after a message field.  Messages
+         greater than 80 bytes will overlay the remainder of  the
+         line.
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">PadVText</font color="cyan"> <font color="yellow">Pixels</font color="yellow">
+         The number of pixels used as  vertical  padding  between
+         text  items, line to line.  The default is 6 which looks
+         good on lines  containing  text  intermixed  with  input
+         boxes, choices or buttons.
+
+         For straight text, such as might appear on a help  form,
+         padding of zero looks better.
+
+         (There are lots of other padding  values  used  in  form
+         layout which can't currently be changed with commands.)
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Text</font color="cyan"> <font color="yellow">string</font color="yellow">
          Displays <font color="yellow">string</font color="yellow"> as plain  text.   Line  breaks  must  be
-         achieved  by  multiple  *FvwmFormLine  and *FvwmFormText
+         achieved by multiple *FvwmForm: Line and *FvwmForm: Text
          options.  Blanks may be used to  provide  extra  padding
          between items.
 
-     <font color="cyan">*FvwmFormInput</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">size</font color="yellow"> <font color="yellow">init</font color="yellow">_<font color="yellow">string</font color="yellow">
-         Specifies a text input item with name <font color="yellow">name</font color="yellow">.  A subwindow
-         of  <font color="yellow">size</font color="yellow">  characters in width will be used for editting.
-         If <font color="yellow">init</font color="yellow">_<font color="yellow">string</font color="yellow"> is present, it will be the initial string
-         when FvwmForm starts or resets itself.  The default ini-
-         tial string is "".
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Title</font color="cyan"> <font color="yellow">string</font color="yellow">
+         Displays <font color="yellow">string</font color="yellow"> as the window's title.  The string  must
+         be  enclosed  in double quotes.  Using this command with
+         anything other than a string enclosed in quotes  creates
+         a  blank title.  If this command is not used, the window
+         title is the form alias.
 
-     <font color="cyan">*FvwmFormSelection</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">type</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Input</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">size</font color="yellow"> <font color="yellow">init</font color="yellow">_<font color="yellow">string</font color="yellow">
+         Specifies a text input item with name <font color="yellow">name</font color="yellow">.  A sub  win-
+         dow of <font color="yellow">size</font color="yellow"> characters in width is used for editing.  If
+         <font color="yellow">init</font color="yellow">_<font color="yellow">string</font color="yellow"> is present, it is the  initial  string  when
+         FvwmForm  starts  or resets itself.  The default initial
+         string is "".
+
+         You can mouse paste into an input field using button  2.
+         Buttons 1 and 3 move the cursor in an input field.
+
+         Input fields are always in insert  mode,  overtyping  is
+         not supported.
+
+         Emacs type keystrokes are supported.
+
+         Control-a, Home and Begin move to the front of an  input
+         field.   Control-e  and  End move to the end of an input
+         field.  Control-b and Left move left in an input  field.
+         Control-f  and  Right  move  right  in  an  input field.
+         Control-p, Up, and Shift-Tab move to  a  previous  input
+         field  if  any.   Control-n, Down, Return, Line-feed and
+         Tab move to the next  input  field  if  any.   Control-h
+         moves  backward  in  an input field erasing a character.
+         Control-d and Delete delete the  next  character  in  an
+         input field.  Control-k erases for the cursor to the end
+         of an input field.  Control-U erases  the  entire  input
+         field.
+
+         When a form executes a command, all the input values are
+         saved in a ring of input history 50 items deep.
+
+         Meta(mod2)-"&lt;" retrieves the previous value of an  input
+         field.   Meta(mod2)-"&gt;"  retrieves  the next value of an
+         input field.
+
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Selection</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">type</font color="yellow">
          This option starts a selection item with name <font color="yellow">name</font color="yellow">.  Its
-         choices  should  be  specified  on the subsequent lines.
-         The option <font color="yellow">type</font color="yellow"> is one of the following:
+         choices  are  specified  in following configuration com-
+         mands.  The option <font color="yellow">type</font color="yellow"> is one of the following:
 
      <font color="yellow">single</font color="yellow">          The selections are mutually exclusive.
 
      <font color="yellow">multiple</font color="yellow">        This is a multiple-choice selection.
 
-     <font color="cyan">*FvwmFormChoice</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">value</font color="yellow"> <font color="cyan">on</font color="cyan"> <font color="cyan">|</font color="cyan"> <font color="cyan">off</font color="cyan"> <font color="yellow">string</font color="yellow">
-         Specifies a choice for a selection.  The choice item has
-         a <font color="yellow">name</font color="yellow"> and a <font color="yellow">value</font color="yellow">.  The <font color="yellow">string</font color="yellow"> will be displayed to the
-         right of the choice button as a label.
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Choice</font color="cyan"> <font color="yellow">name</font color="yellow"> <font color="yellow">value</font color="yellow"> <font color="cyan">on</font color="cyan"> <font color="cyan">|</font color="cyan"> <font color="cyan">off</font color="cyan"> <font color="yellow">string</font color="yellow">
+         Specifies a choice  for  a  preceeding  selection.   The
+         choice  item  has  a  <font color="yellow">name</font color="yellow"> and a <font color="yellow">value</font color="yellow"> these are used in
+         commands.   See  *FvwmForm:  Command.   The  <font color="yellow">string</font color="yellow">   is
+         displayed to the right of the choice button as a label.
 
-         The choice will assume the specified initial state ("on"
-         means  selected)  when  FvwmForm starts or resets.  Note
-         that if the selections are mutually exclusive,  FvwmForm
-         will NOT detect inconsistencies in the initial states of
-         the choices, i.e. two or none  of  the  choices  can  be
+         The choice assumes the  specified  initial  state  ("on"
+         means  selected) when FvwmForm starts or resets.  If the
+         selections are mutually  exclusive,  FvwmForm  does  NOT
+         detect  inconsistencies  in  the  initial  states of the
+         choices,  i.e.  two  or  none  of  the  choices  can  be
          selected.   However,  once  the  user  selects a choice,
-         FvwmForm will assure only one is selected.
+         FvwmForm  assures only one is selected.
 
-     <font color="cyan">*FvwmFormButton</font color="cyan"> <font color="yellow">type</font color="yellow"> <font color="yellow">string</font color="yellow"> <font color="cyan">[</font color="cyan"><font color="yellow">key</font color="yellow"><font color="cyan">]</font color="cyan">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Button</font color="cyan"> <font color="yellow">type</font color="yellow"> <font color="yellow">string</font color="yellow"> <font color="cyan">[</font color="cyan"><font color="yellow">key</font color="yellow"><font color="cyan">]</font color="cyan">
          This option specifies an action button.  The button  has
-         <font color="yellow">string</font color="yellow">  as  a  label,  and excutes a set of Fvwm <font color="yellow">command</font color="yellow">
-         when it is activated.  The commands should be  specified
-         using the *FvwmFormCommand option.
+         <font color="yellow">string</font color="yellow">  as  a  label, and executes a set of Fvwm <font color="yellow">command</font color="yellow">
+         when it is activated.  The commands  are  the  following
+         *FvwmForm: Commands.
 
          The optional <font color="yellow">key</font color="yellow">  specifies  a  keyboard  shortcut  that
          activates the button.  It is in either a control charac-
          ter, specified as ^@, ^A, ..., ^_, or  a  function  key,
          specified  as  F1,  F2, ..., F35.  Control keys that are
          used for cursor movement in  text  input  fields  cannot
-         activate any buttons, with the exception of TAB, RETURN,
-         LINEFEED, which can activate a button when the cursor is
-         in the last text input field.
+         activate  any  buttons,  with the exception of TAB (^I),
+         RETURN (^M), LINEFEED (^J), which can activate a  button
+         when the cursor is in the last text input field.
 
          The behavior of the button is determined by <font color="yellow">type</font color="yellow">:
 
-     continue        FvwmForm will resume execution after sending
+     continue        FvwmForm continues execution  after  sending
                      the commands.
 
-     restart         After sending the  commands,  FvwmForm  will
-                     reset  all  the  values to the initial ones,
-                     and then resume execution.
+     restart         After sending the commands, FvwmForm  resets
+                     all the values to the initial ones, and then
+                     continues execution.
 
-     quit            FvwmForm will quit after  sending  the  com-
-                     mands.
+     quit            FvwmForm quits after sending the commands.
 
-     <font color="cyan">*FvwmFormCommand</font color="cyan"> <font color="yellow">command</font color="yellow">
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">Command</font color="cyan"> <font color="yellow">command</font color="yellow">
          This option specifies an Fvwm  command  associated  with
          the  current  button.   Commands  that appear before any
-         *FvwmFormButton option  will  be  executed  at  start-up
-         time.   This  is  usually  a  beep  that gets the user's
-         attention.
+         *FvwmForm: Button option are executed at start-up  time.
+         This is usually a beep that gets the user's attention.
 
-         Before sending each command to Fvwm, FvwmForm recognizes
-         variables  of  the following forms, and supply values to
-         them.
+         Commands starting with an exclamation mark (!) are  exe-
+         cuted  by  FvwmForm, all other commands are sent to Fvwm
+         for execution.  Before sending  each  command  to  Fvwm,
+         FvwmForm  recognizes  variables  of the following forms,
+         and supply values to them.
 
      <font color="cyan">$(</font color="cyan"><font color="yellow">name</font color="yellow"><font color="cyan">)</font color="cyan">         If <font color="yellow">name</font color="yellow"> corresponds to a text  input  field,
-                     the result is the user's input string.  Spe-
-                     cial chars such as ", ', and  will  be  pre-
-                     ceded by a backslash.
+                     the  result is the user's input string.  The
+                     special chars single-quote, double-quote and
+                     backslash are preceded by a backslash.
 
                      If <font color="yellow">name</font color="yellow"> corresponds to a choice, the  result
                      is  the value of the choice (as specified in
-                     *FvwmFormChoice) if the choice is  selected.
-                     If the choice is not selected, the result is
-                     a blank string.
+                     *FvwmForm:  Choice)   if   the   choice   is
+                     selected.   If  the  choice is not selected,
+                     the result is a blank string.
 
                      If <font color="yellow">name</font color="yellow">  corresponds  to  a  selection,  the
                      result will be a list of the selected values
@@ -253,66 +493,105 @@
      <font color="cyan">$(</font color="cyan"><font color="yellow">name</font color="yellow"><font color="cyan">!</font color="cyan"><font color="yellow">string</font color="yellow"><font color="cyan">)</font color="cyan">  The same as the above, except that the  con-
                      verse conditions are taken.
 
+                     When using the "?" and "!" forms to  pass  a
+                     string,  the  string is delimited by a right
+                     parenthesis.  If you need  to  put  a  right
+                     parenthesis  in  a string, preceed the right
+                     parenthesis with a backslash.
+
+
+     <font color="cyan">*FvwmForm:</font color="cyan"> <font color="cyan">UseData</font color="cyan"> <font color="yellow">datafile</font color="yellow"> <font color="yellow">leading</font color="yellow">
+         Tells FvwmForm to read a data file and extract data from
+         module commands that match the "leading" argument and an
+         input or choice variable in a form.
+
+         This lets a form display current fvwm module  configura-
+         tion  data.   For  an example of how this works, examine
+         the file "FvwmForm-Rlogin" which is installed  in  read-
+         only     architecture-independent     data    directory,
+         [PREFIX/share/fvwm] and shown below.
+
+         Note that for choices, the  setting  of  the  button  is
+         represented  as  the  word "on",  all other values for a
+         setting are treated as off.
+
+
 
 </PRE>
-<H2>EXAMPLE 1 - QuitVerify</H2><PRE>
-     This example simulates the mwm way of confirming logout.
+<H2>EXAMPLES</H2><PRE>
+     All of the following "examples" are installed in  the  read-
+     only      architecture-independent      data      directory,
+     [PREFIX/share/fvwm], during fvwm installation.
 
-     *QuitVerifyGrabServer
-     *QuitVerifyWarpPointer
-     *QuitVerifyFont          *helvetica*m*r*n*14*
-     *QuitVerifyButtonFont    *helvetica*m*o*n*14*
-     *QuitVerifyFore          Black
-     *QuitVerifyBack          Light Gray
-     *QuitVerifyItemFore Wheat
-     *QuitVerifyItemBack Gray50
-     # begin items
-     *QuitVerifyCommand  Beep
-     *QuitVerifyLine          center
-     *QuitVerifyText          "Do you really want to logout?"
-     *QuitVerifyLine          expand
-     *QuitVerifyButton   quit      "Logout"  ^M
-     *QuitVerifyCommand  Quit
-     *QuitVerifyButton   quit      "Cancel"  ^[
-     *QuitVerifyCommand  Nop
-     # Fvwm window style
-     Style "QuitVerify" NoTitle, NoHandles, BorderWidth 3
+     The following commands create a menu to invoke the examples:
+
+
+          DestroyMenu Forms
+          AddToMenu Forms "&amp;Q. QuitVerify" Module FvwmForm FvwmForm-QuitVerify
+          AddToMenu Forms "&amp;C. Capture"    Module FvwmForm FvwmForm-Capture
+          AddToMenu Forms "&amp;R. Rlogin"     Module FvwmForm FvwmForm-Rlogin
+          AddToMenu Forms "&amp;T. Talk"       Module FvwmForm FvwmForm-Talk
+
+
+
+</PRE>
+<H2>EXAMPLE 1 - Quit Verify</H2><PRE>
+     This example simulates the mwm  way  of  confirming  logout.
+     Return does the logout, Escape cancels logout.
+
+          DestroyModuleConfig  FvwmForm-QuitVerify: *
+          *FvwmForm-QuitVerify: GrabServer
+          *FvwmForm-QuitVerify: WarpPointer
+          *FvwmForm-QuitVerify: Command     Beep
+          *FvwmForm-QuitVerify: Line        center
+          *FvwmForm-QuitVerify: Text        "Do you really want to logout?"
+          *FvwmForm-QuitVerify: Line        expand
+          *FvwmForm-QuitVerify: Button      quit "Logout" ^M
+          *FvwmForm-QuitVerify: Command     Quit
+          *FvwmForm-QuitVerify: Button      restart   "Restart" ^R
+          *FvwmForm-QuitVerify: Command     Restart
+          *FvwmForm-QuitVerify: Button      quit "Cancel" ^[
+          *FvwmForm-QuitVerify: Command     Nop
+
 
 
 
 </PRE>
 <H2>EXAMPLE 2 - Remote Login</H2><PRE>
-     This example lets the user type in a hostname,  and  option-
-     ally  a  user name on the remote machine, and opens an xterm
-     window from the remote host.
+     This example lets the user type in a host name, an  optional
+     user name, and opens an xterm window from the remote host.
 
-     *RloginWarpPointer
-     *RloginFont         *helvetica*m*r*n*14*
-     *RloginButtonFont   *helvetica*m*o*n*14*
-     *RloginInputFont    *cour*m*r*n*14*
-     *RloginFore         Black
-     *RloginBack         Light Gray
-     *RloginItemFore          Wheat
-     *RloginItemBack          Gray50
-     # begin items
-     *RloginLine         center
-     *RloginText         "Login to Remote Host"
-     *RloginLine         center
-     *RloginText         "Host:"
-     *RloginInput        HostName  20   ""
-     *RloginLine         center
-     *RloginSelection    UserSel   single
-     *RloginChoice       Default   Default   on   "same user"
-     *RloginChoice       Custom    Custom    off  "user:"
-     *RloginInput        UserName  10   ""
-     *RloginLine         expand
-     *RloginButton       quit "Login"        ^M
-     *RloginCommand Exec  exec   rsh   $(Custom?-l   $(UserName))
-     $(HostName) xterm -T xterm@$(HostName) -display $HOSTDISPLAY
-     &amp;
-     *RloginButton       restart   "Clear"
-     *RloginButton       quit "Cancel"  ^[
-     *RloginCommand Nop
+          DestroyModuleConfig  FvwmForm-Rlogin: *
+          *FvwmForm-Rlogin: WarpPointer
+          *FvwmForm-Rlogin: Line         center
+          *FvwmForm-Rlogin: Text         "Login to Remote Host"
+          *FvwmForm-Rlogin: Line         center
+          *FvwmForm-Rlogin: Text         "Host:"
+          *FvwmForm-Rlogin: Input        HostName        20      ""
+          *FvwmForm-Rlogin: Line         center
+          *FvwmForm-Rlogin: Selection    UserSel single
+          *FvwmForm-Rlogin: Choice       Default Default on      "same user"
+          *FvwmForm-Rlogin: Choice       Custom  Custom  off     "user:"
+          *FvwmForm-Rlogin: Input        UserName        10      ""
+          *FvwmForm-Rlogin: Line         expand
+          *FvwmForm-Rlogin: Button       quit    "Login"         ^M
+          *FvwmForm-Rlogin: Command      Exec exec rsh $(Custom?-l $(UserName)) $(HostName) xterm -T xterm@$(HostName) -display $HOSTDISPLAY &amp;
+          # Before saving the data, remove any previously saved data:
+          *FvwmForm-Rlogin: Command DestroyModuleConfig FvwmForm-RloginDefault: *
+          # The "Login" button causes a login and a saving of the current data:
+          *FvwmForm-Rlogin: Command !(                        /bin/echo \
+            "# Created by FvwmForm-Rlogin on: `/bin/date`.";  /bin/echo \
+            '*FvwmForm-RloginDefault: HostName $(HostName)';  /bin/echo \
+            '*FvwmForm-RloginDefault: UserName $(UserName)';  /bin/echo \
+            '*FvwmForm-RloginDefault: Default $(Default?on)'; /bin/echo \
+            '*FvwmForm-RloginDefault: Custom $(Custom?on)' \
+          ) &gt; ${FVWM_USERDIR}/.FvwmForm-Rlogin
+          *FvwmForm-Rlogin: Button       restart "Clear"
+          *FvwmForm-Rlogin: Button       quit    "Cancel"        ^[
+          *FvwmForm-Rlogin: Command      Nop
+          # Tell FvwmForm to read vars from the .FvwmForm-RloginDefault file:
+          *FvwmForm-Rlogin: UseData .FvwmForm-Rlogin *FvwmForm-RloginDefault
+
 
 
 
@@ -320,56 +599,152 @@
 <H2>EXAMPLE 3 - Capture Window</H2><PRE>
      This example provides a front-end to xwd, xwud, and xpr.
 
-     *CaptureFont        *helvetica*m*r*n*14*
-     *CaptureButtonFont  *helvetica*m*o*n*14*
-     *CaptureInputFont   *cour*m*r*n*14*
-     *CaptureLine        center
-     *CaptureText        "Capture Window"
-     *CaptureLine        left
-     *CaptureText        "File: "
-     *CaptureInput       file      25   "/tmp/Capture"
-     *CaptureLine        left
-     *CaptureText        "Printer: "
-     *CaptureInput       printer        20   "ps1"
-     *CaptureLine        expand
-     *CaptureSelection   PtrType   single
-     *CaptureChoice      PS   ps   on   "PostScript"
-     *CaptureChoice      Ljet ljet off  "HP LaserJet"
-     *CaptureLine        left
-     *CaptureText        "xwd options:"
-     *CaptureLine        expand
-     *CaptureSelection   Options   multiple
-     *CaptureChoice      Brd  -nobdrs   off  "No border"
-     *CaptureChoice      Frm  -frame    on   "With frame"
-     *CaptureChoice      XYZ  -xy  off  "XY format"
-     *CaptureLine        expand
-     *CaptureButton      continue  "Capture" ^M
-     *CaptureCommand     Exec exec xwd -out $(file) $(Options) &amp;
-     *CaptureButton      continue  "Preview"
-     *CaptureCommand     Exec exec xwud -in $(file) &amp;
-     *CaptureButton      continue  "Print"
-     *CaptureCommand     Exec xpr -device  $(PtrType)  $(file)  |
-     lpr -P $(printer) &amp;
-     *CaptureButton      quit      "Quit"
+          DestroyModuleConfig  FvwmForm-Capture: *
+          *FvwmForm-Capture: Line       center
+          *FvwmForm-Capture: Text       "Capture Window"
+          *FvwmForm-Capture: Line       left
+          *FvwmForm-Capture: Text       "File: "
+          *FvwmForm-Capture: Input      file            25      "/tmp/Capture"
+          *FvwmForm-Capture: Line       left
+          *FvwmForm-Capture: Text       "Printer: "
+          *FvwmForm-Capture: Input      printer         20      "$PRINTER"
+          *FvwmForm-Capture: Line       expand
+          *FvwmForm-Capture: Selection  PtrType single
+          *FvwmForm-Capture: Choice     PS      ps      on      "PostScript"
+          *FvwmForm-Capture: Choice     Ljet    ljet    off     "HP LaserJet"
+          *FvwmForm-Capture: Line       left
+          *FvwmForm-Capture: Text       "xwd options:"
+          *FvwmForm-Capture: Line       expand
+          *FvwmForm-Capture: Selection  Options multiple
+          *FvwmForm-Capture: Choice     Brd     -nobdrs off     "No border"
+          *FvwmForm-Capture: Choice     Frm     -frame  on      "With frame"
+          *FvwmForm-Capture: Choice     XYZ     -xy     off     "XY format"
+          *FvwmForm-Capture: Line       expand
+          *FvwmForm-Capture: Button     continue        "Capture"       ^M
+          *FvwmForm-Capture: Command    Exec exec xwd -out $(file) $(Options) &amp;
+          *FvwmForm-Capture: Button     continue        "Preview"
+          *FvwmForm-Capture: Command    Exec exec xwud -in $(file) &amp;
+          *FvwmForm-Capture: Button     continue        "Print"
+          *FvwmForm-Capture: Command    Exec exec xpr -device $(PtrType) $(file) | lpr -P $(printer) &amp;
+          *FvwmForm-Capture: Button     quit            "Quit"
+
+
+
+
+</PRE>
+<H2>EXAMPLE 4 - Talk Form</H2><PRE>
+     This example provides a replacement for the module FvwmTalk.
+     There are 2 forms, "FvwmForm-Talk." which executes commands,
+     or sends commands to  fvwm  for  execution,  and  "FvwmForm-
+     TalkHelp."  which is a help form.
+
+     These 2 forms have names  ending  in  a  special  character.
+     This  is  one  way  to make sure that commands being sent to
+     modules are unique.
+
+     In the help  form,  notice  how  vertical  line  spacing  is
+     changed.   Normal  FvwmForm  line  spacing  assumes  text is
+     intermixed with buttons, help forms require different  spac-
+     ing.
+
+
+          # FvwmForm-Talk - Basic replacement for FvwmTalk
+          DestroyModuleConfig  FvwmForm-Talk: *
+          *FvwmForm-Talk: WarpPointer
+          # Layout
+          *FvwmForm-Talk: Line         center
+          *FvwmForm-Talk: Text         "Talk to Fvwm"
+          *FvwmForm-Talk: Line         left
+          *FvwmForm-Talk: Text         "Command:"
+          *FvwmForm-Talk: Input        Command 80 ""
+          *FvwmForm-Talk: Line         left
+          *FvwmForm-Talk: Text         "Msg:"
+          *FvwmForm-Talk: Message
+          *FvwmForm-Talk: Line         center
+          # Buttons
+          *FvwmForm-Talk: Button       restart    "Return - Execute"         ^M
+          *FvwmForm-Talk: Command        $(Command)
+          *FvwmForm-Talk: Button       continue    "F1 - Help" F1
+          *FvwmForm-Talk: Command        Module FvwmForm FvwmForm-TalkHelp
+          *FvwmForm-Talk: Button       restart     "F3 - Reset input" F3
+          *FvwmForm-Talk: Command        Nop
+          *FvwmForm-Talk: Button       quit        "F4 - Dismiss"  F4
+          *FvwmForm-Talk: Command        Nop
+
+
+
+          # FvwmForm-TalkHelp - Help Text for FvwmForm-Talk
+          DestroyModuleConfig  FvwmForm-TalkHelp: *
+          *FvwmForm-TalkHelp: WarpPointer
+          # Layout
+          *FvwmForm-TalkHelp: Line    center
+          *FvwmForm-TalkHelp: Text    "Talk to Fvwm - Help"
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    " "
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: PadVText 0
+          *FvwmForm-TalkHelp: Text    "Enter commands in the
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    "Commands beginning with
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    "shell as a sub-process of the form."
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    "All other commands are sent to fvwm for execution."
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    ""
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    "Fvwm error messages are shown on the
+          *FvwmForm-TalkHelp: Line    left
+          *FvwmForm-TalkHelp: Text    ""
+          # Buttons
+          *FvwmForm-TalkHelp: Line    center
+          *FvwmForm-TalkHelp: Button  quit    "Return - Dismiss"         ^M
+          *FvwmForm-TalkHelp: Command   Nop
+
 
 
 
 </PRE>
 <H2>BUGS AND LIMITATIONS</H2><PRE>
-     There is a hard-coded limit on the number of items.
+     FvwmForm is a  fairly  simple  method  of  providing  input.
+     There  is no input validation facility.  FvwmForm has no way
+     of dealing with lists.
 
-     Report bugs to ztfeng@math.princeton.edu.
+     Report bugs to the fvwm-workers list.
+
 
 
 </PRE>
-<H2>COPYRIGHT</H2><PRE>
-     FvwmForm is original work of Thomas Zuwei Feng.
+<H2>COPYRIGHTS</H2><PRE>
+     FvwmForm   is   original   work   of   Thomas   Zuwei   Feng
+     (ztfeng@math.princeton.edu).
 
      Copyright Feb 1995, Thomas Zuwei  Feng.   No  guarantees  or
-     warantees  are  provided  or  implied in any way whatsoever.
+     warrantees  are  provided  or implied in any way whatsoever.
      Use this program at  your  own  risk.   Permission  to  use,
      modify,  and redistribute this program is hereby given, pro-
      vided that this copyright is kept intact.
+
+
+
+</PRE>
+<H2>CHANGES</H2><PRE>
+     During the fall of 1998, Dan Espen  removed  all  form  size
+     limits,  added unlimited font and color changing, form spac-
+     ing control, configuration file reading, global  control  of
+     appearance,  synchronous  command  execution,  Error message
+     display, variable substitution, and lots  of  other  damage.
+     No additional copyright is imposed.
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -400,7 +775,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:46:02 EST 2001 -->
+on Tue Jul  3 21:54:37 EDT 2001 -->
 </body>
 </html>
 

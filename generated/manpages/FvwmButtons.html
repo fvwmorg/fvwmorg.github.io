@@ -20,8 +20,8 @@
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmButtons is spawned by fvwm, so no command  line  invoca-
-     tion will work.
+     <font color="cyan">FvwmButtons</font color="cyan"> <font color="cyan">[-g</font color="cyan"> <font color="yellow">geometry</font color="yellow"> <font color="cyan">]</font color="cyan"> <font color="cyan">[-transient</font color="cyan"> <font color="cyan">|</font color="cyan"> <font color="cyan">-transientpanel]</font color="cyan">  [
+     <font color="yellow">name</font color="yellow"> [ <font color="yellow">config</font color="yellow"> <font color="yellow">file</font color="yellow"> ]
 
 
 
@@ -35,416 +35,822 @@
 
      The buttonbox can be of any configuration or  geometry,  and
      can  have monochrome or color icons to represent the actions
-     which would be invoked.
+     which would be invoked.   Even  other  applications  can  be
+     'swallowed' by the button bar.
+
+     Panels that are opened on a button press are available  too.
+     See <font color="yellow">CREATING</font color="yellow"> <font color="yellow">PANELS</font color="yellow"> section for details.
 
 
 
 </PRE>
-<H2>INITIALIZATION</H2><PRE>
-     During initialization, <font color="yellow">FvwmButtons</font color="yellow"> will search for a  confi-
-     guration file which describes the buttonbox geometry, color,
-     icons, and  actions.  The  format  of  this  files  will  be
-     described  later.  The  configuration  file  will be the one
-     which fvwm used during its initialization.
+<H2>OPTIONS</H2><PRE>
+     The -<font color="yellow">g</font color="yellow"> option specifies the geometry  of  the  main  window.
+     The  command  line  option  takes  precedence over any other
+     geometry settings in the configuration file.
 
-     To use FvwmButtons with  several  different  configurations,
-     you can invoke FvwmButtons with an optional parameter, which
-     it will use as its name  instead  (e.g  "Module  FvwmButtons
-     SomeButtons").  SomeButtons will then read only the lines in
-     the configuration file starting with "*SomeButtons", and not
-     the lines belonging to FvwmButtons.
+     The -<font color="yellow">transient</font color="yellow"> option tells FvwmButtons to terminate  itself
+     after  the  first  key  or  button  press  has been received
+     (presses to open a sub panel do not count) or  a  sub  panel
+     has  been  closed  or re-spawned.  This is especially useful
+     for sub panels where you want to select a single button  and
+     have  it  closed  automatically.  It could be used to create
+     two-dimensional graphical menus.   Since  -<font color="yellow">transient</font color="yellow">  is  an
+     option,  not  a  configuration  setting you can use the same
+     configuration for transient and non transient button bars.
 
-     You can also specify an optional configuration file  to  use
-     instead  of the default fvwm configuration file, by giving a
-     second argument which is a filename. This will override  the
-     setting "*FvwmButtonsFile", see below.
+     The -<font color="yellow">transientpanel</font color="yellow"> option does roughly the same  as  the  -
+     <font color="yellow">transient</font color="yellow">  option,  but  instead of closing the whole button
+     bar, the window is merely hidden.  This is  very  useful  if
+     the  button  bar  is started as a subpanel of another button
+     bar because it avoids that it must  be  started  again  when
+     something is selected.
 
 
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
+     FvwmButtons is spawned by fvwm, so command  line  invocation
+     will not work.
+
      FvwmButtons can be invoked by  inserting  the  line  'Module
-     FvwmButtons'  in  the .fvwmrc file. This should be placed in
-     the InitFunction if FvwmButtons  is  to  be  spawned  during
-     fvwm's  initialization,  or  can be bound to a menu or mouse
-     button or keystroke to invoke it  later.  Fvwm  will  search
-     directory  specified  in the ModulePath configuration option
-     to attempt to locate FvwmButtons.
+     FvwmButtons OptionalName' in the .fvwm2rc file.  This should
+     be placed in the  StartFunction  if  FvwmButtons  is  to  be
+     spawned during fvwm's initialization. This can be bound to a
+     menu or mouse button or keystroke to invoke it later.
+
+     When invoked with the <font color="yellow">OptionalName</font color="yellow"> argument,  the  <font color="yellow">Optional-</font color="yellow">
+     <font color="yellow">Name</font color="yellow"> is used to find configuration commands.  For example:
+
+     AddToFunc StartFunction Module FvwmButtons MyButtonBox
+
+     FvwmButtons will then  use  only  the  lines  starting  with
+     "*MyButtonBox", instead of the default "*FvwmButtons".
 
 
 
 </PRE>
 <H2>CONFIGURATION OPTIONS</H2><PRE>
-     The following options int the .fvwmrc file are understood by
-     FvwmButtons:
+     The following commands are understood by FvwmButtons:
 
-     *FvwmButtonsBack <font color="yellow">color</font color="yellow">
-          Specifies the  background  color  for  the  buttons.  A
-          relief  and a shadow color will also be calculated from
-          this.
 
-     *FvwmButtonsBoxSize <font color="yellow">algorithm</font color="yellow">
+     *FvwmButtons: Back <font color="yellow">color</font color="yellow">
+          Specifies the background color  for  the  buttons.  The
+          relief  and  shadow color are calculated from the back-
+          ground color.
+
+
+     *FvwmButtons: BoxSize <font color="yellow">algorithm</font color="yellow">
           This option specifies how serious FvwmButtons takes the
-          Rows  and  Colums options (see below). It can be one of
-          <font color="yellow">dumb</font color="yellow">, <font color="yellow">fixed</font color="yellow"> or <font color="yellow">smart</font color="yellow">.  If fixed is given and both  Rows
-          and  Columns  are  specified  and non-zero, FvwmButtons
-          will use exactly this numbers of rows  and  columns  of
-          button.  If the box is too small to accomodate all but-
-          tons the module  will  fail.  Using  the  smart  option
-          FvwmButtons is intelligent enough to enlarge the box so
-          all buttons have a chance to fit. The number of columns
-          is increased to at least the width of the widest button
-          and new rows are added until all buttons can be placed.
-          For  best  tolerance of configuration of errors use the
-          smart option.
+          Rows  and Columns options (see below). It can be one of
+          <font color="yellow">dumb</font color="yellow">, <font color="yellow">fixed</font color="yellow"> or <font color="yellow">smart</font color="yellow">.
 
-     *FvwmButtonsColumns <font color="yellow">columns</font color="yellow">
+          If <font color="yellow">fixed</font color="yellow"> is used and both Rows and Columns  are  speci-
+          fied  and non-zero, FvwmButtons uses exactly the number
+          of rows and columns specified.  If the box is too small
+          to accommodate all buttons the module will fail.
+
+          If <font color="yellow">smart</font color="yellow"> is used FvwmButtons enlarges the  box  so  all
+          buttons  have a chance to fit. The number of columns is
+          increased to at least the width of  the  widest  button
+          and  new  rows  are added until all buttons are placed.
+          For the best tolerance of configuration of  errors  use
+          the smart option.
+
+          <font color="yellow">dumb</font color="yellow"> is neither <font color="yellow">fixed</font color="yellow"> nor <font color="yellow">smart</font color="yellow">. This is the default.
+
+
+     *FvwmButtons: Colorset <font color="yellow">colorset</font color="yellow">
+          Tells the module to use colorset <font color="yellow">colorset</font color="yellow"> for the  win-
+          dow  background.   Refer  to the FvwmTheme man page for
+          details about colorsets.
+
+
+     *FvwmButtons: Columns <font color="yellow">columns</font color="yellow">
           Specifies the  number  of  columns  of  buttons  to  be
-          created.  If unspecified, the number of columns will be
-          set to the number of buttons requested, divided by  the
+          created.  If  unspecified, the number of columns is set
+          to the number of  buttons  requested,  divided  by  the
           number of rows. If both the rows and columns are speci-
-          fied, but  do  not  specify  as  many  buttons  as  are
-          defined,  then  the users columns specification will be
-          ignored unless the value <font color="yellow">fixed</font color="yellow"> was gived to the <font color="yellow">BoxSize</font color="yellow">
-          option (see there).
+          fied, but the number of buttons is more than  the  rows
+          and  columns  allow  for,  the columns specification is
+          ignored unless the <font color="yellow">BoxSize</font color="yellow"> option is <font color="yellow">fixed</font color="yellow">.
 
-     *FvwmButtonsFile <font color="yellow">filename</font color="yellow">
+
+     *FvwmButtons: File <font color="yellow">filename</font color="yellow">
           Specifies that the configuration  for  this  button  is
-          found in the file <font color="yellow">filename</font color="yellow">, which will have to be given
-          with full pathname, or  is  assumed  to  be  in  fvwm's
-          startup  directory.  The  configuration  file is in the
-          same format as fvwm's configuration file, but each line
-          is  read as if prefixed by "*FvwmButtons". Comments are
-          given by starting a line with "#", line continuation is
-          done by ending a line with a "\".
+          found  in  the  file  <font color="yellow">filename</font color="yellow">.  <font color="yellow">Filename</font color="yellow"> can be a full
+          pathname, or is assumed to be in fvwm's startup  direc-
+          tory.  The  configuration file is in the same format as
+          fvwm's configuration file, but each line is read as  if
+          prefixed  by  "*FvwmButtons".  Comments  are  given  by
+          starting a line with "#". Line continuation is done  by
+          ending a line with a "\".
 
-     *FvwmButtonsFont <font color="yellow">font</font color="yellow">
+
+     *FvwmButtons: Font <font color="yellow">font</font color="yellow">
           Specifies the font to be used for labeling the buttons,
           or <font color="yellow">None</font color="yellow">.
 
-     *FvwmButtonsFore <font color="yellow">color</font color="yellow">
+
+     *FvwmButtons: Fore <font color="yellow">color</font color="yellow">
           Specifies the color used  for  button  label  text  and
           monochrome icons.
 
-     *FvwmButtonsFrame <font color="yellow">width</font color="yellow">
+
+     *FvwmButtons: Frame <font color="yellow">width</font color="yellow">
           Specifies the width of the relief around  each  button.
-          If  this is given as a negative number, the relief will
-          at all times be the inverse of the  normal  relief.  In
-          effect,  you  will get a sunken button, which is raised
-          when activated.
+          If  this  is a negative number, the relief is inverted.
+          This makes the button sunken normally and  raised  when
+          activated.
 
-     *FvwmButtonsGeometry <font color="yellow">geometry</font color="yellow">
-          Specifies the FvwmButtons  window  location.  The  size
-          should  not  be specified, as FvwmButtons automatically
-          chooses a size which  gracefully  accomodates  all  its
-          buttons. The geometry is a standard X11 window geometry
-          specification.
 
-     *FvwmButtonsPadding <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
-          The amount of free space between the relief of the but-
-          ton  and its contents is normally 2 pixels to the sides
-          and 4 pixels above and below, except for swallowed win-
-          dows  and  containers,  which  are  not  padded at all,
-          unless given specific orders.  This  setting  specifies
-          the  default horizontal padding to be <font color="yellow">width</font color="yellow"> pixels, and
-          the vertical padding to be <font color="yellow">height</font color="yellow"> pixels.
+     *FvwmButtons: Geometry <font color="yellow">geometry</font color="yellow">
+          Specifies the FvwmButtons  window  location  and  size.
+          The geometry is a standard X11 window geometry specifi-
+          cation.
 
-     *FvwmButtonsPanel <font color="yellow">title</font color="yellow">
-          Specifies the title of a panel. All following *FvwmBut-
-          tons configuration commands up to the next *FvwmButton-
-          sPanel line refer to the panel.
 
-     *FvwmButtonsPixmap <font color="yellow">pixmapfile</font color="yellow">
+     *FvwmButtons: ButtonGeometry <font color="yellow">geometry</font color="yellow">
+          This option works like the <font color="yellow">Geometry</font color="yellow"> option except  that
+          the  size  is the size of a single button.  The size of
+          the whole FvwmButtons window is calculated by multiply-
+          ing  the  button  dimension  by  the number of rows and
+          columns.
+
+
+     *FvwmButtons: Padding <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
+          This option specifies the default horizontal padding to
+          be  <font color="yellow">width</font color="yellow"> pixels, and the vertical padding to be <font color="yellow">height</font color="yellow">
+          pixels.  The amount of free space between the relief of
+          the button and its contents is normally 2 pixels on the
+          sides and 4 pixels above and below,  except  for  swal-
+          lowed  windows  and containers, which are not padded at
+          all, unless this option is used.
+
+
+     *FvwmButtons: Pixmap <font color="yellow">pixmapfile</font color="yellow">
           Specifies a background pixmap to use.   Specify  "none"
           for a transparent background.
 
-     *FvwmButtonsRows <font color="yellow">rows</font color="yellow">
-          Specifies the number of rows of buttons to be  created.
-          If unspecified, 2 rows will be used.
 
-     *FvwmButtons(<font color="yellow">options</font color="yellow">) [<font color="yellow">title</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">]
+     *FvwmButtons: Rows <font color="yellow">rows</font color="yellow">
+          Specifies the number of rows of buttons to be  created.
+          The default is 2 rows.
+
+
+     *FvwmButtons: (<font color="yellow">options</font color="yellow">) [<font color="yellow">title</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">]
           Specifies the contents of a button  in  the  buttonbox.
           The  following  <font color="yellow">options</font color="yellow">,  separated  by  commas or whi-
           tespace, can be given a button:
 
-       <font color="yellow">geometry</font color="yellow">
-          Specifies the size and position of  the  button  within
-          the FvwmButtons window or container. The button will be
-          <font color="yellow">width</font color="yellow"> times the normal button width  and  <font color="yellow">height</font color="yellow">  times
-          the  normal  button  height.  If values for <font color="yellow">x</font color="yellow"> and <font color="yellow">y</font color="yellow"> are
-          given, the button is placed x (y) button units from the
-          left  (top) of the container if x (y) is positive and x
-          (y) units from the right (bottom) if x (y) is negative.
-          The geometry is a standard X11 window geometry specifi-
-          cation. Buttons with position arguments (x and  y)  are
-          placed before thos without them. If two or more buttons
-          are forced to overlap by this, FvwmButton exits with an
-          error message.
-
-       Action [(<font color="yellow">options</font color="yellow">)] <font color="yellow">command</font color="yellow">
-          Specifies an fvwm command to be executed when the  but-
-          ton  is activated by pressing return or a mouse button.
-          The <font color="yellow">command</font color="yellow"> needs to be quoted if it contains  a  comma
-          or a closing parenthesis. The current options are:
-
-          Mouse <font color="yellow">n</font color="yellow"> - this action is only executed for mouse button
-          <font color="yellow">n</font color="yellow">.   One  actions can be defined for each mouse button,
-          in addition to the general action.
-
-       Back <font color="yellow">color</font color="yellow">
-          Specifies the background color to be used drawing  this
-          box.  A  relief  color  and a shadow color will also be
-          calculated from this.
-
-       Center
-          The contents of the button is centered on  the  button.
-          This  is  the  default  but  may  be changed by <font color="yellow">Left</font color="yellow"> or
-          <font color="yellow">Right</font color="yellow">.
-
-       Container [(<font color="yellow">options</font color="yellow">)]
-          Specifies that this button  will  contain  a  miniature
-          buttonbox,   more  or  less  equivalent  to  swallowing
-          another FvwmButtons module. The options are the same as
-          can  be  given for a single button, but they affect all
-          the contained buttons. Options available for  this  use
-          are  <font color="yellow">Back</font color="yellow">,  <font color="yellow">Font</font color="yellow">,  <font color="yellow">Fore</font color="yellow">,  <font color="yellow">Frame</font color="yellow">  and <font color="yellow">Padding</font color="yellow">. Flags for
-          Title and Swallow options can be set with  <font color="yellow">Title</font color="yellow">(<font color="yellow">flags</font color="yellow">)
-          and  <font color="yellow">Swallow</font color="yellow">(<font color="yellow">flags</font color="yellow">).   You  should  also specify either
-          "Columns <font color="yellow">width</font color="yellow">" or "Rows <font color="yellow">height</font color="yellow">", or "Rows 2"  will  be
-          assumed for purpose of arranging the buttons inside the
-          container. For an example, see the <font color="yellow">Sample</font color="yellow"> <font color="yellow">configuration</font color="yellow">
-          section.
-
-          The container button itself  (separate  from  the  con-
-          tents)  can take format options like <font color="yellow">Frame</font color="yellow"> and <font color="yellow">Padding</font color="yellow">,
-          and commands can be bound to it.  This  means  you  can
-          make a sensitive relief around a container, like
-
-            *FvwmButtons(2x2, Frame 5, Padding 2 2, Action Beep,\
-                Container(Frame 1))
-
-          Typically you will want to at least give the  container
-          a size setting <font color="yellow">width</font color="yellow">x<font color="yellow">height</font color="yellow">.
+          <font color="yellow">geometry</font color="yellow">
+               Specifies the size  and  position  of  the  button
+               within  the  FvwmButtons window or container.  The
+               geometry is a standard X11 window geometry specif-
+               ication.   The  button  is  <font color="yellow">width</font color="yellow"> times the normal
+               button width and <font color="yellow">height</font color="yellow"> times  the  normal  button
+               height.  If values for <font color="yellow">x</font color="yellow"> and <font color="yellow">y</font color="yellow"> are given, the but-
+               ton is placed x (y) button  units  from  the  left
+               (top)  of the container if x (y) is positive and x
+               (y) units from the right  (bottom)  if  x  (y)  is
+               negative.   Buttons with position arguments (x and
+               y) are placed before those without them. If two or
+               more  buttons  are  forced  to  overlap  by  this,
+               FvwmButtons exits with an error message.
 
 
-       End
-          Specifies that no more  buttons  are  defined  for  the
-          current  container,  and further buttons will be put in
-          the container's parent. This option should be given  on
-          a line by itself, i.e
-
-            *FvwmButtons(End)
-
-       Font <font color="yellow">fontname</font color="yellow">
-          Specifies that the font <font color="yellow">fontname</font color="yellow">  is  to  be  used  for
-          labeling this button.
-
-       Fore <font color="yellow">color</font color="yellow">
-          Specifies a color of the title and monochrome icons  in
-          this button.
-
-       Frame <font color="yellow">width</font color="yellow">
-          The relief of the button will be <font color="yellow">width</font color="yellow"> pixels wide.  If
-          <font color="yellow">width</font color="yellow"> is given as a negative number, the relief will at
-          all times be the inverse  of  the  normal  relief.   In
-          effect,  you  will get a sunken button, which is raised
-          when activated.
-
-       Icon <font color="yellow">filename</font color="yellow">
-          The name of an X11 bitmap file or XPM color icon  file,
-          containing  the icon to display on the button. FvwmBut-
-          tons will search through the path specified in the fvwm
-          IconPath  or PixmapPath configuration items to find the
-          icon file.
-
-       Left
-          The contents of the button will be aligned to the left.
-          The default is to center the contents on the button.
-
-       NoSize
-          This option specifies that this button will not be con-
-          sidered  at all when making the initial calculations of
-          buttonsizes. Useful for the odd button that gets just a
-          couple of pixels to large to keep in line, and therefor
-          blows up your whole buttonbox. "NoSize"  is  equivalent
-          to "Size 0 0".
-
-       Padding <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
-          The amount of free space between the relief of the but-
-          ton  and its contents is normally 2 pixels to the sides
-          and 4 pixels above and below, except for swallowed win-
-          dows and containers, which are by default not padded at
-          all.  This option sets the horizontal padding to  <font color="yellow">width</font color="yellow">
-          and the vertical padding to <font color="yellow">height</font color="yellow">.
-
-       Panel [ (<font color="yellow">direction</font color="yellow">) ] <font color="yellow">name</font color="yellow">
-          Pop up a panel in  the  specified  <font color="yellow">direction</font color="yellow">  from  the
-          invoking   button.   A   position  set  with  *FvwmBut-
-          tonsGeometry is taken as  a  relative  offset  to  this
-          position.  <font color="yellow">direction</font color="yellow"> may be "up" (the default), "left",
-          "down" od "right". The panel is a  button  bar  itself.
-          See  <font color="yellow">FvwmButtonsPanel</font color="yellow">.  To  get the panel at a specific
-          place on the screen use  "geometry"  in  place  of  the
-          direction.  The  *FvwmButtonsGeometry line will then be
-          treated as a normal X geometry specification.
-
-       Right
-          The contents of the  button  will  be  aligned  to  the
-          Right.  The  default  is  to center the contents on the
-          button.
-
-       Size <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
-          Specifies that the contents of this button will require
-          <font color="yellow">width</font color="yellow">   by  <font color="yellow">height</font color="yellow">  pixels,  regardless  of  what  size
-          FvwmButtons calculates from the icon and the  title.  A
-          buttonbar with only swallowed windows will not get very
-          large without this  option  specified,  as  FvwmButtons
-          does  not  consider  sizes for swallowing buttons. Note
-          that this option gives the minimum space assured; other
-          buttons  might  require  the  buttonbox  to  use larger
-          sizes.
-
-       Swallow [(<font color="yellow">flags</font color="yellow">)] <font color="yellow">hangon</font color="yellow"> <font color="yellow">command</font color="yellow">
-          Causes FvwmButtons to execute <font color="yellow">command</font color="yellow">, and when a  win-
-          dow  matching  the  name <font color="yellow">hangon</font color="yellow"> appears, it is captured
-          and swallowed into this button.  An example:
-
-            *FvwmButtons(Swallow XClock 'Exec xclock &amp;')
-
-          will  take  the  first  window  whose  name,  class  or
-          resource  is  "XClock"  and  display  it in the button.
-          Modules can  be  swallowed  by  specifying  the  module
-          instead of 'Exec whatever', like:
-
-            *FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 0")
-
-          The flags that can be given to swallow are:
-
-          NoClose / Close - Specifies whether the swallowed  pro-
-          gram  in this button will be unswallowed or closed when
-          FvwmButtons exit cleanly.  "NoClose"  can  be  combined
-          with  "UseOld"  to have windows survive restart of win-
-          dowmanager. The default setting is "Close".
-
-          NoHints / Hints -  Specifies  whether  hints  from  the
-          swallowed  program  in  this  button will be ignored or
-          not, useful in forcing a window to resize itself to fit
-          its button. The default value is "Hints".
-
-          NoKill / Kill - Specifies whether the swallowed program
-          will be closed by killing it or by sending a message to
-          it. This can be useful in ending programs that  doesn't
-          accept  window  manager  protocol. The default value is
-          "NoKill".  This has no effect if  "NoClose"  is  speci-
-          fied.
-          NoRespawn / Respawn - Specifies whether  the  swallowed
-          program  is  to be respawn if it dies.  If "Respawn" is
-          specified, the program will be respawned using the ori-
-          ginal  <font color="yellow">command</font color="yellow">.  Use this option with care, the program
-          might have a very legitimate reason to die.
-
-          NoOld / UseOld - Specifies whether the button will  try
-          to  swallow an existing window matching the <font color="yellow">hangon</font color="yellow"> name
-          before spawning one itself with <font color="yellow">command</font color="yellow">.   The  default
-          value  is "NoOld".  "UseOld" can be combined with "NoK-
-          ill" to have windows survive restart of  windowmanager.
-          If  you  want FvwmButtons to swallow an old window, and
-          not spawn one itself if failing,  let  the  <font color="yellow">command</font color="yellow">  be
-          "Nop":
-
-            *FvwmButtons(Swallow (UseOld) "Console" Nop)
-
-          If you want to be able to start it yourself, combine it
-          with an action:
-
-            *FvwmButtons(Swallow (UseOld) "Console" Nop, \
-                         Action `Exec "Console" console &amp;`)
-
-          NoTitle / UseTitle - Specifies whether the title of the
-          button  will be taken from the swallowed window's title
-          or not. If "UseTitle" is given, the title on the button
-          will change dynamically to reflect the window name. The
-          default is "NoTitle".
+          Action [(<font color="yellow">options</font color="yellow">)] <font color="yellow">command</font color="yellow">
+               Specifies an fvwm command to be executed when  the
+               button  is activated by pressing return or a mouse
+               button. The <font color="yellow">command</font color="yellow"> needs to be quoted if it  con-
+               tains  a  comma  or a closing parenthesis. You can
+               use  a  number  of  predefined  variables:  $<font color="yellow">left</font color="yellow">,
+               $<font color="yellow">right</font color="yellow">,  $<font color="yellow">top</font color="yellow">  and  $<font color="yellow">bottom</font color="yellow"> are substituted by the
+               left, right, top and  bottom  coordinates  of  the
+               button pressed. $-<font color="yellow">left</font color="yellow">, $-<font color="yellow">right</font color="yellow">, $-<font color="yellow">top</font color="yellow"> and$-<font color="yellow">bottom</font color="yellow">
+               are substituted likewise, but the coordinates  are
+               calculated  from  the  bottom or the right edge of
+               the screen instead (for a button that is 5  pixels
+               away from the right screen border, $-right will be
+               5). $<font color="yellow">width</font color="yellow"> and $<font color="yellow">height</font color="yellow"> are replaced by  the  width
+               or  height  of  the button.  The variables $<font color="yellow">fg</font color="yellow"> and
+               $<font color="yellow">bg</font color="yellow"> are replaced with the name of  the  foreground
+               or  background  color  set  with  the <font color="yellow">Back</font color="yellow"> or <font color="yellow">Fore</font color="yellow">
+               option (see below). All this is done regardless of
+               any  quoting  characters. To get a literal '$' use
+               the string '$$'.  Example:
 
 
-       Title [(<font color="yellow">options</font color="yellow">)] <font color="yellow">name</font color="yellow">
-          Specifies the title which will be written on  the  but-
-          ton.   Whitespace can be included in the title by quot-
-          ing it.  If a title at any time is to long for its but-
-          tons,  characters are chopped of one at a time until it
-          fits.  If <font color="yellow">justify</font color="yellow"> is "Right", the head is removed, oth-
-          erwise its tail is removed.  These <font color="yellow">options</font color="yellow"> can be given
-          to Title:
+                 *FvwmButtons: (Swallow xload \
+                   `Exec exec xload -fg $fg -bg $bg -geometry -3000-3000`)
 
-          Center - The title will be centered horizontally.  This
-          is the default.
 
-          Left - The title will be justified to the left side.
+               The current options of the <font color="yellow">Action</font color="yellow"> are:
 
-          Right - The title will be justified to the right side.
+               Mouse <font color="yellow">n</font color="yellow"> - this action is only executed  for  mouse
+               button  <font color="yellow">n</font color="yellow">.   One  action  can  be defined for each
+               mouse button, in addition to the general action.
 
-          Side - This will cause the title to appear on the right
-          hand  side  of any icon or swallowed window, instead of
-          below it which is the default.  If you use small icons,
-          and  combine this with the "Left" option, you can get a
-          look similar to fvwm's menus.
 
-     Legacy fields [<font color="yellow">title</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">]
-          These fields are kept for compatibility  with  previous
-          versions  of FvwmButtons, and their use is discouraged.
-          The <font color="yellow">title</font color="yellow"> field is similar to the option Title <font color="yellow">name</font color="yellow">. If
-          the  title  field  is  "-", no title will be displayed.
-          The <font color="yellow">icon</font color="yellow"> field is similar to the option Icon  <font color="yellow">filename</font color="yellow">.
-          If  the  icon  field  is "-" no icon will be displayed.
-          The <font color="yellow">command</font color="yellow"> field is similar to the option Action  <font color="yellow">com-</font color="yellow">
-          <font color="yellow">mand</font color="yellow"> or alternatively Swallow "<font color="yellow">hangon</font color="yellow">" <font color="yellow">command</font color="yellow">.
+          Back <font color="yellow">color</font color="yellow">
+               Specifies the background color to be used  drawing
+               this  box.  A  relief color and a shadow color are
+               calculated from this.
 
-     The <font color="yellow">command</font color="yellow">
-          Any fvwm command  is  recognized  by  FvwmButtons.  See
-          <B>fvwm(1)</B>  for  more info on this. The Exec command has a
-          small extension when used in  Actions,  its  syntax  is
-          here:
 
-            Exec ["hangon"] command
+          Center
+               The contents of the button is centered on the but-
+               ton.  This  is  the  default but may be changed by
+               <font color="yellow">Left</font color="yellow"> or <font color="yellow">Right</font color="yellow">.
 
-          When FvwmButtons finds such an Exec command, the button
-          will  remain  pushed  in  until  a window whose name or
-          class matches the qouted  portion  of  the  command  is
-          encountered.  This  is intended to provide visual feed-
-          back to the user that the action he has requested  will
-          be performed. If the qouted portion contains no charac-
-          ters, then the button will pop out  immediately.   Note
-          that  users  can  continue pressing the button, and re-
-          executing the command, even when it looks "pressed in."
 
-     Quoting
-          Any string which contains whitespace  must  be  quoted.
-          Contrary to earlier versions commands no longer need to
-          be quoted. In this case any quoting character  will  be
-          passed on to the application untouched. Only commas ','
-          and closing parentheses ')' have to be quoted inside  a
-          command.   Quoting  can  be  done with any of the three
-          quotation characters; single quote:
+          Colorset <font color="yellow">colorset</font color="yellow">
+               The given colorset can be applied to a  container,
+               a  swallowed  application and a simple button.  To
+               apply it to a button or container, simply put  the
+               option  in  a  line  with  a  button  or container
+               description.  Drawing backgrounds  for  individual
+               buttons  and  containers with colorsets requires a
+               lot of communication with the X server.  So if you
+               are  not  content with the drawing speed of dozens
+               of buttons with colorset backgrounds, do  not  use
+               colorsets  here.   Setting  colorsets as the back-
+               ground of swallowed  applications  does  not  have
+               this restriction but depends entirely on the swal-
+               lowed application.  It may work as you  wish,  but
+               since  it  involves  fiddling  with other applica-
+               tions' windows there is no guarantee for anything.
+               I  have  tested three applications:  xosview works
+               nicely with a  colorset  background,  xload  works
+               only  with  a VGradient or solid background and an
+               analog  xclock  leaves  a  trail  painted  in  the
+               background  color  after  its hands.  Refer to the
+               man page of the FvwmTheme module for details about
+               colorsets.
 
-            'This is a "quote"',
 
-          double quote:
+          Container [(<font color="yellow">options</font color="yellow">)]
+               Specifies that this button will contain  a  minia-
+               ture  buttonbox,  equivalent to swallowing another
+               FvwmButtons module. The options are  the  same  as
+               can  be given for a single button, but they affect
+               all the contained buttons. Options  available  for
+               this  use are <font color="yellow">Back</font color="yellow">, <font color="yellow">Font</font color="yellow">, <font color="yellow">Fore</font color="yellow">, <font color="yellow">Frame</font color="yellow"> and <font color="yellow">Padding</font color="yellow">.
+               Flags for Title and Swallow  options  can  be  set
+               with  <font color="yellow">Title</font color="yellow">(<font color="yellow">flags</font color="yellow">) and <font color="yellow">Swallow</font color="yellow">(<font color="yellow">flags</font color="yellow">).  You should
+               also  specify  either  "Columns  <font color="yellow">width</font color="yellow">"  or  "Rows
+               <font color="yellow">height</font color="yellow">",  or  "Rows  2"  will  be assumed.  For an
+               example, see the <font color="yellow">Sample</font color="yellow"> <font color="yellow">configuration</font color="yellow"> section.
 
-            "It's another `quote'",
+               The container button  itself  (separate  from  the
+               contents)  can  take format options like <font color="yellow">Frame</font color="yellow"> and
+               <font color="yellow">Padding</font color="yellow">, and commands can be  bound  to  it.  This
+               means  you  can  make  a sensitive relief around a
+               container, like
 
-          and backquote:
+                 *FvwmButtons: (2x2, Frame 5, Padding 2 2, Action Beep,\
+                     Container(Frame 1))
 
-            `This is a strange quote`.
+               Typically you will want to at least give the  con-
+               tainer a size setting <font color="yellow">width</font color="yellow">x<font color="yellow">height</font color="yellow">.
 
-          The backquoting is purposeful if you use a preprocessor
-          like  FvwmCpp  and  want  it to get into your commands,
-          like this:
 
-            #define BG gray60
-            *FvwmButtons(Swallow "xload" `Exec xload -bg BG &amp;`)
+          End  Specifies that no more buttons are defined for the
+               current container, and further buttons will be put
+               in the container's parent. This option  should  be
+               given on a line by itself, i.e
 
-          Furthermore a single character can  be  quoted  with  a
-          preceding backslash ''.
+                 *FvwmButtons: (End)
+
+
+
+          Font <font color="yellow">fontname</font color="yellow">
+               Specifies that the font <font color="yellow">fontname</font color="yellow"> is to be used for
+               labeling this button.
+
+
+          Fore <font color="yellow">color</font color="yellow">
+               Specifies the foregound color  of  the  title  and
+               monochrome icons in this button.
+
+
+          Frame <font color="yellow">width</font color="yellow">
+               The relief of the  button  will  be  <font color="yellow">width</font color="yellow">  pixels
+               wide.  If <font color="yellow">width</font color="yellow"> is given as a negative number, the
+               relief is inverted.  This makes the button  sunken
+               normally and raised when activated.
+
+
+          Icon <font color="yellow">filename</font color="yellow">
+               The name of an X11 bitmap file or XPM  color  icon
+               file,  containing  the icon to display on the but-
+               ton. FvwmButtons searches through the path  speci-
+               fied  in  the fvwm ImagePath configuration item to
+               find the icon file.
+
+
+          Left The contents of the  button  are  aligned  to  the
+               left. The default is to center the contents on the
+               button.
+
+
+          NoSize
+               This option specifies that this button will not be
+               considered at all when making the initial calcula-
+               tions of button sizes. Useful for the  odd  button
+               that  gets  just  a  couple of pixels too large to
+               keep in line, and therefor  blows  up  your  whole
+               buttonbox. "NoSize" is equivalent to "Size 0 0".
+
+
+          Padding <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
+               The amount of free space between the relief of the
+               button  and  its  contents is normally 2 pixels to
+               the sides and 4 pixels above and below, except for
+               swallowed  windows  and  containers,  which are by
+               default not padded at all.  This option  sets  the
+               horizontal  padding to <font color="yellow">width</font color="yellow"> and the vertical pad-
+               ding to <font color="yellow">height</font color="yellow">.
+
+
+          Panel [ (<font color="yellow">options</font color="yellow">) ] <font color="yellow">hangon</font color="yellow"> <font color="yellow">command</font color="yellow">
+               Panels can be swallowed exactly like  windows  are
+               swallowed  by  buttons  with  the  <font color="yellow">Swallow</font color="yellow"> command
+               below, but they are not displayed within the  but-
+               ton.   Instead  they  are  hidden  until  the user
+               presses the panel's button.  Then the  panel  (the
+               window  of the swallowed application) opens with a
+               sliding animation.  The <font color="yellow">options</font color="yellow"> can be any of  the
+               <font color="yellow">flags</font color="yellow"> described for the Swallow command.  In addi-
+               tion a direction 'left', 'right', 'up'  or  'down'
+               can be used to specify the sliding direction.  The
+               <font color="yellow">steps</font color="yellow"> <font color="yellow">animation</font color="yellow">-<font color="yellow">steps</font color="yellow"> option defines the number of
+               animation steps.
+
+               The <font color="yellow">delay</font color="yellow"> <font color="yellow">ms</font color="yellow"> option sets  the  delay  between  the
+               steps  of the animation in milliseconds.  Use zero
+               for no delay.  The maximum  delay  is  10  seconds
+               (10000).   It  doesn't  make  any sense to use the
+               delay  option  unless  you  also  use  the  smooth
+               option.
+
+               The <font color="yellow">smooth</font color="yellow"> option causes  the  panel   to   redraw
+               between  the  steps of the animation.  The sliding
+               animation may be smoother this way, it depends  on
+               the  application, and display speed.  The applica-
+               tion may appear to grow instead  of  sliding  out.
+               The animation may be slower.
+
+               The <font color="yellow">Hints</font color="yellow"> option causes  FvwmButtons  to  use  the
+               applications  size  hints to calculate the size of
+               the animation steps.  <font color="yellow">Hints</font color="yellow"> is  the  default.   If
+               the  number  of  steps  is  not what you want, try
+               using <font color="yellow">NoHints</font color="yellow">.
+
+               The <font color="yellow">noborder</font color="yellow"> option tells  FvwmButtons  to  ignore
+               the  borders  of the window when calculating posi-
+               tions for the animation (equivalent to  set  noplr
+               and noptb in the position option).
+
+               With the <font color="yellow">indicator</font color="yellow"> option  set,  FvwmButtons  will
+               draw a small triangle in the button that will open
+               a panel.  The triangle  points  in  the  direction
+               where  the  panel will pop up.  The <font color="yellow">indicator</font color="yellow"> key-
+               word may be followed by a  positive  integer  that
+               specifies  the  maximum  width  and  height of the
+               indicator.  Without  this  size  FvwmButtons  will
+               make the indicator fit the button.  You will prob-
+               ably want to use the <font color="yellow">Padding</font color="yellow"> option to leave a few
+               pixels  between the indicator and the frame of the
+               button.
+
+               The <font color="yellow">position</font color="yellow"> option allows to place the panel. The
+               syntax is:
+
+               position [<font color="yellow">context</font color="yellow">-<font color="yellow">window</font color="yellow">] [<font color="yellow">pos</font color="yellow">] [<font color="yellow">x</font color="yellow"> <font color="yellow">y</font color="yellow">] [<font color="yellow">border</font color="yellow">-<font color="yellow">opts</font color="yellow">]
+
+               The argument <font color="yellow">context</font color="yellow">-<font color="yellow">window</font color="yellow"> can be one of: Button,
+               Module or Root.  The  <font color="yellow">context</font color="yellow">-<font color="yellow">window</font color="yellow"> is the window
+               from which panel  percentage  offsets  are  calcu-
+               lated.    Button  specifies  the  panel's  button,
+               Module  specifies  FvwmButtons  itself,  and  Root
+               specifies  a  virtual  screen.  The context-window
+               together with the sliding direction define a  line
+               segment  which  is  one  of  the  borders  of  the
+               context-window: the  top/bottom/left/right  border
+               for sliding up/down/left/right.
+
+               The <font color="yellow">pos</font color="yellow"> argument can be one of:  center,  left  or
+               right  (for sliding up or a down) or top or bottom
+               (for sliding left or right).  It defines the vert-
+               ical  (sliding  up  and  down)  or  the horizontal
+               (sliding left and right) position of the Panel  on
+               the line segment. For example, for a sliding up if
+               you use a left pos, then the left borders  of  the
+               panel and of the context-window will be aligned.
+
+               The offset values <font color="yellow">x</font color="yellow"> and  <font color="yellow">y</font color="yellow">  specify  how  far  the
+               panel  is  moved  from  it's  default position. By
+               default, the numeric value given is interpreted as
+               a   percentage   of  the  context  window's  width
+               (height).  A trailing "p" changes the  interpreta-
+               tion  to  mean  "pixels".  All offset calculations
+               are relative to the buttons  location,  even  when
+               using a root context.
+
+               The <font color="yellow">border</font color="yellow">-<font color="yellow">opts</font color="yellow"> are: mlr, mtb,  noplr  and  noptb.
+               They  define  which  border  widths  are  taken in
+               account. By default, the  borders  of  FvwmButtons
+               are  not  taken  in  account.  mlr  reverses  this
+               default for the left and the right border and  mtb
+               reverses  this  default for the top and the bottom
+               border. Conversely, by default the borders of  the
+               Panel  are  taken  in account. noplr reverses this
+               default for the left  and  the  right  border  and
+               noptb  reverses  this  default for the top and the
+               bottom border.
+
+               The defaults are sliding up with a delay  of  five
+               milliseconds  and  twelve animation steps. To post
+               the panel without any animation, set the number of
+               steps  to  zero.  The  default position is 'Button
+               center'.
+
+               Please refer to the <font color="yellow">CREATING</font color="yellow">  <font color="yellow">PANELS</font color="yellow">  section  for
+               further information on panels.
+
+               Example:
+
+                 # To include the panel in a button
+                 *FvwmButtons: (Panel(down, delay 0, steps 16) \
+                   SubPanel "Module FvwmButtons SubPanel")
+
+                 # To define the panel as an instance of
+                 # FvwmButtons with a different name:
+                 *SubPanel: (Icon my_lock.xpm, Action Exec xlock)
+                 *SubPanel: (Icon my_move.xpm, Action Move)
+                 ...
+
+
+          Right
+               The contents of the  button  are  aligned  to  the
+               Right.  The  default  is to center the contents on
+               the button.
+
+
+          Size <font color="yellow">width</font color="yellow"> <font color="yellow">height</font color="yellow">
+               Specifies that the contents of this button require
+               <font color="yellow">width</font color="yellow">  by  <font color="yellow">height</font color="yellow">  pixels, regardless of what size
+               FvwmButtons  calculates  from  the  icon  and  the
+               title.  A  button  bar with only swallowed windows
+               will not get very large without this option speci-
+               fied,  as  FvwmButtons does not consider sizes for
+               swallowing buttons. Note that  this  option  gives
+               the  minimum  space  assured;  other buttons might
+               require the buttonbox to use larger sizes.
+
+
+          Swallow [(<font color="yellow">flags</font color="yellow">)] <font color="yellow">hangon</font color="yellow"> <font color="yellow">command</font color="yellow">
+               Causes FvwmButtons to execute <font color="yellow">command</font color="yellow">, and when  a
+               window  matching  the  name  <font color="yellow">hangon</font color="yellow"> appears, it is
+               captured and swallowed into this button.   Swallow
+               replaces  the  variables  $<font color="yellow">fg</font color="yellow"> and $<font color="yellow">bg</font color="yellow"> as described
+               above for the <font color="yellow">Action</font color="yellow"> option (but if  you  use  the
+               UseOld  and  NoClose  options the application will
+               not be restarted when FvwmButtons is restarted and
+               thus  will not get the new colors - if you changed
+               them).  An example:
+
+                 *FvwmButtons: (Swallow XClock 'Exec xclock -geometry -3000-3000 &amp;')
+
+               takes the  first  window  whose  name,  class,  or
+               resource  is  "XClock" and displays it in the but-
+               ton.  If no matching window is found,  the  "Exec"
+               command  creates  one.   The  argument  "-geometry
+               -3000-3000" is used so that the  window  is  first
+               drawn  out  of  sight  before  its  swallowed into
+               FvwmButtons.
+
+               Modules can be swallowed by specifying the  module
+               instead of 'Exec whatever', like:
+
+                 *FvwmButtons(Swallow "FvwmPager" "FvwmPager 0 0")
+
+               The flags that can be given to swallow are:
+
+               NoClose / Close - Specifies whether the  swallowed
+               program  in  this  button  will be un-swallowed or
+               closed when FvwmButtons exits  cleanly.  "NoClose"
+               can be combined with "UseOld" to have windows sur-
+               vive a restart of the window manager. The  default
+               setting is "Close".
+               NoHints / Hints - Specifies whether hints from the
+               swallowed  program  in this button will be ignored
+               or not, useful  in  forcing  a  window  to  resize
+               itself  to  fit  its  button. The default value is
+               "Hints".
+
+               NoKill / Kill - Specifies  whether  the  swallowed
+               program will be closed by killing it or by sending
+               a message to it. This can be useful in ending pro-
+               grams that doesn't accept window manager protocol.
+               The default value is "NoKill".  This has no effect
+               if "NoClose" is specified.
+
+               NoRespawn / Respawn - Specifies whether the  swal-
+               lowed  program is to be re-spawned (re-started) if
+               it dies.  If "Respawn" is specified,  the  program
+               is re-spawned using the original <font color="yellow">command</font color="yellow">. Use this
+               option with care, the program might have a legiti-
+               mate reason to die.
+
+               NoOld / UseOld - Specifies whether the button will
+               try  to  swallow  an  existing window matching the
+               <font color="yellow">hangon</font color="yellow"> name before spawning one itself  with  <font color="yellow">com-</font color="yellow">
+               <font color="yellow">mand</font color="yellow">.  The default value is "NoOld".  "UseOld" can
+               be combined with "NoKill" to have windows  survive
+               a  restart  of  the  window  manager.  If you want
+               FvwmButtons to swallow  an  old  window,  and  not
+               spawn  one  itself  if failing, let the <font color="yellow">command</font color="yellow"> be
+               "Nop":
+
+                 *FvwmButtons: (Swallow (UseOld) "Console" Nop)
+
+               If you want to be able to start it yourself,  com-
+               bine it with an action:
+
+                 *FvwmButtons: (Swallow (UseOld) "Console" Nop, \
+                              Action `Exec "Console" console &amp;`)
+
+               NoTitle / UseTitle - Specifies whether  the  title
+               of  the  button  will  be taken from the swallowed
+               window's title or not. If "UseTitle" is given, the
+               title on the button changes dynamically to reflect
+               the window name. The default is "NoTitle".
+
+
+          Title [(<font color="yellow">options</font color="yellow">)] <font color="yellow">name</font color="yellow">
+               Specifies the title to be written on  the  button.
+               Whitespace can be included in the title by quoting
+               it.  If a title at any time is too  long  for  its
+               buttons,  characters  are chopped of one at a time
+               until it fits.  If <font color="yellow">justify</font color="yellow"> is "Right", the head is
+               removed,  otherwise  its  tail  is removed.  These
+               <font color="yellow">options</font color="yellow"> can be given to Title:
+
+               Center - The title is centered horizontally.  This
+               is the default.
+
+               Left - The title is justified to the left side.
+
+               Right - The title is justified to the right side.
+
+               Side - Causes the title to  appear  on  the  right
+               hand side of any icon or swallowed window, instead
+               of below which is the default.  If you  use  small
+               icons, and combine this with the "Left" or "Right"
+               option, you can  get  a  look  similar  to  fvwm's
+               menus.
+
+
+          Legacy fields [<font color="yellow">title</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">]
+               These fields are kept for compatibility with  pre-
+               vious  versions  of  FvwmButtons, and their use is
+               discouraged.  The <font color="yellow">title</font color="yellow"> field is  similar  to  the
+               option  Title  <font color="yellow">name</font color="yellow">. If the title field is "-", no
+               title is displayed.  The <font color="yellow">icon</font color="yellow"> field is similar  to
+               the option Icon <font color="yellow">filename</font color="yellow">. If the icon field is "-"
+               no icon is displayed.  The <font color="yellow">command</font color="yellow"> field is  simi-
+               lar  to the option Action <font color="yellow">command</font color="yellow"> or alternatively
+               Swallow "<font color="yellow">hangon</font color="yellow">" <font color="yellow">command</font color="yellow">.
+
+          The <font color="yellow">command</font color="yellow">
+               Any fvwm command  is  recognized  by  FvwmButtons.
+               See <B>fvwm2(1)</B> for more infomation.
+
+               The Exec command has a small extension  when  used
+               in Actions, its syntax is:
+
+                 Exec ["hangon"] command
+
+               Example:
+
+                 *FvwmButtons(Action Exec "xload" xload)
+
+               The hangon  string  must  be  enclosed  in  double
+               quotes.   When FvwmButtons finds such an Exec com-
+               mand, the button remains pushed in until a  window
+               whose  name or class matches the quoted portion of
+               the command is encountered. This  is  intended  to
+               provide  visual  feedback  to  the  user  that the
+               action he has requested will be performed. If  the
+               quoted  portion  contains  no characters, then the
+               button will pop out immediately.  Note that  users
+               can continue pressing the button, and re-executing
+               the command, even when it looks "pressed in."
+
+          Quoting
+               Any  string  which  contains  whitespace  must  be
+               quoted.  Contrary  to earlier versions commands no
+               longer need to be quoted. In this case any quoting
+               character  will  be  passed  on to the application
+               untouched. Only commas ',' and closing parentheses
+               ')'  have  to be quoted inside a command.  Quoting
+               can be done with any of the three quotation  char-
+               acters; single quote:
+
+                 'This is a "quote"',
+
+               double quote:
+
+                 "It's another `quote'",
+
+               and back quote:
+
+                 `This is a strange quote`.
+
+               The back quoting is unusual but used  on  purpose,
+               if you use a preprocessor like FvwmCpp and want it
+               to get into your commands, like this:
+
+                 #define BG gray60
+                 *FvwmButtons: (Swallow "xload" `Exec xload -bg BG &amp;`)
+
+               Any single character can be quoted with a  preced-
+               ing backslash ''.
+
+
+</PRE>
+<H2>CREATING PANELS</H2><PRE>
+     Former versions of FvwmButtons (fvwm 2.0.46 to 2.3.6) had  a
+     different  way of handling panels.  You can not use your old
+     panel configuration with the new panel feature.  Read  "CON-
+     VERTING OLD PANEL CONFIGURATIONS" for more information.
+
+
+  <font color="cyan">HOW</font color="cyan"> <font color="cyan">TO</font color="cyan"> <font color="cyan">CREATE</font color="cyan"> <font color="cyan">NEW</font color="cyan"> <font color="cyan">PANELS</font color="cyan">
+     Any program that can be launched from within fvwm  and  that
+     has  a  window  can  be  used as a panel.  A terminal window
+     could be your panel,  or  some  application  like  xload  or
+     xosview   or  another  fvwm  module,  including  FvwmButtons
+     itself.  All you need to know is how to start your  applica-
+     tion from fvwm.
+
+     The button that invokes the panel is as easily configured as
+     any  other  button.   Essentially you need nothing more than
+     the <font color="yellow">Panel</font color="yellow"> option:
+
+
+     *FvwmButtons: (Panel my_first_panel \
+       "Module FvwmButtons -g -30000-30000 my_first_panel")
+
+     *FvwmButtons: (Panel my_second_panel \
+       "Exec exec xterm -g -30000-30000 -n my_second_panel")
+
+
+     This works like the <font color="yellow">Swallow</font color="yellow"> option.  The difference is  that
+     the application is not put into the button when it starts up
+     but instead hidden from view.  When you press the button for
+     the  panel  the  window  slides  into view.  The '-g -30000-
+     30000' option  tells  the  application  that  it  should  be
+     created somewhere very far to the top and left of your visi-
+     ble screen.  Otherwise you  would  see  it  flashing  for  a
+     moment when FvwmButtons starts up.  Some applications do not
+     work well with this kind of syntax so you may have  to  live
+     with  the short flashing of the window.  If you want to make
+     a panel from another instance of FvwmButtons you can do  so,
+     but  you  must give it a different name ('my_first_panel' in
+     above example).  If you run FvwmButtons under the same name,
+     new  panels  will  be  created recursively until your system
+     runs out of resources and FvwmButtons crashes! To  configure
+     a  second  button  bar  with  a  different  name, simply put
+     '*new_name' in place of '*FvwmButtons' in your configuration
+     file.  If you are not familiar with the <font color="yellow">Swallow</font color="yellow"> option or if
+     you want to learn more about how 'swallowing' panels  works,
+     refer to the description of the <font color="yellow">Swallow</font color="yellow"> option.
+
+     Now that your panel basically works you will want to tune it
+     a  bit.   You  may not want a window title on the panel.  To
+     disable the title use the fvwm <font color="yellow">Style</font color="yellow"> command.  If your  but-
+     ton  bar  is  'sticky' you may want to make the panel sticky
+     too.  And probably the panel window should have no  icon  in
+     case it is iconified.
+
+
+     Style name_of_panel_window NoTitle, Sitcky, NoIcon
+
+
+     You may want your panel to stay open only until  you  select
+     something  in  it.   You  can  give  FvwmButtons  the -<font color="yellow">tran-</font color="yellow">
+     <font color="yellow">sientpanel</font color="yellow"> option  after  the  -g  option  in  the  command.
+     FvwmPager has a similar option '-transient'.
+
+     Last, but not least, you can now put an icon, a title  or  a
+     small  arrow  in  the  button so that you can see what it is
+     for.  A title  or  icon  can  be  specified  as  usual.   To
+     activate the arrow, just add '(indicator)' after the 'Panel'
+     keyword in the example above and the <font color="yellow">Padding</font color="yellow"> option to leave
+     a few pixels between the arrow and the border of the button.
+     An optional direction in which the panel is  opened  can  be
+     given too:
+
+
+     *FvwmButtons: (Padding 2, Panel(down, indicator) my_first_panel \
+       "Module FvwmButtons -g -30000-30000 -transientpanel my_first_panel")
+
+
+     There are several more options to configure how  your  panel
+     works,  for  example the speed and smoothness of the sliding
+     animation. Please refer to  the  description  of  the  <font color="yellow">Panel</font color="yellow">
+     option for further details.
+
+
+  <font color="cyan">CONVERTING</font color="cyan"> <font color="cyan">OLD</font color="cyan"> <font color="cyan">PANEL</font color="cyan"> <font color="cyan">CONFIGURATIONS</font color="cyan">
+     With the old panel feature you first had one or  more  lines
+     defining panels in your main FvwmButtons configuration:
+
+
+     *FvwmButtons(Title WinOps,Panel WinOps)
+     *FvwmButtons(Title Tools ,Panel Tools)
+
+
+     After the last configuration line for  the  main  panel  the
+     configuration of the first panel followed, introduced with a
+     line beginning with *FvwmButtonsPanel:
+
+
+     *FvwmButtonsPanel WinOps
+     *FvwmButtonsBack bisque2
+
+     *FvwmButtonsPanel Tools
+     *FvwmButtonsBack bisque2
+
+
+     And perhaps you had style commands for you panels:
+
+
+     Style FvwmButtonsPanel Title, NoHandles, BorderWidth 0
+     Style FvwmButtonsPanel NoButton 2, NoButton 4, Sticky
+
+
+     The new configuration looks much the same, but now the  con-
+     figuration  of  the  main panel is independent of the confi-
+     guration of the sub panels.  The lines invoking  the  panels
+     use the same syntax as the Swallow option, so you simply add
+     the name of the window to use as a panel and the command  to
+     execute  instead  of the panel name.  Note that you give the
+     new instance of FvwmButtons a different name.
+
+
+     *FvwmButtons: (Title WinOps, Panel WinOps \
+       "Module FvwmButtons WinOps")
+     *FvwmButtons: (Title Tools , Panel Tools \
+       "Module FvwmButtons Tools")
+
+
+     If you used something like 'Panel-d' you  now  have  to  use
+     'Panel(down)' instead.  To make the new panel vanish as soon
+     as a button was  selected  start  FvwmButtons  with  the  '-
+     transientpanel' option:
+
+
+     *FvwmButtons: (Title Tools , Panel(down) Tools \
+       "Module FvwmButtons -transientpanel Tools")
+
+
+     The rest of  the  configuration  is  very  easy  to  change.
+     Delete  the  lines '*FvwmButtonsPanel &lt;name&gt;' and add &lt;name&gt;
+     to all of the following configuration lines  for  the  panel
+     instead. Use the same name in your Style commands:
+
+
+     *WinOps: Back bisque2
+     *Tools: Back bisque2
+     Style "WinOps" Title, NoHandles, BorderWidth 0
+     Style "WinOps" NoButton 2, NoButton 4, Sticky
+     Style "Tools" Title, NoHandles, BorderWidth 0
+     Style "Tools" NoButton 2, NoButton 4, Sticky
+
+
+     That's it.  The new panels are much more  flexible.   Please
+     refer to other parts of this documentation for details.
+
+
+  <font color="cyan">WHY</font color="cyan"> <font color="cyan">WAS</font color="cyan"> <font color="cyan">THE</font color="cyan"> <font color="cyan">PANEL</font color="cyan"> <font color="cyan">FEATURE</font color="cyan"> <font color="cyan">REWRITTEN?</font color="cyan">
+     There are several reasons.  The most important one  is  that
+     the program code implementing the panels was very disruptive
+     and caused a lot of problems.  At  the  same  time  it  made
+     writing new features for FvwmButtons difficult at best.  The
+     second reason is that most users were simply unable to  make
+     it work - it was way too complicated.  Even I (the author of
+     the new code) had to spend several hours  before  I  got  it
+     working  the  first  time.  The third reason is that the new
+     panels are more versatile.  Any application can be  a  panel
+     in  FvwmButtons,  not  just  other  instances of FvwmButtons
+     itself.  So I sincerely hope that nobody is angry about  the
+     change.   Yes  -  you have to change your configuration, but
+     the new feature is much easier to configure,  especially  if
+     you already know how the Swallow option works.
 
 
 
@@ -470,12 +876,12 @@
           option is set to <font color="yellow">smart</font color="yellow"> at least the height/width of the
           tallest/widest  button  is  used  while the <font color="yellow">fixed</font color="yellow"> value
           prevents the box from getting resized if both <font color="yellow">rows</font color="yellow">  and
-          <font color="yellow">colums</font color="yellow"> have been set to non-zero.
+          <font color="yellow">columns</font color="yellow"> have been set to non-zero.
 
      Shuffling buttons
           Now it has a large enough area to place the buttons in,
           all  that is left is to place them right. There are two
-          kinds ob buttons: fixed and floating buttons.  A  fixed
+          kinds of buttons: fixed and floating buttons.  A  fixed
           button  is  forced to a specific slot in the button box
           by a x/y geometry argument. All other buttons are  con-
           sidered  floating.  Fixed  buttons  are  placed  first.
@@ -529,7 +935,7 @@
           unit  button  size  of  a  container is set to be large
           enough to hold the largest button in it without squeez-
           ing  it.  Swallowed  windows  are simply expected to be
-          comfortable with the  buttonsize  they  get  from  this
+          comfortable with the button size  they  get  from  this
           scheme.  If  a  particular  configuration requires more
           space for a swallowed window, it can  be  set  in  that
           button's  configuration  line  using  the  option "Size
@@ -541,65 +947,68 @@
 
 </PRE>
 <H2>SAMPLE CONFIGURATION</H2><PRE>
-     The following are excepts from a .fvwmrc file which describe
-     FvwmButtons initialization commands:
+     The  following  are  excepts  from  a  .fvwm2rc  file  which
+     describe FvwmButtons initialization commands:
 
 
      ##########################################################
      # Load any modules which should be started during fvwm
      # initialization
 
-     ModulePath /usr/lib/X11/fvwm:/usr/bin/X11
-
      # Make sure FvwmButtons is always there.
-     AddToFunc InitFunction     "I" Module FvwmButtons
-     AddToFunc RestartFunction  "I" Module FvwmButtons
+     AddToFunc StartFunction  "I" Module FvwmButtons
 
      # Make it titlebar-less, sticky, and give it an icon
      Style "FvwmButtons" Icon toolbox.xpm, NoTitle, Sticky
 
      # Make the menu/panel look like CDE
-     Style "FvwmButtonsPanel" Title, NoHandles, BorderWidth 0
-     Style "FvwmButtonsPanel" NoButton 2, NoButton 4, Sticky
+     Style "WinOps" Title, NoHandles, BorderWidth 0
+     Style "WinOps" NoButton 2, NoButton 4, Sticky
+     Style "Tools" Title, NoHandles, BorderWidth 0
+     Style "Tools" NoButton 2, NoButton 4, Sticky
 
      ##########################################################
+     DestroyModuleConfig FvwmButtons: *
+     *FvwmButtons: Fore Black
+     *FvwmButtons: Back rgb:90/80/90
+     *FvwmButtons: Geometry -135-5
+     *FvwmButtons: Rows 1
+     *FvwmButtons: BoxSize smart
+     *FvwmButtons: Font -*-helvetica-medium-r-*-*-12-*
+     *FvwmButtons: Padding 2 2
 
-     *FvwmButtonsFore Black
-     *FvwmButtonsBack rgb:90/80/90
-     *FvwmButtonsGeometry -135-5
-     *FvwmButtonsRows 1
-     *FvwmButtonsBoxSize smart
-     *FvwmButtonsFont -*-helvetica-medium-r-*-*-12-*
-     *FvwmButtonsPadding 2 2
+     *FvwmButtons: (Title WinOps, Panel WinOps \
+       "Module FvwmButtons -transientpanel WinOps")
+     *FvwmButtons: (Title Tools, Panel Tools   \
+       "Module FvwmButtons -transientpanel Tools")
 
-     *FvwmButtons(Title WinOps,Panel WinOps)
-     *FvwmButtons(Title Tools ,Panel Tools)
+     *FvwmButtons: (Title Resize, Icon resize.xpm,  Action Resize)
+     *FvwmButtons: (Title Move,   Icon arrows2.xpm, Action Move  )
+     *FvwmButtons: (Title Lower,  Icon Down,        Action Lower )
+     *FvwmButtons: (Title Raise,  Icon Up,          Action Raise )
+     *FvwmButtons: (Title Kill,   Icon bomb.xpm,    Action Destroy)
 
-     *FvwmButtons(Title Resize,Icon resize.xpm ,Action Resize)
-     *FvwmButtons(Title Move  ,Icon arrows2.xpm,Action Move  )
-     *FvwmButtons(Title Lower ,Icon Down       ,Action Lower )
-     *FvwmButtons(Title Raise ,Icon Up         ,Action Raise )
-     *FvwmButtons(Title Kill  ,Icon bomb.xpm   ,Action Destroy)
-
-     *FvwmButtons(1x1,Container(Rows 3,Frame 1))
-     *FvwmButtons(Title Dopey ,Action                          \
+     *FvwmButtons: (1x1,Container(Rows 3,Frame 1))
+     *FvwmButtons: (Title Dopey ,Action                          \
          `Exec "big_win" xterm -T big_win -geometry 80x50 &amp;`)
-     *FvwmButtons(Title Snoopy, Font fixed, Action             \
+     *FvwmButtons: (Title Snoopy, Font fixed, Action             \
          `Exec "small_win" xterm -T small_win &amp;`)
-     *FvwmButtons(Title Smokin')
-     *FvwmButtons(End)
+     *FvwmButtons: (Title Smokin')
+     *FvwmButtons: (End)
 
-     *FvwmButtons(Title Xcalc, Icon rcalc.xpm,                 \
+     *FvwmButtons: (Title Xcalc, Icon rcalc.xpm,                 \
                   Action `Exec "Calculator" xcalc &amp;`)
-     *FvwmButtons(Title XMag, Icon magnifying_glass2.xpm,      \
+     *FvwmButtons: (Title XMag, Icon magnifying_glass2.xpm,      \
                   Action `Exec "xmag" xmag &amp;`)
-     *FvwmButtons(Title Mail, Icon mail2.xpm,                  \
+     *FvwmButtons: (Title Mail, Icon mail2.xpm,                  \
                   Action `Exec "xmh" xmh &amp;`)
-     *FvwmButtons(4x1, Swallow "FvwmPager" `FvwmPager 0 3`     \
+     *FvwmButtons: (4x1, Swallow "FvwmPager" `FvwmPager 0 3`     \
                   Frame 3)
 
-     *FvwmButtons(Swallow(UseOld,NoKill) "xload15" `Exec xload \
-          -title xload15 -nolabel -bg rgb:90/80/90 -update 15 &amp;`)
+     *FvwmButtons: (Swallow(UseOld,NoKill) "xload15" `Exec xload \
+          -title xload15 -nolabel -bg rgb:90/80/90 -update 15    \
+          -geometry -3000-3000 &amp;`)
+
 
      The last lines are a little tricky - one spawns an FvwmPager
      module, and captures it to display in a quadruple width but-
@@ -609,30 +1018,30 @@
      The final line is even more magic. Note the  combination  of
      <font color="yellow">UseOld</font color="yellow">  and  <font color="yellow">NoKill</font color="yellow">,  which  will try to swallow an existing
      window with the name "xload15" when starting up (if failing:
-     starting  one  with the specified command), which is unswal-
-     lowed when ending FvwmButtons.
+     starting  one  with  the  specified  command),  which is un-
+     swallowed   when   ending   FvwmButtons.    The    swallowed
+     application  is  started with "-geometry -3000-3000" so that
+     it will not be visible until its swallowed.
 
      The other panels are specified after the root panel:
 
 
-     ########## PANEL
-     *FvwmButtonsPanel WinOps
-     *FvwmButtonsBack bisque2
-     *FvwmButtonsGeometry -3-3
-     *FvwmButtonsColumns 1
+     ########## PANEL WinOps
+     *WinOps: Back bisque2
+     *WinOps: Geometry -3-3
+     *WinOps: Columns 1
 
-     *FvwmButtons(Title Resize,Icon resize.xpm ,Action Resize)
-     *FvwmButtons(Title Move  ,Icon arrows2.xpm,Action Move  )
-     *FvwmButtons(Title Lower ,Icon Down       ,Action Lower )
-     *FvwmButtons(Title Raise ,Icon Up         ,Action Raise )
+     *WinOps: (Title Resize, Icon resize.xpm,  Action Resize)
+     *WinOps: (Title Move,   Icon arrows2.xpm, Action Move  )
+     *WinOps: (Title Lower,  Icon Down,        Action Lower )
+     *WinOps: (Title Raise,  Icon Up,          Action Raise )
 
-     ########## PANEL
-     *FvwmButtonsPanel Tools
-     *FvwmButtonsBack bisque2
-     *FvwmButtonsGeometry -1-1
-     *FvwmButtonsColumns 1
+     ########## PANEL Tools
+     *Tools: Back bisque2
+     *Tools: Geometry -1-1
+     *Tools: Columns 1
 
-     *FvwmButtons(Title Kill  ,Icon bomb.xpm   ,Action Destroy)
+     *Tools: (Title Kill,    Icon bomb.xpm,    Action Destroy)
 
 
      The color specification <font color="yellow">rgb</font color="yellow">:<font color="yellow">90</font color="yellow">/<font color="yellow">80</font color="yellow">/<font color="yellow">90</font color="yellow"> is  actually  the  most
@@ -652,43 +1061,46 @@
      # Make it titlebar-less, sticky, and give it an icon
      Style "FvwmButtons" Icon toolbox.xpm, NoTitle, Sticky
 
-     *FvwmButtonsFont        5x7
-     *FvwmButtonsBack rgb:90/80/90
-     *FvwmButtonsFore        black
-     *FvwmButtonsFrame       1
+     *FvwmButtons: Font        5x7
+     *FvwmButtons: Back rgb:90/80/90
+     *FvwmButtons: Fore        black
+     *FvwmButtons: Frame       1
      # 9x11 pixels per button, 4x4 pixels for the frame
-     *FvwmButtonsGeometry    580x59+0-0
-     *FvwmButtonsRows        5
-     *FvwmButtonsColumns     64
-     *FvwmButtonsBoxSize     fixed
-     *FvwmButtonsPadding     1 1
+     *FvwmButtons: Geometry    580x59+0-0
+     *FvwmButtons: Rows        5
+     *FvwmButtons: Columns     64
+     *FvwmButtons: BoxSize     fixed
+     *FvwmButtons: Padding     1 1
 
-     # Menu Popups
-     *FvwmButtons(9x1+3+0, Padding 0, Title "Modules",     \
-       Action `Menu Modulepopup mouse c -8p Nop`)
+     # Pop up a module menu directly above the button.
+     *FvwmButtons: (9x1+3+0, Padding 0, Title "Modules",   \
+       Action `Menu Modulepopup rectangle $wx$h+$l+$t o+50 -100m`)
+
      # first row of buttons from left to right:
-     *FvwmButtons(3x2+0+1, Icon my_lock.xpm, Action `Exec xlock`)
-     *FvwmButtons(3x2+3+1, Icon my_recapture.xpm, Action Recapture)
-     *FvwmButtons(3x2+6+1, Icon my_resize.xpm, Action Resize)
-     *FvwmButtons(3x2+9+1, Icon my_move.xpm, Action Move)
-     *FvwmButtons(3x2+12+1, Icon my_fvwmconsole.xpm,       \
+     *FvwmButtons: (3x2+0+1, Icon my_lock.xpm, Action `Exec xlock`)
+     *FvwmButtons: (3x2+3+1, Icon my_recapture.xpm, Action Recapture)
+     *FvwmButtons: (3x2+6+1, Icon my_resize.xpm, Action Resize)
+     *FvwmButtons: (3x2+9+1, Icon my_move.xpm, Action Move)
+     *FvwmButtons: (3x2+12+1, Icon my_fvwmconsole.xpm,     \
        Action 'Module FvwmConsole')
+
      # second row of buttons from left to right:
-     *FvwmButtons(3x2+0+3, Icon my_exit.xpm, Action QuitSave)
-     *FvwmButtons(3x2+3+3, Icon my_restart.xpm, Action Restart)
-     *FvwmButtons(3x2+6+3, Icon my_kill.xpm, Action Destroy)
-     *FvwmButtons(3x2+9+3, Icon my_shell.xpm, Action 'Exec rxvt')
+     *FvwmButtons: (3x2+0+3, Icon my_exit.xpm, Action QuitSave)
+     *FvwmButtons: (3x2+3+3, Icon my_restart.xpm, Action Restart)
+     *FvwmButtons: (3x2+6+3, Icon my_kill.xpm, Action Destroy)
+     *FvwmButtons: (3x2+9+3, Icon my_shell.xpm, Action 'Exec rxvt')
+
      # big items
-     *FvwmButtons(10x5, Swallow (NoKill, NoCLose)          \
+     *FvwmButtons: (10x5, Swallow (NoKill, NoCLose)        \
        "FvwmPager" 'FvwmPager * * -geometry 40x40-1024-1024')
-     *FvwmButtons(6x5, Swallow "FvwmXclock" `Exec xclock   \
-       -name FvwmXclock -geometry 40x40+0-0 -padding 1     \
+     *FvwmButtons: (6x5, Swallow "FvwmXclock" `Exec xclock \
+       -name FvwmXclock -geometry 40x40+0-3000 -padding 1  \
        -analog -chime -bg rgb:90/80/90`)
-     *FvwmButtons(13x5, Left, Swallow (NoClose)            \
+     *FvwmButtons: (13x5, Swallow (NoClose)                \
      "FvwmIconMan" 'Module FvwmIconMan')
-     *FvwmButtons(20x5, Padding 0, Swallow "xosview"       \
+     *FvwmButtons: (20x5, Padding 0, Swallow "xosview"     \
        `Exec /usr/X11R6/bin/xosview -cpu -int -page -net   \
-       -geometry 100x50+0-0 -font 5x7`)
+       -geometry 100x50+0-3000 -font 5x7`)
 
 
 
@@ -704,7 +1116,7 @@
 <H2>COPYRIGHTS</H2><PRE>
      The FvwmButtons program, and  the  concept  for  interfacing
      this  module to the Window Manager, are all original work by
-     Robert Nation
+     Robert Nation.
 
      Copyright 1993, Robert Nation. No guarantees  or  warranties
      or  anything  are provided or implied in any way whatsoever.
@@ -720,7 +1132,14 @@
 </PRE>
 <H2>AUTHOR</H2><PRE>
      Robert Nation.  Somewhat enhanced by Jarl Totland, Jui-Hsuan
-     Joshua Feng and Dominik Vogt.
+     Joshua Feng.
+
+
+
+
+
+
+
 
 
 
@@ -767,7 +1186,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:46:00 EST 2001 -->
+on Tue Jul  3 21:54:33 EDT 2001 -->
 </body>
 </html>
 

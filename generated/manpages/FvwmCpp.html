@@ -61,13 +61,30 @@
           Instead of creating a random unique name for  the  tem-
           porary  file  for the preprocessed rc file, this option
           will let you specify the name of the temporary file  it
-          will create.
+          will  create.  Please note that FvwmCpp will attempt to
+          remove this file before writing to it, so  don't  point
+          it  at anything important even if it has read-only pro-
+          tection.
 
 
      -debug
           Causes the temporary file create by Cpp to be retained.
           This file is usually called "/tmp/fvwmrcXXXXXX"
 
+
+     -lock
+          If you want to  use  this  option  you  need  to  start
+          FvwmCpp with ModuleSynchronous. This option causes fvwm
+          to wait that the pre-process finish  and  that  FvwmCpp
+          asks  fvwm  to  Read the pre-processed file before con-
+          tinuing. This may be useful at startup  if  you  use  a
+          session  manager  as Gnome. Also, this is useful if you
+          want to process and run a Form in a fvwm function.
+
+
+     -noread
+          Causes the pre-processed file to be not read  by  fvwm.
+          Useful to pre-process a FvwmScript script with FvwmCpp.
 
 
 
@@ -87,13 +104,15 @@
           The name of the machine running fvwm.
 
      HOSTNAME
-          The hostname of the machine running fvwm. Generally the
-          same as CLIENTHOST.
+          The host name of the machine  running  fvwm.  Generally
+          the same as CLIENTHOST.
 
      OSTYPE
           The operating system for CLIENTHOST.
 
      USER The name of the person running fvwm.
+
+     HOME The home directory of the person running fvwm.
 
      VERSION
           The X11 version.
@@ -106,6 +125,9 @@
 
      RELEASE
           The X server release number.
+
+     SCREEN
+          The screen number.
 
      WIDTH
           The screen width in pixels.
@@ -128,11 +150,18 @@
           Number of bits in each rgb triplet.
 
      CLASS
-          The X11 visual class, ie PsuedoColor.
+          The X11 default visual class, e.g. PseudoColor.
 
      COLOR
-          Yes or No, Yes if the display  class  is  neither  Sta-
-          ticGrey or GreyScale.
+          Yes or No, Yes if the default visual class  is  neither
+          StaticGrey or GreyScale.
+
+     FVWM_CLASS
+          The visual class that fvwm is using, e.g. TrueColor.
+
+     FVWM_COLOR
+          Yes or No, Yes if the FVWM_CLASS is neither  StaticGrey
+          or GreyScale.
 
      FVWM_VERSION
           The fvwm version number, ie 2.0
@@ -144,6 +173,13 @@
      FVWM_MODULEDIR
           The directory where fvwm looks for .fvwmrc and  modules
           by default, as determined at compile time.
+
+     FVWM_USERDIR
+          The value of $FVWM_USERDIR.
+
+     SESSION_MANAGER
+          The value of $SESSION_MANAGER. Undefined if this  vari-
+          able is not set.
 
 
 
@@ -160,6 +196,7 @@
           #define REVISION 0
           #define VENDOR HDS human designed systems, inc. (2.1.2-D)
           #define RELEASE 4
+          #define SCREEN 0
           #define WIDTH 1280
           #define HEIGHT 1024
           #define X_RESOLUTION 3938
@@ -171,28 +208,33 @@
           #define FVWM_VERSION 2.0 pl 1
           #define OPTIONS SHAPE XPM Cpp
           #define FVWM_MODULEDIR /local/homes/dsp/nation/modules
-
+          #define FVWM_USERDIR /local/homes/dsp/nation/.fvwm2rc.d
+          #define SESSION_MANAGER local/grumpy:/tmp/.ICE-unix/440,tcp/spx20:1025
 
 
 
 
 </PRE>
 <H2>BUGS</H2><PRE>
-     Module configurations do not become active until  fvwm2  has
+     Module configurations do not become active  until  fvwm  has
      restarted  if  you use FvwmCpp on startup. FvwmCpp creates a
-     temporary file and passes this to fvwm2, so you  would  have
-     to  edit  this  file too.  There are some problems with com-
-     ments  in  your  .fvwm2rc  file.   The  comment  sign  #  is
-     misinterpreted  by  the  preprocessor.   This has usually no
-     impact on functionality but generates annoying warning  mes-
-     sages.   The  sequence /* is interpreted as the start of a C
-     comment what is probably not what you want  in  a  filename.
-     You  might  want  to  try /?* (for filenames only) or /\* or
-     "/*" instead.  Macros are not replaced within single (')  or
-     double  quotes  (").  Use backquotes (`) to circumvent this.
-     Fvwm2 accepts backquotes for quoting and at  least  FvwmBut-
-     tons  does  too.  The preprocessor may place a space after a
-     macro substitution, so with
+     temporary file and passes this to fvwm, so you would have to
+     edit  this  file too.  There are some problems with comments
+     in your .fvwm2rc file.  The comment sign # is misinterpreted
+     by  the  preprocessor.   This has usually no impact on func-
+     tionality but  generates  annoying  warning  messages.   The
+     sequence  /* is interpreted as the start of a C comment what
+     is probably not what you want in a filename. You might  want
+     to  try  /?*  (for  filenames  only) or /\* or "/*" instead.
+     Depending on your preprocessor you may have the same problem
+     with  "//".   Macros  are  not replaced within single (') or
+     double quotes ( back quotes (`)  to  circumvent  this.  Fvwm
+     accepts  back  quotes  for  quoting and at least FvwmButtons
+     does too.  The preprocessor may place a space after a  macro
+
+
+
+     substitution, so with
 
           #define MYCOMMAND ls
           "Exec "MYCOMMAND" -l"
@@ -204,6 +246,13 @@
      and not
 
           "Exec "ls" -l" (one word).
+
+
+     If you use gcc you can use this invocation to turn off  '//'
+     comments:
+
+
+          FvwmCpp -Cppprog '/your/path/to/gcc -C -E -' &lt;filename&gt;
 
 
 
@@ -237,11 +286,13 @@
 
 
 
+
+
 </PRE>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:46:01 EST 2001 -->
+on Tue Jul  3 21:54:35 EDT 2001 -->
 </body>
 </html>
 

@@ -34,7 +34,7 @@
      The  user  can press the first button at any time to trigger
      invocation of one of these functions, or the user can  press
      button two in order to cause the entire Wharf to withdraw to
-     the nearest corner in an  iconized  state.   FvwmWharf  only
+     the nearest corner in an iconified  state.   FvwmWharf  only
      works when Fvwm is used as the window manager.
 
 
@@ -69,8 +69,8 @@
      If the FvwmWharf executable is linked to another name, ie ln
      -s  FvwmWharf  Pier,  then another module called Pier can be
      started, with  a  completely  different  configuration  than
-     FvwmWharf,  simply  by changing the keywords FvwmWharf??? to
-     Pier???. This way multiple button-bars can be used.
+     FvwmWharf,  simply  by changing the keywords FvwmWharf... to
+     Pier.... This way multiple button-bars can be used.
 
 
 
@@ -93,13 +93,23 @@
 
 
      *FvwmWharfAnimateMain
-          Designates that  full-length  Wharf  windraws  will  be
+          Designates  that  full-length  Wharf  windows  will  be
           animated.
 
 
      *FvwmWharfBgColor <font color="yellow">color</font color="yellow">
           If *<font color="yellow">FvwmWharfTextureType</font color="yellow"> <font color="yellow">0</font color="yellow">  is  specified,  <font color="yellow">FvwmWharf</font color="yellow">'s
           buttons will be filled with <font color="yellow">color</font color="yellow">.
+
+
+     *FvwmWharfColorset <font color="yellow">colorset</font color="yellow">
+          Tells the module to use colorset <font color="yellow">colorset</font color="yellow"> for the back-
+          ground  of  all  buttons.   This  option  disables  the
+          options 'BgColor', 'TextureType' and 'TextureColor'  if
+          specified  after  these and is disabled by them if used
+          before any of them in the configuration.  Please  refer
+          to  the  man  page  of the FvwmTheme module for details
+          about colorsets.
 
 
      *FvwmWharfColumns <font color="yellow">columns</font color="yellow">
@@ -121,14 +131,13 @@
           will be moved down and to the right when pushed.  Espe-
           cially useful with *FvwmWharfNoBorder textures.
 
-
      *FvwmWharfGeometry <font color="yellow">geometry</font color="yellow">
           Specifies the FvwmWharf window location and/or size. If
           the  size  is  not  specified, FvwmWharf will auto-size
           itself in a reasonable manner.  The geometry is a stan-
           dard X11 window geometry specification.  This option is
-          pre-set in the NEXTSTEP(tm) style section  for  a  con-
-          sistent  look  and  feel  with NEXTSTEP(tm).  Secondary
+          pre-set in the Nextstep(tm) style section  for  a  con-
+          sistent  look  and  feel  with  NEXTSTEP(tm). Secondary
           FvwmWharf invocations from links  may  have  their  own
           geometry.
 
@@ -178,8 +187,7 @@
           XPM color icon file, or a comma-delimited set  of  pix-
           maps  containing  the icon(s) to display on the button.
           FvwmWharf will search through the path specified in the
-          IconPath  or PixmapPath configuration items to find the
-          icon file.
+          ImagePath configuration item to find the icon file.
 
           NOTE: Icons must have  one  transparent  pixel  or  the
           definition of a transparent color in order to be valid.
@@ -191,31 +199,42 @@
           A single extension to the Fvwm built-in command set  is
           provided.  A command of the form:
 
-          *FvwmWharf junk clock.xpm Swallow "Clock" asclock -shape -12 &amp;
+          *FvwmWharf junk clock.xpm Swallow "Clock" asclock -shape -12
 
           will cause FvwmWharf to spawn an asclock  process,  and
           capture  the  first  window  whose  name or resource is
           "Clock", and display it  in  the  button-bar.  This  is
           handy  for  applications  like  xclock,  xbiff,  xload,
-          asclock, and asmail. Modules can be swallowed by speci-
-          fying  SwallowModule instead of just "swallow" NOTE: if
-          you use xclock for this application, you will  want  to
-          specify xclock -padding 0.
+          asclock, and asmail.
 
-          For certain applications that overrun the 48  pixel  by
-          48 pixel boundary of FvwmWharf icons and Swallowed pro-
-          grams there is  a  special  option  called  <font color="yellow">MaxSwallow</font color="yellow">.
-          <font color="yellow">MaxSwallow</font color="yellow">  will  allow  the application to draw itself
-          larger than the 48x48 boundary.  It is invoked the same
-          way Swallow is.
+          Modules can be swallowed by specifying the word Module:
+
+          *FvwmWharf pager nil Swallow "Desktop" Module FvwmPager 0 0
+
+          NOTE: if you use xclock for this application, you  will
+          want to specify xclock -padding 0.
+
+          <font color="yellow">Swallow</font color="yellow"> option tries to force an application to  be  48
+          by  48 pixels.  A special option <font color="yellow">MaxSwallow</font color="yellow"> can be used
+          to leave an application at its own size (but less  then
+          64x64).  MaxSwallow is invoked the same way Swallow is.
+          If you want an  application  to  fill  all  the  button
+          place, you should start it with a proper geometry flag,
+          like "xload -g 64x64" or, if you want to  leave  a  3d-
+          look: "xload -g 60x60".
+
+          Note, not all applications  are  good  for  swallowing,
+          some  can't  be  resized  at all, some can't be resized
+          exactly to 48x48 or  64x64,  you  are  responsible  for
+          choosing suitable applications to be swallowed.
 
           To create folder "slide-outs" in <font color="cyan">FvwmWharf</font color="cyan"> the  follow-
           ing format must be used:
 
           *FvwmWharf files Folders.xpm Folder
-          *FvwmWharf xftp 3DRings.xpm   Exec xftp &amp;
-          *FvwmWharf xdir FolderDeposit.xpm Exec xdir &amp;
-          *FvwmWharf moxfm FilingCabinet.xpm Exec moxfm &amp;
+          *FvwmWharf xftp 3DRings.xpm   Exec xftp
+          *FvwmWharf xdir FolderDeposit.xpm Exec xdir
+          *FvwmWharf moxfm FilingCabinet.xpm Exec moxfm
           *FvwmWharf ~Folders
 
           The first line of this set tells  FvwmWharf  that  this
@@ -235,14 +254,15 @@
           folders.
 
 
+
 </PRE>
 <H2>DRAG AND DROP</H2><PRE>
      <font color="yellow">FvwmWharf</font color="yellow"> supports the OffiX Drag  and  Drop  standard.   In
      order  to have Drag and Drop enabled on a particular button,
      the following syntax must be adhered to:
 
-     *FvwmWharf     nil      nil        DropExec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow"> %s
-     *FvwmWharf     <font color="yellow">program</font color="yellow">  <font color="yellow">iconname</font color="yellow">   Exec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow">
+     *FvwmWharf nil nil DropExec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow"> %s
+     *FvwmWharf <font color="yellow">program</font color="yellow"> <font color="yellow">iconname</font color="yellow"> Exec "<font color="yellow">program</font color="yellow">" <font color="yellow">program</font color="yellow">
 
 
      The button will call <font color="yellow">program</font color="yellow"> when  pushed.   If  a  file  is
@@ -271,30 +291,11 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </PRE>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Mon Feb 26 21:45:56 EST 2001 -->
+on Tue Jul  3 21:54:44 EDT 2001 -->
 </body>
 </html>
 
