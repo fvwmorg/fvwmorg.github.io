@@ -1,3 +1,8 @@
+2003-06-30  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.php:
+	removed "new" status of latest releases and birthday_celebration banner
+
 2003-07-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* logo-competition/logos/Wolf_Bergenheim/index.php: 

@@ -54,12 +54,12 @@ and support is excellent.  Check it out!
 <tr>
         <td class="windowcontents">Latest Stable Release: &nbsp; </td>
         <td class="windowcontents"><b><?php mylink("download", $latest_stable_release); ?> </b></td>
-	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
+	<td class="windowcontents">&nbsp; <!img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 <tr>
         <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
         <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
-	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
+	<td class="windowcontents">&nbsp; <!img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 </table>
 
@@ -68,9 +68,11 @@ Participate in our new
 <?php mylink("logo-competition", "Logo Competition"); ?>
 <hr>
 <center>
+<!--
 <?php mylink('./birthday/index.php', 
              '<img src="./birthday/birthday_celebration1.gif" border="0" width="596" height="53">',
              'class="nohilight"'); ?>
+-->
 <h3>On the 1st of June 2003 we celebrated fvwm's tenth
 <?php mylink('./birthday/index.php', "birthday"); ?>.</h3>
 </center>
