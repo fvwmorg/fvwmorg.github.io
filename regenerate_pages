@@ -16,8 +16,8 @@ fi
 
 echo Regenerating 3 index.php
 
-(cd authors/ && ./authors2php <../"$fvwm_dir"/AUTHORS >index.php)
-(cd news/ && ./news2php <../"$fvwm_dir"/NEWS >index.php)
-(cd documentation/faq/ && ./faq2php <../../"$fvwm_dir"/docs/FAQ >index.php)
+(cd authors/ && gawk authors2php <../"$fvwm_dir"/AUTHORS >index.php)
+(cd news/ && gawk news2php <../"$fvwm_dir"/NEWS >index.php)
+(cd documentation/faq/ && gawk faq2php <../../"$fvwm_dir"/docs/FAQ >index.php)
 
 echo Done

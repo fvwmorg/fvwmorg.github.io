@@ -1,6 +1,19 @@
+2004-03-02  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated
+
+	* regenerate_pages:
+	fixed gawk install path problem
+
+	* definitions.inc:
+	updated for 2.5.9
+
 2004-02-29  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* screenshots/menus/*: 
+	* screenshots/menus/*:
 	new generic menu screenshot page
 
 2004-02-20  Mikhael Goikhman  <migo@homemail.com>
@@ -11,7 +24,7 @@
 
 2004-02-20  Uwe Pross   <keinFruehstuecksfleisch@gmx.net>
 
-	* contact/index.php: 
+	* contact/index.php:
 	added search form for google search
 
 2004-02-15  Dan Espen  <dane@mk.telcordia.com>
@@ -19,13 +32,13 @@
 	* documentation/faq/index.php:
 	* authors/index.php:
 	regenerated
-	
+
 2004-01-19  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* screenshots/desktops/An_Thi_Nguyen_Le-1152x864: 
-	Removed shot since it is already in 
+	* screenshots/desktops/An_Thi_Nguyen_Le-1152x864:
+	Removed shot since it is already in
 	An_Thi_Nguyen_Le-desk1-1152x864
-	
+
 2004-01-19  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	*  screenshots/desktops/Tavis_Ormandy-desk-1152x864/*
@@ -33,14 +46,14 @@
 
 2004-01-19  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* fvwm-logo/index.php: 
+	* fvwm-logo/index.php:
 	Added new logo and competition result pages.
-	
+
 2004-01-15  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/desktops/Andrew_Dolgov-1152x864:
 	Added screenshot.
-	
+
 2004-01-05  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* index.php:
