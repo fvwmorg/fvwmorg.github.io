@@ -50,21 +50,37 @@ $this->nav_array["home"]["link_pic"] = "pictures/icons/home";
 $this->nav_array["home"]["parent_site"] = "top"; 
 $this->nav_array["home"]["child_sites"] = array("authors", "history", "fvwm_cats", ); 
 
+$this->nav_array["logo_competition_results1"]["file"] = "logo-competition/logos/voting/results1.php"; 
+$this->nav_array["logo_competition_results1"]["rel_path"] = "./../../.."; 
+$this->nav_array["logo_competition_results1"]["link_name"] = "Logo Competition Stage 1 Result Page"; 
+$this->nav_array["logo_competition_results1"]["link_chapter"] = ""; 
+$this->nav_array["logo_competition_results1"]["link_pic"] = "pictures/icons/logo_competition"; 
+$this->nav_array["logo_competition_results1"]["parent_site"] = "logo_competition"; 
+$this->nav_array["logo_competition_results1"]["child_sites"] = array(); 
+
+$this->nav_array["logo_competition_results2"]["file"] = "logo-competition/logos/voting/results2.php"; 
+$this->nav_array["logo_competition_results2"]["rel_path"] = "./../../.."; 
+$this->nav_array["logo_competition_results2"]["link_name"] = "Logo Competition Final Result Page"; 
+$this->nav_array["logo_competition_results2"]["link_chapter"] = ""; 
+$this->nav_array["logo_competition_results2"]["link_pic"] = "pictures/icons/logo_competition"; 
+$this->nav_array["logo_competition_results2"]["parent_site"] = "logo_competition"; 
+$this->nav_array["logo_competition_results2"]["child_sites"] = array(); 
+
 $this->nav_array["logo_competition"]["file"] = "logo-competition/index.php"; 
 $this->nav_array["logo_competition"]["rel_path"] = "./.."; 
 $this->nav_array["logo_competition"]["link_name"] = "Logo Competition"; 
 $this->nav_array["logo_competition"]["link_chapter"] = ""; 
 $this->nav_array["logo_competition"]["link_pic"] = "pictures/icons/logo_competition"; 
 $this->nav_array["logo_competition"]["parent_site"] = "news"; 
-$this->nav_array["logo_competition"]["child_sites"] = array(); 
+$this->nav_array["logo_competition"]["child_sites"] = array("logo_competition_results1", "logo_competition_results2", ); 
 
-$this->nav_array["birthday"]["file"] = "birthday/index.php"; 
-$this->nav_array["birthday"]["rel_path"] = "./.."; 
-$this->nav_array["birthday"]["link_name"] = "FVWM Birthday"; 
-$this->nav_array["birthday"]["link_chapter"] = ""; 
-$this->nav_array["birthday"]["link_pic"] = "pictures/icons/birthday"; 
-$this->nav_array["birthday"]["parent_site"] = "news"; 
-$this->nav_array["birthday"]["child_sites"] = array(); 
+$this->nav_array["logo"]["file"] = "fvwm-logo/index.php"; 
+$this->nav_array["logo"]["rel_path"] = "./.."; 
+$this->nav_array["logo"]["link_name"] = "FVWM Logo"; 
+$this->nav_array["logo"]["link_chapter"] = ""; 
+$this->nav_array["logo"]["link_pic"] = "pictures/icons/logo"; 
+$this->nav_array["logo"]["parent_site"] = "news"; 
+$this->nav_array["logo"]["child_sites"] = array(); 
 
 $this->nav_array["news"]["file"] = "news/index.php"; 
 $this->nav_array["news"]["rel_path"] = "./.."; 
@@ -72,7 +88,7 @@ $this->nav_array["news"]["link_name"] = "News";
 $this->nav_array["news"]["link_chapter"] = ""; 
 $this->nav_array["news"]["link_pic"] = "pictures/icons/news"; 
 $this->nav_array["news"]["parent_site"] = "top"; 
-$this->nav_array["news"]["child_sites"] = array("logo_competition", "birthday", ); 
+$this->nav_array["news"]["child_sites"] = array("logo_competition", "logo", ); 
 
 $this->nav_array["features"]["file"] = "features.php"; 
 $this->nav_array["features"]["rel_path"] = "."; 

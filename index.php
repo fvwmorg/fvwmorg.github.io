@@ -17,7 +17,7 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "The Official FVWM Home Page";
-$heading        = 'The Official <img src="pictures/fvwm-logo-steelblue.gif" width="150" height="100" border="0" alt="FVWM" align="middle"> Home Page';
+$heading        = 'The Official <img src="fvwm-logo/fvwm-logo-starburst-blue-250x83.png" border="0" alt="FVWM" align="middle"> Home Page';
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
@@ -66,7 +66,7 @@ and support is excellent.  Check it out!
 <hr>
 <b>News:</b> The 
 <?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
-The winning logo will be announced shortly.
+FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
 <hr>
 
 <div align="center">

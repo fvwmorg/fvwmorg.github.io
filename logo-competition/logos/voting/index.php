@@ -42,6 +42,12 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
+<h1>Voting time is over!!!</h1>	
+
+<?php
+return;
+?>
+		
 <script language="JavaScript">
 function change_bg_color(color, fg) {
     document.bgColor = color;
@@ -66,7 +72,7 @@ include_once(sec_filename("voting_functions2.inc"));
 
 <?php 
 $id = trim(get_user_setting("id"));
-if( $email = id_is_registered($id) || 1) :
+if( $email = id_is_registered($id) ) :
 ?>
 
 <h1>Welcome to the second stage of fvwm logo voting</h1>
@@ -98,7 +104,7 @@ Using this web site you can vote for logos taking part in the fvwm logo competit
   <li>  Your are only allowed to vote once. Please hit the voting
     button at the bottom of this page when you are sure you have
     checked ALL logos you want to vote for. </li>
-  <li> Once you have submitted your votes, you can not change them
+  <li> Once you have submitted your votes, you cannot change them
     anymore. </li>
   <li> During the voting period, no results are announced. </li>
   <li> You can vote until and including December 31 2003. </li>
@@ -116,7 +122,6 @@ Using this web site you can vote for logos taking part in the fvwm logo competit
   <li> All logos that got at least 10% of the votes in the first
     stage made it to the second stage. </li>
 </ul>
-
 <hr>
 
 <form action="vote2.php" method="GET">
@@ -174,9 +179,9 @@ foreach( $logo_array as $number => $logos ) {
         echo '>&nbsp;Vote&nbsp;&nbsp;';
         // echo $number;
         foreach( $logos as $logo ) {
-            // $logo_preview = preg_replace('/...$/', "png", $logo);
+            $logo_preview = preg_replace('/...$/', "png", $logo);
             echo '<a href="../'.$logo.'" target="newwindow">';
-            echo '<img src="previews/'.$logo.'" border="0" align="middle" vspace="3" hspace="3">';
+            echo '<img src="previews/'.$logo_preview.'" border="0" align="middle" vspace="3" hspace="3">';
             echo '</a>';
         }
         echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">Author page</a>';
@@ -203,7 +208,8 @@ foreach( $logo_array as $number => $logos ) {
 
 <?php 
     if( get_user_setting("id") ) {
-        echo "<h1>Your id is not valid. Please insert your email address!!</h1>";
+        echo '<h1>Your id is not valid. Please try again or contact
+<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a> !!</h1>';
     } else {
         echo "<h1>Please enter your voting id.</h1>";
     }

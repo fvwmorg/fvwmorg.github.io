@@ -54,7 +54,7 @@ class Pager_On_Top_Theme extends Default_Theme {
     }
 
     function decoration_window_start($string="", $width="100%", $height="400", $padding="5") {
-        echo "<h2>".$string."</h2>";
+        // echo "<h2>".$string."</h2>";
     }
 
     function decoration_window_end() {}

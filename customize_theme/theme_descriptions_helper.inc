@@ -1,4 +1,10 @@
 <?php
+//--------------------------------------------------------------------
+//-  File          : fvwm-web/customize_theme/theme_descriptions_helper.inc
+//-  Project       : Fvwm Homepage                                    
+//-  Date          : Mon Jan 12 21:48:01 2004                         
+//-  Author        : Uwe Pross                                        
+//--------------------------------------------------------------------
 
 class Theme_Descriptions_Helper {
 

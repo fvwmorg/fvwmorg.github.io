@@ -20,7 +20,7 @@ $heading        = "FVWM - Logo Competition";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
-$child_sites    = array();
+$child_sites    = array("logo_competition_results1", "logo_competition_results2");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "logo_competition";
 
@@ -41,11 +41,12 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <?php decoration_window_start("Overview", "100%", ""); ?>
 
-<h2>Welcome to the FVWM Logo Competition</h2>
-
-<p>
-  The competition is over. <b>The winning logo will be announced shortly.</b>
-</p>
+<h3>The competition is over. The voting was done in two stages:</h3>
+<ul>
+<li><?php mylink("logos/voting/results1.php", "Here"); ?> are the results of the first stage.</li>
+<li><?php mylink("logos/voting/results2.php", "Here"); ?> are the results of the second stage.</li>
+</ul>
+<?php mylink("../fvwm-logo", "Here"); ?> you can see the new FVWM logo.
 
 <p>
   <?php mylink("rules.php", "Competition rules"); ?>
