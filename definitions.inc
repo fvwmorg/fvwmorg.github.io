@@ -7,23 +7,15 @@
 //--------------------------------------------------------------------
 
 //--------------------------------------------------------------------
-// exclude this file from navgen 
+// exclude this file from navgen
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
 //--------------------------------------------------------------------
-// check if this file has been already read 
+// check if this file has been already read
 //--------------------------------------------------------------------
 if( strlen($definitions_has_been_read) > 0 ) return;
 $definitions_has_been_read = "t";
-
-//--------------------------------------------------------------------
-// fvwm release information
-// the strings here effect the release information on the home-page 
-// and the links to the ftp-server 
-//--------------------------------------------------------------------
-$latest_stable_release   = "2.4.15";
-$latest_unstable_release = "2.5.6";
 
 //--------------------------------------------------------------------
 //  my_get_global --
@@ -48,31 +40,30 @@ function my_get_global($varname, $vartype)  {
 
     //  I have no idea what would happen if you tried to run this thing
     //  under a pre-3.0 version, but if it should get this far, we'll
-    //  return an unset variable.  
-    if (PHP_VERSION < 3.0)  {
+    //  return an unset variable.
+    if(PHP_VERSION < 3.0)  {
         return $val;
     }
 
     //  The caller may have passed a reference to the desired array.
     //  If this arg is an array, assume he knows what he's doing.
-    if (is_array($vartype))  {
+    if(is_array($vartype))  {
         $mytype = $vartype;
-        if (isset($mytype[$varname]))  {
+        if(isset($mytype[$varname]))  {
             $val = $mytype[$varname];
         }
         return $val;
     }  else  {
         //  The new stuff - we have 3 paths, for 3.0, 4.0, and 4.1 and up.
 
-
         //  Version 3 had the $GLOBALS array, so just get the value from there.
-        if (PHP_VERSION < 4.0)  {
+        if(PHP_VERSION < 4.0)  {
             return $GLOBALS[$varname];
         }
 
         //  Version 4.0 and above - point to the appropriate global array.
-        if (PHP_VERSION < 4.1)  {
-            switch ($vartype)  {
+        if(PHP_VERSION < 4.1)  {
+            switch($vartype)  {
             case "ENV":
                 global $HTTP_ENV_VARS;
                 $mytype = &$HTTP_ENV_VARS;
@@ -106,7 +97,7 @@ function my_get_global($varname, $vartype)  {
                 return $val;
                 break;
             case "GLOBALS":
-                global $GLOBALS;        //  Is this necessary?
+                global $GLOBALS; //  Is this necessary?
                 $mytype = &$GLOBALS;
                 break;
             default:
@@ -118,16 +109,16 @@ function my_get_global($varname, $vartype)  {
             }  //  End switch
 
             //  Get the variable if it exists.
-            if (isset($mytype[$varname]))  {
+            if(isset($mytype[$varname]))  {
                 $val = $mytype[$varname];
             }
             return $val;
 
         }
 
-        //  Version 4.1 and above - 
-        if (PHP_VERSION >= 4.1)  {
-            switch ($vartype)  {
+        //  Version 4.1 and above -
+        if(PHP_VERSION >= 4.1)  {
+            switch($vartype)  {
             case "ENV":
                 $mytype = &$_ENV;
                 break;
@@ -158,13 +149,13 @@ function my_get_global($varname, $vartype)  {
             default:
                 //  Try to get any old global of that name.
                 //  Or should we return unset var instead?
-                $mytype = &$_GLOBALS;   
+                $mytype = &$_GLOBALS;
                 //return $val;
                 break;
             }  //  End switch
 
             //  Get the variable if it exists.
-            if (isset($mytype[$varname]))  {
+            if(isset($mytype[$varname]))  {
                 $val = $mytype[$varname];
             }
             return $val;
@@ -175,6 +166,9 @@ function my_get_global($varname, $vartype)  {
     return $val;
 }
 
+//--------------------------------------------------------------------
+//- helper functions to get "secure" and easy filenames
+//--------------------------------------------------------------------
 function sec_filename($filename) {
     if( file_exists("$filename") )
         return $filename;
@@ -188,7 +182,7 @@ function theme_file($filename) {
     if( file_exists("$file") )
         return $file;
     else
-        return $rel_path."/web-theme/themes/default_theme.inc";  
+        return $rel_path."/web-theme/themes/default_theme.inc";
 }
 
 function class_file($filename) {
@@ -197,7 +191,7 @@ function class_file($filename) {
     if( file_exists("$file") )
         return $file;
     else
-        return $rel_path."/web-theme/classes/default_class.inc";  
+        return $rel_path."/web-theme/classes/default_class.inc";
 }
 
 function helper_file($filename) {
@@ -206,26 +200,36 @@ function helper_file($filename) {
     if( file_exists("$file") )
         return $file;
     else
-        return "__".$file."__";  
+        return "__".$file."__";
+}
+
+// returns the first settings found in one of the global arrays
+function get_user_setting($variable, $methods=array("GET", "POST", "SESSION", "COOKIE") ) {
+    if( ! is_array($methods) ) $methods = array($methods);
+    // echo "Checking for $variable<br>\n";
+    foreach( $methods as $method ) {
+        if( $value = my_get_global($variable, $method) ) return $value;
+    }
 }
 
 //--------------------------------------------------------------------
 // global definitions for all php files
 //--------------------------------------------------------------------
+
 if( strlen($rel_path) == 0 ) $rel_path=".";
 
-$user_agent = my_get_global("HTTP_USER_AGENT","SERVER");
+$user_agent = my_get_global("HTTP_USER_AGENT", "SERVER");
 
-// if( my_get_global("theme","GET") ) {
+$theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
-$theme = my_get_global("theme", "GET");
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
     $theme_file = theme_file($theme."_theme.inc");
-} elseif ( preg_match("/Emacs/", $user_agent) || 
-           preg_match("/Lynx/", $user_agent)  || 
-           preg_match("/w3m/", $user_agent)) {
+} elseif( preg_match("/Emacs/", $user_agent) ||
+          preg_match("/Lynx/", $user_agent)  ||
+          preg_match("/w3m/", $user_agent)) {
     $theme_file = theme_file("plain_theme.inc");
+    $theme = "plain";
 } else {
     $theme_file = theme_file("default_theme.inc");
 }
@@ -235,6 +239,13 @@ $layout_file = $theme_file;
 
 $navigation_file = $rel_path."/navgen_write/navigation.inc";
 $navgen_url      = $rel_path."/navgen.php";
+
+
+//--------------------------------------------------------------------
+// release information
+//--------------------------------------------------------------------
+$latest_stable_release = "2.4.15";
+$latest_unstable_release = "2.5.6";
 
 ?>
 

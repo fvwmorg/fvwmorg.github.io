@@ -45,11 +45,8 @@ if (strlen($heading) == 0) $heading = $title;
 
     <style type="text/css">
     <!--  
-    body {
-      background-color: <?php echo $theme_object->style_array["body_bg"];?>;
-      background-image: url("<?php echo $theme_object->style_array['body_bg_image'];?>");
-      color: <?php echo $theme_object->style_array["body_fg"];?>;
-    -->
+    <?php $theme_object->insert_css_definitions(); ?>
+     -->
     </style>
   </head>
 

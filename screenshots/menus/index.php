@@ -54,7 +54,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <td>
 	<a href="BlueMarble.fvwmrc"><img src="BlueMarble.gif"
 					 alt="Blue Marble Menu" border="0"></a></td>
-      <td>
+      <td class="windowcontents">
 	Sample menu submitted by Dan Espen using background pixmaps.
 	Click here for
 	the <a href="weird10dark.xpm">background pixmap</a>.
@@ -65,7 +65,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     <tr valign="top"><td>
 	<a href="JulienCoron-menu.fvwmrc"><img src="JulienCoron-menu.png"
 					       alt="Julien Coron Menu" border="0"></a></td>
-      <td>
+      <td class="windowcontents">
 	Sample menu submitted by Julien Coron.
 	The pixmaps are available
 	the <a href="http://julien.coron.free.fr/my_icons/">here</a>.

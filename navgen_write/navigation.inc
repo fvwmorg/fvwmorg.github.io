@@ -34,13 +34,21 @@ $this->nav_array["authors"]["link_pic"] = "pictures/icons/authors";
 $this->nav_array["authors"]["parent_site"] = "home"; 
 $this->nav_array["authors"]["child_sites"] = array(); 
 
+$this->nav_array["customize_theme"]["file"] = "customize_theme/index.php"; 
+$this->nav_array["customize_theme"]["rel_path"] = "./.."; 
+$this->nav_array["customize_theme"]["link_name"] = "Customize"; 
+$this->nav_array["customize_theme"]["link_chapter"] = ""; 
+$this->nav_array["customize_theme"]["link_pic"] = "pictures/icons/customize_theme"; 
+$this->nav_array["customize_theme"]["parent_site"] = "home"; 
+$this->nav_array["customize_theme"]["child_sites"] = array(); 
+
 $this->nav_array["home"]["file"] = "index.php"; 
 $this->nav_array["home"]["rel_path"] = "."; 
 $this->nav_array["home"]["link_name"] = "Home"; 
 $this->nav_array["home"]["link_chapter"] = ""; 
 $this->nav_array["home"]["link_pic"] = "pictures/icons/home"; 
 $this->nav_array["home"]["parent_site"] = "top"; 
-$this->nav_array["home"]["child_sites"] = array("fvwm_cats", "authors", ); 
+$this->nav_array["home"]["child_sites"] = array("fvwm_cats", "authors", "customize_theme", ); 
 
 $this->nav_array["logo_competition"]["file"] = "logo-competition/index.php"; 
 $this->nav_array["logo_competition"]["rel_path"] = "./.."; 

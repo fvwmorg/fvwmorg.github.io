@@ -8,41 +8,9 @@ require_once(class_file("base_class.inc"));
 
 class Default_Theme extends Base_Theme {
 
-    // member variables
-    var $rel_path;
-    var $style_array;
-    var $nav_array;
-    var $user_settings_array;
-    var $decoration_path_stack;
-    var $requested_file;
-    var $this_site;
-    var $navigation_file;
-
     function Default_Theme() {
+        $this->theme_name = "default";
         $this->init();
-    }
-
-    // default settings for this theme
-    function init_style_array() {
-        $this->style_array = array(
-            "theme"            => "default",
-            "decoration_path"  => $this->rel_path."/pictures/decorations/window_deco_simple_steelblue",
-            "window_border_bg" => "#c5cecd",
-            "window_border_fg" => "#ffffff",
-            "window_bg"        => "#003c3c",
-            "window_fg"        => "#ffffff",
-            "body_bg"          => "#000000",
-            "body_fg"          => "#ffffff",
-            "body_bg_image"    => $this->rel_path."/pictures/backgrounds/default_small.jpg",
-            "menu_bg"          => "#c5cecd",
-            "menu_fg"          => "#000000",
-            "windowlist_bg"    => "#c5cecd",
-            "windowlist_fg"    => "#000000",
-            "pager_bg"         => "#fafae8",
-            "pager_fg"         => "#000000",
-            "hilight_bg"       => "#1a6e99",
-            "hilight_fg"       => "#ffffff"
-            );    
     }
 
     // inserts a decoration picture
@@ -616,6 +584,45 @@ class Default_Theme extends Base_Theme {
             echo "</tr>\n";
         }
         echo "</table>\n";
+    }
+
+    function insert_css_definitions() {
+        echo "
+        body {
+            background-color:".$this->style_array["body_bg"].";
+            background-image:url(\"".$this->style_array['body_bg_image']."\");
+            color:".$this->style_array["body_fg"].";
+        }
+        .windowcontents {
+        	color:".$this->style_array["window_fg"]."; 
+        } 
+        a:link, a:visited, a:active, a:hover {
+        	color:".$this->style_array["link_fg"].";
+        }
+        a:visited {
+        	color:".$this->style_array["link_visited_fg"].";
+        }
+        a:focus, a:hover {
+        	background-color:".$this->style_array["link_fg"].";
+        	color:".$this->style_array["window_bg"].";
+        }
+        h2, h3, h4, h5 {
+        	color:".$this->style_array["heading_fg"].";
+        }
+        table.screenshots {
+        	border-color:".$this->style_array["link_fg"].";
+        }
+        p.cmdline {
+        	border-color: black;
+        	color:".$this->style_array["code_fg"].";
+        	background:".$this->style_array["code_bg"].";
+        }
+        pre.cvs, pre.doc, pre.linebreak {
+        	border-color: black;
+        	background:".$this->style_array["code_bg"].";
+        	color:".$this->style_array["code_fg"].";
+        }
+";  
     }
 
 }

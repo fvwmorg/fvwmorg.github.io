@@ -1,10 +1,21 @@
+2003-05-16  Uwe Pross  <uwe.pross@gmx.net>
+
+	* class + theme files:
+	added functionality to customize the page 
+	
+	* web-theme/classes/base_class.inc:
+	use theme description to init style_array
+	changed insert_timestamp to display change instead of access time.
+
+	* screenshots/desktops.php:
+	fixed gif entry in screenshot link.
+	
 2003-05-12  Dan Espen  <dane@mk.telcordia.com>
 
-	* screenshots/make-php.pl: Fixup comments, fix matching on lines in desktops.php,
-	put diff check back.
+        * screenshots/make-php.pl: Fixup comments, fix matching on lines in desktops.php,
+        put diff check back.
 
-	* screenshots/desktops.php: New screenshot from Maciej Delmanowski.
-	
+        * screenshots/desktops.php: New screenshot from Maciej Delmanowski.	
 
 2003-05-06  Dominik Vogt  <dominik.vogt@gmx.de>
 

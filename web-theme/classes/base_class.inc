@@ -7,6 +7,7 @@
 class Base_Theme {
 
     // member variables
+    var $theme_name;
     var $rel_path;
     var $style_array;
     var $nav_array;
@@ -39,9 +40,25 @@ class Base_Theme {
 
     // default settings for this theme
     function init_style_array() {
-        $this->style_array = array(
-            "theme"            => "default",
-            );
+        include(theme_file("theme_descriptions.inc"));
+        if( ! is_array($this->theme_descriptions[$this->theme_name]["style"]) ) {
+            $this->style_array = array();
+            return;
+        }
+        // print_r($_COOKIE);
+        foreach( $this->theme_descriptions[$this->theme_name]["style"] as $style => $desc ) {
+            if( isset($desc["value"]) ) {
+                if( $value = get_user_setting($style, array("GET", "POST", "SESSION", "COOKIE")) ) {
+                    $this->style_array[$style] = str_replace("@REL_PATH@", $this->rel_path, $value);
+                    // echo "$style -> $value <br>";
+                } else {
+                    $this->style_array[$style] = str_replace("@REL_PATH@", $this->rel_path, $desc["value"]);
+                }
+            }
+        }
+        // echo "<pre>";
+        // print_r($this->style_array);
+        // echo "</pre>";
     }
 
     function globals2internals() {
@@ -56,9 +73,12 @@ class Base_Theme {
 
     function set_user_settings() {
         $this->user_settings_array = array();
+        // override default settings by user settings
         foreach( $this->style_array as $key => $default ) {
-            if( $setting = my_get_global($key, "GET") ) {
+            if( $setting = get_user_setting($key, array("GET")) ) {
                 $this->user_settings_array[$key] = str_replace("#", "%23", $setting);
+                // $this->user_settings_array[$key] = $setting;
+                // $this->style_array[$key] = $this->user_settings_array[$key];
             }
         }
     }
@@ -68,7 +88,7 @@ class Base_Theme {
     // viewing pages was changed
     function insert_timestamp($file) {
         if( file_exists($file) ) {
-            echo 'Last modified on '.date('F d, Y', fileatime("$file"));
+            echo 'Last modified on '.date('F d, Y', filectime("$file"));
         }
     }
 

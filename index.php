@@ -56,12 +56,12 @@ and support is excellent.  Check it out!
 
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
 <tr>
-        <td>Latest Stable Release: &nbsp; </td>
-        <td><b><?php echo $latest_stable_release; ?></b></td>
+        <td class="windowcontents">Latest Stable Release: &nbsp; </td>
+        <td class="windowcontents"><b><?php echo $latest_stable_release; ?></b></td>
 </tr>
 <tr>
-        <td>Latest Unstable Release: &nbsp; </td>
-        <td><b><?php echo $latest_unstable_release; ?></b></td>
+        <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
+        <td class="windowcontents"><b><?php echo $latest_unstable_release; ?></b></td>
 </tr>
 </table>
 

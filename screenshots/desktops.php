@@ -39,14 +39,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 ?>
 <?php decoration_window_start("Desktop Screenshots"); ?>
+
 <h5>Click on the image for the full sized version.</h5>
+
     <table border="1" cellpadding="5" frame="void" rules="rows" 
            summary="fvwm screenshots" class="screenshots">
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Mikhael-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Mikhael-desk-thumbnail.jpg"
 	      border="0" alt="Mikhael Goikhman's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Mikhael Goikhman. This is a mix of different
 	  <a href="http://fvwm-themes.sf.net/">fvwm-themes</a> components
 	  plus some additional commands in FvwmConsole. This screenshot shows
@@ -62,40 +64,40 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td>
       </tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Dan-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Dan-desk-thumbnail.jpg"
 	      border="0" alt="Dan Espen's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Dan Espen, shows pixmap borders,
 	  the Fvwm2 setup dialog using FvwmForm,
 	  shaped icons, and a minimal use of fvwm modules.</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Michael-desk-1152x900.php');?>" target="screenshot_window">
 	    <img src="Michael-desk-thumbnail.gif"
 	      border="0" alt="Michael Han's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Michael Han,
 	  multistyle decorations including HGradient titles and a nice
 	  FvwmButtons, swallowing FvwmPager, procmeter and FvwmIconMan. Liberal
 	  use of MiniIcons.</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Robert-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Robert-desk-thumbnail.jpg"
 	      border="0" alt="Robert Ford's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Robert Ford,
 	  shows gradients in menus and titlebars, FvwmWharf, FvwmTaskBar,
 	  FvwmPager with pixmap backgrounds, some nice icons and mini-icons,
 	  and an interesting purple/blue color scheme.</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Dominik-desk1-1152x864.php');?>" target="screenshot_window">
 	    <img src="Dominik-desk1-thumbnail.jpg"
 	      border="0" alt="Dominik Vogt's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Dominik Vogt,
 	  shows soft gradients in menus and titlebars, a shaded window on the
 	  left side of the top edge, FvwmButtons on the bottom edge, some menus
@@ -106,11 +108,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  'Popup menu-name item +100 c' for this effect).
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Dominik-desk2-1152x864.php');?>" target="screenshot_window">
 	    <img src="Dominik-desk2-thumbnail.jpg"
 	      border="0" alt="Dominik Vogt's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Dominik Vogt,
 	  another one of my palettes (a list can be seen in the Palette menu),
 	  an example of the 'SubmenusLeft' menu style. I'm fixing a menu bug
@@ -118,40 +120,40 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  page with netscape 8-)
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Stric-desk1-1152x900.php');?>" target="screenshot_window">
 	    <img src="Stric-desk1-thumbnail.gif"
 	      border="0" alt="Tomas &Ouml;gren's Desktop"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Tomas &Ouml;gren,
 	  A pretty lean theme without any annoying thick borders.
           FvwmButtons, xmeter, xbuffy, gimp and some stuff on other pages.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Windows95-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Windows95-desk-thumbnail.jpg"
 	      border="0" alt="A Windows 95 like screenshot"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Redmond98 theme from <a href="http://fvwm-themes.sf.net/">
 	  fvwm-themes</a>.
 	  A pretty close Windows 95 look and feel can be duplicated with
 	  fvwm.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Paul_Johnson-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Paul_Johnson-desk-thumbnail.jpg"
 	      border="0" alt="A Window Maker like screenshot"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Paul E. Johnson.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Ives_Aerts-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Ives_Aerts-desk-thumbnail.jpg"
 	      border="0" alt="A Window Maker like screenshot"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Ives Aerts.
 	  The screenshot
 	  shows xmms, gfontsel, rxvt with vim and my FvwmButtons. The three
@@ -163,21 +165,21 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  mutt (mail reader), switch between windows and desks, etc.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Lee_Willis-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Lee_Willis-desk-thumbnail.jpg"
 	      border="0" alt="A fairly simple setup"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Lee Willis.
 	  A fairly simple setup, normally used with one window per page, very
 	  easy on the eye, and hardly any decorations to get in your way :)
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Jason_Kibble-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Jason_Kibble-desk-thumbnail.jpg"
 	      border="0" alt="Yet another theme"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Jason Kibblewhite.
 	  This is my current favorite fvwm theme. The buttons and gradients
 	  are based on an E fvwm theme which I thought looked quite spiffy.
@@ -186,14 +188,14 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  one has probably changed since this shot was taken.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Olivier_Chapuis-panelup-800x600.php');?>" target="screenshot_window">
 	    <img src="Olivier_Chapuis-panelup-thumbnail.jpg"
 	      border="0" alt="Panels up in a small screen"></a>
 	  <a href="<?php echo conv_link_target('Olivier_Chapuis-paneldown-800x600.php');?>" target="screenshot_window">
 	    <img src="Olivier_Chapuis-paneldown-thumbnail.jpg"
 	      border="0" alt="Panels down in a small screen"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Olivier Chapuis.
 	  Two screen shots in a small screen (800x600). The first one all
 	  panels up, the second one all panels down and the TaskBar hidden.
@@ -202,11 +204,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  run only if I use it: this saves my battery.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Andre_Bonhote-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Andre_Bonhote-desk-thumbnail.jpg"
 	      border="0" alt="Gnome stuff"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Andre Bonhote.
 	  My desktop shows (of course) fvwm,
 	  of which not much is being seen actually.
@@ -219,11 +221,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
 <!-- Second screenshot by Andre Bonhote -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Andre_Bonhote-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Andre_Bonhote-desk2-thumbnail.jpg"
 	      border="0" alt="Andre_Bonhote second version"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Second submission by Andre Bonhote.
           Normally, we show one screenshot per user, but just this once,
 	  we'll show how desktops evolve over time.  This was submitted Dec 2002,
@@ -238,22 +240,22 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  by xplanet and refreshed every 15 minutes.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Kendrick_Vargas-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Kendrick_Vargas-desk-thumbnail.jpg"
 	      border="0" alt="Fvwm Integrated with Gnome"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Kendrick Vargas.
 	  Fvwm2 integrated with GNOME (HelixCode) on RH 7.0 with FvwmGTK Menus,
 	  FvwmPager swallowed into a gnome-panel and showing Mozilla M18 as the web
 	  browser. GTK theme used is minEgtk.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Tenebrae-desk-800x600.php');?>" target="screenshot_window">
 	    <img src="Tenebrae-desk-thumbnail.jpg"
 	      border="0" alt="Light Marble GTK+ theme"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Tenebrae.
 	  Here's my latest screenshot running FVWM 2.2.4 under RedHat Linux 6.2.  I
 	  have a light marble GTK+ theme that I've extended manually onto my FVWM
@@ -264,22 +266,22 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  stuff.  Heres the <a href="Tenebrae.fvwm2rc">config file</a>.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('MURAKAMI_Tomokazu-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="MURAKAMI_Tomokazu-desk-thumbnail.jpg"
 	      border="0" alt="Kanji Enabled"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by MURAKAMI Tomokazu.
 	  This is FVWM version 2.3.22. It's compiled with the --enable-kanji
 	  option.  With this, I can use Nipponese satisfactorily.  Furthermore, I set
 	  up Emacs to be able to use JIS X 0213."
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('An_Thi_Nguyen_Le-desk1-1152x864.php');?>" target="screenshot_window">
 	    <img src="An_Thi_Nguyen_Le-desk1-thumbnail.jpg"
 	      border="0" alt="An_Thi-Nguyen_Le"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by An Thi-Nguyen Le.
 	  Simple  window  and    menu   decors  using diagonal     and
 	  backwards-diagonal gradients.    Buttons are actual defaults
@@ -291,11 +293,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	  system monitors.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('An_Thi_Nguyen_Le-desk2-1152x864.php');?>" target="screenshot_window">
 	    <img src="An_Thi_Nguyen_Le-desk2-thumbnail.jpg"
 	      border="0" alt="An_Thi_Nguyen_Le2"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Another  one  by An  Thi-Nguyen   Le.  I got  really  really
 	procrast-- I mean, bored, and fooled around with FvwmTheme for
 	a while.  This particular scheme is borrowing heavily from the
@@ -305,11 +307,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	something obscure called 3051.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
-	  <a href="An_Thi_Nguyen_Le-desk3-1152x864.gif" target="screenshot_window">
+      <tr valign="top"><td valign="middle" class="windowcontents">
+	  <a href="An_Thi_Nguyen_Le-desk3-1152x864.php" target="screenshot_window">
 	    <img src="An_Thi_Nguyen_Le-desk3-thumbnail.jpg"
 	      border="0" alt="An_Thi_Nguyen_Le3"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  A third  one by An Thi-Nguyen Le.   Here's also a screenshot
 	  of a   mockup of Gnutopia, a  rather  cheery BlackBox theme,
 	  with  the large   pager  retracted (another  thing I  fooled
@@ -318,21 +320,21 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 	</td></tr>
 
 <!-- Shawn Anderson resubmitted 22 Dec 2002 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('S_Anderson-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="S_Anderson-desk-thumbnail.gif"
 	      border="0" alt="S_Anderson"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Shawn Anderson.    After seeing An Thi-Nguyen  Le's
 	  screenshots(they are very nice BTW), I thought I would send one also
 	  :-). It is fvwm 2.3.28.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('GlenLeeEdwards-desk3-1024x768.php');?>" target="screenshot_window">
 	    <img src="GlenLeeEdwards-desk3-thumbnail.gif"
 	      border="0" alt="GlenLeeEdwards"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Glen Lee Edwards.
 This screenshot is intended to show the versatility of FvwmButtons.
 FvwmButtons can swallow programs as well as menu items.  There are 3
@@ -353,11 +355,11 @@ for even more FVWM
 screenshots and information.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('GlenLeeEdwards-desk4-1024x768.php');?>" target="screenshot_window">
 	    <img src="GlenLeeEdwards-desk4-thumbnail.gif"
 	      border="0" alt="GlenLeeEdwards"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Glen Lee Edwards.
 This screenshot demonstrates the WindowShade feature.
 Instead of using icons, you can scroll the window up into
@@ -368,11 +370,11 @@ All the buttons are user definable which further demonstrates
 FVWM's flexibility. 
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('J_C_Lawrence-desk-1920x1440.php');?>" target="screenshot_window">
 	    <img src="J_C_Lawrence-desk-thumbnail.gif"
 	      border="0" alt="J C Lawrence"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by J C Lawrence.
 The basic rules guiding this <a href="J_C_Lawrence.fvwm2rc">setup</a>:
 <ul>
@@ -396,19 +398,19 @@ The basic rules guiding this <a href="J_C_Lawrence.fvwm2rc">setup</a>:
  or X or WM widget or device.
 </ul>
 	</td></tr>
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Christian_Lyra-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Christian_Lyra-desk-thumbnail.gif"
 	      border="0" alt="Christian Lyra"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Christian Lyra.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('j_g_a_van_riswick-desk-1152x864.php');?>" target="screenshot_window">
 	    <img src="j_g_a_van_riswick-desk-thumbnail.jpg"
 	      border="0" alt="J G A van Riswick"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by J.G.A. van Riswick.
 This is a screen shot of fvwm mimicking the cde environment.
 The setup features motif-style window decorations and
@@ -427,11 +429,11 @@ CDEmu which includes config files and scripts
 here</a>.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('FilipHroch-desk-800x600.php');?>" target="screenshot_window">
 	    <img src="FilipHroch-desk-thumbnail.gif"
 	      border="0" alt="Filip Hroch"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Filip Hroch.
 Filip says: 
 I've been using Fvwm for many years. Two years ago I created by own
@@ -441,11 +443,11 @@ screenshots on the www.fvwm.org site and I'm therefore sending my
 screenshot with a dfm icon manager and a transparent aterm on the root window.
 	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Christian_Michon-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Christian_Michon-desk-thumbnail.gif"
 	      border="0" alt="Christian Michon"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Christian Michon, who says:
 <pre>
 Using fvwm-2.4.6 and loving it.
@@ -461,11 +463,11 @@ native PNG support.
 (Christian's wish was fulfilled.)
  	</td></tr>
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Remko_Troncon-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Remko_Troncon-desk-thumbnail.gif"
 	      border="0" alt="Remko Troncon"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Remko Troncon.
 Remko says:
 This screenshot shows a clean and simple desktop 
@@ -484,21 +486,21 @@ in the menus are mostly taken from the
  	</td></tr>
 
 	<!-- Cameron Simpson -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Cameron_Simpson-desk-2560x1024.php');?>" target="screenshot_window">
 	    <img src="Cameron_Simpson-desk-2560x1024-thumbnail.jpg"
 	      border="0" alt="Cameron Simpson"></a></td>
-	<td valign="middle">
+	<td valign="middle" class="windowcontents">
 	  Submitted by Cameron Simpson.  Uses Xinerama.
 This is the
 Zen style by Cameron Simpson,
 <a href="http://www.cskk.ezoshosting.com/cs/fvwm/index.html">details here</a>.
 
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Parv-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Parv-desk-thumbnail.jpg"
 	      border="0" alt="Parv"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Parv.
 Parv says:
 (fvwm 2.5.4) shows titles on bottom and on right hand side,
@@ -515,11 +517,11 @@ annotated version of the screen shot</a>.
  	</td></tr>
 
 <!-- Marc A Lehmann - submitted 22 Nov 2002 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Marc_A_Lehmann-desk-2880x1094.php');?>" target="screenshot_window">
 	    <img src="Marc_A_Lehmann-desk-thumbnail.jpg"
 	      border="0" alt="Marc_A_Lehmann"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Marc A. Lehmann.
 This is an Xinerama desktop showing some interesting side mounted titles,
 flat borders and gradients in the titlebars.
@@ -541,11 +543,11 @@ following:
  	</td></tr>
 
 <!-- Len Philpot - submitted 27 Dec 2002 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Len_Philpot-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Len_Philpot-desk-thumbnail.jpg"
 	      border="0" alt="Len_Philpot"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Len Philpot.
 Len says:
 it's simple (no transparent
@@ -561,11 +563,11 @@ FVWM man pages, which launch in their own xterms.
  	</td></tr>
 
 <!-- Brian Sturk - submitted 08 Feb 2003 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Brian_Sturk-desk-1280x1024.php');?>" target="screenshot_window">
 	    <img src="Brian_Sturk-desk-thumbnail.jpg"
 	      border="0" alt="Brian_Sturk"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Brian Sturk.
 Brian says:
 I run 2.4.9 on FreeBSD 4.7 and Slackware Linux.   The two
@@ -574,11 +576,11 @@ and gkrellm respectively.
  	</td></tr>
 
 <!-- Ploum - submitted 17 Feb 2003 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Ploum-desk-1152x864.php');?>" target="screenshot_window">
 	    <img src="Ploum-desk-thumbnail.jpg"
 	      border="0" alt="Ploum"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Ploum.
 Ploum says:
 
@@ -610,11 +612,11 @@ Yes, I hate taskbars and icons ! ;)
  	</td></tr>
 
 <!-- Taviso - submitted 17 Feb 2003 -->
-      <tr valign="top"><td valign="middle">
+      <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Taviso-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Taviso-desk-thumbnail.jpg"
 	      border="0" alt="Taviso"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Taviso.
 Taviso says:
 
@@ -642,11 +644,11 @@ blue to match my fvwm theme :)
  	</td></tr>
 
 <!-- Maciej Delmanowski - submitted 12 May 2003 -->
-       <tr valign="top"><td valign="middle">
+       <tr valign="top"><td valign="middle" class="windowcontents">
 	  <a href="<?php echo conv_link_target('Maciej_Delmanowski-desk-1024x768.php');?>" target="screenshot_window">
 	    <img src="Maciej_Delmanowski-desk-thumbnail.jpg"
 	      border="0" alt="Maciej_Delmanowski"></a></td>
-	  <td valign="middle">
+	  <td valign="middle" class="windowcontents">
 	  Submitted by Maciej_Delmanowski.
 Maciej says:
 
