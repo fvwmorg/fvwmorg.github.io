@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 08:22:18 uwp>
+//-  Last modified : <07.04.2003 12:57:16 uwp>
 //--------------------------------------------------------------------
 
 if (strlen($rel_path) == 0) $rel_path = ".";
@@ -89,6 +89,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     ?>
     </center>
       
+     <!--  
+       The following is _not_ html conform and will be removed in the
+       final version of this site. It is done here to keep debbuging 
+       stuff in the same file.
+     -->
     <style type="text/css">
     <!--
     a.done {

@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 10:20:53 uwp>
+//-  Last modified : <07.04.2003 12:54:59 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -784,8 +784,13 @@ function insert_quick_jump_list($site_array,$col_num=2) {
             push_decoration_path("pictures/decorations/window_deco_ice");
 	    insert_pager_navigation();
             pop_decoration_path();
-            echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SCRIPT_URI"].'&ss=" target="validation">html check&nbsp;</a><br>';
-            echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SCRIPT_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>';
+            // Add links to html and css checkers - hide them for the checker sites 
+            // since they seem not to be html-conform.
+            // echo $_SERVER["REMOTE_ADDR"]."<br>\n";
+            if( ! ereg("^212.219",$_SERVER["REMOTE_ADDR"]) ) {
+	      echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp;</a><br>'."\n";
+	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>'."\n";
+	    }
        ?></td>
       </tr>
 
