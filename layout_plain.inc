@@ -251,7 +251,7 @@ function decoration_title_bar($string="") {
 
 // inserts the upper and left corner of the window decoration
 function decoration_window_start($string="",$width="100%",$height="400",$padding="5") {
-	echo "<h3>$string</h3>";
+	// echo "<h3>$string</h3>";
 }
 
 // insert the right and lower corner of the window decoration
