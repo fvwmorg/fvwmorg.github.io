@@ -11,7 +11,7 @@ $rel_path = "..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include($rel_path.'/definitions.inc'); 
+include("$rel_path/definitions.inc"); 
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -27,14 +27,14 @@ $this_site      = "download";
 //--------------------------------------------------------------------
 // check if we should stop here
 //--------------------------------------------------------------------
-if( strlen("$navigation_check") > 0 ) return;
+if (strlen($navigation_check) > 0) return;
 
 //--------------------------------------------------------------------
 // load the layout file
 //--------------------------------------------------------------------
-if( strlen("$site_has_been_loaded") == 0 ) {
+if (strlen($site_has_been_loaded) == 0) {
   $site_has_been_loaded = "true";
-  include(sec_filename("$layout_file"));
+  include(sec_filename($layout_file));
   exit();
 }
 ?>
@@ -51,8 +51,12 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   
     <li>
       Latest Unstable Release (<b><?php echo $latest_unstable_release; ?></b>):
+<!--
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
+-->
+      <a href="http://fvwm.sf.net/tmp/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
+      <a href="http://fvwm.sf.net/tmp/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
 
     <li>
