@@ -181,7 +181,8 @@ class Default_Theme extends Base_Theme {
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_4").'); ">';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+            echo '<a href="./'.$this->requested_file.'?theme=birthday" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></a></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_2").'); ">';
             echo '<a href="./'.$this->requested_file.'?theme=plain" class="nohilight">';

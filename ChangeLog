@@ -1,7 +1,9 @@
-2003-06-01  Mikhael Goikhman  <migo@homemail.com>
+2003-06-01  Uwe Pross  <uwe.pross@gmx.net>
 
-	* index.php:
-	add explicit link to the birthday page
+	* web-theme/classes/birthday_class.inc: 
+	* web-theme/classes/default_class.inc:
+	* web-theme/themes/plain_theme.inc:
+	Added link to switch theme.
 
 2003-05-31  Mikhael Goikhman  <migo@homemail.com>
 

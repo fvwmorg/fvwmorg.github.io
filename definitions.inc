@@ -222,8 +222,8 @@ $user_agent = my_get_global("HTTP_USER_AGENT", "SERVER");
 
 // $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
-// just allow GET for birthday time - comment out previous line
-$theme = get_user_setting("theme", array("GET"));
+// just allow GET and POST for birthday time - comment out previous line
+$theme = get_user_setting("theme", array("GET", "POST"));
 
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
