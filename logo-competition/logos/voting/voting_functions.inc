@@ -108,13 +108,13 @@ your id for taking part on voting is
 
 You can insert this id in the web form at 
 
-   $base_url/fvwm-web/logo-competition/logos/voting/login.php
+   $base_url/fvwm-web/logo-competition/logos/voting/index.php
 
 or you can access the voting page directly by using this link:
 
    $base_url/fvwm-web/logo-competition/logos/voting/index.php?id=$id
 ",
-         "From: FVWM Voting <fvwm@fvwm.org>");
+         "From: FVWM Voting <fvwm-logo@lists.sf.net>");
 }
 
 function insert_color_list() {
