@@ -43,6 +43,8 @@ if( strlen($heading) == 0 ) $heading = $title;
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
 
+    <h1><blink>Testing version - Voting does not count yet !!!!</blink></h1>
+
     <h1><a href="http://www.fvwm.org">FVWM</a> - Logo Competition - Voting Page</h1>
 
     <?php 

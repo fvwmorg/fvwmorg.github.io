@@ -57,13 +57,8 @@ function change_bg_color(color) {
   <area shape="rect" coords="80,0,99,19" href="javascript:change_bg_color('#000000');" alt="black background" title="black background">
 </map>
 
-
-<!-- <h1><blink>This is a draft page!!! Voting is not possible yet</blink></h1> -->
-
 <?php 
-
 include_once(sec_filename("voting_functions.inc"));
-
 ?>
 
 <?php 
@@ -84,10 +79,27 @@ Using this web site you can vote for logos taking part on the fvwm logo competit
 <!-- -------------------------------------------------------------------- -->
 <!-- Rules                                                                -->
 <!-- -------------------------------------------------------------------- -->
-<h3>Voting rules</h3>
-<p>
-You can vote for one or more logos. To vote for a logo or a logo group check the box left beside the logo. 
-</p>
+<h2>About Voting</h2>
+<ul>
+   <li>You can vote for any number of logos - there is no limit to the
+     number of votes.<br><b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b></li>
+   <li>To vote for a logo or a logo group check the box left beside the logo. </li>
+   <li>Your are only allowed to vote once.
+     <br><b>Please hit the voting
+	   button at the bottom of this page after your are sure you have checked
+	   ALL logos you want to vote for</b>.<br>Changing your opinion
+   after submitting your voting is not possible.</li>
+   <li>Click on the logo or the link "Author page" to get to a page
+     where all logos of the logo's author are displayed</li>
+   <li>If you have JavaScript enabled you may change the background
+     color of this page to get an impression how this logo looks on
+     different background. This is done by clicking on the grey tone
+     images below the logos.</li>
+   <li>The order of logos at this page is incidental and will change
+     each time you reload this page.</li>
+   <li>During voting time there won't be announced any voting results.</li>
+</ul>
+<hr>
 
 <form action="vote.php" method="GET">
 
