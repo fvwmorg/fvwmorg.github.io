@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Usage: perllib2html .  # optional output directory relative to the script
+# Usage: manpages2html ../../../fvwm-2.4.x .  # both parameters are optional
 
 use strict;
 
@@ -12,6 +12,7 @@ unless (`man2html none 2>/dev/null | grep -i 'Content-type: text/html'`) {
 my $scriptDir = ($0 =~ m:(^.*?)/[^/]+$: ? $1 : ".");
 my $scriptName = ($0 =~ m:([^/]+)$:, $1);
 
+my $sourceDir = shift || "../../../fvwm";
 my $outputDir = $scriptDir;
 my $subdir = shift;
 $outputDir  =   $subdir  if $subdir && $subdir =~ m!^/!;
@@ -20,7 +21,7 @@ $outputDir .= "/$subdir" if $subdir && $subdir !~ m!^/!;
 my $HEADER = q(
 	<html>
 	<head>
-	<title>FVWM Perl Library - @topic@</title>
+	<title>FVWM Manpage - @topic@</title>
 	<style><!--
 	# All these may be commented out
 	#H1, H2 { margin-left: -0; }
@@ -34,7 +35,7 @@ my $HEADER = q(
 		bgcolor="#000000" text="#ffffff"
 		link="#a0ffa0" vlink="#c8eec8" alink="#44ff44">
 	<center>
-	<h1><font color="pink">FVWM Perl Library</font></h1>
+	<h1><font color="pink">FVWM Manpage</font></h1>
 	</center>
 );
 
@@ -45,10 +46,32 @@ my $FOOTER = q(
 	</html>
 );
 
+my $INDEX = q(
+	<h1>Index</h1>
+	<hr>
+	These pages were last generated on @date@ by @user@,
+	from the man pages in directory @source@.
+
+	<hr>
+	Start of man pages in section 1.
+	<ul>
+	@foreach@ topic in topics
+		<li><a href="@topic@.html">@topic@</a>
+	@endforeach@
+	</ul>
+
+	<hr>
+	Developer man pages (2.5.x only).
+	<ul>
+		<li><a href="../perllib/">Perl Library</a>
+	</ul>
+);
+
 my $namespace = {
 	date => `date '+%d-%b-%Y %T' | tr -d '\n'`,
 	user => $ENV{USER} || "mr_hacker",
 	script => $scriptName,
+	source => $sourceDir,
 	topic => "*unset-topic*",
 };
 
@@ -59,7 +82,7 @@ sub processTemplate ($) {
 	$text =~ s/\@foreach\@ (\w+) in (\w+)\n(.*?)\@endforeach\@\n/
 		my ($var, $list, $subTemplate) = ($1, $namespace->{$2}, $3);
 		join('', map { $namespace->{$var} = $_;
-			processTemplate($subTemplate); } @$list); 
+			processTemplate($subTemplate); } @$list);
 	/seg;
 	$text =~ s/@(\w+)@/$namespace->{$1}/mge;
 	return $text;
@@ -68,27 +91,30 @@ sub processTemplate ($) {
 sub saveFile ($$) {
 	my $fileName = shift;
 	my $text = shift;
-	open(OUT, ">$scriptDir/$fileName") || die($!);
+	open(OUT, ">$outputDir/$fileName") || die($!);
 	print OUT $text;
 	close(OUT) || die($!);
 }
 
 # ---- main ------------------------------------------------------------------
 
-my @topics = `fvwm-perllib cat` =~ /^ +([\w:]+)$/mg;
-my $topicRegExp = join("|", reverse @topics);
-print "Topics reported by fvwm-perllib cat:\n\t", join("\n\t", @topics), "\n";
+# currently only support .1 manpages, but it is possible to extend this
+my @files = map { chomp($_); $_ } `find $sourceDir -name '*.[1]'`;
+my @topics = map { m!/([^/]+)\.\d$!; $1 || "internal error" } @files;
+my %topic2file = ();
+foreach my $i (0 .. @topics - 1) { $topic2file{$topics[$i]} = $files[$i]; };
 
-foreach my $topic (@topics) {
+# sort topics like _we_ want, not just alphabetically
+@topics = sort { $a =~ /^fvwm2?$/? -1: $b =~ /^fvwm2?$/? 1: $a cmp $b } @topics;
+$namespace->{topics} = [ @topics ];
+my $topicRegExp = join("|", reverse @topics);
+print "Number of man pages found in $sourceDir: ", scalar @topics, "\n";
+
+foreach my $topic ("index", @topics) {
 	my $htmlFile = "$topic.html";
+	my $manFile = $topic2file{$topic} || "none.1";
 	print "Creating $htmlFile\n";
 	$namespace->{topic} = $topic;
-
-	my $sourceRefer = "";
-	if ($topic =~ /::/) {
-		my $srcFile = $topic . ".pm"; $srcFile =~ s!::!/!g;
-		$sourceRefer = qq(Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/$srcFile">$srcFile</a><br>\n);
-	}
 
 	# some fixes
 	my $fixCmd = q{perl -pe ' \
@@ -96,7 +122,9 @@ foreach my $topic (@topics) {
 	s!^(\.Vb.*)!%pre% %blockquote%!i; s!^(\.Ve.*)!%/pre% %/blockquote%!i; \
 	s!\\\\fB\\\\\\*\\(--!\\\\fB\\-\\-!; '};
 
-	local $_ = `fvwm-perllib raw $topic | $fixCmd | man2html -p`;
+	local $_ = $topic eq "index"?
+		processTemplate($INDEX):
+		`cat $manFile | $fixCmd | man2html -p`;
 
 	# skip cgi header and footer
 	s!^.*?<body>(.*)</body>.*$!$1!si;
@@ -104,11 +132,11 @@ foreach my $topic (@topics) {
 	# replace some output
 	s!\07!!g;
 	s!<FONT SIZE="-1">!<FONT>!ig;
-	s!(<A HREF=".*?">)Index!$sourceRefer$1This page contents!;
+	s!(<A HREF=".*?">)Index!$1This page contents!;
 	s!<A HREF=".*?">Return to Main Contents! - <a href="./">Return to main index!;
-	s!(<H1>)perllib(</H1>)!$1 . "Perl Library " . ucfirst($topic) . $2!e;
-	s!(<BR>)Updated(: )!$1Version$2!;
 	s!http://localhost/cgi-bin/man/man2html!./!g;
+	s!<A HREF="mailto:StartMenu@!<a name="local-fix:!g;
+	s!/1\+($topicRegExp)"!/$1.html"!g;
 
 	# correct example blocks
 	s!%(/?pre)%!<$1>!g;
@@ -120,8 +148,8 @@ foreach my $topic (@topics) {
 	# add links
 	s!^((?:<blockquote><pre>)?\s*)($topicRegExp)((?:</pre></blockquote>)?)$!$1<a href="./$2.html">$2</a>$3!mg;
 	s!(the )($topicRegExp)( manpage)!$1<a href="./$2.html">$2</a>$3!g;
-	s!(the )([Ff]vwm[\w-]*)( manpage)!$1<a href="../manpages/$2.html">$2</a>$3!g;
-	s!(<[BbIi]>)(fvwm)(</[BbIi]>)!$1<a href="../manpages/$2.html">$2</a>$3!g;
+	s!(<[bB]>)($topicRegExp)(</[bB]>)!$1<a href="./$2.html">$2</a>$3!g;
+	s!<a href="./$topic.html">$topic</a>!$topic!g;  # don't self-link
 
 	saveFile(
 		$htmlFile,

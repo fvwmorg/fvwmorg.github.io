@@ -1,49 +1,44 @@
 <html>
 <head>
 <title>FVWM Manpage - fvwm-menu-xlock</title>
+<style><!--
+# All these may be commented out
+#H1, H2 { margin-left: -0; }
+#BLACKQUOTE { margin-left: +48; }
+#P { margin-left: +24; }
+B { color: #ffffb0; }
+I { color: #b0ffff; }
+--></style>
 </head>
-  <body BACKGROUND="../../black-stone1.jpg"
-    bgcolor="#000000" text="#ffffff"
-    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<body BACKGROUND="../../black-stone1.jpg"
+	bgcolor="#000000" text="#ffffff"
+	link="#a0ffa0" vlink="#c8eec8" alink="#44ff44">
 <center>
-<h1><font color="pink">FVWM Manpage - fvwm-menu-xlock</font></h1>
+<h1><font color="pink">FVWM Manpage</font></h1>
 </center>
-<pre>
 
-</pre>
-	<style><!--
-	# All these may be commented out
-	#H1, H2 { margin-left: -0; }
-	#BLACKQUOTE { margin-left: +48; }
-	#P { margin-left: +24; }
-	B { color: #FFFFD0; }
-	I { color: #D0FFFF; }
-	--></style>
-    
-<HTML><HEAD><TITLE>Manpage of FVWM-MENU-XLOCK</TITLE>
-</HEAD><BODY>
 <H1>FVWM-MENU-XLOCK</H1>
-Section: Fvwm Utility (1)<BR>Updated: perl v5.6.0<BR><A HREF="#index">Index</A>
-- <A HREF="./">Return to Main Contents</A><HR>
+Section: Fvwm Utility (1)<BR>Updated: perl v5.6.0<BR><A HREF="#index">This page contents</A>
+ - <a href="./">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-fvwm-menu-xlock - builds xlock menu definition for <FONT SIZE="-1">FVWM</FONT>
+fvwm-menu-xlock - builds xlock menu definition for <FONT>FVWM</FONT>
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
 <B>fvwm-menu-xlock</B>
-[ <B>---help</B>|<B>-h</B> ]
-[ <B>---version</B>|<B>-v</B> ]
-[ <B>---name</B>|<B>-n</B> name ]
-[ <B>---title</B>|<B>-t</B> title ]
-[ <B>---item</B> format ]
-[ <B>---icon-title</B> icon ]
-[ <B>---icon-item</B> icon ]
-[ <B>---special-first</B>|<B>-s</B> ]
+[ <B>--help</B>|<B>-h</B> ]
+[ <B>--version</B>|<B>-v</B> ]
+[ <B>--name</B>|<B>-n</B> name ]
+[ <B>--title</B>|<B>-t</B> title ]
+[ <B>--item</B> format ]
+[ <B>--icon-title</B> icon ]
+[ <B>--icon-item</B> icon ]
+[ <B>--special-first</B>|<B>-s</B> ]
 [ --- xlock params ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
@@ -55,23 +50,23 @@ menu definition of all xlock's modes.
 <H2>OPTIONS</H2>
 
 <A NAME="ixAAE"></A>
-<B>---help</B>    - show the help and exit
+<B>--help</B>    - show the help and exit
 <P>
 
-<B>---version</B> - show the version and exit
+<B>--version</B> - show the version and exit
 <P>
 
-<B>---name</B> name - define menu name in the following argument.
+<B>--name</B> name - define menu name in the following argument.
 Default is ``XLockMenu''
 <P>
 
-<B>---title</B> title - define menu title in the following argument.
+<B>--title</B> title - define menu title in the following argument.
 Default is ``XLock Modes''.
 <P>
 
-<B>---item</B> format - define menu item format in the following argument,
-default is '%n\t(%d)'. <FONT SIZE="-1">TAB</FONT> can be specified as '\t', but in fvwmrc
-you should specify a double backslash or a real <FONT SIZE="-1">TAB</FONT>.
+<B>--item</B> format - define menu item format in the following argument,
+default is '%n\t(%d)'. <FONT>TAB</FONT> can be specified as '\t', but in fvwmrc
+you should specify a double backslash or a real <FONT>TAB</FONT>.
 <P>
 
 Format specifiers:
@@ -89,17 +84,17 @@ get only the 20 last characters, but if the length is less then 10 - to fill
 with up to 10 spaces on the right.
 <P>
 
-<B>---icon-title</B>, <B>---icon-item</B> - define menu icon for title and regular item
+<B>--icon-title</B>, <B>---icon-item</B> - define menu icon for title and regular item
 accordingly given in the following argument. Default is no menu icons
 (equivalent to an empty icon argument).
 <P>
 
-<B>---wm-icons</B> - define icon names suitable for use with wm-icons package.
+<B>--wm-icons</B> - define icon names suitable for use with wm-icons package.
 Currently this is equivalent to: --icon-title '' --icon-item
 menu/lock.xpm.
 <P>
 
-<B>---special-first</B> - instructs to include special modes (usually black,
+<B>--special-first</B> - instructs to include special modes (usually black,
 bomb and random) first.
 <P>
 
@@ -112,7 +107,7 @@ versions.
 Additional arguments (after <B>--</B>) will be passed to xlock.
 <P>
 
-Please see the <B><A HREF="./?1+xlock">xlock</A></B>(1) man page for the xlock options.
+Please see the <B><A HREF=".//1+xlock">xlock</A></B>(1) man page for the xlock options.
 <A NAME="lbAF">&nbsp;</A>
 <H2>USAGE</H2>
 
@@ -120,20 +115,12 @@ Please see the <B><A HREF="./?1+xlock">xlock</A></B>(1) man page for the xlock o
 Add these lines to your fvwm configuration file:
 <P>
 
-
-
-<PRE>
-  PipeRead 'fvwm-menu-xlock --name MenuSSaver --title &quot;Screensaver&quot; \
+<blockquote><pre>  PipeRead 'fvwm-menu-xlock --name MenuSSaver --title &quot;Screensaver&quot; \
     --icon-item mini-bball.xpm --special-first -- -nice 19 -nolock'
   PipeRead 'fvwm-menu-xlock --name MenuSLock --title &quot;Lock Screen&quot; \
     --icon-item mini-rball.xpm --special-first -- -nice 19'
   AddToMenu &quot;Utilities&quot; &quot;Screensaver%mini-monitor.xpm%&quot; Popup MenuSSaver
-  AddToMenu &quot;Utilities&quot; &quot;Screenlock%mini-lock.xpm%&quot;     Popup MenuSLock
-
-
-</PRE>
-
-
+  AddToMenu &quot;Utilities&quot; &quot;Screenlock%mini-lock.xpm%&quot;     Popup MenuSLock</pre></blockquote>
 <A NAME="lbAG">&nbsp;</A>
 <H2>AUTHORS</H2>
 
@@ -147,7 +134,7 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 
 <A NAME="ixAAH"></A>
 The script is distributed by the same terms as fvwm itself.
-See <FONT SIZE="-1">GNU</FONT> General Public License for details.
+See <FONT>GNU</FONT> General Public License for details.
 <A NAME="lbAI">&nbsp;</A>
 <H2>BUGS</H2>
 
@@ -175,13 +162,8 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 08:54:44 GMT, August 10, 2002
-</BODY>
-</HTML>
-</pre>
+Time: 14:22:00 GMT, September 17, 2002
 <hr>
-<!-- This file automatically generated by run_man2html.sh
-on Sat Aug 10 11:54:44 IDT 2002 -->
+<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
 </body>
 </html>
-

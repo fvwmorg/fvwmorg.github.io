@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>FVWM Manpage - fvwm24_convert</title>
+<title>FVWM Manpage - fvwm-convert-2.4</title>
 <style><!--
 # All these may be commented out
 #H1, H2 { margin-left: -0; }
@@ -17,37 +17,41 @@ I { color: #b0ffff; }
 <h1><font color="pink">FVWM Manpage</font></h1>
 </center>
 
-<H1>FVWM24_CONVERT</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+<H1>FVWM-CONVERT-2.4</H1>
+Section: FVWM Utilities (1)<BR>Updated: 25 April 2002<BR><A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
 <P>
-fvwm24_convert - convert FVWM 2.2.x configuration file to FVWM 2.4 syntax
+fvwm-convert-2.4 - convert FVWM 2.2.x configuration file to FVWM 2.4 syntax
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <P>
-<B>fvwm24_convert</B><I> source dest</I>
+<B>fvwm-convert-2.4</B>
+
+[<I>source</I>]
+
+[<I>dest</I>]
 
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <P>
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 converts an FVWM 2.2.x configuration file into an FVWM 2.4
 compatible syntax.  It is not suitable to convert older 1.x
 configuration files.  Please use
-<B>fvmmrc_convert</B>
+<B><a href="./fvwm-convert-2.2.html">fvwm-convert-2.2</a></B>
 
 to convert these to the 2.2.x format first.
 <P>
 
 By default,
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 converts
 <I>~/.fvwm2rc,</I>
@@ -65,12 +69,12 @@ Starting with the 2.4 release, the directory
 is the default location for fvwm user configuration files.
 Different source and destination files may be given.
 If the destination file already exists, this program exits.
-WHile the program runs it will generate a temporary file with
+While the program runs it will generate a temporary file with
 the same name as the destination file with the suffix &quot;.pass1&quot;
 added.
 <P>
 
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 makes the following changes:
 <DL COMPACT>
@@ -80,7 +84,7 @@ makes the following changes:
 In fvwm 2.4, the PixmapPath and IconPath commands are replaced by
 the ImagePath command.  In addition, the ImagePath can be compiled into
 fvwm.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 changes the PixmapPath and IconPath commands
 to ImagePath commands and removes any directories that are compiled
@@ -90,19 +94,19 @@ Paths starting with a dollar sign are also removed.
 
 <DD>
 In fvwm 2.4, the ModulePath is compiled into fvwm.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 removes any ModulePath commands it finds.
 If you are using your own modules, (not the ones that come with fvwm),
 you will have to fix your configuration file after using
-<B>fvwm24_convert.</B>
+<B>fvwm-convert-2.4</B>.
 
 <DT><B>HilightColor</B>
 
 <DD>
 In fvwm 2.4, the HighlightColor command is replaced by a Style command
 using the HilightFore and HilightBack arguments.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 makes these changes.
 <DT><B>HilightColorset</B>
@@ -111,7 +115,7 @@ makes these changes.
 In fvwm 2.4, the HighlightColorset command that was present in some of the
 2.3.x beta releases is replaced by a Style command
 using the HilightColorset style.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 makes these changes.
 <DT><B>WindowShadeAnimate</B>
@@ -119,7 +123,7 @@ makes these changes.
 <DD>
 In fvwm 2.4, the WindowShadeAnimate command is replaced by the
 WindowShadeSteps Style option.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 makes this change.
 <DT><B>WindowFont</B>
@@ -127,7 +131,7 @@ makes this change.
 <DD>
 In fvwm 2.4, the WindowFont command is replaced by a Style command
 using the Font argument.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 makes this change.
 <DT><B>ColorLimit</B>
@@ -135,7 +139,7 @@ makes this change.
 <DD>
 In fvwm 2.4, the ColorLimit command is automatic.  If you have a limited
 colormap, color limiting is the default.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 removes any ColorLimit command that it finds.
 <DT><B>GlobalOpts</B>
@@ -158,15 +162,15 @@ being read may need to be converted also.
 <DD>
 Any of the old placement Styles found in the file can not be
 converted automatically.  Instead,
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 prints a warning.  For details about the conversion, please refer to
-the &quot;Window manager placement&quot; section of the fvwm2 man page.
+the &quot;Window manager placement&quot; section of the fvwm man page.
 <DT><B>FvwmConfig and FvwmPipe</B>
 
 <DD>
 These modules are no longer a part of the fvwm distribution.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 prints a warning if these modules are found in the file.
 <DT><B>FvwmButtons panels</B>
@@ -174,7 +178,7 @@ prints a warning if these modules are found in the file.
 <DD>
 The syntax of panels in FvwmButtons has changed.  The conversion
 can not be done automatically.
-<B>fvwm24_convert</B>
+<B>fvwm-convert-2.4</B>
 
 prints a message when it encounters a potential panel definition.
 For details about the conversion, please refer to the
@@ -221,8 +225,8 @@ Dan Espen &lt;<A HREF="mailto:despen@telcordia.com">despen@telcordia.com</A>&gt;
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:22:00 GMT, September 17, 2002
+Time: 14:04:01 GMT, September 17, 2002
 <hr>
-<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
+<!-- Automatically generated by manpages2html on 17-Sep-2002 17:03:58 -->
 </body>
 </html>

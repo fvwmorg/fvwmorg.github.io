@@ -1,30 +1,25 @@
 <html>
 <head>
 <title>FVWM Manpage - FvwmForm</title>
+<style><!--
+# All these may be commented out
+#H1, H2 { margin-left: -0; }
+#BLACKQUOTE { margin-left: +48; }
+#P { margin-left: +24; }
+B { color: #ffffb0; }
+I { color: #b0ffff; }
+--></style>
 </head>
-  <body BACKGROUND="../../black-stone1.jpg"
-    bgcolor="#000000" text="#ffffff"
-    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<body BACKGROUND="../../black-stone1.jpg"
+	bgcolor="#000000" text="#ffffff"
+	link="#a0ffa0" vlink="#c8eec8" alink="#44ff44">
 <center>
-<h1><font color="pink">FVWM Manpage - FvwmForm</font></h1>
+<h1><font color="pink">FVWM Manpage</font></h1>
 </center>
-<pre>
 
-</pre>
-	<style><!--
-	# All these may be commented out
-	#H1, H2 { margin-left: -0; }
-	#BLACKQUOTE { margin-left: +48; }
-	#P { margin-left: +24; }
-	B { color: #FFFFD0; }
-	I { color: #D0FFFF; }
-	--></style>
-    
-<HTML><HEAD><TITLE>Manpage of FvwmForm</TITLE>
-</HEAD><BODY>
 <H1>FvwmForm</H1>
-Section: User Commands  (1)<BR>Updated: 6 October 2001<BR><A HREF="#index">Index</A>
-- <A HREF="./">Return to Main Contents</A><HR>
+Section: User Commands  (1)<BR>Updated: 6 October 2001<BR><A HREF="#index">This page contents</A>
+ - <a href="./">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
@@ -331,7 +326,9 @@ It saves the user some mouse-traveling.
 <DD>
 Specifies the FvwmForm window location.  This is similar to what
 the Position option does but is more flexible.
-<DT><B>*FvwmForm: Position </B><I>x</I><B> </B><I>y</I><B></B><DD>
+<DT><B>*FvwmForm: Position </B><I>x</I> <I>y</I>
+
+<DD>
 Puts the FvwmForm window at location (<I>x</I>, <I>y</I>) on the screen.
 By convention, a negative <I>x</I> (<I>y</I>) value measures
 distance from the right (bottom) of the screen.
@@ -430,7 +427,9 @@ rest of the message by resizing the form.
 You should not attempt to put any text, buttons or input fields on the
 same line after a message field.  Messages greater than 80 bytes will overlay
 the remainder of the line.
-<DT><B>*FvwmForm: PadVText &quot;</B><I>Pixels</I><B>&quot;</B><DD>
+<DT><B>*FvwmForm: PadVText </B><I>Pixels</I>
+
+<DD>
 The number of pixels used as vertical padding between text items, line
 to line.  The default is 6 which looks good on lines containing text
 intermixed with input boxes, choices or buttons.
@@ -440,17 +439,23 @@ zero looks better.
 <P>
 (There are lots of other padding values used in form layout
 which can't currently be changed with commands.)
-<DT><B>*FvwmForm: Text &quot;</B><I>string</I><B>&quot;</B><DD>
+<DT><B>*FvwmForm: Text </B><I>string</I>
+
+<DD>
 Displays <I>string</I> as plain text.
 Line breaks must be achieved by multiple *FvwmForm: Line and *FvwmForm: Text
 options.
 Blanks may be used to provide extra padding between items.
-<DT><B>*FvwmForm: Title &quot;</B><I>string</I><B>&quot;</B><DD>
+<DT><B>*FvwmForm: Title </B><I>string</I>
+
+<DD>
 Displays <I>string</I> as the window's title.  The string
 must be enclosed in double quotes.  Using this command with anything
 other than a string enclosed in quotes creates a blank title.
 If this command is not used, the window title is the form alias.
-<DT><B>*FvwmForm: Input </B><I>name</I><B> </B><I>size</I><B> &quot;</B><I>init_string</I><B>&quot;</B><DD>
+<DT><B>*FvwmForm: Input </B><I>name</I> <I>size</I> <I>init_string</I>
+
+<DD>
 Specifies a text input item with name <I>name</I>.
 A sub window of <I>size</I> characters in width is used for editing.
 If <I>init_string</I> is present, it is the initial string when
@@ -486,7 +491,9 @@ Meta(mod2)-&quot;&gt;&quot; retrieves the next value of an input field.
 <P>
 (For forms with one input field, use the much easier arrow keys.)
 <P>
-<DT><B>*FvwmForm: Selection </B><I>name</I><B> </B><I>type</I><B></B><DD>
+<DT><B>*FvwmForm: Selection </B><I>name</I> <I>type</I>
+
+<DD>
 This option starts a selection item with name <I>name</I>.
 Its choices are specified in following configuration commands.
 The option <I>type</I> is one of the following:
@@ -498,7 +505,9 @@ The selections are mutually exclusive.
 
 <DD>
 This is a multiple-choice selection.
-<DT><B>*FvwmForm: Choice </B><I>name</I><B> </B><I>value</I><B> &quot;on | off&quot; &quot;</B><I>string</I><B>&quot;</B><DD>
+<DT><B>*FvwmForm: Choice </B><I>name</I> <I>value</I> on | off <I>string</I>
+
+<DD>
 Specifies a choice for a preceeding selection.
 The choice item has a <I>name</I> and a <I>value</I> these are used in
 commands.  See *FvwmForm: Command.
@@ -512,7 +521,9 @@ FvwmForm does NOT detect inconsistencies in the initial states of the choices,
 i.e. two or none of the choices can be selected.
 However, once the user selects a choice,
 FvwmForm  assures only one is selected.
-<DT><B>*FvwmForm: Button </B><I>type</I><B> &quot;</B><I>string</I><B>&quot; [</B><I>key</I><B>]</B><DD>
+<DT><B>*FvwmForm: Button </B><I>type</I> <I>string</I> [<I>key</I>]
+
+<DD>
 This option specifies an action button.
 The button has <I>string</I> as a label,
 and executes a set of Fvwm <I>command</I> when it is activated.
@@ -547,7 +558,9 @@ Commands starting with an exclamation mark (!) are executed by FvwmForm,
 all other commands are sent to Fvwm for execution.
 Before sending each command to Fvwm, FvwmForm recognizes variables of the
 following forms, and supply values to them.
-<DT><B>$(</B><I>name</I><B>)</B><DD>
+<DT><B>$(</B><I>name</I>)
+
+<DD>
 If <I>name</I> corresponds to a text input field,
 the result is the user's input string.
 The special chars single-quote, double-quote and backslash
@@ -561,7 +574,9 @@ If the choice is not selected, the result is a blank string.
 If <I>name</I> corresponds to a selection,
 the result will be a list of the selected values of all its choices
 separated by spaces.
-<DT><B>$(</B><I>name</I><B>?</B><I>string</I><B>)</B><DD>
+<DT><B>$(</B><I>name</I>?<I>string</I>)
+
+<DD>
 If <I>name</I> is a text input field and its value is not an empty string,
 the result is <I>string</I>,
 with recursive variable substitution applied.
@@ -571,14 +586,18 @@ If <I>name</I> is a choice and it is selected,
 the result is <I>string</I>,
 with recursive variable substitution applied.
 If the choice is not selected, the result is empty.
-<DT><B>$(</B><I>name</I><B>!</B><I>string</I><B>)</B><DD>
+<DT><B>$(</B><I>name</I>!<I>string</I>)
+
+<DD>
 The same as the above, except that the converse conditions are taken.
 <P>
 When using the &quot;?&quot; and &quot;!&quot; forms to pass a string, the string is delimited
 by a right parenthesis.  If you need to put a right parenthesis in a string,
 preceed the right parenthesis with a backslash.
 <P>
-<DT><B>*FvwmForm: UseData </B><I>datafile</I><B> </B><I>leading</I><B></B><DD>
+<DT><B>*FvwmForm: UseData </B><I>datafile</I> <I>leading</I>
+
+<DD>
 Tells FvwmForm to read a data file and extract data from module
 commands that match the &quot;leading&quot; argument and an input,
 choice, or selection variable in a form.
@@ -916,13 +935,8 @@ No additional copyright is imposed.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 08:54:42 GMT, August 10, 2002
-</BODY>
-</HTML>
-</pre>
+Time: 14:21:58 GMT, September 17, 2002
 <hr>
-<!-- This file automatically generated by run_man2html.sh
-on Sat Aug 10 11:54:42 IDT 2002 -->
+<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
 </body>
 </html>
-

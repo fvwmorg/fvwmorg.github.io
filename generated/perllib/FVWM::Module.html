@@ -47,7 +47,7 @@ Section: FVWM Perl library (3)<BR>Version: FVWM 2.5.4 (from cvs)<BR>Source: <a h
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-An <FONT>FVWM</FONT> module is a separate program that communicates with the main <I>fvwm</I>
+An <FONT>FVWM</FONT> module is a separate program that communicates with the main <I><a href="../manpages/fvwm.html">fvwm</a></I>
 process, receives a module configuration and events and sends commands back.
 This class <B></B><FONT><B>FVWM:</B></FONT><B>:Module</B> makes it easy to create <FONT>FVWM</FONT> modules in Perl.
 <P>
@@ -127,7 +127,7 @@ These methods deal with configuration directories:
 
 <A NAME="ixAAF"></A>
 Creates a module object. Only one module instance may be created in the
-program, since this object gets exclusive rights on communication with <I>fvwm</I>.
+program, since this object gets exclusive rights on communication with <I><a href="../manpages/fvwm.html">fvwm</a></I>.
 
 
 <P>
@@ -191,7 +191,7 @@ This string is usually empty for the final version.
 
 <A NAME="ixAAI"></A>
 Returns remaining module arguments (array ref) passed in the command line.
-Arguments that are used for <I>fvwm</I>-to-module communication are not included.
+Arguments that are used for <I><a href="../manpages/fvwm.html">fvwm</a></I>-to-module communication are not included.
 Arguments that are automatically parsed using <I>EnableAlias</I> and/or
 <I>EnableOptions</I> specified in the constructor are not included.
 
@@ -228,8 +228,8 @@ This method may be finished when one of the following happens. 1) Explicit
 (system signals are independent from this event loop) decides to <I>die</I>.
 This is usually catched and a proper shutdown is done. 3) An event handler
 <I>die</I>d, in this case the module aborts, this is done on purpose to
-encourage programmers to fix bugs. 4) Communication with <I>fvwm</I> closed, for
-example <B>KillModule</B> called or the main <I>fvwm</I> process exited.
+encourage programmers to fix bugs. 4) Communication with <I><a href="../manpages/fvwm.html">fvwm</a></I> closed, for
+example <B>KillModule</B> called or the main <I><a href="../manpages/fvwm.html">fvwm</a></I> process exited.
 
 
 <P>
@@ -249,9 +249,9 @@ the module exits, define an <I></I><FONT><I>ON_EXIT</I></FONT><I></I> event hand
 
 <A NAME="ixAAL"></A>
 This is automatically called (if needed) when a module enters <B>eventLoop</B>,
-but sometimes you may want to tell <I>fvwm</I> that the module is fully ready
+but sometimes you may want to tell <I><a href="../manpages/fvwm.html">fvwm</a></I> that the module is fully ready
 earlier. This only makes sence if the module was run using
-<B>ModuleSynchronous</B> command, in this case <I>fvwm</I> gets locked until the module
+<B>ModuleSynchronous</B> command, in this case <I><a href="../manpages/fvwm.html">fvwm</a></I> gets locked until the module
 sends the ``ready'' notification.
 
 <BR>
@@ -263,9 +263,9 @@ sends the ``ready'' notification.
 
 <A NAME="ixAAM"></A>
 When an event was configured to be sent to a module synchronously using
-<I>SyncMask</I> and <I>SyncXMask</I>, <I>fvwm</I> gets locked until the module sends
+<I>SyncMask</I> and <I>SyncXMask</I>, <I><a href="../manpages/fvwm.html">fvwm</a></I> gets locked until the module sends
 the ``unlock'' notification. This is automatically sent (if needed) when a
-handler is finished, but sometimes a handler should release <I>fvwm</I> earlier.
+handler is finished, but sometimes a handler should release <I><a href="../manpages/fvwm.html">fvwm</a></I> earlier.
 
 <BR>
 
@@ -450,7 +450,7 @@ module.
 <P>
 
 
-The module is synchronized with <I>fvwm</I> on all packets matching these 2
+The module is synchronized with <I><a href="../manpages/fvwm.html">fvwm</a></I> on all packets matching these 2
 module synchronization masks (regular and extended).
 
 <BR>
@@ -493,7 +493,7 @@ with an addition of ``special'' category for <I></I><FONT><I>ON_EXIT</I></FONT><
 
 <A NAME="ixAAZ"></A>
 This is a blocking method that waits until there is a packet on the
-communication end from <I>fvwm</I>. Then it returns a list of 2 values,
+communication end from <I><a href="../manpages/fvwm.html">fvwm</a></I>. Then it returns a list of 2 values,
 packet type and packet data (packed).
 
 <BR>
@@ -597,7 +597,7 @@ Awaiting for your reporting.
 In keeping with the <FONT>UNIX</FONT> philosophy, <B></B><FONT><B>FVWM:</B></FONT><B>:Module</B> does not keep you from
 doing stupid things, as that would also keep you from doing clever things.
 What this means is that there are several areas with which you can hang your
-module or even royally confuse your running <I>fvwm</I> process. This is due to
+module or even royally confuse your running <I><a href="../manpages/fvwm.html">fvwm</a></I> process. This is due to
 flexibility, not bugs.
 <A NAME="lbAH">&nbsp;</A>
 <H2>AUTHOR</H2>
@@ -633,8 +633,8 @@ For more information, see the <a href="../manpages/fvwm.html">fvwm</a> manpage, 
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 01:49:20 GMT, September 17, 2002
+Time: 14:27:40 GMT, September 17, 2002
 <hr>
-<!-- This file automatically generated by perllib2html on 17-Tue-2002 04:49:14 -->
+<!-- Automatically generated by perllib2html on 17-Sep-2002 17:27:34 -->
 </body>
 </html>
