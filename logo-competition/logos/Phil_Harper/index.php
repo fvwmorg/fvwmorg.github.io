@@ -43,18 +43,31 @@ if (strlen($site_has_been_loaded) == 0) {
 <p>I've got some submissions for the contest, tiger might get resubmitted
 when I've worked out how to draw stripes on the tale that don't look crap. :)
 
-<p><i>(update)</i> After much GIMPing around I've got a pretty good fake fur
-look, more realistic ears and half decent tail, enjoy.
-
 <p>
 <img align=middle src="feeble.png">
 <img align=middle src="tiger.png">
+
+<p><i>[update]</i> After much GIMPing around I've got a pretty good fake fur
+look, more realistic ears and half decent tail, enjoy.
+
 <p>
 <img align=middle src="fakefur.png">
 <img align=middle src="tiger2.png">
+
+<p>Plain versions.
+
 <p>
 <img align=middle src="plain.png">
 <img align=middle src="black.png">
+
+<p>This seems to lend itself to wallpaper more than a logo, hmmm, I might try
+that later...
+
+Disclaimer: 100% Synthetic, no tigers were harmed during the production of
+this logo. ;)
+
+<p>
+<img align=middle src="tigerskin5.png">
 
 <?php decoration_window_end(); ?>
 

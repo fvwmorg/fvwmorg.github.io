@@ -89,22 +89,27 @@ border="0" hspace="0" vspace="0"></a>
 ?>" class="nohilight"><img src="logos/Tian/logo_shaded.png"
 border="0" hspace="0" vspace="0" width="266" height="143"></a>
 
-<p><a href="<?php echo conv_link_target('logos/Tian/index.php');
+&nbsp;
+<a href="<?php echo conv_link_target('logos/Tian/index.php');
 ?>" class="nohilight"><img src="logos/Tian/logo_sunny.png"
 border="0" hspace="0" vspace="0" width="266" height="143"></a>
 
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================ -->
-<?php decoration_window_start("By Phil Harper (6 images)", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (7 images)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
 ?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png"
-border="0" hspace="0" vspace="0"></a>
+border="0" hspace="0" vspace="0" align="middle"></a>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
 ?>" class="nohilight"><img src="logos/Phil_Harper/tiger2.png"
-border="0" hspace="0" vspace="0"></a>
+border="0" hspace="0" vspace="0" align="middle"></a>
+
+<a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
+?>" class="nohilight"><img src="logos/Phil_Harper/tigerskin6.png"
+border="0" hspace="0" vspace="0" align="middle"></a>
 
 <?php decoration_window_end(); ?>
 

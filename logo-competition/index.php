@@ -39,7 +39,7 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("New Logo Competition", "100%", ""); ?>
+<?php decoration_window_start("Overview", "100%", ""); ?>
 
 <h2>Welcome to FVWM Logo Competition</h2>
 
