@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 20:29:07 uwe>
+//-  Last modified : <01.04.2003 09:06:53 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -220,7 +220,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
   <h3 class="cats">What we love about our cats:</h3>
 
-  <ul>
+  <ul class="cats">
     <li>Their ears, tails and paws. And don't forget the whiskers.</li>
     <li>Each one is a unique character.</li>
     <li>Purring and cuddling.</li>
@@ -228,14 +228,14 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   </ul>
 
   <h3 class="cats">What we don't:</h3>
-  <ul>
+  <ul class="cats">
     <li>Piddling on the bed.</li>
     <li>Screeching for food.</li>
     <li>Sleeping <i>on</i> the keyboard.</li>
   </ul>
 
   <h3 class="cats">Quotes and trivia:</h3>
-  <ul>
+  <ul class="cats">
     <li>"Cats are like people: the females are the prickly ones and the males
       are good-natured idiots."</li>
     <li>"Will he ever stop feeding?"</li>

@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 20:34:00 uwe>
+//-  Last modified : <01.04.2003 09:09:35 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -717,12 +717,13 @@ function insert_quick_jump_list($site_array) {
 	 font-weight:bold;
        }
        h2.cats { 
+       text-decoration:underline;
        font-size:xx-large; 
        color:#ffff33;
        }
        h3.cats { 
        font-size:xx-large; 
-       color:#6666ff;
+       color:#8888ff;
        }
        h4.cats { 
        margin:0pt;
@@ -734,7 +735,7 @@ function insert_quick_jump_list($site_array) {
        font-weight:normal;
        margin:0pt;
        }
-       p.cats, h2.cats,  h3.cats, h4.cats, h5.cats{ 
+       p.cats, h2.cats,  h3.cats, h4.cats, h5.cats, ul.cats { 
        margin-left:5%;
        margin-right:5%;
        }
