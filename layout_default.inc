@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 10:56:06 uwp>
+//-  Last modified : <31.03.2003 12:29:07 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -523,7 +523,9 @@ function insert_pager_navigation() {
   // check if we are on a top site which has no child sites
   if( $count < 2 || ( ! strcmp(${$parent_site}["parent_site"],"top")  && 
 		      count(${$this_site}["child_sites"]) == 0 && 
-		      count(${$parent_site}["child_sites"]) <= $number_of_pages)) {
+		      count(${$parent_site}["child_sites"]) <= $number_of_pages - 1 )
+                 || ( $count == 2 &&
+		      count(${$this_site}["child_sites"]) <= $number_of_pages - 1)) {
     $navigation_array = $top_array;
   } else {
     // merge $parent_path and $actual_sub_sites
