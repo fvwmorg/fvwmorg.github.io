@@ -68,7 +68,10 @@ Displaying from shot no. <?php echo $show_start + 1; ?> -
 if( ! function_exists("my_show_shot") ) {
     function my_show_start() {
         global $theme_object;
-        $td_opts = ' bgcolor="'.$theme_object->style_array["window_border_bg"].'"'; 
+        if( ! $bg = $theme_object->style_array["window_border_bg"] ) {
+            $bg = "#c0c0c0";
+        }
+        $td_opts = ' bgcolor="'.$bg.'"'; 
         echo '<table border="0" width="100%" cellspacing="2" cellpadding="5" summary="">';
         echo "<tr>\n";
         echo "<th".$td_opts.">Preview</th>\n";
@@ -76,18 +79,26 @@ if( ! function_exists("my_show_shot") ) {
         echo "<th".$td_opts." width=\"99%\">Description</th>\n";
         echo "</tr>\n";
     }
-    function my_show_shot($preview, $screenshot, $date, $size, $desc, $adds=array() ) {
+    function my_show_shot($entry=array()) {
+        $preview     = $entry["path"]."/".$entry["preview"];
+        $screenshot  = $entry["path"]."/".$entry["screenshot"];
+        $date        = $entry["date"];
+        $size        = $entry["size"];
+        $dimension   = $entry["dimension"];
+        $description = $entry["description"];
+        $adds        = $entry["additions"];
         $td_opts = ''; 
         echo "<tr>\n";
         echo "<td".$td_opts.">";
         echo '<a href="'.$screenshot.'"><img src="'.$preview.'" border="1"></a>';
         echo "</td>";
         echo "<td".$td_opts.' align="center">';
-        echo date("y/m/d", $date)."<br><br>";
-        echo ceil($size/1024)."k";
+        echo date("y/m/d", $date)."<br>";
+        echo ceil($size/1024)."k<br>";
+        echo $dimension;
         echo "</td>";
         echo "<td".$td_opts.">";
-        echo $desc;
+        echo $description;
         echo "</td>";
         echo "</tr>\n";
     }
@@ -98,13 +109,7 @@ if( ! function_exists("my_show_shot") ) {
 
 my_show_start();
 for( $ii=$show_start; $ii<$show_start+$show_num; $ii++) {
-    $preview     = $db[$ii]["path"]."/".$db[$ii]["preview"];
-    $screenshot  = $db[$ii]["path"]."/".$db[$ii]["screenshot"];
-    $description = $db[$ii]["description"];
-    $date        = $db[$ii]["date"];
-    $size        = $db[$ii]["size"];
-    $adds        = $db[$ii]["additions"];
-    my_show_shot($preview, $screenshot, $date, $size, $description, $adds);
+    my_show_shot($db[$ii]);
 }
 my_show_end();
 

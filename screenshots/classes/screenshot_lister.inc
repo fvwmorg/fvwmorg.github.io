@@ -55,62 +55,94 @@ class Screenshot_Lister extends Directory_Lister {
     }
 
     function process_dir_array() {
+        
+        $my_processed_dir_array = array();
+        foreach( $this->dir_array as $key => $dir ) {
+            
+            $dirname = $dir["dirname"];
+            $dir_content_array = $dir["contents"];
 
-         foreach( $this->dir_array as $key => $dir ) {
-
-             $dirname = $dir["dirname"];
-             $dir_content_array = $dir["contents"];
-             
-             // get information form the directory array about preview and screenshot
-             $preview_entry     = $this->get_preview_entry($dir_content_array, array("^preview", "^thumb"));
-             $screenshot_entry  = $this->get_screenshot_entry($dir_content_array, array("^screen", "^desk", "^shot"));
-
-             // get the names, date and size
-             $preview     = $preview_entry["name"];
-             $screenshot  = $screenshot_entry["name"];
-             $date        = $screenshot_entry["date"];
-             $size        = $screenshot_entry["size"];
-             $description = $this->get_description($dir_content_array, $dirname, array("^desc"));
-
-             if( $preview && ! $this->check_previev($dirname."/".$preview, $dirname."/".$screenshot, "160x120") ) 
-                 $preview = 0;
-
-             if( $preview && $screenshot && $date && $size && $description ) {
-                 echo "Exporting ".$dirname."\n";
-                 $my_processed_dir_array["$date"."$key"]["path"]        = $dirname;
-                 $my_processed_dir_array["$date"."$key"]["preview"]     = $preview;
-                 $my_processed_dir_array["$date"."$key"]["screenshot"]  = $screenshot;
-                 $my_processed_dir_array["$date"."$key"]["date"]        = $date;
-                 $my_processed_dir_array["$date"."$key"]["size"]        = $size;
-                 $my_processed_dir_array["$date"."$key"]["description"] = $description;
-             } else {
-                 echo "WARNING: ".$dirname." is not valid.\n";
-             }
-
-         }
-         
-         // sort the shots by date 
-         krsort($my_processed_dir_array); 
-         
-         // create array having numbered index
-         $this->processed_dir_array = array();
-         $ii = 0;
-         foreach( $my_processed_dir_array as  $my_processed_dir ) {
-             $this->processed_dir_array[$ii++] = $my_processed_dir;
-         }
-    }
-
-    function check_previev($preview, $screenshot, $size="160x120") {
-        $output = exec("convert -verbose ".$preview." gif:/dev/null 2> /dev/null");
-        // echo $output."\n";
-        if( preg_match("/ ".$size."/", $output) ) {
-            return 1;
-        } else {
-            echo "Creating new preview for ".$screenshot."\n";
-            passthru("convert -verbose -scale ".$size." ".$screenshot." ".$preview." ");
-            return 1;
+            echo "Processing ${dirname} ..";
+            
+            // get information form the directory array about preview and screenshot
+            $preview_entry     = $this->get_preview_entry($dir_content_array, array("^preview", "^thumb"));
+            $screenshot_entry  = $this->get_screenshot_entry($dir_content_array, array("^screen", "^desk", "^shot"));
+            
+            // get the names, date and size
+            $preview     = $preview_entry["name"];
+            $screenshot  = $screenshot_entry["name"];
+            $date        = $screenshot_entry["date"];
+            $size        = $screenshot_entry["size"];
+            $description = $this->get_description($dir_content_array, $dirname, array("^desc"));
+            
+            if( $screenshot && 
+                ! $preview = $this->check_previev($preview, $screenshot, $dirname, "160x120") ) {
+                $preview = 0;
+            }
+            
+            if( ! $dimension = $this->get_dimension($dirname."/".$screenshot) ) {
+                $screenshot = 0;
+            }
+            
+            // echo "$preview , $screenshot \n";
+            
+            if( $preview && $screenshot && $date && $size && $description && $dimension ) {
+                echo ".. ok: Got $dimension ".ceil($size/1024)."k\n";
+                $my_processed_dir_array["${date}_${key}"]["path"]        = $dirname;
+                $my_processed_dir_array["${date}_${key}"]["preview"]     = $preview;
+                $my_processed_dir_array["${date}_${key}"]["screenshot"]  = $screenshot;
+                $my_processed_dir_array["${date}_${key}"]["date"]        = $date;
+                $my_processed_dir_array["${date}_${key}"]["size"]        = $size;
+                $my_processed_dir_array["${date}_${key}"]["dimension"]   = $dimension;
+                $my_processed_dir_array["${date}_${key}"]["description"] = $description;
+            } else {
+                echo ". \033[34;1mFAILED on [";
+                if( ! $preview ) echo " preview";
+                if( ! $screenshot ) echo " screenshot";
+                if( ! $description ) echo " description";
+                if( ! $dimension ) echo " dimension";
+                echo " ]\033[0m\n";
+            }
         }
         
+        // sort the shots by date 
+        krsort($my_processed_dir_array); 
+        
+        // create array having numbered index
+        $this->processed_dir_array = array();
+        $ii = 0;
+
+        foreach( $my_processed_dir_array as  $my_processed_dir ) {
+            $this->processed_dir_array[$ii++] = $my_processed_dir;
+        }
+    }
+    
+    function check_previev($preview, $screenshot, $path, $size="160x120") {
+        if( $preview ) {
+            $prev = "${path}/${preview}";
+            $output = exec("convert -verbose ${prev} gif:/dev/null 2> /dev/null");
+        } else {
+            $preview = "preview.gif";
+            $prev = "${path}/${preview}";
+            $output = "";
+        }
+        // echo $output."\n";
+        if( preg_match("/ ".$size."/", $output) ) {
+            return $preview;
+        } else {
+            echo "\nNo preview. Creating one from ${path}/${screenshot}\n";
+            passthru("convert -verbose -scale ${size} ${path}/${screenshot} ${prev}");
+            echo "Checking ${path} ..";
+            return $preview;
+        }       
+    }
+
+    function get_dimension($screenshot) {
+        $output = exec("convert -verbose ".$screenshot." gif:/dev/null 2> /dev/null");
+        // echo $output."\n";
+        $dim = preg_replace('/^.* (\d+x\d+)[\+ ].*$/', "$1", $output);
+        // echo $dim."\n";
+        return $dim;
     }
 
 }

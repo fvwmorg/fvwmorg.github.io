@@ -1,3 +1,10 @@
+2003-08-20  Uwe Pross  <uwe.pross@gmx.net>
+
+	* screenshots/classes/screenshot_lister.inc: 
+	* screenshots/desktops/update_screenshot_db.cli
+	improved concept - added image dimension and automatic generation
+	of preview images and further checks and outputs
+	
 2003-08-19  Uwe Pross  <uwe.pross@gmx.net>
 
 	* screenshots/classes/screenshot_lister.inc: 

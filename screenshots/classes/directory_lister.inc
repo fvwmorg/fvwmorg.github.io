@@ -73,8 +73,8 @@ class Directory_Lister {
                 echo "WARNING: Invalid ".$dir["name"].". Not added\n";
             }
         }
-        echo "Results:\n";
-        print_r($this->dir_array);
+        // echo "Results:\n";
+        // print_r($this->dir_array);
     }
     
     // nice export of variables
