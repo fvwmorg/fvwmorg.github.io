@@ -132,27 +132,27 @@ function export_nav($this_site, $export_depth = 0) {
   if( ${$this_site}["is_exported"] != 1 ) {
     // export information of this file
     fputs($nav_file, "\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["file"]         = "'.${$this_site}["file"].'"; '."\n");
-    // fputs($nav_file, '$nav_array["'.$this_site.'["url"]          = "'.${$this_site}["url"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["rel_path"]     = "'.${$this_site}["rel_path"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_name"]    = "'.${$this_site}["link_name"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_chapter"] = "'.${$this_site}["link_chapter"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_pic"]     = "'.${$this_site}["link_pic"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["parent_site"]  = "'.${$this_site}["parent_site"].'"; '."\n");
-    fputs($nav_file, '$nav_array["'.$this_site.'"]["child_sites"]  = array(');
-    reset($found_childs);
-    if( count($found_childs) > 0 ) {
-      $child_file = "";
-      list($index, $child_file) = each($found_childs);
-      fputs($nav_file, '"'.$child_file.'"');
-      while( list($index, $child_file) = each($found_childs) ) {
-        fputs($nav_file, ', "'.$child_file.'"');
-      }
+    $export_array = array("file", "rel_path", "link_name", "link_chapter", "link_pic", "parent_site", "child_sites");
+    foreach( $export_array as $entry) {
+      export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry]);
+      export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry], '$this->');
     }
-    fputs($nav_file, "); \n");
     ${$this_site}["is_exported"] = 1;
   } else {
     echo "$this_site has been exported already!!\n";
+  }
+}
+
+function export_entry($nav_file, $name, $entry, $value, $prefix = '$') {
+  fputs($nav_file, $prefix.'nav_array["'.$name.'"]["'.$entry.'"] = ');
+  if( is_array($value) ) {
+    fputs($nav_file, 'array(');
+    foreach( $value as $element ) {
+      fputs($nav_file, '"'.$element.'", ');
+    }
+    fputs($nav_file, "); \n");
+  } else {
+    fputs($nav_file, '"'.$value.'"; '."\n");
   }
 }
 
@@ -348,18 +348,13 @@ fputs($nav_file, "//============================================================
 fputs($nav_file, "\n");
 fputs($nav_file, "// Names of the top sites - you may change the order if you like.\n");
 fputs($nav_file, "// On the next run navgen will try to keep the order of this array.\n");
+
 fputs($nav_file, '$top_array = array('."\n");
-$site = "";
-/* migo: it is always good to have all lines with commas, less conflicts */
-/* uwp: I am not shure about this. 
-        The correct php systax should be array(1,2,3) not array(1,2,3,)  */
-/* migo: all C-like languages support trailing comma in declarations */
-/* uwp: If so, all top site entries can be written inside the loop 
-        In php4 we can use the foreach construct which more readable 
-   -- we might remove this comments in while ;-) -- */
-foreach( $top_array as $site ) {
-  fputs($nav_file, "  \"$site\",\n");
-}
+foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
+fputs($nav_file, "); \n");
+
+fputs($nav_file, '$this->nav_array["top_array"] = array('."\n");
+foreach( $top_array as $site ) fputs($nav_file, "  \"$site\", \n");
 fputs($nav_file, "); \n");
 
 // export sites recursively
@@ -379,7 +374,7 @@ reset($top_array);
 while( list($index, $this_site) = each($top_array) ) {
   info_output("Checking ".${$this_site}["file"]." for exporting\n", 5);
   if( ${$this_site}["is_exported"] != 1 ) {
-    info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n",0);
+    info_output( "** Warning: top site $this_site in file ".${$this_site}["file"]." was not exported\n", 0);
   }
 }
 
@@ -387,7 +382,7 @@ reset($child_file_array);
 while( list($index, $php_file) = each($child_file_array) ) {
   info_output("Checking $php_file for exporting\n", 5);
   if( $child_array["$php_file"]["is_exported"] != 1 ) {
-    info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n",0);
+    info_output("** Warning: child site ".$child_array["$php_file"]["this_site"]." in file ".$php_file." was not exported\n", 0);
   }
 }
 

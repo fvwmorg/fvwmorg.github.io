@@ -34,10 +34,6 @@ if (strlen("$navigation_check") > 0) return;
 //--------------------------------------------------------------------
 if( strlen("$site_has_been_loaded") == 0 ) {
   $site_has_been_loaded = "true";
-  if( strlen($layout) > 0 ) {
-    $file = $rel_path."/layout_".$layout.".inc";
-    if( file_exists($file) ) $layout_file = $file;
-  }
   include(sec_filename("$layout_file"));
   exit();
 }
