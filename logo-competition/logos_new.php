@@ -415,4 +415,17 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Greg Rymer (2 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Greg_Rymer/index.php'); ?>">
+
+<p><img src="logos/Greg_Rymer/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
