@@ -48,8 +48,7 @@ my $TEMPLATE_PAGE = q(
 	I { color: #b0ffff; }
 	--></style>
 	</head>
-	<body BACKGROUND="../../black-stone1.jpg"
-		bgcolor="#000000" text="#ffffff"
+	<body bgcolor="#000000" text="#ffffff"
 		link="#a0ffa0" vlink="#c8eec8" alink="#44ff44">
 	<center>
 	<h1><font color="pink">FVWM Manpage</font></h1>

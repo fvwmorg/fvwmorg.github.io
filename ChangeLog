@@ -3,6 +3,20 @@
 	* screenshots/desktops/Nuno_Alexandre-1600x1200/*:
 	added screenshot
 
+	* layout_plain.inc:
+	* layout_default.inc:
+	removed old layout file
+
+	* documentation/manpages/manpages2php: 
+	* documentation/perllib/perllib2php:
+	removed background settings
+
+	* black-stone1.jpg:
+	* fvwm-logo.gif:
+	* fvwm_smaller.gif:
+	* fvwm.gif:
+	removed old unused files
+
 2004-03-04  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/menus/Scott_Smedley/*:
