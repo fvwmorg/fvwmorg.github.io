@@ -19,6 +19,7 @@ $this->theme_descriptions = array(
                 "SteelBlue" => "@REL_PATH@/pictures/decorations/window_deco_simple_steelblue",
                 "Simple Blue" => "@REL_PATH@/pictures/decorations/window_deco_simple_blue",
                 "Aqua"       => "@REL_PATH@/pictures/decorations/window_deco_aqua",
+                "NanoGUI"    => "@REL_PATH@/pictures/decorations/window_deco_nanogui",
                 "FireBrick"  => "@REL_PATH@/pictures/decorations/window_deco_simple_firebrick",
                 "Ice"        => "@REL_PATH@/pictures/decorations/window_deco_ice",
                 "After Step" => "@REL_PATH@/pictures/decorations/window_deco_as",

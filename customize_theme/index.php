@@ -67,8 +67,7 @@ decoration_window_start("Please make your selection");
 
 ?>
 
-<h4>Warning: This feature is currently under development.
-  Some of the functionality this site provides may therefore not work properly. </h4>
+<h2>Test version - Under development</h2>
 
 <table summary="" class="windowcontents">
   <tr>
