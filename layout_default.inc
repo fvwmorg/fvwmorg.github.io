@@ -44,8 +44,8 @@ function debug($string, $level=1) {
   if($level>0) echo $string."<br>";
 }
 
-// override relative path which is defined in the php files
-$rel_path = ${$this_site}["rel_path"];
+// set relative path which is defined in the php files
+if( ! isset($rel_path) ) $rel_path = ${$this_site}["rel_path"];
 
 //--------------------------------------------------------------------
 //- variable definitions
