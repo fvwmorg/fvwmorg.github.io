@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : index.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <30.03.2003 11:39:38 uwe>
 //--------------------------------------------------------------------
 
-if( strlen($rel_path)==0 ) $rel_path=".";
+if (strlen($rel_path) == 0) $rel_path = ".";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,9 +17,9 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM Homepage";
-$heading        = "Welcome to the Official Home Page of FVWM";
-$link_name      = "FVWM&nbsp;Home";
+$title          = "The Official FVWM Home Page";
+$heading        = "Welcome to The Official FVWM Home Page";
+$link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array("fvwm_cats");
@@ -49,18 +49,20 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 }
 
 ?>
-  <?php decoration_window_start("Official Homepage of Fvwm"); ?>
+  <?php decoration_window_start("The Official Home Page of FVWM"); ?>
   <p>
     FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
     window manager for the X&nbsp;Window system.  Development is active,
     and support is excellent.  Check it out!
   </p>
-  
+
+<!--
   <h3>NEWS FLASH!</h3>
   <p>
     as of January 2003 FVWM 2.4.15, a stable
     release, is now available for <a href="download.php">download</a>.
   </p>
+-->
 
   <a href="index.html">old html version</a>
   
@@ -75,34 +77,37 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <td><b>2.5.6</b></td>
     </tr>
   </table>
- 
-  <?php
-      insert_quick_jump_list(array("download",
-				   "features",
-				   "doc_faq",
-				   "screenshots",
-				   "doc_manpages",
-				   "example_menus",
-				   "example_vectorbuttons",
-				   "example_pixmapbuttons",
-				   "download_icons",
-				   "contact_mailing_list",
-				   "contact_mail_archive",
-				   "doc_developer",
-				   "doc_acknowledgements",
-				   "fvwm_cats"));
+
+  <!-- migo: names should include subdirs, not to be flat, i.e. "doc/faq" -->
+  <?php insert_quick_jump_list(array(
+    "download",
+    "features",
+    "faq",
+    "screenshots",
+    "manpages",
+    "example_menus",
+    "example_vectorbuttons",
+    "example_pixmapbuttons",
+    "icons",
+    "mailing_lists",
+    "mail_archive",
+    "developer",
+    "acknowledgements",
+    "fvwm_cats"));
    ?>
  
   <hr>
-  
+
   <b>
     For the time of development latest changes on this web tree are 
     stated here. This part is going to be removed before the web site
-    is published officially.
+    is published officially. The contents of latest_news.txt follows:
   </b>
   
   <pre>
-<?php if(file_exists("latest_news.txt")) include "latest_news.txt";
+  <?php
+      if (file_exists("latest_news.txt"))
+         include "latest_news.txt";
       else
          echo "file latest_news.txt does not exist.";
   
@@ -113,8 +118,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
    ?>
 
 <!--
+  Please don't modify the rest of the page. Reserved for mirrors.
+-->
+<!--
   This is the original source. Mirrors should replace this comment.
 -->
 
-<!--  LocalWords:  FVWM
- -->
+<!-- LocalWords: FVWM
+-->

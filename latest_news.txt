@@ -1,3 +1,8 @@
+No latest news for now. :)
+
+</pre><!--
+migo: This should be documented in ChangeLog, not latest_news.txt
+
 Mon Mar 31 2003 [uwp]:
 * user settings given via url like
    http://www.fvwm.org/index.php?window_bg=%23990000&pager_bg=%23ffffff
@@ -44,3 +49,4 @@ Wed Mar 26 2003 [uwp]:
 * Added new empty sub pages doc_faq.php doc_manpages.php and
   download_icons.php.
 
+--><pre>

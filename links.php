@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : links.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <17.03.2003 19:16:12 uwe>
 //--------------------------------------------------------------------
 
-$rel_path=".";
+$rel_path = ".";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,13 +17,13 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Official FVWM Home Page - Links";
+$title          = "FVWM - Links";
 $link_name      = "Links";
 $link_picture   = "pictures/icons/links";
 $parent_site    = "top";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here

@@ -1,12 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : download_icons.php
-//-  Project       : Fvwm Home page
+//-  File          : contact/mail_archive.php
+//-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <27.03.2003 21:43:26 uwe>
+//-  Last modified : <27.03.2003 21:43:57 uwe>
 //--------------------------------------------------------------------
 
-if( strlen($rel_path)==0 ) $rel_path="./..";
+if (strlen($rel_path) == 0) $rel_path = "./..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -16,14 +16,14 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM Sub site - download_icons.php";
-$heading        = "FVWM Sub site - download_icons.php";
-$link_name      = "Icons";
-$link_picture   = "pictures/icons/download_icons";
-$parent_site    = "download";
+$title          = "FVWM - Mail Archive";
+$heading        = "FVWM - Mail Archive";
+$link_name      = "Mail Archive";
+$link_picture   = "pictures/icons/contact_mail_archive";
+$parent_site    = "contact";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here

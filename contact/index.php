@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : contact.php
-//-  Project       : Fvwm Home page
+//-  File          : contact/index.php
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <28.03.2003 07:37:02 uwp>
 //--------------------------------------------------------------------
 
-$rel_path="..";
+$rel_path = "..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,11 +17,11 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Contact";
-$link_name      = "Contact";
+$title          = "FVWM - Contact";
+$link_name      = "FVWM - Contact";
 $link_picture   = "pictures/icons/contact";
 $parent_site    = "top";
-$child_sites    = array("contact_mail_archive","contact_mailing_list");
+$child_sites    = array("mail_archive", "mailing_lists");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "contact";
 

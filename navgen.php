@@ -1,7 +1,7 @@
 <html>
   <!--------------------------------------------------------------------- -->
   <!--  File          : navgen.php                                        -->
-  <!--  Project       : Fvwm Homepage                                     -->
+  <!--  Project       : FVWM Home Page                                    -->
   <!--  Date          : 26.11.2002                                        -->
   <!--  Programmer    : Uwe Pross                                         -->
   <!--  Last modified : <30.03.2003 12:44:47 uwe>                         -->
@@ -417,6 +417,9 @@ while( list($index,$php_file) = each($child_file_array) ) {
 <!-- $Id$ -->
 
 <!-- $Log$
+<!-- Revision 1.2  2003/03/31 12:43:15  migo
+<!-- * some file name rearrangements, small fixes and consistency changes
+<!--
 <!-- Revision 1.1  2003/03/31 09:18:00  uwp
 <!-- New version of fvwm web page - Init version
 <!--

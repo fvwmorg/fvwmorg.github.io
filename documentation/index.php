@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : documentation.php
-//-  Project       : Fvwm Home page
+//-  File          : documentation/index.php
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <28.03.2003 07:41:23 uwp>
 //--------------------------------------------------------------------
 
-$rel_path="..";
+$rel_path = "..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,11 +17,11 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Documentations";
+$title          = "FVWM - Documentation";
 $link_name      = "Docs";
 $link_picture   = "pictures/icons/documentation";
 $parent_site    = "top";
-$child_sites    = array("doc_faq", "doc_manpages");
+$child_sites    = array("faq", "manpages");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = "documentation";
 

@@ -1,13 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : screenshots_decor.php
-//-  Project       : Fvwm Home page
-//-  Date          : Fri Mar 14 21:32:08 2003
+//-  File          : documentation/manpages.php
+//-  Project       : FVWM Home Page
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 10:17:18 uwp>
+//-  Last modified : <27.03.2003 21:46:23 uwe>
 //--------------------------------------------------------------------
 
-$rel_path="./..";
+if (strlen($rel_path) == 0) $rel_path = "./..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,13 +16,14 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Fvwm - Window Decoration Screenshots";
-$link_name      = "Decors";
-$link_picture   = "pictures/icons/screenshots_decor";
-$parent_site    = "screenshots";
+$title          = "FVWM - Man Pages";
+$heading        = "FVWM - Man Pages";
+$link_name      = "Man Pages";
+$link_picture   = "pictures/icons/doc_manpages";
+$parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -43,4 +43,6 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   exit();
 }
 ?>
+
+-- site contents go here --
 

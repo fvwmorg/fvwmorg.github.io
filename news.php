@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : news.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <20.03.2003 17:58:30 uwe>
 //--------------------------------------------------------------------
 
-$rel_path=".";
+$rel_path = ".";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,7 +17,7 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "The Official FVWM Homepage - NEWS Information";
+$title          = "FVWM - NEWS";
 $link_name      = "News";
 $link_picture   = "pictures/icons/news";
 $parent_site    = "top";

@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
 //-  File          : features.php
-//-  Project       : Fvwm Home page
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <25.03.2003 09:05:28 uwp>
 //--------------------------------------------------------------------
 
-$rel_path=".";
+$rel_path = ".";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,13 +17,13 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Official FVWM Home Page - Features";
+$title          = "FVWM - Features";
 $link_name      = "Features";
 $link_picture   = "pictures/icons/features";
 $parent_site    = "top";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -45,7 +45,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 ?>
 
 
-<?php decoration_window_start("Fvwm features"); ?>
+<?php decoration_window_start("Major FVWM Features"); ?>
 
 <h2>Partial list of features new to 2.5.x</h2>
 

@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : screenshots_menu.php
-//-  Project       : Fvwm Home page
+//-  File          : screenshots/desktops.php
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 10:22:29 uwp>
+//-  Last modified : <31.03.2003 10:17:40 uwp>
 //--------------------------------------------------------------------
 
-$rel_path="./..";
+$rel_path = "./..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,13 +17,13 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Fvwm - Window Menu Screenshots";
-$link_name      = "Menus";
-$link_picture   = "pictures/icons/screenshots_menu";
+$title          = "FVWM - Desktop Screenshots";
+$link_name      = "Desktops";
+$link_picture   = "pictures/icons/screenshots_desks";
 $parent_site    = "screenshots";
-$child_sites    = array();
+$child_sites    = array("screen_test");
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = str_replace(".php","","$requested_file");
+$this_site      = str_replace(".php", "", "$requested_file");
 
 //--------------------------------------------------------------------
 // check if we should stop here

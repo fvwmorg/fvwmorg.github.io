@@ -1,13 +1,13 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : index.php
-//-  Project       : Fvwm Home page
+//-  File          : fvwm_cats/index.php
+//-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
 //-  Last modified : <30.03.2003 11:39:13 uwe>
 //--------------------------------------------------------------------
 
-$rel_path="..";
+$rel_path = "..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -17,8 +17,8 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Fvwm Cats";
-$link_name      = "Fvwm Cats";
+$title          = "The Official FelineVWM Home Page - Cats";
+$link_name      = "Cats";
 $link_picture   = "pictures/icons/fvwm_cats";
 $parent_site    = "home";
 $child_sites    = array();
