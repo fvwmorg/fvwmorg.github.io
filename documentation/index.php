@@ -41,4 +41,26 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   include(sec_filename("$layout_file"));
   exit();
 }
+
+decoration_window_start("Fvwm Documentations");
+
 ?>
+
+  <center>
+    <table cellpadding="10" cellspacing="0" border="0" 
+	   width="90%" frame="void" rules="none" summary="">
+      <tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('faq.php');?>"><img src="documentation_faq_overview.jpg" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>"><img src="documentation_developers_overview.jpg" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>"><img src="documentation_manpages_overview.jpg" border="0"></a></td>
+      </tr>
+      <tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('faq.php');?>">Frequently Asked Questions</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>">Developer Information</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>">Fvwm Manpages</a></td>
+      </tr>
+    </table>
+  </center>
+
+<?php decoration_window_end(); ?>
+
