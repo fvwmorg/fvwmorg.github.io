@@ -690,6 +690,8 @@ function insert_quick_jump_list($site_array,$col_num=2) {
     <meta name="robots" content="index">
     <meta name="robots" content="follow">
 
+    <link rel="shortcut icon" href="fvwm.ico">
+
     <title><?php print $title; ?></title>
 
     <style type="text/css">

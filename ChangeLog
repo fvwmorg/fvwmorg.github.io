@@ -1,3 +1,7 @@
+2003-04-07  Dan Espen  <dane@mk.telcordia.com>
+
+	* layout_default.inc: Add favicon to php page.
+
 2003-04-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* screenshots/index.php: 
