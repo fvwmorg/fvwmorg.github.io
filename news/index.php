@@ -139,6 +139,17 @@ decoration_window_start("Latest News");
 </center>
 <a name="2.5.13"></a>
 <h4>Changes in beta release 2.5.13 (not released yet) <a href="#top">[top]</a></h4>
+<ul>
+  <li> Bug Fixes:</li>
+  <li> The MoveToPage command did not work without arguments in     2.5.11 and 2.5.12.</li>
+  <li> Mouse/Key command no args possible core dump.</li>
+  <li> Direction with no args possible core dump.</li>
+  <li> New module features:</li>
+  <li> FvwmIconMan: MaxButtonWidth and MaxButtonWidthByColumns options.</li>
+  <li> FvwmIconMan: added tool tips with Tips, TipsDelays, TipsFont,     TipsColorset, TipsFormat, TipsBorderWidth, TipsPlacement,     TipsJustification and TipsOffsets options.</li>
+</ul>
+
+
 <a name="2.5.12"></a>
 <h4>Changes in alpha release 2.5.12 (6-Oct-2004) <a href="#top">[top]</a></h4>
 <ul>

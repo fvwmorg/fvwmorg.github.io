@@ -194,6 +194,9 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_5.14"></a>    <a href="#5.14">5.14</a>  I'm running Rational Rose and fvwm ignores its windows.
 <a name="toc_5.15"></a>    <a href="#5.15">5.15</a>  Although I use the WindowListSkip style for my modules
           they still show up in FvwmIconMan, FvwmWinList etc.
+<a name="toc_5.16"></a>    <a href="#5.16">5.16</a>  When I Maximize an application, sometimes I get gaps
+          around the edges, and other times I don't.  What's going
+          on?
 
 <a name="toc_6."></a><a href="#6.">6.</a> Miscellaneous
 
@@ -478,7 +481,8 @@ A: Some people find this annoying, but let me say that I did that for
           they are running.
 
    Note, starting from 2.5.1, the executable fvwm2 became fvwm again.
-   Also, starting from 2.5.11, the default config file is fvwm/config.
+   Also, starting from 2.5.11, the default config file is either
+   personal ~/.fvwm/config or system wide $datadir/fvwm/config.
    So, we completely returned to the &quot;fvwm&quot; name.
 
 ----------------------------------------------------------------------
@@ -2305,6 +2309,25 @@ A: Make sure you have
    using may not match the fvwm executable.  Recompile and reinstall
    everything and the problem should go away.
 
+----------------------------------------------------------------------
+
+<a name="5.16"></a><a href="#toc_5.16">5.16</a>  When I Maximize an application, sometimes I get gaps around
+      the edges, and other times I don't.  What's going on?
+
+A: The ICCCM specification allows applications to specify certain
+   properties the window manager should honour, such as aspect
+   ratio (PAspect) or increments to be resized in (PResizeInc).  Of
+   course, sometimes these properties won't perfectly match the
+   size of your desktop (or ewmh struts), if that should happen,
+   you will get gaps.
+
+   In general, the application will have a good reason for doing
+   this (for example, a terminal window may not want to have only
+   part of a column visible), but you can make fvwm ignore the
+   hints with
+
+     Style * ResizeHintOverride
+
 ======================================================================
 <a name="6."></a>                          <a href="#toc_6.">6</a> - Miscellaneous
 ======================================================================
@@ -3004,12 +3027,12 @@ your applications request.
    not use precious desktop space.  It is possible to write some
    small functions in fvwm that can hide any window you like:
 
-   fvwm-2.5.8 or later:
+   fvwm-2.5.11 or later:
 
      # The autohiding functions
      AddToFunc autohide
      + I ThisWindow ($0) Deschedule $[w.id]
-     + I ThisWindow ($0) ThisWindow (shaded) WindowShade off
+     + I ThisWindow ($0) KeepRc ThisWindow (shaded) WindowShade off
      + I TestRc (!Match) All ($0, !shaded) autohide_hide $1 $2
 
      AddToFunc autohide_hide
@@ -3040,12 +3063,13 @@ your applications request.
    difference is that showing the window does not happen
    immediately, but can be delayed too.
 
-   fvwm-2.5.8 or later:
+   fvwm-2.5.11 or later:
 
      AddToFunc autohide
      + I ThisWindow ($0) Deschedule $[w.id]
      + I TestRc (!Match) Deschedule -$[w.id]
-     + I ThisWindow ($0) ThisWindow (shaded) autohide_show $1 $3
+     + I ThisWindow ($0) KeepRc ThisWindow (shaded) \
+         autohide_show $1 $3
      + I TestRc (!Match) All ($0, !shaded) autohide_hide $2 $3
 
      AddToFunc autohide_show
@@ -3068,6 +3092,10 @@ your applications request.
      #            |           |   |______  Hide delay
      #            |           |__________  Show delay
      #            |______________________  Unique window name/resource
+
+   These functions work too in 2.5.8 to 2.5.10, but you may have
+   to remove the KeepRc command from the autohide function in both
+   versions.
 
 ----------------------------------------------------------------------
 
