@@ -42,6 +42,7 @@ class Base_Theme {
     function init_style_array() {
         include(theme_file("theme_descriptions.inc"));
         $this->style_array = array();
+        // echo $this->theme_name;
         if( ! is_array($this->theme_descriptions[$this->theme_name]["style"]) ) {
             return;
         }

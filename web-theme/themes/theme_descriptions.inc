@@ -114,11 +114,22 @@ $this->theme_descriptions = array(
             "name"    => "Source Text Background Color",
             ),
          ),
-  ),
+     ),
   
   "plain"   => array(
      "name"   => "Fast Plain Theme",
-     "style"  => array(),
+     "style"  => array(
+         "window_bg"  => array(
+            "type"    => "color",
+            "value"   => "none",
+            "name"    => "Background",
+            ),
+         "window_fg"  => array(
+            "type"    => "color",
+            "value"   => "none",
+            "name"    => "Foreground",
+            ),
+         ),
      ),
   
   "birthday"   => array(

@@ -8,6 +8,11 @@ require_once(class_file("base_class.inc"));
 
 class Plain_Theme extends Base_Theme {
 
+    function Plain_Theme() {
+        $this->theme_name = "plain";
+        $this->init();
+    }
+
     function get_parent_path($site) {
         // first we should check if the array is consistent
         if( strlen($this->nav_array["$site"]["parent_site"]) < 1 ) {
@@ -109,11 +114,4 @@ class Plain_Theme extends Base_Theme {
         }
         echo "</table>\n";
     }
-
-
-//     function conv_link_target($target) {
-//         global $theme;
-//         if( $theme ) return $target."?theme=".$theme;
-//         else return $target;
-//     }
 }

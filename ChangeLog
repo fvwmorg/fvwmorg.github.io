@@ -1,3 +1,17 @@
+2003-06-03  Uwe Pross  <uwe.pross@gmx.net>
+
+	* web-theme/themes/theme_descriptions.inc: 
+	* web-theme/themes/plain_theme.inc: 
+	* web-theme/classes/plain_class.inc:
+	Made foreground and background of plain theme customizeable.
+
+	* customize_theme/theme_descriptions_helper.inc: 
+	Fixed propagation of theme variable when using propagation
+	method GET.
+
+	* logo-competition/logos/color_select.inc: 
+	Made color selection possible for other themes.
+
 2003-06-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* logo-competition/logos/color_select.inc: 

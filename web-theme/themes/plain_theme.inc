@@ -37,8 +37,20 @@ if( strlen($heading) == 0 ) $heading = $title;
 
     <title><?php print $title; ?></title>
   </head>
-
-  <body>
+    
+<?php
+echo "<body";
+if( preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_bg"]) ) {
+     echo ' bgcolor="'.$theme_object->style_array["window_bg"].'"';
+}
+if( preg_match('/#[0-9a-fA-F]{6}/', $theme_object->style_array["window_fg"]) ) {
+     echo ' text="'.$theme_object->style_array["window_fg"].'"';
+//      echo ' link="'.$theme_object->style_array["window_fg"].'"';
+//      echo ' vlink="'.$theme_object->style_array["window_fg"].'"';
+//      echo ' alink="'.$theme_object->style_array["window_fg"].'"';
+}
+echo ">";
+?>
 
     <!-- make a local link target here so we can jump to the top of this site -->
     <a name="top"></a>
