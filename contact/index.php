@@ -56,6 +56,23 @@ decoration_window_start("Mailing lists");
   </ul>
 
   <p>
+    Please help us managing incoming mail by following a few rules
+    when you write to any of the fvwm related mailing list:
+
+    <ul>
+      <li> When quoting previous mails in a discussion, please put
+           your replies below the quoted portions of the text.</li>
+      <li> Quote all relevant parts of the original mail in a
+           reply.
+      <li> Type about 66 to 72 characters per line.</li>
+      <li> Insert line breaks manually, even if your email program
+           does it for you.</li>
+      <li> Always specify the fvwm version you use when asking
+           questions or reporting problems.</li>
+    </ul>
+  </p>
+
+  <p>
     They are maintained by Jason Tibbitts, and are Majordomo based mailing
     lists.  To subscribe to a list, send "<code>subscribe</code>"
     in the body of a message to the appropriate <code>*-request</code>
@@ -99,7 +116,7 @@ decoration_window_start("Mailing lists");
     <input type="hidden" name="as_q" value="site:www.hpc.uh.edu inurl:/fvwm/archive inurl:html -inurl:index -inurl:threads">
     <input type="submit" name="btnG" value="Search Archives">
   </form>
-  
+
   <h4>IRC Channels</h4>
 
   <p>
@@ -114,6 +131,6 @@ decoration_window_start("Mailing lists");
     <li> +fvwm.de on IRCnet (German channel)</li>
   </ul>
 
-       
+
 
 <?php decoration_window_end(); ?>
