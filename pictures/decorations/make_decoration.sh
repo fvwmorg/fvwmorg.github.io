@@ -52,7 +52,7 @@ echo "Croping image using width ${width} x height ${height}"
     && echo "${directory}/top.${extension}"
 "$convert" $convert_opts -gravity NorthEast -crop "${width}x${height}+0+0"   "$1" "${directory}/top_right.${extension}" \
     && echo "${directory}/top_right.${extension}"
-"$convert" $convert_opts -gravity NorthEast -crop "${width}x${height}+0+${height}"  "$1" "${directory}/right.${extension}"     \
+"$convert" $convert_opts -gravity East -crop "${width}x${height}+0+${height}"  "$1" "${directory}/right.${extension}"     \
     && echo "${directory}/right.${extension}"
 "$convert" $convert_opts -gravity SouthEast -crop "${width}x${height}+0+0"   "$1" "${directory}/bottom_right.${extension}" \
     && echo "${directory}/bottom_right.${extension}"
