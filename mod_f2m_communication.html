@@ -74,6 +74,7 @@ The body information is packet specific, as described below.
      #define <a href="#MX_VISIBLE_ICON_NAME">MX_VISIBLE_ICON_NAME</a>  (1 &lt;&lt; 0 + M_EXTENDED_MSG)
      #define <a href="#MX_ENTER_WINDOW"     >MX_ENTER_WINDOW</a>       (1 &lt;&lt; 1 + M_EXTENDED_MSG)
      #define <a href="#MX_LEAVE_WINDOW"     >MX_LEAVE_WINDOW</a>       (1 &lt;&lt; 2 + M_EXTENDED_MSG)
+     #define <a href="#MX_PROPERTY_CHANGE"  >MX_PROPERTY_CHANGE</a>    (1 &lt;&lt; 3 + M_EXTENDED_MSG)
 
 <h2><a name="M_NEW_PAGE"></a>
 M_NEW_PAGE
@@ -346,15 +347,21 @@ followed by a variable length character string. The packet size field in the
 header is expressed in units of unsigned longs, and the packet is zero-padded
 until it is the size of an unsigned long.  The RES_CLASS and RES_NAME fields
 are fields in the XClass structure for the window. Icon and Window name
-packets will will be sent upon window creation or whenever the name is
+packets will be sent upon window creation or whenever the name is
 changed. The RES_CLASS and RES_NAME packets are sent on window creation.
 All packets are sent in response to a Send_WindowList request from a module.
 
 <h2>
 <a name="M_VISIBLE_NAME"></a><a name="MX_VISIBLE_ICON_NAME"></a>
-M_VISIBLE_NAME, M_VISIBLE_ICON_NAME
+MX_VISIBLE_NAME, MX_VISIBLE_ICON_NAME
 </h2>
-Documentation is missing.
+<!needs_lang_check>
+These packets are similar to the M_WINDOW_NAME and M_ICON_NAME packets
+(respectively). The difference is that they contain the window and
+icon title that fvwm2 really displays (which may be differrent than the
+Window name and the Icon name if the IndexedWindowName and IndexeIconName
+fvwm2 styles are used).
+<!end>
 
 <h2>
 <a name="M_END_WINDOWLIST"></a>
@@ -463,11 +470,42 @@ subsequent windows are restacked below it (like XRestackWindows).
 
 <h2>
 <a name="MX_ENTER_WINDOW"></a><a name="MX_LEAVE_WINDOW"></a>
-M_ENTER_WINDOW, M_LEAVE_WINDOW
+MX_ENTER_WINDOW, MX_LEAVE_WINDOW
 </h2>
 These packets are sent when the pointer enters or leaves a window.
 It contains just the window identifiers. Note that multiple pakets of the
 same type for the same window may be sent at any time.
+
+<h2>
+<a name="MX_PROPERTY_CHANGE"></a>
+MX_PROPERTY_CHANGE
+</h2>
+<!needs_lang_check>
+This packet is an all propose message. It contains 3 values followed by a
+variable length character string. The first value is the type of the
+message, the others values depands on this type. The current types are:
+<b>MX_PROPERTY_CHANGE_BACKGROUND</b> and <b>MX_PROPERTY_CHANGE_SWALLOW</b>.
+
+<b>MX_PROPERTY_CHANGE_BACKGROUND</b> is send by fvwm2 and FvwmButtons (and
+maybe others modules) to indicate a background change. If the 3rd value
+is 0, then it means that the root background change (fvwm2 send such message
+when it detects such a change). If the 3rd value is not zero it is the id
+of the module which should be concerned by the message and this indicate that
+the parent(s) window background of this module has changed (FvwmButtons
+send this message for the modules that it swallows, when its background
+colorset change). The string and the second value are not used.
+<br><br>
+<b>MX_PROPERTY_CHANGE_SWALLOW</b> is send by FvwmButtons (and
+maybe others modules) to indicate that the module with the id given by the
+3rd value has been swallowed or unswallowed. It is a swallowed message
+if the 2nd value is 1 and it is an unswallowed message if the 2nd value is 0.
+The string is not used.
+<br><br>
+There is a fvwm2 command which allows modules to send such message:
+<br><br>
+<b>PropertyChange</b> 1st_value 2nd_value 3rd_value "string"
+<!end>
+
 <p>
 <hr>
 </body>

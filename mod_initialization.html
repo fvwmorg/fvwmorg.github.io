@@ -233,7 +233,7 @@ Transparency
 </font></h2>
 Fvwm and modules can implement a limited form of transparency. It does not
 allow the contents of one window to show through another but instead copies the
-root window background into the window. X11 makes it impossible to examine the
+parent window background into the window. X11 makes it impossible to examine the
 background color or pixmap of any window so there is no facility to tint
 or shade the root window background. Transpency is only supported in colorsets
 managed by FvwmTheme and it won't work if you start fvwm with the -visual option.
@@ -250,6 +250,10 @@ In order to support transparency a module must do the following:
     non-transparent colorset <em>CreateBackgroundPixmap()</em> must be used
     together with <em>XFillRectangle()</em> to paint the background instead
     of <em>SetWindowBackground()</em>.</li>
+<!needs_lang_check>
+<li>Detect if the parent window background change. This can be achieved
+    by monitoring the MX_PROPERTY_CHANGE fvwm to module message.
+<!end>
 <li>If the window is likely to be moved or repositions itself the module must
     handle <em>ConfigureNotify</em> events and repaint the whole window
     whenever it is moved. This is because X servers only handle ParentRelative
@@ -282,8 +286,9 @@ In order to support transparency a module must do the following:
             Event.xconfigure.send_event = True;
           }
         }
-        if (Event.xconfigure.send_event && (win_x != Event.xconfigure.x
-            || win_y != Event.xconfigure.y)) {
+        if (Event.xconfigure.send_event) {
+          /* may have to redraw even if win_x == Event.xconfigure.x and 
+           * win_y = Event.xconfigure.y for the window shaded operation */
           win_x = Event.xconfigure.x;
           win_y = Event.xconfigure.y;
           if (win_bg == ParentRelative)
