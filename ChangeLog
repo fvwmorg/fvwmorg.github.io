@@ -3,6 +3,12 @@
 	* download/index.php:
 	added a link to deb packages
 
+	* definitions.inc:
+	* index.php:
+	* authors/index.php:
+	* news/index.php:
+	updated for 2.5.8
+
 2003-10-22  Uwe Pross  <uwe.pross@gmx.net>
 
 	* download/index.php: 

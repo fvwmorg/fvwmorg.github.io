@@ -59,7 +59,7 @@ and support is excellent.  Check it out!
 <tr>
         <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
         <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
-	<td class="windowcontents">&nbsp; <!img src="pictures/new.gif" width=28 height=12></td>
+	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 </table>
 

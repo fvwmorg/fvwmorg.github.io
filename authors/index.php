@@ -44,6 +44,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Johan Svedberg</h4>
+<p class="author">
+Swedish translations.
+</p>
+
+<h4 class="author">Andrei Mitrofanow</h4>
+<p class="author">
+German translations. Debian package creation procedure.
+</p>
+
 <h4 class="author">David Lazar</h4>
 <p class="author">
 Use font for selected buttons in Start button.
@@ -51,7 +61,7 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Some Perl/Tk programming.
+Wrote FvwmTabs and improved Perl/Tk module support.
 </p>
 
 <h4 class="author">Francis Litterio</h4>
@@ -66,12 +76,12 @@ Fixed the GNOME1 patch. WindowList class name sorting.
 
 <h4 class="author">Nadim Shaikli</h4>
 <p class="author">
-Added joining and shaping in bi-directional languages that need this, arabic translations.
+Added joining and shaping in bi-directional languages that need this; Arabic translations.
 </p>
 
 <h4 class="author">Richard Lister</h4>
 <p class="author">
-New module FvwmWindowLister.
+New module FvwmWindowMenu.
 </p>
 
 <h4 class="author">Marcus Lundblad</h4>
