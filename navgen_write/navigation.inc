@@ -1,8 +1,8 @@
 <?php
 //=============================================================
 // This file has been generated automatically
-// by 
-// Created at 31/03/03 04:59
+// by /~uwp/fvwm-web/navgen.php
+// Created at 03/04/03 08:47
 // You should change the order of $top_array only !!!
 // Uwe Pross 2002
 //=============================================================
@@ -35,8 +35,8 @@ $home["link_pic"]     = "pictures/icons/home";
 $home["parent_site"]  = "top";
 $home["child_sites"]  = array("fvwm_cats");
 
-$news["file"]         = "news.php";
-$news["rel_path"]     = ".";
+$news["file"]         = "latest_news/news.php";
+$news["rel_path"]     = "./..";
 $news["link_name"]    = "News";
 $news["link_chapter"] = "";
 $news["link_pic"]     = "pictures/icons/news";
@@ -59,6 +59,14 @@ $desktops["link_pic"]     = "pictures/icons/screenshots_desks";
 $desktops["parent_site"]  = "screenshots";
 $desktops["child_sites"]  = array();
 
+$windowdecors["file"]         = "screenshots/windowdecors.php";
+$windowdecors["rel_path"]     = "./..";
+$windowdecors["link_name"]    = "Decors";
+$windowdecors["link_chapter"] = "";
+$windowdecors["link_pic"]     = "pictures/icons/screenshots_decor";
+$windowdecors["parent_site"]  = "screenshots";
+$windowdecors["child_sites"]  = array();
+
 $menus["file"]         = "screenshots/menus.php";
 $menus["rel_path"]     = "./..";
 $menus["link_name"]    = "Menus";
@@ -73,7 +81,7 @@ $screenshots["link_name"]    = "Screenshots";
 $screenshots["link_chapter"] = "";
 $screenshots["link_pic"]     = "pictures/icons/screenshots";
 $screenshots["parent_site"]  = "top";
-$screenshots["child_sites"]  = array("desktops", "menus");
+$screenshots["child_sites"]  = array("desktops", "windowdecors", "menus");
 
 $icons["file"]         = "download/icons.php";
 $icons["rel_path"]     = "./..";

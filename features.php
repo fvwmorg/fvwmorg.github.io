@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <25.03.2003 09:05:28 uwp>
+//-  Last modified : <03.04.2003 08:37:18 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = ".";
@@ -63,7 +63,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <li>Optional text shadows (looks nice with light text)</li>
 </ul>
 
-<hr>
+<!-- <hr> -->
 
 <h2>Partial list of features new to 2.4.x</h2>
 <ul>
@@ -84,7 +84,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <li>Searching files in its own user directory ~/.fvwm/</li>
 </ul>
 
-<hr>
+<!-- <hr> -->
 
 <h2>Partial list of features new to 2.2.x</h2>
     <ul>
@@ -107,7 +107,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li>Some ability to centrally configure fvwm</li>
     </ul>
 
-<hr>
+<!-- <hr> -->
 
 <h2>Partial list of features common to 1.xx and 2.x.x</h2>
     <ul>

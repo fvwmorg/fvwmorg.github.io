@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 10:17:40 uwp>
+//-  Last modified : <03.04.2003 08:42:58 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "./..";
@@ -21,7 +21,7 @@ $title          = "FVWM - Desktop Screenshots";
 $link_name      = "Desktops";
 $link_picture   = "pictures/icons/screenshots_desks";
 $parent_site    = "screenshots";
-$child_sites    = array("screen_test");
+$child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
 $this_site      = str_replace(".php", "", "$requested_file");
 

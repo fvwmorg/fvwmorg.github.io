@@ -1,10 +1,10 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : screenshots/index.php
+//-  File          : news_template.php_
 //-  Project       : FVWM Home Page
 //-  Date          : Fri Mar 14 21:32:08 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <03.04.2003 08:45:59 uwp>
+//-  Last modified : <02.04.2003 21:01:29 uwe>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -17,13 +17,13 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Screenshots";
-$link_name      = "Screenshots";
-$link_picture   = "pictures/icons/screenshots";
+$title          = "FVWM - NEWS";
+$link_name      = "News";
+$link_picture   = "pictures/icons/news";
 $parent_site    = "top";
-$child_sites    = array("desktops", "windowdecors" ,"menus");
+$child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "screenshots";
+$this_site      = "news";
 
 //--------------------------------------------------------------------
 // check if we should stop here
@@ -42,5 +42,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   include(sec_filename("$layout_file"));
   exit();
 }
+
+decoration_window_start("Latest News");
+
 ?>
 

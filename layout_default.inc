@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <02.04.2003 09:29:26 uwp>
+//-  Last modified : <03.04.2003 08:36:41 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -716,6 +716,9 @@ function insert_quick_jump_list($site_array) {
 	 text-decoration:none;
 	 font-weight:bold;
        }
+       h2, h4 { 
+       color:#ffff33;
+       }
        h2.cats { 
        text-decoration:underline;
        font-size:xx-large; 
@@ -757,7 +760,7 @@ function insert_quick_jump_list($site_array) {
 	topmargin="0" 
 	leftmargin="0">
 
-	
+    <a name="top"></a>
     <table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
        
        <tr> 

@@ -1,3 +1,19 @@
+2003-04-03  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* screenshots/index.php: 
+	fixed "decor" child entry 
+	* screenshots/desktops.php: 
+	removed "test" child site
+	* features.php: 
+	removed <hr> tags
+	* layout_default.inc
+	added "#top" link target
+	added stylesheet definitions for h2 and h4
+	* latest_news/news2html.awk
+	new script to convert NEWS file to html
+	* latest_news/news.php
+	generated from latest cvs version
+
 2003-04-02  Bob Woodside  <dumbledore@woodsway.com>
 
 	* layout_default.inc:
@@ -12,7 +28,7 @@
 	* **:
 	some file name rearrangements, small fixes and consistency changes
 
-2003-03-31  uwp
+2003-03-31  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* **:
 	added new php-based site version
