@@ -1,3 +1,16 @@
+2003-06-30  Mikhael Goikhman  <migo@homemail.com>
+
+	* authors/authors2php:
+	* authors/index.php:
+	* news/news2php:
+	* news/index.php:
+	* faq/faq2php:
+	* faq/index.php:
+	renamed some directories/scripts and regenerated pages
+
+	* regenerate_pages:
+	new script to regenerate 3 pages at once
+
 2003-06-12  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* logo-competition/logos/Aric_Campling/index.php:

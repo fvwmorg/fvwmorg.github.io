@@ -1,0 +1,5 @@
+#!/bin/sh
+
+(cd authors/ && ./authors2php <../../fvwm/AUTHORS >index.php)
+(cd news/ && ./news2php <../../fvwm/NEWS >index.php)
+(cd documentation/faq/ && ./faq2php <../../../fvwm/docs/FAQ >index.php)

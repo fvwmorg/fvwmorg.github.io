@@ -130,6 +130,13 @@ decoration_window_start("Latest News");
 </center>
 <a name="2.5.8"></a>
 <h4>Changes in development release 2.5.8 (not released yet) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New prefix command KeepRc.</li>
+  <li> Renamed the Cond command to TestRc, and the On command to Test.  Removed the CondCase command.  Use &quot;KeepRc TestRc&quot; instead.</li>
+  <li> The Break command can be told the number of nested function  levels to break out of.  Break now has a return code of -2  (&quot;Break&quot;).</li>
+</ul>
+
+
 <a name="2.5.7"></a>
 <h4>Changes in development release 2.5.7 (30-May-2003) <a href="#top">[top]</a></h4>
 <ul>
@@ -141,7 +148,7 @@ decoration_window_start("Latest News");
   <li> Added gettext support to FvwmScript. New head instruction  UseGettext and WindowLocaleTitle. New widget instruction  LocaleTitle. New instruction ChangeLocaleTitle and new function  Gettext.</li>
   <li> WindowListFunc is executed now within a window context, so  a prefix &quot;WindowId $0&quot; is not needed in its definition anymore,  and it is advised to remove it in user configs.</li>
   <li> FvwmEvent now executes all window related events within a window  context, so PassId is not needed anymore, and all prefixes  &quot;WindowId $0&quot; may be removed in user event handlers.</li>
-  <li> New FvwmTaskBar option NoDefaultStartButton. </li>
+  <li> New FvwmTaskBar option NoDefaultStartButton.</li>
 </ul>
 
 

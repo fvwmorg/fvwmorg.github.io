@@ -16,7 +16,7 @@ elseif( strpos($request,"ftp") )                   $file = "/contact/index.php";
 elseif( strpos($request,"fvwm-cats/index") )       $file = "/fvwm-cats/index.php";
 elseif( strpos($request,"generated/AUTHORS") )     $file = "/authors/index.php";
 elseif( strpos($request,"generated/FAQ") )         $file = "/documentation/faq/index.php";
-elseif( strpos($request,"generated/NEWS") )        $file = "/latest_news/index.php";
+elseif( strpos($request,"generated/NEWS") )        $file = "/news/index.php";
 elseif( strpos($request,"perllib") )               $file = "/documentation/perllib/index.php";
 elseif( strpos($request,"icons") )                 $file = "/download/icons.php";
 elseif( strpos($request,"links") )                 $file = "/links.php";
@@ -32,6 +32,7 @@ elseif( strpos($request,"sample-menus/index") )    $file = "/screenshots/menus/i
 elseif( strpos($request,"screenshots") )           $file = "/screenshots/index.php";
 elseif( strpos($request,"vector-buttons") )        $file = "/screenshots/windowdecors/index.php";
 elseif( strpos($request,"documentation/faq.php") ) $file = "/documentation/faq/index.php";
+elseif( strpos($request,"latest_news") )           $file = "/news/index.php";
 else $file = "/index.php";
 
 if( ! file_exists("..$file") ) {

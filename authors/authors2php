@@ -1,0 +1,94 @@
+#!/bin/gawk -f
+#-*-shell-script-*-
+
+# Usage: authors2php <../../fvwm/AUTHORS >index.php
+
+# Author: Uwe Pross
+
+function output(s) {
+	output_array[out_nr++] = s;
+}
+
+function text2html(t) {
+	# convert a special link
+	gsub("^[ \t]*.*_A HREF=\"", "         ", t);
+	gsub("\"_-_.*_-_ *$", "", t); 
+	# html specials
+	gsub("&", "\\&amp;", t);
+	gsub(">", "\\&gt;", t);
+	gsub("<", "\\&lt;", t);
+	gsub("\"", "\\&quot;", t);
+	# underline text
+	gsub("\\*[a-zA-Z][a-zA-Z 0-9]*\\*", "<u>\&</u>", t);
+	gsub("<u>\\*", "<u>", t);
+	gsub("\\*</u>", "</u>", t);
+	# make urls to links
+	gsub("(ftp|http)://[^ ]*", "<a href=\"\&\">\&</a>", t);
+	# make mail addresses to links
+	gsub("[a-zA-Z_][0-9a-zA-Z\\-_\\.]*@[0-9a-zA-Z\\-_\\.][0-9a-zA-Z\\-_\\.]*\\.[a-zA-Z][a-zA-Z][a-zA-Z]?", "<a href=\"mailto:\&\">\&</a>", t);
+	return t;
+}
+
+
+BEGIN {
+	found_author = 0;
+}
+
+/^[A-Z].*:/ && found_author == 0 {
+	found_author = 1;
+	# remove tailing spaces
+	gsub(" *$", "");
+	# remove colon
+	gsub(":$", "");
+	author = $0;
+	next;
+}
+
+/^[\t ]*$/ {
+	if ( length(author) && length(text) ) {
+		## export author and description
+		output("\n<h4 class=\"author\">" text2html(author) "</h4>");
+		output("<p class=\"author\">\n" text2html(text) "\n</p>");
+	}
+	found_author = 0;
+	author = "";
+	text = "";
+	next;
+}
+
+found_author == 1 {
+	if (text != "") text = text " "
+	text = text $0
+	next;
+}
+
+## export other author text
+/^Along with a cast of thousands/ {
+	output("\n<h2>Further Authors</h2>");
+	output("<p class=\"author\">\n" text2html($0) );
+	while (! match($0, "^[\t ]*$")) {
+		getline;
+		output(text2html($0));
+	}
+	output("</p>");
+	## skip empty lines
+	while (match($0, "^[\t ]*$")) getline;
+	output("<h4>" text2html($0) "</h4>");
+	while (getline > 0) output("<h4>" text2html($0) "</h4>");
+	next;
+}
+
+END {
+	## export first part of php file
+	while ((getline < "authors_template.php_") > 0 && !match($0, "@TEXT@")) {
+		print;
+	}
+
+	for (i = 0; i < out_nr; i++) {
+		print output_array[i];
+	}
+
+	while ((getline < "authors_template.php_") > 0) {
+		print;
+	}
+}
