@@ -478,7 +478,6 @@ same type for the same window may be sent at any time.
 <a name="MX_PROPERTY_CHANGE"></a>
 MX_PROPERTY_CHANGE
 </h2>
-<!needs_lang_check>
 This packet is an all purpose message. It contains 3 values followed by a
 variable length character string. The first value is the type of the
 message, the others values depend on the message type. The message types are:
@@ -488,13 +487,13 @@ message, the others values depend on the message type. The message types are:
 maybe other modules) to indicate a background change. If the 3rd value
 is 0, it means that the root background changed. (fvwm2 sends this message
 when it detects the change).
-<!dont understand>
 If the 3rd value is not zero it is the window id
-of the module which should be concerned by the message and this indicates that
-the parent(s) window background of this module has changed (FvwmButtons
-send this message for the modules that it swallows, when its background
+of the module which should be concerned by the message.
+This indicates that
+the parent(s) window background of this module has changed.
+(FvwmButtons
+sends this message for the modules that it swallows, when its background
 colorset changes). 
-<!end dont understand>
 The string and the second value are not used.
 <br><br>
 <b>MX_PROPERTY_CHANGE_SWALLOW</b> is sent by FvwmButtons (and
