@@ -104,6 +104,7 @@ foreach my $topic (@topics) {
 	# replace some output
 	s!\07!!g;
 	s!<FONT SIZE="-1">!<FONT>!ig;
+	s!<FONT><B>(.*?)</B></FONT><B>!<B>$1!ig;
 	s!(<A HREF=".*?">)Index!$sourceRefer$1This page contents!;
 	s!<A HREF=".*?">Return to Main Contents! - <a href="./">Return to main index!;
 	s!(<H1>)perllib(</H1>)!$1 . "Perl Library " . ucfirst($topic) . $2!e;
@@ -121,7 +122,9 @@ foreach my $topic (@topics) {
 	s!^((?:<blockquote><pre>)?\s*)($topicRegExp)((?:</pre></blockquote>)?)$!$1<a href="./$2.html">$2</a>$3!mg;
 	s!(the )($topicRegExp)( manpage)!$1<a href="./$2.html">$2</a>$3!g;
 	s!(the )([Ff]vwm[\w-]*)( manpage)!$1<a href="../manpages/$2.html">$2</a>$3!g;
+	s!(<[BbIi]>)($topicRegExp)(</[BbIi]>)!$1<a href="./$2.html">$2</a>$3!g;
 	s!(<[BbIi]>)(fvwm)(</[BbIi]>)!$1<a href="../manpages/$2.html">$2</a>$3!g;
+	s!<a href="./$topic.html">$topic</a>!$topic!g;  # don't self-link
 
 	saveFile(
 		$htmlFile,

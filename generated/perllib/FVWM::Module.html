@@ -39,7 +39,7 @@ Section: FVWM Perl library (3)<BR>Version: FVWM 2.5.4 (from cvs)<BR>Source: <a h
   $module-&gt;send(&quot;Beep&quot;);
 
   # auto-raise all windows
-  sub autoRaise { $_[0]-&gt;send(&quot;Raise&quot;, $_[1]->_win_id) });
+  sub autoRaise { $_[0]-&gt;send(&quot;Raise&quot;, $_[1]-&gt;_win_id) };
   $module-&gt;addHandler(M_FOCUS_CHANGE, \&amp;autoRaise);
 
   $module-&gt;eventLoop;</pre></blockquote>
@@ -49,7 +49,7 @@ Section: FVWM Perl library (3)<BR>Version: FVWM 2.5.4 (from cvs)<BR>Source: <a h
 <A NAME="ixAAD"></A>
 An <FONT>FVWM</FONT> module is a separate program that communicates with the main <I><a href="../manpages/fvwm.html">fvwm</a></I>
 process, receives a module configuration and events and sends commands back.
-This class <B></B><FONT><B>FVWM:</B></FONT><B>:Module</B> makes it easy to create <FONT>FVWM</FONT> modules in Perl.
+This class <B></B><B>FVWM::Module</B> makes it easy to create <FONT>FVWM</FONT> modules in Perl.
 <P>
 
 If you are interested in all module protocol details that this class tries
@@ -123,7 +123,7 @@ These methods deal with configuration directories:
 
 
 <DL COMPACT>
-<DT><B>new</B> <TT>%params</TT><DD>
+<DT><B>new</B> <I>param-hash</I><DD>
 
 <A NAME="ixAAF"></A>
 Creates a module object. Only one module instance may be created in the
@@ -160,6 +160,7 @@ Example:
         EnableOptions =&gt; { &quot;animate&quot; =&gt; \$a, &quot;cascade&quot; =&gt; \$c },
         Debug =&gt; 1,
     );</pre></blockquote>
+Event types needed for the 4 mask parameters are defined in <B></B><B><a href="./FVWM::Constants.html">FVWM::Constants</a></B>.
 
 <BR>
 
@@ -200,7 +201,7 @@ Arguments that are automatically parsed using <I>EnableAlias</I> and/or
 
 
 
-<DT><B>send</B> command [window-id]<DD>
+<DT><B>send</B> <I>command</I> [<I>window-id</I>]<DD>
 
 <A NAME="ixAAJ"></A>
 Sends <I>command</I> back for execution. If the <I>window-id</I> is specified this
@@ -272,7 +273,7 @@ handler is finished, but sometimes a handler should release <I><a href="../manpa
 
 
 
-<DT><B>terminate</B> [continue]<DD>
+<DT><B>terminate</B> [<I>continue</I>]<DD>
 
 <A NAME="ixAAN"></A>
 This method is used for 2 purposed, usually in event handlers. To terminate
@@ -294,13 +295,13 @@ This deletes all event handlers without exception.
 
 
 
-<DT><B>addHandler</B> mask code<DD>
+<DT><B>addHandler</B> <I>mask code</I><DD>
 
 <A NAME="ixAAP"></A>
 Defines a handler (that is a <I>code</I> subroutine) for the given <I>mask</I> event
 (or several events). Usually the event type is one of the <FONT>FVWM</FONT> <I>M_*</I> or
-<I>MX_*</I> constants, but it may also be <I></I><FONT><I>ON_EXIT</I></FONT><I></I>, this special event is
-called just before the event loop is terminated.
+<I>MX_*</I> constants (see <B></B><B><a href="./FVWM::Constants.html">FVWM::Constants</a></B>), but it may also be <I></I><FONT><I>ON_EXIT</I></FONT><I></I>,
+this special event is called just before the event loop is terminated.
 
 
 <P>
@@ -323,7 +324,14 @@ The handler subroutine is called with these parameters:
 
 
 <blockquote><pre>    ($self, $event)</pre></blockquote>
-where <TT>`$self'</TT> is a module object, <TT>`$event'</TT> is an event object.
+where <TT>`$self'</TT> is a module object, <TT>`$event'</TT> is <B></B><B><a href="./FVWM::Event.html">FVWM::Event</a></B> object.
+
+
+<P>
+
+
+If the <I>mask</I> includes more than one event type, use <TT>`$event-&gt;type'</TT>
+to dispatch event types if needed.
 
 
 <P>
@@ -338,7 +346,9 @@ calls other subroutines that need to terminate the primary one.
 <P>
 
 
-If several event handlers are added for the same event type. 
+If several event handlers are added for the same event type, they are
+executed in the added order. To forbid the further propagation of the
+same event, an event handler may call <TT>`$event-&gt;propagationAllowed(0)'</TT>.
 
 
 <P>
@@ -353,7 +363,7 @@ should be deleted at some point.
 
 
 
-<DT><B>deleteHandler</B> id<DD>
+<DT><B>deleteHandler</B> <I>id</I><DD>
 
 <A NAME="ixAAQ"></A>
 Removes the handler specified by <I>id</I>. The return value is 1 if the handler
@@ -376,7 +386,7 @@ another default handler by overwriting this method.
 
 
 
-<DT><B>debug</B> msg [level]<DD>
+<DT><B>debug</B> <I>msg</I> [<I>level</I>]<DD>
 
 <A NAME="ixAAS"></A>
 Prints <I>msg</I> to the standard error stream if <I>level</I> is greater or equal to
@@ -399,7 +409,7 @@ this data is only seen if <I>Debug</I> is set to something positive.
 
 
 
-<DT><B>internalDie</B> msg<DD>
+<DT><B>internalDie</B> <I>msg</I><DD>
 
 <A NAME="ixAAT"></A>
 This may be used to end the module with the corresponding <I>msg</I>.
@@ -410,7 +420,7 @@ For a clean module exit use <B>debug</B> and <B>terminate</B> instead.
 
 
 
-<DT><B>name</B> [name]<DD>
+<DT><B>name</B> [<I>name</I>]<DD>
 
 <A NAME="ixAAU"></A>
 Sets or returns the module name. Called automatically from the constructor.
@@ -420,7 +430,7 @@ Sets or returns the module name. Called automatically from the constructor.
 
 
 
-<DT><B>mask</B> [mask]<DD>
+<DT><B>mask</B> [<I>mask</I>]<DD>
 
 <A NAME="ixAAV"></A>
 Sets or returns the module mask. Called automatically from the constructor.
@@ -440,7 +450,7 @@ and extended).
 
 
 
-<DT><B>syncMask</B> [mask]<DD>
+<DT><B>syncMask</B> [<I>mask</I>]<DD>
 
 <A NAME="ixAAW"></A>
 The same as <B>mask</B>, but sets/returns the synchronization mask of the
@@ -477,7 +487,7 @@ proper shutdown.
 
 
 
-<DT><B>getHandlerCategory</B> type<DD>
+<DT><B>getHandlerCategory</B> <I>type</I><DD>
 
 <A NAME="ixAAY"></A>
 Returns one of 3 string ids depending on the event handler <I>type</I> that has
@@ -501,7 +511,7 @@ packet type and packet data (packed).
 
 
 
-<DT><B>invokeHandler</B> event<DD>
+<DT><B>invokeHandler</B> <I>event</I><DD>
 
 <A NAME="ixABA"></A>
 Dispatches the apropos event handlers with the event data.
@@ -512,7 +522,7 @@ This method is called automatically, so you usually should not worry about it.
 
 
 
-<DT><B>processPacket</B> [data type]<DD>
+<DT><B>processPacket</B> [<I>data type</I>]<DD>
 
 <A NAME="ixABB"></A>
 This method constructs the event object from the packet data and calls
@@ -541,7 +551,7 @@ Not implemented yet.
 
 
 
-<DT><B>isEventExtended</B> type<DD>
+<DT><B>isEventExtended</B> <I>type</I><DD>
 
 <A NAME="ixABD"></A>
 For technical reasons there are 2 categories of <FONT>FVWM</FONT> events, regular and
@@ -594,7 +604,7 @@ Awaiting for your reporting.
 <H2>CAVEATS</H2>
 
 <A NAME="ixABI"></A>
-In keeping with the <FONT>UNIX</FONT> philosophy, <B></B><FONT><B>FVWM:</B></FONT><B>:Module</B> does not keep you from
+In keeping with the <FONT>UNIX</FONT> philosophy, <B></B><B>FVWM::Module</B> does not keep you from
 doing stupid things, as that would also keep you from doing clever things.
 What this means is that there are several areas with which you can hang your
 module or even royally confuse your running <I><a href="../manpages/fvwm.html">fvwm</a></I> process. This is due to
@@ -633,8 +643,8 @@ For more information, see the <a href="../manpages/fvwm.html">fvwm</a> manpage, 
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:27:40 GMT, September 17, 2002
+Time: 18:46:58 GMT, September 17, 2002
 <hr>
-<!-- Automatically generated by perllib2html on 17-Sep-2002 17:27:34 -->
+<!-- Automatically generated by perllib2html on 17-Sep-2002 21:46:52 -->
 </body>
 </html>
