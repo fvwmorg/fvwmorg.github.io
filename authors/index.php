@@ -66,7 +66,7 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Wrote FvwmTabs and improved Perl/Tk module support.
+Wrote FvwmTabs and improved Perl/Tk module support. FakeKeyPress command.
 </p>
 
 <h4 class="author">Francis Litterio</h4>
