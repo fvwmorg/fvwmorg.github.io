@@ -15,3 +15,5 @@ side.fvwm2.xpm     black        A blue to black gradient with "fvwm" in white,
                                 a "2" in green.  Looks OK with colorlimiting.
 side.utilities.xpm black        A gray to black gradient with a transparent
                                 "utilities".    
+side.fvwm2_1.xpm   black        3D cube, a little too wide.
+side.fvwm2_2.xpm   yellow       Same 3D cube with visible shadows, too wide.
