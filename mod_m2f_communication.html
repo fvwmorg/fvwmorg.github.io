@@ -51,8 +51,8 @@ which can be used instead of the function name SendText.
 <h2><font color="turquoise">
 Module information requests
 </font></h2>
-There are special built-in functions, SendWindowList and Send_ConfigInfo.
-SendWindowList causes fvwm to transmit everything that it is
+There are special built-in functions, Send_WindowList and Send_ConfigInfo.
+Send_WindowList causes fvwm to transmit everything that it is
 currently thinking about to the module which requests the information.
 This information contains the paging status (enabled/disabled),
 current desktop number, position on the desktop, current focus and,
@@ -61,7 +61,7 @@ names, and, if the window is iconified, the icon location and size.
 For example, some modules during start up want to know the state of
 all current windows.  The would ask fvwm for this information like this:
 <font color="yellow"><pre>
-SendText(Channel,"SendWindowList",0);
+SendText(Channel,"Send_WindowList",0);
 
 </pre></font>
 Send_ConfigInfo causes fvwm to send the module a list of all some or all
