@@ -117,7 +117,7 @@ FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
 
 		      "donations",
                       array("FVWM Wiki Pages",
-                            "http://rvb.dyndns.org/FvwmWiki/",
+                            "http://www.fvwmwiki.org",
                             "fvwm_wiki"),
 ), 2);
 ?>
