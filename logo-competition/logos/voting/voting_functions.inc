@@ -107,17 +107,17 @@ All users which are either subscribed to one of the fvwm mailing lists
 or have submitted a logo for the competition are allowed to vote for
 a new logo for fvwm. 
 
-Here is your personal id for taking part in the voting.
+Here is your personal id for participation in the voting:
 
-   $id
+$id
 
-You can insert this id in the web form at 
+Please enter this id into the web form at:
 
-   $base_url/fvwm-web/logo-competition/logos/voting/index.php
+$base_url/fvwm-web/logo-competition/logos/voting/index.php
 
-or you can access the voting page directly by using this link:
+Or access the personal voting page directly using this link:
 
-   $base_url/fvwm-web/logo-competition/logos/voting/index.php?id=$id
+$base_url/fvwm-web/logo-competition/logos/voting/index.php?id=$id
 ",
          "From: FVWM Voting <fvwm-logo@lists.sf.net>");
 }

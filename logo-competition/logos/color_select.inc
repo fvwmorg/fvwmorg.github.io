@@ -13,7 +13,7 @@ if( $t = get_user_setting("theme", array("GET", "POST")) ) {
     <?php $theme_object->decoration_top_line(); ?>
     <tr>
       <?php $theme_object->decoration_left_cell(); ?>
-	
+	<td>
 	<table cellpadding="5" summary="" width="100%">
 	  <tr>
 	    <td valign="top" 

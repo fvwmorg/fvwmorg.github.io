@@ -8,6 +8,7 @@
 // descriptions of themes which are available 
 // via the customize_theme page 
 $this->theme_descriptions = array(
+
   "default" => array(
      "name"   => "Window",
      "style"  => array(
@@ -263,8 +264,70 @@ $this->theme_descriptions = array(
             "value"   => "#ffffff",
             "name"    => "Window Foreground",
             ),
-),
+         ),
      ),
+
+  "blue" => array(
+     "name"   => "Blue Theme",
+     "style"  => array(
+         "menu_bg"          => array(
+            "type"    => "color",
+            "value"   => "#527CCE",
+            "name"    => "Menu Background",
+            ),
+         "menu_item_bg"     => array(
+            "type"    => "color",
+            "value"   => "#BFCFEF",
+            "name"    => "Menu Background",
+            ),
+         "menu_fg"          => array(
+            "type"    => "color",
+            "value"   => "#151F34",
+            "name"    => "Menu Foreground",
+            ),
+         "menu_item_fg"          => array(
+            "type"    => "color",
+            "value"   => "#151F34",
+            "name"    => "Menu Foreground",
+            ),
+         "window_bg"          => array(
+            "type"    => "color",
+            "value"   => "#bfcfef",
+            "name"    => "Background",
+            ),
+         "window_fg"          => array(
+            "type"    => "color",
+            "value"   => "#000000",
+            "name"    => "Foreground",
+            ),
+         "hilight_bg"       => array(
+            "type"    => "color",
+            "value"   => "#293E67",
+            "name"    => "Hilight Background",
+            ),
+         "hilight_fg"       => array(
+            "type"    => "color",
+            "value"   => "#ffffff",
+            "name"    => "Highlight Foreground",
+            ),
+         "link_fg"       => array(
+            "type"    => "color",
+            "value"   => "#151F34",
+            "name"    => "Link Color",
+            ),
+         "link_visited_fg" => array(
+            "type"    => "color",
+            "value"   => "#293E67",
+            "name"    => "Visited Link Color",
+            ),
+         "heading_fg" => array(
+            "type"    => "color",
+            "value"   => "#151F34",
+            "name"    => "Heading Color",
+            ),
+          ),
+     ),
+
   );
 
 ?>
