@@ -3,30 +3,32 @@
 <html> 
   <head>
     <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
-    <meta name="keywords" content="fvwm, window manager, screenshots, themes">
-    <meta name="description" content="The Official FVWM Home Page">
-    
-    <link rel="shortcut icon" href="<?php echo $rel_path; ?>/fvwm.ico">
+      <meta name="keywords" content="fvwm, window manager, screenshots, themes">
+	<meta name="description" content="The Official FVWM Home Page">
+	  
+	  <link rel="shortcut icon" href="<?php echo $rel_path; ?>/fvwm.ico">
 
-    <title>No software patents</title>
+	    <title>Page closed for Anti Software Patents Demonstration</title>
 
-    <style type="text/css">
-    <!--  
-      body {
-      margin-left:10%;
-      margin-right:10%;
-      }
-     -->
-    </style>
+	    <style type="text/css">
+	      <!--  
+	      body {
+	      margin-left:10%;
+	      margin-right:10%;
+	      margin-top:5%;
+	      padding:10pt;
+	      border:4pt white ridge;
+	      }
+	      -->
+	    </style>
 
   </head>
 
-  <body 
-    bgcolor="#ffffff"
-    text="#000000"
-    link="#0000ff"
-    vlink="#ff0000"
-    alink="#00ff00">
+  <body bgcolor="#111111"
+	text="#ffffff"
+	link="#9999ff"
+	vlink="#ff9999"
+	alink="#99ff99">
 
     <div align=center>
       <h1>Page closed</h1>
@@ -46,37 +48,56 @@
     </p>
 
     <p>
-      More information about software patents are available at <a href="http://swpat.ffii.org/">swpat.ffii.org</a>.
-      To enter this site, click <a href="<?php echo $requested_file;?>?no_software_patents=for_ever">here</a>
-     </p>
-
-    <hr>
-
-    <p>
-      Diese Seite wurde zum Protest gegen Logikpatente vor&uuml;bergehend
-      gesperrt.  Bald k&ouml;nnten Webseiten regelm&auml;&szlig;ig wegen
-      Logikpatenten gesperrt werden.  Logikpatente k&ouml;nnen dazu
-      f&uuml;hren, dass Sie wegen Ver&ouml;ffentlichung selbst entwickelter
-      Texte gerichtlich belangt werden.
-    </p>
-
-    <p>
-      Mehr &uuml;ber Logikpatente erfahren Sie bei <a href="http://swpat.ffii.org/">swpat.ffii.org</a>.
-      Um zu ihren urspr&uuml;nglichen Ziel zu gelangen, klicken Sie bitte <a href="<?php echo $requested_file;?>?no_software_patents=for_ever">hier</a>.
+      More information about software patents are available at <a
+      href="http://swpat.ffii.org/">swpat.ffii.org</a>. 
+      To enter this site, click <a href="<?php echo
+      $requested_file;?>?no_software_patents=for_ever">here</a> 
     </p>
 
     <hr>
-    <p>
-      Cette page a &eacute;t&eacute; ferm&eacute;e temporairement
-      pour protester contre les brevets logiciels.  Bient&ocirc;t les
-      pages web pourront &ecirc;tre ferm&eacute;es
-      r&eacute;guli&egrave;rement &agrave;  cause des brevets logiciels.
-      Avec les brevets logiciels vous pourrez &ecirc;tre condamn&eacute;
-      &agrave; cause de textes que vous avez &eacute;crit vous-m&ecirc;me.
-    </p>
 
-    <p> 
-      Plus d&apos;informations sur les brevets logiciels sont disponibles &agrave; <a href="http://swpat.ffii.org/">swpat.ffii.org</a>.
-      Pour 
-      arriver &agrave; v&ocirc;tre d&eacute;stination, veuillez cliquer <a href="<?php echo $requested_file;?>?no_software_patents=for_ever">ici</a>.
-    </p>
+      <p>
+	Diese Seite wurde zum Protest gegen Logikpatente vor&uuml;bergehend
+	gesperrt.  Bald k&ouml;nnten Webseiten regelm&auml;&szlig;ig wegen
+	Logikpatenten gesperrt werden.  Logikpatente k&ouml;nnen dazu
+	f&uuml;hren, dass Sie wegen Ver&ouml;ffentlichung selbst entwickelter
+	Texte gerichtlich belangt werden.
+      </p>
+
+      <p>
+	Mehr &uuml;ber Logikpatente erfahren Sie bei <a
+	href="http://swpat.ffii.org/">swpat.ffii.org</a>. 
+	Um zu ihren urspr&uuml;nglichen Ziel zu gelangen, klicken Sie bitte 
+	<a href="<?php echo $requested_file;?>?no_software_patents=for_ever">hier</a>.
+      </p>
+
+      <hr>
+	<p>
+	  Cette page a &eacute;t&eacute; ferm&eacute;e temporairement
+	  pour protester contre les brevets logiciels.  Bient&ocirc;t les
+	  pages web pourront &ecirc;tre ferm&eacute;es
+	  r&eacute;guli&egrave;rement &agrave;  cause des brevets logiciels.
+	  Avec les brevets logiciels vous pourrez &ecirc;tre condamn&eacute;
+	  &agrave; cause de textes que vous avez &eacute;crit vous-m&ecirc;me.
+	</p>
+
+	<p> 
+	  Plus d&apos;informations sur les brevets logiciels sont
+	  disponibles &agrave; <a
+	  href="http://swpat.ffii.org/">swpat.ffii.org</a>.  
+	  Pour 
+	  arriver &agrave; v&ocirc;tre d&eacute;stination, veuillez
+	  cliquer <a href="<?php echo
+	  $requested_file;?>?no_software_patents=for_ever">ici</a>. 
+	</p>
+
+	<hr>
+	  
+	<p style="text-align:center;">
+	    <a href="http://wiki.ael.be/index.php/OnlineDemoPartnersWebsites">Here</a> 
+	    you can find a list of sites which are also closed in
+	    protest against software patents.
+	</p>
+
+  </body>
+</html>

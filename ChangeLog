@@ -1,5 +1,8 @@
 2003-08-25  Uwe Pross  <uwe.pross@gmx.net>
 
+	* web-theme/themes/against_sw_patents_statement.inc:
+	fixed html code, changed color, added link
+	
 	* customize_theme/theme_descriptions_helper.inc: 
 	added javascript element to submit theme changes automatically
 	when they occur 
