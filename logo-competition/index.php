@@ -51,7 +51,12 @@ echo '<a href="'.conv_link_target("rules.php").'">the competition rules</a>.';
 
 <p>The submitted works are linked here.
 To view them you need a modern browser with a good PNG support, like
-Mozilla, Konqueror, Galeon, Opera and some others.
+Mozilla, Konqueror, Galeon, Netscape, Opera and a number of others.
+</p>
+
+<p>
+Most of the logos are transparent, you may change a layout or a css
+to see them on another background.
 </p>
 
 <?php decoration_window_end(); ?>

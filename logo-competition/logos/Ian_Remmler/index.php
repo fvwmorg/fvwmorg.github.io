@@ -74,4 +74,4 @@ Thanks for taking a look!
 
 <?php decoration_window_end(); ?>
 
-<p>Return to <a href="<?php echo conv_link_target('../logos_new.php');?>">index</a>.</p>
+<p>Return to <a href="<?php echo conv_link_target('../../logos_new.php');?>">index</a>.</p>

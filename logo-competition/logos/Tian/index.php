@@ -65,12 +65,8 @@ Tian.
 -->
 </p>
 
-<p><img src="3d.png">
-<p><img src="contrast.png">
-<p><img src="future.png">
-<p><img src="groovy-3d.png">
-<p><img src="block.png">
+<p><img src="fvwm_logo.png">
 
 <?php decoration_window_end(); ?>
 
-<p>Return to <a href="<?php echo conv_link_target('../logos_new.php');?>">index</a>.</p>
+<p>Return to <a href="<?php echo conv_link_target('../../logos_new.php');?>">index</a>.</p>
