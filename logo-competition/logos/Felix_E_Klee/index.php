@@ -58,7 +58,6 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 // and here's the text for that page:
 ?> 
 
-<h2>Logos by Felix E. Klee</h2>
 <p>
 First, I want to state that I can easily create design variations (not just
 resized images, of course) of the logos below in order to match the size
