@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <10.04.2003 07:43:15 uwp>
+//-  Last modified : <10.04.2003 08:59:15 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -812,9 +812,9 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 		! ereg("validator", $_SERVER["REMOTE_HOST"]) && 
 		! ereg("nordstrom.hrz.tu-chemnitz.de", $_SERVER["REMOTE_HOST"])) {
 	      echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&ss=" target="validation">html check&nbsp;</a><br>'."\n";
-	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>'."\n";
+	      echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a><br>'."\n";
 	    }
-       ?><a href="http://validator.w3.org/check/referer">w3c check&nbsp;</a></td>
+       ?><a href="http://validator.w3.org/check/referer">w3c check&nbsp;</a><br></td>
       </tr>
 
     </table>

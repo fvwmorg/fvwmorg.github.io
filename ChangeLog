@@ -5,6 +5,7 @@
 	* layout_default.inc:
 	Fixed window size problem.
 	* logo_competition/index.php
+	* logo_competition/rules.php
 	Formating changes. Added end tags.
 
 2003-04-09  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
