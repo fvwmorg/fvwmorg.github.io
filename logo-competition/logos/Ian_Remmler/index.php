@@ -39,7 +39,7 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("By Ian Remmler</a>", "100%", ""); ?>
+<?php decoration_window_start("By Ian Remmler", "100%", ""); ?>
 
 <p>
 <!--
