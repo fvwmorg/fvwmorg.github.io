@@ -11,13 +11,66 @@
 <pre>
 
 Note, the changes for the last STABLE release start with release
-<A HREF="#2.4.14">2.4.14</A>.
+<A HREF="#2.4.15">2.4.15</A>.
 
 <hr>
-<b>Changes in developement release 2.5.6 (not released yet)</b>
+<b>Changes in development release 2.5.6 (not released yet)</b>
+
+* Fix for gmplayer launched by fvwm.  Close stdin on Exec so the
+  exec'd process knows its not running interactively.
+
+* Improvement in MultiPixmap.  In particular Colorset and Solid
+  color can be specified.
+
+* New ButtonStyle and TitleStyle style options AdjustedPixmap,
+  StretchedPixmap and ShrunkPixmap.
+
+* Use the MIT Shared Memory Extension for XImage.
+
+* The TitleStyle decor of a vertical window Title is rotated.
+  This is controllable using a new style option:
+
+    !UseTitleDecorRotation / UseTitleDecorRotation
+
+* New style options IconBackgroundColorset, IconTitleColorset,
+  HilightIconTitleColorset, IconTitleRelief, IconBackgroundRelief
+  and IconBackgroundPadding.
+
+* Minor incompatible improvements to the Perl library API.
+
+* Renamed FvwmWindowLister to FvwmWindowMenu.
+
+* New option to IconSize style: Adjusted, Stretched, Shrunk.
+
+* New shortcuts for button states: AllActiveUp, AllActiveDown,
+  AllInactiveUp, AllInactiveDown.
+
+* New Style options:
+
+    Closable, Iconifiable, Maximizable, AllowMaximizeFixedSize
+
+* New conditions for matching windows:
+
+    Closable, Iconifiable, Maximizable, FixedSize and HasHandles
+
+* New conditional command On for non-window related conditions.
+
+* Removed --disable-gnome-hints and --disable-ewmh configure
+  options.
+
+* All single letter variables are deprecated now; new variables:
+
+    $[w.id], $[w.name], $[w.iconname], $[w.class], $[w.resource],
+    $[desk.n], $[version.num], $[version.info], $[version.line],
+    $[desk.pagesx], $[desk.pagesy]
 
 <hr>
-<b>Changes in developement release 2.5.5 (2-Dec-2002)</b>
+<b>Changes in development release 2.5.5 (2-Dec-2002)</b>
+
+* Added support for joining and shaping in bi-directional
+  languages that need this.
+
+* ButtonStyle and TitleStyle new style type Colorset.
 
 * New experimental module FvwmProxy.
 
@@ -35,15 +88,17 @@ Note, the changes for the last STABLE release start with release
 
 * The MoveToPage command does nothing with sticky windows.
 
-* New module FvwmWindowLister, a WindowList subtitute.
+* New module FvwmWindowLister, a WindowList substitute.
 
 * Sticky windows can be sticky across pages, across desks or both.
   Related to this are:
-   - New commands StickPage and StickDesk.
-   - New Style options StickyPage and StickyDesk.
-   - New conditional command options StickyPage and StickyDesk.
-   - New WindowList options NoStickyPage, NoStickyDesk, StickyPage,
-     StickyDesk, OnlyStickyPage, OnlyStickyDesk.
+   - New commands StickAcrossPages and StickAcrossDesks.
+   - New Style options StickyAcrossPages and StickyAcrossDesks.
+   - New conditional command options StickyAcrossPages and
+     StickyAcrossDesks.
+   - New WindowList options NoStickyAcrossPages,
+     NoStickyAcrossDesks, StickyAcrossPages, StickyAcrossDesks,
+     OnlyStickyAcrossPages, OnlyStickyAcrossDesks.
    - New FvwmRearrange options -sp and -sd.
 
 * Key bindings can operate on the release of a key too.  Prefix the
@@ -64,7 +119,7 @@ Note, the changes for the last STABLE release start with release
 <hr>
 <b>Changes in alpha release 2.5.4 (20-Oct-2002)</b>
 
-* FvwmTaskBar may now include mini launchbuttons using the Button
+* FvwmTaskBar may now include mini launch buttons using the Button
   command.  Also has new options for spacing the buttons:
   WindowButtonsLeftMargin, WindowButtonsRightMargin, and
   StartButtonRightMargin.  See man page for details.
@@ -152,7 +207,7 @@ Note, the changes for the last STABLE release start with release
 
 * Fixed interaction bug between CascadePlacement and StartsOnPage
   - if the target page was at a negative x or y page displacement
-  from the current viewport, the window would be placed on the
+  from the current view port, the window would be placed on the
   wrong page.
 
 * New Style option IconSize for restricting icon sizes.
@@ -170,11 +225,11 @@ Note, the changes for the last STABLE release start with release
 * Vastly improved FvwmEvent performance.
 
 * FvwmAuto can operate on Enter and Leave events too.  This makes
-  it possible to have autoraising with ClickToFocus and
+  it possible to have auto raising with ClickToFocus and
   NeverFocus. See -menter and -menterleave options and examples in
   the FvwmAuto man page.
 
-* The "hangon" strings in FvwmButtons support wildcards.
+* The "hangon" strings in FvwmButtons support wild cards.
 
 * New option "Icon" to PlaceAgain command.
 
@@ -324,7 +379,7 @@ Note, the changes for the last STABLE release start with release
 * The Current command does not select a random window when no
   window has the focus.
 
-* New colour '@4' (transparent) in button vectors.
+* New color '@4' (transparent) in button vectors.
 
 * New option "Frame" for the Resize and ResizeMove commands.
 
@@ -338,7 +393,7 @@ Note, the changes for the last STABLE release start with release
 * The DO_START_ICONIC flag is no longer supported in the module
   interface.
 
-* Added bi-directional text support for asian charsets.
+* Added bi-directional text support for Asian charsets.
 
 * New option MinimalLayer for FvwmIdent to control window layer.
 
@@ -444,9 +499,53 @@ Note, the changes for the last STABLE release start with release
 * New conditions Focused, !Focused, HasPointer and !HasPointer.
 
 <hr>
-<A NAME="2.4.12">
-<b>Changes in stable release 2.4.13 (1-Nov-2002)</b>
+<A NAME="2.4.15">
+<b>Changes in stable release 2.4.15 (24-Jan-2003)</b>
 </A>
+
+* Fix for gmplayer launched by fvwm.  Close stdin on Exec so the
+  exec'd process knows its not running interactively.
+
+* Windows using the WindowListSkip style do not appear in the
+  FvwmTaskBar at random.
+
+* Fixed a memory leak in ChangeIcon, ChangeForeColor and
+  ChangeBackColor FvwmScript Instruction.
+
+* Fixed a core dump in the parsing of FvwmAuto arguments.
+
+* Fixed screwed calculation of icon picture size when application
+  specifies it explicitly.
+
+* The option ShowOnlyIcons now works as described in the
+  FvwmIconMan man page.  It was accidentally named ShowOnlyIconic
+  before.
+
+<hr>
+<b>Changes in stable release 2.4.14 (29-Nov-2002)</b>
+
+* Modules do not crash anymore when more than 126 windows are on
+  the desktop.
+
+* FvwmIconMan displays windows correctly that were iconified and
+  then moved to another page.
+
+* Application provided icon windows no longer appear at 0 0 when
+  restarting.
+
+* The built-in session management can handle window names, classes
+  etc. beginning with whitespace (textedit).
+
+* Removed the flawed "A"ny context key binding patch from 2.4.13.
+
+* The default EdgeScroll (if not specified) was incorrectly
+  assumed to be 100 pixels instead of 100 percents.
+
+* Icons no longer appear on top of all other windows after a
+  restart.
+
+<hr>
+<b>Changes in stable release 2.4.13 (1-Nov-2002)</b>
 
 * Icon titles for windows with an icon position hint no longer
   appear at random places.
@@ -1806,9 +1905,9 @@ Note, the changes for the last STABLE release start with release
 <b>Changes in official release 2.2 (February 1999)</b>
 </pre>
     <hr>
-Last updated on 02 December 2002, 13:28 (GMT +0000)
+Last updated on 24 January 2003, 14:41 (GMT +0000)
 <!-- This file automatically generated by txt2html.sh
-     on Mon Dec  2 14:28:25 CET 2002 -->
+     on Fri Jan 24 15:41:26 CET 2003 -->
   </body>
 </html>
 
