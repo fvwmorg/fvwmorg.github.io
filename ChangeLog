@@ -1,3 +1,12 @@
+2003-07-30  Uwe Pross  <uwe.pross@gmx.net>
+
+	* links.php: 
+	* index.php: 
+	Added link to wiki page
+
+	* contact/index.php:
+	Added heading for IRC Channels
+	
 2003-07-28  Uwe Pross  <uwe.pross@gmx.net>
 
 	* news/news2php: 

@@ -67,15 +67,7 @@ and support is excellent.  Check it out!
 Participate in our new
 <?php mylink("logo-competition", "Logo Competition"); ?>
 <hr>
-<center>
-<!--
-<?php mylink('./birthday/index.php', 
-             '<img src="./birthday/birthday_celebration1.gif" border="0" width="596" height="53">',
-             'class="nohilight"'); ?>
--->
-<h3>On the 1st of June 2003 we celebrated fvwm's tenth
-<?php mylink('./birthday/index.php', "birthday"); ?>.</h3>
-</center>
+FVWM got now its own <?php mylink('http://rvb.dyndns.org/FvwmWiki/', 'Wiki Pages'); ?>, where a lot of information around FVWM is provided by other users.
 <hr>
 
 <div align="center">
@@ -91,8 +83,8 @@ Participate in our new
                       "windowdecors",
 
                       array("Bug Reporting",
-			    "http://www.fvwm.org/cgi-bin/fvwm-bug",
-			    "fvwm_bug_reporting"),
+			                "http://www.fvwm.org/cgi-bin/fvwm-bug",
+			                "fvwm_bug_reporting"),
                       "desktops",
 
                       "mailing_lists",
@@ -112,7 +104,12 @@ Participate in our new
                       "links",
 
                       "developers",
-                      "fvwm_cats"), 2);
+                      "fvwm_cats",
+
+                      array("FVWM Wiki Pages",
+                            "http://rvb.dyndns.org/FvwmWiki/",
+                            "fvwm_wiki"),
+), 2);
 ?>
 </div>
 

@@ -91,6 +91,8 @@ decoration_window_start("Mailing lists");
     Also the mailing lists are now <a href="http://www.hpc.uh.edu/fvwm/archive/">archived</a>!
   </p>
 
+  <h4>IRC Channels</h4>
+
   <p>
     Several IRC channels are also available to discuss fvwm related
     topics or to get help.  They are not official in a sense that the
@@ -102,5 +104,7 @@ decoration_window_start("Mailing lists");
     <li> #fvwm    on freenode</li>
     <li> +fvwm.de on IRCnet (German channel)</li>
   </ul>
+
+       
 
 <?php decoration_window_end(); ?>

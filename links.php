@@ -49,6 +49,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
     <a href="http://www.fvwm.org/">official</a> one) that have FVWM info:
   </p>
 
+  <ul>
+      <li><?php mylink('http://rvb.dyndns.org/FvwmWiki/', 'The FVWM Wiki Pages'); ?> are 
+    going to be a shared collection of FVWM related stuff.</li>
+  </ul>
+
 
   <h2>Window Decors and Other Configuration Tips</h2>
 
