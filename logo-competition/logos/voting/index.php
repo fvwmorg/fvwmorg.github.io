@@ -125,7 +125,7 @@ $num_of_logos = 0;
 
 foreach( $logo_array as $number => $logos ) {
     echo '<input type="checkbox" name="logo'.$number.'" value="'.$number.'"';
-    if( $stimme[$number] ) {
+    if( $_GET["logo".$number] ) {
         echo " checked";
     }
     echo '>&nbsp;Vote&nbsp;&nbsp;';

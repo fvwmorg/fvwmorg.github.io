@@ -146,33 +146,41 @@ function save_voting() {
     if( id_has_voted_already($id) ) {
         echo "<h1>You have voted already. Voting twice is not possible.</h1>";
         return 0;
-    } 
-    if( $handle = fopen ($votes_file, "a") ) {
-        fwrite( $handle, trim($id)." ".trim(get_voting())."\n");
-        fclose ($handle);
-        echo "<h1>Your vote has been counted.</h1>
+    }
+    $votes = get_voting();
+    if( $votes[0] > 0 ) {
+        if( $handle = fopen ($votes_file, "a") ) {
+            fwrite( $handle, trim($id)." ".trim($votes[1])."\n");
+            fclose ($handle);
+            echo "<h1>Your vote has been counted.</h1>
 <h1>Thank you for taking part in the fvwm logo competition voting.</h1>";
-        return 1;
+            return 1;
+        } else {
+            echo "<h1>Error: Failed to save your votings. Please try again later</h1>";
+            mail("keinFruehstuecksfleisch@gmx.net",
+                 "[fvwm voting] voting save failed", 
+                 "Failed to register \n\n$id\n\n".trim($votes[1])."\n");
+            return 0;
+        }    
     } else {
-        echo "<h1>Error: Failed to save your votings. Please try again later</h1>";
-        mail("keinFruehstuecksfleisch@gmx.net",
-             "[fvwm voting] voting save failed", 
-             "Failed to register \n\n$id\n\n".trim(get_voting())."\n");
-        return 0;
-    }    
+        echo "<h1>Please vote at least for one logo.</h1>\n";
+        echo '<a href="index.php?'.$_SERVER["QUERY_STRING"].'"><h1>Vote again.</h1></a>';
+    }
 }
 
 function get_voting() {
     $voting = "";
+    $votes_num = 0;
     foreach( $_GET as $get ) {
         if( is_string($get) ) {
             // echo "$get <br>";
             if( preg_match('/^[0-9][0-9]*$/', $get) ) {
                 $voting = $voting." ".$get;
+                $votes_num++;
             }
         }
     }
-    return trim($voting);
+    return array(0 => $votes_num, 1 => trim($voting));
 }
 
 function random_sort( $aa, $bb ) {
