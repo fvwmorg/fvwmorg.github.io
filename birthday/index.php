@@ -102,7 +102,7 @@ decoration_window_start("Celebrate 10 years of FVWM");
 	    </blockquote>
 	  </li>
           
-	  <li>German channel:  +fvwm.de on IRCnet
+	  <li>German channel:  +fvwm.de on <a href="irc://irc.tu-ilmenau.de/%23fvwm">IRCnet</a>
 	    <blockquote>
 	    See <a href="http://ircnet.org@irc.tu-ilmenau.de/all_servers/">http://ircnet.org@irc.tu-ilmenau.de/all_servers/</a> for
 	      a list of IRCnet servers.
