@@ -57,11 +57,13 @@ and support is excellent.  Check it out!
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
 <tr>
         <td class="windowcontents">Latest Stable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php echo $latest_stable_release; ?></b></td>
+        <td class="windowcontents"><b><?php echo $latest_stable_release; ?> </b></td>
+	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 <tr>
         <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php echo $latest_unstable_release; ?></b></td>
+        <td class="windowcontents"><b><?php echo $latest_unstable_release; ?> </b></td>
+	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 </table>
 
@@ -71,8 +73,10 @@ Participate in our new
 echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 ?>
 <hr>
+<center>
 <a href="<?php echo $rel_path;?>/birthday/index.php" class="nohilight"><img src="<?php echo $rel_path;?>/birthday/birthday_celebration1.gif" border="0" width="596" height="53"></a>
 <h3>On the 1st of June 2003 we are celebrating fvwm's tenth birthday.</h3>
+</center>
 <hr>
 
 <div align="center">

@@ -95,9 +95,12 @@ decoration_window_start("Celebrate 10 years of FVWM");
 	  </li>
 	</ul>
 	A good time to visit the channels is between 16:00 and
-	22:00 Grennwich Mean Time
+	22:00 Greenwich Mean Time
       </li>
-      </ul>
+    <li>Help us stabilize the beta code,
+	try <a href="<?php echo conv_link_target('../download/');?>">2.5.7</a>.
+
+    </ul>
     
 <?php 
 decoration_window_end(); 

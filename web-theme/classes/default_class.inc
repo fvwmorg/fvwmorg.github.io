@@ -546,6 +546,10 @@ class Default_Theme extends Base_Theme {
         for($ii=0; $ii<ceil($count/$col_num); $ii++) {
             echo "<tr>\n";
             for($jj=0; $jj<$col_num; $jj++) {
+                $real_cell_width = $cell_width;
+                if ($jj == 0) $real_cell_width += 25;
+                if ($jj == $col_num - 1) $real_cell_width -= 25;
+
                 if( list($key, $jump) = each($quick_jump_array) ) {
                     if( ! is_array($jump) ) {
                         if( file_exists($this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif") ) {
@@ -555,7 +559,7 @@ class Default_Theme extends Base_Theme {
                         }
                         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$jump"]["file"]);
                         // mini icon and text
-                        echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$cell_width.'%">';
+                        echo '<td align="left" valign="bottom" nowrap="nowrap" width="'.$real_cell_width.'%">';
                         echo '<img src="'.$this->rel_path.'/pictures/item_dot_blue.gif" border="0" alt="*" hspace="0" vspace="4" align="top"> ';
                         echo '<a href="'.$target.'">';
                         //echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';

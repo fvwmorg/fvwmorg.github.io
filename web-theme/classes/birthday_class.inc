@@ -16,18 +16,18 @@ class Birthday_Theme extends Default_Theme {
            "decoration_path"  => $this->rel_path."/birthday/window_decor_birthday3",
            "window_border_bg" => "#9fe0e3",
            "window_border_fg" => "#000000",
-           "window_bg"        => "#001040",
-           "window_fg"        => "#9fe0e3",
-           "body_bg"          => "#001040",
-           "body_fg"          => "#000000",
+           "window_bg"        => "#003650",
+           "window_fg"        => "#f0fcfc",
+           "body_bg"          => "#5fa1c3",
+           "body_fg"          => "#ffffff",
            "body_bg_image"    => $this->rel_path."/birthday/ballons3.jpg",
-           "pager_bg"         => "#9fe0e3",
+           "pager_bg"         => "#98dae8",
            "pager_fg"         => "#000000",
            "hilight_bg"       => "#4f4a5f",
            "hilight_fg"       => "#ffffff",
-           "link_fg"          => "#ddddee",
-           "link_visited_fg"  => "#ccccdd",
-           "heading_fg"       => "#aff0f3",
+           "link_fg"          => "#f0f0a0",
+           "link_visited_fg"  => "#b0c0e0",
+           "heading_fg"       => "#a8f8fc",
            "code_fg"          => "#ffff99",
            "code_bg"          => "#404040",
            "titlebar_fg"      => "#000000",
@@ -50,7 +50,8 @@ class Birthday_Theme extends Default_Theme {
             echo '<tr>'."\n";
             $this->decoration_left_cell();
             echo '<td>';
-            if( strlen($title_background) == 0 ) $title_background=$this->style_array["hilight_bg"];
+//            if( strlen($title_background) == 0 ) $title_background=$this->style_array["hilight_bg"];
+            if (strlen($title_background) == 0) $title_background = "#65abca";
             echo '<table border="0" cellspacing="0" cellpadding="0" summary="" width="100%" bgcolor="'.$title_background.'">'."\n";
             echo '<tr>'."\n";
             $td_opts = 'width="1"';
@@ -99,7 +100,8 @@ class Birthday_Theme extends Default_Theme {
 
   function insert_heading() {
       global $heading;
-      $width="100%";
+      $width = "100%";
+      $padding = "5";
       echo '<table';
       if(strlen($width)> 0) echo ' width="'.$width.'"';
       echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
@@ -107,18 +109,22 @@ class Birthday_Theme extends Default_Theme {
       //$this->decoration_title_bar($string);
       echo '<tr>'."\n";
       $this->decoration_left_cell();
-      echo '<td bgcolor="'.$this->style_array["window_bg"].'" width="99%" valign="middle">';
-      echo '<table';
+
+      echo '<td bgcolor="'.$this->style_array["window_bg"].'" width="100%" valign="middle">';
+      echo '<table width="100%"';
       if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
       echo ' summary="">'."\n";
       echo '<tr>'."\n";
+
       echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
       echo ' class="windowcontents">'."\n";
-      echo "<h1> $heading </h1>\n";
+      echo "<h1><center> $heading </center></h1>\n";
       echo '</td>'."\n";
+
       echo '</tr>'."\n";
       echo '</table>'."\n";
       echo '</td>'."\n";
+
       $this->decoration_right_cell();
       echo '</tr>'."\n";
       $this->decoration_bottom_line();
