@@ -18,7 +18,7 @@ I { color: #b0ffff; }
 </center>
 
 <H1>FVWM2</H1>
-Section: User Commands  (1)<BR>Updated: 15 Sep 2002<BR><A HREF="#index">This page contents</A>
+Section: User Commands  (1)<BR>Updated: 24 Jan 2003<BR><A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
 
@@ -993,11 +993,11 @@ commands for details.
 <A NAME="lbAQ">&nbsp;</A>
 <H2>OPEN LOOK and XVIEW COMPATIBILITY</H2>
 
+<A NAME="lbAR">&nbsp;</A>
+<H2>OPEN LOOK and XVIEW COMPATIBILITY</H2>
+
 Fvwm supports all the Open Look decoration hints (except
-pushpins). Most (perhaps all) Open Look applications have a
-strange notion of keyboard focus handling.  Although a lot of work
-went into fvwm to work well with these, you may still encounter
-problems. Should you use any such application, please add the
+pushpins).  Should you use any such application, please add the
 following line to your .fvwm2rc:
 
 
@@ -1009,8 +1009,39 @@ following line to your .fvwm2rc:
 
 
 
+Most (perhaps all) Open Look applications have a strange notion of
+keyboard focus handling.  Although a lot of work went into fvwm to
+work well with these, you may still encounter problems.  It is
+recommended to use the NeverFocus focus policy and the NoLenience
+style for all such applications (the windows will still get the
+focus):
+
+
 <P>
-<A NAME="lbAR">&nbsp;</A>
+
+
+<blockquote><PRE>Style &lt;application name&gt; NeverFocus, NoLenience</PRE></blockquote>
+<P>
+
+
+
+But in case you can not live with that focus policy, you can try
+using one of the other focus policies in combination with the
+Lenience style:
+
+
+<P>
+
+
+<blockquote><PRE>Style &lt;application name&gt; MouseFocus, Lenience
+Style &lt;application name&gt; SloppyFocus, Lenience
+Style &lt;application name&gt; ClickToFocus, Lenience</PRE></blockquote>
+<P>
+
+
+
+<P>
+<A NAME="lbAS">&nbsp;</A>
 <H2>M4 PREPROCESSING</H2>
 
 <P>
@@ -1042,7 +1073,7 @@ file (if it appears at all), and start fvwm with the command
 
 
 <P>
-<A NAME="lbAS">&nbsp;</A>
+<A NAME="lbAT">&nbsp;</A>
 <H2>CPP PREPROCESSING</H2>
 
 <P>
@@ -1052,7 +1083,7 @@ Cpp is the C-language pre-processor.  fvwm offers cpp processing
 which mirrors the m4 pre-processing.  To find out about it,
 re-read the M4 section above, but replace &quot;m4&quot; with &quot;cpp&quot;.
 <P>
-<A NAME="lbAT">&nbsp;</A>
+<A NAME="lbAU">&nbsp;</A>
 <H2>AUTO-RAISE</H2>
 
 <P>
@@ -1064,7 +1095,7 @@ auto-raise module,
 <B><a href="./FvwmAuto.html">FvwmAuto</a></B>.
 
 <P>
-<A NAME="lbAU">&nbsp;</A>
+<A NAME="lbAV">&nbsp;</A>
 <H2>CONFIGURATION FILES</H2>
 
 <P>
@@ -1079,7 +1110,7 @@ By using the
 built-in, it is easy to read in new configuration files as you go.
 <P>
 Lines beginning with '#' are ignored by fvwm.  Lines starting with
-
+'*' are expected to contain module configuration commands (rather
 than configuration commands for fvwm itself). Like in shell
 scripts embedded newlines in a configuration file line can be
 quoted by preceding them with a backslash.  All lines linked in
@@ -1096,7 +1127,7 @@ which function make sense for initialization and which ones make
 sense for run-time.
 <P>
 <P>
-<A NAME="lbAV">&nbsp;</A>
+<A NAME="lbAW">&nbsp;</A>
 <H2>SUPPLIED CONFIGURATION</H2>
 
 <P>
@@ -1118,7 +1149,7 @@ can be used as a source of examples for fvwm configuration.
 
 
 <P>
-<A NAME="lbAW">&nbsp;</A>
+<A NAME="lbAX">&nbsp;</A>
 <H2>KEYBOARD SHORTCUTS</H2>
 
 <P>
@@ -1140,19 +1171,19 @@ down the
 <FONT>control</FONT>
 key causes the cursor movement to go in smaller steps. Standard
 emacs and vi cursor movement controls (
-<FONT>Ctrl-n,</FONT>
-<FONT>Ctrl-p,</FONT>
-<FONT>Ctrl-f,</FONT>
-<FONT>Ctrl-b,</FONT>
+<FONT>n,</FONT>
+<FONT>p,</FONT>
+<FONT>f,</FONT>
+<FONT>b,</FONT>
 and
-<FONT>Ctrl-j,</FONT>
-<FONT>Ctrl-k,</FONT>
-<FONT>Ctrl-h,</FONT>
-<FONT>Ctrl-l</FONT>
+<FONT>j,</FONT>
+<FONT>k,</FONT>
+<FONT>h,</FONT>
+<FONT>l</FONT>
 ) can be used instead of the arrow keys.
 <P>
 <P>
-<A NAME="lbAX">&nbsp;</A>
+<A NAME="lbAY">&nbsp;</A>
 <H2>SESSION MANAGEMENT</H2>
 
 <P>
@@ -1203,7 +1234,7 @@ still kills all copies of fvwm.  Your system must have the
 
 command though.
 <P>
-<A NAME="lbAY">&nbsp;</A>
+<A NAME="lbAZ">&nbsp;</A>
 <H2>BOOLEAN ARGUMENTS</H2>
 
 <P>
@@ -1213,7 +1244,7 @@ evaluate to true while &quot;no&quot;, &quot;off&quot;, &quot;false&quot;, &quot
 to false.  Some commands allow &quot;toggle&quot; too which means that the
 feature is disabled if it is currently enabled and vice versa.
 <P>
-<A NAME="lbAZ">&nbsp;</A>
+<A NAME="lbBA">&nbsp;</A>
 <H2>BUILT IN KEY AND MOUSE BINDINGS</H2>
 
 <P>
@@ -1273,7 +1304,7 @@ list binding, use this:
 
 
 <P>
-<A NAME="lbBA">&nbsp;</A>
+<A NAME="lbBB">&nbsp;</A>
 <H2>BUILT IN COMMANDS</H2>
 
 <P>
@@ -1342,7 +1373,7 @@ To force that all pending changes are applied immediately, use the
 
 commands.
 <P>
-<A NAME="lbBB">&nbsp;</A>
+<A NAME="lbBC">&nbsp;</A>
 <H3>QUOTING</H3>
 
 <P>
@@ -1380,7 +1411,7 @@ in the same way.  Single characters can be quoted with a preceding
 backslash.  Quoting single characters works even inside other
 kinds of quotes.
 <P>
-<A NAME="lbBC">&nbsp;</A>
+<A NAME="lbBD">&nbsp;</A>
 <H3>COMMAND EXPANSION</H3>
 
 <P>
@@ -1655,7 +1686,7 @@ Some examples can be found in the description of the
 
 command.
 <P>
-<A NAME="lbBD">&nbsp;</A>
+<A NAME="lbBE">&nbsp;</A>
 <H3>THE LIST OF BUILTIN COMMANDS</H3>
 
 <P>
@@ -1686,7 +1717,7 @@ usefulness to the newcomer.
 
 
 <P>
-<A NAME="lbBE">&nbsp;</A>
+<A NAME="lbBF">&nbsp;</A>
 <H3>COMMANDS FOR MENUS</H3>
 
 <P>
@@ -1912,7 +1943,7 @@ selects an item that is the only one with this hot-key.
 If the menu-label contains a sub-string which is set off by stars,
 then the text between the stars is expected to be the name of an
 xpm-icon or bitmap-file to insert in the menu.  To get a literal
-
+'*', insert &quot;**&quot;.  For example
 
 
 <P>
@@ -2979,9 +3010,10 @@ of it are silently ignored.
 <B>Space</B>, <B>Tab</B>, <B>%Space</B> and <B>%Tab</B>
 
 <blockquote>
-Add a gap as large as one respectively eight spaces are with the
-font used in the menu items.  The whole string must be quoted if
-spaces or tabs are used.
+Add gap of one space, or a tab, using the width of the menu font.
+When using a tab, the size of the gap can be one to 8 spaces
+since the tab position is a multiple of 8 from the edge of the menu.
+The whole string must be quoted if spaces or tabs are used.
 </blockquote>
 <B>%p</B>
 
@@ -3327,7 +3359,7 @@ Does nothing.  This is used to insert a title line in a popup or
 menu.
 <P>
 </DL>
-<A NAME="lbBF">&nbsp;</A>
+<A NAME="lbBG">&nbsp;</A>
 <H3>MISCELLANEOUS COMMANDS</H3>
 
 <P>
@@ -3840,9 +3872,10 @@ options.  Initially, the layers 2, 4 and 6 are used.
 <DT><B>Emulate </B><I>Fvwm</I><B>|</B><I>Mwm</I><B>|</B><I>Win</I>
 
 <DD>
-This command affects how miscellaneous things are done by
-fvwm. For example where the move/resize feedback window appears
-depends on this command.  To have more Mwm- or Win-like behavior
+This command is a catch all for how miscellaneous things are done by fvwm.
+Right now this command affects where the move/resize feedback window appears
+and how window placement is aborted.
+To have more Mwm- or Win-like behavior
 you can call
 <B>Emulate</B>
 
@@ -3854,6 +3887,8 @@ as its argument.  With
 
 resize and move feedback windows are in the center of the screen,
 instead of the upper left corner.
+This also affects how manual placement is aborted.
+See the ManualPlacement description.
 <P>
 <DT><B>EscapeFunc</B>
 
@@ -4488,7 +4523,7 @@ menu. See the discussion for
 <P>
 <P>
 </DL>
-<A NAME="lbBG">&nbsp;</A>
+<A NAME="lbBH">&nbsp;</A>
 <H3>COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</H3>
 
 <P>
@@ -5123,17 +5158,20 @@ argument.
 
 <DD>
 Changes the value with which bits are xor'ed when doing
-rubber-band window moving or resizing.  Setting this value is a
-trial-and-error process.  The default value 0 tries to find a
-value that gives a good contrast to black and white.  It is set if
-the given
+rubber-band window moving or resizing.
+Valid values range from zero to the maximum value of an
+unsigned long integer on your system.
+Setting this value is a trial-and-error process.
+The default value 0 tries to find a
+value that gives a good contrast to black and white.
+The default value is used if the given
 <I>number</I>
 
 is omitted or invalid.
 <P>
 <P>
 </DL>
-<A NAME="lbBH">&nbsp;</A>
+<A NAME="lbBI">&nbsp;</A>
 <H3>COMMANDS FOR FOCUS AND MOUSE MOVEMENT</H3>
 
 <P>
@@ -5285,7 +5323,7 @@ root window on screen 1:
 <P>
 <P>
 </DL>
-<A NAME="lbBI">&nbsp;</A>
+<A NAME="lbBJ">&nbsp;</A>
 <H3>COMMANDS CONTROLLING WINDOW STATE</H3>
 
 <P>
@@ -5544,7 +5582,7 @@ command instead.
 <P>
 <P>
 </DL>
-<A NAME="lbBJ">&nbsp;</A>
+<A NAME="lbBK">&nbsp;</A>
 <H3>COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</H3>
 
 <P>
@@ -5725,8 +5763,8 @@ describes where the binding applies.  Valid contexts are 'R' for
 the root window, 'W' for an application window, 'T' for a window
 title-bar, 'S' for a window side, top, or bottom bar, 'F' for a
 window frame (the corners), 'I' for an Icon window, or '0' through
-
-
+'9' for title-bar buttons, or any combination of these letters.
+'A' is for any context except for title-bar buttons.  For
 instance, a context of &quot;FST&quot; applies when the mouse is anywhere in
 a window's border except the title-bar buttons.  Only 'S' and 'W'
 are valid for an undecorated window.
@@ -6125,7 +6163,7 @@ option is enabled.
 <P>
 <P>
 </DL>
-<A NAME="lbBK">&nbsp;</A>
+<A NAME="lbBL">&nbsp;</A>
 <H3>THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</H3>
 
 <P>
@@ -6268,7 +6306,7 @@ is a comma separated list containing one or more of the keywords
 
 <I>NoTransientUSPosition</I> / <I>UseTransientUSPosition</I>,
 
-<I>UseIconPosition</I> / <I>NoIconPosition</I>,
+<I>NoIconPosition</I> / <I>UseIconPosition</I>,
 
 <I>Lenience</I> / <I>NoLenience</I>,
 
@@ -6690,7 +6728,7 @@ the
 
 argument specifies the Xinerama screen on which the IconBox is
 defined.  It can be the usual screen Xinerama specification, 'p',
-
+'c', 'g', a screen number or the additional 'w' for the screen
 where the window center is located.  This is only useful with
 multiple Xinerama screens.  Perhaps easier to use is an X11
 geometry string:
@@ -7721,7 +7759,7 @@ This removes all settings for the style named &quot;Application*&quot;, NOT
 all styles starting with &quot;Application&quot;.
 <P>
 </DL>
-<A NAME="lbBL">&nbsp;</A>
+<A NAME="lbBM">&nbsp;</A>
 <H3>OTHER COMMANDS CONTROLLING WINDOW STYLES</H3>
 
 <P>
@@ -8767,7 +8805,7 @@ does.
 <P>
 <P>
 </DL>
-<A NAME="lbBM">&nbsp;</A>
+<A NAME="lbBN">&nbsp;</A>
 <H3>COMMANDS CONTROLLING THE VIRTUAL DESKTOP</H3>
 
 <P>
@@ -9182,7 +9220,7 @@ the primary screen's number.  Instead, the letter 'c' indicates to
 use the curent screen (containing the pointer) whenever the
 primary screen is used.  This may be very confusing under some
 circumstances.  With
-
+'g', the global screen is used as the primary screen, effectively
 disabling the primary screen.  Calling this function with any
 other argument (including none) resets the primary screen to 0.
 <P>
@@ -9231,7 +9269,7 @@ XineramaOn</PRE></blockquote>
 <P>
 <P>
 </DL>
-<A NAME="lbBN">&nbsp;</A>
+<A NAME="lbBO">&nbsp;</A>
 <H3>COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</H3>
 
 <P>
@@ -9815,7 +9853,7 @@ command.
 <P>
 <P>
 </DL>
-<A NAME="lbBO">&nbsp;</A>
+<A NAME="lbBP">&nbsp;</A>
 <H3>CONDITIONAL COMMANDS</H3>
 
 <P>
@@ -10112,7 +10150,7 @@ calls (as in the last example).
 <P>
 <P>
 </DL>
-<A NAME="lbBP">&nbsp;</A>
+<A NAME="lbBQ">&nbsp;</A>
 <H3>MODULE COMMANDS</H3>
 
 <P>
@@ -10484,7 +10522,7 @@ complex commands in modules.
 <P>
 <P>
 </DL>
-<A NAME="lbBQ">&nbsp;</A>
+<A NAME="lbBR">&nbsp;</A>
 <H3>QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</H3>
 
 <P>
@@ -10642,7 +10680,7 @@ xsm remotely.
 <P>
 <P>
 </DL>
-<A NAME="lbBR">&nbsp;</A>
+<A NAME="lbBS">&nbsp;</A>
 <H3>COLOR GRADIENTS</H3>
 
 <P>
@@ -10747,7 +10785,7 @@ MenuStyle * DGradient 100 3 Red 20 Blue 30 \
 
 <P>
 </DL>
-<A NAME="lbBS">&nbsp;</A>
+<A NAME="lbBT">&nbsp;</A>
 <H2>ENVIRONMENT</H2>
 
 <P>
@@ -10795,7 +10833,7 @@ Note, the state files are named
 and normally are removed automatically when not used anymore.
 <P>
 </DL>
-<A NAME="lbBT">&nbsp;</A>
+<A NAME="lbBU">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -10804,7 +10842,7 @@ was written by Tom LaStrange.  After Robert Nation came Charles
 Hines, followed by Brady Montz. Currently fvwm is developed by a
 number of people on the fvwm-workers mailing list.
 <P>
-<A NAME="lbBU">&nbsp;</A>
+<A NAME="lbBV">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 <P>
@@ -10815,7 +10853,7 @@ distribution are subject to the GNU General Public License
 
 file that came with fvwm for details.
 <P>
-<A NAME="lbBV">&nbsp;</A>
+<A NAME="lbBW">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -10869,46 +10907,47 @@ The official fvwm homepage is
 <DT><A HREF="#lbAO">GNOME COMPLIANCE</A><DD>
 <DT><A HREF="#lbAP">MWM COMPATIBILITY</A><DD>
 <DT><A HREF="#lbAQ">OPEN LOOK and XVIEW COMPATIBILITY</A><DD>
-<DT><A HREF="#lbAR">M4 PREPROCESSING</A><DD>
-<DT><A HREF="#lbAS">CPP PREPROCESSING</A><DD>
-<DT><A HREF="#lbAT">AUTO-RAISE</A><DD>
-<DT><A HREF="#lbAU">CONFIGURATION FILES</A><DD>
-<DT><A HREF="#lbAV">SUPPLIED CONFIGURATION</A><DD>
-<DT><A HREF="#lbAW">KEYBOARD SHORTCUTS</A><DD>
-<DT><A HREF="#lbAX">SESSION MANAGEMENT</A><DD>
-<DT><A HREF="#lbAY">BOOLEAN ARGUMENTS</A><DD>
-<DT><A HREF="#lbAZ">BUILT IN KEY AND MOUSE BINDINGS</A><DD>
-<DT><A HREF="#lbBA">BUILT IN COMMANDS</A><DD>
+<DT><A HREF="#lbAR">OPEN LOOK and XVIEW COMPATIBILITY</A><DD>
+<DT><A HREF="#lbAS">M4 PREPROCESSING</A><DD>
+<DT><A HREF="#lbAT">CPP PREPROCESSING</A><DD>
+<DT><A HREF="#lbAU">AUTO-RAISE</A><DD>
+<DT><A HREF="#lbAV">CONFIGURATION FILES</A><DD>
+<DT><A HREF="#lbAW">SUPPLIED CONFIGURATION</A><DD>
+<DT><A HREF="#lbAX">KEYBOARD SHORTCUTS</A><DD>
+<DT><A HREF="#lbAY">SESSION MANAGEMENT</A><DD>
+<DT><A HREF="#lbAZ">BOOLEAN ARGUMENTS</A><DD>
+<DT><A HREF="#lbBA">BUILT IN KEY AND MOUSE BINDINGS</A><DD>
+<DT><A HREF="#lbBB">BUILT IN COMMANDS</A><DD>
 <DL>
-<DT><A HREF="#lbBB">QUOTING</A><DD>
-<DT><A HREF="#lbBC">COMMAND EXPANSION</A><DD>
-<DT><A HREF="#lbBD">THE LIST OF BUILTIN COMMANDS</A><DD>
-<DT><A HREF="#lbBE">COMMANDS FOR MENUS</A><DD>
-<DT><A HREF="#lbBF">MISCELLANEOUS COMMANDS</A><DD>
-<DT><A HREF="#lbBG">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
-<DT><A HREF="#lbBH">COMMANDS FOR FOCUS AND MOUSE MOVEMENT</A><DD>
-<DT><A HREF="#lbBI">COMMANDS CONTROLLING WINDOW STATE</A><DD>
-<DT><A HREF="#lbBJ">COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</A><DD>
-<DT><A HREF="#lbBK">THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</A><DD>
-<DT><A HREF="#lbBL">OTHER COMMANDS CONTROLLING WINDOW STYLES</A><DD>
-<DT><A HREF="#lbBM">COMMANDS CONTROLLING THE VIRTUAL DESKTOP</A><DD>
-<DT><A HREF="#lbBN">COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</A><DD>
-<DT><A HREF="#lbBO">CONDITIONAL COMMANDS</A><DD>
-<DT><A HREF="#lbBP">MODULE COMMANDS</A><DD>
-<DT><A HREF="#lbBQ">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
-<DT><A HREF="#lbBR">COLOR GRADIENTS</A><DD>
+<DT><A HREF="#lbBC">QUOTING</A><DD>
+<DT><A HREF="#lbBD">COMMAND EXPANSION</A><DD>
+<DT><A HREF="#lbBE">THE LIST OF BUILTIN COMMANDS</A><DD>
+<DT><A HREF="#lbBF">COMMANDS FOR MENUS</A><DD>
+<DT><A HREF="#lbBG">MISCELLANEOUS COMMANDS</A><DD>
+<DT><A HREF="#lbBH">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
+<DT><A HREF="#lbBI">COMMANDS FOR FOCUS AND MOUSE MOVEMENT</A><DD>
+<DT><A HREF="#lbBJ">COMMANDS CONTROLLING WINDOW STATE</A><DD>
+<DT><A HREF="#lbBK">COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</A><DD>
+<DT><A HREF="#lbBL">THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</A><DD>
+<DT><A HREF="#lbBM">OTHER COMMANDS CONTROLLING WINDOW STYLES</A><DD>
+<DT><A HREF="#lbBN">COMMANDS CONTROLLING THE VIRTUAL DESKTOP</A><DD>
+<DT><A HREF="#lbBO">COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</A><DD>
+<DT><A HREF="#lbBP">CONDITIONAL COMMANDS</A><DD>
+<DT><A HREF="#lbBQ">MODULE COMMANDS</A><DD>
+<DT><A HREF="#lbBR">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
+<DT><A HREF="#lbBS">COLOR GRADIENTS</A><DD>
 </DL>
-<DT><A HREF="#lbBS">ENVIRONMENT</A><DD>
-<DT><A HREF="#lbBT">AUTHORS</A><DD>
-<DT><A HREF="#lbBU">COPYRIGHT</A><DD>
-<DT><A HREF="#lbBV">BUGS</A><DD>
+<DT><A HREF="#lbBT">ENVIRONMENT</A><DD>
+<DT><A HREF="#lbBU">AUTHORS</A><DD>
+<DT><A HREF="#lbBV">COPYRIGHT</A><DD>
+<DT><A HREF="#lbBW">BUGS</A><DD>
 </DL>
 <HR>
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:21:57 GMT, September 17, 2002
+Time: 02:25:44 GMT, March 11, 2003
 <hr>
-<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
+<!-- Automatically generated by manpages2html on 11-Mar-2003 04:25:41 -->
 </body>
 </html>

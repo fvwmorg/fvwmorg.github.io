@@ -18,21 +18,20 @@ I { color: #b0ffff; }
 </center>
 
 <H1>FVWM-MENU-HEADLINES</H1>
-Section: Fvwm Utility (1)<BR>Updated: perl v5.6.0<BR><A HREF="#index">This page contents</A>
+Section: FVWM Utilities (1)<BR>Updated: 2003-03-11<BR><A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
-
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-fvwm-menu-headlines - builds headlines menu definition for <FONT>FVWM</FONT>
+fvwm-menu-headlines - builds headlines menu definition for FVWM
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
 <B>fvwm-menu-headlines</B>
-[ <B>--help</B>|<B>-h</B> ]
-[ <B>--version</B>|<B>-v</B> ]
+[ <B>--help</B>|<B>-h</B>|<B>-?</B> ]
+[ <B>--version</B>|<B>-v</B>|<B>-V</B> ]
 [ <B>--info</B> [site] ]
 [ <B>--site</B>|<B>-s</B> site ]
 [ <B>--name</B>|<B>-n</B> name ]
@@ -67,47 +66,66 @@ the wm-icons package).
 <H2>OPTIONS</H2>
 
 <A NAME="ixAAE"></A>
-<B>--help</B>    - show the help and exit
-<P>
-
-<B>--version</B> - show the version and exit
-<P>
-
-<B>--info</B> [site] - if site name is given print the site specific info,
+<DL COMPACT>
+<DT><B>--help</B><DD>
+<A NAME="ixAAF"></A>
+show the help and exit
+<DT><B>--version</B><DD>
+<A NAME="ixAAG"></A>
+show the version and exit
+<DT><B>--info</B> [site]<DD>
+<A NAME="ixAAH"></A>
+if site name is given print the site specific info,
 otherwise print all site names
-<P>
-
-<B>--site</B> site - defile a web site, headlines of which to show, this option
+<DT><B>--site</B> site<DD>
+<A NAME="ixAAI"></A>
+defile a web site, headlines of which to show, this option
 also can be used together with --help to get new defaults.
 Default site: freshmeat.
-<P>
+<DT><B>--name</B> name<DD>
+<A NAME="ixAAJ"></A>
+define menu name (default is ``MenuHeadlinesFreshmeat'')
+<DT><B>--title</B> title<DD>
+<A NAME="ixAAK"></A>
+define menu title (default is ``Freshmeat Headlines'').
+<DT><B>--item</B> label-format<DD>
+<A NAME="ixAAL"></A>
 
-<B>--name</B>, <B>---title</B> - define menu name and menu title accordingly given
-in the following argument. Default is name ``MenuHeadlinesFreshmeat'' and
-title ``Freshmeat Headlines''.
-<P>
+<DT><B>--exec</B> command-format<DD>
+<A NAME="ixAAM"></A>
 
-<B>--item</B>, <B>---exec</B> - define menu item or exec format in the following
-argument (what is shown and what is executed when the item is chosen),
-default is '%h\t%[(%Y-%m-%d <TT>%H:</TT>%M)]'.
+define format for menu item or command (what is shown and what is
+executed when the item is chosen).
+Default label is '%h\t%[(%Y-%m-%d <TT>%H:</TT>%M)]'.
 <FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double
 backslash or a real <FONT>TAB</FONT>.
+
+
 <P>
 
-Format specifiers for a headline entry:
-<BR>&nbsp;&nbsp;<TT>%h</TT>&nbsp;-&nbsp;headline
-<BR>&nbsp;&nbsp;<TT>%u</TT>&nbsp;-&nbsp;url
-<BR>&nbsp;&nbsp;<TT>%d</TT>&nbsp;-&nbsp;date&nbsp;in&nbsp;the&nbsp;native&nbsp;format&nbsp;(that&nbsp;site&nbsp;backend&nbsp;supplied)
-<BR>&nbsp;&nbsp;%[strftime-argument-string]&nbsp;-&nbsp;date/time,&nbsp;see&nbsp;<I><A HREF=".//3+strftime">strftime</A></I>(3)
-<BR>&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;date/time&nbsp;is&nbsp;represented&nbsp;accourding&nbsp;to&nbsp;the&nbsp;local&nbsp;time;
-<BR>&nbsp;&nbsp;&nbsp;&nbsp;date&nbsp;and/or&nbsp;time&nbsp;fields&nbsp;that&nbsp;can't&nbsp;be&nbsp;guessed&nbsp;are&nbsp;stripped
+
+Format specifiers for a headline format:
+
+
 <P>
 
-<blockquote><pre>    Example: %[|%d %B %Y| %H:%M %S]
+
+<blockquote><pre>  %h - headline
+  %u - url
+  %d - date in the native format (that site backend supplied)
+  %[strftime-argument-string] - date/time, see <A HREF=".//3+strftime">strftime</A>(3)
+    the date/time is represented accourding to the local time;
+    date and/or time fields that can't be guessed are stripped
+    Example: %[|%d %B %Y| %H:%M %S]
       If site supplied only date - this becomes %[|%d %B %Y|],
       if site supplied no date - this becomes an empty string.
   %{name} - site specific named value, like %{comments}
   %(text) - arbitrary text, good for escaping or aligning</pre></blockquote>
+
+
+<P>
+
+
 These specifiers can receive an optional integer size, positive for right
 adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional
 *num or *-num, which means to leave only the first or last (if minus) num of
@@ -115,51 +133,61 @@ chars, the num must be greater than 3, since the striped part is replaced
 with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to
 get only the 20 last characters, but if the length is less then 10 - to fill
 with up to 10 spaces on the right.
+<DT><B>--command</B> command-format<DD>
+<A NAME="ixAAN"></A>
+like <B>--exec</B> above, but enables to specify any fvwm command,
+for example, ``Function FuncFvwmShowURL '%u''' not only Exec.
+
+
 <P>
 
-<B>--command</B> like <B>---exec</B> above, but enables to specify any fvwm command,
-for example, ``Function FuncFvwmShowURL '%u''' not only Exec.
-<P>
 
 In fact, --exec=``mozilla '%u''' is equivalent
 to --command=``Exec mozilla '%u'''
-<P>
+<DT><B>--icon-title</B> icon<DD>
+<A NAME="ixAAO"></A>
 
-<B>--icon-title</B>, <B>---icon-item</B>, <B>---icon-home</B>, <B>---icon-error</B> - define
-menu icon for title, regular item, frontpage item and error item respectively
-given in the following argument.
-Default is no menu icons (equivalent to an empty icon argument).
-<P>
+<DT><B>--icon-item</B> icon<DD>
+<A NAME="ixAAP"></A>
+<DT><B>--icon-home</B> icon<DD>
+<A NAME="ixAAQ"></A>
+<DT><B>--icon-error</B> icon<DD>
+<A NAME="ixAAR"></A>
 
-<B>--wm-icons</B> - define icon names suitable for use with wm-icons package.
+define menu icon for title, regular item, frontpage item and error item
+respectively. Default is no menu icons (equivalent to an empty icon argument).
+<DT><B>--wm-icons</B><DD>
+<A NAME="ixAAS"></A>
+define icon names suitable for use with wm-icons package.
 Currently this is equivalent to: --icon-title '' --icon-item
 menu/information.xpm --icon-home menu/home.xpm --icon-error menu/choice-no.xpm.
-<P>
-
-<B>--frontpage</B> [where] - add the site frontpage item to the menu.
+<DT><B>--frontpage</B> [where]<DD>
+<A NAME="ixAAT"></A>
+add the site frontpage item to the menu.
 Optional value can be used to specify where this item will be placed in
 the menu - 'top' or 't', 'bottom' or 'b'.
-<P>
-
-<B>--proxy</B> host[:port] - define a proxy to use.
+<DT><B>--proxy</B> host[:port]<DD>
+<A NAME="ixAAU"></A>
+define a proxy to use.
 Example: --proxy proxy.inter.net:3128
-<P>
-
-<B>--file</B> [file] - write the menu output to specified file. If no filename is
+<DT><B>--file</B> [file]<DD>
+<A NAME="ixAAV"></A>
+write the menu output to specified file. If no filename is
 given with this option (or empty filename), the default filename
 <FONT>WORK_HOME/SITE</FONT>.menu is used. Without this option or with '-'
 filename, the menu output is written to standard output.
-<P>
-
-<B>--fake</B> [file] - don't connect to the host using <FONT>HTTP</FONT> protocol, instead,
+<DT><B>--fake</B> [file]<DD>
+<A NAME="ixAAW"></A>
+don't connect to the host using <FONT>HTTP</FONT> protocol, instead,
 read from <FONT>WORK_HOME/SITE</FONT>.in file. The following reads input from
 freshmeat.in (downloaded <A HREF="http://freshmeat.net/backend/recentnews.txt)">http://freshmeat.net/backend/recentnews.txt)</A> and
 saves output to segfault.menu (both files are in <FONT>WORK_HOME</FONT>):
 <BR>&nbsp;&nbsp;fvwm-menu-headlines&nbsp;--site&nbsp;freshmeat&nbsp;--fake&nbsp;--file
-<P>
-
-<B>--timeout</B> seconds - limit a line reading from a socket to this timeout,
+<DT><B>--timeout</B> seconds<DD>
+<A NAME="ixAAX"></A>
+limit a line reading from a socket to this timeout,
 the default timeout is 20 seconds.
+</DL>
 <P>
 
 <FONT>WORK_HOME</FONT> of this script is ~/.fvwm/.fvwm-menu-headlines.
@@ -167,13 +195,13 @@ It is created if needed.
 <P>
 
 Option parameters can be specified either using '=' or in the next argument.
-Short options are ok if not ambiguous: <TT>`-h'</TT>, <TT>`-t'</TT>; but be careful with
+Short options are ok if not ambiguous: <TT>&quot;-h&quot;</TT>, <TT>&quot;-t&quot;</TT>; but be careful with
 short options, what is now unambiguous, can become ambiguous in the next
 versions.
 <A NAME="lbAF">&nbsp;</A>
 <H2>USAGE</H2>
 
-<A NAME="ixAAF"></A>
+<A NAME="ixAAY"></A>
 1. One of the ways to use this script is to define a crontab
 entry to run the script every hour or so for every monitored site:
 <P>
@@ -181,19 +209,24 @@ entry to run the script every hour or so for every monitored site:
 <blockquote><pre>  0,30 * * * * fvwm-menu-headlines --file --site freshmeat
   1,31 * * * * fvwm-menu-headlines --file --site linuxtoday
   2,32 * * * * fvwm-menu-headlines --file --site slashdot</pre></blockquote>
+<P>
+
 Then add these lines to your fvwm configuration file:
 <P>
 
 <blockquote><pre>  DestroyFunc FuncFvwmMenuHeadlines
   AddToFunc   FuncFvwmMenuHeadlines
-  + I Read &quot;$HOME/.fvwm/.fvwm-menu-headlines/$0.menu&quot;
+  + I Read &quot;$HOME/.fvwm/.fvwm-menu-headlines/$0.menu&quot;</pre></blockquote>
+<P>
 
-  DestroyMenu MenuHeadlines
+<blockquote><pre>  DestroyMenu MenuHeadlines
   AddToMenu   MenuHeadlines &quot;Headlines&quot; Title
   + MissingSubmenuFunction FuncFvwmMenuHeadlines
   + &quot;FreshMeat&quot;  Popup freshmeat
   + &quot;LinuxToday&quot; Popup linuxtoday
   + &quot;Slashdot&quot;   Popup slashdot</pre></blockquote>
+<P>
+
 2. Another way to use this script (only if you have fast network/proxy) is to
 run it every time you want to open your Headlines submenus.
 (Note, the submenu that is once created is not reloaded, use ``Reset all''.)
@@ -204,9 +237,10 @@ In this case your fvwm configuration lines could be:
 
 <blockquote><pre>  DestroyFunc FuncFvwmMenuHeadlines
   AddToFunc   FuncFvwmMenuHeadlines
-  + I PipeRead &quot;fvwm-menu-headlines --site $0&quot;
+  + I PipeRead &quot;fvwm-menu-headlines --site $0&quot;</pre></blockquote>
+<P>
 
-  DestroyMenu MenuHeadlines
+<blockquote><pre>  DestroyMenu MenuHeadlines
   AddToMenu   MenuHeadlines &quot;Headlines&quot; Title
   + MissingSubmenuFunction FuncFvwmMenuHeadlines
   + &quot;FreshMeat&quot;  Popup freshmeat
@@ -215,15 +249,18 @@ In this case your fvwm configuration lines could be:
   + &quot;GNOME News&quot; Popup gnome-news
   + &quot;KDE News&quot;   Popup kde-news
   + &quot;&quot; Nop
-  + &quot;Reset all&quot;  FuncResetHeadlines
+  + &quot;Reset all&quot;  FuncResetHeadlines</pre></blockquote>
+<P>
 
-  DestroyFunc FuncResetHeadlines
+<blockquote><pre>  DestroyFunc FuncResetHeadlines
   AddToFunc   FuncResetHeadlines
   + I DestroyMenu freshmeat
   + I DestroyMenu linuxtoday
   + I DestroyMenu slashdot
   + I DestroyMenu gnome-news
   + I DestroyMenu kde-news</pre></blockquote>
+<P>
+
 And finally, add ``Popup MenuHeadlines'' somewhere.
 <P>
 
@@ -238,7 +275,7 @@ from a shell script. Every time you want headlines from some site, execute
 <A NAME="lbAG">&nbsp;</A>
 <H2>HOW TO ADD SITE HEADLINES</H2>
 
-<A NAME="ixAAG"></A>
+<A NAME="ixAAZ"></A>
 It is possible to add user defined site headlines without touching the script
 itself. Put your perl extensions to the file WORK_HOME/extension.pl.
 For each site add something similar to:
@@ -251,9 +288,10 @@ For each site add something similar to:
     'func' =&gt; \&amp;processMySlashdot,
     # the following string is only used in --info
     'flds' =&gt; 'time, title, department, topic, author, url',
-  };
+  };</pre></blockquote>
+<P>
 
-  sub processMySlashdot () {
+<blockquote><pre>  sub processMySlashdot () {
     return processXml(
       'story',
       # mandatory 'h', 'u' and 'd' aliases or undef
@@ -263,18 +301,21 @@ For each site add something similar to:
         ($1, ($2 || 0) - 1, $3, $4, $5, $6);
       }, +0,  # timezone offset; already in UTC
     );
-  }
+  }</pre></blockquote>
+<P>
 
-  1;</pre></blockquote>
+<blockquote><pre>  1;</pre></blockquote>
 <A NAME="lbAH">&nbsp;</A>
 <H2>AUTHORS</H2>
 
-<A NAME="ixAAH"></A>
+<A NAME="ixABA"></A>
 This script is inspired by WMHeadlines v1.3 by:
 <P>
 
 <blockquote><pre>  Jeff Meininger &lt;<A HREF="mailto:jeffm@boxybutgood.com">jeffm@boxybutgood.com</A>&gt;
   (<A HREF="http://rive.boxybutgood.com/WMHeadlines/).">http://rive.boxybutgood.com/WMHeadlines/).</A></pre></blockquote>
+<P>
+
 Reimplemented for <FONT>FVWM</FONT> and heavily enhanced by:
 <P>
 
@@ -282,13 +323,13 @@ Reimplemented for <FONT>FVWM</FONT> and heavily enhanced by:
 <A NAME="lbAI">&nbsp;</A>
 <H2>COPYING</H2>
 
-<A NAME="ixAAI"></A>
+<A NAME="ixABB"></A>
 The script is distributed by the same terms as fvwm itself.
 See <FONT>GNU</FONT> General Public License for details.
 <A NAME="lbAJ">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixAAJ"></A>
+<A NAME="ixABC"></A>
 Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 <P>
 
@@ -309,8 +350,8 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:21:59 GMT, September 17, 2002
+Time: 02:25:51 GMT, March 11, 2003
 <hr>
-<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
+<!-- Automatically generated by manpages2html on 11-Mar-2003 04:25:41 -->
 </body>
 </html>

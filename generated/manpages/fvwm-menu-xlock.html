@@ -18,21 +18,20 @@ I { color: #b0ffff; }
 </center>
 
 <H1>FVWM-MENU-XLOCK</H1>
-Section: Fvwm Utility (1)<BR>Updated: perl v5.6.0<BR><A HREF="#index">This page contents</A>
+Section: FVWM Utilities (1)<BR>Updated: 2003-03-11<BR><A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
-
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-fvwm-menu-xlock - builds xlock menu definition for <FONT>FVWM</FONT>
+fvwm-menu-xlock - builds xlock menu definition for FVWM
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
 <B>fvwm-menu-xlock</B>
-[ <B>--help</B>|<B>-h</B> ]
-[ <B>--version</B>|<B>-v</B> ]
+[ <B>--help</B>|<B>-h</B>|<B>-?</B> ]
+[ <B>--version</B>|<B>-v</B>|<B>-V</B> ]
 [ <B>--name</B>|<B>-n</B> name ]
 [ <B>--title</B>|<B>-t</B> title ]
 [ <B>--item</B> format ]
@@ -44,36 +43,51 @@ fvwm-menu-xlock - builds xlock menu definition for <FONT>FVWM</FONT>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-A simple perl script which parses xlock's output to build an fvwm 2.xx
+A simple perl script which parses xlock's output to build an fvwm
 menu definition of all xlock's modes.
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
 
 <A NAME="ixAAE"></A>
-<B>--help</B>    - show the help and exit
-<P>
-
-<B>--version</B> - show the version and exit
-<P>
-
-<B>--name</B> name - define menu name in the following argument.
+<DL COMPACT>
+<DT><B>--help</B><DD>
+<A NAME="ixAAF"></A>
+show the help and exit
+<DT><B>--version</B><DD>
+<A NAME="ixAAG"></A>
+show the version and exit
+<DT><B>--name</B> name<DD>
+<A NAME="ixAAH"></A>
+define menu name in the following argument.
 Default is ``XLockMenu''
-<P>
-
-<B>--title</B> title - define menu title in the following argument.
+<DT><B>--title</B> title<DD>
+<A NAME="ixAAI"></A>
+define menu title in the following argument.
 Default is ``XLock Modes''.
+<DT><B>--item</B> format<DD>
+<A NAME="ixAAJ"></A>
+define menu item format in the following argument,
+default is '%n\t(%d)'.
+<FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double
+backslash or a real <FONT>TAB</FONT>.
+
+
 <P>
 
-<B>--item</B> format - define menu item format in the following argument,
-default is '%n\t(%d)'. <FONT>TAB</FONT> can be specified as '\t', but in fvwmrc
-you should specify a double backslash or a real <FONT>TAB</FONT>.
-<P>
 
 Format specifiers:
-<BR>&nbsp;&nbsp;<TT>%n</TT>&nbsp;-&nbsp;mode&nbsp;name
-<BR>&nbsp;&nbsp;<TT>%d</TT>&nbsp;-&nbsp;mode&nbsp;description
-<BR>&nbsp;&nbsp;<TT>%D</TT>&nbsp;-&nbsp;mode&nbsp;description&nbsp;without&nbsp;``Shows&nbsp;''&nbsp;prefix&nbsp;if&nbsp;any
+
+
 <P>
+
+
+<blockquote><pre>  %n - mode name
+  %d - mode description
+  %D - mode description without &quot;Shows &quot; prefix if any</pre></blockquote>
+
+
+<P>
+
 
 These specifiers can receive an optional integer size, positive for right
 adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional
@@ -82,23 +96,26 @@ chars, the num must be greater than 3, since the striped part is replaced
 with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to
 get only the 20 last characters, but if the length is less then 10 - to fill
 with up to 10 spaces on the right.
-<P>
+<DT><B>--icon-title</B> icon<DD>
+<A NAME="ixAAK"></A>
 
-<B>--icon-title</B>, <B>---icon-item</B> - define menu icon for title and regular item
-accordingly given in the following argument. Default is no menu icons
-(equivalent to an empty icon argument).
-<P>
+<DT><B>--icon-item</B> icon<DD>
+<A NAME="ixAAL"></A>
 
-<B>--wm-icons</B> - define icon names suitable for use with wm-icons package.
+define menu icon for title and regular item accordingly.
+Default is no menu icons (equivalent to an empty icon argument).
+<DT><B>--wm-icons</B><DD>
+<A NAME="ixAAM"></A>
+define icon names suitable for use with wm-icons package.
 Currently this is equivalent to: --icon-title '' --icon-item
 menu/lock.xpm.
+<DT><B>--special-first</B><DD>
+<A NAME="ixAAN"></A>
+instructs to include special modes (usually black, bomb and random) first.
+</DL>
 <P>
 
-<B>--special-first</B> - instructs to include special modes (usually black,
-bomb and random) first.
-<P>
-
-Option parameters can be specified both using '=' and in the next argument.
+Option parameters can be specified either using '=' or in the next argument.
 Short options are ok if not ambiguous: -h, -t; but be careful with
 short options, what is now unambiguous, can became ambiguous in the next
 versions.
@@ -111,7 +128,7 @@ Please see the <B><A HREF=".//1+xlock">xlock</A></B>(1) man page for the xlock o
 <A NAME="lbAF">&nbsp;</A>
 <H2>USAGE</H2>
 
-<A NAME="ixAAF"></A>
+<A NAME="ixAAO"></A>
 Add these lines to your fvwm configuration file:
 <P>
 
@@ -124,7 +141,7 @@ Add these lines to your fvwm configuration file:
 <A NAME="lbAG">&nbsp;</A>
 <H2>AUTHORS</H2>
 
-<A NAME="ixAAG"></A>
+<A NAME="ixAAP"></A>
 Charles K. Hines &lt;<A HREF="mailto:chuck_hines@vnet.ibm.com">chuck_hines@vnet.ibm.com</A>&gt;, initial version.
 <P>
 
@@ -132,13 +149,13 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 <A NAME="lbAH">&nbsp;</A>
 <H2>COPYING</H2>
 
-<A NAME="ixAAH"></A>
+<A NAME="ixAAQ"></A>
 The script is distributed by the same terms as fvwm itself.
 See <FONT>GNU</FONT> General Public License for details.
 <A NAME="lbAI">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixAAI"></A>
+<A NAME="ixAAR"></A>
 Depends on the output of xlock. Will produce an empty menu if the structure
 of the output is changed.
 <P>
@@ -162,8 +179,8 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 14:22:00 GMT, September 17, 2002
+Time: 02:25:51 GMT, March 11, 2003
 <hr>
-<!-- Automatically generated by manpages2html on 17-Sep-2002 17:21:57 -->
+<!-- Automatically generated by manpages2html on 11-Mar-2003 04:25:41 -->
 </body>
 </html>
