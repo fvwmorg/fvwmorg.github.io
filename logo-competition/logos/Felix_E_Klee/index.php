@@ -39,14 +39,26 @@ if (strlen($site_has_been_loaded) == 0) {
 ?>
 
 <?php decoration_window_start('Logos by Felix E. Klee', "100%", ""); ?>
+<!--
+Date: Sat, 31 May 2003 22:23:29 +0200
+From: "Felix E. Klee" <felix.klee@inka.de>
+To: fvwm-logo@lists.sourceforge.net
+Subject: [FVWM-LOGO] Some logos
+User-Agent: KMail/1.5.1
 
-<!-- <p> -->
-<!-- Felix said:<br> -->
-<!-- I plan, however, to provide separate -->
-<!-- versions of the logos before the voting process begins. -->
-<!--  -->
-<!-- Regards and happy birthday to FVWM -->
-<!-- </p> -->
+Hi,
+-->
+I created some logos for the Logo Competition. You can find them on
+
+<p><a href="http://sites.inka.de/klee/fvwm/logos/index.html">
+http://sites.inka.de/klee/fvwm/logos/index.html</a></p>
+
+Note that they are all together in one big image file and I *do not* want
+this file to be split up for now. I plan, however, to provide separate
+versions of the logos before the voting process begins.
+<!--
+Regards and happy birthday to FVWM,
+-->
 
 <p class=centered><img src="logos.png">
 

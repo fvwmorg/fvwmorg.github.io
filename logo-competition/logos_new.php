@@ -39,7 +39,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php 
 // decoration_window_start("Change colors to view logo on different backgrounds.","100%","",0);
 // <form action="logos_new.php" method="POST">
@@ -50,96 +50,113 @@ if (strlen("$site_has_been_loaded") == 0) {
 // decoration_window_end(); 
 ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By Michael Gorniak", "", "", 0); ?>
 
-<p><a href="<?php echo conv_link_target('logos/Michael_Gorniak/index.php');
-?>" class="nohilight"><img src="logos/Michael_Gorniak/fvwm-logos-overview.png" width="213" height="358" border="0" vspace="0" hspace="0"></a>
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Michael_Gorniak/index.php');
+?>" class="nohilight"><img src="logos/Michael_Gorniak/fvwm-logos-overview.png"
+width="213" height="358" border="0" vspace="0" hspace="0" class="centered"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By David Drummond", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/David_Drummond/index.php');
-?>" class="nohilight"><img src="logos/David_Drummond/yellow_flower_fvwm_logo.png" width="300" height="180" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/David_Drummond/yellow_flower_fvwm_logo.png"
+width="300" height="180" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By Ian Remmler", "", "", 0); ?>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
-?>" class="nohilight"><img src="logos/Ian_Remmler/3d.png" width="184" height="213" border="0" vspace="0" hspace="0"  class="centered"></a>
+?>" class="nohilight"><img src="logos/Ian_Remmler/3d.png"
+width="184" height="213" border="0" vspace="0" hspace="0" class="centered"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
-?>" class="nohilight"><img src="logos/Ian_Remmler/contrast.png" width="269" height="89" border="0" vspace="0" hspace="0"  class="centered"></a>
+?>" class="nohilight"><img src="logos/Ian_Remmler/contrast.png"
+width="269" height="89" border="0" vspace="0" hspace="0" class="centered"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
-?>" class="nohilight"><img src="logos/Ian_Remmler/future.png" width="297" height="98" border="0" vspace="0" hspace="0"  class="centered"></a>
+?>" class="nohilight"><img src="logos/Ian_Remmler/future.png"
+width="297" height="98" border="0" vspace="0" hspace="0" class="centered"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
-?>" class="nohilight"><img src="logos/Ian_Remmler/groovy-3d.png" width="262" height="121" border="0" vspace="0" hspace="0"  class="centered"></a>
+?>" class="nohilight"><img src="logos/Ian_Remmler/groovy-3d.png"
+width="262" height="121" border="0" vspace="0" hspace="0" class="centered"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');
-?>" class="nohilight"><img src="logos/Ian_Remmler/block.png" width="130" height="161" border="0" vspace="0" hspace="0"  class="centered"></a>
+?>" class="nohilight"><img src="logos/Ian_Remmler/block.png"
+width="130" height="161" border="0" vspace="0" hspace="0" class="centered"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By Tian (3 images)", "", "", 0); ?>
 
 <p><a href="<?php echo conv_link_target('logos/Tian/index.php');
-?>" class="nohilight"><img src="logos/Tian/logo_shaded.png" width="399" height="215" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Tian/logo_shaded.png"
+width="399" height="215" border="0" vspace="0" hspace="0"></a>
 
 &nbsp;
 <a href="<?php echo conv_link_target('logos/Tian/index.php');
-?>" class="nohilight"><img src="logos/Tian/logo_sunny.png" width="266" height="143" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Tian/logo_sunny.png"
+width="266" height="143" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By Phil Harper (7 + 4 images)", "", "", 0); ?>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
-?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png" width="199" height="191" border="0" vspace="0" hspace="0" align="middle"></a>
+?>" class="nohilight"><img src="logos/Phil_Harper/feeble.png"
+width="199" height="191" border="0" vspace="0" hspace="0" align="middle"></a>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
-?>" class="nohilight"><img src="logos/Phil_Harper/tiger2.png" width="270" height="246" border="0" vspace="0" hspace="0" align="middle"></a>
+?>" class="nohilight"><img src="logos/Phil_Harper/tiger2.png"
+width="270" height="246" border="0" vspace="0" hspace="0" align="middle"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php');
-?>" class="nohilight"><img src="logos/Phil_Harper/tigerskin6.png" width="239" height="67" border="0" vspace="0" hspace="0" align="middle"></a>
+?>" class="nohilight"><img src="logos/Phil_Harper/tigerskin6.png"
+width="239" height="67" border="0" vspace="0" hspace="0" align="middle"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
 <?php decoration_window_start("By Anna MacLachlan (7 images)", "", "", 0); ?>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
-?>" class="nohilight"><img src="logos/Anna_MacLachlan/jungle-overview.png" width="290" height="250" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Anna_MacLachlan/jungle-overview.png"
+width="290" height="250" border="0" vspace="0" hspace="0"></a>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Anna_MacLachlan/index.php');
-?>" class="nohilight"><img src="logos/Anna_MacLachlan/clearly-fvwm-small.png" width="183" height="71" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Anna_MacLachlan/clearly-fvwm-small.png"
+width="183" height="71" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
 
-<!-- ============================================================ -->
+<!-- ============================================================= -->
+<!--
 <?php decoration_window_start("By Felix E. Klee (7 images)", "", "", 0); ?>
 
-<p class=centered>
+<p class="centered">
 <a href="<?php echo conv_link_target('logos/Felix_E_Klee/index.php');
-?>" class="nohilight"><img src="logos/Felix_E_Klee/logos-overview.png" width="290" height="330" border="0" vspace="0" hspace="0"></a>
+?>" class="nohilight"><img src="logos/Felix_E_Klee/logos-overview.png"
+width="290" height="330" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
+-->
 
-
-<p>Return to <a href="<?php echo conv_link_target('index.php');?>">index</a>.</p>
+<p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>

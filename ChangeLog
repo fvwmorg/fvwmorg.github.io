@@ -1,3 +1,9 @@
+2003-06-02  Mikhael Goikhman  <migo@homemail.com>
+
+	* logo-competition/logos/Felix_E_Klee/index.php:
+	* logo-competition/logos_new.php:
+	disabled the Felix logos for now; other small changes
+
 2003-06-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* birthday/index.php:
