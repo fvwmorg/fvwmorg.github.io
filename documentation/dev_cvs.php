@@ -286,7 +286,7 @@ cvs -q
   <p class="cmdline">
     cd fvwm<br>
     aclocal<br>
-    autoheaders<br>
+    autoheader<br>
     automake --add-missing<br>
     autoreconf
   </p>
