@@ -753,7 +753,7 @@ function insert_quick_jump_list(
 	// mini icon and text 
 	echo '<td align="left" valign="bottom" nowrap="nowrap">';
 	echo '<a href="'.$target.'">';
-	echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
+	//echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
 	echo $nav_array["$site"]["link_name"];
 	echo '</a>';
 	echo '</td>'."\n";
@@ -768,7 +768,7 @@ function insert_quick_jump_list(
 	// mini icon and text 
 	echo '<td align="left" valign="bottom" nowrap="nowrap">';
 	echo '<a href="'.$array[1].'">';
-	echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
+	//echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
 	echo $array[0];
 	echo '</a>';
 	echo '</td>'."\n";	
