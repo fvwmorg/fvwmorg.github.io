@@ -64,10 +64,9 @@ and support is excellent.  Check it out!
 </table>
 
 <hr>
-Participate in our new
-<?php mylink("logo-competition", "Logo Competition"); ?>
-<hr>
-FVWM got now its own <?php mylink('http://rvb.dyndns.org/FvwmWiki/', 'Wiki Pages'); ?>, where a lot of information around FVWM is provided by other users.
+<b>News:</b> The submission period of the 
+<?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
+Due the large amount of contributed logos voting will be delayed. Please check this site for updates. 
 <hr>
 
 <div align="center">

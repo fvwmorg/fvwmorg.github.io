@@ -60,11 +60,11 @@ no good logo, but this is going to be changed.  With your help.</p>
 	<td>Logo contributions are accepted.</td>
 </tr>
 <tr>
-	<td><b>1-Sep-2003</b> / <b>15-Sep-2003</b></td>
+	<td><b>Sep</b> / <b>Oct-2003</b></td>
 	<td>The winning logo is elected.</td>
 </tr>
 <tr>
-	<td>around <b>20-Sep-2003</b></td>
+	<td>around <b>Oct / Nov-2003</b></td>
 	<td>The winning logo is proclaimed.</td>
 </tr>
 </table>
