@@ -10,10 +10,8 @@
 </center>
 <pre>
 
-=====================================================================
-                   FVWM Frequently Asked Questions
-======================================================================
-
+<hr>                   FVWM Frequently Asked Questions
+<hr>
 Last updated 9 Oct 2000 for release 2.3.22
 
 Contents
@@ -172,10 +170,8 @@ Contents
     7.13  How do I start applications by clicking on an icon.
 
 
-======================================================================
-                0 - The most frequently asked question
-======================================================================
-
+<hr>                0 - The most frequently asked question
+<hr>
 0.1  A few minutes after fvwm is started my keyboard and mouse
      bindings stop working. What can I do?
 
@@ -187,10 +183,8 @@ Trivia: In all my years as an fvwm developer this has been by far the
    that this question is never asked will me mentioned in big letters
    on the fvwm home page :-)
 
-======================================================================
-                            1 - About Fvwm
-======================================================================
-
+<hr>                            1 - About Fvwm
+<hr>
 1.1  What does FVWM stand for?
 
 A: "Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
@@ -217,8 +211,7 @@ A: "Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
    Check this link:
    <A HREF="http://fvwm.org/fvwm-cats/">fvwm-cats</A>
 
-----------------------------------------------------------------------
-
+<hr>
 1.2  Where do I find the current versions of fvwm?
 
 A: New main distribution site (official + beta code):
@@ -241,8 +234,7 @@ A: New main distribution site (official + beta code):
    digit denotes development releases and even numbers denote stable
    releases.
 
-----------------------------------------------------------------------
-
+<hr>
 1.3  Any WWW Sites about FVWM?
 
 A: Yup.  The official site is:
@@ -251,8 +243,7 @@ A: Yup.  The official site is:
 
    There are links on the official site to other related fvwm sites.
 
-----------------------------------------------------------------------
-
+<hr>
 1.4  Where do I ask questions about FVWM?
 
 A: If your local FVWM maintainer can't help you, then the newsgroup
@@ -324,8 +315,7 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    ftp://ftp.fvwm.org/pub/fvwm/
    =================================================================
 
-----------------------------------------------------------------------
-
+<hr>
 1.5  What are the differences between FVWM 1.xx and 2.xx?
 
 A: A lot.  To name a few general ones:
@@ -341,8 +331,7 @@ A: A lot.  To name a few general ones:
 
    Be sure to check the NEWS file for new or changed features too.
 
-----------------------------------------------------------------------
-
+<hr>
 1.6  What's the relative memory usage for the various window managers
      out there?
 
@@ -359,8 +348,7 @@ A: Here's a little table comparing some of them.  It was done on an
       543K  632K twm   (???)
       263K  328K aixwm (a simple ugly window manager included w/ aix)
 
-----------------------------------------------------------------------
-
+<hr>
 1.7  Why the rename of the various files (fvwm2, .fvwm2rc, fvwm2.man)?
 
 A: Some people find this annoying, but let me say that I did that for
@@ -376,8 +364,7 @@ A: Some people find this annoying, but let me say that I did that for
           versions, since they rarely mention exactly what version
           they are running.
 
-----------------------------------------------------------------------
-
+<hr>
 1.8  When will fvwm release X.Y.Z be ready?
 
 A: This is always a difficult question to answer.  We work on fvwm on
@@ -386,10 +373,8 @@ A: This is always a difficult question to answer.  We work on fvwm on
    Joining the fvwm-workers mailing list might prove instructive.
 
 
-======================================================================
-                           2 - Installation
-======================================================================
-
+<hr>                           2 - Installation
+<hr>
 2.1  I want to use FVWM, but I don't have root access on my machine.
      Can I still install and run it?
 
@@ -403,8 +388,7 @@ A: Very easily, using the '--prefix' flag at configure time.
    /home/sam/libexec, and fvwm2 binary will have this module path
    built in.
 
-----------------------------------------------------------------------
-
+<hr>
 2.2  I'm trying to use fvwm under CDE/COSE, but encountering
      difficulties.  Any suggestions?
 
@@ -440,16 +424,14 @@ A: Sure - here's one from Graeme McCaffery:
 
        <A HREF="http://twirl.mcc.ac.uk/~zzassgl/wm.html">CDE login Link</A>
 
-----------------------------------------------------------------------
-
+<hr>
 2.3  I'm trying to compile FVWM under SunOS using cc, but the compiler
      is having lots of problems.  What gives?
 
 A: cc under SunOS is not an ANSI C compiler.  Try using acc or gcc
    instead.
 
-----------------------------------------------------------------------
-
+<hr>
 2.4  I want colored icons, but they won't work.  Why not?
      When I run configure, it reports "no" to "Have XPM support?"  How
      can I get XPM support?
@@ -493,8 +475,7 @@ A: FVWM uses the XPM (X PixMap) library to provide support for colored
    using, how you invoked configure, and extract the lines dealing with
    XPM from the config.log file and include that.
 
-----------------------------------------------------------------------
-
+<hr>
 2.5  I'm a sysadmin, and if I wanted to force fvwm to read a system rc
      file and then the user's rc file, how would I do that?
 
@@ -504,8 +485,7 @@ A: Well, you could probably do something like this:
           global.fvwm2rc' and have global.fvwm2rc reside in your
           defined "datadir"/fvwm (from the ./configure step).
 
-----------------------------------------------------------------------
-
+<hr>
 2.6  I'm a sysadmin, and if I wanted fvwm to look for all of its rc
      files in a hidden directory, say ~/.fvwm, much like CDE does, how
      could I do that?
@@ -528,8 +508,7 @@ A: FVWM now supports ~/.fvwm search directory by default.
    default versions of these in {"datadir"}/fvwm/ that it could find in
    case the user was missing one of them and you wanted to supply defaults.
 
-----------------------------------------------------------------------
-
+<hr>
 2.7  How can I use FVWM with GNOME?
 
 A: Since the latest fvwm versions are mostly GNOME compliant, you may
@@ -563,10 +542,8 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
      root clicks to a gnome application (i.e. to gmc in this case).
 
 
-======================================================================
-          3 - Features, Configuration, Functions &amp; Commands
-======================================================================
-
+<hr>          3 - Features, Configuration, Functions &amp; Commands
+<hr>
 3.1  I use FVWM on a RedHat Linux system and can't figure out how to
      change my FVWM configuration.  I've read the FVWM man page but when
      I edit my .fvwm2rc nothing seems to happen.  What's going on?
@@ -578,8 +555,7 @@ A: RedHat Linux installs the X server accompanied (by default) by a
    documentation in /usr/doc/TheNextLevel/.  For information about
    AnotherLevel, do a 'man AnotherLevel'.
 
-----------------------------------------------------------------------
-
+<hr>
 3.2  Is it possible to raise a window when I click into the window
      itself, not just the border?
 
@@ -588,8 +564,7 @@ A: Any version later than 2.0.46 (i.e. 2.1.0 or later) has this
 
      Style * MouseFocusClickRaises
 
-----------------------------------------------------------------------
-
+<hr>
 3.3  How do I get Alt-Tab behavior like another GUI?
 
 A: The built in command WindowList provides a very close approximation
@@ -643,8 +618,7 @@ A: The built in command WindowList provides a very close approximation
    style attribute whereas Prev respects the CirculateSkip and
    CirculateSkipIcon style attributes.
 
-----------------------------------------------------------------------
-
+<hr>
 3.4  What's the difference between the Focus and FlipFocus commands?
 
 A: Both of these commands change the keyboard focus to the target
@@ -680,8 +654,7 @@ A: Both of these commands change the keyboard focus to the target
    you subsequently use the mouse to focus or FlipFocus the order will
    be lost.
 
-----------------------------------------------------------------------
-
+<hr>
 3.5  You can bind mouse movements to keystrokes, how about mouse
      presses?
 
@@ -731,8 +704,7 @@ A: Although fvwm has commands for binding movements to keystrokes,
 
 
 
-----------------------------------------------------------------------
-
+<hr>
 3.6  I'd like to bind a key to paste/use the current selection, how can
      I do that?
 
@@ -747,8 +719,7 @@ A: You can't directly with fvwm, but there may be a solution that is
    good example of this, please send it to the fvwm mailing list for
    inclusion here.
 
-----------------------------------------------------------------------
-
+<hr>
 3.7  Will FVWM ever support a separate colormap for each desktop?
 
 A: Doubtful, although I'd like to see it too.  I believe that it'd be
@@ -767,8 +738,7 @@ A: Doubtful, although I'd like to see it too.  I believe that it'd be
 
    I may explore this a little at some point in the future though.
 
-----------------------------------------------------------------------
-
+<hr>
 3.8  I really like the horizontal bars that appear on the title bars of
      sticky windows.  Can I get those on other windows as well?
 
@@ -777,8 +747,7 @@ A: Yes.  For release 2.3.14 and after,
    For releases before then, use "GlobalOpts StipledTitles".
    (Yes the spelling was inconsistent.)
 
-----------------------------------------------------------------------
-
+<hr>
 3.9  How do I set the Sun keyboard key xxxx to an FVWM command?  Or
      more generally, I'm having problems defining key bindings for FVWM
      - what can I do?
@@ -814,8 +783,7 @@ A: From Jon Mountjoy, one of FVWM's users:
    available from ftp.x.org) to find out what the keysym for whatever
    key you want REALLY is, and use that for binding fvwm commands.
 
-----------------------------------------------------------------------
-
+<hr>
 3.10  My .fvwmrc from version 1.xx no longer works.  What do I do?
 
 A: Start with a new one or convert your old one.  This can be done by
@@ -984,15 +952,13 @@ A: Start with a new one or convert your old one.  This can be done by
    (more functions are being added from time to time, so please check
     the man page and the NEWS file too).
 
-----------------------------------------------------------------------
-
+<hr>
 3.11  What happened to the FVWM 1.xx 'include' command?
 
 A: It was actually part of the M4 preprocessing.  You can use the 'Read'
    builtin to get the same effect, or use the FvwmM4 module.
 
-----------------------------------------------------------------------
-
+<hr>
 3.12  How do I get window titles on sub windows of ...  (e.g. Netscape)?
 
 A: These windows are known as 'transient' windows because of their
@@ -1005,8 +971,7 @@ A: These windows are known as 'transient' windows because of their
 
      Style * NakedTransient
 
-----------------------------------------------------------------------
-
+<hr>
 3.13  I just upgraded to version &gt;= 2.3.2, and my configuration settings
       disappeared!  How do I get them back?
 
@@ -1018,8 +983,7 @@ A: The directory for system-wide configuration files changed from
    This change was made because FVWM now installs several files into this
    directory.
 
-----------------------------------------------------------------------
-
+<hr>
 3.14  Some applications (e.g. Eterm) don't use the icon I defined for them.
       Why?
 
@@ -1030,8 +994,7 @@ A: Eterm provides its own icon and fvwm does not know if it is a plain
 
      Style &lt;application-name&gt; IconOverride
 
-----------------------------------------------------------------------
-
+<hr>
 3.15  I don't like the gaps in my icon box when I de-iconify an
       application. Is there some kind of auto arrange function?
 
@@ -1069,8 +1032,7 @@ A: Assuming you are using the IconBox option of the Style command this
 
      Mouse 1 I A DeiconifyAndRearrange
 
-----------------------------------------------------------------------
-
+<hr>
 3.16  How do I set up a fvwm menu item that shuts down my Linux machine?
 
 A: Write a little shell script to run the shutdown command.
@@ -1083,8 +1045,7 @@ A: Write a little shell script to run the shutdown command.
    Add a menu item to your FVWM root menu (or wherever) that invokes
    "sudo /my/script/name".
 
-----------------------------------------------------------------------
-
+<hr>
 3.17  Although the Recapture commands is obsolete, do I still need it to
       apply certain style changes?
 
@@ -1100,8 +1061,7 @@ A: Excerpt from the man page:
    that all pending changes are applied immediately, use the UpdateStyles,
    Refresh or RefreshWindow commands.
 
-----------------------------------------------------------------------
-
+<hr>
 3.18  When my specific window (or all windows) pops up, I want it to
       get focus/be moved/be resized/be closed/be shaded...  How?
 
@@ -1172,8 +1132,7 @@ A: The following discusses a general solution, you should substitute
 
      AddToFunc StartFunction I FvwmEvent FvwmEvent-NewWindow
 
-----------------------------------------------------------------------
-
+<hr>
 3.19  When my specific window (or all windows) is closed, I want to
       switch desks/wrap to my app X/popup a menu/start app X...  How?
 
@@ -1204,8 +1163,7 @@ A: Please read the answer to the previous question to understand better.
 
      AddToFunc StartFunction I FvwmEvent FvwmEvent-OldWindow
 
-----------------------------------------------------------------------
-
+<hr>
 3.20  I have a multi head setup (multiple screens used under X).  How
       can I tell fvwm to use different configurations for the screens?
 
@@ -1240,10 +1198,8 @@ A: FVWM spawns itself into all found screens unless -s command line
    If you wish, .fvwm2rc-* files may all include line "Read .fvwm2rc-common".
 
 
-======================================================================
-                             4 - Modules
-======================================================================
-
+<hr>                             4 - Modules
+<hr>
 4.1  I'm using FvwmButtons (or GoodStuff in 1.xx), and sometimes the
      buttons stay depressed, and other times they don't.  Why is that?
 
@@ -1260,8 +1216,7 @@ A: From the FvwmButtons man page:
        re-executing the command, even when it looks "pressed
        in."
 
-----------------------------------------------------------------------
-
+<hr>
 4.2  When having FvwmButtons swallow an app, is it possible to have
      button presses assigned to actions as well?  For instance, I'd
      like to swallow xload and have a button press pop up an xterm, or
@@ -1293,8 +1248,7 @@ A: You can do this, but it's not obvious how.  The button presses
    Sometime in the future I'll probably try and fix it so that you can
    actually assign a button press over the application itself...
 
-----------------------------------------------------------------------
-
+<hr>
 4.3  I'm seeing odd things when trying to preprocess files with the
      FvwmM4/Cpp module...
 
@@ -1332,8 +1286,7 @@ A: Yup, I imagine that you might be.  Things like the InitFunction not
    if you start a module other than FvwmCpp/FvwmM4 but there is a timeout
    so fvwm will eventually get going.
 
-----------------------------------------------------------------------
-
+<hr>
 4.4  I heard about this FvwmFileMgr module.  Where can I find it?
 
 A: The FvwmFileMgr module disappeared because a file manager doesn't
@@ -1341,16 +1294,14 @@ A: The FvwmFileMgr module disappeared because a file manager doesn't
    does a much better job.  I recommend you pick that up instead (from
    ftp.x.org or your favorite mirror).
 
-----------------------------------------------------------------------
-
+<hr>
 4.5  I used to use GoodStuff in FVWM 1.xx, but it's not in the 2.xx
      distribution.  What do I use now?
 
 A: GoodStuff was renamed to FvwmButtons.  Same module, new name (that
    fits in with the other modules naming convention).
 
-----------------------------------------------------------------------
-
+<hr>
 4.6  I want to have the sub panels in FvwmButtons not at their default
      position near the button but somewhere else on the screen. Is this
      possible?
@@ -1358,10 +1309,8 @@ A: GoodStuff was renamed to FvwmButtons.  Same module, new name (that
 A: Yes, but not with the current implementation of the panels.  Please
    read question 7.12 for instructions.
 
-======================================================================
-            5 - Development, Known Problems &amp; Bug Reports
-======================================================================
-
+<hr>            5 - Development, Known Problems &amp; Bug Reports
+<hr>
 5.1  I'd really like to see neat feature XYZ in FVWM.  Wouldn't
      that be cool?  I even have a patch.  When can it be added?
 
@@ -1410,8 +1359,7 @@ A: If you plan to write a patch, *please*, first of all fetch the
    from that, as we mean no offense and we generally have a good reason
    (at least by our way of thinking) for our actions...
 
-----------------------------------------------------------------------
-
+<hr>
 5.2  How do I create/submit/apply patches?
 
 A: First of all, please read the first section of the answer to Q5.1!
@@ -1458,8 +1406,7 @@ A: First of all, please read the first section of the answer to Q5.1!
         follow its directions (generally just cd into the appropriate
         directory and run 'patch &lt; patchfile').
 
-----------------------------------------------------------------------
-
+<hr>
 5.3  How do I submit a bug report?
 
 A: Please enter a DETAILED description of your problem in our web-based
@@ -1487,8 +1434,7 @@ A: Please enter a DETAILED description of your problem in our web-based
         - What settings do you have in your .fvwm2rc that may be
           pertinent.
 
-----------------------------------------------------------------------
-
+<hr>
 5.4  I have a window that is behaving unexpectedly under FVWM, but just
      fine under (whatever other window manager), or I have just some
      random bug.  What do I do?
@@ -1502,8 +1448,7 @@ A: First, check your rc file and your .Xdefaults to make sure that
    If you still can't figure it out, report your problem to our bug
    tracking system (see Q5.3).
 
-----------------------------------------------------------------------
-
+<hr>
 5.5  Why do NumLock, CapsLock and ScrollLock interfere with
      ClickToFocus and/or my mouse bindings?
 
@@ -1542,8 +1487,7 @@ A: Because they are treated as modifiers. You can use the
    Please refer to the man page of the xmodmap command for further
    details.
 
-----------------------------------------------------------------------
-
+<hr>
 5.6  Menus with gradient backgrounds flicker or are very slow.
 
 A: The flickering is caused by fvwm constantly redrawing the menus
@@ -1575,8 +1519,7 @@ A: The flickering is caused by fvwm constantly redrawing the menus
      MenuStyle &lt;stylename&gt; Hilight3DOff, HilightBackOff
      MenuStyle &lt;Stylename&gt; ActiveFore &lt;preferred color&gt;
 
-----------------------------------------------------------------------
-
+<hr>
 5.7  Why won't the StartIconic style work with {Netscape, etc.}?
 
 A: The application won't allow it.  This has only been observed with
@@ -1587,8 +1530,7 @@ A: The application won't allow it.  This has only been observed with
    start iconic, however, by invoking it with the -iconic command line
    flag.)
 
-----------------------------------------------------------------------
-
+<hr>
 5.8  How do I capture the output (e.g. errors) of fvwm?
 
 A: Errors are reported to the standard error file.  You can redirect
@@ -1599,8 +1541,7 @@ A: Errors are reported to the standard error file.  You can redirect
    Alternatively, FvwmConsole or "FvwmForm FvwmForm-Talk" modules
    will display error messages.
 
-----------------------------------------------------------------------
-
+<hr>
 5.9  I try to run some program under FVWM, but it dies with an X11
      error like BadAccess.  The same program works just fine under MWM
      or OLWM.  What's going on?
@@ -1622,8 +1563,7 @@ A: The error message usually looks something like this:
    "FvwmForm FvwmForm-Talk" by removing the FVWM binding (see the man
    page for the Key &amp; Mouse commands).
 
-----------------------------------------------------------------------
-
+<hr>
 5.10  Every time I update my install, my currently running fvwm session
       dies.  Why is that?
 
@@ -1635,8 +1575,7 @@ A: Many OSes swap the program from memory via the image on the disk,
    core dump, but then when you restart fvwm it'll pick up the new
    copy.
 
-----------------------------------------------------------------------
-
+<hr>
 5.11  After I restart fvwm certain windows or icons raise above
       all other windows and cannot be lowered by any means. One
       example are the shortcuts of KFM (the KDE file manager).
@@ -1661,8 +1600,7 @@ A: Some applications use so called 'override redirect' windows that
 
      BugOpts RaiseOverUnmanaged on
 
-----------------------------------------------------------------------
-
+<hr>
 5.12  The StartsOnPage style does not work for me.  Why?
 
 A: Many applications request a specific position where they want to
@@ -1673,8 +1611,7 @@ A: Many applications request a specific position where they want to
 
      Style * NoPPosition
 
-----------------------------------------------------------------------
-
+<hr>
 5.13  Some modules can not be started when I restart fvwm.
 
 A: You may see the following error message on the console:
@@ -1696,8 +1633,7 @@ A: You may see the following error message on the console:
    (many open windows).
 
 
-----------------------------------------------------------------------
-
+<hr>
 5.14  I'm running Rational Rose and fvwm ignores its windows.
 
 A: This problem might occur on other applications besides the one
@@ -1755,10 +1691,8 @@ A: This problem might occur on other applications besides the one
      looks like with dtwm, but I suspect it's quite close to
      all MWWM=MWM.
 
-======================================================================
-                          6 - Miscellaneous
-======================================================================
-
+<hr>                          6 - Miscellaneous
+<hr>
 6.1  What exactly is the difference between a DESK, a PAGE, and the
      SCREEN?
 
@@ -1819,8 +1753,7 @@ A: Our naming convention is sometimes a source of confusion, and when
 
      Module FvwmPager * *
 
-----------------------------------------------------------------------
-
+<hr>
 6.2  I'd really like {OpenWindows, NeXT, Win95, Mac, etc} look and
      feel.  Are you going to support that?
 
@@ -1831,8 +1764,7 @@ A: This is not our primary mission, but we think fvwm does a pretty
    <A HREF="http://fvwm-themes.sourceforge.net/">fvwm-themes</A>
    package.
 
-----------------------------------------------------------------------
-
+<hr>
 6.3  Where can I get more XPMs for icons?
 
 A: If you want more color icons, grab the ones out of the ctwm
@@ -1849,8 +1781,7 @@ A: If you want more color icons, grab the ones out of the ctwm
    <A HREF="http://wm-icons.sourceforge.net/">wm-icons</A>
    package.
 
-----------------------------------------------------------------------
-
+<hr>
 6.4  Linux XF86 virtual screen size &amp; fvwm interaction...
 
 A: Turn off the Linux Virtual Screen stuff in your XF86Config file if
@@ -1858,8 +1789,7 @@ A: Turn off the Linux Virtual Screen stuff in your XF86Config file if
    panning support in certain video cards is a pretty useless kludge when
    you're using a window manager that implements virtual desktops.
 
-----------------------------------------------------------------------
-
+<hr>
 6.5  I know this question doesn't have to do with FVWM, but what
      happened to to rxvt and rclock which Rob Nation used to support?
      Where can I find them now?
@@ -1870,8 +1800,7 @@ A: The official home for rxvt is:
 
    and rclock can be found in that rxvt distribution as well.
 
-----------------------------------------------------------------------
-
+<hr>
 6.6  How do I set the background with fvwm?
 
 A: Setting the background image is not really part of the window
@@ -1892,10 +1821,8 @@ A: Setting the background image is not really part of the window
    The fvwm module FvwmBacker can be used to change the background
    depending on the desk you are currently on.
 
-======================================================================
-              7 - Hints and Examples from the Developers
-======================================================================
-
+<hr>              7 - Hints and Examples from the Developers
+<hr>
 7.1  An easy way to test new configurations.
 
    Did you know that you do not need to restart X or fvwm to see what
@@ -1929,8 +1856,7 @@ A: Setting the background image is not really part of the window
 
    Other related modules and commands are FvwmScript and PipeRead.
 
-----------------------------------------------------------------------
-
+<hr>
 7.2  Using shell commands for configuration.
 
    Sometimes you might want to use the output of a shell command or
@@ -1977,8 +1903,7 @@ A: Setting the background image is not really part of the window
 
    I have an even more complex setup for color palettes.
 
-----------------------------------------------------------------------
-
+<hr>
 7.3  How to start applications on a page or desk other than the current.
 
    Use the 'StartsOnDesk' or 'StartsOnPage' style in your .fvwm2rc:
@@ -2001,8 +1926,7 @@ A: Setting the background image is not really part of the window
 
      Style Netscape* StartsOnPage 0 1, SkipMapping
 
-----------------------------------------------------------------------
-
+<hr>
 7.4  How to start applications on a page or desk other than the current
      without moving the viewport to the new page or desk.
 
@@ -2010,8 +1934,7 @@ A: Setting the background image is not really part of the window
 
      Style Netscape* StartsOnPage 0 1, SkipMapping
 
-----------------------------------------------------------------------
-
+<hr>
 7.5  A more efficient MWM menu style.
 
    Perhaps you have noticed that with the MWM menu style your sub
@@ -2029,8 +1952,7 @@ A: Setting the background image is not really part of the window
    cursor keys.  You may have to experiment with this number to get it
    right.
 
-----------------------------------------------------------------------
-
+<hr>
 7.6  Placing menus on the screen.
 
    Do you have to close windows or move the pointer all over the
@@ -2051,8 +1973,7 @@ A: Setting the background image is not really part of the window
    pointer is.  Please read the section for the 'Menu' command in the
    man page.
 
-----------------------------------------------------------------------
-
+<hr>
 7.7  Are you flipping pages by accident when moving the mouse close to
      the border of the screen?
 
@@ -2062,8 +1983,7 @@ A: Setting the background image is not really part of the window
 
    in your .fvwm2rc turns it off.
 
-----------------------------------------------------------------------
-
+<hr>
 7.8  Lining up your windows and icons.
 
    The SnapAttraction and SnapGrid commands really help to keep your
@@ -2099,8 +2019,7 @@ A: Setting the background image is not really part of the window
    Hint: It might be a good idea to use a divisor of your desktop
    width and height for SnapGrid.
 
-----------------------------------------------------------------------
-
+<hr>
 7.9  Moving the mouse/focus/page with the keyboard.
 
    Try these key bindings for mouse movement:
@@ -2143,8 +2062,7 @@ A: Setting the background image is not really part of the window
      Key KP_8 A C Direction North Focus
      Key KP_9 A C Direction NorthEast Focus
 
-----------------------------------------------------------------------
-
+<hr>
 7.10  The cat safe desktop ^_^
 
    If your cats keep stepping on your keyboard while you are brewing
@@ -2159,8 +2077,7 @@ A: Setting the background image is not really part of the window
      window).  A true fanatic creates a separate window with a picture
      of his cat for this :-)
 
-----------------------------------------------------------------------
-
+<hr>
 7.11  Lowering and moving windows.
 
    In some configurations moving a window with the middle mouse
@@ -2175,8 +2092,7 @@ A: Setting the background image is not really part of the window
       + "Motion"        Move
       + "DoubleClick"   Lower
 
-----------------------------------------------------------------------
-
+<hr>
 7.12  Toggling windows on and off.
 
    It is often desirable to have a menu item of perhaps a button in
@@ -2217,8 +2133,7 @@ A: Setting the background image is not really part of the window
    opened windows or launch an application multiple times if the
    application is slow to start (e.g. like netscape).
 
-----------------------------------------------------------------------
-
+<hr>
 7.13  How do I start applications by clicking on an icon.
 
    Normally an icon represents a minimized application.
@@ -2246,7 +2161,7 @@ A: Setting the background image is not really part of the window
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Sun Nov 26 23:13:05 IST 2000 -->
+     on Mon Dec 18 14:23:00 IST 2000 -->
   </body>
 </html>
 

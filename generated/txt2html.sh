@@ -36,7 +36,12 @@ sed -e 's/&/\&amp;/g' \
     -e 's/>/\&gt;/g' \
     -e 's/_+_/</g' \
     -e 's/_-_/>/g' \
-$1 >> $outfile
+$1 | perl -pe ' \
+	s/^====+\s*\n/<hr>/;
+	s/^----+\s*\n/<hr>/;
+	s/^(Changes in .* release .*)$/<b>$1<\/b>/;
+	s/^(\w[\w\s\.]+):$/<b>$1<\/b>:/;
+' >> $outfile
 
 # make footer:
 echo "</pre>
