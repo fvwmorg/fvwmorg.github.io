@@ -61,7 +61,7 @@ if(!isset($site_has_been_loaded)) {
   <h2>Window Decors and Other Configuration Tips</h2>
 
     <ul>
-      <li><a href="http://members.fcwm.org/glen/fvwm/">Glen Lee Edward's Screen
+      <li><a href="http://research.cmis.csiro.au/gjw/xwindows/">Glen Lee Edward's Screen
         shots and config files page</a> ("FVWM - Do it your way!") - 
         illustrates FVWM's flexibility with configuration information and, of course,
         the obligatory screenshots.</li>
