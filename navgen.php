@@ -1,3 +1,4 @@
+<?php if( strlen("$navigation_check") > 0 ) return; ?>
 <html>
   <!--------------------------------------------------------------------- -->
   <!--  File          : navgen.php                                        -->

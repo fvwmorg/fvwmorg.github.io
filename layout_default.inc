@@ -45,7 +45,7 @@ function debug($string, $level=1) {
 }
 
 // set relative path which is defined in the php files
-if( ! isset($rel_path) ) $rel_path = ${$this_site}["rel_path"];
+if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 //--------------------------------------------------------------------
 //- variable definitions
@@ -107,10 +107,10 @@ function insert_timestamp($file) {
 // home -> photos -> holiday -> beach
 // it is mostly used to display this path as links 
 function get_parent_path($site) {
-  global $$site, $top_array;
+  global $nav_array, $top_array;
   // echo "+++checking $site+++<br>";
   // first we should check if the array is consistent
-  if( strlen(${$site}["parent_site"]) < 1 ) {
+  if( strlen($nav_array["$site"]["parent_site"]) < 1 ) {
     // echo "Error in navigation array<br>";
     // the actual site is not in the navigation array 
     // we return the first entry of $top_array here
@@ -118,13 +118,13 @@ function get_parent_path($site) {
   }
   // check if this site is a parent - if not return the parent
   // of its parent;-)
-  if( ! strcmp( ${$site}["parent_site"],"top") ) {
-    if( ! strcmp($site,$top_array[0]) || count(${$site}["child_sites"]) == 0 )
+  if( ! strcmp( $nav_array["$site"]["parent_site"],"top") ) {
+    if( ! strcmp($site,$top_array[0]) || count($nav_array["$site"]["child_sites"]) == 0 )
       return array($site);
     else
       return array($top_array[0],$site);
   } else {
-    $parent_path = get_parent_path(${$site}["parent_site"]);
+    $parent_path = get_parent_path($nav_array["$site"]["parent_site"]);
     $parent_path[] = $site;
     return $parent_path;
   }
@@ -179,7 +179,7 @@ function decoration_pic($direction) {
 function decoration_cell_start($position, $string, $css, 
 			       $bg_repeat="repeat", $bg_pos="top", 
 			       $td_options="") {
-  global $decoration_path, $this_site, $window_border_bg, $rel_path;
+  global $decoration_path, $nav_array, $window_border_bg, $rel_path;
 
   $def_file = $decoration_path."/deco_definitions.inc";
   if( file_exists($def_file) ) include(sec_filename($def_file)); 
@@ -310,7 +310,7 @@ function decoration_bottom_line($string="", $add_css="") {
 // inserts a table row <tr> ... </tr> which contains the window
 // buttons like the window decoration of a window manager
 function decoration_title_bar($string="") {
-  global $decoration_path, $this_site, $window_border_bg, 
+  global $decoration_path, $nav_array, $window_border_bg, 
          $hilight_fg, $hilight_bg, $no_def_file, $rel_path, $requested_file;
 
   $def_file = $decoration_path."/deco_definitions.inc";
@@ -395,11 +395,8 @@ function decoration_window_end() {
 // inserts one menu line
 function insert_menu_link_line($site,$depth,$selected_path) {
      
-  global $this_site, $rel_path, $top_array, $hilight_bg;
+  global $nav_array, $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $menu_fg, $menu_bg;
-  global $$this_site;
-
-  if( strlen(${$site}["file"]) == 0 ) global $$site;
 
   if( !strcmp($site,$this_site) ) {
     $bg = $hilight_bg;
@@ -411,14 +408,14 @@ function insert_menu_link_line($site,$depth,$selected_path) {
     $triangle = $rel_path.'/pictures/fvwm_menu_triangle.gif';
   }
 
-  $target = conv_link_target($rel_path.'/'.${$site}["file"]);
+  $target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
   $td_opt = 'valign="middle" nowrap="nowrap" bgcolor="'.$bg.'" style="background-color:'.$bg.';"';
   $td = '<td '.$td_opt.'>';
 
   echo '<tr>'."\n";
 
   $max_depth = count($selected_path);
-  if( count(${$this_site}["child_sites"]) == 0 ) $max_depth--;
+  if( count($nav_array["$this_site"]["child_sites"]) == 0 ) $max_depth--;
 
   // echo $td.$depth." ".$max_depth."</td>";
 
@@ -433,7 +430,7 @@ function insert_menu_link_line($site,$depth,$selected_path) {
   // mini icon
   echo $td;
   echo '<a href="'.$target.'">';
-  echo '<img src="'.$rel_path.'/'.${$site}["link_pic"];
+  echo '<img src="'.$rel_path.'/'.$nav_array["$site"]["link_pic"];
   echo '_mini.gif" border="0" alt="" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
 
@@ -441,7 +438,7 @@ function insert_menu_link_line($site,$depth,$selected_path) {
   echo '<td '.$td_opt.' colspan="'.($max_depth-$depth+1).'">';
   echo '<a href="'.$target.'">';
   echo '<font size="+0" color="'.$fg.'"><b>';
-  echo ${$site}["link_name"].'</b></font></a></td>'."\n";
+  echo $nav_array["$site"]["link_name"].'</b></font></a></td>'."\n";
 
   // triangle
   echo $td.'<a href="'.$target.'">';
@@ -452,26 +449,25 @@ function insert_menu_link_line($site,$depth,$selected_path) {
 }
 
 function insert_menu_link_list($link_array, $depth, $selected_path) {
+  global $nav_array;
   //echo "$depth - ".count($selected_path)." - ".count($link_array)."<br>";
   while( list($key,$site) = each($link_array) ) {
     // echo "$site<br>";
-    if( ! isset(${$site}) ) global $$site;
-    if( ! isset(${$site}) ) {
+    if( ! isset($nav_array["$site"]) ) {
       // the navigation structure seems to be invalid
       echo "Problem with $site<br>";
     } else {
       // insert this 
       insert_menu_link_line($site, $depth, $selected_path);
-      if( count(${$site}["child_sites"])> 0 && ! strcmp($site,$selected_path[$depth]) ) {
-	insert_menu_link_list(${$site}["child_sites"], $depth+1, $selected_path);
+      if( count($nav_array["$site"]["child_sites"])> 0 && ! strcmp($site,$selected_path[$depth]) ) {
+	insert_menu_link_list($nav_array["$site"]["child_sites"], $depth+1, $selected_path);
       }
     }
   }
 }
 
 function insert_menu_navigation() {
-  global $this_site, $top_array, $rel_path, $hilight_bg, $hilight_fg, $menu_fg, $menu_bg;
-  global $$this_site;
+  global $nav_array, $this_site, $top_array, $rel_path, $hilight_bg, $hilight_fg, $menu_fg, $menu_bg;
 
   push_decoration_path("pictures/decorations/border_grey_flat");
   echo '<table border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
@@ -497,7 +493,7 @@ function insert_menu_navigation() {
 // inserts a table cell <td>..</td> which contains one pager page
 function insert_pager_page($site,$do_hilight=1) {
 
-  global $this_site, $rel_path, $top_array, $hilight_bg;
+  global $nav_array, $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
 
   if( !strcmp($site,$this_site) && $do_hilight ) {
@@ -517,20 +513,18 @@ function insert_pager_page($site,$do_hilight=1) {
     return;
   }
 
-  if( strlen(${$site}["file"]) == 0 ) global $$site;
+  $target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
 
-  $target = conv_link_target($rel_path.'/'.${$site}["file"]);
-
-  if( file_exists($rel_path.'/'.${$site}["link_pic"]."_pager.gif") ) {
-    $img = $rel_path.'/'.${$site}["link_pic"]."_pager.gif";
+  if( file_exists($rel_path.'/'.$nav_array["$site"]["link_pic"]."_pager.gif") ) {
+    $img = $rel_path.'/'.$nav_array["$site"]["link_pic"]."_pager.gif";
   } else {
     $img = $rel_path.'/pictures/icons/default_pager.gif';
   }
 
   echo '<td '.$td_opt.'>';
   echo '<a href="'.$target.'">';
-  echo '<img src="'.$img.'" border="0" alt="'.${$site}["link_name"].'" ';
-  echo 'title="'.${$site}["link_name"].'" hspace="0" vspace="0"></a>';
+  echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
+  echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
 
 }
@@ -538,20 +532,17 @@ function insert_pager_page($site,$do_hilight=1) {
 // inserts a 2x desk containing the sub sites
 function insert_pager_desk($site, $pages_per_desk=4) {
      
-  global $this_site, $rel_path, $top_array, $hilight_bg;
+  global $nav_array, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
-  global $$this_site;
-
-  if( strlen(${$site}["file"]) == 0 ) global $$site;
 
   $bg = $pager_bg;
   $fg = $pager_fg;
   
-  $target = conv_link_target($rel_path.'/'.${$site}["file"]);
+  $target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
   $td_opt = 'valign="middle" align="center" nowrap="nowrap" bgcolor="'.$bg.'" class="pager"';
 
   // desk label = link name
-  $desk_name = ${$site}["link_name"];
+  $desk_name = $nav_array["$site"]["link_name"];
   // shorten string if needed
   $max_desk_name_len = 12;
   if( strlen($desk_name) > $max_desk_name_len ) 
@@ -567,7 +558,7 @@ function insert_pager_desk($site, $pages_per_desk=4) {
   echo '<tr>'."\n";
   insert_pager_page($site);
   // first subsite
-  $child_sites = ${$site}["child_sites"];
+  $child_sites = $nav_array["$site"]["child_sites"];
   insert_pager_page($child_sites[0]);
   echo '</tr>'."\n";
 
@@ -600,9 +591,8 @@ function insert_pager_link_list($link_array,$pages_per_desk=4) {
 // pager wrapper function
 function insert_pager_navigation() {
 
-  global $this_site, $rel_path, $top_array, $hilight_bg;
+  global $nav_array, $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
-  global $$this_site;
   
   $pages_per_desk = 4;
 
@@ -616,15 +606,14 @@ function insert_pager_navigation() {
   echo '<table cellpadding="1" cellspacing="1" border="0" width="100%" summary="">'."\n";
   $parent_path = get_parent_path($this_site);
   $count = count($parent_path);
-  $parent_site = ${$this_site}["parent_site"];
-  if( strlen(${$parent_site}["file"]) == 0 ) global $$parent_site;
+  $parent_site = $nav_array["$this_site"]["parent_site"];
 
   // check if we are on a top site which has no child sites
-  if( $count < 2 || ( ! strcmp(${$parent_site}["parent_site"],"top")  && 
-		      count(${$this_site}["child_sites"]) == 0 && 
-		      count(${$parent_site}["child_sites"]) <= $pages_per_desk - 1 )
+  if( $count < 2 || ( ! strcmp($nav_array["$parent_site"]["parent_site"],"top")  && 
+		      count($nav_array["$this_site"]["child_sites"]) == 0 && 
+		      count($nav_array["$parent_site"]["child_sites"]) <= $pages_per_desk - 1 )
                  || ( $count == 2 &&
-		      count(${$this_site}["child_sites"]) <= $pages_per_desk - 1)) {
+		      count($nav_array["$this_site"]["child_sites"]) <= $pages_per_desk - 1)) {
     $navigation_array = $top_array;
   } else {
     // merge $parent_path and $actual_sub_sites
@@ -632,14 +621,13 @@ function insert_pager_navigation() {
     reset($parent_path);
     while( list($key,$site) = each($parent_path) ) $navigation_array[] = $site;
     // check if there are further sub sites
-    if( count(${$this_site}["child_sites"]) > 0 ) {
-      $sub_sites = ${$this_site}["child_sites"];
+    if( count($nav_array["$this_site"]["child_sites"]) > 0 ) {
+      $sub_sites = $nav_array["$this_site"]["child_sites"];
     } else {
       // if the actual site has not childs use the childs of the 
       // parent as sub sites
-      $parent_site = ${$this_site}["parent_site"];
-      if( strlen(${$parent_site}["file"]) == 0 ) global $$parent_site;
-      $sub_sites = ${$parent_site}["child_sites"];
+      $parent_site = $nav_array["$this_site"]["parent_site"];
+      $sub_sites   = $nav_array["$parent_site"]["child_sites"];
       // the actual site is in the parent path - since it is a child of 
       // its parent it is remove from the $navigation_array to not appear
       // twice
@@ -668,12 +656,10 @@ function insert_pager_navigation() {
 // [not used at the moment]
 //--------------------------------------------------------------------
 function insert_navigation_path_entry($site) {
-  global $this_site, $rel_path, $top_array;
+  global $nav_array, $rel_path, $top_array;
   global $windowlist_bg, $windowlist_fg;
-  global $$this_site;
 
-  if( strlen(${$site}["file"]) == 0 ) global $$site;
-  $target = conv_link_target($rel_path.'/'.${$site}["file"]);
+  $target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
 
 //   echo '<td>';
 //   echo '<table border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
@@ -682,7 +668,7 @@ function insert_navigation_path_entry($site) {
   echo '<td bgcolor="'.$windowlist_bg.'">';
   echo '<a href="'.$target.'">';
   echo '<font size="2" color="'.$windowlist_fg.'">';
-  echo ${$site}["link_name"];
+  echo $nav_array["$site"]["link_name"];
   echo '</font>';
   echo '</a>';
   echo '</td>'."\n";
@@ -694,9 +680,8 @@ function insert_navigation_path_entry($site) {
 
 // navigation path wrapper
 function insert_navigation_path() {
-  global $this_site, $rel_path, $top_array, $hilight_bg;
+  global $nav_array, $this_site, $rel_path, $top_array, $hilight_bg;
   global $hilight_fg, $pager_fg, $pager_bg;
-  global $$this_site;
 
   if( ! strcmp($top_array[0],$this_site) ) return;
 
@@ -723,14 +708,13 @@ function insert_navigation_path() {
 function insert_quick_jump_list($site_array,
 				$outside_link_array=array(),
 				$col_num=2) {
-  global $rel_path;
+  global $rel_path, $nav_array;
 
   // check which sites exist
   reset($site_array);
   while(list($key,$site) = each($site_array) ) {
-    global $$site; 
     // check it this site exists
-    if( strlen(${$site}["file"]) == 0 ) {
+    if( strlen($nav_array["$site"]["file"]) == 0 ) {
       // if the site does not exists remove from quick jump list
       unset($site_array[$key]);
     }
@@ -744,17 +728,17 @@ function insert_quick_jump_list($site_array,
     echo "<tr>\n";
     for($jj=0; $jj<$col_num; $jj++) {
       if( list($key,$site) = each($site_array) ) {
-	if( file_exists($rel_path.'/'.${$site}["link_pic"]."_mini.gif") ) {
-	  $img = $rel_path.'/'.${$site}["link_pic"]."_mini.gif";
+	if( file_exists($rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif") ) {
+	  $img = $rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif";
 	} else {
 	  $img = $rel_path.'/pictures/icons/default_mini.gif';
 	}
-	$target = conv_link_target($rel_path.'/'.${$site}["file"]);
+	$target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
 	// mini icon and text 
 	echo '<td align="left" valign="bottom" nowrap="nowrap">';
 	echo '<a href="'.$target.'">';
 	echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
-	echo ${$site}["link_name"];
+	echo $nav_array["$site"]["link_name"];
 	echo '</a>';
 	echo '</td>'."\n";
       } 

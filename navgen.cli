@@ -35,7 +35,7 @@ function read_directory($directory_name) {
       read_directory("$directory_name/$file");
    }
     //echo "$directory_name/$file <br>";
-    if( ereg(".php$", "$file") ) {
+    if( ereg("\.php$", "$file") ) {
       info_output( "Found file $directory_name/$file\n" );
       $php_file_array[] = ereg_replace("^./", "", "$directory_name/$file");
     }
@@ -132,14 +132,14 @@ function export_nav($this_site, $export_depth = 0) {
   if( ${$this_site}["is_exported"] != 1 ) {
     // export information of this file
     fputs($nav_file, "\n");
-    fputs($nav_file, '$'.$this_site.'["file"]         = "'.${$this_site}["file"].'"; '."\n");
-    // fputs($nav_file, '$'.$this_site.'["url"]          = "'.${$this_site}["url"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["rel_path"]     = "'.${$this_site}["rel_path"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["link_name"]    = "'.${$this_site}["link_name"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["link_chapter"] = "'.${$this_site}["link_chapter"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["link_pic"]     = "'.${$this_site}["link_pic"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["parent_site"]  = "'.${$this_site}["parent_site"].'"; '."\n");
-    fputs($nav_file, '$'.$this_site.'["child_sites"]  = array(');
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["file"]         = "'.${$this_site}["file"].'"; '."\n");
+    // fputs($nav_file, '$nav_array["'.$this_site.'["url"]          = "'.${$this_site}["url"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["rel_path"]     = "'.${$this_site}["rel_path"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_name"]    = "'.${$this_site}["link_name"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_chapter"] = "'.${$this_site}["link_chapter"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["link_pic"]     = "'.${$this_site}["link_pic"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["parent_site"]  = "'.${$this_site}["parent_site"].'"; '."\n");
+    fputs($nav_file, '$nav_array["'.$this_site.'"]["child_sites"]  = array(');
     reset($found_childs);
     if( count($found_childs) > 0 ) {
       $child_file = "";
@@ -324,6 +324,7 @@ while( list($index, $php_file) = each($php_file_array) ) {
     }
   }
 }
+
 if( strlen($navigation_file) < 1 )
      die("No navigation file specified\n");
 
@@ -341,26 +342,20 @@ info_output("Writing to file $navigation_file\n", 0);
 fputs($nav_file, "<?php\n");
 fputs($nav_file, "//=============================================================\n");
 fputs($nav_file, "// This file is generated automatically by navgen.\n");
-
-/* migo: do not include the following otherwise we will _always_ get cvs */
-/* conflicts; without it conflicts are still possible, but less */
-/*
-fputs($nav_file, "// by ".my_get_global("PHP_SELF", "SERVER")."\n");
-fputs($nav_file, "// Created at ".date("d/m/y H:i", time())."\n");
-*/
-
 fputs($nav_file, "// You may change the order of ".'$top_array'." only!\n");
-fputs($nav_file, "// Uwe Pross 2002\n");
+fputs($nav_file, "// Uwe Pross 2003\n");
 fputs($nav_file, "//=============================================================\n");
 fputs($nav_file, "\n");
 fputs($nav_file, "// names of the top sites - you may change the order if you like\n");
 fputs($nav_file, '$top_array = array('."\n");
 $site = "";
 list($index, $site) = each($top_array);
-fputs($nav_file, "\t\"$site\", \n");
+fputs($nav_file, "\"$site\", \n");
 /* migo: it is always good to have all lines with commas, less conflicts */
+/* uwp: I am not shure about this. 
+        The correct php systax should be array(1,2,3) not array(1,2,3,)  */
 while( list($index, $site) = each($top_array) ) {
-  fputs($nav_file, "\t\"$site\", \n");
+  fputs($nav_file, "\"$site\", \n");
 }
 fputs($nav_file, "); \n");
 
@@ -373,8 +368,6 @@ while( list($index, $this_site) = each($top_array) ) {
 fputs($nav_file, "\n?>\n");
 
 fclose($nav_file);
-
-//chmod($navigation_file, 0666);
 
 //--------------------------------------------------------------------
 // check if all found files were exported

@@ -41,7 +41,7 @@ function debug($string, $level=1) {
 }
 
 // set relative path which is defined in the php files
-if( ! isset($rel_path) ) $rel_path = ${$this_site}["rel_path"];
+if( ! isset($rel_path) ) $rel_path = $nav_array["$this_site"]["rel_path"];
 
 //--------------------------------------------------------------------
 //- variable definitions
@@ -104,10 +104,10 @@ function insert_timestamp($file) {
 // home -> photos -> holiday -> beach
 // it is mostly used to display this path as links 
 function get_parent_path($site) {
-  global $$site, $top_array;
+  global $nav_array, $top_array;
   // echo "+++checking $site+++<br>";
   // first we should check if the array is consistent
-  if( strlen(${$site}["parent_site"]) < 1 ) {
+  if( strlen($nav_array["$site"]["parent_site"]) < 1 ) {
     // echo "Error in navigation array<br>";
     // the actual site is not in the navigation array 
     // we return the first entry of $top_array here
@@ -115,13 +115,13 @@ function get_parent_path($site) {
   }
   // check if this site is a parent - if not return the parent
   // of its parent;-)
-  if( ! strcmp( ${$site}["parent_site"],"top") ) {
+  if( ! strcmp( $nav_array["$site"]["parent_site"],"top") ) {
     if( ! strcmp($site,$top_array[0]) )
       return array($site);
     else
       return array($top_array[0],$site);
   } else {
-    $parent_path = get_parent_path(${$site}["parent_site"]);
+    $parent_path = get_parent_path($nav_array["$site"]["parent_site"]);
     $parent_path[] = $site;
     return $parent_path;
   }
@@ -261,14 +261,13 @@ function decoration_window_end() {
 function insert_quick_jump_list($site_array,
 				$outside_link_array=array(),
 				$col_num=2) {
-  global $rel_path;
+  global $rel_path, $nav_array;
 
   // check which sites exist
   reset($site_array);
   while(list($key,$site) = each($site_array) ) {
-    global $$site; 
     // check it this site exists
-    if( strlen(${$site}["file"]) == 0 ) {
+    if( strlen($nav_array["$site"]["file"]) == 0 ) {
       // if the site does not exists remove from quick jump list
       unset($site_array[$key]);
     }
@@ -282,17 +281,17 @@ function insert_quick_jump_list($site_array,
     echo "<tr>\n";
     for($jj=0; $jj<$col_num; $jj++) {
       if( list($key,$site) = each($site_array) ) {
-	if( file_exists($rel_path.'/'.${$site}["link_pic"]."_mini.gif") ) {
-	  $img = $rel_path.'/'.${$site}["link_pic"]."_mini.gif";
+	if( file_exists($rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif") ) {
+	  $img = $rel_path.'/'.$nav_array["$site"]["link_pic"]."_mini.gif";
 	} else {
 	  $img = $rel_path.'/pictures/icons/default_mini.gif';
 	}
-	$target = conv_link_target($rel_path.'/'.${$site}["file"]);
+	$target = conv_link_target($rel_path.'/'.$nav_array["$site"]["file"]);
 	// mini icon and text 
 	echo '<td align="left" valign="bottom" nowrap="nowrap">';
 	echo '<a href="'.$target.'">';
 	echo '<img src="'.$img.'" border="0" alt="" hspace="5" vspace="0" align="top">';
-	echo ${$site}["link_name"];
+	echo $nav_array["$site"]["link_name"];
 	echo '</a>';
 	echo '</td>'."\n";
       } 
@@ -319,7 +318,7 @@ function insert_quick_jump_list($site_array,
 
 function insert_parent_path() {
   global $this_site, $rel_path, $top_array ;
-  global $$this_site;
+  global $nav_array;
 
   if( ! strcmp($top_array[0],$this_site) ) return;
 
@@ -327,9 +326,8 @@ function insert_parent_path() {
 
   reset($parent_path);
   while(list($key,$site) = each($parent_path) ) {
-    if( strlen(${$site}["file"]) == 0 ) global $$site;
-    $target = conv_link_target($rel_path."/".${$site}["file"]);
-    echo ' ::<a href="'.$target.'">'.${$site}["link_name"].'</a>:: '."\n";
+    $target = conv_link_target($rel_path."/".$nav_array["$site"]["file"]);
+    echo ' ::<a href="'.$target.'">'.$nav_array["$site"]["link_name"].'</a>:: '."\n";
   }
   echo '<br>';
 }
