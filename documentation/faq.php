@@ -46,9 +46,8 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 
 <?php decoration_window_start("Frequently Asked Questions"); ?>  
 
-<pre style="margin-left:5%;">
-
 <h2>FAQ Contents</h2>
+<pre style="margin-left:5%;">
 <a name="toc_0."></a><a href="#0.">0.</a> <u>The</u> most frequently asked question :)
 
 <a name="toc_0.1"></a>     <a href="#0.1">0.1</a>  A few minutes after fvwm is started my keyboard and mouse

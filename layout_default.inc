@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 08:19:10 uwp>
+//-  Last modified : <07.04.2003 09:42:03 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -671,8 +671,11 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 }
 ?>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/transitional.dtd">
+<?php 
+// <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/transitional.dtd"> 
+?>
 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
   <head>
@@ -698,6 +701,8 @@ function insert_quick_jump_list($site_array,$col_num=2) {
 	   echo 'background-image:url("'.$body_bg_image.'");';
 	 ?>
 	 color:<?php echo $body_fg;?>;
+	 margin:0pt;
+	 padding:0pt;
        }
        p {
          text-align:left; 
@@ -753,11 +758,7 @@ function insert_quick_jump_list($site_array,$col_num=2) {
         ?>
         link="#ffff44" 
 	vlink="#ffff00" 
-	alink="#ffff99"
-	marginwidth="0" 
-	marginheight="0" 
-	topmargin="0" 
-	leftmargin="0">
+	alink="#ffff99">
 
     <a name="top"></a>
     <table width="100%" border="0" cellpadding="0" cellspacing="2" summary="">
@@ -783,9 +784,12 @@ function insert_quick_jump_list($site_array,$col_num=2) {
             push_decoration_path("pictures/decorations/window_deco_ice");
 	    insert_pager_navigation();
             pop_decoration_path();
+            echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SCRIPT_URI"].'" target="validation">html check&nbsp;</a><br>';
+echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SCRIPT_URI"].'&warning=0&profile=css2" target="validation">css check&nbsp;</a>';
        ?></td>
       </tr>
 
     </table>
+
   </body>
 </html>

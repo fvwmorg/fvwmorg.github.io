@@ -5,7 +5,7 @@
 #-  Project       : FVWM Home Page
 #-  Date          : Tue Apr  1 20:48:44 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <07.04.2003 08:37:30 uwp>
+#-  Last modified : <07.04.2003 09:38:37 uwp>
 #---------------------------------------------------------------------
 
 ## stack functions
@@ -52,6 +52,7 @@ BEGIN {
 #---------------------------------------------------------------------
 /^Contents/ && ! found_contents_start {
     output("<h2>FAQ Contents</h2>");
+    output("<pre style=\"margin-left:5%;\">");
     found_contents_start=1;
     getline;
     while( match($0,"^[\t ]*$") ) getline;
@@ -107,7 +108,7 @@ END {
 	print;
     }
 
-    print "<pre style=\"margin-left:5%;\">\n";
+    # print "<pre style=\"margin-left:5%;\">\n";
     for(i=0; i<out_nr; i++) {
 	print output_array[i];
     }
