@@ -17,7 +17,7 @@ include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "The Official FVWM Home Page";
+$title          = "FVWM Home Page";
 $heading        = "Welcome to The Official FVWM Home Page";
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
