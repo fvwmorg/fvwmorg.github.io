@@ -30,7 +30,7 @@
 #   Then type "n" (Image size Normal).
 #   Then save the image.  (Hint, when you save the button, you can use the
 #   link you created above, Ie. save .fvwm/vb/DecorDemoN.gif.)
-#   
+#
 #   Look at the last Decor N for an example of what to do if you don't have an
 #   exact multiple of 10 buttons.
 #
@@ -50,7 +50,7 @@ AddToFunc   button_demo
  + I Style "button_demo_style*" BorderColorset, HilightBorderColorset
  + I Style "button_demo_style*" Font -adobe-helvetica-*-r-*-*-17-*-*-*-*-*-*-*
 # Launch the demo window and shrink it to borders+title only (480x50)
- + I Exec xv -name "button_demo_style                      " -geometry 480x270
+ + I Exec xv -name "button_demo_style                        " -geometry 480x270
  + I Wait button_demo_style*
  + I Next (button_demo_style*) WindowShade true
 
