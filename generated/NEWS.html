@@ -10,32 +10,443 @@
 </center>
 <pre>
 
-<b>Changes in stable release 2.4.15 (not released yet)</b>
-
-<b>Changes in stable release 2.4.14 (29-Nov-2002)</b>
-
-* Modules do not crash anymore when more than 126 windows are on
-  the desktop.
-
-* FvwmIconMan displays windows correctly that were iconified and
-  then moved to another page.
-
-* Appliation provided icon windows no longer appear at 0 0 when
-  restarting.
-
-* The built-in session management can handle window names, classes
-  etc. beginning with whitespace (textedit).
-
-* Removed the flawed "A"ny context key binding patch from 2.4.13.
-
-* The default EdgeScroll (if not specified) was incorrectly
-  assumed to be 100 pixels instead of 100 percents.
-
-* Icons no longer appear on top of all other windows after a
-  restart.
+Note, the changes for the last STABLE release start with release
+<A HREF="#2.4.14">2.4.14</A>.
 
 <hr>
+<b>Changes in developement release 2.5.6 (not released yet)</b>
+
+<hr>
+<b>Changes in developement release 2.5.5 (2-Dec-2002)</b>
+
+* New experimental module FvwmProxy.
+
+* New command RestackTransients.
+
+* Added a pixel offset to vector button definitions.
+
+* New command FocusStyle as a shorthand for setting the FP...
+  styles with the Style command.
+
+* New option Locale to PrintInfo command.
+
+* The Next and Prev commands start looking for a matching window at
+  the context window if there is any.
+
+* The MoveToPage command does nothing with sticky windows.
+
+* New module FvwmWindowLister, a WindowList subtitute.
+
+* Sticky windows can be sticky across pages, across desks or both.
+  Related to this are:
+   - New commands StickPage and StickDesk.
+   - New Style options StickyPage and StickyDesk.
+   - New conditional command options StickyPage and StickyDesk.
+   - New WindowList options NoStickyPage, NoStickyDesk, StickyPage,
+     StickyDesk, OnlyStickyPage, OnlyStickyDesk.
+   - New FvwmRearrange options -sp and -sd.
+
+* Key bindings can operate on the release of a key too.  Prefix the
+  key name with a '-' in the Key command.  Please read about the
+  caveats in the man page.
+
+* Fixed flickering in FvwmTaskBar, FvwmWinList, FvwmIconBox, FvwmForm,
+  FvwmScript and FvwmScroll when xft fonts or icons with an alpha
+  channel is used.
+
+* New Colorset option RootTransparent
+
+* The Transparent Colorset option can be tinted under certain
+  conditions
+
+* New MinHeight option to TitleStyle
+
+<hr>
+<b>Changes in alpha release 2.5.4 (20-Oct-2002)</b>
+
+* FvwmTaskBar may now include mini launchbuttons using the Button
+  command.  Also has new options for spacing the buttons:
+  WindowButtonsLeftMargin, WindowButtonsRightMargin, and
+  StartButtonRightMargin.  See man page for details.
+
+* Style switches can be prefixed with '!' to inverse their meaning.
+  For example, "Style * Sticky" is the same as "Style * !Slippery".
+  This works *only* for pairs of styles that take no arguments and
+  for the Button and NoButton styles.
+
+* New button property Id in FvwmButtons.  FvwmButtons now accepts
+  dynamical actions using SendToModule, see the man page:
+
+    ChangeButton &lt;button-id&gt; &lt;properties-to-change&gt;
+    ExpandButtonVars &lt;button-id&gt; &lt;command-to-expand&gt;
+
+* New Colorset options bgTint, fgTint (which complete Tint), Alpha,
+  IconTint and IconAlpha.
+
+* Alpha blending rendering is supported even without XRender
+  support.
+
+* Enhanced commands [Add]ButtonStyle, [Add]TitleStyle. ButtonState.
+  Titles and buttons now have 4 main states instead of 3: ActiveUp,
+  ActiveDown, InactiveUp and InactiveDown, plus 4 Toggled variants.
+  Several shortcuts added: Active means ActiveUp + ActiveDown,
+  Inactive means InactiveUp + InactiveDown, similarly for shortcuts
+  ToggledActive and ToggledInactive.
+
+* More shortcuts for button states added: AllNormal, AllToggled,
+  AllActive, AllInactive, AllUp, AllDown.  These six shortcuts are
+  actually different masks for 4 individual states (from 8 total).
+
+* FPClickToFocus and FPClickToRaise work with any modifier by
+  default.
+
+* Perl library API regarding event handlers is changed, so personal
+  modules in Perl should be adjusted.
+
+* Allow the use of mouse buttons other than the first in
+  FvwmWinList when invoked transient.
+
+* ImagePath now supports directories in form "/some/directory;.png"
+  (where semicolon delimits a file extension that files in
+  /some/directory have.  This file extension replaces the original
+  image extension (if any) or it is added if there is no extension.
+  For example with: Style XTerm MiniIcon mini/xterm.xpm
+  the file /some/directory/mini/xterm.png is searched.
+
+* New graphical debugger module FvwmGtkDebug.
+
+* New command NoWindow for removing the window context.
+
+* New FvwmIconMan option ShowTransient.
+
+* All conditions have a negation.
+
+* New FvwmBacker option RetainPixmap.
+
+* Fixed flickering in menus, icon title, FvwmButtons, FvwmIconMan
+  and FvwmPager when xft fonts or icons with an alpha channel is used.
+
+* FvwmButtons redrawing improvement: colorsets are now usable with
+  containers.
+
+* FvwmIconMan options PlainColorset, IconColorset, FocusColorset
+  and SelectColorset are now strictly respected.
+
+* The HilightBack and ActiveFore menu styles are independent of
+  each other.  HilightBack without using ActiveFore does no longer
+  hilight the item text.
+
+* New WindowList option SortByResource; the previously added
+  SortClassName option is renamed to SortByClass.
+
+* New command PrintInfo for debugging.
+
+<hr>
+<b>Changes in alpha release 2.5.3 (25-Aug-2002)</b>
+
+* TitleStyle MultiPixmap now works once again.
+
+* Removed the old module interface for ConfigureWindow
+  packets. External modules relying on this interface no longer
+  work.
+
+* Fixed interaction bug between CascadePlacement and StartsOnPage
+  - if the target page was at a negative x or y page displacement
+  from the current viewport, the window would be placed on the
+  wrong page.
+
+* New Style option IconSize for restricting icon sizes.
+
+* New WindowList options SortClassName, MaxLabelWidth, NoLayer,
+  ShowScreen, ShowPage, ShowPageX and ShowPageY.
+
+* Restored old way of handling clicks in windows with ClickToFocus
+  and ClickToFocusPassesClickOff.  This fixes a problem with
+  click+drag in an unfocused rxvt or aterm window.
+
+* Fixed wrong warp coordinates when WarpToWindow was used with two
+  arguments on an unmanaged window.
+
+* Vastly improved FvwmEvent performance.
+
+* FvwmAuto can operate on Enter and Leave events too.  This makes
+  it possible to have autoraising with ClickToFocus and
+  NeverFocus. See -menter and -menterleave options and examples in
+  the FvwmAuto man page.
+
+* The "hangon" strings in FvwmButtons support wildcards.
+
+* New option "Icon" to PlaceAgain command.
+
+* New option "FromPointer" and direction "Center" to the Direction
+  command.
+
+* The styles ClickToFocusRaises(Off) and
+  MouseFocusClickRaises(Off) are now different names for the same
+  style.  Configurations that used
+
+    Style * ClickToFocus, ClickToFocusRaises
+    Style * MouseFocusClickRaisesOff
+
+  or vice versa no longer work as like before.  Remove the second
+  line to fix the problem.  ClickToFocusRaises now works only on
+  the client part of a window, not on the decorations as it did
+  before.
+
+* New color limit method for screens that only display 256 colors
+  (or less).
+
+* In depth less or equal to 16 image and gradient can be
+  dithered. This can be enabled/disabled by using the new
+  dither/nodither options to the Colorset command.
+
+* Removed the styles MouseFocusClickIgnoreMotion and
+  MouseFocusClickIgnoreMotionOff again.
+
+* Many new focus policy styles "FP..." and "!FP...".
+
+<hr>
+<b>Changes in alpha release 2.5.2 (24-Jun-2002)</b>
+
+* Fonts can have shadow effects, see the FONT SHADOW EFFECTS
+  section of fvwm manual page.
+
+* New Colorset options: fgsh for shadow text and fg_alpha for
+  merging text with the background.
+
+* New module FvwmPerl adds perl scripting ability to fvwm
+  commands.
+
+* Provided powerful perl library for creating FVWM modules in
+  perl.
+
+* New WindowList option IconifiedtAtEnd.
+
+* Always display the current desk number in the FvwmPager window
+  title.
+
+* Allow to bind a function to the focus click and pass it to the
+  application at the same time.
+
+* New styles !Borders and Borders to enable or disable window
+  borders.
+
+* Removed the --enable-multibyte configure option.  Multibyte
+  support is now compiled in unconditionally.
+
+* New FvwmButtons option ActionOnPress enables execution of action
+  on press rather than on release for any specific button.
+
+* Improved CascadePlacement, the last used position is reused if
+  the last placed window does not exist any more.
+
+* FvwmIconMan may now change the resolution dynamically, just
+  issue "*FvwmIconMan: resolution page" while FvwmIconMan is
+  running.
+
+* New command XineramaSlsScreens.
+
+* MoveToPage and MoveToDesk no longer unstick windows.
+
+* It is possible to specify a string encoding in a font name, see
+  the "FONT AND STRING ENCODINGS" section of fvwm manual page.
+
+<hr>
+<b>Changes in alpha release 2.5.1 (26-Apr-2002)</b>
+
+* Changed the executable and the man page names from fvwm2 to
+  fvwm. The old names are still supported by symlinking.
+
+* All fvwm utilities are renamed to conform to the "fvwm-"
+  scheme. fvwm-bug, fvwm-root (was xpmroot), fvwm-config,
+  fvwm-convert-2.4.
+
+* Added a full support for the side window titles. New Style
+  options TitleAtLeft and TitleAtRight added to TitleAtTop and
+  TitleAtBottom.
+
+* A title text may now be optionally rotated for both vertical and
+  horizontal title directions, search for "Rotated" in the man
+  page.
+
+* Added support for loading images in PNG (including alpha
+  blending) and XBM formats anywhere.
+
+* New commands Schedule and Deschedule.
+
+* New command State.  New conditions State and !State.
+
+* New commands XSync and XSynchronize for debugging purposes.
+
+* In interactive move/placement when Alt/Meta modifier is pressed,
+  snap attraction (SnapAttraction, SnapGrid and EdgeResistance) is
+  ignored.
+
+* New flags (No)FvwmModule to FvwmButtons Swallow option
+
+* The I18N_MB patch (--enable-multibyte) has been
+  rewritten. MULTIBYTE is used to identify what is was I18N_MB. A
+  set of locale functions (locale initialization, font loading,
+  text drawing, ...etc.) is created in libs/Flocale.{c,h} and used
+  in the entire fvwm code (but FvwmWharf).  Font loading and
+  memory management is improved in the multibyte case.
+
+* Better support of non ISO-8859-1 window and icon titles. See the
+  --disable-compound-text option in INSTALL.fvwm for more
+  details.
+
+* Added anti-aliased text rendering support using Xft (use
+  --enable-xft to enable it). Recent versions of XFree and
+  freetype2 are needed (see the FONT NAMES AND FONT LOADING
+  section of the fvwm manual page).
+
+* Conditional commands now have a return code (Match, NoMatch or
+  Error).  This return code can be checked and tied to an action
+  with the new commands Cond and CondCase.
+
+* Bindings can be made to the separate parts of the window border
+  with the new contexts '[', ']', '-', '_', '&lt;', '^', '&gt;' and
+  'v'.
+
+* New parameters for FvwmRearange: -maximize and -animate.
+
+* New option StartCommand for FvwmTaskBar to allow placing the
+  StartMenu correctly.
+
+    *FvwmTaskBar: StartCommand Popup RootMenu \
+	rectangle $widthx$height+$left+$top 0 -100m
+
+  Please refer to the FvwmTaskBar man page for details.
+
+* New extended variables pointer.x, pointer.y, pointer.wx,
+  pointer.wy, pointer.cx and pointer.cy.
+
+* The Current command does not select a random window when no
+  window has the focus.
+
+* New colour '@4' (transparent) in button vectors.
+
+* New option "Frame" for the Resize and ResizeMove commands.
+
+* Added direction options to WindowShade command.  Windows can be
+  shaded in any of the eight compass directions.
+
+* Styles WindowShadeLazy (default), WindowShadeBusy and
+  WindowShadeAlwaysLazy to optimize performance of the WindowShade
+  command.
+
+* The DO_START_ICONIC flag is no longer supported in the module
+  interface.
+
+* Added bi-directional text support for asian charsets.
+
+* New option MinimalLayer for FvwmIdent to control window layer.
+
+* New FvwmIconMan configuration syntax now conforms to the syntax
+  of other modules, see the man page.
+
+* FvwmForm can automatically run commands after a timeout
+  interval.
+
+* Fvwm commands can be invoked when the edge of the screen is hit
+  with the mouse.
+
+* New commands Colorset, ReadWriteColors and CleanupColorsets
+  allow the colorset functionality previously available using
+  FvwmTheme.
+
+* FvwmTheme is obsolete now, but still supported for some time.
+
+* New options Tint, TintMask and NoTint to colorsets.
+
+* New WindowList option CurrentAtEnd.
+
+* New weighted sorting in FvwmIconMan.
+
+<hr>
+<b>Changes in alpha release 2.5.0 (27-Jan-2002)</b>
+
+* New commands ResizeMaximize and ResizeMoveMaximize that modify
+  the maximized geometry of windows and maximize them as
+  necessary.  Very useful to make a window larger manually and
+  then get back the old geometry with a click.
+
+* New command ResizeMoveMaximize similarly.
+
+* New styles FixedPPosition, FixedUSPosition, FixedSize,
+  FixedUSSize, FixedPSize, VariablePPosition, VariableUSPosition,
+  VariableSize, VariableUSSize, and VariablePSize.
+
+* Actions can be bound to windows swallowed in FvwmButtons.  To
+  disable this feature for a specific button, the new option
+  ActionIgnoresClientWindow can be used.
+
+* Fvwm respect the extended window manager hints
+  specification. This allows fvwm to work with KDE version &gt;= 2
+  and GNOME version 2. This support is configurable using a bunch
+  of new commands and style options, search for "EWMH" in the man
+  page.
+
+* New DateFormat option in FvwmTaskBar to change the date format
+  in the clock's popup tip.
+
+* Window titlebars may now be designed using a new powerful
+  TitleStyle option MultiPixmap, that enables to specify separate
+  pixmaps for different parts of the titlebar: Main, LeftEnd,
+  LeftOfText, UnderText, RightOfText, RightEnd and more.
+
+* New styles MinOverlapPlacementPenalties and
+  MinOverlapPercentPlacementPenalties.
+
+* New styles IndexedWindowName / ExactWindowName and
+  IndexedIconName / ExactIconName.
+
+* New command "DesktopName desk name" to define the name of a
+  desktop for the FvwmPager, the WindowList and EWMH compliant
+  pagers. New expanding variables $[desk.name&lt;n&gt;] for the desktop
+  names.
+
+* New window list options NoDeskNum, NoCurrentDeskTitle,
+  TitleForAllDesks, NoNumInDeskTitle.
+
+* New emacs style bindings in menus.
+
+* New Maximize global flag "layer" which causes the various grow
+  methods to ignore the windows with a layer less than or equal to
+  the layer on the window which is maximized.
+
+* Better support of the Transparent colorset in the modules and in
+  animated menus.
+
+* Amelioration of the WindowShade animation.
+
+* New ButtonStyle and TitleStyle option MwmDecorLayer.
+
+* New style BackingStoreWindowDefault which is the default
+  now. Fvwm no longer disables backing store on windows by
+  default.
+
+* New styles MouseFocusClickIgnoreMotion and
+  MouseFocusClickIgnoreMotionOff.
+
+* The module interface now supports up to 62 message types.
+
+* New module messages MX_ENTER_WINDOW and MX_LEAVE_WINDOW.
+
+* New events "enter_window" and "leave_window" in FvwmEvent.
+
+* New MenuStyle PopupActiveArea.
+
+* New command line option -passid to FvwmAuto.
+
+* New conditional commands Any and PointerWindow.
+
+* New conditions Focused, !Focused, HasPointer and !HasPointer.
+
+<hr>
+<A NAME="2.4.12">
 <b>Changes in stable release 2.4.13 (1-Nov-2002)</b>
+</A>
 
 * Icon titles for windows with an icon position hint no longer
   appear at random places.
@@ -161,7 +572,7 @@
 
 * A number of drawing fixes in FvwmPager.
 
-* fixed a slight bug when waiting until all buttons are released,
+* Fixed a slight bug when waiting until all buttons are released,
   for example after executing a complex function.
 
 * Fixed potentially harmful change in module interface.
@@ -282,6 +693,7 @@
 
 * Fixed execution on QNX.
 
+<hr>
 <b>Changes in stable release 2.4.6 (10-Mar-2002)</b>
 
 * Better support of non ISO-8859-1 window and icon titles. See the
@@ -299,7 +711,7 @@
 * Fixed a minor colour update bug in the pager.
 
 * Fixed an fvwm crash when a module died at the wrong moment;
-  specifically a transient FvwmPager of FvwmIconMan.
+  specifically a transient FvwmPager or FvwmIconMan.
 
 * Fixed placement of WindowList on wrong Xinerama screen when
   called without any options on a screen other than the primary
@@ -319,8 +731,7 @@
 
 * Fixed a memory leak in the Pick command.
 
-* Allow to choose windows with CirculateSkip with the Pick
-  command.
+* Allow to choose windows with CirculateSkip with the Pick command.
 
 * Fixed an FvwmScript compile problem on dec-osf5.
 
@@ -332,6 +743,7 @@
 
 * Fixed a rare menu placement problem with Xinerama.
 
+<hr>
 <b>Changes in stable release 2.4.5 (27-Jan-2002)</b>
 
 * Fixed minor problems in popping sub menus up and down.
@@ -348,16 +760,15 @@
 
 * Reduced the time in which fvwm attempts to grab the pointer.
 
-* Fixed unmanaged window when window was mapped/unmapped/mapped
-  too fast.
+* Fixed unmanaged window when window was mapped/unmapped/mapped too
+  fast.
 
 * Fixed MiniScroll's auto repeating in FvwmScript.
 
 * Fixed a crash with the UseStyle style in combination with
   HilightBack.
 
-* Fixed excessive redraws of the windows under a window being
-  shaded.
+* Fixed excessive redraws of the windows under a window being shaded.
 
 * Fixed a minor memory leak in the Style command.
 
@@ -380,6 +791,7 @@
 
 * Fixed parsing of conditions with more than one comma.
 
+<hr>
 <b>Changes in stable release 2.4.4 (16-Dec-2001)</b>
 
 * Minor title drawing fixes.
@@ -392,9 +804,9 @@
 
 * Fixed ClickToFocusClickRaises style.
 
-* FvwmForm: Customize pointers, support ISO_Tab key, buttons can
-  activate on press or release, special pointer during grab, arrow
-  keys useful in form with one input field.
+* FvwmForm: Customize pointers, support ISO_Tab key, buttons can activate
+  on press or release, special pointer during grab, arrow keys useful in form
+  with one input field.
 
 * New OpaqueMoveSize argument "unlimited".
 
@@ -405,17 +817,18 @@
 
 * Mouse bindings are activated without a recapture.
 
-* FvwmScript: new keyboard bindings. New flags NoFocus and Left,
-  Center, and Right for text position. Amelioration of the Menu
-  and PopupMenu Widgets. New functions GetPid, Parse,
-  SendMsgAndGet and LastString.  New instruction Key for key
-  bindings. New command SendToModule ScriptName SendString.
+* FvwmScript: new keyboard bindings. New flags NoFocus and Left, Center,
+  and Right for text position. Amelioration of the Menu and PopupMenu
+  Widgets. New functions GetPid, Parse, SendMsgAndGet and LastString.
+  New instruction Key for key bindings. New command SendToModule ScriptName
+  SendString.
 
 * Command "Silent" when precedes "Key", "Mouse" and "PointerKey"
   disables warning messages.
 
 * Restored the default Alt-Tab behaviour from 2.4.0.
 
+<hr>
 <b>Changes in stable release 2.4.3 (08-Oct-2001)</b>
 
 * Fixed activation of shape extension.
@@ -429,23 +842,24 @@
 
 * Fixed flickering icon titles.
 
-* New X resource fvwmscreen to select the Xinerama screen on which
-  to place new windows.
+* New X resource fvwmscreen to select the Xinerama screen on which to
+  place new windows.
 
 * Coordinates of a window during motion are show relative to the
   Xinerama screen.
 
 * Some icon placement improvements with Xinerama.
 
+<hr>
 <b>Changes in stable release 2.4.2 (16-Sep-2001)</b>
 
-* Desk and page can be given as X resources in .Xdefaults, for
-  example:
+* Desk and page can be given as X resources in .Xdefaults, for example:
     xterm.desk: 1
     xterm.page: 1 2 3
 
 * Several Shape compilation problems fixed.
 
+<hr>
 <b>Changes in stable release 2.4.1 (15-Sep-2001)</b>
 
 * Added Xinerama and SingleLogicalScreen support.
@@ -485,11 +899,9 @@
 
 * FvwmIconBox, FvwmTaskBar and FvwmWinList support aliases.
 
-* Enhancements in fvwm-menu-headlines and support for 10 more
-  sites.
+* Enhancements in fvwm-menu-headlines and support for 10 more sites.
 
-* Color enhancements in button vectors: @2 is bg color, @3 is fg
-  color.
+* Color enhancements in button vectors: @2 is bg color, @3 is fg color.
 
 * Improved detection of the Shape library.
 
@@ -501,17 +913,14 @@
   with the system.fvwm2rc-sample-95 configuration.
 
 * The modules FvwmPager, FvwmIconMan, FvwmWinList and FvwmButtos
-  set the transient_for hint when started with the "transient"
-  option.
+  set the transient_for hint when started with the "transient" option.
 
-* Fixed FvwmIconMan with the transient option when mapped off
-  screen.
+* Fixed FvwmIconMan with the transient option when mapped off screen.
 
-* Fixed ClickToFocus focus policy when iconifying the focused
-  window.
+* Fixed ClickToFocus focus policy when iconifying the focused window.
 
-* Fixed some focus problems in conjunction with unclutter vs
-  xv/xmms and Open Look applications.
+* Fixed some focus problems in conjunction with unclutter vs xv/xmms
+  and Open Look applications.
 
 * Fixed a problem that could cause windows to be lost off screen
   with interactive window motion.
@@ -534,45 +943,41 @@
 
 * Fixed parameters of fvwm24_convert.
 
-* Fixed a number of building problems related to old vendor
-  unices, libstroke-0.5, autoconf-2.50, bogus gnome-config and
-  imlib-config.
+* Fixed a number of building problems related to old vendor unices,
+  libstroke-0.5, autoconf-2.50, bogus gnome-config and imlib-config.
 
 * Fixed drawing of title bar buttons with MWMDecorStick.
 
 * Fixed missing button or key events over the pan frames.
 
-* Fixed placement of the FvwmDragWell, FvwmButtons and FvwmForm
-  modules.
+* Fixed placement of the FvwmDragWell, FvwmButtons and FvwmForm modules.
 
-* Fixed parsing double quotes in FvwmPager's Font and SmallFont
-  options.  Fixed FvwmPager crash with certain font strings.
+* Fixed parsing double quotes in FvwmPager's Font and SmallFont options.
+  Fixed FvwmPager crash with certain font strings.
 
-* Fixed drawing of the grid lines in an iconified FvwmPager
-  window.
+* Fixed drawing of the grid lines in an iconified FvwmPager window.
 
 * Fixed button grabbing problem for buttons &gt; 3 in FvwmTaskBar.
 
-* Fixed some exotic problems with window gravity and resizing
-  windows.
+* Fixed some exotic problems with window gravity and resizing windows.
 
-* Fixed a problem with maximizing windows with the vieport not
-  starting on a page boundary.
+* Fixed a problem with maximizing windows with the vieport not starting
+  on a page boundary.
 
 * Fixed handling of parentheses in FvwmButtons button actions.
 
-* Work around a key binding problem with keys that generate the
-  same symbol with more than one key code (e.g. Shift-F1 = F11).
+* Work around a key binding problem with keys that generate the same
+  symbol with more than one key code (e.g. Shift-F1 = F11).
 
 * The Desk option of FvwmBacker is compatible to earlier version.
-  Desk or Page coordinates can be omitted to indicate that desk or
-  page changes trigger no action at all.
+  Desk or Page coordinates can be omitted to indicate that desk
+  or page changes trigger no action at all.
 
-* Fixed double updating of background with FvwmBacker sometimes
-  leading to the wrong background.
+* Fixed double updating of background with FvwmBacker sometimes leading
+  to the wrong background.
 
-* Fixed several escaping errors in fvwm-menu-directory, so files
-  and directories containing special chars and spaces should work.
+* Fixed several escaping errors in fvwm-menu-directory, so files and
+  directories containing special chars and spaces should work.
 
 * Fixed PlacedByButton3 condition.
 
@@ -592,16 +997,19 @@
 * Fixed shading/unshading shaped windows and windows without title
   and border.
 
+<hr>
 <b>Changes in stable release 2.4.0 (03-Jul-2001)</b>
 
 * Finally released. :)
 
+<hr>
 <b>Changes in beta release 2.3.33 (22-Jun-2001)</b>
 
-* Module configuration commands are now partially expanded similar
-  to any other commands, except that single alphabetic-letter
-  parameters are not expanded for backward compatibility.
+* Module configuration commands are now partially expanded similarly to
+  any other commands, except that single alphabetic-letter parameters are
+  not expanded for backward compatibility.
 
+<hr>
 <b>Changes in beta release 2.3.32 (4-May-2001)</b>
 
 * Fixed several focus problems and several core dumps.
@@ -613,41 +1021,41 @@
 
 * Fixed gdk-imlib configure detection for FvwmGtk.
 
+<hr>
 <b>Changes in beta release 2.3.31 (7-Apr-2001)</b>
 
 * New option "recreate" to DestroyDecor command.
 
+<hr>
 <b>Changes in beta release 2.3.30 (29-Mar-2001)</b>
 
 * The configure option --disable-modality was removed.
 
-* New FvwmCommand -c option to read multiple commands from
-  standard input.
+* New FvwmCommand -c option to read multiple commands from standard input.
 
+<hr>
 <b>Changes in beta release 2.3.29 (2-Mar-2001)</b>
 
 * New temporary option -debug_stack_ring.
 
-* New styles IconifyWindowGroupsTogether and
-  IconifyWindowGroupsOff.
+* New styles IconifyWindowGroupsTogether and IconifyWindowGroupsOff.
 
-* New styles KeepWindowGroupsOnDesk and ScatterWindowGroups to
-  cope with applications using the window group hint incorrectly
-  (mozilla).
+* New styles KeepWindowGroupsOnDesk and ScatterWindowGroups to cope with
+  applications using the window group hint incorrectly (mozilla).
 
 * New BugOpts option FlickeringQtDialogsWorkaround.
 
-* New configure option --disable-package-subdirs, see INSTALL.fvwm
-  for info.
+* New configure option --disable-package-subdirs, see INSTALL.fvwm for info.
 
 * New option "None" to the IconBox style.
 
+<hr>
 <b>Changes in beta release 2.3.28 (25-Jan-2001)</b>
 
 * Renamed configure option --enable-kanji to --enable-multibyte.
 
-* Security fix related to .fvwm2rc being searched in the current
-  directory when $HOME is not set.
+* Security fix related to .fvwm2rc being searched in the current directory
+  when $HOME is not set.
 
 * New menu styles PopdownImmediately, PopdownDelayed and PopdownDelay.
 
@@ -666,14 +1074,18 @@
 * We have two "clever" placement algorithms: MinOverlapPlacement (the old one)
   and MinOverlapPercentPlacement.
 
+<hr>
 <b>Changes in beta release 2.3.27 (3-Jan-2001)</b>
 
+<hr>
 <b>Changes in beta release 2.3.26 (26-Dec-2000)</b>
 
+<hr>
 <b>Changes in beta release 2.3.25 (5-Dec-2000)</b>
 
 * Removed the now obsolete 'Recapture' option of the BusyCursor command.
 
+<hr>
 <b>Changes in beta release 2.3.24 (28-Nov-2000)</b>
 
 * WindowId and WarpToFunction have been enhanced to handle windows on
@@ -681,12 +1093,14 @@
 
 * New command FakeClick.
 
+<hr>
 <b>Changes in beta release 2.3.23 (25-Nov-2000)</b>
 
 * New styles UseIconPosition (default) and NoIconPosition.
 
 * Better focus handling on multi head displays.
 
+<hr>
 <b>Changes in beta release 2.3.22 (10-Nov-2000)</b>
 
 * Configuration samples of FvwmForm and FvwmScript installed with fvwm are
@@ -709,6 +1123,7 @@
 
 * Improved handling of windows that set the "input focus" hint to "false".
 
+<hr>
 <b>Changes in beta release 2.3.21 (September 2000)</b>
 
 * Module configuration syntax now accepts a delimiter - colon and optional
@@ -722,12 +1137,14 @@
 
 * GNOME support is now "on" by default.
 
+<hr>
 <b>Changes in beta release 2.3.20 (July 2000)</b>
 
 * KillModule supports an optional alias parameter as given in Module.
     Module FvwmModule Alias
     KillModule FvwmModule Alias
 
+<hr>
 <b>Changes in beta release 2.3.19 (June 2000)</b>
 
 * New command UpdateStyles forces an immediate style update, even
@@ -740,6 +1157,7 @@
     $[desk.width], $[desk.height], $[vp.x], $[vp.y], $[vp.width], $[vp.height],
     $[w.x], $[w.y], $[w.width], $[w.height], $[screen], $[&lt;env-var&gt;]
 
+<hr>
 <b>Changes in beta release 2.3.18 (May 2000)</b>
 
 * Renamed the MovedButton3 contition to PlacedByButton3.
@@ -751,6 +1169,7 @@
 
 * Removed MoveSmoothness command.
 
+<hr>
 <b>Changes in beta release 2.3.17 (May 2000)</b>
 
 * The commands Refresh and RefreshWindow apply all outstanding visual
@@ -786,6 +1205,7 @@
 
 * fvwm-config utility can be used for querying fvwm instalation.
 
+<hr>
 <b>Changes in beta release 2.3.16 (April 2000)</b>
 
 * Wait command supports quoted window names.
@@ -795,6 +1215,7 @@
 
 * New style option BorderColorset and HilightBorderColorset.
 
+<hr>
 <b>Changes in beta release 2.3.15 (February 2000)</b>
 
 * Reduced memory usage of multiple window styles.
@@ -804,6 +1225,7 @@
 * New parameter 'prev' for GotoDesk, GotoDeskAndPage and MoveToDesk
   commands.
 
+<hr>
 <b>Changes in beta release 2.3.14 (February 2000)</b>
 
 * New style option ParentalRelativity to enable Fvwm modules to use
@@ -819,6 +1241,7 @@
 * New MenuStyle option SelectOnRelease to better emulate Alt-Tab.
   Same option for WindowList command.
 
+<hr>
 <b>Changes in beta release 2.3.13 (January 2000)</b>
 
 * New FvwmTheme option 'Transparent'.
@@ -827,6 +1250,7 @@
 
 * New style option 'Font' replaces the old WindowFont command.
 
+<hr>
 <b>Changes in beta release 2.3.12 (December 1999)</b>
 
 * New command PointerKey.  Similar to 'Key' command but binds
@@ -853,6 +1277,7 @@
   of some popular web sites in your fvwm menus. Supported sites:
   FreshMeat, LinuxToday, Slashdot, Segfault and more to come.
 
+<hr>
 <b>Changes in beta release 2.3.11 (December 1999)</b>
 
 * Sticky icon titles are drawn similar to sticky window titles.
@@ -871,6 +1296,7 @@
 * New FvwmIconMan options: IconButton and IconColorset to control colors for
   iconified windows.
 
+<hr>
 <b>Changes in beta release 2.3.10 (December 1999)</b>
 
 * Fixed build problem without shape extension.
@@ -907,6 +1333,7 @@
 
 * New FvwmPager options SolidSeparators and NoSeparators.
 
+<hr>
 <b>Changes in beta release 2.3.9 (October 1999)</b>
 
 * Color names from colorsets can be used in fvwm command ($[fg.cs&lt;n&gt;],
@@ -922,6 +1349,7 @@
 * Menus can use colorsets with the new MenuStyle options MenuColorset,
   ActiveColorset and GreyedColorset.
 
+<hr>
 <b>Changes in beta release 2.3.8 (September 1999)</b>
 
 * New Style options ResizeOpaque and ResizeOutline.
@@ -948,6 +1376,7 @@
   in both the InitFunction and RestartFuction can be moved to the new
   StartFunction.
 
+<hr>
 <b>Changes in beta release 2.3.7 (August 1999)</b>
 
 * FvwmButtons and FvwmIconBox support colorsets.
@@ -988,6 +1417,7 @@
 * *FvwmPagerSloppyFocus option: To focus a window, simply move the
   pointer over the window's mini window in the pager.
 
+<hr>
 <b>Changes in beta release 2.3.6 (August 1999)</b>
 
 * New function variables $c, $r, $n.
@@ -1019,6 +1449,7 @@
 * New menu styles VerticalItemSpacing and VerticalTitleSpacing allow control
   over the height of menu items and titles.
 
+<hr>
 <b>Changes in alpha release 2.3.5 (July 1999)</b>
 
 * New special functions Session{Init|Restart|Exit}Function are called instead
@@ -1050,6 +1481,7 @@
 * The cursors used for resizing and selecting windows and handling menus have
   changed.
 
+<hr>
 <b>Changes in alpha release 2.3.4 (June 1999)</b>
 
 * Fvwm is GNOME compliant.
@@ -1063,6 +1495,7 @@
   by Mark Willey(willey@etla.net).
   (http://www.etla.net/~willey/projects/libstroke/)
 
+<hr>
 <b>Changes in alpha release 2.3.3 (June 1999)</b>
 
 * There can be two mini icons per menu label instead of one now.
@@ -1101,6 +1534,7 @@
 * New style DepressableBorder/FirmBorder to influence the appearance
   of the window border under button presses.
 
+<hr>
 <b>Changes in alpha release 2.3.2 (May 1999)</b>
 
 * The Alt-Tab binding to invoke the window list as described in the FAQ
@@ -1122,6 +1556,7 @@
 * System-wide config files are now in ${sysconfdir}/fvwm
   (i.e. /usr/local/etc/fvwm by default) as many files are now installed there.
 
+<hr>
 <b>Changes in alpha release 2.3.1 (April 1999)</b>
 
 * New button style flag MWMDecorShade to support toggle buttons for shaded
@@ -1156,6 +1591,7 @@
 * GrabFocusTransient is a new style that does the same as GrabFocus, but only
   for transient windows.
 
+<hr>
 <b>Changes in alpha release 2.3.0 (February 1999)</b>
 
 * FvwmPipe and FvwmConfig modules have been removed.
@@ -1301,6 +1737,7 @@
   images, no matter what their format are searched for along the
   ImagePath.
 
+<hr>
 <A NAME="2.2.5">
 <b>Changes in official release 2.2.5 (February 2001)</b>
 </A>
@@ -1318,12 +1755,14 @@
 
 * Core dump fix in pixmap code.
 
+<hr>
 <b>Changes in official release 2.2.4 (November 1999)</b>
 
 * Fixed HP-UX 10.20 build problems.
 
 * Fixed build problems without shape extension.
 
+<hr>
 <b>Changes in official release 2.2.3 (October 1999)</b>
 
 * Several minor bugfixes.
@@ -1334,6 +1773,7 @@
 
 * Fixed long-window-name-hangs-X bug.
 
+<hr>
 <b>Changes in official release 2.2.2 (May 1999)</b>
 
 * New "Emulate"  command  for independent  control of the  move/resize
@@ -1362,927 +1802,13 @@
 
 * Miscellaneous bug fixes,  see ChangeLog for details.
 
+<hr>
 <b>Changes in official release 2.2 (February 1999)</b>
-
-<b>Changes in alpha release 2.1.13 (February 1999)</b>
-
-<b>Changes in alpha release 2.1.12 (February 1999)</b>
-
-* Enhanced and changed the syntax for menu position hints. If you use negative
-  offsets you will have to change your configuration now.
-
-<b>Changes in beta release 2.1.11 (January 1999)</b>
-
-* Renamed MenuStyle options: PrepopMenus to PopupImmediately and
-  PrepopMenusOff to PopupDelayed.
-
-<b>Changes in beta release 2.1.8 (January 1999)</b>
-
-* New options SidePic and SideColor to MenuStyle
-
-* Configure generates a summary at the end of processing.  In particular
-  this is useful to see if any of XPM, Readline, or RPlay are missing.
-
-* Configure now looks in more places to find cpp.  If cpp can't be
-  found, you will need to specify '-cppprog' if you use the FvwmCpp
-  module.  A warning to this effect is printed at configure time.
-
-* Configure now tries harder to ensure that XPM is the right version.
-
-<b>Changes in beta release 2.1.7 (December 1998)</b>
-
-* The SetMenuStyle command does not exist anymore. Its functionality has
-  been merged with MenuStyle. MenuStyle supports the old and the new syntax.
-
-<b>Changes in beta release 2.1.6 (December 1998)</b>
-
-* Recapture is now much faster
-
-* New command "EdgeThickness" to control the size of the pan frames, and
-  a new way to turn off mouse edgescrolling.
-
-* new commands DefaultFont, DefaultColors and Emulate
-
-* SetMenuStyle was completely rewritten to get a 'Style'-like syntax.
-
-* Removed SetMenuDelay command.
-
-* Popup menus can have a default action too.
-
-* FvwmButtons quoting cleaned up a bit.
-
-<b>Changes in beta release 2.1.5 (December 1998)</b>
-
-* SnapAttraction works for windows and/or icons. New command SnapGrid.
-
-* The WindowsDesk command is now obsolete. It has been replaced with the
-  MoveToDesk command, which uses an argument syntax identical to the
-  enhanced Desk command, and allows constraining a move within a range
-  of desks.
-
-<b>Changes in beta release 2.1.4 (December 1998)</b>
-
-* Fvwm creates an environment variable FVWM_MODULEDIR containing the path
-  to the default module directory, for use in config files, etc.
-* The extras module FvwmCommand installs its user interface into the
-  bindir rather than the moduledir.
-
-<b>Changes in alpha release 2.1.3 (November 1998)</b>
-
-* Switched to GNU autoconf
-* COPYING policy file
-* Improved menu handling: Menu position hints, individual menu styles,
-  cursor key navigation, animated menus :-)
-* Improved window movement: AnimatedMove, SetAnimation, SnapAttraction
-  (like in KDE), move/resize can be aborted with a mouse button, Warp option
-  to Move/AnimatedMove.
-* Direction command (allows to switch windows via cursor (or other) keys in an
-  intuitive way).
-* Recapture command is now faster.
-* Startup is a bit faster if you have a large configuration file and
-  a high ClickTime.
-* Desk/Page handling: $d in functions is replaced by the current desk number,
-  Desk parameters can be given a min/max allowed desk number, making a window
-  sticky moves it to the current page, MoveToDesk and MoveToPage functions,
-  enhanced WindowsDesk function
-* Styles: temporary GlobalOpts command, MouseFocusOnStartup, StipledTitles
-* Upgraded versions of FvwmCommand (1.5.1), FvwmConsole (1.3) and
-  FvwmIconMan.
-* FvwmPager: Balloons (small text windows with the window title appear in the
-  pager), current desk (always the current desk on the pager).
-* FvwmButtons improvements: animated panels (like CDE), better button
-  shuffling, button geometries (x and y position).
-
-<b>Changes in alpha release 2.1.2 (November 1998)</b>
-
-* Modules FvwmCascade and FvwmTile were replaced with FvwmRearrange.
-* Improved Shadow/Hilite algorithm (from scwm).  Logic moved into
-  library and all modules with 3D logic now use this routine.
-* SnapAttraction Command: If during an interactive move a window comes
-  within a certain distance in pixels of another it will be moved to
-  make the borders adjoin.
-* ...MenuStyle commands: allow to name different menu styles and apply them
-  to individual menus.
-* Direction command
-
-<b>Changes in alpha release 2.1.1 (October 1998)</b>
-
-* Official home page html added to docs directory.
-
-<b>Changes in alpha release 2.1.0 (October 1998)</b>
-
-* basic autoconfiguration support; see INSTALL.fvwm and INSTALL
-* modules installed into ${libexecdir}/fvwm/${VERSION}
-  - since the version string is encoded into the module directory, it
-    is safer to rely on the compiled-in ModulePath, rather than
-    setting it yourself in .fvwm2rc
-* system configure (system.fvwm2rc) searched for in ${sysconfdir}
-* FvwmCpp and FvwmM4 no longer define FVWMDIR variable; instead they
-  define FVWM_MODULEDIR and FVWM_CONFIGDIR
-* FvwmAnimate added.
-* Starting with this release, fvwm is in a public CVS tree.
-
-<b>Changes in alpha release 2.1-pre-beta AKA 2.0.47</b>
-
-        1. FAQ updates
-        2. Menu code &amp; Move fixes &amp; enhancements based on patch from
-           Greg Badros [+ some bugfixes]
-        3. Added SetEnv function (also from Greg's patch)
-        4. Fixed some memory leaks
-        5. Cleaned up some ugly code pointed out by Peter Seebach
-           (like mystrcasecmp &amp; mystrncasecmp - are these even needed
-           anyways?  Is there any system that doesn't have the non-"my"
-           versions?)
-        6. Builtin WindowList no longer searches for xpm's in window
-           titles (patch from Greg Badros)
-        7. Various compiler fixes
-        8. Created textures directory, put Martin Cartwright's
-           "marbles" and textures from http://www.PLiG.org/xwinman/ in
-           there as a start
-        9. Pager balloon window patch from Ric Lister
-        10. Signal handler safety patches (based on patch from Grant
-            McDorman)
-        11. Cleaned up and consolidated allowed function checking code
-        12. Made GetTwoArguments check for 'MxN' style numbers so cmds
-            like 'DeskTopSize 2x3' will work (since the man page has
-            always said that is the proper syntax)
-        13. Fixed some minor parsing bugs
-        14. Added check to GetWindowSizeHints to compensate for bad
-            aspect ratios (fixes some windows that startup HUGE)
-        15. Patch to FvwmButtons to add animated panels to it (like CDE
-            or Wharf) from Jui-Hsuan Joshua Feng &lt;fengj@percy.engr.wisc.edu&gt;
-	16. Brady Montz &lt;bradym@cs.arizona.edu&gt; is the new maintainer.
-	17. The Imakefile for FvwmCpp sets FVWM_CPP to CppCmd. If Imake
-            is incorrectly configured, you have to override this in Fvwm.tmpl.
-	18. New version of FvwmIconMan
-	19. Changed prototype of bzero() in alpha_headers.h.
-	20. Applied Iconbox patch which added new styles IconGrid and IconFill
-            from Dan Espen.
-	21. Applied Colorlimit patch which adds ColorLimit command to set
-            maxmimum number of colors fvwm can use for pixmaps from Dan Espen.
-	22. Applied DontFocusOffscreen patch.
-	23. Added StipledTitles globalopt.
-	24. Fix to fvwmrc_convert from Pete Forman.
-	25. Added FvwmEvent module (successor to FvwmAudio). Added notice to
-	    FvwmAudio manpage to start using FvwmEvent.
-	26. Added a usleep() for machines which don't have them. Set
-	    HAVE_USLEEP accordingly in configure.h.
-	27. Changed Fvwm.tmpl to use the CCENVSETUP Imake variable when
-	    building executables to fix problem where run-time load path
-	    wouldn't be set correctly on solaris.
-	28. Added Albrecht Kadlec's SetupModule() routine to fvwmlib.
-	29. Integrated MouseFocusOnStartup patch.
-	30. Put my fvwm configuration in sample.fvwm/BradyMontz.
-	31. Added FvwmAnimate which animates window Iconification.  This is
-            a port from Afterstep with enhancements by Dan Espen.
-	32. Extracted parsing routines from FvwmEvent and put in the libs
-	    directory for general use.
-	33. Modules can now operate synchronously with fvwm thru the
-	    M_LOCKONSEND flag (from Afterstep).
-	34. Modules can now be interactively configured with the M_SENDCONFIG
-	    flag.
-	35. Dominik Vogt &lt;dominik.vogt@fvwm.org&gt; is temporarily the new
-	    maintainer.
-	36. Added menu positioning patch and lots of bugfixes in the menu code.
-	37. Improved FvwmButtons to recognize button geometries and did some
-	    bugfixes.
-	38. Enhanced FvwmPager to allow showing always the current desk.
-	39. A range of valid desk numbers can be given to any command using
-	    desks.
-	40. New module XResources in the library to help future modules
-	    parsing configuration files and XResources.
-	41. Added a bugs section to the FvwmCpp manpage.
-	42. Did some cleanup on the manpage.
-	43. Added MoveToDesk and MoveToPage builtins and improved WindowsDesk
-	    command.
-	44. New variable $d for functions to get desktop number.
-	45. The RaiseLower bug has been fixed.
-	46. Enhancements to cursor navigation in menus.
-	47. Improved warping with menus.
-	48. Fixed memory leak and possible coredumps in WindowList function.
-	49. Fixed bugs in Parse.c in the library and added some convenience
-	    function.
-	50. Improved adding titles to menus.
-	51. Changed the syntax of Prev, Next, None and Current. The old
-	    syntax is still supported (but undocumented).
-	52. Renamed 2.0.47 to 2.1-pre-beta.
-
-2.0.46
-
-Aug 20, 1997
-
-Version 2.0.46 is now available, at long last...  Doesn't have all of
-the stuff that I wanted to get in there, but it was taking WAY too
-long for me to put it together, so the rest will have to wait until
-2.0.47.  Namely, if you were looking for the animated menus patch or
-the colorlimiting patch, some variation of each of those will most
-likely appear in 2.0.47.  The march towards 2.1.0 continues...
-
-Also, PLEASE be sure to read the ChangeLog entries each time you
-upgrade to make sure you don't miss anything that might require you to
-change something in your .fvwm2rc, etc.
-
-       1. Patch to remove forgotten CLICKTORAISE #if check, from
-          Markus Gutschke
-       2. More mini xpm files
-       3. Fix to XTerm font change problem
-       4. There is no 4...
-       5. Updated extras/FvwmScript from Frederic Cordier
-       6. Changing default XORValue to 0, which now means "try and
-          guess what a good XORValue is for my display" (using recommended
-          method in the XLib Programming Manual)
-       7. Updated FvwmM4 &amp; Cpp man pages to show correct invocation...
-       8. Updated extras/fvwmperl from Dan Astoorian
-       9. FAQ updates
-       10. Imakefile fixes
-       11. Added info to FvwmIdent (transient)
-       12. Brought back 1.xx like CursorStyle command (based on old
-           patch from Kit Smithers)
-       13. Patch from Patrice Fortier to allow xpm backgrounds in
-           FvwmButtons (noticed some problems with this)
-       14. Updated FvwmCommand from Toshi Isogai
-       15. Builtin WinList fixes (geometry string makes more sense now,
-           plus alphabetic sort option from Eric Schott)
-       16. Fix from Andrew for NoButton 0 problem
-       17. GetDecor SCO CPP patch from Andrew
-       18. Patch from Andrew for MWM buttons functions problems
-       19. Fix from Dave Goldberg for NoTitle &amp; MiniIcon conflict
-       20. Move/Resize frame drawing bug patch from Makoto Matsushita
-       21. Patch to FlipFocus (under MouseFocus) from Markus Gutschke
-       22. Added patch from Rob Whapham/Thimo Jansen for FvwmPager
-           miniicons (plus small enhancements)
-       23. FvwmBacker patch from Tim Phipps to have it run fvwm
-           commands instead of unix commands, so borders &amp; the like
-           can be changed too (just use Exec to get old functionality)
-       24. Latest FvwmIconMan (v1.0) from Brady Montz
-       25. Fix for static buffer overflow in SendDataToModule in read.c
-           (when IconPath/PixmapPath greater than 255 chars)
-       26. Patch from Tim Phipps to add Current op (like Prev &amp; Next,
-           but operates only on Current window) and enhanced conditionals
-           for Prev/Next/Current/None (like the addition of !&lt;name&gt;)
-       27. Added FvwmWharf to extras dir (ported from AfterStep by Peter Gray)
-       28. Added FvwmTaskBar to extras dir (ported from fvwm95 by Don Mahurin)
-       29. Added FvwmWinList miniicons patch from Don Mahurin.  Still
-           need to update docs for it...
-       30. Patches from Randy Ray to make windowshade module packets
-           more "standard" &amp; add filename to MINI_ICON packet
-       31. Patch from Barry Warsaw to make multi head code work
-           slightly better (although it probably needs a total rewrite
-           to really work well - ctwm good model?)
-       32. Patch to echo builtin needs to remove final \n if there is
-           one (Greg Badros sees this, but I don't so it might be a system
-           dependent bug)
-       33. Patch from Dan Espen for keeping long icon names on screen
-       34. Made builtin function searching faster (hopefully) using
-           simple binary search (mostly to help speed up startup
-           time).  Please let me know how this works since my
-           relatively simple setup isn't a good test case for this...
-       35. Removed 'raise_it' entirely, since no longer used
-       36. Made window move paging match Edgescroll values instead of
-           always doing full screens (should this be an option?)
-       37. Focus command no longer raises - use an interpreted
-           focus-and-raise function if that's desired
-       38. Minor menu code bug fixed - wasn't always ungrabbing the
-           cursor before executing function (timing dependent - most
-           of the time ok)
-       39. Fixes for DEC Alpha compile warnings
-       40. Fix for IconBox -0 handling, from Ric Lister
-
-2.0.45
-
-Jan 22, 1997
-
-Version 2.0.45 is now available.  Ok, 2.0.44 had a few flaws in
-there... :)  This is essentially a quick bugfix release.
-
-       1. Patches to WindowShade stuff, from Andrew Veliath
-       2. Man page corrections &amp; updates
-       3. UseStyle fixes from Andrew
-       4. CleverPlacement and RandomPlacement fixes from Anthony Martin
-       5. Added (De)WindowShade module msgs
-       6. FvwmAudio fix (for MINI_ICON &amp; (DE)WINDOWSHADE)
-       7. FvwmAuto fixes from Albrecht
-       8. DestroyDecor window shrinkage fix, from Andrew
-       9. Fix to Wait command lockup (from Makoto Matushita)
-       10. Fix to undocumented LEFT_MENUS stuff (from Dan Espen)
-       11. Updated FvwmIconMan to Brady's latest, and made it use
-           GetFdWidth instead of sysconf for portability (patch from
-           Makoto Matushita)
-       12. Patch to make CLICKTORAISE define be GlobalOpts
-           MouseFocusClickRaises option, from Randal Winchester
-       13. Fixes for problems w/ B&amp;W visuals with new
-           EXTENED_TITLESTYLE stuff, patch from Andrew
-       14. WindowsDesk patch from Pekka Marjola to be able to move
-           relative to current desk (now matches Desk builtin, plus
-           handles old behavior)
-       15. Added decor_examples in sample.fvwmrc dir, which contains a
-           few examples of the new Decor/BorderStyle/TitleStyle stuff
-           (from lar3ry gensch, Martin Cartwright, Paul Smith)
-
-2.0.44
-
-Jan 15, 1997 (figured I should start putting dates in here...)
-
-Version   2.0.44 has finially been released,   with lots of fixes, and
-some  new stuff that I  finially gave in on.   For all you fans of the
-various  fvwm hacks that keep   showing up (fvwm95, fvwm-xpm, etc)  be
-sure      to   check   out  the    new    optional   at   compile time
-BorderStyle/TitleStyle/UseDecor stuff...    I'm     looking for   good
-examples for them to put in the sample fvwm2rc files.  If anyone comes
-up with some that  they might like to   contribute, feel free  to mail
-them to the fvwm mailing list.
-
-       1. More man page and FAQ updates
-       2. More minor Imake fixes
-       3. Patch for IconGeometry placement problems and probs running
-          on multiple displays from Graham Barr
-       4. Changed Next/Prev 'CurrentScreen' to be 'CurrentPage' and
-          added 'CurrentPageAnyDesk', based on patch by Dan Niles
-       5. Updated FvwmIconMan from Brady Montz
-       6. Fix so FvwmGoodStuff in extras would compile ok
-       7. Added Perl routines (fvwmperl in extras dir) for aid in
-          making modules written in Perl, from Dan Astoorian
-       8. Hopefully fixed long standing startup timing bug in which
-          some windows didn't get Style attributes or borders (by
-          fixing when server was grabbed and making sure it didn't get
-          ungrabbed to early accidentally)
-       9. Added FlipFocus function from Dan Niles, to toggle between
-          two windows easily
-       10. Patch for EdgeResistance timer problem from Mike Blatchley
-       11. Patch to FvwmAudio so it works again (new module message
-           type M_STRING wasn't recognized) plus other minor fixes and
-           enhancements (like being able to use the rplay 'say'
-           command and have arbitrary strings instead of sound file
-           names), from Albrecht Kadlec
-       12. Fixes to FvwmConsole from Toshi Isogai, plus added his
-           FvwmCommand to the extras directory (for sending fvwm
-           commands from a shell script).
-       13. Patch for dynamic icon title recalculation from Ric Lister.
-       14. Updates to fvwmrc_convert from Bill Oswald, with some more
-           minor mods from me to make it easier to customize for your
-           site.
-       15. Added 'Echo' function.
-       16. Patch to FvwmForm to handle TrueColor from Chris Laas
-       17. Changed fcntl in module.c to use O_NONBLOCK (POSIX) instead
-           of O_NDELAY (early SYSV) due to differences in behavior on
-           some systems (Pyramid SYSV for instance, pointed out by
-           Mark Wedel)
-       18. Added Python routines (fvwmpython in extras dir) for aid in
-           making moduules written in Python, from Barry Warsaw
-       19. FvwmBacker now sets root window when it's invoked as well
-           as on desk changes
-       20. CatchFatal no longer makes XLib calls (to prevent some
-           infinite looping under Digital Unix &amp; Solaris), patch from
-           Grant McDorman.
-       21. Added Andrew Veliath's TitleBar pixmap patch (optional at
-           compile time)
-       22. Added patch for timing bug in pager when dragging windows
-           across desktops under Solaris from Grant McDorman
-       23. Added RefreshWindow function, at the request of Mike Kazda.
-       24. Changed default XORValue to 1
-       25. Changed SmartPlacement behavior to be "stubborn" (like 1.xx
-           StubbornPlacement option) and not place over icons (if you
-           don't want this you can compile with NO_STUBBORN_PLACEMENT).
-       26. Added extras/FvwmScript (which replaces extras/FvwmForm2)
-           from Frederic Cordier (although I think it should be
-           renamed to something like FvwmFormScript).  It can now
-           swallow programs like FvwmButtons.
-       27. Sample .fvwm2rc updates, default system.fvwm2rc file now
-           minimal to encourange site customization, added more sample
-           files to go with it.
-       28. Added info to FvwmIdent
-       29. Added MiniIcon patch from Brady Montz (optional at compile
-           time)
-       30. Added BorderStyle border textures (+ TitleStyle, UseDecor,
-           etc) patch from Andrew Veliath, part of which was inspired
-           by the idea from 'The Rasterman' Carsten Haitzler (optional
-           at compile time)
-       31. Consolidated Recapture and CaptureAllWindows
-       32. Fixes for unmapping problems (patch from Grant McDorman)
-       33. Removed redundancy in module.c in Broadcast* funcs.
-       34. Multiple -f &amp; -cmd parms now allowed (10 max)
-       35. Merged fvwmlib code into some common files, and moved some
-           functions out of fvwm proper into them.
-       36. Added GlobalOpts builtin (for various options that should
-           become Style options later) - this is temporary.  I know
-           it's ugly, but I didn't feel like adding 6 (or more)
-           temporary functions (lazy, I know...)
-       37. Added (GlobalOpts) global option
-           SmartPlacementIsReallySmart (may become parm to
-           SmartPlacement, or whole new CleverPlacement style after
-           the Great Style Flag Rewrite) which uses clever placement
-           code from Anthony Martin
-       38. Started adding new parsing code based on ideas in patch
-           from Albrecht Kadlec, for more consistent parsing.  More
-           and more code in fvwm will be converted to use these...
-       39. Added WindowListFunc and made built in window list use it
-           by default (instead of RAISE_IT), to allow for various
-           actions to be controlled by the builtin window list (like
-           to warp the pointer or not warp the pointer when giving it
-           the focus, or perhaps do something like run FvwmIdent on
-           it).  It is interpreted, so you can destroy it and write
-           your own version of this default WindowList function.
-       40. WindowList now takes reasonable optional parameters instead
-           of those cryptic numbers (including an optional function to
-           use instead of the default WindowListFunc), based on patch
-           from Albrecht Kadlec.
-       41. Added WindowId function, sort of like Next &amp; Prev, to force
-           a function to happen on a specified WindowID.
-       42. Updated FvwmAuto from Albrecht Kadlec (now takes parameters
-           for functions to be run on focus in &amp; focus out).
-       41. Read funcs now output what they are going to execute if
-           -debug parameter was passed in.
-       42. Should now be sending synthetic ConfigureNotify on stacking
-           changes (for potential motif menubar problems).
-       43. Added WindowShade function from Andrew Veliath
-       44. Added (GlobalOpts) global options to modify ClickToFocus
-           selections: ClickToFocusDoesntPassClick/PassesClick,
-           ClickToFocusDoesntRaise/Raises (may become parms to
-           ClickToFocus after the Great Style Flag Rewrite)
-       45. UseStyle should now parse quoted Style refs correctly,
-           courtesy of Andrew Veliath.
-       46. Added Randall Winchester's CLICKTORAISE compile time option patch
-       47. Patch from Greg Badros for FvwmButtons font coredump
-       48. Patch from Greg Badros so FvwmM4 passes opts not recognized
-           directly to M4 (so -m4opt not needed) and -outfile option.
-           Added these to FvwmCpp as well.
-       49. Fixes for compiling under Linux for DEC Alpha from Ilkka E
-           T Tuohela
-
-2.0.43
-       1. More man page updates &amp; Imake fixes
-       2. Simple patch to help take care of some timing bugs
-       3. Patch to fix resize oddities when hitting 'hard' edge introduced
-          by EdgeScroll loop patch
-       4. Fixed startup w/ no rc bug, plus added more defaults, so if
-          started without an rc file, things should run ok.  Plus it now
-          outputs error messages if Read fails, then tries to Read
-          system.fvwm2rc (after first read fails).
-       5. Patch to fix UseStyle problem w/ BackColor
-       6. More FAQ updates
-       7. Created an 'extras' dir, and moved some of the existing modules
-          in there (the ones that aren't being built by default).
-       8. More potential speedups in event processing
-       9.  Decoupled warp from Focus, adding WarpToWindow function.
-       10. Added SendToModule builtin to send arbitrary strings to modules
-           to help implement more complex dynamic module abilities and
-           allow for module to module communication
-       11. Put old FvwmButtons back as FvwmGoodStuff, for people who
-           prefer the simpler older version (in extras dir).  Also made it
-           able to be passed in the name parameter on invocation so it
-           doesn't have to be symbolically linked to the new names any
-           more.
-       12. Adding a new module FvwmForm2 in the extras directory,
-           contributed by Frederic Cordier.  Based on FvwmForm but
-           completely rewritten apparently.  It uses scripts, has a new
-           more complex syntax (Pascal like) and adds RadioButtons.  I
-           would like to eventually combine aspects of the two versions
-           (and more) to make one killer module, perhaps.
-       13. Made fvwm_msg send errors to modules, so FvwmTalk sees them
-           like it used to (and any other module that looks for M_ERROR
-           in the future)
-       14. Added DestroyModuleConfig, based on patch from Toshi Isogai
-       15. Modules can now send module config commands to fvwm (eg FvwmTalk)
-       16. Removed implicit Exec exec stuff for the time being, until I
-           come up with a better way to do it (back to old behavior)
-       17. More mini icons added and some icons removed
-       18. Added "KillMe" command that modules can send to fvwm asking for
-           an assisted suicide (almost called this Kevorkian :)).  Mark
-           Crimmins wanted this for probs with TkGoodStuff.
-       19. Fixed RaiseWindow bug under some servers when no icon pixmap.
-       20. Fixed one prob w/ FvwmAuto and menus being hidden (under click
-           to focus - still needs work for other focus policies, but not
-           entirely sure how to approach this yet).
-       21. Added ExitFunction, to be executed on exit (before restarts too).
-           Useful for explicitly killing modules, etc.
-       22. Changed behavior of '-f' to just specify config file (now use
-           -cmd to perform an actual command, like -cmd 'FvwmM4 .fvwm2rc')
-       23. Updates to FvwmSaveDesk from Carsten Paeth so it should now
-           actually work under 2.xx, plus some other bugfixes too I
-           believe.
-       24. Added PipeRead function, which executes a program and Read's
-           it's output.  Useful for making dynamic menus and such.
-       25. Security fix for FvwmM4 &amp; FvwmCpp from Austin Donnelly
-       26. Added strerror for SunOS 4.1.x
-       27. Added ability to remove mouse and key bindings without restart
-           (do the binding but specify '-' as the function).  Probably
-           needs more checking for removing mouse bindings from title bar
-           buttons correctly, though.
-       28. Updates to FvwmIconMan from Brady Montz.
-       29. Updates to FvwmIconBox from Nobutaka Suzuki.
-       30. Patch from Austin Donnelly for multi-keypress required for
-           WindowList problem.
-       31. Patch to center text on left pixmaps in menus.
-       32. Patch to allow menus to pop up left if not enough room on right
-           (currently in ifdef -&gt; define LEFT_MENUS to enable when compiling).
-
-2.0.42
-       1. More small Imake fixes &amp; man page updates
-       2. Optional Xpm support for titlebar buttons patch from Andrew
-          Veliath
-       3. Made event handler jump table be a bigger default size, since
-          LASTEvent doesn't account for X Extension related events (eg
-          SHAPE)
-       4. FvwmPager display updates: DeskColor patch from Alan Wild,
-          line distinctions between desks and pages, reinstated message mask
-       5. Patch to make fvwm recognize some OpenLook WM hints (like MWM
-          hints) from Andrew Taylor
-       6. Added FvwmIconMan module (by Brady Montz)
-       7. Replaced FvwmButtons with New &amp; Improved version from Jarl Totland,
-          had to patch to get to work ok under AIX (char's are unsigned by
-          default under AIX)
-       8. Added DestroyFunc for removing function definitions
-       9. Made Exec use $SHELL, like mwm, if ExecUseSHELL is specified,
-          plus Exec now does an explicit "exec" as the first arg (if it's
-          not there already), to eliminate extra processes
-       10. Completely replaced fvwm_err (removed) &amp; most fprintf calls
-           (those that were appropriate) w/ fvwm_msg (which has
-           variable args, a consistent look, and will eventually
-           optionally output to a file as well as to stderr)
-       11. Fix from Nobutaka Suzuki for probs w/ Next/Prev Focus
-       12. Patch from Henrique to make EdgeScroll wrap cleaner
-       13. Patches to FvwmIconBox from Nobutaka Suzuki
-       14. Patches for caching xpm files, modules having Popups on
-           ButtonPress events, &amp; rc line continuation (from Jarl)
-       15. Make SHAPE extension runtime determinite in addition to compile
-           time so same exec can run on different machines better (John
-           Bazik, the author of XMX wanted this) - Haven't fixed up the
-           modules that use SHAPE yet though (next release)
-       16. New module FvwmConsole (a good potential replacement for
-           FvwmTalk) from Toshi Isogai.  Currently won't build as part of
-           the normal process (you'll have to do it by hand until I
-           integrate it further).
-       17. Added more mini icons from list members.
-       18. Added new-system.fvwmrc, which is the beginning of a
-           reformatted &amp; commented rc file (from Eli Burke).  Feel free to
-           provide your $0.02 on it.
-
-2.0.41
-       1. More FAQ updates &amp; man page corrections
-       2. Patch to limit GetFdWidth to FD_SETSIZE to prevent fvwm from
-          eating too much cpu under bsdi if 'unlimit descriptors' is used
-       3. Ressurrected desktop edge wrap via EdgeScroll*1000 feature
-       4. Fixed library link order (fixes the sometimes undefined
-          XLoadQueryFont problem)
-       5. Renamed fvwm_icons subdir to be just icons, documentation to be
-          just docs
-       6. Removed FvwmPrompt (use FvwmForm instead, since it's better anyways)
-       7. Todd Fries 'UseStyle' patch
-       8. XClientMessages sent to icon windows (that aren't
-          XA_WM_CHANGE_STATE ones) are now sent along to to the apps
-          window
-       9. FvwmButtons fixes from Jarl for incorrectly drawn buttons and
-          better no title handling
-       10. FvwmForm now uses GetFontOrFixed, instead of silently failing
-           if font can't be found
-       11. New Imake setup based on patch from Mark Powell (let's see if
-           people have less problems with this, since it's more 'standard'
-           now)
-       12. Changed top directory to contain version number
-       13. Modified Style parsing to (hopefully) do less string compares
-           for a potential speedup
-       14. Modified DispatchEvent to use a jump table instead of a switch
-           statement, again for a potential speedup
-       15. FvwmIconBox patches from Nobutaka Suzuki
-
-2.0.40
-       1. Removed 'basename' reference
-       2. More small Imake fixes
-       3. Renamed FvwmConfig .cc files to .C, because some C++ compilers
-          can't handle the .cc extension (AIX's, for instance)
-       4. FvwmForm now gets config info in standard way
-       5. FvwmBanner now dissappears if you click on it (like in 1.xx)
-       6. Renamed FvwmConfig's makefile to Makefile.std and cleaned it up
-       7. More small man page cleanups
-       8. Improved handling of nonexistant fonts (added GetFontOrFixed)
-       9. More debug messges, and central fvwm_msg function for printing
-          msgs (started converting fvwm_err and fprintf calls to use this
-          instead, as it has variable args and allows for a consistent
-          message feel and I'll use this to add -outfile &lt;file&gt; option
-          eventually to capture all fvwm output to a file as well as
-          stderr)
-       10. Fixed function parm $9 coredump
-       11. Added basic TitleStyle (for justfication &amp; edge appearance)
-
-2.0.39
-       1. More Imake fixes from Randall Winchester
-       2. Started adding optional debug messages, to help people help me
-          solve problems that I can't reproduce (a define in configure.h
-          to enable these, off by default)
-       3. Added -blackout option, to black out screen during init and
-          recapture (no blackout is default now)
-       4. Removed some unused variables, cleaned up some code that
-          generated compiler warnings
-       5. More small doc &amp; FAQ updates
-       6. Fix for using "None" as font in FvwmPager to not have a Label
-          (it now works)
-       7. Making Resource = "NoResource" instead of "Untitled" (if class
-          hints res_name is NULL) to differentiate between window Name &amp;
-          window Resource so Style commands for windows that have a
-          WM_NAME but no WM_CLASS don't match Untitled
-       8. Simple FvwmWinList refresh patch
-       9. Added Imakefile for FvwmConfig (only works under X11R6)
-
-2.0.38
-       1. Fixed FvwmPager to die without causing X server to eat CPU if
-          running under FvwmButtons &amp; FvwmButtons dies or is killed
-       2. Went to new M.I.P version number system in preparation for first
-          official release (which will be 2.1.0 - until then fvwm is still
-          pre-official release)
-       3. Small fix to makefile for FvwmConfig
-       4. More [icon_]name == NULL checks/fixes
-       5. Added some things left out from Imakefiles, makefile.h &amp; configure.h
-       6. FvwmButtons now handles Exec "" foobar correctly.
-       7. Added Ludvig A. Norin's wonderful mini xpm icons
-       8. Made scanForPixmap keep %name% or *name* in strings (restores
-          original string) if pixmaps can't be found (this also allows
-          window list to work for names w/ % or * in them too, or actually
-          display a pixmap if it's in the window name), and corrected 2 col
-          menu display bug that this showed (2nd col text didn't account for
-          width of left justified pixmap)
-
-pl 36 to 37
-       1. Fixed coredump due to incomplete backout of NoName/NoClass patch
-       2. Fix for multiple env var expansion core dump from Sverre H. Huseby
-       3. Small doc fixes (spelling, etc)
-       4. Imakefile/configure.h enhancements from Randall S. Winchester
-       5. Updated system.fvwmrc (FvwmIconBox changes from Nobutaka Suzuki)
-
-pl 35 to 36
-       1. Some more doc cleanups &amp; FAQ updates, plus renamed fvwm.man to
-          fvwm2.man, w/ symlink for fvwm.man (so install.man works correctly
-          with rename of exec)
-       2. Made utils subdir for scripts, added quantize_pixmap script
-       3. FvwmPagerDeskTopScale patch
-       4. Small changes to configure.h defaults, plus added XPMINCLUDE
-          and FVWM_MAN_DIR
-       5. Added 'make depend' to MakeMakefiles script
-       6. Reverting NoClass patch completely, as I think it's causing
-          other problems
-       7. Small change to make windows seem to close faster (hopefully)
-       8. Patches to FvwmButtons to make it behave better when killed
-          (kill swallowed modules, catch signals, etc)
-       9. Patch from Sverre H. Huseby for env vars in ModulePath, PixmapPath
-          and IconPath
-       10. Patch to FvwmCpp for -cppopt to work correctly
-       11. Added FvwmDebug back to distribution (still needs to be updated)
-       12. Added BUGS file for known bugs
-
-pl 34 to 35
-       0. New maintainer for fvwm now, please go easy on him :)
-       1. Fixed Title &amp; Icon name change bug introduced in pl 34
-       2. Applied another patch from Frederic Devernay
-                  a. Keeps no class windows having no class &amp; now handles
-                     correctly
-       3. Removed some extraneous files from the distribution, added
-          preliminary FAQ, INSTALL &amp; TO-DO files, added small README.
-       4. Made conversion_script runnable
-       5. Fixed FvwmPrompt
-       6. Patch to rename fvwm &amp; .fvwmrc in configure.h added (on by default)
-       7. Compile date &amp; time added to -version.
-       8. FvwmBanner Xpm &amp; timeout can now be specified in fvwmrc
-
-pl 33 to 34
-       1. Applied patches from Frederic Devernay
-	          a. Improved reading of window and icon names
-		  b. improved handling of windows with no class.
-
-pl 32 to 33
-       1. More fixes to move/resize window when using m4.
-       2. Added Sloppy Focus to FvwmConfig. Made FvwmConfig obtain initial
-	  focus mode from fvwm.
-       3. Add SCREEN macro to fvwmm4.
-       4. Applied FvwmWinList patches.
-
-pl 31 to 32
-       1. Fixed color specification problem for ForeColor and BackCOlor
-	  styles, so things like rgb:rr/gg/bb work again.
-       2. Made MWMMenus style take effect on the Size/Resize window
-	  even when using M4. Color selection of the Size/Resize window
-	  is still broken.
-
-pl 30 to 31
-       1. Added patch to make FvwmButtons and FvwmPager accept -0
-          geometries.
-       2. Added code to FvwmConfig to make it read in current values for
-	  colors and desktop sizes as it starts up. Made it handle case
-	  of no more colors in colormap.
-
-
-pl 29 to 30
-       1. Added color selection to fvwmconfig
-
-pl 28 to 29
-       1. Fixed problem of lost root window key bindings with FvwmM4
-       2. Minor adjustments to FvwmConfig. Included a makefile. Compiles
-	  with Sun's CC now, as well as with g++
-pl 27 to 28
-       1. Patch to FvwmButtons to fix the button-popping out problem.
-       1. Added FvwmConfig. Requires g++ version 2.6.3 or thereabouts.
-	  not automatically built or installed. Do it yourself.
-
-pl 26 to 27
-       1. Minor fix to FvwmScroll affecting handling of window resizes.
-       2. Fixed core-dump problem (maybe) in pl26
-pl 25 to 26
-       1. Corlormap handling bug fix.
-       2. Finally, after years and years of saying, "thats not a
-	  problem because people shouldn't have windows that small",
-	  if fixed the handling of the corner pieces for teeny-tiny
-	  windows.
-pl 24 to 25
-       1. Incorporated  colormap-focus patches
-       2. Incorporated loads of patches - I have no idea what they
-	  do, but at least the following
-	   - allow use of ESC key to abort a move/resize
-	   - Something about usign pager on B&amp;W  display.
-	   - stuff for FvwmIconBox
-	   - stuff for FvwmWinList
-
-pl 23 to 24
-       1. Man page updates for style function
-       2. Added stuff to over-ride motif modal dialogs. Makes apps
-          think that mwm is running, but fvwm doesn't handle the
-	  modality, so use with care. You have to set the
-	  compilation flag: MODALITY_IS_EVIL in configure.h to enable this
-	  feature. Netscape users may wish to try this out.
-
-pl 22 to 23
-       1. Applied patches to FvwmIconBox and FvwmWinList.
-
-pl 21 to 22
-       1. Applied patch to fix up multi-screen support a little.
-       2. Changed some strcasecmp calls to mystrcasecmp.
-       3. Other stuff, can't remember what! (bug fixes)
-
-pl 20 to 21
-       1. Little bug-fix with motif-pop-up/pull-down menus and window
-          focus
-       2. Applied FvwmIconBox patch.
-       3. Applied FvwmButtons patch to let you activate with a key press
-          (return key) instead of mouse button.
-       4. Re-worked the forking process for multi-screen displays. Can't
-          test it, maybe someone can fix it now.
-
-pl 19 to 20.
-       1. Fixed resize buglet
-       2. applied FvwmIconBox patch
-
-pl 18 to 19.
-       1. Not much
-
-pl 17 to 18
-       1. Fixed loss of key bindings on root window
-       2. Fixed compile error in Picture.c
-pl 16 to 17
-       1. Applied patch to FvwmAudio.
-       2. Allow menu-pixmaps to be above or to the left of
-          menu labels, or both.
-       3. Adjusted resize behavior for windows whose aspect
-          ratio had max == min. Behavior was a little weird before.
-       4. Added built-in KillModule
-       5. Some changes to allow evil, poorly designed override-redirect
-          windows to install their own colormaps. This abuse of override
-	  redirect windows is primarily used by WABI, but a few others
-	  too, I guess. This change is fairly fundamental, and could cause
-	  problems. Also, if WABI comes up with a private colormap, it
-	  is given control of the colormap immediately, since it thinks
-	  that it should have focus.
-
-pl 15 to 16
-       1. Applied patch to make menu short cuts work
-       2. Made this menu config work as expected:
-	  "*xcalc.xpm*"     Exec  exec xcalc &amp;
-       3. Restored ability to insert blank lines in
-          menus, not just separators.
-       4. Allow bitmaps in menus as well as xpm's
-pl 14 to 15
-       1. Added option to put pixmaps in menus.
-          Modify your menu labels like so:
-	  was:
-
-+         "Calculator"     Exec  exec xcalc &amp;
-          is
-+         "Calculator*xcalc.xpm*"     Exec  exec xcalc &amp;
-          pretty kool, man!
-
-pl 13 to pl 14
-       1. Assorted minor bug patches.
-
-pl 12 to pl 13
-       1. Applied patches
-           A. Something about XSetIOErrorHandler. Doesn`t seem to hurt,
-	   but I don't know what it does.
-       2. Patches for FvwmIconBox. Nobutaka Suzuki has been working hard
-          on this top-notch module, and seems to be working to integrate
-	  it more tightly with fvwm itself. The latest patches let the
-	  IconBox read the Icon pixmap names from fvwm. Icons are only
-	  shown in the IconBox if the NoIcon style is applied. Is this
-	  right?
-
-	  To get something in the icon-box, you can use
-	  Style "XTerm" Icon xterm.xpm, NoIcon
-
-       1. Added FvwmForm module. It looks like its for 1.24r, but seems
-          to work with Fvwm-2.
-       2. Tried to add Tom Feng's GoodStuff patches, but they are
-          incompatible with other changes.
-
-pl 11 to pl 12
-       1. Really fixed that memory problem in builtins.c this time.
-       2. Fixed the inverting shading of the maximize button
-          if MWMButtons is used.
-pl 10 to pl 11
-       1. Fixed some references to already freed memory areas,
-          specifically related to FocusOnNextTimeStamp and Scr.Ungrabbed.
-	  Only affected click-to-focus, and only soon after destroying
-	  a window.
-       2. Plugged a memory leak (?) in builtins.c. Watch out, maybe I
-          broke something instead of fixing it. Not sure.
-
-
-pl 9 to pl 10
-       1. Fixed double click on title-button 1 problem. It used to work,
-          but only if the mouse was not moved at all. Now, 3 pixels of
-	  mouse movement are allowed, and the double-click action will
-	  still be performed. After 3 pixels, the double click action is
-	  aborted.
-       2. Fixed problem with focus in focus-follows-mouse mode, when
-          changing desks. Some click-to-focus person sent in a patch which
-	  caused focus to be returned to the last window that had focus on
-	  desk N, when you switch to desk N. That was fine, but if there
-	  was no such window, focus went to a sticky window. That was bad.
-	  You see, I'm focus-follows-mouse, but I make most of my sticky
-	  windows click-to-focus (ie pager), because I really don't want
-	  it to get the focus. The above patch made the sticky window get
-	  focus when switching desks, when I really wanted the root window
-	  to get the focus (for keyboard activated menus, etc).
-       3. Added a DestroyMenu function.
-
-
-pl 8 to 9
-       1. Fixed misc bugs.
-              A. Menus popped up in wrong place when NoButton style was
-	         used.
-	      B. Title bar would look pressed in if you moved out of it
-	         by key presses.
-       2. Added #define SCREEN 0 (or whatever) for fvwmcpp.
-       3. Applied patch to FvwmIconBox.
-pl7 to 8
-       1. Fixed (probably) some unwanted free()s in the code.
-          These caused core dumps on some machines.
-
-<b>pl6 to 7</b>:
-       1. Fixed IconBox style
-       2. Fixed (?) FvwmM4 problem with not executing InitFunction &amp;
-          restartfunction, etc
-       3. Fixed FvwmIdent module (Sticky, Ontop, Iconified, etc).
-       4. Fixed StickyIcon style.
-       5. Fixed FvwmWinList
-
-pl 5 to 6
-       1. Applied patch to FvwmAudio
-       2. Applied patch to FvwmIconBox
-       3. Got patch for m4 handling, didn't do anything.
-       4. applied FvwmPager patch to eliminate flicker when
-          selecting a window on the current page.
-pl4 to 5
-       1. Fixed FvwmM4 again.
-pl3 to 4
-       1. Fixed FvwmM4.
-
-pl2 to 3
-       1. Removed an unnecessary debugging printf
-       2. Fixed FvwmBanner
-       3. switched vfork back to fork, since some people apparantly
-          don't have vfork.
-       4. Changed the name of system.fvwmrc to .fvwmrc because its easier
-          to handle within the program. Modified documentation and the
-	  install stuff in the Imakefile
-       5. Fiddled with time-stamp stuff a bit, so that maybe when people
-          change their system clocks, it won't cause everything to stop.
-       6. Fixed a cause of core-dumps in the Next, Prev, None commands.
-
-pl1 to pl2
-       1. Assorted trivial bug fixes. Maybe something important too,
-          I forgot.
-
-<b>2.0 pl 1</b>:
-       1. Switched from fork() to vfork() in two places. Its supposed to
-       be better when you're only doing an exec anyway.
-
-       2. Made fvwm parse out module arguments in a more standard way.
-       see documentation/modules.tex for more details.
-
-       3. Added FvwmM4 module. See its man page.
-       4. Added FvwmCpp module.
-
-2.0 The beginning of time.
 </pre>
     <hr>
-Last updated on 29 November 2002, 20:37 (GMT +0000)
+Last updated on 02 December 2002, 13:28 (GMT +0000)
 <!-- This file automatically generated by txt2html.sh
-     on Fri Nov 29 15:37:24 EST 2002 -->
+     on Mon Dec  2 14:28:25 CET 2002 -->
   </body>
 </html>
 
