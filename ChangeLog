@@ -1,3 +1,21 @@
+2003-05-02  Uwe Pross  <uwe.pross@mx.net>
+
+	* definitions.inc: 
+	make the old layout files not available. new class files will be
+	used only.
+
+	* web-theme/themes/default_theme.inc: 
+	try to reserve some space for the pager to avoid resizing of the
+	window.
+	
+	* web-theme/classes/default_class.inc: 
+	removed some methods which are defined in the base class.
+
+	* web-theme/classes/base_class.inc: 
+	new method init_style_array to set the default theme properties.
+	conv_link_target adds GET variables which are defined in
+	style_array to the url.
+
 2003-05-02  Mikhael Goikhman  <migo@homemail.com>
 
 	* logo-competition/logos/Phil_Harper/*:
@@ -9,6 +27,27 @@
 	* web-theme/classes/default_class.inc:
         Made the pager width still narrower.
 
+2003-05-02  Uwe Pross  <uwe.pross@gmx.net>
+
+	* web-theme/classes/base_class.inc
+	* web-theme/classes/default_class.inc
+	* web-theme/classes/plain_class.inc
+	* web-theme/helpers/members2globals.inc
+	* web-theme/themes/default_theme.inc
+	* web-theme/themes/plain_theme.inc
+	created class definitions and themes for the web pages. new
+	themes can now be derived from existing ones.
+
+	* definitions.inc
+	Added possibility to select new class themes
+
+	* class_layout_base.inc 
+	* interface_definitions.inc
+	* layout_default_class.inc
+	* layout_plain_class.inc
+	removed these files. functionality is now in the new class files
+	in web-theme/classes
+	
 2003-05-01  Bob Woodside  <dumbledore@woodsway.com>
 
 	* layout_default.inc:

@@ -15,7 +15,7 @@ if( strlen("$navigation_check") > 0 ) return;
 // check if this file has been already read 
 //--------------------------------------------------------------------
 if( strlen($definitions_has_been_read) > 0 ) return;
-$definitions_has_been_read = "x";
+$definitions_has_been_read = "t";
 
 //--------------------------------------------------------------------
 //  my_get_global --
@@ -208,40 +208,41 @@ if( strlen($rel_path) == 0 ) $rel_path=".";
 
 $user_agent = my_get_global("HTTP_USER_AGENT","SERVER");
 
-if( my_get_global("theme","GET") ) {
+// if( my_get_global("theme","GET") ) {
 
-    $theme = my_get_global("theme", "GET");
-    // we can make a decision of default theme here
-    if( strlen($theme) > 0 ) {
-        $theme_file = theme_file($theme."_theme.inc");
-    } elseif ( preg_match("/Emacs/", $user_agent) || 
-               preg_match("/Lynx/", $user_agent)  || 
-               preg_match("/w3m/", $user_agent)) {
-        $theme_file = theme_file("plain_theme.inc");
-    } else {
-        $theme_file = theme_file("default_theme.inc");
-    }
-    
-    // layout file - old version
-    $layout_file = $theme_file;
+$theme = my_get_global("theme", "GET");
+// we can make a decision of default theme here
+if( strlen($theme) > 0 ) {
+    $theme_file = theme_file($theme."_theme.inc");
+} elseif ( preg_match("/Emacs/", $user_agent) || 
+           preg_match("/Lynx/", $user_agent)  || 
+           preg_match("/w3m/", $user_agent)) {
+    $theme_file = theme_file("plain_theme.inc");
 } else {
-    //--------------------------------------------------------------------
-    // old version needs to be removed
-    //--------------------------------------------------------------------
-    $layout = my_get_global("layout", "GET");
-    if( strlen($layout) > 0 ) {
-        $layout_file = $rel_path."/layout_".$layout.".inc";
-    } elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/",
-                                                                                                     $user_agent)) {
-        $layout_file = $rel_path."/layout_plain.inc" ;
-    } else {
-        $layout_file = $rel_path."/layout_default.inc" ;
-    }
-    
-    if( ! file_exists($layout_file) ) {
-        $layout_file = $rel_path."/layout_default.inc" ;
-    }
+    $theme_file = theme_file("default_theme.inc");
 }
+
+// layout file - old version
+$layout_file = $theme_file;
+
+// } else {
+//     //--------------------------------------------------------------------
+//     // old version needs to be removed
+//     //--------------------------------------------------------------------
+//     $layout = my_get_global("layout", "GET");
+//     if( strlen($layout) > 0 ) {
+//         $layout_file = $rel_path."/layout_".$layout.".inc";
+//     } elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/",
+//                                                                                                      $user_agent)) {
+//         $layout_file = $rel_path."/layout_plain.inc" ;
+//     } else {
+//         $layout_file = $rel_path."/layout_default.inc" ;
+//     }
+//     
+//     if( ! file_exists($layout_file) ) {
+//         $layout_file = $rel_path."/layout_default.inc" ;
+//     }
+// }
 
 
 $navigation_file = $rel_path."/navgen_write/navigation.inc";

@@ -24,13 +24,24 @@ class Base_Theme {
         // set member variables from the environment
         $this->globals2internals();
 
+        // set default settings for this theme
+        $this->init_style_array();
+        
         // set navigation array and top array
         include(sec_filename($this->navigation_file));
 
-        $this->style_array = array(
-            "theme"            => "base",
-            );
+        // create an empty decoration path stack
         $this->decoration_path_stack = array();
+        
+        // store user settings in user settings array
+        $this->set_user_settings();
+    }
+
+    // default settings for this theme
+    function init_style_array() {
+        $this->style_array = array(
+            "theme"            => "default",
+            );
     }
 
     function globals2internals() {
@@ -92,8 +103,20 @@ class Base_Theme {
     // and do some conversions here. for exampe one may convert php to
     // html here to get a html tree of this web project
     function conv_link_target($target) {
-        return $target;
+
+        if( count($this->user_settings_array) > 0 ) {
+            reset($this->user_settings_array);
+            list($key, $setting) = each($this->user_settings_array);
+            $opts = "?".$key."=".$setting;
+            while( list($key, $setting) = each($this->user_settings_array) ) {
+                $opts = $opts."&".$key."=".$setting;
+            }
+        }
+        // temporarily disabled until this is the only existing web design
+        //$target = str_replace("index.php", "", $target);
+        return $target.$opts;
     }
+
 
     // pushes the actual decoration path to a stack and set the given
     // argument as decoration path. this function is used to have
