@@ -47,21 +47,21 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 when I've worked out how to draw stripes on the tale that don't look crap. :)
 
 <p class=centered>
-<img align=middle src="feeble.png">
-<img align=middle src="tiger.png">
+<img src="feeble.png" width="199" height="191" align="middle">
+<img src="tiger.png" width="249" height="231" align="middle">
 
 <p><i>[update]</i> After much GIMPing around I've got a pretty good fake fur
 look, more realistic ears and half decent tail, enjoy.
 
 <p class=centered>
-<img align=middle src="fakefur.png">
-<img align=middle src="tiger2.png">
+<img src="fakefur.png" width="175" height="175" align="middle">
+<img src="tiger2.png" width="270" height="246" align="middle">
 
 <p>Plain versions.
 
 <p class=centered>
-<img align=middle src="plain.png">
-<img align=middle src="black.png">
+<img src="plain.png" width="174" height="177" align="middle">
+<img src="black.png" width="174" height="177" align="middle">
 
 <p>This seems to lend itself to wallpaper more than a logo, hmmm, I might try
 that later...
@@ -70,7 +70,15 @@ Disclaimer: 100% Synthetic, no tigers were harmed during the production of
 this logo. ;)
 
 <p class=centered>
-<img align=middle src="tigerskin5.png">
+<img src="tigerskin5.png" width="399" height="176" align="middle">
+
+<p>hi, here's yet another logo design, it's done entirely in SVG and it's
+really the first time i've used Sodipodi for anything i've shown to
+people(that a good enough excuse?). i thought i'd better do something more
+logo'ish since the competition is getting very impressive.
+
+<p class=centered>
+<img src="fvwmpower2.png" width="485" height="304" align="middle">
 
 <p>More FVWM related art by this <a href="http://gug.sunsite.dk/gallery.php?artist=123">artist</a>:
 <ul>
