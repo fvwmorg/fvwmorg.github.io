@@ -1,3 +1,18 @@
+1999-09-08  Dan Espen  <dane@mk.telcordia.com>
+
+	* Moved fvwm-cats into fvwm-web.  Moved the cats changelog here too.
+
+1999-04-15  Bob Woodside  <proteus@pcnet.com>
+	* index.html: made the pets' names bold, minor update to my entry.
+
+1999-04-15  Dominik Vogt  <dominik_vogt@hp.com>
+
+	* fvwm-cats.html: renamed to index.html
+
+1999-04-14  Dominik Vogt  <dominik_vogt@hp.com>
+
+	* fvwm-cats.html: fixed typo
+
 1999-09-01  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* download.html: changed latest beta to 2.3.7
