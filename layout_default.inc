@@ -536,9 +536,9 @@ function insert_pager_page($site, $do_hilight=1) {
 
   echo '<td '.$td_opt.'>';
   echo '<a href="'.$target.'" class="nohilight">';
-  echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'" ';
-  echo 'width="24" height="22"';
-  echo 'title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0" style="color:#000000;"></a>';
+  echo '<img src="'.$img.'" border="0" alt="'.$nav_array["$site"]["link_name"].'"';
+  echo ' width="24" height="22"';
+  echo ' title="'.$nav_array["$site"]["link_name"].'" hspace="0" vspace="0"></a>';
   echo '</td>'."\n";
 
 }
