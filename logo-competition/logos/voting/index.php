@@ -163,7 +163,7 @@ foreach( $logo_array as $number => $logos ) {
   to take part at the logo competition.
 </p>
 <p>
-  Your mail address is only used to send you a authorization
+  Your mail address is only used to send you an authorization
   key to avoid voting multiple times.
 </p>
 
