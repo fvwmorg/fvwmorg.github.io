@@ -254,20 +254,22 @@ $theme = get_user_setting("theme", array("GET", "POST", "SESSION", "COOKIE"));
 
 // we can make a decision of default theme here
 if( strlen($theme) > 0 ) {
-    // nop
+    // set a variable that shows that the theme was set by the user
     $user_theme = 1;
 } elseif( preg_match("/Emacs/", $user_agent) ||
           preg_match("/Lynx/", $user_agent)  ||
           preg_match("/w3m/", $user_agent)) {
     $theme = "plain";
-//} elseif( preg_match("/logo-competition/", $_SERVER["SCRIPT_FILENAME"]) ) {
-//    $theme_file = theme_file("plain_theme.inc");
-//    $theme = "plain";     
 } else {
     $theme = "pager_on_top";
 }
 
-if( get_user_setting("no_software_patents") || ! get_user_setting("aswp") ) {
+//--------------------------------------------------------------------
+//- close site for protest against software patents
+//--------------------------------------------------------------------
+// if( get_user_setting("no_software_patents") || ! get_user_setting("aswp") ) {
+if( get_user_setting("no_software_patents") || 
+    preg_match('/(www.fvwm.org|tu-chemnitz.de)/', $_SERVER["HTTP_REFERER"]) ) {
     $theme_file = theme_file($theme."_theme.inc");
 } else {
     $theme_file = theme_file("against_sw_patents_statement.inc");

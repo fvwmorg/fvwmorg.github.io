@@ -97,7 +97,7 @@ class Theme_Descriptions_Helper {
     }
 
     function insert_avail_theme_list() {
-        echo '<select name="theme" size="1">'."\n";
+        echo '<select name="theme" size="1" onChange="submit();">'."\n";
         foreach( $this->theme_descriptions as $theme => $theme_name ) {
             echo '<option value="'.$theme.'"';
             if(!strcmp($theme, $this->selected_theme)) {
@@ -181,7 +181,7 @@ class Theme_Descriptions_Helper {
             echo $option_array["name"];
             echo ": </td>\n";
             echo '<td align="left" class="windowcontents">';
-            echo '<select name="'.$option.'">';
+            echo '<select name="'.$option.'" onChange="submit();">';
             foreach( $option_array["alt"] as $alt_name => $alt_value ) {
                 echo '<option value="'.$alt_value.'"';
                 if( !strcmp($alt_value, $option_array["value"]) ) echo " selected";
