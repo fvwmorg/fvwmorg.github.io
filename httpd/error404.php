@@ -9,6 +9,7 @@ if( strpos($request,"creating_rpms") )             $file = "/documentation/dev_c
 elseif( strpos($request,"cvs") )                   $file = "/documentation/dev_cvs.php";
 elseif( strpos($request,"developers") )            $file = "/documentation/developers.php";
 elseif( strpos($request,"manpages") )              $file = "/documentation/manpages/index.php";
+elseif( strpos($request,"donations") )             $file = "/donations.php";
 elseif( strpos($request,"downloadbugs") )          $file = "/documentation/dev_downloadbugs.php";
 elseif( strpos($request,"download") )              $file = "/download/index.php";
 elseif( strpos($request,"features") )              $file = "/features.php";
@@ -46,7 +47,7 @@ $url = "http://".$_SERVER['HTTP_HOST']."$file";
 //--------------------------------------------------------------------
 header("HTTP/1.0 404 Not Found");
 
-?> 
+?>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -60,7 +61,7 @@ header("HTTP/1.0 404 Not Found");
     <h1>The document you requested is not (longer) on this server - Error 404</h1>
 
     <p>
-      You request for document 
+      You request for document
       <b><?php echo "http://".$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"];?></b>
       could be not fulfilled.
     </p>
@@ -68,7 +69,7 @@ header("HTTP/1.0 404 Not Found");
     <p>
       Please update your bookmarks to <b><a href="<?php echo $url;?>"><?php echo $url;?></a></b>
     </p>
-    
+
     <p>
       You will be redirected after 5 seconds.
     </p>

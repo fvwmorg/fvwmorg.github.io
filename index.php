@@ -40,9 +40,9 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php 
-decoration_window_start("Welcome to FVWM"); 
-?> 
+<?php
+decoration_window_start("Welcome to FVWM");
+?>
 
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
@@ -69,7 +69,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-<b>News:</b> The 
+<b>News:</b> The
 <?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
 FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
 <hr>
@@ -92,8 +92,8 @@ FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
                       "windowdecors",
 
                       array("Bug Reporting",
-			                "http://www.fvwm.org/cgi-bin/fvwm-bug",
-			                "fvwm_bug_reporting"),
+			    "http://www.fvwm.org/cgi-bin/fvwm-bug",
+			    "fvwm_bug_reporting"),
                       "screenshots_desks",
 
                       "mailing_lists",
@@ -115,6 +115,7 @@ FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
                       "developers",
                       "fvwm_cats",
 
+		      "donations",
                       array("FVWM Wiki Pages",
                             "http://rvb.dyndns.org/FvwmWiki/",
                             "fvwm_wiki"),
