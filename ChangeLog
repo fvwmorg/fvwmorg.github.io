@@ -1,3 +1,9 @@
+2002-07-22  Bob Woodside  <dumbledore@woodsway.com>
+
+	* links.html:
+	Dropped link to "Bob Woodside's Miscellaneous patches page" -
+        it's dead, Jim.
+
 2002-07-22  Dan Espen  <dane@mk.telcordia.com>
 
 	* screenshots/index.html: Comments for Remko's screenshot.
