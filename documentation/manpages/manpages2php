@@ -174,7 +174,7 @@ foreach my $topic ("index", @topics) {
 	s!<FONT SIZE="-1">!<FONT>!ig;
 	s!<FONT><B>([^<]*?)</B></FONT><B>!<B>$1!ig;
 	s!(<A HREF=".*?">)Index!$1This page contents!;
-	s!<A HREF=".*?">Return to Main Contents! - <a href="./">Return to main index!;
+	s!<A HREF=".*?">Return to Main Contents! - <a href="<?php echo conv_link_target('./');?>">Return to main index!;
 	s!<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>!man2html!g;
 	s!<A HREF="mailto:StartMenu@!<a name="local-fix:!g;
 	s!<A HREF="[^<]*/1\+($topicRegExp)">[^<]*</A>!\@link($1)\@!g;

@@ -45,8 +45,8 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.7)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.7 (from cvs) (1)<BR>Updated: (not released yet)<BR><A HREF="#index">This page contents</A>
- - <a href="./">Return to main index</A><HR>
+Section: FVWM 2.5.7 (1)<BR>Updated: 30 May 2003<BR><A HREF="#index">This page contents</A>
+ - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
@@ -318,7 +318,7 @@ for the window borders and menus.
 
 can be &quot;StaticGray&quot;, &quot;GrayScale&quot;, &quot;StaticColor&quot;, &quot;PseudoColor&quot;,
 &quot;TrueColor&quot; or &quot;DirectColor&quot;.
-<DT><B>-I</B> | <B>-visualid </B>
+<DT><B>-I</B> | <B>--visualid </B>
 
 <DD>
 <I>id</I>
@@ -2040,9 +2040,10 @@ The following commands are built-in to fvwm:
 Key F1 R A Popup MenuFvwmRoot
 Key Tab A M WindowList Root c c NoDeskSort
 Key Escape A MC EscapeFunc
-Mouse 0 R N Menu MenuFvwmRoot
-Mouse 1 TS A FuncFvwmRaiseLowerX Move
-Mouse 1 F  A FuncFvwmRaiseLowerX Resize
+Mouse 1 R A Menu MenuFvwmRoot
+Mouse 1 T   A FuncFvwmRaiseLowerX Move
+Mouse 1 FS  A FuncFvwmRaiseLowerX Resize
+Mouse 2 FST A FuncFvwmRaiseLowerX Move
 AddToFunc FuncFvwmRaiseLowerX
 + I Raise
 + M $0
@@ -3322,7 +3323,7 @@ do not want this you can add
 as an option.  This might happen for example if you want the menu
 always in the top right corner of the screen.
 <P>
-Where do you want a sub-menu to appear when you click on it's menu
+Where do you want a menu to appear when you click on it's menu
 item? The default is to place the title under the cursor, but if
 you want it where the position arguments say, use the
 <I>SelectInPlace</I>
@@ -4498,7 +4499,7 @@ to the default.
 
 <DD>
 This command is obsolete. See the
-<I>-color-limit</I>
+<I>--color-limit</I>
 
 option to fvwm.
 
@@ -5351,7 +5352,7 @@ Note that the
 module has its own catalog and that the
 <B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 
-module has a set of special instructions for string translation. 
+module has a set of special instructions for string translation.
 It is out of the scoop of this documentation to explain how to
 build locale catalogs. We refer the user to the GNU gettext documentation.
 
@@ -5395,6 +5396,17 @@ used.
 
 can be 1 or 2.
 <P>
+<I>nls</I>
+
+which prints information on the locale catalogs that fvwm used
+<P>
+<I>style</I>
+
+which prints information on fvwm styles.
+<I>verbose</I>
+
+can be 1.
+<P>
 <DT><B>Schedule </B><I>delay_ms [command_id] command</I>
 
 <DD>
@@ -5434,7 +5446,7 @@ is finally executed, it is expanded again.  It may therefore be
 necessary to quote the parts of the command that must not be
 expanded twice.
 <P>
-Note:  A window's id as it is returned with $w can be used as the
+Note:  A window's id as it is returned with $[w.id] can be used as the
 <I>command_id</I>.
 
 Example:
@@ -5443,7 +5455,7 @@ Example:
 <P>
 
 
-<blockquote><PRE>Current Schedule 1000 $w WindowShade</PRE></blockquote>
+<blockquote><PRE>Current Schedule 1000 $[w.id] WindowShade</PRE></blockquote>
 <P>
 
 
@@ -11816,7 +11828,9 @@ will be set to the value of
 Set
 <I>xinerama-moving</I>
 
-to zero to ignore individual screen edges.
+to zero to ignore individual screen edges.  Note that the center of
+the window being moved determines the xinarema screen on which the
+window should be kept.
 <P>
 <DT><B>EdgeScroll </B><I>horizontal</I><B>[</B><I>p</I><B>] </B><I>vertical</I><B>[</B><I>p</I><B>]</B>
 
@@ -12768,7 +12782,7 @@ It can be overridden by exporting
 
 set to any other directory.
 <P>
-<DT><B>SetEnv </B><I>variable [value]</I>
+<DT><B>SetEnv </B><I>variable value</I>
 
 <DD>
 Set an environment variable to a new value, similar to the shell's
@@ -12805,13 +12819,7 @@ If
 includes whitespace, you should enclose it in quotes.  If no
 <I>value</I>
 
-is given, the
-<I>variable</I>
-
-is deleted from the environment as if
-<B>UnsetEnv</B>
-
-had been called.
+is given, the command is ignored.
 <P>
 <DT><B>Silent </B><I>command</I>
 
@@ -13084,6 +13092,32 @@ The
 
 are a list of keywords from the list below and are separated by
 commas or whitespace.  Conditions include
+&quot;AcceptsFocus&quot;, &quot;!AcceptsFocus&quot;,
+&quot;Focused&quot;, &quot;!Focused&quot;,
+&quot;HasPointer&quot;, &quot;!HasPointer&quot;,
+&quot;Iconic&quot;, &quot;!Iconic&quot;,
+&quot;Visible&quot;, &quot;!Visible&quot;,
+&quot;Raised&quot;, &quot;!Raised&quot;,
+&quot;Layer [n]&quot;, &quot;!Layer&quot;,
+&quot;State n&quot;, &quot;!State n&quot;,
+&quot;Sticky&quot;, &quot;!Sticky&quot;,
+&quot;FixedSize&quot;, &quot;!FixedSize&quot;,
+&quot;HasHandles&quot;, &quot;!HasHandles&quot;,
+&quot;Closable&quot;, &quot;!Closable&quot;,
+&quot;Iconifiable&quot;, &quot;!Iconifiable&quot;,
+&quot;Maximizable&quot;, &quot;!Maximizable&quot;,
+&quot;StickyAcrossPages&quot;, &quot;!StickyAcrossPages&quot;,
+&quot;StickyAcrossDesks&quot;, &quot;!StickyAcrossDesks&quot;,
+&quot;Maximized&quot;, &quot;!Maximized&quot;,
+&quot;Shaded&quot;, &quot;!Shaded&quot;,
+&quot;Transient&quot;, &quot;!Transient&quot;,
+&quot;PlacedByButton3&quot;, &quot;!PlacedByButton3&quot;,
+&quot;PlacedByFvwm&quot;, &quot;!PlacedByFvwm&quot;,
+&quot;CurrentDesk&quot;, &quot;!CurrentDesk&quot;,
+&quot;CurrentPage&quot;, &quot;!CurrentPage&quot;,
+&quot;CurrentScreen&quot;,&quot;!CurrentScreen&quot;,
+&quot;CurrentGlobalPage&quot;, &quot;!CurrentGlobalPage&quot;,
+&quot;CurrentPageAnyDesk&quot;, &quot;!CurrentPageAnyDesk&quot;,
 and &quot;CurrentGlobalPageAnyDesk&quot;, &quot;!CurrentGlobalPageAnyDesk&quot;.
 In addition, the
 <I>condition</I>
@@ -14418,9 +14452,9 @@ The official fvwm homepage is
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 01:39:53 GMT, April 19, 2003
+Time: 23:02:32 GMT, May 30, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 19-Apr-2003 -->
+<!-- Automatically generated by manpages2php on 31-May-2003 -->

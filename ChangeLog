@@ -1,3 +1,13 @@
+2003-05-31  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/manpages/manpages2php:
+	fixed one link to be GET ready
+
+	* documentation/manpages/stable/*.php:
+	* documentation/manpages/unstable/*.php:
+	* documentation/perllib/*.php:
+	regenerated manpages from 2.4.16 and 2.5.7
+
 2003-05-30  Uwe Pross  <uwe.pross@gmx.net>
 
 	* birthday/index.php: 

@@ -49,7 +49,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <?php decoration_window_start("Manual page for FVWM::Module in unstable branch (2.5.7)"); ?>
 
 <H1>FVWM::Module</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2003-04-15<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module.pm">FVWM/Module.pm</a><br>
+Section: FVWM Perl library (3)<BR>Updated: 2003-05-31<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module.pm">FVWM/Module.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
@@ -107,10 +107,12 @@ The following methods are available:
 <B>versionInfo</B>,
 <B>argv</B>,
 <B>send</B>,
+<B>track</B>,
+<B>eventLoop</B>,
 <B>sendReady</B>,
 <B>sendUnlock</B>,
+<B>postponeSend</B>,
 <B>terminate</B>,
-<B>eventLoop</B>,
 <B>resetHandlers</B>,
 <B>addHandler</B>,
 <B>deleteHandler</B>,
@@ -118,6 +120,7 @@ The following methods are available:
 <B>debug</B>
 <B>showError</B>
 <B>showMessage</B>
+<B>showDebug</B>
 <B>isDummy</B>
 <P>
 
@@ -179,7 +182,7 @@ The following parameters may be given in the constractor:
     SyncXMask     - the same for extended events
     EnableAlias   - a module accepts an alias in command line
     EnableOptions - a module accepts options in command line
-    Debug         - 0 is disable debug, 1 - user, 2+ - perllib</pre></blockquote>
+    Debug         - 0 is disable debug, 1 - user, 2,3,4 - perllib</pre></blockquote>
 
 
 <P>
@@ -223,12 +226,39 @@ Returns remaining module arguments (array ref) passed in the command line.
 Arguments that are used for <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I>-to-module communication are not included.
 Arguments that are automatically parsed using <I>EnableAlias</I> and/or
 <I>EnableOptions</I> specified in the constructor are not included.
-<DT><B>send</B> <I>command</I> [<I>window-id</I>]<DD>
+<DT><B>send</B> <I>command</I> [<I>window-id</I>] [<I>continue-flag</I>]<DD>
 <A NAME="ixAAJ"></A>
 Sends <I>command</I> back for execution. If the <I>window-id</I> is specified this
-command will be executed in this window context.
-<DT><B>eventLoop</B><DD>
+command will be executed in this window context. <I>continue-flag</I> of 0
+signals that this is the last sent command from the module, the default
+for this flag is 1.
+<DT><B>track</B> [<I>mode-hash</I>] [<I>name</I>] [<I>param-hash</I>]<DD>
 <A NAME="ixAAK"></A>
+Creates a module tracker object (see FVWM::Tracker) specified
+by a <I>name</I>.
+
+
+<P>
+
+
+<I>mode-hash</I> may include parameters:
+
+
+<P>
+
+
+<blockquote><pre>    NoStart - value of 1 means the created tracker is not auto-started
+    NoReuse - value of 1 means not to reuse any existing named tracker</pre></blockquote>
+
+
+<P>
+
+
+<I>param-hash</I> is specific to the tracker named <I>name</I>. Every tracker class
+(a subclass of <B><a href="<?php echo conv_link_target('./FVWM::Tracker.php');?>">FVWM::Tracker</a></B>) has its own manual page, contact it for
+the tracker details and usage.
+<DT><B>eventLoop</B><DD>
+<A NAME="ixAAL"></A>
 The main event loop. A module should define some event handlers using
 <B>addHandler</B> before entering the event loop. When the event happens all
 event handlers registered on this event are called, then a module returns
@@ -255,28 +285,32 @@ called if defined and then <B>disconnect</B> is called. So no communication is
 available after this method is finished. If you need a communication before
 the module exits, define an <I></I><FONT><I>ON_EXIT</I></FONT><I></I> event handler.
 <DT><B>sendReady</B><DD>
-<A NAME="ixAAL"></A>
+<A NAME="ixAAM"></A>
 This is automatically called (if needed) when a module enters <B>eventLoop</B>,
 but sometimes you may want to tell <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> that the module is fully ready
 earlier. This only makes sence if the module was run using
 <B>ModuleSynchronous</B> command, in this case <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> gets locked until the module
 sends the ``ready'' notification.
 <DT><B>sendUnlock</B><DD>
-<A NAME="ixAAM"></A>
+<A NAME="ixAAN"></A>
 When an event was configured to be sent to a module synchronously using
 <I>SyncMask</I> and <I>SyncXMask</I>, <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> gets locked until the module sends
 the ``unlock'' notification. This is automatically sent (if needed) when a
 handler is finished, but sometimes a handler should release <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> earlier.
+<DT><B>postponeSend</B> <I>command</I> [<I>window-id</I>] [<I>continue-flag</I>]<DD>
+<A NAME="ixAAO"></A>
+The same like <B>send</B>, but the actual command sending is postponed
+until before the module enters the reading-from-fvwm phase in <B>eventLoop</B>.
 <DT><B>terminate</B> [<I>continue</I>]<DD>
-<A NAME="ixAAN"></A>
+<A NAME="ixAAP"></A>
 This method is used for 2 purposed, usually in event handlers. To terminate
 the entire event loop and to terminate only an execution of the current
 handler if <I>continue</I> is set.
 <DT><B>resetHandlers</B><DD>
-<A NAME="ixAAO"></A>
+<A NAME="ixAAQ"></A>
 This deletes all event handlers without exception.
 <DT><B>addHandler</B> <I>mask code</I><DD>
-<A NAME="ixAAP"></A>
+<A NAME="ixAAR"></A>
 Defines a handler (that is a <I>code</I> subroutine) for the given <I>mask</I> event
 (or several events). Usually the event type is one of the <FONT>FVWM</FONT> <I>M_*</I> or
 <I>MX_*</I> constants (see <B><a href="<?php echo conv_link_target('./FVWM::Constants.php');?>">FVWM::Constants</a></B>), but it may also be <I></I><FONT><I>ON_EXIT</I></FONT><I></I>,
@@ -342,16 +376,16 @@ The return value from <B>addHandler</B> is an identifier the only purpose of
 which is to be passed to <B>deleteHandler</B> in case the newly defined handler
 should be deleted at some point.
 <DT><B>deleteHandler</B> <I>id</I><DD>
-<A NAME="ixAAQ"></A>
+<A NAME="ixAAS"></A>
 Removes the handler specified by <I>id</I>. The return value is 1 if the handler
 is found and deleted, 0 otherwise.
 <DT><B>addDefaultErrorHandler</B><DD>
-<A NAME="ixAAR"></A>
+<A NAME="ixAAT"></A>
 This adds the default handler for <I>M_ERROR</I> event. This class simply prints
 an error message to the standard error stream, but subclasses may define
 another default handler by overwriting this method.
 <DT><B>debug</B> <I>msg</I> [<I>level</I>]<DD>
-<A NAME="ixAAS"></A>
+<A NAME="ixAAU"></A>
 Prints <I>msg</I> to the standard error stream if <I>level</I> is greater or equal to
 the module debug level defined using <I>Debug</I> in the constructor. The default
 <I>level</I> for this method is 1 that makes it possible to add user debugging
@@ -366,7 +400,7 @@ This module uses <B>debug</B> internally (with <I>level</I> 2) to dump all
 incoming and outgoing communication data in <B>send</B> and <B>processPacket</B>.
 Apparently this output is only seen if <I>Debug</I> is set to 2 or greater.
 <DT><B>showError</B> <I>msg</I><DD>
-<A NAME="ixAAT"></A>
+<A NAME="ixAAV"></A>
 Writes <I>msg</I> to the error stream (stderr). It is supposed that the argument
 has no traling end of line. May be used to signal non fatal error.
 
@@ -377,7 +411,18 @@ has no traling end of line. May be used to signal non fatal error.
 Subclasses may overwrite this method and, for example, show all error
 messages in separate windows or in the common error window.
 <DT><B>showMessage</B> <I>msg</I><DD>
-<A NAME="ixAAU"></A>
+<A NAME="ixAAW"></A>
+Writes <I>msg</I> to the message stream (stderr). It is supposed that the argument
+has no traling end of line. May be used to show a named output.
+
+
+<P>
+
+
+Subclasses may overwrite this method and, for example, show all
+messages in separate windows or in the common message window.
+<DT><B>showDebug</B> <I>msg</I><DD>
+<A NAME="ixAAX"></A>
 Unconditionally writes <I>msg</I> to the debug stream (stderr). It is supposed
 that the argument has no traling end of line. Used in <B>debug</B> to actually
 show the message when the level is matched.
@@ -387,9 +432,9 @@ show the message when the level is matched.
 
 
 Subclasses may overwrite this method and, for example, show all debugging
-messages in separate windows or in the common message window.
+messages in separate windows or in the common debug window.
 <DT><B>isDummy</B><DD>
-<A NAME="ixAAV"></A>
+<A NAME="ixAAY"></A>
 Usually a module should be executed by <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> only. But to help creating
 <FONT>GUI</FONT> applications, the dummy mode is supported when the module is started
 from the command line. No events are received in this case, but with some
@@ -402,14 +447,14 @@ effort they may be emulated:
 <blockquote><pre>    my $event = new FVWM::Event(M_NEW_DESK, [ 2 ]);
     $module-&gt;invokeHandler($event) if $module-&gt;isDummy;</pre></blockquote>
 <DT><B>internalDie</B> <I>msg</I><DD>
-<A NAME="ixAAW"></A>
+<A NAME="ixAAZ"></A>
 This may be used to end the module with the corresponding <I>msg</I>.
 For a clean module exit use <B>showError</B> and <B>terminate</B> instead.
 <DT><B>name</B> [<I>name</I>]<DD>
-<A NAME="ixAAX"></A>
+<A NAME="ixABA"></A>
 Sets or returns the module name. Called automatically from the constructor.
 <DT><B>mask</B> [<I>mask</I>] =item <B>xmask</B> [<I>mask</I>]<DD>
-<A NAME="ixAAY"></A>
+<A NAME="ixABB"></A>
 Sets or returns the module mask. Called automatically from the constructor.
 
 
@@ -428,12 +473,12 @@ the integer parameter indicates a mask to set and the old mask is returned.
 The module only receives the packets matching these 2 module masks (regular
 and extended).
 <DT><B>isInMask</B> <I>type</I><DD>
-<A NAME="ixAAZ"></A>
+<A NAME="ixABC"></A>
 Returns true if the module mask matches the given <I>type</I>.
 Good for both regular and extended event types as long as they are queried
 separately.
 <DT><B>syncMask</B> [<I>mask</I>] =item <B>syncXMask</B> [<I>mask</I>]<DD>
-<A NAME="ixABA"></A>
+<A NAME="ixABD"></A>
 The same as <B>mask</B> and <B>xmask</B>, but sets/returns the synchronization
 mask of the module.
 
@@ -444,12 +489,12 @@ mask of the module.
 The module is synchronized with <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I> on all packets matching these 2
 module synchronization masks (regular and extended).
 <DT><B>isInSyncMask</B> <I>type</I><DD>
-<A NAME="ixABB"></A>
+<A NAME="ixABE"></A>
 Returns true if the module synchronization mask matches the given <I>type</I>.
 Good for both regular and extended event types as long as they are queried
 separately.
 <DT><B>disconnect</B><DD>
-<A NAME="ixABC"></A>
+<A NAME="ixABF"></A>
 This method invokes <I></I><FONT><I>ON_EXIT</I></FONT><I></I> handlers if any and closes communication.
 It is called automatically from <B>eventLoop</B> before finishing.
 It is safe to call this method more than once.
@@ -461,21 +506,21 @@ It is safe to call this method more than once.
 This method may be called from signal handlers before <I>exit</I>ing for the
 proper shutdown.
 <DT><B>getHandlerCategory</B> <I>type</I><DD>
-<A NAME="ixABD"></A>
+<A NAME="ixABG"></A>
 Returns one of 3 string ids depending on the event handler <I>type</I> that has
 the same meaning as the corresponding packet type (``regular'' or ``extended'')
 with an addition of ``special'' category for <I></I><FONT><I>ON_EXIT</I></FONT><I></I> handlers.
 <DT><B>readPacket</B><DD>
-<A NAME="ixABE"></A>
+<A NAME="ixABH"></A>
 This is a blocking method that waits until there is a packet on the
 communication end from <I><a href="<?php echo conv_link_target('./../manpages/unstable/fvwm.php');?>">fvwm</a></I>. Then it returns a list of 2 values,
 packet type and packet data (packed).
 <DT><B>invokeHandler</B> <I>event</I><DD>
-<A NAME="ixABF"></A>
+<A NAME="ixABI"></A>
 Dispatches the apropos event handlers with the event data.
 This method is called automatically, so you usually should not worry about it.
 <DT><B>processPacket</B> [<I>data type</I>]<DD>
-<A NAME="ixABG"></A>
+<A NAME="ixABJ"></A>
 This method constructs the event object from the packet data and calls
 <B>invokeHandler</B> with it. Prints debug info if requested. Finally calls
 <B>sendUnlock</B> if needed.
@@ -487,10 +532,10 @@ This method constructs the event object from the packet data and calls
 You should not really worry about this method, it is called automatically
 from the event loop.
 <DT><B>readConfigInfo</B><DD>
-<A NAME="ixABH"></A>
+<A NAME="ixABK"></A>
 Not implemented yet.
 <DT><B>isEventExtended</B> <I>type</I><DD>
-<A NAME="ixABI"></A>
+<A NAME="ixABL"></A>
 For technical reasons there are 2 categories of <FONT>FVWM</FONT> events, regular and
 extended. This is done to enable more events. With introdution of the
 extended event types (with the highest bit set) it is now possible to have
@@ -499,14 +544,14 @@ point is that only event types of the same category may be masked (or-ed)
 together. This method returns 1 or 0 depending on whether the event <I>type</I>
 is extended or not.
 <DT><B>userDataDir</B><DD>
-<A NAME="ixABJ"></A>
+<A NAME="ixABM"></A>
 Returns the user data directory, usually ~/.fvwm or set by <TT>$FVWM_USERDIR</TT>.
 <DT><B>siteDataDir</B><DD>
-<A NAME="ixABK"></A>
+<A NAME="ixABN"></A>
 Returns the system-wide data directory, the one configured when <FONT>FVWM</FONT> is
 installed. It is also returned by `fvwm-config --fvwm-datadir`.
 <DT><B>searchDirs</B><DD>
-<A NAME="ixABL"></A>
+<A NAME="ixABO"></A>
 It is a good practice for a module to search for the given configuration
 in one of 2 data directories, the user one and the system-wide. This method
 returns a list of both directories in that order.
@@ -514,12 +559,12 @@ returns a list of both directories in that order.
 <A NAME="lbAF">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixABM"></A>
+<A NAME="ixABP"></A>
 Awaiting for your reporting.
 <A NAME="lbAG">&nbsp;</A>
 <H2>CAVEATS</H2>
 
-<A NAME="ixABN"></A>
+<A NAME="ixABQ"></A>
 In keeping with the <FONT>UNIX</FONT> philosophy, <B><u>FVWM::Module</u></B> does not keep you from
 doing stupid things, as that would also keep you from doing clever things.
 What this means is that there are several areas with which you can hang your
@@ -528,17 +573,17 @@ flexibility, not bugs.
 <A NAME="lbAH">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-<A NAME="ixABO"></A>
+<A NAME="ixABR"></A>
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <A NAME="lbAI">&nbsp;</A>
 <H2>THANKS TO</H2>
 
-<A NAME="ixABP"></A>
+<A NAME="ixABS"></A>
 Randy J. Ray &lt;<A HREF="mailto:randy@byz.org">randy@byz.org</A>&gt;.
 <A NAME="lbAJ">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixABQ"></A>
+<A NAME="ixABT"></A>
 For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Module::Gtk.php');?>">FVWM::Module::Gtk</a> and <a href="<?php echo conv_link_target('./FVWM::Module::Tk.php');?>">FVWM::Module::Tk</a>.
 <P>
 
@@ -559,9 +604,9 @@ For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Mo
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:51:50 GMT, April 19, 2003
+Time: 23:11:02 GMT, May 30, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by perllib2php on 19-Apr-2003 03:51:35 -->
+<!-- Automatically generated by perllib2php on 31-May-2003 -->
