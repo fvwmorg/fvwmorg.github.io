@@ -124,6 +124,12 @@ if (strlen($site_has_been_loaded) == 0) {
   <strong>If you use anything else but the latest stable release we will make
     no promises that anything works.</strong>
 
+  <h4>Unstable release:</h4>
+  <p>
+    Use them if you can tolerate some bugs and really need one of the new
+    features.
+  </p>
+
   <h4>Older 2.x.x and 1.x versions:</h4>
   <p>
     Don't use them. If you encounter a problem we will most likely ask you
@@ -133,12 +139,6 @@ if (strlen($site_has_been_loaded) == 0) {
 
   <strong>Problems in one of the below packages should be discussed on the
 fvwm-workers <a href="<?php echo conv_link_target('../contact/index.php');?>">Mailing List</a>.</strong>
-
-  <h4>Latest Alpha and Beta versions:</h4>
-  <p>
-    Use them if you can tolerate some bugs and really need one of the new
-    features.
-  </p>
 
   <h4>Daily snapshots:</h4>
   <p>
