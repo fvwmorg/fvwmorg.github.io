@@ -64,12 +64,13 @@ if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
   </p>
 
   <p class="centered">
-    <img src="tangram_FVWM_logo_menu.png" width="24" height="110" border="0">
-    <img src="tangram_FVWM_logo_banner.png" width="651" height="161" border="0"><br>
-    <img src="tangram_FVWM_logo_menu_rev.png" width="24" height="110" border="0">
-    <img src="tangram_FVWM_logo_banner_rev.png" width="651" height="161" border="0"><br>
-    <img src="tangram_FVWM_logo_website.png" width="485" height="120" border="0"><br>
-    <img src="../../logos_new_overview.png" border="0"><img src="tangram_FVWM_logo_website_rev.png" width="485" height="120" border="0">
+    <img src="tangram_FVWM_logo_menu.png" width="24" height="110" border="0" hspace="2" vspace="2" alt="logo"> 
+    <img src="tangram_FVWM_logo_banner.png" width="651" height="161" border="0" hspace="2" vspace="2" alt="logo"><br>
+    <img src="tangram_FVWM_logo_menu_rev.png" width="24" height="110" border="0" hspace="2" vspace="2" alt="logo">
+    <img src="tangram_FVWM_logo_banner_rev.png" width="651" height="161" border="0" hspace="2" vspace="2" alt="logo"><br>
+    <img src="tangram_FVWM_logo_website.png" width="485" height="120" border="0" hspace="2" vspace="2" alt="logo"><br>
+    <img src="tangram_FVWM_logo_website_rev.png" width="485" height="120" border="0" hspace="2" vspace="2" alt="logo"><br>
+    <img src="tangram_FVWM_logo_banner_white.png" width="651" height="161" border="0" hspace="2" vspace="2" alt="logo">
   </p>
 
 <?php decoration_window_end(); ?>
