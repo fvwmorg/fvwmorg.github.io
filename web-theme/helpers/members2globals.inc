@@ -23,9 +23,9 @@ function conv_link_target($target) {
     return $theme_object->conv_link_target("$target");
 }
 
-function mylink($target, $text, $opt="") {
+function mylink($target, $text, $opt="", $adds=array() ) {
     global $theme_object;
-    echo '<a href="'.$theme_object->conv_link_target("$target").'" '.$opt.'>'.$text.'</a>';
+    echo '<a href="'.$theme_object->conv_link_target("$target", $adds).'" '.$opt.'>'.$text.'</a>';
 }
 
 function insert_quick_jump_list($jump_array, $col_num=2) {

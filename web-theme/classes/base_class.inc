@@ -126,12 +126,13 @@ class Base_Theme {
     // this function is used to have all link targets in the same format
     // and do some conversions here. for exampe one may convert php to
     // html here to get a html tree of this web project
-    function conv_link_target($target) {
-        if( count($this->user_settings_array) > 0 ) {
-            reset($this->user_settings_array);
-            list($key, $setting) = each($this->user_settings_array);
+    function conv_link_target($target, $adds=array() ) {
+        $get_array = array_merge($this->user_settings_array, $adds);
+        if( count($get_array) > 0 ) {
+            reset($get_array);
+            list($key, $setting) = each($get_array);
             $opts = "?".$key."=".$setting;
-            while( list($key, $setting) = each($this->user_settings_array) ) {
+            while( list($key, $setting) = each($get_array) ) {
                 $opts = $opts."&".$key."=".$setting;
             }
         }
