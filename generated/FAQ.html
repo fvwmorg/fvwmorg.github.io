@@ -121,6 +121,8 @@ Contents
           all other windows and cannot be lowered by any means. One
           example are the shortcuts of KFM (the KDE file manager).
           What can I do about that?
+    5.12  The StartsOnPage style does not work for me.  Why?
+    5.13  Some modules can not be started when I restart fvwm.
 
 6. Miscellaneous
 
@@ -402,7 +404,7 @@ A: Sure - here's one from Graeme McCaffery:
      add multiple window managers to the CDE login menu:
 
        <A HREF="http://twirl.mcc.ac.uk/~zzassgl/wm.html">CDE login Link</A>
-     
+
 ----------------------------------------------------------------------
 
 2.3  I'm trying to compile FVWM under SunOS using cc, but the compiler
@@ -510,11 +512,9 @@ A: RedHat Linux installs the X server accompanied (by default) by a
      itself, not just the border?
 
 A: Any version later than 2.0.46 (i.e. 2.1.0 or later) has this
-   feature.  Currently it is provided through the GlobalOpts command.
-   This will possibly change in the future and be made an option to
-   the Style command:
+   feature:
 
-     GlobalOpts MouseFocusClickRaises
+     Style * MouseFocusClickRaises
 
 ----------------------------------------------------------------------
 
@@ -629,7 +629,7 @@ A: Although fvwm has commands for binding movements to keystrokes,
 
       First, set up the Num Lock key so that Shift+Num_Lock toggles mouse keys:
 
-       xmodmap -e "keysym Num_lock = Num_Lock Pointer_EnableKeys"
+       xmodmap -e "keysym Num_Lock = Num_Lock Pointer_EnableKeys"
 
       (XFree86 3.1.2E is based on R6.1 and has the X Keyboard Extension;
       it also has a binding to Pointer_EnableKeys in its default keymap.
@@ -700,10 +700,7 @@ A: Doubtful, although I'd like to see it too.  I believe that it'd be
 3.8  I really like the horizontal bars that appear on the title bars of
      sticky windows.  Can I get those on other windows as well?
 
-A: Yes.  Put the line "GlobalOpts StipledTitles" in your .fvwm2rc.
-   Note that this is a purposely undocumented feature since it
-   will eventually be made a Style option.  If you use this,
-   it is guaranteed to stop working some day.
+A: Yes.  Put the line "Style * StippledTitle" in your .fvwm2rc.
 
 ----------------------------------------------------------------------
 
@@ -779,11 +776,11 @@ A: Start with a new one or convert your old one.  This can be done by
    EdgeScroll horizontal vertical             &lt;-
    Font fontname                              MenuStyle (arg4)
    Function FunctionName                      AddToFunc (not compatible)
-   HiBackColor colorname                      HilightColor (arg1)
-   HiForeColor colorname                      HilightColor (arg2)
+   HiBackColor colorname                      Style (HilightFore color)
+   HiForeColor colorname                      Style (HilightFore color)
    Icon windowname bitmap-file                Style (Icon iconname-file)
    IconBox left top right bottom              Style (IconBox l t r b)
-   IconFont fontname                          &lt;-
+   IconFont fontname                          Style (IconFont fontname)
    IconPath path                              ImagePath path
    Key keyname Context Modifiers Function     &lt;-
    Lenience                                   Style (Lenience)
@@ -829,7 +826,7 @@ A: Start with a new one or convert your old one.  This can be done by
    StubbornPlacement                          (obsoleted)
    Style windowname options                   &lt;-
    SuppressIcons                              Style (NoIcon)
-   WindowFont fontname                        &lt;-
+   WindowFont fontname                        Style (Font fontname)
    WindowListSkip windowname                  Style (WindowListSkip)
    XORvalue number                            &lt;-
 
@@ -871,24 +868,46 @@ A: Start with a new one or convert your old one.  This can be done by
 
    *** New in fvwm-2 **
 
+   All
    AnimatedMove
+   BugOpts
+   BusyCursor
+   DefaultColors
+   DefaultColorset
+   DefaultFont
+   DefaultIcon
+   DefaultLayers
    Destroy
    DestroyMenu
+   EdgeThickness
+   Emulate
+   EscapeFunc
    ExecUseShell
+   HideGeometryWindow
    KillModule
+   Layer
    Menu menu-name double-click-action
    MoveToDesk
    MoveToPage
    Next (conditions) command
    None (arguments) command
+   Pick
+   PointerKey
    Prev (conditions) command
+   QuitSession
    Read filename
    Recapture
+   RecaptureWindow
+   SaveQuitSession
+   SaveSession
+   Silent
    SnapAttraction
    SnapGrid
+   StrokeFunc
+   XORPixmap
    +
    (more functions are being added from time to time, so please check
-    the man page too).
+    the man page and the NEWS file too).
 
 ----------------------------------------------------------------------
 
@@ -1112,9 +1131,18 @@ A: Yes, but not with the current implementation of the panels.  Please
 ======================================================================
 
 5.1  I'd really like to see neat feature XYZ in FVWM.  Wouldn't
-     that be cool? I even have a patch.  When can it be added?
+     that be cool?  I even have a patch.  When can it be added?
 
-A: People are always requesting or suggesting new features (many of
+A: If you plan to write a patch, *please*, first of all fetch the
+   latest development release from our web site.  It is also a good
+   idea to contact the fvwm-workers list.  At times, patches for
+   older releases may prove completely worthless, e.g. because the
+   fix has already been integrated, a feature already added or
+   removed or simply because the code is very different to the code
+   you patches.  You will do yourself and us a great favour.
+   Otherwise all your hard work may be wasted.
+
+   People are always requesting or suggesting new features (many of
    which are great ideas and where a lot of the current features came
    from).  One of the more common ones for example is Windows 95 look
    and feel (although since this was first written, that particular
@@ -1154,7 +1182,9 @@ A: People are always requesting or suggesting new features (many of
 
 5.2  How do I create/submit/apply patches?
 
-A: Creating a patch -
+A: First of all, please read the first section of the answer to Q5.1!
+
+   Creating a patch -
 
         1) Copy the original file(s) to the same name with the
            additional extension of .orig (or something like that).
@@ -1398,6 +1428,40 @@ A: Some applications use so called 'override redirect' windows that
 
      BugOpts RaiseOverUnmanaged on
 
+----------------------------------------------------------------------
+
+5.12  The StartsOnPage style does not work for me.  Why?
+
+A: Many applications request a specific position where they want to
+   appear (the so called 'program specified position').  Unless fvwm
+   is told explicitly to ignore this, the program specified position
+   overrides the StartsOnPage style.  Use this line in your
+   configuration file:
+
+     Style * NoPPosition
+
+----------------------------------------------------------------------
+
+5.13  Some modules can not be started when I restart fvwm.
+
+A: You may see the following error message on the console:
+
+     [FVWM][PositiveWrite]: &lt;&lt;ERROR&gt;&gt; Failed to read descriptor:
+     - data available=N
+     - terminate signal=N
+
+   It means that fvwm has given up waiting for one of its modules to
+   reply, and so has killed it.  The length of the timeout is a
+   configuration parameter - try adding
+
+     ModuleTimeout 10
+
+   to your .fvwm2rc file.  The units are in seconds and the default
+   value is 5.
+
+   This problem will only occur on slow machines or high system load
+   (many open windows).
+
 
 ======================================================================
                           6 - Miscellaneous
@@ -1604,10 +1668,7 @@ A: The official home for rxvt is:
    on page 0 1 (desk 1).  You will probably want to use these options
    too:
 
-     GlobalOpts RecaptureHonorsStartsOnPage, CaptureHonorsStartsOnPage
-
-   Note that the GlobalOpts command will be removed some day in the
-   future and this options will become style flags.
+     Style * RecaptureHonorsStartsOnPage, CaptureHonorsStartsOnPage
 
    If you want to start applications on a different page in the
    background without switching to this page, use the 'SkipMapping'
@@ -1833,7 +1894,7 @@ A: The official home for rxvt is:
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Sat Dec  4 19:50:27 EST 1999 -->
+     on Wed Mar 29 22:09:28 EST 2000 -->
   </body>
 </html>
 

@@ -1,0 +1,21 @@
+/* XPM */
+static char * mini_delete_xpm[] = {
+"14 14 4 1 0 0",
+" 	c None",
+".	c black",
+"X	c red",
+"o	c yellow",
+"   .......    ",
+"  .XXXXXXX.   ",
+" .oXXXXXXXo.  ",
+".XXoXXXXXoXX. ",
+".XXXoXXXoXXX. ",
+".XXXXoooXXXX. ",
+".XXXXoooXXXX. ",
+".XXXoXXXoXXX. ",
+".XXoXXXXXoXX. ",
+" .oXXXXXXXo.  ",
+"  .XXXXXXX.   ",
+"   .......    ",
+"              ",
+"              "};

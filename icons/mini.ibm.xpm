@@ -1,0 +1,20 @@
+/* XPM */
+static char * mini_ibm_xpm[] = {
+"14 14 3 1 0 0",
+" 	c blue",
+".	c white",
+"X	c black",
+"              ",
+"              ",
+"..............",
+".X.XXX..XX.XX.",
+".X.X..X.XXXXX.",
+".X.X..X.X.X.X.",
+".X.XXX..X.X.X.",
+".X.X..X.X.X.X.",
+".X.X..X.X.X.X.",
+".X.XXX..X.X.X.",
+"..............",
+"              ",
+"              ",
+"              "};
