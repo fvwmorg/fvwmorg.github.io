@@ -115,9 +115,9 @@ and support is excellent.  Check it out!
                       "fvwm_cats",
 
                       "donations",
-                      // array("FVWM Wiki Pages",
-                            // "http://www.fvwmwiki.org",
-                            // "fvwm_wiki"),
+                      array("FVWM Wiki Pages",
+                            "http://www.fvwmwiki.org",
+                            "fvwm_wiki"),
                       array("FVWM Forum",
                             "http://fvwm.lair.be",
                             "fvwm_forum"),
