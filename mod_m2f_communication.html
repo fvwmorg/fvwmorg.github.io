@@ -104,8 +104,9 @@ to the module. A module can send the command Set_Mask, followed by
 a number which is the bitwise OR of the packet-types the module
 wishes to receive. If the module never sends the Set_Mask command,
 then all message types in the default mask are sent. The default
-mask is defined in fvwm_module_interface.h as "MAX_MASK" and "MAX_XMASK".
-This currently (January 2002) includes all messages except M_SENDCONFIG.
+mask is defined in fvwm_module_interface.h as "MAX_MASK" and
+"DEFAULT_XMSG_MASK". This currently (January 2002) includes all
+messages except M_SENDCONFIG and all of the MX_... messages.
 A library function, SetMessageMask, makes it easy to set this
 mask. Since 2.5.0 was released, the highest bit in the message
 mask marks extended messages that were introduced to allow more

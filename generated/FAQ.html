@@ -152,6 +152,8 @@ Contents
           support?  Where can I find them now?
      6.6  How do I set the background with fvwm?
      6.7  When I use Fvwm --- isn't the right color.  Whats wrong?
+     6.8  I just got a mouse with 57 buttons.  How do I make Fvwm
+          use them?
 
 7. Hints and Examples from the Developers
 
@@ -656,8 +658,13 @@ A: Both of these commands change the keyboard focus to the target
    The Focus command is very useful in conjunction with the Next and
    Prev commands.  e.g.
 
-      Key KP_Add A M Next (CurrentDesk !Iconic) Focus
-      Key KP_Subtract A M Prev (CurrentDesk !Iconic) Focus
+      Key KP_Add A M Next (AcceptsFocus CurrentDesk !Iconic) Focus
+      Key KP_Subtract A M Prev (AcceptsFocus CurrentDesk !Iconic) Focus
+
+   Or for fvwm versions earlier than 2.4.1:
+
+      Key KP_Add A M Next [CurrentDesk !Iconic] Focus
+      Key KP_Subtract A M Prev [CurrentDesk !Iconic] Focus
 
    These bindings allow you to circulate the focus around the windows on
    the current desk in both directions.  If Prev FlipFocus were used the
@@ -791,8 +798,8 @@ A: From Jon Mountjoy, one of FVWM's users:
 
      # Keys on the function keypad on the Left of the Sun Keyboard:
      # F11 = Stop, F12 = Again, ..., F20 = Cut
-     Key F11    AWF   N       Next (!iconic CurrentScreen CurrentDesk) Focus
-     Key F12    AWF   N       Prev (!iconic CurrentScreen CurrentDesk) Focus
+     Key F11    AWF   N       Next (!iconic CurrentPage) Focus
+     Key F12    AWF   N       Prev (!iconic CurrentPage) Focus
      Key F13    WF    N       Maximize     100 100
      Key F15    WF    N       RaiseLower ""
      Key F17    WIF   N       Iconify ""
@@ -1080,17 +1087,17 @@ A: Excerpt from the man page:
    or module input is pending.  Specifically, new Style options that
    are set in a function are not applied until after the function has
    completed.  This can sometimes lead to unwanted effects.  To force
-   that all pending changes are applied immediately, use the UpdateStyles,
-   Refresh or RefreshWindow commands.
+   that all pending changes are applied immediately, use the
+   UpdateStyles, Refresh or RefreshWindow commands.
 
 <hr>
 3.18  When my specific window (or all windows) pops up, I want it to
       get focus/be moved/be resized/be closed/be shaded...  How?
 
 A: The following discusses a general solution, you should substitute
-   application names used in examples as well as fvwm commands (Move,
-   Iconify, Close) with the ones you need.  To get resource names of
-   an application you want to catch, use FvwmIdent module.
+   the application names used in the examples as well as fvwm commands
+   (Move, Iconify, Close) with the ones you need.  To get resource
+   names of an application you want to catch, use FvwmIdent module.
 
    The first possible approach to achieve what you want is to have a
    separate function to start your application, like:
@@ -1104,10 +1111,10 @@ A: The following discusses a general solution, you should substitute
    This approach has 3 problems:
      1) You need to use StartKedit function to start your application,
         this will not work if you start it from the command line.
-     2) If for some reason the application is not started, FVWM will
-        wait for it in Wait, you will need to press Ctrl-Alt-Esc.
+     2) If for some reason the application is not started, FVWM waits
+        for it in Wait, you will need to press Ctrl-Alt-Esc.
      3) If you have more than one kedit window, it is not guaranteed
-        that the right one will be used.
+        that the right one is resized.
 
    But this approach has one plus - it also enables any fvwm commands
    that you may want to issue before executing your command.  For example,
@@ -1124,7 +1131,7 @@ A: The following discusses a general solution, you should substitute
 
 
    The second approach is to use FvwmEvent, this solves the first two
-   problems (in 2.2) or all three problems (in 2.3 and 2.4).
+   problems (in fvwm 2.2) or all three problems (in fvwm 2.3 and later).
 
    The sample to use with fvwm 2.2.3+ versions (this resizes the newly
    created window "My Window", supposing you have only one such window):
@@ -1517,7 +1524,11 @@ A: Because they are treated as modifiers.  You can use the
 
    Fvwm has to be restarted to use the changes made by xmodmap.
    Please refer to the man page of the xmodmap command for further
-   details.
+   details.  If you disable the CapsLock key in your keyboard map in
+   this way, you can speed up fvwm a bit by removing the Lock
+   modifier from the list of ignored modifiers:
+
+     IgnoreModifiers
 
 <hr>
 5.6  Menus with gradient backgrounds flicker or are very slow.
@@ -1723,6 +1734,13 @@ A: This problem might occur on other applications besides the one
      looks like with dtwm, but I suspect it's quite close to
      all MWWM=MWM.
 
+   Next we had Klaus Zeitler report that the Rational Rose official
+   startup script is explictly setting ALLWM to nothing.  This makes
+   it more difficult for an individual user to set this variable.
+   If you can, you can just modify the script, otherwise, your other
+   alternative is to copy the script somewhere where you can modify it
+   and run it from there.
+
 <hr>
 5.15  Although I use the WIndowListSkip style for my modules they
       still show up in FvwmIconMan, FvwmWinList etc.
@@ -1904,6 +1922,32 @@ A: Under this heading we've had questions about FvwmForm being all
      and FrameMaker in its default setting.
 
    If you still have problems after this, try the fvwm mailing list.
+
+<hr>
+6.8  I just got a mouse with 57 buttons.  How do I make Fvwm use them?
+
+A: OK, 57 is a joke, we know you don't have 57 buttons, but we've
+   seen reports of up to 7 so far.  Starting with Fvwm 2.4.0
+   Fvwm supports all five mouse buttons that X officially
+   supports.  To increase the number of buttons that Fvwm can handle,
+   you have to modify the file libs/defaults.h:
+
+   Replace
+
+     #define NUMBER_OF_MOUSE_BUTTONS		   5
+
+   with
+
+     #define NUMBER_OF_MOUSE_BUTTONS		   7
+
+   and recompile and reinstall fvwm.  However, the buttons with numbers
+   higher than 5 do not work as well as 1 to 5.  This is because X
+   does not provide the necessary interface to handle more that 5
+   buttons in all functions.  This means that some functionality is
+   not available with buttons 6 and higher.
+
+   The maximum possible number you can use is 31.  Any higher value
+   will probably not work and possibly even crash fvwm or its modules.
 
 <hr>              7 - Hints and Examples from the Developers
 <hr>
@@ -2255,7 +2299,7 @@ A: Under this heading we've had questions about FvwmForm being all
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Tue Jul  3 09:36:52 CEST 2001 -->
+     on Sun Jan 27 22:27:52 CET 2002 -->
   </body>
 </html>
 
