@@ -3,7 +3,7 @@
 #-  Project       : Fvwm web site 
 #-  Date          : Mon Mar 31 09:25:14 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <31.03.2003 09:30:45 uwp>
+#-  Last modified : <31.03.2003 17:21:37 uwp>
 #---------------------------------------------------------------------
 
 default:
@@ -17,7 +17,7 @@ tarball:
 	tar czf `date "+packed/fvwm_php_%d%m%Y_%H%M.tgz"` \
 	`find -name '*php' -or -name '*inc'` \
 	fvwm_cats temporary pictures php_info \
-	navgen_write documentation decorations \
+	navgen_write documentation \
 	contact latest_news.txt Makefile
 
 ## end of file

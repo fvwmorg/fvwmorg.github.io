@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <31.03.2003 13:01:57 uwp>
+//-  Last modified : <31.03.2003 20:34:00 uwe>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -295,19 +295,23 @@ function decoration_title_bar($string="") {
   }
 }
 
-function decoration_window_start($string="") {
-  global $border, $window_bg;
-  echo '<table width="100%" border="';
-  if(strlen($border)>0) echo $border; else echo '0';
-  echo '" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
+function decoration_window_start($string="",$width="100%",$height="800",$padding="5") {
+  global $window_bg;
+  echo '<table';
+  if(strlen($width)> 0) echo ' width="'.$width.'"';
+  echo ' border="0" cellpadding="0" cellspacing="0" summary="" class="decorated">'."\n";
   decoration_top_line();
   decoration_title_bar($string);
   echo '<tr>'."\n";
   decoration_left_cell();
   echo '<td bgcolor="'.$window_bg.'">';
-  echo '<table cellpadding="5" summary="">'."\n";
+  echo '<table';
+  if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
+  echo ' summary="">'."\n";
   echo '<tr>'."\n";
-  echo '<td height="800" valign="top" align="left">';
+  echo '<td valign="top" align="left"';
+  if(strlen($height)> 0) echo ' height="'.$height.'"';
+  echo '>';
 }
 
 function decoration_window_end() {
@@ -711,6 +715,28 @@ function insert_quick_jump_list($site_array) {
        a:link,a:visited,a:active,a:hover {
 	 text-decoration:none;
 	 font-weight:bold;
+       }
+       h2.cats { 
+       font-size:xx-large; 
+       color:#ffff33;
+       }
+       h3.cats { 
+       font-size:xx-large; 
+       color:#6666ff;
+       }
+       h4.cats { 
+       margin:0pt;
+       font-size:x-large; 
+       color:#ff3333;
+       }
+       h5.cats { 
+       font-size:large; 
+       font-weight:normal;
+       margin:0pt;
+       }
+       p.cats, h2.cats,  h3.cats, h4.cats, h5.cats{ 
+       margin-left:5%;
+       margin-right:5%;
        }
         -->
     </style>
