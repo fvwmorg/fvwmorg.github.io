@@ -413,4 +413,30 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
+<?php decoration_window_start("By Eric Hafner (1 image)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Eric_Hafner/index.php'); ?>">
+
+<p><img src="logos/Eric_Hafner/logo.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Daniel Gadziemski (15 images)", "", "", 0); ?>
+
+<a href="<?php echo conv_link_target('logos/Daniel_Gadziemski/index.php'); ?>">
+
+<p><img src="logos/Daniel_Gadziemski/overview.png" border="0" vspace="0" hspace="0">
+
+<p>More...
+</a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
 <p>Return to <a href="<?php echo conv_link_target('./');?>">index</a>.</p>
