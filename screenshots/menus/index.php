@@ -17,7 +17,7 @@ if( ! strlen("$navigation_check") ) include($rel_path.'/definitions.inc');
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Menu Screenshots";
-$link_name      = "Menus Screenshots";
+$link_name      = "Menu Screenshots";
 $link_picture   = "pictures/icons/screenshots_menu";
 $parent_site    = "screenshots";
 $child_sites    = array();
