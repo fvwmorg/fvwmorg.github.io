@@ -13,6 +13,6 @@ specifically for that individual bar, leaving me a clean and open
 desktop to run additional programs.
 <p>
 Note: Check out Glen's excellent FVWM
-<a href="http://members.fcwm.org/glen/fvwm/">page</a>
+<a href="http://www.holiness.ch/fvwm/">page</a>
 for even more FVWM
 screenshots and information.

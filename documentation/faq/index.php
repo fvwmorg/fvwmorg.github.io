@@ -133,10 +133,11 @@ if (strlen($site_has_been_loaded) == 0) {
           X).  How can I tell fvwm to use different configurations
           for the screens?
 <a name="toc_3.21"></a>    <a href="#3.21">3.21</a>  How do I maximize a window but not cover up FvwmTaskBar?
-<a name="toc_3.22"></a>    <a href="#3.22">3.22</a>  Why don't buttons show on the titlebar of dialog windows?
+<a name="toc_3.22"></a>    <a href="#3.22">3.22</a>  Why don't buttons show on the titlebar of some windows?
 <a name="toc_3.23"></a>    <a href="#3.23">3.23</a>  How to define transparent menus?
 <a name="toc_3.24"></a>    <a href="#3.24">3.24</a>  How to define transparent modules?
 <a name="toc_3.25"></a>    <a href="#3.25">3.25</a>  How to define transparent decorations?
+<a name="toc_3.26"></a>    <a href="#3.26">3.26</a>  How about transparent applications too?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -269,10 +270,13 @@ A: XMMS wants to do evrything by itself and overrides many
 
 <a name="0.3"></a><a href="#toc_0.3">0.3</a>  I like transparency.  What can I do?
 
-A: See questions 3.23, 3.24, 3.25 that deal with transparency.
+A: See questions 3.23, 3.24, 3.25, 3.26 that deal with transparency.
 
    Also see configurations supplied in fvwm-themes package, some
-   themes use transparent menus, modules and/or decorations.
+   themes use transparent menus, modules and/or decorations.  F.e.:
+
+        <a href="http://fvwm-themes.sf.net/screenshots/full/transparent.png">http://fvwm-themes.sf.net/screenshots/full/transparent.png</a>
+        <a href="http://fvwm-themes.sf.net/screenshots/full/transparent.jpg">http://fvwm-themes.sf.net/screenshots/full/transparent.jpg</a>
 
 
 ======================================================================
@@ -1443,7 +1447,7 @@ A: Instead of Maximize use &quot;Maximize 100 -30p&quot; where 30 is the width o
 
 ----------------------------------------------------------------------
 
-<a name="3.22"></a><a href="#toc_3.22">3.22</a>  I'm having problems making buttons appear on my windows.
+<a name="3.22"></a><a href="#toc_3.22">3.22</a>  Why don't buttons show on the titlebar of some windows?
 
 A: Fvwm has some builtin idea of what the buttons do, and some
    applications can request that certain buttons not be shown.
@@ -1491,9 +1495,14 @@ A: First, it may help to read about colorsets in fvwm and FvwmTheme
    We speak about transparency, not translucency here.  This means
    the background of the parent window (for example the root window)
    will be used for our &quot;transparent&quot; areas, this is not always the
-   window under our &quot;transparent&quot; window.  However, some X servers
-   support real transparency (i.e. translucency) and it is reported
-   that fvwm supports this (I don't have such X server myself).
+   window under our &quot;transparent&quot; window.  However, it is possible
+   to get a real transparency (i.e. translucency) by applying one
+   patch and using new Colorset Translucent option the patch adds.
+   We do not discuss this here, however you may get this patch with
+   README.patch included from:
+
+     <a href="http://fvwm-themes.sf.net/patch/">http://fvwm-themes.sf.net/patch/</a>
+
 
    To define a transparent colorset, use something like:
 
@@ -1507,91 +1516,120 @@ A: First, it may help to read about colorsets in fvwm and FvwmTheme
    like &quot;fvwm-root -r&quot; or &quot;Esetroot&quot; or &quot;wmsetbg&quot;, otherwise
    RootTransparent will not work:
 
-     Colorset 23 RootTransparent, fg navy, bg average
+     Colorset 23 RootTransparent, fg rgb:ff/ff/c4, bg darkcyan
 
-   The good thing about RootTransparent is that it is possible to tint
-   the visible part of the root image using something like:
+   The good thing about RootTransparent is that it is possible to
+   automatically claculate the average background color (used for
+   highlighting/shading) and efficiently tint the visible part of the
+   root image using something like:
 
-     Colorset 23 RootTransparent, fg navy, bg average, \
+     Colorset 23 RootTransparent, fg rgb:ff/ff/c4, bg average, \
        Tint black 20, bgTint black 20
 
    If you have enough memory, you may use &quot;RootTransparent buffer&quot;
    to speed up transparent menus, modules or decorations.
 
    If you are not sure whether you use &quot;fvwm-root -r&quot; or similar
-   utility to set the root background, do not use the RootTransparent
-   option, use Transparent option without tinting.
+   utility to set the root background, do not use RootTransparent
+   option, use Transparent option without tinting, and set the bg
+   color explicitely.
 
    Once a transparent colorset is defined, use it in menus:
 
      MenuStyle * MenuColorset 23
 
+   See the man pages for a more complete explanation of colorsets.
+
 ----------------------------------------------------------------------
 
 <a name="3.24"></a><a href="#toc_3.24">3.24</a>  How to define transparent modules?
 
-    See question 3.23 to learn how to define a transparent colorset
-    (you may reuse the same transparent colorset or define separate
-    colorsets for different modules).
+A: See question 3.23 to learn how to define a transparent colorset
+   (you may reuse the same transparent colorset or define separate
+   colorsets for different modules).
 
-    Then read the man page for your specific module that you want to
-    make transparent and specify this transparent colorset(s), like:
+   Then read the man page for your specific module that you want to
+   make transparent and specify this transparent colorset(s), like:
 
-      *FvwmPager: Colorset * 23
-      *FvwmButtons: Colorset 23
-      *FvwmIconMan: Colorset 23
+     *FvwmPager: Colorset * 23
+     *FvwmButtons: Colorset 23
+     *FvwmIconMan: Colorset 23
 
-      Style FvwmPager ParentalRelativity
-      Style FvwmButtons ParentalRelativity
-      Style FvwmIconMan ParentalRelativity
+     Style FvwmPager ParentalRelativity
+     Style FvwmButtons ParentalRelativity
+     Style FvwmIconMan ParentalRelativity
 
-    A side note: the ParentalRelativity option is not always needed.
-    It is not needed if you use RootTransparent or you never intend to
-    move a module inside its parent, or you swallow a module, since
-    FvwmButtons adds ParentalRelativity automatically for swallowed
-    fvwm modules.  Otherwise you need Style ParentalRelativity for
-    transparent windows, but doing this for all windows is overhead.
+   A side note: the ParentalRelativity option is not always needed.
+   It is not needed if you use RootTransparent or you never intend to
+   move a module inside its parent, or you swallow a module, since
+   FvwmButtons adds ParentalRelativity automatically for swallowed
+   fvwm modules.  Otherwise you need Style ParentalRelativity for
+   transparent windows, but doing this for all windows is overhead.
 
-    Note, that previously &quot;Pixmap none&quot; option was used to define
-    transparency; Pixmap option is obsolete, use colorsets instead.
+   Note, that previously &quot;Pixmap none&quot; option was used to define
+   transparency; Pixmap option is obsolete, use colorsets instead.
 
-    If you swallow FvwmPager (or FvwmIconMan) into FvwmButtons, then
-    you may configure both FvwmPager and FvwmButtons to be transparent
-    or just one of them to be transparent, depending on what you want
-    to achieve.
+   If you swallow FvwmPager (or FvwmIconMan) into FvwmButtons, then
+   you may configure both FvwmPager and FvwmButtons to be transparent
+   or just one of them to be transparent, depending on what you want
+   to achieve.
 
 ----------------------------------------------------------------------
 
 <a name="3.25"></a><a href="#toc_3.25">3.25</a>  How to define transparent decorations?
 
-    See question 3.23 to learn how to define a transparent colorset.
-    Only RootTransparent method works for transparent decorations!
-    This basically means that you should use external utilities like
-    &quot;wmsetbg&quot; or &quot;Esetroot&quot; to set background in JPG/GIF/TIFF format
-    and our utility &quot;fvwm-root -r&quot; for XPM/PNG images.
+A: See question 3.23 to learn how to define a transparent colorset.
+   Only RootTransparent method works for transparent decorations!
+   This basically means that you should use external utilities like
+   &quot;wmsetbg&quot; or &quot;Esetroot&quot; to set background in JPG/GIF/TIFF format
+   and our utility &quot;fvwm-root -r&quot; for XPM/PNG images.
 
-    To get transparent decorations, use a configuration like this:
+   To get transparent decorations, use a configuration like this:
 
-      AddToFunc StartFunction
-      + I Exec fvwm-root -r $HOME/wallpapers/sea.png
+     AddToFunc StartFunction
+     + I Exec fvwm-root -r $HOME/wallpapers/sea.png
 
-      Colorset 41 RootTransparent buffer, fg white, bg average, \
-        Tint cyan 15, bgTint cyan 15  # tint is optional
-      Colorset 42 RootTransparent buffer, fg white, bg average, \
-        Tint red  15, bgTint red  15  # tint is optional
+     Colorset 41 RootTransparent buffer, fg white, bg average, \
+       Tint cyan 15, bgTint cyan 15  # tint is optional
+     Colorset 42 RootTransparent buffer, fg white, bg average, \
+       Tint red  15, bgTint red  15  # tint is optional
 
-      Style * Colorset 41, HilightColorset 42  # to use fg and bg
-      BorderStyle Inactive Colorset 42 -- flat
-      BorderStyle Active   Colorset 41 -- flat
-      TitleStyle AllInactive Colorset 42 -- flat
-      TitleStyle AllActive   Colorset 41 -- flat
-      ButtonStyle All -- UseTitleStyle flat
+     Style * Colorset 41, HilightColorset 42  # to use fg and bg
+     BorderStyle Inactive Colorset 42 -- flat
+     BorderStyle Active   Colorset 41 -- flat
+     TitleStyle AllInactive Colorset 42 -- flat
+     TitleStyle AllActive   Colorset 41 -- flat
+     ButtonStyle All -- UseTitleStyle flat
 
-    It is possible to define partially transparent decorations too.
-    You may achieve this by adding &quot;AddTitleStyle Colorset NN PP&quot;,
-    or even &quot;TitleStyle Colorset NN PP&quot;.  Please read the man page.
-    Also search in fvwm-themes to see whether some theme provides
-    the window decoration look similar to what you want to achieve.
+   It is possible to define partially transparent decorations too.
+   You may achieve this by adding &quot;AddTitleStyle Colorset NN PP&quot;,
+   or even &quot;TitleStyle Colorset NN PP&quot;.  Please read the man page.
+   Also search in fvwm-themes to see whether some theme provides
+   the window decoration look similar to what you want to achieve.
+
+----------------------------------------------------------------------
+
+<a name="3.26"></a><a href="#toc_3.26">3.26</a>  How about transparent applications too?
+
+A: This is not really an FVWM related question, you should find X
+   applications supporting transparency and read their documentation.
+
+   Depending on the application you should set the root image in one
+   or another way.  Usually utilities like fvwm-root (with possible
+   &quot;-r&quot; parameter), Esetroot or wmsetbg should be used.
+
+   There is a wide range of terminal emulators that may be configured
+   to be transparent, like Eterm, aterm, gnome-terminal and others.
+   Here is an example command line:
+
+     aterm -ls -sh 70 -bg black -fg white -tr +sb -fn 7x14 -fb 7x14bold
+
+   Some applications have transparent theme, f.e. gkrellm and xmms.
+
+   Some applications may show text on the root image, f.e. root-tail.
+
+   There are a lot of other applications supporting transparency not
+   listed here, search in FreshMeat, <a href="http://freshmeat.net/.">http://freshmeat.net/.</a>
 
 
 ======================================================================

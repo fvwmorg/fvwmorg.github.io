@@ -130,7 +130,7 @@ decoration_window_start("Latest News");
 </table>
 </center>
 <a name="2.5.9"></a>
-<h4>Changes in development release 2.5.9 (not release yet) <a href="#top">[top]</a></h4>
+<h4>Changes in development release 2.5.9 (not released yet) <a href="#top">[top]</a></h4>
 <ul>
   <li> New MenuStyle options PopupIgnore and PopupClose.</li>
   <li> New configure option --disable-iconv to disable iconv support.</li>
