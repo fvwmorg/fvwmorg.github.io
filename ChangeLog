@@ -5,6 +5,9 @@
 	once again split Mailing List Info and Mail Archive into 2 items
 	so we have an even number of items
 
+	* features.html:
+	added missing features of 2.4.x and 2.5.x
+
 2002-05-08  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* index.html:
