@@ -1,0 +1,429 @@
+# uses m4 for preprocessing
+
+changequote([,])
+
+ImagePath /root/.x11:/usr/X11R6/share/include/X11/pixmaps/
+define(RESTART_P,/root/s/fvwm)
+ifelse(HOST,cerebro,[
+   define([TERM_GEOM],161x37)
+   define([TERM_GEOM],154x36)
+   define([TERM_GEOM],142x35)
+   define(TERM_P,exec /opt/rxvt/bin/rxvt -fn 9x15bold)
+   define(Term_Top,TERM_P -geometry TERM_GEOM+0+0 -T top)
+   define(Term_Bot,TERM_P -geometry TERM_GEOM+0-0 -T bot)
+],[
+   define([TERM_GEOM],160x39)
+   define(TERM_P,exec /opt/rxvt/bin/rxvt -fn 9x15bold)
+   define(Term_Top,TERM_P -geometry TERM_GEOM+0+000 -T top)
+   define(Term_Bot,TERM_P -geometry TERM_GEOM+0+600 -T bot)
+])
+define(TERM_N,Rxvt%mini-sh1.xpm)
+define(BASH_P,/bin/bash)
+define(edge_resistance,EdgeResistance 0 20 20)
+
+EdgeScroll	100 100
+OpaqueMoveSize	100
+edge_resistance
+EdgeThickness	1
+ifelse(HOST,cerebro,[
+   DesktopSize	3x6
+   XineramaSlsSize 2x1
+],[
+   DesktopSize	4x6
+   XineramaSlsSize 1x1
+])
+
+XineramaSls On
+XineramaPrimaryScreen 0
+Xinerama on
+BugOpts RaiseOverUnmanaged
+SnapAttraction 3 Windows Screen
+IgnoreModifiers L25
+MoveThreshold 1
+SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 .45 .6 .75 .85 .90 .94 .97 .99 1.0
+
+XorValue 65535
+XorPixmap resize.rainbow.xpm
+
+define(button_bg_color,rgb:c0/90/80)
+define(grad_1,rgb:50/50/00)
+define(grad_2,rgb:ff/ff/00)
+
+define([defaultfont],[xft:Helmet:pixelsize=$1:encoding=iso10646-1:minspace=true])
+define([defaultfont],["xft:Swis721 BT:Bold:pixelsize=$1:encoding=iso10646-1:minspace=true"])
+
+DefaultFont defaultfont(40)
+
+AddToDecor Default
+ifelse(HOST,cerebro,
+   + WindowFont defaultfont(14),
+   + WindowFont defaultfont(16))
++ HilightColor rgb:00/00/20 grad_2
+
++ TitleStyle -- !UseBorderStyle
++ TitleStyle LeftJustified
++ TitleStyle ActiveUp HGradient 32 grad_2 grad_1
++ TitleStyle ActiveDown HGradient 32 grad_1 grad_2
++ TitleStyle Inactive HGradient 16 rgb:a0/70/a0 rgb:50/50/ff -- Flat
+
++ BorderStyle Inactive -- HiddenHandles NoInset Flat
+
++ ButtonStyle 1 Vector 16 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 80x30@0 60x50@0 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 40x50@1 20x30@0 20x20@1
++ ButtonStyle 3 Vector 8 35x15@1 20x50@1 40x50@0 30x80@1 75x40@0 50x40@1 75x15@0 35x15@1
++ ButtonStyle 5 Vector 12 10x50@1 35x25@1 35x40@1 65x40@1 65x25@1 90x50@1 65x75@0 65x60@0 35x60@0 35x75@0 10x50@0 10x50@1
+
++ ButtonStyle 8 Vector 4 50x85@1 30x20@1 70x20@1 50x85@0
++ ButtonStyle 6 Vector 12 24x10@4 24x90@0 28x10@4 28x90@1 47x10@4 47x90@0 52x10@4 52x90@1 68x10@4 68x90@0 72x10@4 72x90@1
++ ButtonStyle 4 Vector 4 50x15@1 70x80@0 30x80@0 50x15@1
++ ButtonStyle 2 Vector 4 80x20@1 50x80@0 20x50@0 80x20@1
+
++ ButtonStyle All (-- UseTitleStyle) Inactive (-- Flat)
+
++ Mouse 0 1   A   Close
++ Mouse 0 3   A   Destroy
++ Mouse 0 5   A   Current WindowShade WindowShadeBusy
+
++ Mouse 0 2   A   Function Raise-and-Maximize
++ Mouse 1 4   A   Function Raise-and-MaximizeV
++ Mouse 0 6   A   Stick
++ Mouse 0 8   A   Iconify
++ Mouse 2 1352468 A Function Move-or-Lower
+
+ifelse(HOST,cerebro,[
+   Style "*"		HandleWidth 7, IconBox screen 0 -60 -480 -1 -1
+],[
+   Style "*"		HandleWidth 6, IconBox screen 0 -60 -300 -1 -1
+])
+
+Style "*"		IconFont defaultfont(30), IconifyWindowGroupsOff, NoIconPosition, StickyIcon
+Style "*"		ForeColor rgb:f0/f0/80, BackColor rgb:a0/70/a0, IgnoreRestack
+Style "*"		TitleAtRight, DepressableBorder, SloppyFocus
+Style "*"		MWMBorder, MWMDecor, MWMButtons
+Style "*"		MinOverlapPlacement, KeepWindowGroupsOnDesk, ResizeOpaque, StartsOnScreen c
+Style "*"		WindowShadeSteps 64, WindowShadeScrolls, IndexedWindowName, IndexedIconName
+Style "CGoban: Main*"	FixedPPosition
+Style "KGS: *"		FixedPPosition, StartsOnScreen 1
+
+Style "xv text viewer"	Layer 3
+
+Style Fvwm*		NoTitle, NoHandles, Sticky, WindowListSkip, BorderWidth 0
+Style FvwmButtons	NeverFocus, StartsOnScreen 0
+Style FvwmPager		NeverFocus
+Style FvwmAudio		StaysOnTop
+Style FvwmTalk		Title, Handles
+
+Style "MpegTV*"		Sticky
+Style " MpegTV*"	Sticky, NoTitle
+Style "*lock"		NoTitle, NoHandles, Sticky, WindowListSkip
+Style "IRC"		Sticky, Layer 6
+Style "rxvt*"		MiniIcon mini-rxvt.xpm, Icon Shell2.linux.xpm
+Style "rxvt-nodecor"		NoTitle
+Style "Netscape*"	MiniIcon mini-nscape.xpm
+Style "Mozilla*"	MiniIcon mini-nscape.xpm
+
+Style "VNC: *"		SaveUnder
+Style "eMusic*"		Handles, Sticky
+
+Style "MPlayer"		NoHandles, NoBorder, NoTitle, BorderWidth 0, HandleWidth 0
+Style "MagicPoint"	NoHandles, NoBorder, NoTitle, BorderWidth 0, HandleWidth 0
+Style "VMware*"		NoHandles, NoBorder, NoTitle, BorderWidth 4, HandleWidth 4
+Style "nodecor"		NoHandles, NoBorder, NoTitle, BorderWidth 4, HandleWidth 4
+
+MenuStyle *		ForeGround rgb:00/00/30, Background rgb:a0/a0/a0, Greyed rgb:4e/4e/4e
+MenuStyle *		Font defaultfont(18)
+MenuStyle *		MenuFace YGradient 512 4 yellow 5 rgb:00/ff/ff 5 lightgrey 50 lightblue 90 yellow
+MenuStyle *		PopupImmediately, SubmenusLeft, TrianglesSolid, SeparatorsShort
+MenuStyle *		HilightBackOff, Hilight3DThickness -2, ActiveForeOff, PopupOffset -3 100
+MenuStyle *		TitleWarp, TitleUnderlines1
+MenuStyle *		SidePic sidepic.xpm, SideColor #0000ff
+MenuStyle *		ItemFormat "%10p%<%6p%|%i%12p%l%|%12p%s"
+
+ClickTime	200
+
+Mouse 1	R   A   Popup MainMenu -40m -8p
+Mouse 2 R   N   StrokeFunc DrawMotion FeedBack StrokeWidth 3
+Mouse 3	R   A   Popup WindowOps -40m -8p
+Mouse 4 A   A   Nop
+Mouse 5 A   A   Nop
+
+Mouse 1 T   A   Function Move-or-Raise
+Mouse 2 T   A   Function Move-or-Lower
+Mouse 3 T   A   Popup WindowOps
+
+Mouse 1 FS  A   Function Resize-or-Raise
+Mouse 2 FS  A   Function Move-or-Lower
+Mouse 3 FS  A   Popup WindowOps
+
+Mouse 1 I   A	Iconify
+Mouse 2 I   A	Function Move-or-Raise
+
+# never used the windowlist
+Key Tab A M -
+
+Key F8	A   M	Function EdgeResistanceOn
+AddToFunc EdgeResistanceOn
++ I EdgeResistance 10000 10000
++ I Key F8 A M Function EdgeResistanceOff
+AddToFunc EdgeResistanceOff
++ I edge_resistance
++ I Key F8 A M Function EdgeResistanceOn
+
+PointerKey F1  A   N	Exec xse -win buffer5 '<Btn1Down>'; { read path <~/.wininfo/$w; echo cd \'$path\'; } | xcb -s 5; echo $w >~/.wininfo/selection
+PointerKey F2  A   M	Stick
+PointerKey F3  A   A	Function Move-Borderless
+PointerKey Super_L  A   A	Function Move-Borderless
+PointerKey F3  A   N	PlaceAgain Anim
+PointerKey F4  A   N	Iconify
+PointerKey F4  A   M	Close
+PointerKey F5  A   A	Current WindowShade WindowShadeBusy
+PointerKey F6  A   A	Current MoveToScreen c
+Key F7 A N EdgeScroll 5 10
+Key F7 A M EdgeScroll 0 0
+Key F7 A S EdgeScroll 100 100
+
+PointerKey F9  A   M   Echo "RC:$c N:$n RN:$r ID:$w X:$x Y:$y"
+PointerKey F10 A   M	Exec exec centerviewport $w
+Key F11 A   N	SingleTerminal
+Key F12 A   N	DoubleTerminal
+Key F12 A   M	Exec exec xlock
+
+Key Left  A CM	CursorMove -15 0
+Key Right A CM	CursorMove  15 0
+Key Up    A CM	CursorMove  0 -20
+Key Down  A CM	CursorMove  0 +20
+
+Key KP_1 A C Direction SouthWest Focus
+Key KP_2 A C Direction South Focus
+Key KP_3 A C Direction SouthEast Focus
+Key KP_4 A C Direction West Focus
+Key KP_6 A C Direction East Focus
+Key KP_7 A C Direction NorthWest Focus
+Key KP_8 A C Direction North Focus
+Key KP_9 A C Direction NorthEast Focus
+
+Stroke 7412563	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 7412596	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 7414863	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 74148963	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 741563	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 7415863	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 7418963	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 742563	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 74258563	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 7425863	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+Stroke 74258963	0 R N Exec echo -e '\07' >/dev/tty0 && exec ns
+
+Stroke 12369	0 R N Exec echo -e '\07' >/dev/tty0 && exec xlock
+
+Stroke 159	0 R N DoubleTerminal
+Stroke 1596	0 R N DoubleTerminal
+Stroke 14589	0 R N DoubleTerminal
+Stroke 1589	0 R N DoubleTerminal
+
+CursorStyle MENU	90
+CursorStyle SELECT	102
+
+AddToFunc DoubleTerminal
++ "I"	Exec Term_Top
++ "I"	Exec Term_Bot
+
+AddToFunc SingleTerminal
++ "I"	Exec TERM_P -geometry TERM_GEOM
+
+ifelse(MODE,Init,
+   CursorMove -25 -25
+   Exec Term_Top ifelse(TERM_N,Rxvt,+ut)
+   Exec Term_Bot
+   FvwmButtons
+   FvwmCommandS
+   FvwmEvent
+   Exec TERM_P -g 60x3+100+100 -e /opt/bin/ssh-add ~/.ssh/id_dsa
+)
+
+ifelse(MODE,Restart,
+   FvwmButtons
+   FvwmCommandS
+   FvwmEvent
+)
+
+AddToMenu "QuitMenu" "*exit.xpm" Title
++ "Restart fvwm" Restart RESTART_P
++ "" Nop
++ "0: Halt System" Exec exec /etc/cfg/xrunlevel 0
++ "1: Singleuser" Exec exec /etc/cfg/xrunlevel 1
++ "3: NO X11" Exec exec /etc/cfg/xrunlevel 3
++ "6: Reboot System" Exec exec /etc/cfg/xrunlevel 6
++ "" Nop
++ "WM: TERM_N"	Restart TERM_P
++ "Quit"	Quit
+
+AddToMenu Volume 
++ " 30%%"	Exec mixer vol  30 >/dev/null
++ " 40%%"	Exec mixer vol  40 >/dev/null
++ " 50%%"	Exec mixer vol  50 >/dev/null
++ " 60%%"	Exec mixer vol  60 >/dev/null 
++ " 65%%"	Exec mixer vol  65 >/dev/null 
++ " 70%%"	Exec mixer vol  70 >/dev/null
++ " 75%%"	Exec mixer vol  75 >/dev/null 
++ " 80%%"	Exec mixer vol  80 >/dev/null
++ " 85%%"	Exec mixer vol  85 >/dev/null 
++ " 90%%"	Exec mixer vol  90 >/dev/null
++ " 95%%"	Exec mixer vol  95 >/dev/null 
++ "100%%"	Exec mixer vol 100 >/dev/null
+
+AddToMenu "Layer"
++ "1 "  Layer 0 1
++ "2V"  Layer 0 2
++ "3 "  Layer 0 3
++ "4**" Layer 0 4
++ "5 "  Layer 0 5
++ "6I"  Layer 0 6
++ "7 "  Layer 0 7
+
+AddToMenu "WindowOps" "Window Operations" Title
++ "&Move Alt+F3" Move
++ "&Layer" Popup "Layer"
++ "&Size" Resize
++ "&Lower" Lower
++ "Raise " Raise
++ "(Un)Stick Alt+F2" Stick
++ "(Un)Mi&nimize F4" Iconify
++ "(Un)Ma&ximize" Maximize
++ "(Un)Maximize Vertically " Maximize 0 100
++ "&Close Alt+F4" Close
++ "&Delete" Delete
++ "" Nop
++ "Identify" FvwmIdent
++ "Scroll" FvwmScroll
++ "WinList" FvwmWinList
+
+AddToMenu MainMenu "Utilities" Title
++ "LOC&K Alt+F12" Exec xlock
++ "TERM_N" SingleTerminal
++ "Two TERM_N" DoubleTerminal
++ Mozilla%mini-nscape.xpm% Exec GTK_RC_FILES= exec mozilla
++ Netscape%mini-nscape.xpm% Exec exec ns
++ "Mozilla (ja)%mini-nscape.xpm%" Exec GTK_RC_FILES= LC_CTYPE=ja_JP.EUC-JP XMODIFIERS="@im=kinput2" exec mozilla
++ "Netscape (ja)%mini-nscape.xpm%" Exec LC_CTYPE=ja_JP.EUC-JP XMODIFIERS="@im=kinput2" exec ns
++ VMWare Exec exec vmware
++ dlopster Exec exec dlopster
++ vlopster Exec exec vlopster
++ cgoban Exec exec cgoban
++ cgoban2 Exec exec cgoban2
++ "Small TERM_N" Exec TERM_P -geometry 56x5
++ "Volume" Popup Volume
++ "Window Ops" Popup WindowOps
++ "EventLogger" FvwmGtkDebug
+
+AddToMenu CBQI Ingress Title
++ "768" Exec rsh doom /root/cbqi 768Kbit
++ "704" Exec rsh doom /root/cbqi 704Kbit
++ "640" Exec rsh doom /root/cbqi 640Kbit
++ "576" Exec rsh doom /root/cbqi 576Kbit
++ "512" Exec rsh doom /root/cbqi 512Kbit
++ "448" Exec rsh doom /root/cbqi 448Kbit
++ "384" Exec rsh doom /root/cbqi 384Kbit
++ "320" Exec rsh doom /root/cbqi 320Kbit
++ "256" Exec rsh doom /root/cbqi 256Kbit
++ "192" Exec rsh doom /root/cbqi 192Kbit
++ "128" Exec rsh doom /root/cbqi 128Kbit
++ "64" Exec rsh doom /root/cbqi 64Kbit
++ "16" Exec rsh doom /root/cbqi 16Kbit
+
+AddToFunc Move-or-Raise
++ "C" Raise
++ "M" Raise
++ "M" Move
+
+AddToFunc Move-or-Lower
++ "C" Lower
++ "M" Raise
++ "M" Move
+
+AddToFunc Resize-or-Raise
++ "C" Raise
++ "M" Raise
++ "M" Resize
+
+AddToFunc Raise-and-MaximizeV
++ "I" Raise
++ "I" Maximize 0 100
+
+AddToFunc Raise-and-Maximize
++ "I" Raise
++ "I" Maximize 100 100
+
+AddToFunc Move-Borderless
++ "I" EdgeResistance 0 0
++ "I" Move
++ "I" edge_resistance
+
+#*FvwmButtonsPixmap none
+*FvwmButtonsFore Black
+*FvwmButtonsBack button_bg_color
+ifelse(HOST,cerebro,
+   *FvwmButtonsGeometry 120x600-0+0
+   *FvwmButtonsFont defaultfont(24)
+,
+   *FvwmButtonsGeometry 116x580-0+0
+   *FvwmButtonsFont defaultfont(16)
+)
+*FvwmButtonsColumns 2
+*FvwmButtonsFrame 0
+*FvwmbuttonsPadding 0
+*FvwmButtons(1x2, Swallow(Close,Respawn,UseOld) rclock 'Exec exec rclock  -bg rgb:ff/ff/50 -fg "button_bg_color" -geometry -2000-2000 -update 60')
+ifelse(HOST,fuji,[
+   *FvwmButtons(1x2, Swallow(Respawn,UseOld) asapm 'Exec exec asapm -standout -u 10 -position -2000-2000')
+])
+*FvwmButtons(2x2, Swallow(Respawn,UseOld) xload 'Exec exec xload  -bw 0 -fg rgb:e0/e0/f0 -hl black -bg "button_bg_color" -geometry -2000-2000 -nolabel -jumpscroll 5 -update 5')
+*FvwmButtons(2x4, Swallow(Respawn,UseOld) FvwmPager "FvwmPager *")
+ifelse(HOST,cerebro,[
+   define(_xpppload,exec rsh doom 'DISPLAY=cerebro:0 /opt/bin/xpppload -update 3 tdsl')
+   *FvwmButtons(2x2, Swallow(Respawn,UseOld) xpppload "Exec _xpppload")
+])
+*FvwmButtons(1x1, Title 768, Action(Mouse 1) "Exec rsh doom /root/cbqi 256Kbit", Action(Mouse 2) "Exec rsh doom /root/cbqi 768Kbit", Action(Mouse 3) Popup CBQI)
+*FvwmButtons(1x1, Title NBG, Action(Mouse 1) "Exec rsh doom /root/s/netbg --stop& netbg --stop", Action(Mouse 2) "Exec rsh doom /root/s/netbg --cont& netbg --cont")
+*FvwmButtons(2x1, Title Quit, Action "Popup QuitMenu Restart RESTART_P")
+*FvwmButtons(2x8, Swallow(Respawn,UseOld) xcb 'Exec LC_CTYPE=en_US.UTF-8 exec xcb -geometry -2000-2000 -fg black -bg button_bg_color -font suxus -l v -n 6')
+
+*FvwmPagerColumns 1
+*FvwmPagerGeometry -4000+0
+*FvwmPagerFont	5x8
+*FvwmPagerSloppyFocus
+*FvwmPagerHilight yellow
+*FvwmPagerMiniIcons
+*FvwmPagerFore	black
+*FvwmPagerBack	button_bg_color
+*FvwmPagerBalloons
+*FvwmPagerBalloonFont 9x15bold
+*FvwmPagerBalloonFont defaultfont(18)
+*FvwmPagerBalloonBorderWidth 3
+*FvwmPagerBalloonBorderColor #404040
+*FvwmPagerBalloonFore yellow
+*FvwmPagerBalloonBack blue
+*FvwmPagerBalloonYOffset -25
+*FvwmPagerLabel 0 Overview
+
+Style "CGoban: *"	StartsOnDesk 1, SkipMapping
+Style "KGS: *"		StartsOnDesk 1, SkipMapping
+Style "Mozilla"		StartsOnDesk 1, SkipMapping
+
+AddToFunc add_window
++ I WindowId $0 ("KGS: Rooms") Prev ("CGoban: Main*") Delete
+
++ I WindowId $0 ("Mozilla") Move 1p 1p
++ I WindowId $0 MoveToScreen c
++ I WindowId $0 ("CGoban: Main*") Move 100p 100p
++ I WindowId $0 ("KGS: *") Move 0p 0p
++ I WindowId $0 ("KGS: *") MoveToDesk 0
++ I WindowId $0 ("KGS: *") PlaceAgain Anim
++ I WindowId $0 ("KGS: Rooms") Move 0p 0p
++ I WindowId $0 ("KGS: Log In") Move 0p 0p
++ I WindowId $0 MoveToDesk 0
++ I WindowId $0 MoveToScreen c
+
+*FvwmEvent: Cmd
+*FvwmEvent: PassId
+*FvwmEvent: StartDelay 3
+*FvwmEvent: add_window add_window
+
