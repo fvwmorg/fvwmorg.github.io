@@ -40,17 +40,6 @@ if (strlen("$site_has_been_loaded") == 0) {
 ?>
 
 <!-- ============================================================= -->
-<?php 
-// decoration_window_start("Change colors to view logo on different backgrounds.","100%","",0);
-// <form action="logos_new.php" method="POST">
-// <center>
-// Background color: <input type="text" name="window_bg" size="7" maxlength="7" value="<?php echo $theme_object->style_array['window_bg'];" style="font-family:monospace;">&nbsp;
-// Foreground color: <input type="text" name="window_fg" size="7" maxlength="7" value="<?php echo $theme_object->style_array['window_fg'];" style="font-family:monospace;">&nbsp;
-// <input name="change" type="submit" value="Apply"></form></center>
-// decoration_window_end(); 
-?>
-
-<!-- ============================================================= -->
 <?php decoration_window_start("By Michael Gorniak", "", "", 0); ?>
 
 <p class="centered">

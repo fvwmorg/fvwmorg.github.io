@@ -37,6 +37,8 @@ if (strlen($site_has_been_loaded) == 0) {
 	include(sec_filename($layout_file));
 	exit();
 }
+
+if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
 <?php decoration_window_start('By <a href="http://www.c-sait.net/">Tian</a>',

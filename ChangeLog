@@ -1,3 +1,15 @@
+2003-06-02  Uwe Pross  <uwe.pross@gmx.net>
+
+	* index.php: 
+	Added link to download page. Used new function mylink.
+
+	* web-theme/helpers/members2globals.inc: 
+	added function mylink($target, $text, $opt="") to get simpler
+	internal links.
+
+	* web-theme/classes/birthday_class.inc: 
+	disabled cookies and session for birthday theme.
+
 2003-06-02  Mikhael Goikhman  <migo@homemail.com>
 
 	* logo-competition/logos/Felix_E_Klee/index.php:

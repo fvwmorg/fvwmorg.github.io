@@ -22,11 +22,7 @@ $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array("authors", "history", "fvwm_cats");
-//  RBW...
-//  Must be able to cope with register_globals = off.
-//$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-
 $this_site      = "home";
 
 //--------------------------------------------------------------------
@@ -57,26 +53,26 @@ and support is excellent.  Check it out!
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
 <tr>
         <td class="windowcontents">Latest Stable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php echo $latest_stable_release; ?> </b></td>
+        <td class="windowcontents"><b><?php mylink("download", $latest_stable_release); ?> </b></td>
 	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 <tr>
         <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php echo $latest_unstable_release; ?> </b></td>
+        <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
 	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
 </tr>
 </table>
 
 <hr>
 Participate in our new
-<?php
-echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
-?>
+<?php mylink("logo-competition", "Logo Competition"); ?>
 <hr>
 <center>
-<a href="<?php echo conv_link_target('./birthday/index.php');?>" class="nohilight"><img src="./birthday/birthday_celebration1.gif" border="0" width="596" height="53"></a>
+<?php mylink('./birthday/index.php', 
+             '<img src="./birthday/birthday_celebration1.gif" border="0" width="596" height="53">',
+             'class="nohilight"'); ?>
 <h3>On the 1st of June 2003 we are celebrating fvwm's tenth
-<a href="<?php echo conv_link_target('./birthday/index.php');?>">birthday</a>.</h3>
+<?php mylink('./birthday/index.php', "birthday"); ?>.</h3>
 </center>
 <hr>
 
@@ -84,17 +80,6 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 <h2>Quick jumps</h2>
 
 <?php
-
-// '
-//   Features                  Download
-//   FAQ                       Decors
-//   Bug Reporting             Desktops
-//   Mailing Lists             Menus
-//   Mailing List Archive      FVWM Themes
-//   Man pages                 Icons and Sounds
-//   Authors                   Links
-//   Developer Info            Other Important Info ^_^
-
         insert_quick_jump_list(
                 array(
                       "features",

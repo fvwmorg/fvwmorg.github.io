@@ -38,6 +38,26 @@ class Birthday_Theme extends Default_Theme {
         }
     }
 
+        // default settings for this theme
+    function init_style_array() {
+        include(theme_file("theme_descriptions.inc"));
+        $this->style_array = array();
+        if( ! is_array($this->theme_descriptions[$this->theme_name]["style"]) ) {
+            return;
+        }
+        foreach( $this->theme_descriptions[$this->theme_name]["style"] as $style => $desc ) {
+            if( isset($desc["value"]) ) {
+                if( $value = get_user_setting($style, array("GET", "POST")) ) {
+                    $this->style_array[$style] = str_replace("@REL_PATH@", $this->rel_path, $value);
+                    // echo "$style -> $value <br>";
+                } else {
+                    $this->style_array[$style] = str_replace("@REL_PATH@", $this->rel_path, $desc["value"]);
+                }
+            }
+        }
+    }
+
+
     // inserts a table row <tr>... </tr> which contains the window
     // buttons like the window decoration of a window manager
     function decoration_title_bar($string="") {
