@@ -1,3 +1,10 @@
+1999-11-13  olicha   <olivier.chapuis@free.fr>
+
+	* mod_m2f_communication.html: Updated the "Synchronous vs. 
+	Asynchronous Operation" section.
+
+	* mod_f2m_communication.html: Replaced M_LOCKONSEND by M_NOTUSED
+ 	
 1999-09-26  Dominik Vogt  <dominik_vogt@gmx.de>
 
 	* mod_initialization.html: more colorset instructions
