@@ -1,0 +1,302 @@
+<html>
+<head>
+<title>FVWM Manpage - FvwmEvent</title>
+</head>
+  <body BACKGROUND="../../black-stone1.jpg"
+    bgcolor="#000000" text="#ffffff"
+    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<center>
+<h1><font color="pink">FVWM Manpage - FvwmEvent</font></h1>
+</center>
+<pre>
+
+<PRE>
+<!-- Manpage converted by man2html 3.0.1 -->
+
+</PRE>
+<H2>NAME</H2><PRE>
+     <font color="cyan">FvwmEvent</font color="cyan"> - the FVWM Event module
+
+
+</PRE>
+<H2>SYNOPSIS</H2><PRE>
+     <font color="cyan">FvwmEvent</font color="cyan"> is a more versatile replacement for <font color="cyan">FvwmAudio</font color="cyan">.  It
+     can in general be used to hook any <font color="cyan">fvwm2</font color="cyan"> function or program
+     to any window manager event. e.g: Delete unwanted  netscape-
+     popups  or  application  error  popups  as they appear, play
+     sounds, log events to a file  and  the  like.  Be  creative,
+     You'll find a use for it.
+
+     <font color="cyan">FvwmEvent</font color="cyan"> is spawned by <font color="cyan">fvwm2(1)</font color="cyan">, so no command line invoca-
+     tion will work.  From within the .<font color="yellow">fvwm2rc</font color="yellow"> file, <font color="cyan">FvwmEvent</font color="cyan"> is
+     spawned as follows:
+
+     Module FvwmEvent
+
+     or from within an <font color="cyan">fvwm2</font color="cyan"> pop-up menu:
+
+     DestroyMenu Module-Popup
+     AddToMenu Module-Popup "Modules"      Title
+     +                      "Event"        Module FvwmEvent
+     +                      "Auto"         Module FvwmAuto 200
+     +                      "Buttons"      Module FvwmButtons
+     +                      "Ident"        Module FvwmIdent
+     +                      "Banner"       Module FvwmBanner
+     +                      "Pager"        Module FvwmPager 0 3
+
+
+
+</PRE>
+<H2>DESCRIPTION</H2><PRE>
+     The <font color="cyan">FvwmEvent</font color="cyan"> module  communicates  with  the  <font color="cyan">fvwm2</font color="cyan">  window
+     manager to bind <font color="yellow">actions</font color="yellow"> to window manager <font color="yellow">events</font color="yellow">.  Different
+     actions may be assigned to distinct window manager events.
+
+     <font color="cyan">FvwmEvent</font color="cyan"> can be used to bind sound  files  to  events  like
+     <font color="cyan">FvwmAudio</font color="cyan"> (RiP) did. It can be used for logging event traces
+     to a log file, while debugging <font color="cyan">fvwm2</font color="cyan">.
+
+     <font color="cyan">FvwmEvent</font color="cyan"> can  also  have  builtin  support  for  the  rplay
+     library.  (heritage of FvwmAudio)
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     <font color="cyan">FvwmEvent</font color="cyan"> reads the same .<font color="yellow">fvwm2rc</font color="yellow"> file as <font color="cyan">fvwm2</font color="cyan">  reads  when
+     it starts up, and looks for certain configuration options:
+
+
+     *FvwmEventCmd <font color="yellow">command</font color="yellow">
+          This determines the <font color="cyan">fvwm2</font color="cyan"> function that is to be called
+          with the event parameters.  You might want to do one of
+          the following (details below):
+
+               *FvwmEventCmd <font color="yellow">builtin</font color="yellow">-<font color="yellow">rplay</font color="yellow">
+                              play sounds
+               *FvwmEventCmd
+                              execute distinct fvwm2 functions
+               *FvwmEventCmd exec
+                              execute distinct external programs
+
+          This version of <font color="cyan">FvwmEvent</font color="cyan">  has  builtin  <font color="cyan">rplay</font color="cyan">  support
+          which  does not need to invoke an external audio player
+          to play sounds.  The  rplay  support  is  enabled  when
+          <font color="cyan">FvwmEvent</font color="cyan">  is compiled with <font color="yellow">HAVE</font color="yellow">_<font color="yellow">RPLAY</font color="yellow"> defined (see the
+          Imakefile) and when <font color="cyan">FvwmEventCmd</font color="cyan">  is  set  to  <font color="yellow">builtin</font color="yellow">-
+          <font color="yellow">rplay</font color="yellow">.
+
+          For example:
+
+               *FvwmEventCmd <font color="yellow">builtin</font color="yellow">-<font color="yellow">rplay</font color="yellow">
+               *FvwmEvent add_window drip.au
+
+          rplay can be obtained via anonymous ftp at
+               &lt;URL:ftp://ftp.sdsu.edu/pub/rplay&gt;
+          or   &lt;URL:ftp://ftp.x.org/contrib/Event/rplay&gt;
+
+          <font color="cyan">FvwmEvent</font color="cyan"> also has support for any other external  pro-
+          gram.  e.g: the rsynth 'say' command:
+
+               *FvwmEventCmd /rsynth/say
+               *FvwmEvent destroy_window "window closed"
+
+          You can  also  use  <font color="cyan">fvwm2</font color="cyan">'s  builtin  <font color="yellow">Echo</font color="yellow">  command  as
+          <font color="yellow">FvwmEventCmd</font color="yellow">  to  obtain  debug output for <font color="cyan">fvwm2</font color="cyan"> events
+          quietly.  I used this setup to debug FvwmAuto:
+
+               *FvwmEventCmd <font color="yellow">Echo</font color="yellow">
+               *FvwmEvent focus_change "focus change"
+               *FvwmEvent raise_window "raise window"
+
+          You can even call different  shell  commands  for  each
+          event just by setting
+
+               *FvwmEventCmd exec
+               *FvwmEvent add_window killname "APPL ERROR"
+
+
+     *FvwmEvent <font color="yellow">window</font color="yellow">-<font color="yellow">manager</font color="yellow">-<font color="yellow">event</font color="yellow"> <font color="yellow">action</font color="yellow">-<font color="yellow">or</font color="yellow">-<font color="yellow">filename</font color="yellow">
+          Binds particular actions to window manager events.
+
+          e.g. for audio-events:
+
+               *FvwmEvent startup TaDa.au
+               *FvwmEvent shutdown Elvis_Left.au
+               *FvwmEvent unknown doh.au
+               *FvwmEvent new_page beam_trek.au
+               *FvwmEvent new_desk beam_trek.au
+               *FvwmEvent add_window drip.au
+               *FvwmEvent raise_window swoosh.au
+               *FvwmEvent lower_window swoosh.au
+               *FvwmEvent configure_window hammer.au
+               *FvwmEvent focus_change boing.au
+               *FvwmEvent destroy_window explosion.au
+               *FvwmEvent iconify ploop.au
+               *FvwmEvent deiconify ploop.au
+               *FvwmEvent window_name huh.au
+               *FvwmEvent icon_name beep.au
+               *FvwmEvent res_class beep.au
+               *FvwmEvent res_name beep.au
+               *FvwmEvent end_windowlist twang.au
+
+               *FvwmEvent icon_location beep.au
+               *FvwmEvent map beep.au
+               *FvwmEvent error beep.au
+               *FvwmEvent config_info beep.au
+               *FvwmEvent end_config_info beep.au
+               *FvwmEvent icon_file beep.au
+               *FvwmEvent default_icon beep.au
+               *FvwmEvent string plapper.au
+
+               *FvwmEvent mini_icon beep.au
+               *FvwmEvent windowshade beep.au
+               *FvwmEvent dewindowshade beep.au
+
+          Provided <font color="cyan">fvwm2</font color="cyan"> supports it (not yet), there's an  addi-
+          tional event to replace all <font color="cyan">fvwm2</font color="cyan"> beeps with a sound:
+
+               *FvwmEvent beep beep.au
+
+          The toggle_paging event will be supported, as soon,  as
+          it's resurrected by <font color="cyan">fvwm2</font color="cyan">:
+
+               *FvwmEvent toggle_paging fwop.au
+
+
+     *FvwmEventDelay <font color="yellow">5</font color="yellow">
+          Specifies that an event-action will only be executed if
+          it  occurs at least 5 seconds after the previous event.
+          Events that occur during the delay period are  ignored.
+          This  option is useful if you don't want several sounds
+          playing at the same time.  The default delay is 0 which
+          disables the Event delay.
+
+
+
+
+</PRE>
+<H2>RPLAY OPTIONS</H2><PRE>
+     The following options are  only  valid  with  builtin  rplay
+     support.   i.e:  when <font color="cyan">FvwmEvent</font color="cyan"> was compiled with <font color="yellow">HAVE</font color="yellow">_<font color="yellow">RPLAY</font color="yellow">
+     defined  (see  the  Imakefile).  They  are  used   only   if
+     <font color="cyan">FvwmEventCmd</font color="cyan"> is set to <font color="yellow">builtin</font color="yellow">-<font color="yellow">rplay</font color="yellow">.
+
+
+
+     *FvwmEventRplayHost <font color="yellow">hostname</font color="yellow">
+          Specifies what host the rplay sounds will play on.  The
+          <font color="yellow">hostname</font color="yellow">  can  also  be an environment variable such as
+          $HOSTDISPLAY.
+
+
+     *FvwmEventRplayPriority <font color="yellow">0</font color="yellow">
+          Specifies what priority will be assigned to  the  rplay
+          sounds when they are played.
+
+
+     *FvwmEventRplayVolume <font color="yellow">127</font color="yellow">
+          Specifies what volume will be assigned  to  the  sounds
+          when they are played.
+
+
+
+</PRE>
+<H2>INVOCATION</H2><PRE>
+     The invocation method was shown in the synopsis section.  No
+     command  line  invocation  is  possible.  <font color="cyan">FvwmEvent</font color="cyan">  must be
+     invoked by the <font color="cyan">fvwm2</font color="cyan"> window manager.
+
+
+
+
+</PRE>
+<H2>FvwmAudio Compatibility</H2><PRE>
+     FvwmAudioPlayCmd  used  to   call   an   external   program.
+     FvwmEventCmd  calls an <font color="cyan">fvwm2</font color="cyan"> function. External programs can
+     be called using the <font color="cyan">fvwm2</font color="cyan"> exec function "exec program".
+
+     FvwmAudioDir has been removed  due  to  the  fact  that  the
+     parameters don't have to be files any more.  use:
+
+          DestroyFunc mysay
+          AddToFunc mysay "I" exec /rsynth/say /rsynth/audiofiles/$1
+
+          *FvwmEventCmd mysay
+
+
+
+</PRE>
+<H2>BUGS</H2><PRE>
+     It's REALLY noisy when <font color="cyan">fvwm2</font color="cyan"> starts and  restarts  using  an
+     audio player.  FvwmEventDelay helps a little bit.
+
+     The parameters inherent to several events are  not  accessi-
+     ble.  This  might  be  implemented in the future so that the
+     command  executed   by   fvwm2   looks   like   FvwmEventCmd
+     FvwmEvent-parameters event-specific-parameters.
+
+     Simple <font color="cyan">FvwmAuto</font color="cyan"> could then be emulated by:
+          *FvwmEventCmd
+          *FvwmEvent raise-window Raise
+
+
+
+</PRE>
+<H2>COPYRIGHTS</H2><PRE>
+     This module has evolved  of  <font color="cyan">FvwmAudio</font color="cyan">,  which  in  term  is
+     heavily  based  on a similar Fvwm module called <font color="cyan">FvwmSound</font color="cyan"> by
+     Mark Boyns. <font color="cyan">FvwmAudio</font color="cyan"> simply took  Mark's  original  program
+     and  extended  it to make it generic enough to work with any
+     Audio player. Due  to  different  requests  to  do  specific
+     things  on  specific  events,  <font color="cyan">FvwmEvent</font color="cyan">  took this one step
+     further and now calls any <font color="cyan">fvwm2</font color="cyan"> function, or  builtin-rplay.
+     If  <font color="cyan">fvwm2</font color="cyan">'s  Exec function is used, any external program can
+     be called with any parameter.
+
+     The concept  for  interfacing  this  module  to  the  Window
+     Manager, is original work by Robert Nation.
+
+     Copyright 1998 Albrecht Kadlec. Copyright 1994,  Mark  Boyns
+     and Mark Scott.  No guarantees or warranties or anything are
+     provided or implied in any way whatsoever.  Use this program
+     at your own risk.  Permission to use and modify this program
+     for any purpose is given, as long as the copyright  is  kept
+     intact.
+
+
+
+
+
+</PRE>
+<H2>AUTHORS</H2><PRE>
+     1994  FvwmSound  Mark Boyns       (<font color="yellow">boyns</font color="yellow">@<font color="yellow">sdsu</font color="yellow">.<font color="yellow">edu</font color="yellow">)
+     1994  FvwmAudio  Mark Scott       (<font color="yellow">mscott</font color="yellow">@<font color="yellow">mcd</font color="yellow">.<font color="yellow">mot</font color="yellow">.<font color="yellow">com</font color="yellow">)
+     1996  FvwmAudio  Albrecht Kadlec
+     1998  FvwmEvent  Albrecht Kadlec  (<font color="yellow">albrecht</font color="yellow">@<font color="yellow">auto</font color="yellow">.<font color="yellow">tuwien</font color="yellow">.<font color="yellow">ac</font color="yellow">.<font color="yellow">at</font color="yellow">)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</pre>
+<hr>
+<!-- This file automatically generated by run_man2html.ksh
+on Tue Aug 10 09:47:43 EDT 1999 -->
+</body>
+</html>
+

@@ -1,5 +1,13 @@
 1999-08-10  Dan Espen  <dane@mk.telcordia.com>
 
+	* 2.2.2 manpages: added.
+
+	* docs.html: Access man pages in generated/manpages directory.
+
+	* generated/run_man2html.sh (curr_section): Add ../../ to reference to
+	background jpg.  Default input is ../../fvwm, default output is
+	./manpages.
+
 	* index.html: access NEWS in "generated" directory.
 
 	* generated/NEWS.html: Generated NEWS.html from current (2.3.6) source.

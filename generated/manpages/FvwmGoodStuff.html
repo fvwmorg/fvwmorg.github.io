@@ -1,0 +1,248 @@
+<html>
+<head>
+<title>FVWM Manpage - FvwmGoodStuff</title>
+</head>
+  <body BACKGROUND="../../black-stone1.jpg"
+    bgcolor="#000000" text="#ffffff"
+    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<center>
+<h1><font color="pink">FVWM Manpage - FvwmGoodStuff</font></h1>
+</center>
+<pre>
+
+<PRE>
+<!-- Manpage converted by man2html 3.0.1 -->
+
+</PRE>
+<H2>NAME</H2><PRE>
+     FvwmGoodStuff - the FVWM button panel module
+
+
+</PRE>
+<H2>SYNOPSIS</H2><PRE>
+     FvwmGoodStuff is spawned by fvwm, so no command line invoca-
+     tion will work.
+
+
+
+</PRE>
+<H2>DESCRIPTION</H2><PRE>
+     The FvwmGoodStuff module provides a button panel which  sits
+     on the X terminal's root window. The user can press the but-
+     tons at any time, and trigger invocation of a user-specified
+     command by the window manager. FvwmGoodStuff only works when
+     fvwm is used as the window manager.
+
+     The button panel can be of any  configuration  or  geometry,
+     and  can  have  monochrome  or  color icons to represent the
+     actions which would be invoked.
+
+     Note that this is the older version of FvwmButtons (decended
+     from  fvwm 1.xx GoodStuff module), which was rewritten as of
+     fvwm beta 2.0.42 to have more powerful  configuration  capa-
+     bilities  (see it's man page).  If you don't want to exploit
+     these new capabilities, or the new version gives  you  trou-
+     bles, you may want to use this older module instead.
+
+
+
+</PRE>
+<H2>COPYRIGHTS</H2><PRE>
+     The FvwmGoodStuff program, and the concept  for  interfacing
+     this  module to the Window Manager, are all original work by
+     Robert Nation
+
+     Copyright 1993, Robert Nation. No guarantees  or  warranties
+     or  anything  are provided or implied in any way whatsoever.
+     Use this program at your own risk. Permission  to  use  this
+     program  for  any purpose is given, as long as the copyright
+     is kept intact.
+
+
+
+
+</PRE>
+<H2>INITIALIZATION</H2><PRE>
+     During initialization, <font color="yellow">FvwmGoodStuff</font color="yellow"> will search for a  con-
+     figuration  file  which describes the button panel geometry,
+     color, icons, and actions. The format of this files will  be
+     described  later.  The  configuration  file  will be the one
+     which fvwm used during its initialization.
+
+     If the FvwmGoodStuff executable is linked to  another  name,
+     ie  ln  -s  FvwmGoodStuff  TermStuff, or if FvwmGoodStuff is
+     invoked with a parameter, ie Module FvwmGoodStuff TermStuff,
+     then  another  module called TermStuff can be started with a
+     completely  different  configuration   than   FvwmGoodStuff,
+     simply   by   changing   the  keywords  FvwmGoodStuff???  to
+     TermStuff???.  This way multiple button-bars can be used.
+
+
+
+</PRE>
+<H2>INVOCATION</H2><PRE>
+     FvwmGoodStuff can be invoked by inserting the  line  'Module
+     FvwmGoodStuff'  in the .fvwmrc file. This can be placed on a
+     line by itself, if FvwmGoodStuff is  to  be  spawned  during
+     fvwm's  initialization,  or  can be bound to a menu or mouse
+     button or keystroke to invoke it  later.  Fvwm  will  search
+     directory  specified  in the ModulePath configuration option
+     to attempt to locate FvwmGoodStuff.
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     The following options can be placed in the .fvwmrc file
+
+
+     *FvwmGoodStuffGeometry <font color="yellow">geometry</font color="yellow">
+          Specifies  the  FvwmGoodStuff  window  location  and/or
+          size.  If the size is not specified, FvwmGoodStuff will
+          auto-size itself in a reasonable manner.  The  geometry
+          is a standard X11 window geometry specification.
+
+
+     *FvwmGoodStuffFont <font color="yellow">font</font color="yellow">
+          Specifies the font to be used for labeling the buttons.
+
+
+     *FvwmGoodStuffRows <font color="yellow">rows</font color="yellow">
+          Specifies the number of rows of buttons to be  created.
+          If unspecified, 2 rows will be used.
+
+
+     *FvwmGoodStuffColumns <font color="yellow">columns</font color="yellow">
+          Specifies the  number  of  columns  of  buttons  to  be
+          created.  If unspecified, the number of columns will be
+          set to the number of buttons requested, divided by  the
+          number of rows. If both the rows and columns are speci-
+          fied, but  do  not  specify  as  many  buttons  as  are
+          defined,  then  the users columns specification will be
+          ignored.
+
+
+     *FvwmGoodStuffFore <font color="yellow">color</font color="yellow">
+          Specifies the color for button  label  text  and  mono-
+          chrome icons.
+
+
+     *FvwmGoodStuffBack <font color="yellow">color</font color="yellow">
+          Specifies the color for the buttons.
+
+     *FvwmGoodStuff[(<font color="yellow">w</font color="yellow"> <font color="yellow">x</font color="yellow"> <font color="yellow">h</font color="yellow">)] <font color="yellow">label</font color="yellow"> <font color="yellow">icon</font color="yellow"> <font color="yellow">command</font color="yellow">
+          Specifies  a  window  manager  built-in   command,   as
+          described  in  the  fvwm man page, which should be exe-
+          cuted when a button is pressed.  The label field is the
+          text  which  will  be  written on the button.  The icon
+          field specifies an X11 bitmap file or  XPM  color  icon
+          file,  containing  the  icon  to display on the button.
+          FvwmGoodStuff will search through the path specified in
+          the  fvwm IconPath or PixmapPath configuration items to
+          find the icon file.  If the optional (<font color="yellow">w</font color="yellow"> <font color="yellow">x</font color="yellow"> <font color="yellow">h</font color="yellow">) is  speci-
+          fied,  then this button will be <font color="yellow">w</font color="yellow"> times the normal but-
+          ton width and <font color="yellow">h</font color="yellow"> times the  normal  button  height.   If
+          label  is  "-"  then  the  button  label  will  not  be
+          displayed.
+
+          If <font color="yellow">command</font color="yellow"> is an fvwm Exec  command,  then  the  button
+          will  remain  pushed  in  until  a window whose name or
+          class matches the qouted  portion  of  the  command  is
+          encountered.   This is intended to provide visual feed-
+          back to the user that the action he has requested  will
+          be  performed.  If the qouted portion contains no char-
+          acters, then the button will pop out immediately.  Note
+          that  users  can  continue pressing the button, and re-
+          executing the command, even when it looks "pressed in."
+
+          A single extension to the fvwm built-in command set  is
+          provided.   A command of the form: '*FvwmGoodStuff junk
+          clock.xpm  Swallow  "Clock"  Exec  rclock'  will  cause
+          FvwmGoodStuff  to  spawn an rclock process, and capture
+          the first window whose name or resource is "Clock", and
+          display it in the button-bar.  This is handy for appli-
+          cations like xclock, xbiff, and xload.  Modules can  be
+          swallowed  by  specifying  the  module instead of 'Exec
+          whatever',  like:  '*FvwmGoodStuff  -  foobar   Swallow
+          "FvwmPager" FvwmPager 0 0'.
+
+          NOTE: if you use xclock for this application, you  will
+          want to specify xclock -padding 0.
+
+
+
+
+</PRE>
+<H2>SAMPLE CONFIGURATION</H2><PRE>
+     The following are excepts from a .fvwmrc file which describe
+     FvwmGoodStuff initialization commands:
+
+
+     ##############################################################
+     # Load any modules which should be started during
+     # fvwm initialization
+     ModulePath /usr/lib/X11/fvwm:/usr/bin/X11
+     Module FvwmGoodStuff
+
+     # Make FvwmGoodStuff title-bar-less, sticky, and give it an icon
+     NoTitle FvwmGoodStuff
+     Sticky FvwmGoodStuff
+     Icon "FvwmGoodStuff"    toolbox.xpm
+
+     ##############################################################
+     ##############################################################
+     #Definitions used by the modules
+     *FvwmGoodStuffFore Black
+     *FvwmGoodStuffBack #908090
+
+     *FvwmGoodStuffGeometry -135-5
+     *FvwmGoodStuffRows 1
+     *FvwmGoodStuffFont -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+
+     *FvwmGoodStuff Resize  resize.xpm  Resize
+     *FvwmGoodStuff Move    arrows2.xpm Move
+     *FvwmGoodStuff Lower   Down        Lower
+     *FvwmGoodStuff Raise   Up          Raise
+     *FvwmGoodStuff Kill    bomb.xpm    Destroy
+
+     *FvwmGoodStuff Dopey   rterm.xpm   Exec "big_win" xterm -T big_win -geometry 80x50
+     *FvwmGoodStuff Snoopy  rterm.xpm   Exec "small_win" xterm -T small_wi
+     *FvwmGoodStuff Xcalc   rcalc.xpm   Exec "Calculator" xcalc
+     *FvwmGoodStuff XMag    magnifying_glass2.xpm    Exec "xmag" xmag
+     *FvwmGoodStuff Mail    mail2.xpm   Exec "xmh" xmh
+     *FvwmGoodStuff(4x1) - whatever SwallowModule "Fvwm Pager" FvwmPager 0 3
+
+
+     The last line is a little tricky - it  spawns  an  FvwmPager
+     module, and captures it to display in a quadruple width but-
+     ton. Since "-" is used for the button label, the Pager  will
+     be  resized  to  be  as  big as possible within the button's
+     borders. "whatever", of course, is a non-existent icon file,
+     and will be ignored by FvwmGoodStuff.
+
+
+
+</PRE>
+<H2>AUTHOR</H2><PRE>
+     Robert Nation
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</pre>
+<hr>
+<!-- This file automatically generated by run_man2html.ksh
+on Tue Aug 10 09:47:34 EDT 1999 -->
+</body>
+</html>
+

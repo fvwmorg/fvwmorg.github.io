@@ -1,0 +1,354 @@
+<html>
+<head>
+<title>FVWM Manpage - FvwmPager</title>
+</head>
+  <body BACKGROUND="../../black-stone1.jpg"
+    bgcolor="#000000" text="#ffffff"
+    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<center>
+<h1><font color="pink">FVWM Manpage - FvwmPager</font></h1>
+</center>
+<pre>
+
+<PRE>
+<!-- Manpage converted by man2html 3.0.1 -->
+
+</PRE>
+<H2>NAME</H2><PRE>
+     FvwmPager - the FVWM Pager module
+
+
+</PRE>
+<H2>SYNOPSIS</H2><PRE>
+     FvwmPager is spawned by fvwm, so no command line  invocation
+     will  work.   From  within  the  .fvwmrc  file, FvwmPager is
+     spawned as follows:
+
+     Module FvwmPager 0 3
+
+     or
+
+     Module FvwmPager * *
+
+     or from within an fvwm pop-up menu:
+
+     AddToMenu Module-Popup "Modules"      Title
+     +                      "Audio"        Module FvwmAudio
+     +                      "Auto"         Module FvwmAuto 200
+     +                      "Buttons"      Module FvwmButtons
+     +                      "Ident"        Module FvwmIdent
+     +                      "Banner"       Module FvwmBanner
+     +                      "Pager"        Module FvwmPager 0 3
+
+     or
+
+     +                      "Pager"        Module FvwmPager * *
+
+     where "0" is the first desktop to show, and "3" is the  last
+     and  "*"  is the current dektop.  In the second format (with
+     two asterisks) the current desk is  always  visible  in  the
+     pager (and it is also the only one).
+
+
+
+</PRE>
+<H2>DESCRIPTION</H2><PRE>
+     The FvwmPager module shows a  miniature  view  of  the  Fvwm
+     desktops  which are specified in the command line. This is a
+     useful reminder of where your active windows are. Windows in
+     the  pager are shown in the same color as their fvwm decora-
+     tions.
+
+     The pager can be used  to  change  your  viewport  into  the
+     current  desktop,  to  change  desktops,  or to move windows
+     around.
+
+     Pressing mouse button 1 in the pager will cause you viewport
+     to  change to the selected page of the selected desk. If you
+     click with button 1 in the desk-label area, you will  switch
+     desks but not pages within the desk.
+
+     Dragging mouse button 2 on a miniature view of a window will
+     cause  that  window  to  be  move  to the location where you
+     release the mouse button, but your viewport will not change.
+     If  you drag the window out of the pager and onto your desk-
+     top, a full size image of the window will appear for you  to
+     place.  There  is no way to pick up a full size image of the
+     window and move it into the pager, however. Since some  mice
+     do not have button 2, I have made provisions to drag windows
+     in the pager by using pressing modifier-1 (usually Alt)  and
+     dragging with button 3.
+
+     Clicking mouse  button  3  on  a  location  will  cause  the
+     viewport  to  move to the selected location and switch desks
+     if necessary, but will not align  the  viewport  to  a  page
+     boundary.  Dragging button 3 will cause the viewport to move
+     as you drag but not switch desktops,  even  if  the  pointer
+     moves to another desktop.
+
+     When iconified, the pager will work as  a  fully  functional
+     current  page only pager. Windows and viewports can be moved
+     within the icon of the pager. Users will want to  make  sure
+     that they have no lines similar to
+
+     Icon "Fvwm Pager" whatever
+
+     in their .fvwmrc files.
+
+
+
+
+</PRE>
+<H2>COPYRIGHTS</H2><PRE>
+     The FvwmPager program, and the concept for interfacing  this
+     module  to  the  Window  Manager,  are  all original work by
+     Robert Nation.
+
+     Copyright 1994, Robert Nation. No guarantees  or  warranties
+     or  anything  are provided or implied in any way whatsoever.
+     Use this program at your own risk. Permission  to  use  this
+     program  for  any purpose is given, as long as the copyright
+     is kept intact.
+
+
+
+
+</PRE>
+<H2>INITIALIZATION</H2><PRE>
+     During initialization, <font color="yellow">FvwmPager</font color="yellow"> will  eventually  search  a
+     configuration file which describes the time-outs and actions
+     to take.  The configuration file is the same file that  fvwm
+     used during initialization.
+
+     If the FvwmPager executable is linked to another name, ie ln
+     -s  FvwmPager  OtherPager, then another module called Other-
+     Pager can be started, with a completely different configura-
+     tion   than   FvwmPager,  simply  by  changing  the  keyword
+     FvwmPager to OtherPager. This way  multiple  pager  programs
+     can be used.
+
+
+</PRE>
+<H2>KEYBOARD FOCUS CONTROL</H2><PRE>
+     You can direct the keyboard  focus  to  any  window  on  the
+     current  desktop  by  clicking with button 2 on its image in
+     the pager. The window does not need to be  visible,  but  it
+     does need to be on the current page.
+
+
+
+</PRE>
+<H2>INVOCATION</H2><PRE>
+     The invocation method was shown in the synopsis section
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     FvwmPager reads the same .fvwmrc file as fvwm reads when  it
+     starts up, and looks for certain configuration options:
+
+
+     *FvwmPagerGeometry <font color="yellow">geometry</font color="yellow">
+          Completely or partially  specifies  the  pager  windows
+          location  and  geometry,  in  standard X11 notation. In
+          order to maintain  an  undistorted  aspect  ratio,  you
+          might  want  to  leave  out  either the width or height
+          dimension of the geometry specification
+
+
+     *FvwmPagerRows <font color="yellow">rows</font color="yellow">
+          Tells fvwm how many rows of desks to  use  when  laying
+          out the pager window.
+
+
+     *FvwmPagerColumns <font color="yellow">columns</font color="yellow">
+          Tells fvwm how many columnss of desks to use when  lay-
+          ing out the pager window.
+
+
+     *FvwmPagerIconGeometry <font color="yellow">geometry</font color="yellow">
+          Specifies a size (optional) and location (optional) for
+          the pager's icon window. Since there is no easy way for
+          FvwmPager to determine the height of the icon's  label,
+          you  will have to make an allowance for the icon  label
+          height when using negative y-coordinates  in  the  icon
+          location  specification  (used  to  specify  a location
+          relative to the  bottom  instead  of  the  top  of  the
+          screen).
+
+
+     *FvwmPagerStartIconic
+          Causes the pager to start iconified.
+
+
+     *FvwmPagerNoStartIconic
+          Causes the pager to start normally.  Useful for cancel-
+          ling the effect of the <font color="yellow">StartIconic</font color="yellow"> option.
+
+     *FvwmPagerFont <font color="yellow">font</font color="yellow">-<font color="yellow">name</font color="yellow">
+          Specified a font to use  to  label  the  desktops.   If
+          <font color="yellow">font</font color="yellow">_<font color="yellow">name</font color="yellow">  is  "none"  then  no  desktop labels will be
+          displayed.
+
+
+     *FvwmPagerSmallFont <font color="yellow">font</font color="yellow">-<font color="yellow">name</font color="yellow">
+          Specified a font to use to label the  window  names  in
+          the  pager. If not specified, the window labels will be
+          omitted. Window labels seem to be  fairly  useless  for
+          desktop  scales  of  32  or  greater.   If <font color="yellow">font</font color="yellow">_<font color="yellow">name</font color="yellow"> is
+          "none" then no window names will be displayed.
+
+
+     *FvwmPagerFore <font color="yellow">color</font color="yellow">
+          Specifies the color to use to write the desktop labels,
+          and to draw the page-grid lines.
+
+
+     *FvwmPagerBack <font color="yellow">color</font color="yellow">
+          Specifies the background color for the window.
+
+
+     *FvwmPagerHilight <font color="yellow">color</font color="yellow">
+          The active page and desk label will be  highlighted  by
+          using  this  background  pattern  instead of the normal
+          background.
+
+
+     *FvwmPagerWindowColors <font color="yellow">fore</font color="yellow"> <font color="yellow">back</font color="yellow"> <font color="yellow">hiFore</font color="yellow"> <font color="yellow">hiBack</font color="yellow">
+          Change the normal/highlight colors of the windows. <font color="yellow">fore</font color="yellow">
+          and  <font color="yellow">hiFore</font color="yellow">  specify  the  colors  as used for the font
+          inside the windows.  <font color="yellow">back</font color="yellow"> and <font color="yellow">hiBack</font color="yellow"> are used  to  fill
+          the windows with.
+
+     *FvwmPagerLabel <font color="yellow">desk</font color="yellow"> <font color="yellow">label</font color="yellow">
+          Assigns the text <font color="yellow">label</font color="yellow"> to desk  <font color="yellow">desk</font color="yellow">  (or  the  current
+          desk  if  desk  is "*") in the pager window. Useful for
+          assigning symbolic names to desktops, i.e.
+
+          *FvwmPagerLabel 1 Mail
+          *FvwmPagerLabel 2 Maker
+          *FvwmPagerLabel * Matlab
+
+
+
+     *FvwmPagerDeskColor <font color="yellow">desk</font color="yellow"> <font color="yellow">color</font color="yellow">
+          Assigns the color <font color="yellow">color</font color="yellow"> to desk <font color="yellow">desk</font color="yellow">  (or  the  current
+          desk if desk is "*") in the pager window. This replaces
+          the background color for  the  particular  <font color="yellow">desk</font color="yellow">.   This
+          only  works  when the pager is full sized.  When Iconi-
+          fied,  the  pager   uses   the   color   specified   by
+          *FvwmPagerBack.
+
+          <font color="cyan">TIP:</font color="cyan"> Try using *FvwmPagerDeskColor in conjunction  with
+          FvwmCpp  (or FvwmM4) and FvwmBacker to assign identical
+          colors to your various desktops and the pager represen-
+          tations.
+
+
+     *FvwmPagerDeskTopScale <font color="yellow">number</font color="yellow">
+          If the geometry is not specified, then a desktop reduc-
+          tion  factor  is  used  to  calculate the pager's size.
+          Things in the pager window are shown at 1/<font color="yellow">number</font color="yellow"> of the
+          actual size.
+
+
+     *FvwmPagerMiniIcons
+          Allow the pager to display a window's mini icon in  the
+          pager,  if  it has one, instead of showing the window's
+          name.
+
+
+     *FvwmPagerBalloons [<font color="yellow">type</font color="yellow">]
+          Show a balloon describing the window when  the  pointer
+          is moved into a window in the pager. Currently only the
+          window's icon name is shown.  If <font color="yellow">type</font color="yellow"> is <font color="yellow">Pager</font color="yellow"> balloons
+          are  just  shown  for  an uniconified pager; if <font color="yellow">type</font color="yellow"> is
+          <font color="yellow">Icon</font color="yellow"> balloons are just shown for an iconified pager. If
+          <font color="yellow">type</font color="yellow">  is  anything  else  (or null) balloons are always
+          shown.
+
+
+     *FvwmPagerBalloonFore <font color="yellow">color</font color="yellow">
+          Specifies the color for text in the balloon window.  If
+          omitted  it  defaults  to  the foreground color for the
+          window being described.
+
+
+     *FvwmPagerBalloonBack <font color="yellow">color</font color="yellow">
+          Specifies the background color for the balloon  window.
+          If  omitted it defaults to the background color for the
+          window being described.
+
+
+     *FvwmPagerBalloonFont <font color="yellow">font</font color="yellow">-<font color="yellow">name</font color="yellow">
+          Specifies a font to use for the balloon text.  Defaults
+          to <font color="yellow">fixed</font color="yellow">.
+
+
+     *FvwmPagerBalloonBorderWidth <font color="yellow">number</font color="yellow">
+          Sets the width of the balloon window's border. Defaults
+          to 1.
+
+     *FvwmPagerBalloonBorderColor <font color="yellow">color</font color="yellow">
+          Sets the color of the balloon window's border. Defaults
+          to black.
+
+
+     *FvwmPagerBalloonYOffset <font color="yellow">number</font color="yellow">
+          The balloon window is  positioned  to  be  horizontally
+          centered against the pager window it is describing. The
+          vertical position may be set  as  an  offset.  Negative
+          offsets  of -<font color="yellow">n</font color="yellow"> are placed <font color="yellow">n</font color="yellow"> pixels above the pager win-
+          dow, positive offsets of +<font color="yellow">n</font color="yellow"> are placed <font color="yellow">n</font color="yellow"> pixels  below.
+          Offsets  of  0  are not permitted, as this would permit
+          direct transit from pager  window  to  balloon  window,
+          causing  an event loop. Defaults to +2. The offset will
+          change sign automatically, as needed, to keep the  bal-
+          loon on the screen.
+
+
+
+
+</PRE>
+<H2>AUTHOR</H2><PRE>
+     Robert Nation
+     DeskColor patch contributed by Alan Wild
+     MiniIcons and WindowColors patch contributed by Rob Whapham
+     Balloons patch by Ric Lister &lt;ric@giccs.georgetown.edu&gt;.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</pre>
+<hr>
+<!-- This file automatically generated by run_man2html.ksh
+on Tue Aug 10 09:47:45 EDT 1999 -->
+</body>
+</html>
+

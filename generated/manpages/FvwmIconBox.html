@@ -1,0 +1,404 @@
+<html>
+<head>
+<title>FVWM Manpage - FvwmIconBox</title>
+</head>
+  <body BACKGROUND="../../black-stone1.jpg"
+    bgcolor="#000000" text="#ffffff"
+    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<center>
+<h1><font color="pink">FVWM Manpage - FvwmIconBox</font></h1>
+</center>
+<pre>
+
+<PRE>
+<!-- Manpage converted by man2html 3.0.1 -->
+
+</PRE>
+<H2>NAME</H2><PRE>
+     FvwmIconBox - the FVWM iconbox module
+
+
+</PRE>
+<H2>SYNOPSIS</H2><PRE>
+     FvwmIconBox is spawned by fvwm, so no command  line  invoca-
+     tion will work.
+
+
+
+</PRE>
+<H2>DESCRIPTION</H2><PRE>
+     The FvwmIconBox module provides an icon  manager.  The  user
+     can do operations, like iconify and deiconify, for each icon
+     shown in the module via mouse and keyboard.
+
+     FvwmIconBox reads the same .fvwmrc file as fvwm  reads  when
+     it  starts up, and looks for lines similar to "*FvwmIconBox-
+     Fore green".
+
+
+
+</PRE>
+<H2>COPYRIGHTS</H2><PRE>
+     The FvwmIconBox program is original work of Nobutaka Suzuki.
+
+     Copyright 1994, Nobutaka Suzuki. No guarantees or warranties
+     or  anything  are provided or implied in any way whatsoever.
+     Use this program at your own risk. Permission  to  use  this
+     program  for  any purpose is given, as long as the copyright
+     is kept intact.
+
+
+
+
+</PRE>
+<H2>INITIALIZATION</H2><PRE>
+     During initialization, <font color="yellow">FvwmIconBox</font color="yellow"> will eventually search  a
+     configuration  file. The configuration file is the same file
+     that fvwm used during initialization.
+
+     If the FvwmIconBox executable is linked to another name,  ie
+     ln  -s  FvwmIconBox  MoreIconBox, then another module called
+     MoreIconBox can be started, with a completely different con-
+     figuration  than FvwmIconBox, simply by changing the keyword
+     FvwmIconBox  to  MoreIconBox.  This  way  multiple  clutter-
+     reduction programs can be used.
+
+
+
+</PRE>
+<H2>INVOCATION</H2><PRE>
+     FvwmIconBox can be invoked by  binding  the  action  'Module
+     FvwmIconBox'  to  a  menu or key-stroke in the .fvwmrc file.
+     Fvwm will search directory specified in the ModulePath  con-
+     figuration option to attempt to locate FvwmIconBox.
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     FvwmIconBox shows icons only if NoIcon is applied. Note that
+     the  NoIcon attribute should be set after the Icon attribute
+     specification. Otherwise the icon-box  module  might  become
+     nothing  but  an empty-box module. The module reads the same
+     .fvwmrc file as fvwm reads when it starts up, and looks  for
+     lines as listed below:
+
+
+     *FvwmIconBoxFore <font color="yellow">color</font color="yellow">
+          Tells the module to use <font color="yellow">color</font color="yellow"> instead of white for  the
+          window  foreground.  This option affects only the fore-
+          ground  color   of   background_bitmap   specified   in
+          *FvwmIconBoxPixmap option described below.
+
+
+     *FvwmIconBoxBack <font color="yellow">color</font color="yellow">
+          Tells the module to use <font color="yellow">color</font color="yellow"> instead of black for  the
+          window background.
+
+
+     *FvwmIconBoxIconFore <font color="yellow">color</font color="yellow">
+          Tells the module to use  <font color="yellow">color</font color="yellow">  instead  of  black  for
+          non-selected icon text.
+
+
+     *FvwmIconBoxIconBack <font color="yellow">color</font color="yellow">
+          Tells the module to use <font color="yellow">color</font color="yellow"> instead of white for  the
+          non-selected icon background.
+
+
+     *FvwmIconBoxIconHiFore <font color="yellow">color</font color="yellow">
+          Tells the module to use  <font color="yellow">color</font color="yellow">  instead  of  black  for
+          selected icon text.
+
+
+     *FvwmIconBoxIconHiBack <font color="yellow">color</font color="yellow">
+          Tells the module to use <font color="yellow">color</font color="yellow"> instead of white for  the
+          selected icon background.
+
+
+     *FvwmIconBoxPixmap <font color="yellow">pixmap</font color="yellow">
+          Tells  the  module  to  use  <font color="yellow">pixmap</font color="yellow">  for   the   window
+          background_pixmap.
+
+
+     *FvwmIconBoxFont <font color="yellow">fontname</font color="yellow">
+          Tells the module to use <font color="yellow">fontname</font color="yellow"> instead of  fixed  for
+          text.
+
+
+     *FvwmIconBoxSortIcons <font color="yellow">option</font color="yellow">
+          Tells the module to sort all icons in iconbox in alpha-
+          betical  order.   <font color="yellow">option</font color="yellow">  can  be <font color="yellow">WindowName</font color="yellow">, <font color="yellow">IconName</font color="yellow">,
+          <font color="yellow">ResClass</font color="yellow">, and <font color="yellow">ResName</font color="yellow">. For example, specifying <font color="yellow">ResClass</font color="yellow">
+          means  that  icons  are sorted by using their resource-
+          class strings. If <font color="yellow">option</font color="yellow"> is  <font color="yellow">ResClass</font color="yellow">  or  <font color="yellow">ResName</font color="yellow">,  an
+          icon having no XA_WM_CLASS property is considered to be
+          the "smallest" element.
+
+
+     *FvwmIconBoxPadding <font color="yellow">number</font color="yellow">
+          Specifies the  number  of  pixels  between  icons.  The
+          default value is 5.
+
+
+     *FvwmIconBoxSBWidth <font color="yellow">number</font color="yellow">
+          Specifies  the  width  of   horizontal   and   vertical
+          scrollbars. The default value is 9.
+
+
+     *FvwmIconBoxPlacement <font color="yellow">primary</font color="yellow"> <font color="yellow">secondary</font color="yellow">
+          Specifies icon placement policy. <font color="yellow">primary</font color="yellow"> and  <font color="yellow">secondary</font color="yellow">
+          can be <font color="yellow">Top</font color="yellow">, <font color="yellow">Bottom</font color="yellow">, <font color="yellow">Left</font color="yellow"> and <font color="yellow">Right</font color="yellow">. The following eight
+          combinations are available:
+
+          <font color="yellow">primary</font color="yellow">      <font color="yellow">secondary</font color="yellow">
+
+           Left         Top
+           Left         Bottom
+           Right        Top
+           Right        Bottom
+           Top          Left
+           Top          Right
+           Bottom       Left
+           Bottom       Right
+
+          <font color="yellow">Top</font color="yellow"><font color="cyan">:</font color="cyan"> Icons are placed from top to bottom.
+
+          <font color="yellow">Bottom</font color="yellow"><font color="cyan">:</font color="cyan"> Icons are placed from bottom to top.
+
+          <font color="yellow">Left</font color="yellow"><font color="cyan">:</font color="cyan"> Icons are placed from left to right.
+
+          <font color="yellow">Right</font color="yellow"><font color="cyan">:</font color="cyan"> Icons are placed from right to left.
+
+          For example, when the placement is  "Left  Top",  icons
+          are  placed  from left to right, and new rows are added
+          from top to bottom. The default vale is "Left Bottom".
+
+
+     *FvwmIconBoxLines
+          Specifies the number of icons placed in a line. If <font color="yellow">pri-</font color="yellow">
+          <font color="yellow">mary</font color="yellow">  is Left or Right, this value specifies the number
+          of columns. If <font color="yellow">primary</font color="yellow"> is Top  or  Bottom,  this  value
+          specifies  the number of rows. For example, seven icons
+          are placed in a  row  if  *FvwmIconBoxLines  is  7  and
+          *FvwmIconBoxPlacement is "Left Top".  The default value
+          is 6.
+
+
+     *FvwmIconBoxHideSC <font color="yellow">direction</font color="yellow">
+          Specifies the undisplayed scroll bar . <font color="yellow">Direction</font color="yellow"> can be
+          either <font color="yellow">Horizontal</font color="yellow"> or <font color="yellow">Vertical</font color="yellow">.
+
+
+     *FvwmIconBoxGeometry &lt;<font color="yellow">width</font color="yellow">&gt;<font color="yellow">x</font color="yellow">&lt;<font color="yellow">height</font color="yellow">&gt;{+-}&lt;<font color="yellow">X</font color="yellow">&gt;{+-}&lt;<font color="yellow">Y</font color="yellow">&gt;
+          Specifies the  location  and/or  size  of  FvwmIconBox.
+          <font color="yellow">width</font color="yellow"> and <font color="yellow">height</font color="yellow"> are measured in icons, not pixels. The
+          default value is 6x1+0+0.
+
+
+     *FvwmIconBoxMaxIconSize &lt;<font color="yellow">width</font color="yellow">&gt;<font color="yellow">x</font color="yellow">&lt;<font color="yellow">height</font color="yellow">&gt;
+          Specifies the maximum size of  icon  bitmap.  A  bitmap
+          larger  than  this  size  is  clipped to this size. The
+          default value is 48x48. In particular, if the height is
+          0,  then  icon  bitmaps are not displayed and only icon
+          labels are drawn.
+
+
+     *FvwmIconBoxMouse <font color="yellow">Button</font color="yellow"> <font color="yellow">Action</font color="yellow"> <font color="yellow">Response</font color="yellow">[, <font color="yellow">Response</font color="yellow">]
+          Tells the module to do <font color="yellow">Response</font color="yellow"> when <font color="yellow">Action</font color="yellow"> is done  on
+          button  <font color="yellow">Button</font color="yellow">.  Available <font color="yellow">Response</font color="yellow">es are built-in com-
+          mands in Fvwm (e.g. Iconify, Delete, Focus) and  avail-
+          able <font color="yellow">Action</font color="yellow">s are Click and DoubleClick.
+
+
+     *FvwmIconBoxKey <font color="yellow">Key</font color="yellow"> <font color="yellow">Response</font color="yellow">[, <font color="yellow">Response</font color="yellow">]
+          Tells the module to do <font color="yellow">Response</font color="yellow"> when  <font color="yellow">Key</font color="yellow">  is  pressed.
+          Available  <font color="yellow">Response</font color="yellow">es  are,  besides Fvwm built-in com-
+          mands, the following six FvwmIconBox built-in commands:
+          <font color="yellow">Next</font color="yellow">, <font color="yellow">Prev</font color="yellow">, <font color="yellow">Left</font color="yellow">, <font color="yellow">Right</font color="yellow">, <font color="yellow">Up</font color="yellow">, and <font color="yellow">Down</font color="yellow">.
+
+          <font color="yellow">Next</font color="yellow"><font color="cyan">:</font color="cyan"> Change the hilited-icon to the next.
+
+          <font color="yellow">Prev</font color="yellow"><font color="cyan">:</font color="cyan"> Change the hilited-icon to the previous.
+
+          <font color="yellow">Left</font color="yellow"><font color="cyan">:</font color="cyan"> Move the slider of the  horizontal  scrollbar  to
+          left. Icons move to right accordingly.
+
+          <font color="yellow">Right</font color="yellow"><font color="cyan">:</font color="cyan"> Move the slider of the horizontal  scrollbar  to
+          right. Icons move to left accordingly.
+
+          <font color="yellow">Up</font color="yellow"><font color="cyan">:</font color="cyan"> Move the slider of the vertical  scrollbar  to  up.
+          Icons move to down accordingly.
+
+          <font color="yellow">Down</font color="yellow"><font color="cyan">:</font color="cyan"> Move the slider  of  the  vertical  scrollbar  to
+          down. Icons move to up accordingly.
+
+
+     *FvwmIconBox <font color="yellow">windowname</font color="yellow"> <font color="yellow">bitmap</font color="yellow">-<font color="yellow">file</font color="yellow">
+          Specifies the bitmap to be  displayed  in  iconbox  for
+          <font color="yellow">windowname</font color="yellow">.    This  option  "overrides"  bitmap  files
+          specified in Style command.  <font color="yellow">Windowname</font color="yellow"> can  be  window
+          name,  class  name,  or resource name.  <font color="yellow">Windowname</font color="yellow">  can
+          contain "*" and "?" like Fvwm configuration  file.  The
+          <font color="yellow">bitmap</font color="yellow">-<font color="yellow">file</font color="yellow">  is either  the full  path name to a bitmap
+          file, or a file  in  the  IconPath  or  PixmapPath.  If
+          <font color="yellow">bitmap</font color="yellow">-<font color="yellow">file</font color="yellow"> is specified to be "-", the icon for a win-
+          dow corresponding to <font color="yellow">windowname</font color="yellow"> is  not  shown  in  the
+          iconbox.
+
+
+     *FvwmIconBoxSetWMIconSize
+          Tells the module to set XA_WM_ICON_SIZE property of the
+          root window at the size which the module want icon win-
+          dows to have. If you show icon windows on not the  root
+          window  but  the  module, it would be better to specify
+          this option.
+
+
+     *FvwmIconBoxHilightFocusWin
+          Tells the module to hilight  the  icon  of  the  window
+          which  has  the keyboard focus. The fore/back colors of
+          the  hilighted  icon  are  those   specified   in   the
+          *FvwmIconBoxIconHiFore  and *FvwmIconBoxIconHiBack com-
+          mands, respectively.
+
+
+     *FvwmIconBoxResolution <font color="yellow">resolution</font color="yellow">
+          If <font color="yellow">resolution</font color="yellow"> is Desk, then the module shows  only  the
+          icons on the current desk.  Currently, Desk is the only
+          value <font color="yellow">resolution</font color="yellow"> can take :)
+
+
+     *FvwmIconBoxFrameWidth <font color="yellow">width1</font color="yellow"> <font color="yellow">width2</font color="yellow">
+          Specifies  the  frame-width  of  the   module.   <font color="yellow">Width1</font color="yellow">
+          corresponds  to  the width from the outer-border to the
+          scroll-bar, and,  <font color="yellow">width2</font color="yellow"> corresponds to the width  from
+          the scroll-bar to the internal-window displaying icons.
+          The default values are 8 and 6, respectively.
+
+
+
+</PRE>
+<H2>SAMPLE CONFIGURATION</H2><PRE>
+     The following are excepts from a .fvwmrc file which describe
+     FvwmIconBox initialization commands:
+
+     ############################################################
+     # Note that icons are shown in the module
+     #    only if NoIcon attribute is applied.
+     Style     "*"  NoIcon
+
+     ############################################################
+     *FvwmIconBoxIconBack    #cfcfcf
+     *FvwmIconBoxIconHiFore  black
+     *FvwmIconBoxIconHiBack  LightSkyBlue
+     *FvwmIconBoxBack        #5f9ea0
+     #*FvwmIconBoxFore       blue
+     *FvwmIconBoxGeometry    5x1+0+0
+     *FvwmIconBoxMaxIconSize 64x38
+     *FvwmIconBoxFont        -adobe-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*
+     *FvwmIconBoxSortIcons    IconName
+     #*FvwmIconBoxSortIcons   ResClass
+     *FvwmIconBoxPadding     4
+     *FvwmIconBoxFrameWidth  9 7
+     *FvwmIconBoxLines       10
+     *FvwmIconBoxSBWidth     11
+     *FvwmIconBoxPlacement   Left Top
+     *FvwmIconBoxPixmap      fvwm.xpm
+     #*FvwmIconBoxHideSC Horizontal
+     *FvwmIconBoxSetWMIconSize
+     *FvwmIconBoxHilightFocusWin
+     #*FvwmIconBoxResolution       Desk
+     #
+     # mouse bindings
+     #
+     *FvwmIconBoxMouse       1       Click           RaiseLower
+     *FvwmIconBoxMouse       1       DoubleClick     Iconify
+     *FvwmIconBoxMouse       2       Click           Iconify -1, Focus
+     *FvwmIconBoxMouse       3       Click           Module FvwmIdent
+     #
+     # Key bindings
+     #
+     *FvwmIconBoxKey         r       RaiseLower
+     *FvwmIconBoxKey         space   Iconify
+     *FvwmIconBoxKey         d       Close
+     #
+     # FvwmIconBox built-in functions
+     #
+     *FvwmIconBoxKey         n       Next
+     *FvwmIconBoxKey         p       Prev
+     *FvwmIconBoxKey         h       Left
+     *FvwmIconBoxKey         j       Down
+     *FvwmIconBoxKey         k       Up
+     *FvwmIconBoxKey         l       Right
+     #
+     # Icon file specifications
+     #
+     # Mostly, you don't have to specify icon files, as FvwmIconBox now
+     # reads icon files specified in Style commands.
+     #
+     *FvwmIconBox            "Fvwm*"         -
+
+
+
+</PRE>
+<H2>AUTHOR</H2><PRE>
+     Nobutaka Suzuki (nobuta-s@is.aist-nara.ac.jp).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</pre>
+<hr>
+<!-- This file automatically generated by run_man2html.ksh
+on Tue Aug 10 09:47:44 EDT 1999 -->
+</body>
+</html>
+

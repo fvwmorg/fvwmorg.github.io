@@ -1,0 +1,354 @@
+<html>
+<head>
+<title>FVWM Manpage - FvwmTaskBar</title>
+</head>
+  <body BACKGROUND="../../black-stone1.jpg"
+    bgcolor="#000000" text="#ffffff"
+    link="#FFFF88" vlink="#EEDDDD" alink="#ff0000">
+<center>
+<h1><font color="pink">FVWM Manpage - FvwmTaskBar</font></h1>
+</center>
+<pre>
+
+<PRE>
+<!-- Manpage converted by man2html 3.0.1 -->
+
+</PRE>
+<H2>NAME</H2><PRE>
+     FvwmTaskBar - the FVWM taskbar module
+
+
+</PRE>
+<H2>SYNOPSIS</H2><PRE>
+     FvwmTaskBar is spawned by FVWM, so no command  line  invoca-
+     tion will work.
+
+
+
+</PRE>
+<H2>DESCRIPTION</H2><PRE>
+     The FvwmTaskBar module provides a taskbar made up of buttons
+     arranged  by  rows, each corresponding to a window that FVWM
+     is managing.  Clicking on first button gives  focus  to  the
+     corresponding toplevel window; clicking on the middle button
+     will hide a toplevel window; third mouse button is  reserved
+     for  a  future  extension  (context  menu).   Like the other
+     modules, FvwmTaskBar only works when fvwm  is  used  as  the
+     window manager.
+
+     When started, the taskbar shows up as a single row  of  but-
+     tons  filling  the  full width of the screen, but during the
+     work can be resized to accomodate up to 8 rows. In  adition,
+     if  the AutoStick option is used, the taskbar will autoposi-
+     tion itself at the top or bottom of the screen, and  can  be
+     dragged  from  one  position  to  another with a normal move
+     operation.
+
+     The first button of the taskbar, labelled  "Start"  sends  a
+     "Popup  StartMenu" command to the FVWM, which can be used to
+     pop-up a general-purpose menu when the button is pressed.
+
+     The FvwmTaskBar also displays at the  right  side  a  window
+     showing  the  current  time  and  the built-in incoming mail
+     indicator.
+
+
+
+</PRE>
+<H2>COPYRIGHTS</H2><PRE>
+     The FvwmTaskBar  module  is  derivated  from  Mike  Finger's
+     FvwmWinList.
+
+     Copyright 1994, Mike Finger. The author makes no  guarantees
+     or warranties of any kind about the use of this module.  Use
+     this modules at your own risk.   You  may  freely  use  this
+     module  or  any portion of it for any purpose as long as the
+     copyright is kept intact.
+
+
+
+</PRE>
+<H2>INITIALIZATION</H2><PRE>
+     During initialization, <font color="yellow">FvwmTaskBar</font color="yellow"> gets configuration infor-
+     mation  from  FVWM  to  find the options that pertain to it.
+     These options are discussed in a later section.
+
+
+
+</PRE>
+<H2>INVOCATION</H2><PRE>
+     FvwmTaskBar can be invoked by fvwm during initialization  by
+     inserting  the  line  'Module  FvwmTaskBar'  in the .fvwm2rc
+     file.
+
+     FvwmTaskBar must reside in a directory that is listed in the
+     ModulePath option of FVWM for it to be executed by FVWM.
+
+
+
+</PRE>
+<H2>CONFIGURATION OPTIONS</H2><PRE>
+     The following options can be placed in the .fvwm2rc file
+
+
+     *FvwmTaskBarGeometry {+-}&lt;<font color="yellow">X</font color="yellow">&gt;<font color="yellow">x</font color="yellow">{+-}&lt;<font color="yellow">Y</font color="yellow">&gt;
+          Specifies the location and gravity of  the  FvwmTaskBar
+          window.   At the current version, size is not supported
+          and the taskbar will resize itself  to  fill  the  full
+          witdh  of  the  screen. If the AutoStick option is also
+          specified, the module will automatically "stick" to the
+          top  or  the bottom of the screen, whichever is closest
+          to the geometry specification.
+
+
+     *FvwmTaskBarFont <font color="yellow">font</font color="yellow">
+          Specifies the default font to be used for labeling  the
+          buttons, when they are not depressed. If not specified,
+          fixed font is assumed.
+
+
+     *FvwmTaskBarSelFont <font color="yellow">font</font color="yellow">
+          Specifies the font to be used for  the  depressed  but-
+          tons.  Note  that the Start button will use always this
+          font even if is not pressed.  If  this  option  is  not
+          specified, the default font is used instead.
+
+
+     *FvwmTaskBarStatusFont <font color="yellow">font</font color="yellow">
+          Specifies the font to be used for  the  clock  and  tip
+          windows. If this option is not specified, fixed font is
+          used.
+
+
+     *FvwmTaskBarFore <font color="yellow">color</font color="yellow">
+          Specifies the color to use for the button names.
+
+
+     *FvwmTaskBarBack <font color="yellow">color</font color="yellow">
+          Specifies the background color for the bar and buttons.
+
+
+     *FvwmTaskBarTipsFore <font color="yellow">color</font color="yellow">
+          Specifies the color to be used for the text in the tips
+          windows.
+
+
+     *FvwmTaskBarTipsBack <font color="yellow">color</font color="yellow">
+          Specifies the background color for the tips windows.
+
+
+     *FvwmTaskBarGeometry <font color="yellow">geometry</font color="yellow">
+          This option specifies the geometry of the window  (only
+          the Y coordinate is useful)
+
+
+     *FvwmTaskBarAutoStick
+          This option causes the taskbar to "stick" either to the
+          top  or  bottom  of the screen, whichever is closest to
+          the initial window placement. Any further  move  opera-
+          tion is also subject to that behaviour.
+
+
+     *FvwmTaskBarAutoHide
+          This option causes the taskbar to disappear  leaving  a
+          narrow strip at the bottom of the screen, and reappears
+          only when the mouse is moved to that strip. This option
+          automatically enables AutoStick.
+
+
+     *FvwmTaskBarUseSkipList
+          Tells FvwmTaskBar to not  show  the  windows  that  are
+          listed  on  a  WindowListSkip line in the configuration
+          file.
+
+
+     *FvwmTaskBarUseIconNames
+          Tells FvwmTaskBar to use the icon name  of  the  window
+          instead  of  the  full  window name.  This is useful to
+          keep the width of the buttons small.
+
+
+     *FvwmTaskBarShowTransients
+          Tells FvwmTaskBar to  show  the  application  transient
+          windows also. By default they are not shown.
+
+
+     *FvwmTaskBarAction <font color="yellow">action</font color="yellow"> <font color="yellow">response</font color="yellow">[,<font color="yellow">response</font color="yellow">...]
+          Tells FvwmTaskBar to do <font color="yellow">response</font color="yellow"> when <font color="yellow">action</font color="yellow">  is  done.
+          The  currently  supported  <font color="yellow">action</font color="yellow">s are: Click1, Click2,
+          Click3.  The currently supported <font color="yellow">response</font color="yellow">s are any fvwm
+          built-in  commands,  including  modules  and functions.
+          The  configuration  example  below  shows  the  default
+          values.
+
+
+     *FvwmTaskBarButtonWidth <font color="yellow">width</font color="yellow">
+          Indicates the maximum width that window buttons  should
+          reach.  (the minimum is hardcoded at 32).
+
+
+     *FvwmTaskBarHighlightFocus
+          If the mouse pointer is over the  taskbar,  the  window
+          under  the  current  button is active. This behavior is
+          like the TVTWM Icon Manager or  FvwmIconMan.  <font color="yellow">Note</font color="yellow">:  If
+          you  use  this  option  combined with FollowMouse focus
+          style, you'll want the taskbar to be ClickToFocus.
+
+
+     *FvwmTaskBarShowTips
+          Enables the tips windows (by default disabled).
+
+
+
+     The following options deal more specifically with the status
+     indicators displayed at the rigth of the taskbar.
+
+
+     *FvwmTaskBarClockFormat <font color="yellow">format</font color="yellow">-<font color="yellow">string</font color="yellow">
+          This option specifies the time format for  the  digital
+          clock.   It  is a <B>stfrtime(3)</B> compatible format string.
+          By default it is "%R".
+
+
+     *FvwmTaskBarUpdateInterval <font color="yellow">seconds</font color="yellow">
+          Specifies  how  often  the  clock  display  should   be
+          refreshed,  so  that  times of the form HH:MM:SS can be
+          used. By default 60 seconds.
+
+
+     *FvwmTaskBarBellVolume <font color="yellow">volume</font color="yellow">
+          This sets the volume of the bell when mail is detected.
+          It  is  a  value  between  0 (no bell) and 100 (maximum
+          volume).  By default it is set to 20.
+
+
+     *FvwmTaskBarMailBox <font color="yellow">path</font color="yellow">
+          This option intructs the module to look for mail at the
+          specified  place  It  is  a full pathname to the user's
+          mailbox.  By default it is /<font color="yellow">var</font color="yellow">/<font color="yellow">spool</font color="yellow">/<font color="yellow">mail</font color="yellow">/$<font color="yellow">USER</font color="yellow">_<font color="yellow">LOGIN</font color="yellow">.
+          A  value  of  'None' instructs the module not to have a
+          mail indicator.
+
+
+     *FvwmTaskBarMailCommand <font color="yellow">command</font color="yellow">
+          Specifies a <font color="yellow">fvwm</font color="yellow"> command to be  executed  when  double-
+          clicking on the mail icon.
+
+     *FvwmTaskBarIgnoreOldMail
+          If set, draw no bitmap if there is no new mail.
+
+
+
+     The following options deal with the Start button at the left
+     of the taskbar:
+
+
+     *FvwmTaskBarStartName <font color="yellow">string</font color="yellow">
+          This option specifies the string displayed in the Start
+          button.  ('Start' by default).
+
+
+     *FvwmTaskBarStartMenu <font color="yellow">string</font color="yellow">
+          This option specifies the  popup  to  invoke  when  the
+          start button is pressed.  ('StartMenu' by default). The
+          module send a 'Popup StartMenu'  command  to  the  fvwm
+          window manager.
+
+
+     *FvwmTaskBarStartIcon <font color="yellow">icon</font color="yellow">-<font color="yellow">name</font color="yellow">
+          This option specifies the name of the icon  to  display
+          at the left of the Start button.
+
+
+
+</PRE>
+<H2>SAMPLE CONFIGURATION</H2><PRE>
+     The  following  are  excepts  from  a  .fvwm2rc  file  which
+     describe FvwmTaskBar initialization commands:
+
+
+     #
+     # Start the taskbar on fvwm startup and restart
+     #
+
+     AddToFunc "InitFunction" "I" Module FvwmTaskBar
+
+     AddToFunc "RestartFunction" "I" Module FvwmTaskBar
+
+     #
+     # Set the style for the taskbar window, keep always on top of another
+     # windows
+     #
+
+     Style "FvwmTaskBar" NoTitle,BorderWidth 4, HandleWidth 4,Sticky,
+     StaysOnTop,WindowSkipList,CirculateSkip
+
+     #------------------------------------ taskbar
+     *FvwmTaskBarBack #c3c3c3
+     *FvwmTaskBarFore black
+     *FvwmTaskBarTipsBack bisque
+     *FvwmTaskBarTipsFore black
+     *FvwmTaskBarGeometry +0-1
+     *FvwmTaskBarFont -adobe-helvetica-medium-r-*-*-14-*-*-*-*-*-*-*
+     *FvwmTaskBarSelFont -adobe-helvetica-bold-r-*-*-14-*-*-*-*-*-*-*
+     *FvwmTaskBarStatusFont fixed
+
+     *FvwmTaskBarAction Click1 Iconify -1, Raise
+     *FvwmTaskBarAction Click2 Iconify +1, Lower
+     *FvwmTaskBarAction Click3 Iconify -1, Raise
+
+     *FvwmTaskBarUseSkipList
+     *FvwmTaskBarUseIconNames
+     *FvwmTaskBarAutoStick
+     *FvwmTaskBarShowTips
+
+     *FvwmTaskBarButtonWidth 180
+     *FvwmTaskBarBellVolume 20
+     *FvwmTaskBarMailBox /var/spool/mail/
+     *FvwmTaskBarMailCommand Exec xterm -e mail
+     *FvwmTaskBarClockFormat %I:%M %p
+
+     *FvwmTaskBarStartName Start
+     *FvwmTaskBarStartMenu StartMenu
+     *FvwmTaskBarStartIcon mini-exp.xpm
+
+
+
+
+
+</PRE>
+<H2>BUGS</H2><PRE>
+     There is a bug report that  FvwmTaskBar  doesn't  work  well
+     with Autohide turned on.
+
+
+
+</PRE>
+<H2>AUTHOR</H2><PRE>
+     David Barth (barth@di.epfl.ch)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</pre>
+<hr>
+<!-- This file automatically generated by run_man2html.ksh
+on Tue Aug 10 09:47:36 EDT 1999 -->
+</body>
+</html>
+
