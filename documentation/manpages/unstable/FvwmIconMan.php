@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_unstable_FvwmIconMan";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmIconMan in unstable branch (2.5.8)"); ?>
+<?php decoration_window_start("Manual page for FvwmIconMan in unstable branch (2.5.13)"); ?>
 
 <H1>FvwmIconMan</H1>
-Section: FVWM Modules (1)<BR>Updated: 14 October 2002<BR><A HREF="#index">This page contents</A>
+Section: FVWM Modules (1)<BR>Updated: (not released yet) (2.5.13)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -150,9 +150,12 @@ IconName        manger icon name           FvwmIconMan
 IconButton      style for icon buttons     up black grey
 IconColorset
 ManagerGeometry size of manager in buttons 0x1
+MaxButtonWidth  max width of a button
+MaxButtonWidthByColumns
 NoIconAction    animate iconification      NOP
 PlainButton     style for normal buttons   up black grey
 PlainColorset
+ReliefThickness size of button relief      2
 Resolution      global/desk/page/screen    page
 Reverse         normal, icon or none       none
 SelectButton    style for selected buttons flat black grey
@@ -160,9 +163,19 @@ SelectColorset
 Shape           use shape extension        false
 Show            list of windows to show
 ShowOnlyIcons   only icons visible         false
+ShowNoIcons     icons are not displayer    false
 ShowTransient   transient windows visible  false
 Sort            keep managers sorted       name
 SortWeight      weight for sorting
+Tips            Tool Tips mode             none
+TipsDelays      Tool Tips mapping delays   1000 300
+TipsFont        Font for Tool Tips         default fvwm font
+TipsColorset    Tool Tips Colorset         0
+TipsFormat      describes Tips label       the Format value
+TipsBorderWidth Tool Tips border size      1
+TipsPlacement   Tips placement vs button   updown
+TipsJustification Tips Just vs button      leftup
+TipsOffsets     Tips placement Offsets     3 2
 Title           manager title              FvwmIconMan
 TitleButton     style for title button     raisededge black grey
 TitleColorset
@@ -284,6 +297,25 @@ that way. As columns are created, the buttons will narrow to accommodate.  If
 the geometry is specified with a negative y coordinate, then the window
 manager will grow upwards. Otherwise, it will grow downwards.
 <P>
+<DT>*FvwmIconMan: [id] MaxButtonWidth <I>width</I><DD>
+Defines a maximum for the width of a button (in pixels). By default there
+is no maximum. A value of 0 resets the default. The maximum is only used
+with a non growing manager (the ManagerGeometry option
+specifies non zero width and height).
+<P>
+<DT>*FvwmIconMan: [id] MaxButtonWidthByColumns <I>col</I><DD>
+This is another way to set the button width.
+col is the number of columns of icons.
+The button width is determined by dividing
+the total width of FvwmIconMan
+by the number of columns.
+For example if the
+width of FvwmIconMan manager is 1024, MaxButtonWidthByColumns is 4
+then MaxButtonWidth is 256.
+This is useful when you do not
+know, at config time, the width of the manager, for example,
+for a swallowed FvwmIconMan.
+<P>
 <DT>*FvwmIconMan: [id] NoIconAction  <I>action</I><DD>
 Tells FvwmIconMan to do <I>action</I> when a NoIcon style window is
 iconified or de-iconified. Relevant coordinates are appended to <I>action</I> so
@@ -301,6 +333,15 @@ option is ignored, but must still be set.
 <DT>*FvwmIconMan: [id] PlainColorset <I>colorset</I><DD>
 Works like plainbutton but uses colorsets instead.  The style setting can
 still only be applied with plainbutton.  See FvwmTheme.
+<P>
+<DT>*FvwmIconMan: [id] ReliefThickness <I>num</I><DD>
+<I>num</I> is an integer specifying the number of pixels thick
+that the relief at the edge of non-flat buttons should be.  Setting
+this to 0 will produce flat buttons, as if the values for
+<I>FocusAndSelectButton</I>, <I>FocusButton</I>, <I>IconButton</I>,
+<I>PlainButton</I>, <I>SelectButton</I>, and <I>TitleButton</I> were
+all set to <I>flat</I>.  If <I>num</I> is negative, the button
+will be inverted as if you had used <I>Reverse</I> for all classes.
 <P>
 <DT>*FvwmIconMan: [id] Resolution <I>resolution</I><DD>
 Specifies when the manager will display an entry for a certain
@@ -425,6 +466,74 @@ Show transient windows in the list (default false).
 <P>
 <DT>*FvwmIconMan: [id] ShowOnlyIcons <I>boolean</I><DD>
 Only iconified windows are shown if <I>boolean</I> is true.
+<P>
+<DT>*FvwmIconMan: [id] ShowNoIcons <I>boolean</I><DD>
+Only windows that are not iconified are shown if <I>boolean</I> is true.
+<P>
+<P>
+</DL>
+<P>
+
+The following two options control tips.
+<P>
+<DL COMPACT>
+<DT>*FvwmIconMan: [id] Tips <I>value</I><DD>
+where <I>value</I> can be always, needed or false. Default is false,
+no tips are displayed. With always, tips are enabled. With needed,
+a tip is displayed only if either the button string is truncated or
+the tip string is not equal to the button string. 
+This configuration line is respected when FvwmIconMan is running
+as well.
+<P>
+<DT>*FvwmIconMan: [id] TipsDelays <I>delay</I> [<I>mappeddelay</I>]<DD>
+where <I>delay</I> and <I>mappeddelay</I> are time out values in milliseconds.
+If no <I>mappeddelay</I> is given <I>delay</I> is assumed. Default is
+1000 300. When the cursor is on a button, FvwmIconMan wait <I>delay</I>
+milliseconds before displaying the tip. In the case where a tip is
+already mapped and the cursor goes to an other button, FvwmIconMan
+waits <I>mappeddelay</I> milliseconds before displaying the new tip.
+<P>
+<DT>*FvwmIconMan: [id] TipsFont <I>fontname</I><DD>
+Specifies the font to be used for tips. Default is the default fvwm
+font.
+<P>
+<DT>*FvwmIconMan: [id] TipsColorset <I>colorset</I><DD>
+Specifies the colors for tips window. Default is colorset 0.
+See  FvwmTheme.
+<P>
+<DT>*FvwmIconMan: [id] TipsFormat <I>formatstring</I><DD>
+Similar to the Format option but for the tips window. The default is
+the format string from the Format option.
+<P>
+<DT>*FvwmIconMan: [id] TipsBorderWidth <I>pixels</I><DD>
+Specifies the border width (in pixels) of the tips window. Default is 1.
+<P>
+<DT>*FvwmIconMan: [id] TipsPlacement <I>value</I><DD>
+where <I>value</I> can be up, down, right, left, updown or
+leftright. This value specifies the position of the tips window
+relative to its button. 
+Default is updown where buttons on the top half of the screen
+get tips below the button, otherwise the tips
+are above the button.
+<P>
+<DT>*FvwmIconMan: [id] TipsJustification <I>value</I><DD>
+where <I>value</I> can be leftup, rightdown or center.
+Specifies
+the justification (direction) of the tips window relative to its button after
+the tips window has been placed.
+Default is leftup which means that if a tip is placed above or below
+its button, then the left border of the tip and of the button are
+aligned.
+If the tip is placed on the left or on the right of its button, leftup
+aligns the top borders. rightdown and center work like leftup but in
+different directions.
+The alignment is adjusted by the TipsOffset option.
+See next option.
+<P>
+<DT>*FvwmIconMan: [id] TipsOffsets <I>placementoffset</I> <I>justoffset</I><DD>
+where <I>placementoffset</I> and <I>justoffset</I> are offsets in pixels
+for the TipsPlacement and TipsJustification configuration option.
+Default is 3 2.
 <P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
@@ -840,9 +949,9 @@ for contributing either code or truly keen ideas.
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:48:07 GMT, November 01, 2003
+Time: 15:08:41 GMT, December 27, 2004
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 01-Nov-2003 -->
+<!-- Automatically generated by manpages2php on 27-Dec-2004 -->

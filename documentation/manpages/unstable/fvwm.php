@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_unstable_fvwm";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.8)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.13)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.8 (1)<BR>Updated: 31 October 2003<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.13 (from cvs) (1)<BR>Updated: (not released yet)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -132,9 +132,9 @@ version 2.x a long time ago we simply call version 2.x and all
 versions to come, fvwm, throughout this document, and the
 executable program is named fvwm.  There is an fvwm offspring
 called fvwm95, it is mostly a patched version of fvwm-2.0.43.  The
-main goal of fvwm95 was to supply a Windows 95 like look and feel.
-Since then, fvwm has been greatly enhanced and practically all
-fvwm95 features can be achieved by fvwm.
+main goal of fvwm95 was to supply a Windows 95 like look and
+feel. Since then, fvwm has been greatly enhanced and practically
+all fvwm95 features can be achieved by fvwm.
 <P>
 Fvwm provides both, a large
 <I>virtual desktop</I>
@@ -157,9 +157,9 @@ including moving and resizing windows, and operating the menus,
 using keyboard shortcuts.
 <P>
 Fvwm has also overcome the distinction between configuration
-commands and action commands that most window managers make.
-Configuration commands typically set fonts, colors, menu contents,
-key and mouse function bindings, while action commands
+commands and action commands that most window managers
+make. Configuration commands typically set fonts, colors, menu
+contents, key and mouse function bindings, while action commands
 do things like raise and lower windows.  Fvwm makes no such
 distinction, and allows anything to be changed at any time.
 <P>
@@ -207,7 +207,11 @@ Causes fvwm to use
 instead of
 '<B>Read</B>
 
-<I>.fvwm2rc</I>'
+<I>config</I>'
+
+(or '<B>Read</B>
+
+<I>.fvwm2rc</I>')
 
 as its initialization command.  (Note that up to 10
 <B>-f</B> and <B>-c</B>
@@ -215,21 +219,21 @@ as its initialization command.  (Note that up to 10
 parameters can be given, and they are executed in the order
 specified.)
 <P>
-Any module started by command line arguments is assumed to be
-a module that sends back config commands.  All command line modules
-have to quit before fvwm proceeds on to the InitFunction and
-setting border decorations and styles.  There is a potential deadlock
-if you start a module other than FvwmCpp/FvwmM4/FvwmPerl but there is
-a timeout so fvwm will eventually get going.
+Any module started by command line arguments is assumed to be a
+module that sends back config commands.  All command line modules
+have to quit before fvwm proceeds on to the StartFunction and
+setting border decorations and styles.  There is a potential
+deadlock if you start a module other than FvwmCpp/FvwmM4/FvwmPerl
+but there is a timeout so fvwm will eventually get going.
 <P>
-As an example,
-starting the pager this way hangs fvwm until the timeout, but this works:
+As an example, starting the pager this way hangs fvwm until
+the timeout, but the following should work well:
 
 
 <P>
 
 
-<blockquote><PRE>  fvwm -c &quot;AddToFunc StartFunction I Module FvwmPager&quot;</PRE></blockquote>
+<blockquote><PRE>fvwm -c &quot;AddToFunc StartFunction I Module FvwmPager&quot;</PRE></blockquote>
 <P>
 
 
@@ -259,7 +263,7 @@ Causes fvwm to read
 <I>config-file</I>
 
 instead of
-<I>.fvwm2rc</I>
+<I>~/.fvwm/config</I>
 
 as its initialization file.  This is equivalent to
 -c 'Read
@@ -347,8 +351,8 @@ Specifies a
 <I>limit</I>
 
 on the colors used in image, gradient and possibly simple colors
-used by fvwm. In fact, fvwm (and all the modules) uses a palette with
-at most
+used by fvwm. In fact, fvwm (and all the modules) uses a palette
+with at most
 <I>limit</I>
 
 colors. This option is only useful with screens that display 256
@@ -357,16 +361,17 @@ DirectColor). The default depends on your X server and how you run
 fvwm. In most case this default is reasonable. The
 <B>-l</B>
 
-option should be used only if you encounter problems with colors.  By
-default, fvwm tries to detect &quot;large&quot; pre-allocated palettes. If such a
-palette is detected fvwm uses it and a priori the
+option should be used only if you encounter problems with colors.
+By default, fvwm tries to detect &quot;large&quot; pre-allocated
+palettes. If such a palette is detected fvwm uses it and a priori
+the
 <B>-l</B>
 
 must not be used. Moreover, in this case the
 <B>-A</B> and <B>-S</B>
 
-options are forced. Note that XFree-4.2 pre-allocate 244 colors (if
-you use a driver with Render support) leaving only a few free
+options are forced. Note that XFree-4.2 pre-allocate 244 colors
+(if you use a driver with Render support) leaving only a few free
 colors. This may leads to some colors problems (and nothing can be
 done). XFree-4.3 or better pre-allocate only 85 colors.  If no
 pre-allocated palette is auto detected the defaults are as follow:
@@ -394,28 +399,30 @@ private color map (i.e., fvwm is started with the
 
 options), then others defaults are used.
 <P>
-Now what to do if you encounter problems with colors? The first thing
-to do is to check if you really cannot run your X server with depth
-15, 16 or better.  Check your X server documentation. Note that some
-hardware can support two different depths on the same screen
-(typically depth 8 and depth 24). If depth 8 is the default, you can
-force fvwm to use the best depth by using the
+Now what to do if you encounter problems with colors? The first
+thing to do is to check if you really cannot run your X server
+with depth 15, 16 or better.  Check your X server
+documentation. Note that some hardware can support two different
+depths on the same screen (typically depth 8 and depth 24). If
+depth 8 is the default, you can force fvwm to use the best depth
+by using the
 <B>C</B>
 
 option with
 <I>TrueColor</I>
 
-as argument.  So now we assume that you are forced to run in depth 8
-with a dynamic visual because your hardware/driver cannot do better or
-because you need to use an application which needs to run under this
-mode (e.g., because this application needs read-write colors). What
-it should be understand is that you have only 256 colors and that all
-the applications which uses the default color map must share these
-colors. The main problem is that there are applications which use a
-lot or even all the colors.  If you use such application you will
-have no more free colors and some applications (which used only a few
-colors) may fail to start or are unusable. There are three things
-that can be done (and fvwm does not really play a particular role, all
+as argument.  So now we assume that you are forced to run in depth
+8 with a dynamic visual because your hardware/driver cannot do
+better or because you need to use an application which needs to
+run under this mode (e.g., because this application needs
+read-write colors). What it should be understand is that you have
+only 256 colors and that all the applications which uses the
+default color map must share these colors. The main problem is
+that there are applications which use a lot or even all the
+colors.  If you use such application you will have no more free
+colors and some applications (which used only a few colors) may
+fail to start or are unusable. There are three things that can be
+done (and fvwm does not really play a particular role, all
 applications are concerned). The first is to run the applications
 which waste your (default) color map with a private color map. For
 example, run netscape with the -install option, run KDE/QT
@@ -426,37 +433,38 @@ option for fvwm. The disadvantage of this method is that it is
 visually disturbing (see the
 <B>ColormapFocus</B>
 
-command for a better control of the color maps switching). The second
-method is to limit the number of colors that the applications used.
-Again, some applications have options to specify a given color limit.
-With fvwm you may try various values, 61 (a special &quot;visual&quot; palette),
-56 (a 4x4x3 color cubes plus 6 grey), 29 (a 3x3x3 color cube plus 2
-grey), 10 or 9. Also, you may use the
+command for a better control of the color maps switching). The
+second method is to limit the number of colors that the
+applications used. Again, some applications have options to
+specify a given color limit. With fvwm you may try various values,
+61 (a special &quot;visual&quot; palette), 56 (a 4x4x3 color cubes plus 6
+grey), 29 (a 3x3x3 color cube plus 2 grey), 10 or 9. Also, you may
+use the
 <B>-L</B>
 
-option.  However, limiting the number of colors is not the definitive
-solution. The definitive solution is to try cause applications
-which use a lot of colors use the same colors. This is a
-difficult task as there are no formal standards for this goal.
-However, some toolkits as QT and GTK use color cubes as palettes.
-So, the idea is to configure your applications/toolkits to all
-use the same color cube. Moreover, you can use the colors in
-this color cube in your X resources configuration files and/or
+option.  However, limiting the number of colors is not the
+definitive solution. The definitive solution is to try cause
+applications which use a lot of colors use the same colors. This
+is a difficult task as there are no formal standards for this
+goal. However, some toolkits as QT and GTK use color cubes as
+palettes. So, the idea is to configure your applications/toolkits
+to all use the same color cube. Moreover, you can use the colors
+in this color cube in your X resources configuration files and/or
 as arguments to colors options.
-fvwm can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R = G,
-R-1 =&lt; B &lt;= R and B &gt;= 2. To get an RxGxB color cube give an argument
-to
+Fvwm can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R
+= G, R-1 =&lt; B &lt;= R and B &gt;= 2. To get an RxGxB color cube give an
+argument to
 <B>-l</B>
 
 an integer c &gt;= R*G*B and &lt; (R+1)*(G+1)*B if B=R and &lt; R*G*(B+1)
-if B &lt; R (and different from 61). If c &gt; R*G*B, then some grey may be added
-to the color cube.
-You can use the
+if B &lt; R (and different from 61). If c &gt; R*G*B, then some grey may
+be added to the color cube. You can use the
 <B>PrintInfo </B><I>Colors</I><B> </B><I>[1]</I>
 
-command to get information on your fvwm colors setting. In particular,
-this command prints the palette used by fvwm in rgb format (the last integer
-gives the number of times fvwm has allocated the colors).
+command to get information on your fvwm colors setting. In
+particular, this command prints the palette used by fvwm in rgb
+format (the last integer gives the number of times fvwm has
+allocated the colors).
 <DT><B>-L</B> | <B>--strict-color-limit</B>
 
 <DD>
@@ -667,11 +675,11 @@ from the currently mapped viewport is to use the
 style specification (the successors to the older
 <I>StartsOnDesk</I>
 
-style) in the
-<I>.fvwm2rc</I>
+style) in your
+<I>config</I>
 
-configuration file.  The placement is consistent: it does not
-depend on your current location on the virtual desktop.
+file.  The placement is consistent: it does
+not depend on your current location on the virtual desktop.
 <P>
 Some applications that understand standard Xt command line
 arguments and X resources, like xterm and xfontsel, allow the user
@@ -847,31 +855,46 @@ searches for configuration files using the command
 <P>
 
 
-<blockquote><PRE><B>Read </B><I>.fvwm2rc</I></PRE></blockquote>
+<blockquote><PRE><B>Read </B><I>config</I></PRE></blockquote>
 <P>
 
 
 
-This looks for
-<I>.fvwm2rc</I> in 
-
-<I>$HOME/.fvwm</I> or <I>$FVWM_USERDIR</I>
+This looks for file
+<I>config</I> in <I>$FVWM_USERDIR</I> and <I>$FVWM_DATADIR</I>
 
 directories, as described in
 <B>Read</B>
 
-below.  If this fails, fvwm also searches for this file in the
-<I>$HOME</I>
+below.  If this fails more files are queried for backward
+compatibility.  Here is the complete list of all file locations
+queried in the default installation (only the first found file
+is used):
 
-directory or for
-<I>system.fvwm2rc</I>
 
-file in the system place.  If a configuration file is not found,
-any mouse button or the
+<P>
+
+
+<blockquote><PRE>$HOME/.fvwm/config
+/usr/local/share/fvwm/config
+
+$HOME/.fvwm/.fvwm2rc
+$HOME/.fvwm2rc
+/usr/local/share/fvwm/.fvwm2rc
+/usr/local/share/fvwm/system.fvwm2rc
+/etc/system.fvwm2rc</PRE></blockquote>
+<P>
+
+
+
+Please note, the last 5 locations are not guarranteed to be
+supported in the future.
+<P>
+If a configuration file is not found, the left mouse button, or
 <FONT>Help</FONT>
 or
 <FONT>F1</FONT>
-keys on the root window brings up menus and forms that can create
+keys on the root window bring up menus and forms that can create
 a starting configuration file.
 <P>
 Fvwm sets two environment variables which are inherited by its
@@ -925,23 +948,23 @@ or
 
 
 into your
-<I>.fvwm2rc</I>,
+<I>config</I>,
 
 but it is not recommended; do this only if you know what you are
 doing. It is usually critical to start applications or modules
-after
-<I>.fvwm2rc</I>
-
-is read, because it contains styles or module configurations which
-can affect window appearance and functionality.
+after the entire config is read, because it contains styles or
+module configurations which can affect window appearance and
+functionality.
 <P>
 The standard way to start applications or modules on fvwm's start
 up is to add them to an initialization function (usually
 <B>StartFunction</B> or <B>InitFunction</B>).
 
-This way they are only started after fvwm reads the entire
-<I>.fvwm2rc</I>.
+This way they are only started after fvwm finishes to read and
+execute
+<I>config</I>
 
+file.
 <P>
 Fvwm has three special functions for initialization:
 <B>StartFunction</B>,
@@ -950,11 +973,11 @@ which is executed on startups and restarts;
 <B>InitFunction</B> and <B>RestartFunction</B>,
 
 which are executed during initialization and restarts
-(respectively) just after StartFunction. These functions may be
+(respectively) just after StartFunction.  These functions may be
 customized in a user's
-<I>.fvwm2rc</I>
+<I>config</I>
 
-file via the
+file using the
 <B>AddToFunc</B>
 
 command (described later) to start up modules, xterms, or whatever
@@ -971,7 +994,7 @@ If fvwm is run under a session manager, functions
 
 are executed instead of InitFunction and RestartFunction.
 This helps to define the user's
-<I>.fvwm2rc</I>
+<I>config</I>
 
 file to be good for both running under a session manager and
 without it.  Generally it is a bad idea to start xterms or other
@@ -1015,6 +1038,30 @@ AddToFunc SessionRestartFunction
 
 
 You don't need to define all special functions if some are empty.
+Also note, all these special functions may be emulated now using
+<B>StartFunction</B> and <B>ExitFunction,</B>
+
+like this:
+
+
+<P>
+
+
+<blockquote><PRE>DestroyFunc StartFunction
+AddToFunc StartFunction
++ I Test (Init) Module FvwmBanner
++ I Module FvwmPager * *
++ I Test (Restart) Beep
+
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I Test (Quit) Echo Bye-bye
++ I KillModule MyBuggyModule
++ I Test (ToRestart) Beep</PRE></blockquote>
+<P>
+
+
+
 <P>
 <A NAME="lbAK">&nbsp;</A>
 <H2>COMPILATION OPTIONS</H2>
@@ -1104,7 +1151,7 @@ between 60 and 256.
 Modules simply transmit commands to the fvwm command
 engine.  Commands are formatted just as in the case of a
 mouse binding in the
-<I>.fvwm2rc</I>
+<I>config</I>
 
 setup file.  Certain auxiliary information is also transmitted, as
 in the sample module
@@ -1172,7 +1219,7 @@ The differences between
 <P>
 
 
-<blockquote><PRE>fvwm; vi .fvwm2rc; fvwm -replace</PRE></blockquote>
+<blockquote><PRE>fvwm; vi ~/.fvwm/config; fvwm -replace</PRE></blockquote>
 <P>
 
 
@@ -1220,7 +1267,8 @@ Fvwm attempts to be
 (version 1) compliant.  Check
 <B><A HREF="http://www.gnome.org">http://www.gnome.org</A></B>
 
-for what that may mean. To disable GNOME hints for some or all windows, the
+for what that may mean. To disable GNOME hints for some or all
+windows, the
 <I>GNOMEIgnoreHints</I>
 
 style can be used.
@@ -1317,7 +1365,7 @@ commands for details.
 
 Fvwm supports all the Open Look decoration hints (except
 pushpins).  Should you use any such application, please add the
-following line to your .fvwm2rc:
+following line to your config:
 
 
 <P>
@@ -1378,7 +1426,7 @@ with
 <B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 in your
-<I>.fvwm2rc</I>
+<I>~/.fvwm/config</I>
 
 file (if it appears at all), and start fvwm with the command
 
@@ -1386,7 +1434,7 @@ file (if it appears at all), and start fvwm with the command
 <P>
 
 
-<blockquote><PRE>fvwm -cmd &quot;FvwmM4 .fvwm2rc&quot;</PRE></blockquote>
+<blockquote><PRE>fvwm -cmd &quot;FvwmM4 config&quot;</PRE></blockquote>
 <P>
 
 
@@ -1421,7 +1469,7 @@ auto-raise module,
 The configuration file is used to describe mouse and button
 bindings, colors, the virtual display size, and related items.
 The initialization configuration file is typically called
-<I>.fvwm2rc</I>.
+<I>config</I> (or <I>.fvwm2rc</I>).
 
 By using the
 <B>Read</B>
@@ -1450,10 +1498,20 @@ sense for run-time.
 
 <P>
 A sample configuration file,
-<I>.fvwm2rc</I>,
+<I>system.fvwm2rc</I>,
 
 is supplied with the fvwm distribution.  It is well commented and
 can be used as a source of examples for fvwm configuration.
+It may be copied to /usr/local/share/fvwm/config file.
+<P>
+Alternativelly, the built-in menu (accessible when no
+configuration file is found) has options to create an initial
+config file for the user.
+<P>
+If you are new to
+<I>fvwm</I>, try <I>fvwm-themes</I>
+
+package demonstrating the powerful fvwm functionality.
 
 
 
@@ -1470,15 +1528,16 @@ can be used as a source of examples for fvwm configuration.
 <H2>FONT NAMES AND FONT LOADING</H2>
 
 <P>
-The fonts used for the text of a window title, icon titles,
-menus and geometry window can be specified by using the Font
-and IconFont Style, the Font MenuStyle and the DefaultFont
+The fonts used for the text of a window title, icon titles, menus
+and geometry window can be specified by using the Font and
+IconFont Style, the Font MenuStyle and the DefaultFont
 command. Also, all the Modules which use text have configuration
-command(s) to specify font(s). All these styles and commands take a
-font name as an argument. This section explains what
-is a font name for fvwm and which fonts fvwm loads.
+command(s) to specify font(s). All these styles and commands take
+a font name as an argument. This section explains what is a font
+name for fvwm and which fonts fvwm loads.
 <P>
-First, you can use what we can call a usual font name, for example,
+First, you can use what we can call a usual font name, for
+example,
 
 
 <P>
@@ -1494,8 +1553,8 @@ First, you can use what we can call a usual font name, for example,
 That is, you can use an X Logical Font Description (XLFD for
 short).  Then the &quot;first&quot; font which matches the description is
 loaded and used. This &quot;first&quot; font depends of your font path and
-also of your locale. Fonts which match the locale charset are loaded in
-priority order. For example with
+also of your locale. Fonts which match the locale charset are
+loaded in priority order. For example with
 
 
 <P>
@@ -1542,17 +1601,18 @@ is a comma separated list of (simple) XLFD font names, for example:
 
 
 
-Each simple font name is tried until a matching font with the locale
-charset is found and if this fails each simple font name is tried without
-constraint on the charset.
+Each simple font name is tried until a matching font with the
+locale charset is found and if this fails each simple font name is
+tried without constraint on the charset.
 <P>
-More details on the XLFD can be found in the X
-manual page, the X Logical Font Description Conventions document
-(called xlfd) and the XLoadFont and XCreateFontSet manual pages.
-Some useful font utilities are: xlsfonts, xfontsel, xfd and xset.
+More details on the XLFD can be found in the X manual page, the X
+Logical Font Description Conventions document (called xlfd) and
+the XLoadFont and XCreateFontSet manual pages. Some useful font
+utilities are: xlsfonts, xfontsel, xfd and xset.
 <P>
-If you have Xft support you can specify an Xft font name (description)
-of a true type (or Type1) font prefixed by &quot;xft:&quot;, for example:
+If you have Xft support you can specify an Xft font name
+(description) of a true type (or Type1) font prefixed by &quot;xft:&quot;,
+for example:
 
 
 <P>
@@ -1567,15 +1627,16 @@ of a true type (or Type1) font prefixed by &quot;xft:&quot;, for example:
 The &quot;first&quot; font which matches the description is loaded.  This
 first font depends on the XftConfig configuration file with Xft1
 and on the /etc/fonts/fonts.conf file with Xft2.
-One may read the Xft manual page and the fontconfig man page with Xft2.
-The first string which follows &quot;xft:&quot; is always considered as the family.
-With the second example Luxi Mono is the Family (Other XFree TTF families:
-&quot;Luxi Serif&quot;, &quot;Luxi Sans&quot;), Medium is the Weight (other possible
-weights: Light, DemiBold, Bold, Black), Roman is the slant or the
-style (other possibility: Regular, Oblique, Italic) size specifies
-the point size (for a pixel size use pixelsize=), encoding allows
-for enforce a charset (iso8859-1 or iso10646-1 only; if no encoding
-is given the locale charset is assumed).
+One may read the Xft manual page and the fontconfig man page with
+Xft2. The first string which follows &quot;xft:&quot; is always considered
+as the family. With the second example Luxi Mono is the Family
+(Other XFree TTF families: &quot;Luxi Serif&quot;, &quot;Luxi Sans&quot;), Medium is
+the Weight (other possible weights: Light, DemiBold, Bold, Black),
+Roman is the slant or the style (other possibility: Regular,
+Oblique, Italic) size specifies the point size (for a pixel size
+use pixelsize=), encoding allows for enforce a charset (iso8859-1
+or iso10646-1 only; if no encoding is given the locale charset is
+assumed).
 An important parameter is &quot;minspace=bool&quot; where bool is True or
 False. If bool is False (the default?) Xft gives a greater font
 height to fvwm than if bool is True. This may modify text
@@ -1583,19 +1644,18 @@ placement, icon and window title height, line spacing in menus and
 FvwmIdent, button height in some fvwm modules ...etc.  With a LCD
 monitor you may try to add &quot;rgba=mode&quot; where mode is either rgb,
 bgr, vrgb or vbgr to enable subpixel rendering. The best mode
-depends on the way your LCD cells are arranged.
-You can pass other specifications
-in between &quot;:&quot;, as &quot;foundry=foundry_name&quot;, &quot;spacing=type&quot; where
-type can be monospace, proportional or charcell,
-&quot;charwidth=integer&quot;, &quot;charheight=integer&quot; or &quot;antialias=bool&quot;
-where bool is True or False. It seems that these
+depends on the way your LCD cells are arranged. You can pass other
+specifications in between &quot;:&quot;, as &quot;foundry=foundry_name&quot;,
+&quot;spacing=type&quot; where type can be monospace, proportional or
+charcell, &quot;charwidth=integer&quot;, &quot;charheight=integer&quot; or
+&quot;antialias=bool&quot; where bool is True or False. It seems that these
 parameters are not always taken in account.
 To determine which Xft fonts are really loaded you can export
 XFT_DEBUG=1 before starting fvwm and take a look to the error
-log. With Xft2 you may use fc-list to list the available fonts.
-Anyway, Xft support is experimental (from the X and the fvwm
-point of view) and the quality of the rendering depends on number
-of parameters (the XFree and the freetype versions and your
+log. With Xft2 you may use fc-list to list the available
+fonts. Anyway, Xft support is experimental (from the X and the
+fvwm point of view) and the quality of the rendering depends on
+number of parameters (the XFree and the freetype versions and your
 video card(s)).
 <P>
 After an Xft font name you can add after a &quot;;&quot; an XLFD
@@ -1610,32 +1670,36 @@ font name (simple or extended) as:
 
 
 
-then, if either loading the Xft font fails or fvwm has no Xft support,
-fvwm loads the font &quot;-adobe-courier-bold-r-normal--14-*&quot;. This
-allows for writing portable configuration files.
+then, if either loading the Xft font fails or fvwm has no Xft
+support, fvwm loads the font
+&quot;-adobe-courier-bold-r-normal--14-*&quot;. This allows for writing
+portable configuration files.
 <P>
 <A NAME="lbAY">&nbsp;</A>
 <H2>FONT AND STRING ENCODING</H2>
 
 <P>
-Once a font is loaded, fvwm finds its encoding (or charset) using its
-name (the last two fields of the name). fvwm assumes that the strings
-which are displayed with this font use this encoding (an exception is
-that if an iso10646-1 font is loaded, then UTF-8 is assumed for string
-encoding).
+Once a font is loaded, fvwm finds its encoding (or charset) using
+its name (the last two fields of the name). fvwm assumes that the
+strings which are displayed with this font use this encoding (an
+exception is that if an iso10646-1 font is loaded, then UTF-8 is
+assumed for string encoding).
 In a normal situation,
-(i) a font is loaded by giving a font name without specifying the encoding,
-(ii) the encoding of the loaded font is the locale encoding, and then
-(iii) the strings in the fvwm configuration files should use the locale
-encoding as well as the window and icon name.
-With Xft the situation is bit different as Xft supports only iso10646-1
-and iso8859-1. If you do not specify one of these encodings in the Xft font
-name, then fvwm does strings conversion using (iii).
-Note that with multibyte fonts (and in particular with &quot;CJK&quot; fonts) for
-good text rendering, the locale encoding should be the charset of the font.
+(i) a font is loaded by giving a font name without specifying the
+encoding,
+(ii) the encoding of the loaded font is the locale encoding, and
+then
+(iii) the strings in the fvwm configuration files should use the
+locale encoding as well as the window and icon name. With Xft the
+situation is bit different as Xft supports only iso10646-1 and
+iso8859-1. If you do not specify one of these encodings in the Xft
+font name, then fvwm does strings conversion using (iii). Note
+that with multibyte fonts (and in particular with &quot;CJK&quot; fonts) for
+good text rendering, the locale encoding should be the charset of
+the font.
 <P>
-To override the previous rules, it is possible to specify the string encoding
-in the beginning of a font description as follow:
+To override the previous rules, it is possible to specify the
+string encoding in the beginning of a font description as follow:
 
 
 <P>
@@ -1652,12 +1716,11 @@ where
 is an encoding supported by fvwm (usually font name charset plus some
 unicode encodings: UTF-8, USC-2, USC-4 and UTF-16).
 <P>
-For example,
-you may use an iso8859-1 locale charset and have an FvwmForm in Russian using
-koi8-r encoding. In this case, you just have to ask FvwmForm to load
-a koi8-r font by specifying the encoding in the font name.
-With a multibyte language,
-(as multibyte font works well only if the locale encoding is the
+For example, you may use an iso8859-1 locale charset and have an
+FvwmForm in Russian using koi8-r encoding. In this case, you just
+have to ask FvwmForm to load a koi8-r font by specifying the
+encoding in the font name. With a multibyte language, (as
+multibyte font works well only if the locale encoding is the
 charset of the font), you should use an iso10646-1 font:
 
 
@@ -1680,8 +1743,11 @@ or
 
 
 
-if your FvwmForm configuration uses jisx0208.1983-0 encoding. Another
-possibility is to use UTF-8 encoding for your FvwmForm configuration and use
+if your
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
+
+configuration uses jisx0208.1983-0 encoding. Another possibility
+is to use UTF-8 encoding for your FvwmForm configuration and use
 an iso10646-1 font:
 
 
@@ -1715,17 +1781,18 @@ or equivalently
 
 
 
-In general iso10646-1 fonts together with UTF-8 string encoding allows the
-display of any characters in a given menu, FvwmForm ...etc.
+In general iso10646-1 fonts together with UTF-8 string encoding
+allows the display of any characters in a given menu, FvwmForm
+
 <P>
-More and more, unicode is used and text files use UTF-8 encoding.
-However, in practice the characters used range over your locale charset
-(this is the case when you generate a menu with fvwm-menu-desktop with
-recent versions of KDE and GNOME).
-For saving memory (an iso10646-1 font may have a very large number
-of characters) or because you have a pretty font without an iso10646-1
-charset, you can specify the string encoding to be UTF-8 and use a font
-in the locale charset:
+More and more, unicode is used and text files use UTF-8
+encoding. However, in practice the characters used range over your
+locale charset (this is the case when you generate a menu with
+fvwm-menu-desktop with recent versions of KDE and GNOME). For
+saving memory (an iso10646-1 font may have a very large number of
+characters) or because you have a pretty font without an
+iso10646-1 charset, you can specify the string encoding to be
+UTF-8 and use a font in the locale charset:
 
 
 <P>
@@ -1737,9 +1804,9 @@ in the locale charset:
 
 
 <P>
-In most cases, fvwm correctly determines the encoding of the font. However,
-some fonts don't end with valid encoding names. When the font name isn't
-normal, for example:
+In most cases, fvwm correctly determines the encoding of the
+font. However, some fonts don't end with valid encoding
+names. When the font name isn't normal, for example:
 
 
 <P>
@@ -1750,8 +1817,8 @@ normal, for example:
 
 
 
-you need to add the encoding after the font name using a slash as a delimiter.
-For example:
+you need to add the encoding after the font name using a slash as
+a delimiter. For example:
 
 
 <P>
@@ -1762,18 +1829,18 @@ For example:
 
 
 
-If fvwm finds an encoding, fvwm uses the iconv system functions to do
-conversion between encodings.
-Unfortunately, there are no standards. For conversion between
-iso8859-1 and UTF-8: a GNU system uses &quot;ISO-8859-1&quot; and other
-systems use &quot;iso881&quot; to define the converters (these two names are
-supported by fvwm). Moreover, in some cases it may be necessary
-to use machine specific converters. So, if you experience problems
-you can try to get information on your iconv implementation (&quot;man iconv&quot;
-may help) and put the name which defines the converter between the font
-encoding and UTF-8 at the end of the font name after the encoding hint
-and a / (another possible solution is to use GNU libiconv).
-For example use:
+If fvwm finds an encoding, fvwm uses the iconv system functions to
+do conversion between encodings. Unfortunately, there are no
+standards. For conversion between iso8859-1 and UTF-8: a GNU
+system uses &quot;ISO-8859-1&quot; and other systems use &quot;iso881&quot; to define
+the converters (these two names are supported by fvwm). Moreover,
+in some cases it may be necessary to use machine specific
+converters. So, if you experience problems you can try to get
+information on your iconv implementation (&quot;man iconv&quot; may help)
+and put the name which defines the converter between the font
+encoding and UTF-8 at the end of the font name after the encoding
+hint and a / (another possible solution is to use GNU
+libiconv). For example use:
 
 
 <P>
@@ -1805,9 +1872,8 @@ and to use local_iso8859_6_iconv for defining the converters.
 <H2>FONT SHADOW EFFECTS</H2>
 
 <P>
-Fonts can be given 3d effects.
-At the beginning of the font name (or just after a possible StringEncoding
-specification) add
+Fonts can be given 3d effects. At the beginning of the font name
+(or just after a possible StringEncoding specification) add
 
 
 <P>
@@ -2116,7 +2182,7 @@ This allows complex functions or modules to be invoked in a manner
 which is fairly transparent to the configuration file.
 <P>
 Example: the
-<I>.fvwm2rc</I>
+<I>config</I>
 
 file contains the line
 
@@ -2200,11 +2266,11 @@ kinds of quotes.
 <P>
 Whenever an fvwm command line is executed, fvwm performs parameter
 expansion.  A parameter is a '$' followed by a word enclosed in
-brackets ($[...]) or a single special character.  If fvwm encounters
-an unquoted parameter on the command line it expands it to a string
-indicated by the parameter name.  Unknown parameters are left
-untouched.  Parameter expansion is performed before quoting.  To
-get a literal '$' use &quot;$$&quot;.
+brackets ($[...]) or a single special character.  If fvwm
+encounters an unquoted parameter on the command line it expands it
+to a string indicated by the parameter name.  Unknown parameters
+are left untouched.  Parameter expansion is performed before
+quoting.  To get a literal '$' use &quot;$$&quot;.
 <P>
 In the past, some single letter variables were supported.  It is
 deprecated now, since they cause a number of problems.  You should
@@ -2292,7 +2358,8 @@ The version number, like &quot;2.6.0&quot;.
 <blockquote>
 $[version.info]
 <blockquote>
-The version info, like &quot; (from cvs)&quot;, empty for the official releases.
+The version info, like &quot; (from cvs)&quot;, empty for the official
+releases.
 </blockquote>
 </blockquote>
 <P>
@@ -2365,20 +2432,28 @@ The current page numbers, by X and Y axes, starting from 0.
 $[w.id]
 <blockquote>
 The window-id (expressed in hex, e.g. 0x10023c) of the window the
-command was called for or &quot;$[w.id]&quot; if no window is associated with
-the command.
+command was called for or &quot;$[w.id]&quot; if no window is associated
+with the command.
 </blockquote>
 </blockquote>
 <P>
 <blockquote>
 $[w.name]
 $[w.iconname]
+$[w.iconfile]
+$[w.miniiconfile]
 $[w.class]
 $[w.resource]
 <blockquote>
-The window's name or icon name or resource class or resource name
-respectivelly, or unexpended &quot;$[w.&lt;attribute&gt;]&quot; string if no window
-is associated with the command.
+The window's name, icon name, file name of its icon or mini icon
+defined with the
+<I>Icon</I> or <I>MiniIcon</I>
+
+style including the path information if the file was found on
+disk, resource class or resource name respectivelly, or unexpanded
+&quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated with the
+command.
+<P>
 </blockquote>
 </blockquote>
 <P>
@@ -2391,6 +2466,21 @@ $[w.height]
 Either coordinate or the width or height of the current window if
 it is not iconified.  If no window is associated with the command
 or the window is iconified, the string is left as is.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[w.desk]
+<blockquote>
+The number of the desk on which the window is shown.  If the
+window is sticky the current desk number is used.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[w.layer]
+<blockquote>
+The layer of the window.
 </blockquote>
 </blockquote>
 <P>
@@ -2431,9 +2521,9 @@ pointer is not on the screen, these variables are not expanded.
 $[pointer.wx]
 $[pointer.wy]
 <blockquote>
-These return the position of the pointer in the selected window.  If the
-pointer is not on the screen, the window is iconified  or no
-window is selected, these variables are not expanded.
+These return the position of the pointer in the selected window.
+If the pointer is not on the screen, the window is iconified  or
+no window is selected, these variables are not expanded.
 </blockquote>
 </blockquote>
 <P>
@@ -2469,12 +2559,12 @@ $[hilight.cs&lt;n&gt;]
 <blockquote>
 $[shadow.cs&lt;n&gt;]
 <blockquote>
-These parameters are replaced with the name of the
-foreground (fg), background (bg), hilight (hilight) or shadow
-(shadow) color that is defined in colorset &lt;n&gt; (replace &lt;n&gt; with
-zero or a positive integer).  For example &quot;$[fg.cs3]&quot; is expanded
-to the name of the foreground color of colorset 3 (in
-rgb:rrrr/gggg/bbbb form).  Please refer to the
+These parameters are replaced with the name of the foreground
+(fg), background (bg), hilight (hilight) or shadow (shadow) color
+that is defined in colorset &lt;n&gt; (replace &lt;n&gt; with zero or a
+positive integer).  For example &quot;$[fg.cs3]&quot; is expanded to the
+name of the foreground color of colorset 3 (in rgb:rrrr/gggg/bbbb
+form).  Please refer to the
 <B>COLORSETS</B>
 
 section for details about colorsets.
@@ -2539,7 +2629,8 @@ $[gt.str]
 return the translation of
 <I>str</I>
 
-by looking in the current locale catalog(s). If no translation is found
+by looking in the current locale catalog(s). If no translation is
+found
 <I>str</I>
 
 is returned as is. See the
@@ -2876,6 +2967,22 @@ broken line).  Tear off bars must be added to the menu as any
 other item by assigning them the command
 <B>TearMenuOff</B>.
 
+<P>
+The action taken with the backspace key cannot be overridden
+but the action of mouse button 2 on the title can.
+To remove the builtin mouse button 2 binding, use:
+<P>
+Mouse 2 M N -
+<P>
+(&quot;M&quot; is for &quot;Menu&quot; context)
+<P>
+To assign some other button for tearoff, use:
+<P>
+Mouse 1 M N TearOff
+<P>
+Note that the Modifier, must be &quot;N&quot; (none) and that the
+notation &quot;Mouse 0&quot; (for any mouse button cannot be used.)
+<P>
 The window containing the menu is placed as any other window would
 be.  If you find it confusing to have your tear off menus appear
 at random positions on the screen, put this line in your
@@ -2912,6 +3019,15 @@ as if it had the focus.
 A tear off menu is an independent copy of the menu it originated
 from.  As such, it is not affected by adding items to that menu or
 changing its menu style.
+<P>
+To create a tear off menu without opening the normal menu first,
+the option
+<I>TearOffImmediately</I>
+
+can be added to the
+<B>Menu</B> or <B>Popup</B>
+
+command.
 <P>
 <DT><B>AddToMenu </B><I>menu-name</I><B> [</B><I>menu-label</I><B> </B><I>action</I><B>]</B>
 
@@ -2968,7 +3084,7 @@ or
 
 There is no end-of-menu symbol.  Menus do not have to be defined
 in a contiguous region of the
-<I>.fvwm2rc</I>
+<I>config</I>
 
 file.  The quoted (or first word)
 portion in the above examples is the menu label,
@@ -2996,7 +3112,7 @@ option when destroying the menu), do not forget to add the dynamic
 action again.
 <P>
 Note: Do not trigger actions that require user interaction. They
-will probably fail and may screw up your menus.  See
+will probably fail and may screw up your menus.  See the
 <B>Silent</B>
 
 command.
@@ -3540,6 +3656,27 @@ The
 
 <P>
 <blockquote>
+To create a tear off menu without opening the normal menu, add the
+option
+<I>TearOffImmediately</I>.
+
+Normally the menu opens in normal state for a split second before
+being torn off.  As tearing off places the menu like any other
+window, a position should be specified explicitly:
+
+
+<P>
+
+
+<blockquote><PRE># Forbid fvwm to place the menu window
+Style &lt;name of menu&gt; UsePPosition
+# Menu at top left corner of screen
+Menu Root 0p 0p TearOffImmediately</PRE></blockquote>
+<P>
+
+
+
+<P>
 The
 <I>animated</I> and <I>Mwm</I> or <I>Win</I>
 
@@ -3631,7 +3768,7 @@ PopupActiveArea,
 DoubleClickTime,
 SidePic,
 SideColor,
-PopupAsRootMenu / PopupAsSubmenu,
+PopupAsRootMenu / PopupAsSubmenu / PopupIgnore / PopupClose,
 RemoveSubmenus / HoldSubmenus,
 SubmenusRight / SubmenusLeft,
 SelectOnRelease,
@@ -3766,8 +3903,8 @@ keyword is followed by a number equal to zero or greater, this
 number is taken as the number of the colorset to use.  If the
 number is omitted, the colorset is switched off and the regular
 menu styles are used again.  The foreground and background colors
-of the menu items are replaced by the colors from the colorset.
-If the colorset has a pixmap defined, this pixmap is used as the
+of the menu items are replaced by the colors from the colorset. If
+the colorset has a pixmap defined, this pixmap is used as the
 background of the menu.  Note that the
 <I>MenuFace</I>
 
@@ -3985,10 +4122,10 @@ styles win when navigating with the keyboard.
 <P>
 <I>PopupOffset</I>
 
-requires two integer arguments.  Both values affect where
-sub menus are placed relative to the parent menu.  If both values
-are zero, the left edge of the sub menu overlaps the left edge of
-the parent menu.  If the first value is non-zero the sub menu is
+requires two integer arguments.  Both values affect where sub
+menus are placed relative to the parent menu.  If both values are
+zero, the left edge of the sub menu overlaps the left edge of the
+parent menu.  If the first value is non-zero the sub menu is
 shifted that many pixels to the right (or left if negative).  If
 the second value is non-zero the menu is moved by that many
 percent of the parent menu's width to the right or left.
@@ -4057,7 +4194,7 @@ side color (see
 
 If the color name is omitted the side color option is switched off.
 <P>
-<I>PopupAsRootMenu</I> and <I>PopupAsSubmenu</I>
+<I>PopupAsRootMenu</I>, <I>PopupAsSubmenu</I>, <I>PopupIgnore</I> and <I>PopupClose</I>
 
 change the behavior when you click on a menu item that opens a
 sub menu. With
@@ -4073,7 +4210,17 @@ parent menu.  Furthermore, with
 the sub menu is held open (posted) regardless of where you move
 the mouse.  Depending on your menu style this may simplify
 navigating through the menu.  Any keystroke while a menu is posted
-reverts the menu back to the normal behavior.
+reverts the menu back to the normal behavior.  With
+<I>PopupClose</I>
+
+the menu is cloed when a sub menu item is activated, and the menu
+stays open if
+<I>PopupIgnore</I>
+
+is used (even if the menu was invoked with the
+<B>Popup</B>
+
+command).
 <I>PopupAsSubmenu</I>
 
 is the default.
@@ -4103,10 +4250,17 @@ selected.  This is intended for
 <FONT>Alt-Tab</FONT>
 <B>WindowList</B>
 
-navigation.  The key name is a standard X11 key name as defined in
+navigation.
+The key name is a standard X11 key name as defined in
 <I>/usr/include/X11/keysymdef.h</I>,
 
-with the leading &quot;XK_&quot; omitted.  To disable this behavior, omit
+(without the 
+<I>XK_</I>
+
+prefix), or the keysym database
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
+
+To disable this behavior, omit
 the key name.
 <P>
 Note: Some X servers do not support KeyRelease events.
@@ -4580,10 +4734,10 @@ is omitted, the default setting is restored.
 <P>
 <I>FlickeringMoveWorkaround</I>
 
-disables ConfigureNotify events that are usually sent to
-an application while it is moved.  If some windows flicker
-annoyingly while being moved, this option may help you.  Note that
-if this problem occurs it is not an fvwm bug, it is a problem of the
+disables ConfigureNotify events that are usually sent to an
+application while it is moved.  If some windows flicker annoyingly
+while being moved, this option may help you.  Note that if this
+problem occurs it is not an fvwm bug, it is a problem of the
 application.
 <P>
 <I>MixedVisualWorkaround</I>
@@ -4603,9 +4757,9 @@ The
 option controls whether Motif applications have the ability to
 have modal dialogs (dialogs that force you to close them first
 before you can do anything else).  The default is to not allow
-applications to have modal dialogs.  Use this option with care.
-Once this option is turned on, you have to restart fvwm to turn it
-off.
+applications to have modal dialogs.  Use this option with
+care. Once this option is turned on, you have to restart fvwm to
+turn it off.
 <P>
 <I>RaiseOverNativeWindows</I>
 
@@ -4621,7 +4775,10 @@ makes fvwm try to raise the windows it manages over
 override_redirect windows.  This is used to cope with ill-mannered
 applications that use long-lived windows of this sort, contrary to
 <FONT>ICCCM</FONT>
-conventions.
+conventions.  It is usefull with the
+<I>Unmanaged</I>
+
+style option too.
 <P>
 <I>FlickeringQtDialogsWorkaround</I>
 
@@ -4637,7 +4794,7 @@ likely safe to leave this option at its default.
 is needed by EWMH compliant pagers or taskbars which represent
 windows which are on a different desktops as iconified. These
 pagers and taskbars use a version of the EWMH specification before
-version 1.2 (the current KDE2&amp;3 versions).  These pagers and
+version 1.2 (the current KDE2 &amp; 3 versions).  These pagers and
 taskbars use the IconicState WM_STATE state to determine if an
 application is iconified.  This state, according to the
 <FONT>ICCCM ,</FONT>
@@ -4648,6 +4805,36 @@ This violates
 <FONT>ICCCM</FONT>
 compliance but should not cause big problems.
 By default this option is off.
+<P>
+With the
+<I>DisplayNewWindowNames</I>
+
+enabled, fvwm prints the name, icon name (if available), resource
+and class of new windows to the console.  This can help in finding
+the correct strings to use in the
+<B>Style</B>
+
+command.
+<P>
+When the
+<I>ExplainWindowPlacement</I>
+
+option is enabled, fvwm prints a message to the console whenever a
+new window is placed or one of the commands
+<B>PlaceAgain</B>, <B>Recapture</B> or <B>RecaptureWindow</B>
+
+is used.  The message explains on which desk, page, Xinerama
+screen and position it was placed and why.  This option can be
+used to figure out why a specific window does not appear where you
+think it should.
+<P>
+The
+<I>DebugCRMotionMethod</I>
+
+option enables some debugging code in the ConfigureRequest
+handling routines of fvwm.  It is not helpful for the user, but if
+you report a bug to the fvwm team we may ask you to enable this
+option.
 <P>
 <DT><B>BusyCursor [</B><I>Option bool</I><B>], </B><I>...</I>
 
@@ -4971,11 +5158,11 @@ The second is either the numeric value of the cursor as defined in
 the include file
 <I>X11/cursorfont.h</I>
 
-or its name (without the XC_ prefix).
-Alternativelly the xpm file name may be specified.  This xpm file
-should contain a pixmap using 3 colors (None, black, white) and
-an optional hot-spot.  If no hot-spot is defined, the hot-spot is
-placed in the center of the image.  Furthermore the name can be
+or its name (without the XC_ prefix). Alternativelly the xpm file
+name may be specified.  This xpm file should contain a pixmap
+using 3 colors (None, black, white) and an optional hot-spot.  If
+no hot-spot is defined, the hot-spot is placed in the center of
+the image.  Furthermore the name can be
 <I>None</I>
 
 (no cursor) or
@@ -5050,10 +5237,10 @@ example, the hot-spot is in the second row, and second column.
 sets the default foreground and background colors used in
 miscellaneous windows created by fvwm, for example in the geometry
 feedback windows during a move or resize operation. If you don't
-want to change one color or the other, use - as its color name.
-To revert to the built-in default colors omit both color names.
-Note that the default colors are not used in menus, window titles
-or icon titles.
+want to change one color or the other, use - as its color name. To
+revert to the built-in default colors omit both color names. Note
+that the default colors are not used in menus, window titles or
+icon titles.
 <P>
 <DT><B>DefaultColorset [</B><I>num</I><B>]</B>
 
@@ -5141,11 +5328,10 @@ the id.
 <DT><B>Emulate </B><I>Fvwm</I><B>|</B><I>Mwm</I><B>|</B><I>Win</I>
 
 <DD>
-This command is a catch all for how miscellaneous things are done by fvwm.
-Right now this command affects where the move/resize feedback window appears
-and how window placement is aborted.
-To have more Mwm- or Win-like behavior
-you can call
+This command is a catch all for how miscellaneous things are done
+by fvwm. Right now this command affects where the move/resize
+feedback window appears and how window placement is aborted. To
+have more Mwm- or Win-like behavior you can call
 <B>Emulate</B>
 
 with
@@ -5219,7 +5405,7 @@ commands which consist of pairs of
 <I>command</I>
 
 tokens and integer
-<I>values,</I>
+<I>values</I>,
 
 The
 <I>press</I> and <I>release</I>
@@ -5246,13 +5432,14 @@ The modifier is set for any further button events.  To release a
 modifier key, use the corresponding negative number.  The
 <I>depth</I>
 
-command determines to which window the button events are sent.
-With a depth of 1, all events go to the root window, regardless of
-the pointer's position.  With 2, the event is passed to the top
-level window under the pointer which is usually the frame window.
-With 3, events go to the client window. Higher numbers go to
-successive sub windows.  Zero (0) goes to the smallest window that
-contains the pointer. Note that events propagate upward.
+command determines to which window the button events are
+sent. With a depth of 1, all events go to the root window,
+regardless of the pointer's position.  With 2, the event is passed
+to the top level window under the pointer which is usually the
+frame window. With 3, events go to the client window. Higher
+numbers go to successive sub windows.  Zero (0) goes to the
+smallest window that contains the pointer.  Note that events
+propagate upward.
 
 
 <P>
@@ -5266,6 +5453,81 @@ contains the pointer. Note that events propagate upward.
 This simulates a click with button 1 in the parent window (depth
 2) with a delay of 250 milliseconds between the press and the
 release.
+Note: all command names can be abbreviated with their first letter.
+<P>
+<P>
+<DT><B>FakeKeypress [</B><I>command value</I><B>] ...</B>
+
+<DD>
+This command is mainly intended for debugging fvwm and no
+guarantees are made that it works for you.
+<B>FakeKeypress</B>
+
+can simulate key press and release events and pass them
+to fvwm or applications.  The parameters are a list of
+commands which consist of pairs of command tokens and values.
+The
+<I>press</I> and <I>release</I>
+
+commands are followed by a key name.  
+The key name is a standard X11 key name as defined in
+<I>/usr/include/X11/keysymdef.h</I>,
+
+(without the 
+<I>XK_</I>
+
+prefix), or the keysym database
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
+
+The
+<I>wait</I>, <I>modifiers</I> and <I>depth</I>
+
+commands are the same as those used by
+<B>FakeClick</B>.
+
+<P>
+Save all GVim sessions with: &quot;Esc:w\n&quot;
+
+
+<P>
+
+
+<blockquote><PRE>All (gvim) FakeKeypress press Escape \
+                        press colon \
+                        press w \
+                        press Return</PRE></blockquote>
+<P>
+
+
+
+Save &amp; exit all GVim sessions with: &quot;Esc:wq\n&quot;
+
+
+<P>
+
+
+<blockquote><PRE>All (gvim) FakeKeypress press Escape \
+                        press colon \
+                        press w \
+                        press q \
+                        press Return</PRE></blockquote>
+<P>
+
+
+
+Send A to a specific window:
+
+
+<P>
+
+
+<blockquote><PRE>WindowId 0x3800002 FakeKeypress press A</PRE></blockquote>
+<P>
+
+
+
+Note: all command names can be abbreviated with their first letter.
+<P>
 <P>
 <DT><B>GlobalOpts [</B><I>options</I><B>]</B>
 
@@ -5448,10 +5710,11 @@ turn, and uses the first file found.
 If a directory is given in the form &quot;/some/dir;.ext&quot;, this means
 all images in this directory have the extension &quot;.ext&quot; that should
 be forced.  The original image name (that may contain another
-extension or no extension at all) is not probed, instead &quot;.ext&quot;
-is added or replaces the original extension.  This is useful, for
+extension or no extension at all) is not probed, instead &quot;.ext&quot; is
+added or replaces the original extension.  This is useful, for
 example, if a user has some image directories with &quot;.xpm&quot; images
-and other image directories with the same names, but &quot;.png&quot; images.
+and other image directories with the same names, but &quot;.png&quot;
+images.
 <P>
 The
 <I>path</I>
@@ -5480,7 +5743,7 @@ Note: if the
 <B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 module is used to parse your
-<I>.fvwm2rc</I>
+<I>config</I>
 
 files, then m4 may want to mangle the word &quot;include&quot; which
 frequently shows up in the
@@ -5511,14 +5774,13 @@ directives to have a prefix of &quot;m4_&quot; (see the
 
 man page).
 <P>
-
 <DT><B>LocalePath </B><I>path</I>
 
 <DD>
-Specifies a colon separated list of &quot;locale path&quot; in which to search
-for string translation. A locale path is constituted by a directory
-path and a text domain separated by a &quot;;&quot;. As an example the default locale
-path is:
+Specifies a colon separated list of &quot;locale path&quot; in which to
+search for string translations. A locale path is constituted by a
+directory path and a text domain separated by a semicolon
+(';'). As an example the default locale path is:
 
 
 <P>
@@ -5530,7 +5792,7 @@ path is:
 
 
 where install_prefix is the fvwm installation directory. With such
-a locale path translation is searched in
+a locale path translations are searched for in
 
 
 <P>
@@ -5541,8 +5803,13 @@ a locale path translation is searched in
 
 
 
-where &quot;lang&quot; depends on the locale. If no directory is given the
-default directory path is assumed. If no text domain is given, &quot;fvwm&quot;
+where
+<I>lang</I>
+
+depends on the locale. If no directory is given the default
+directory path is assumed. If no text domain is given,
+<I>fvwm</I>
+
 is assumed. Without argument the default locale path is restored.
 <P>
 As for the
@@ -5551,10 +5818,10 @@ As for the
 command,
 <I>path</I>
 
-may contain environment variables and a '+' for appending
-or prepending locale path easily.
+may contain environment variables and a '+' to append or prepend
+the locale path easily.
 <P>
-For example, the fvwm-themes package use (in fact will use):
+For example, the fvwm-themes package uses
 
 
 <P>
@@ -5565,16 +5832,20 @@ For example, the fvwm-themes package use (in fact will use):
 
 
 
-for adding locale catalogs.
+to add locale catalogs.
 <P>
-The default fvwm catalog contains a few strings used by the fvwm executable
-itself (Desk and Geometry) and strings used in some default configuration
-files and FvwmForm configuration. You can take a look at the po/ subdirectory
-of the fvwm source to get the list of the strings with a possible
-translation in various lang.
-At the present time very few languages are supported.
+The default fvwm catalog contains a few strings used by the fvwm
+executable itself (Desk and Geometry) and strings used in some
+default configuration files and
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
+
+configuration. You can take a look at the po/ subdirectory of the
+fvwm source to get the list of the strings with a possible
+translation in various languages. At present, very few languages
+are supported.
 <P>
-The main use of locale catalogs is via the &quot;$[gt.string]&quot; parameter:
+The main use of locale catalogs is via the &quot;$[gt.string]&quot;
+parameter:
 
 
 <P>
@@ -5596,7 +5867,8 @@ AddToMenu   MenuFvwmWindowOps &quot;$[gt.Window Ops]&quot; Title
 
 
 
-gives a menu in the locale languages if translations are available.
+gives a menu in the locale languages if translations are
+available.
 <P>
 Note that the
 <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
@@ -5604,10 +5876,10 @@ Note that the
 module has its own catalog and that the
 <B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 
-module has a set of special instructions for string translation.
-It is out of the scoop of this documentation to explain how to
-build locale catalogs. We refer the user to the GNU gettext documentation.
-
+module has a set of special instructions for string
+translation. It is out of the scope of this discussion to explain
+how to build locale catalogs. Please refer to the GNU gettext
+documentation.
 <P>
 <DT><B>PixmapPath </B><I>path</I>
 
@@ -5659,6 +5931,27 @@ which prints information on fvwm styles.
 
 can be 1.
 <P>
+<DT><B>Repeat</B>
+
+<DD>
+When the
+<B>Repeat</B>
+
+command is invoked, the last command that was executed by fvwm is
+executed again.  This happens regardless of whether it was
+triggered by user interaction, a module or by an X event.
+Commands that are executed from a function defined with the
+<B>Function</B>
+
+command, from the
+<B>Read</B> or <B>PipeRead</B>
+
+commands or by a menu are not repeated.  Instead, the function,
+menu  or the
+<B>Read  or  PipeRead</B>
+
+command is executed again.
+<P>
 <DT><B>Schedule </B><I>delay_ms [command_id] command</I>
 
 <DD>
@@ -5698,7 +5991,8 @@ is finally executed, it is expanded again.  It may therefore be
 necessary to quote the parts of the command that must not be
 expanded twice.
 <P>
-Note:  A window's id as it is returned with $[w.id] can be used as the
+Note:  A window's id as it is returned with $[w.id] can be used as
+the
 <I>command_id</I>.
 
 Example:
@@ -5896,7 +6190,7 @@ key.
 The
 <I>options</I>
 
-passed to WindowList can be
+passed to WindowList are separated by commas and can be
 <I>Geometry</I> / <I>NoGeometry</I> / <I>NoGeometryWithInfo</I>,
 
 <I>NoDeskNum,</I>
@@ -6019,14 +6313,14 @@ option the order of the windows in the list is reversed.
 With the
 <I>CurrentAtEnd</I>
 
-option the currently focused window (if any) is shown at the bottom
-of the list.  This is mostly intended for simulating the Alt-Tab
-behavior in another GUI.
+option the currently focused window (if any) is shown at the
+bottom of the list.  This is mostly intended for simulating the
+Alt-Tab behavior in another GUI.
 <P>
 <I>IconifiedAtEnd</I>
 
-makes iconified windows be moved to the end of the list.  This is also
-from another GUI.
+makes iconified windows be moved to the end of the list.  This is
+also from another GUI.
 <P>
 The
 <I>NoGeometry</I>
@@ -6051,11 +6345,8 @@ is only useful if a desktop name is defined with the
 
 command. It causes fvwm to not display the desktop number before
 the desktop name.  By default, the WindowList menu have a title
-which indicates the current desk or the selected desktop if the
-<I>Desk</I>
-
-condition is used.
-The
+which indicates the current desk or the selected desktop if the .I
+Desk condition is used. The
 <I>NoCurrentDeskTitle</I>
 
 option removes this title.
@@ -6360,13 +6651,14 @@ to 3, which is now the default value.  If
 is negative or omitted the default value (which might be increased
 when 16000x9000 pixel displays become affordable) is restored.
 <P>
-<DT><B>MoveToPage [</B><I>x</I>[<I>p</I>] <I>y</I>[<I>p</I>]] | [<I>prev]</I>
+<DT><B>MoveToPage [</B><I>options</I>
 
 <DD>
+] [<I>x</I>[<I>p</I>|<I>w</I>] <I>y</I>[<I>p</I>|<I>w</I>]] | [<I>prev]&quot;
 Moves the selected window to another page (x,y).  The upper left
 page is (0,0), the upper right is (M,0), where M is one less than
 the current number of horizontal pages specified in the
-<B>DeskTopSize</B>
+</I><B>DeskTopSize</B>
 
 command.  Similarly the lower left page is (0,N), and the lower
 right page is (M,N).  Negative page numbers refer to pages from
@@ -6375,15 +6667,40 @@ the rightmost/lowest page.  If
 
 are not given, the window is moved to the current page (a window
 that has the focus but is off-screen can be retrieved with this).
-Moving windows to a page relative to the current one can be
+Moving windows to a page relative to the current page can be
 achieved by adding a trailing
 '<I>p</I>'
 
-after any or both numerical arguments.  To move a window to the
-previous page use
+after any or both numerical arguments.  To move the window
+relative to its current location, add a trailing
+'<I>w</I>'.
+
+To move a window to the previous page use
 <I>prev</I>
 
 as the single argument.
+<P>
+Windows are usually not moved beyond desk boundaries.
+<P>
+Possible
+<I>options</I>
+
+are
+<I>wrapx</I> and <I>wrapy</I>
+
+to wrap around the x or y coordinate when the window is moved
+beyond the border of the desktop. For example, with
+<I>wrapx</I>,
+
+when the window moves past the right edge of the desktop, it
+reappears on the left edge.  The options
+<I>nodesklimitx</I> and <I>nodesklimit</I>
+
+allow moving windows beyond the desk boundaries in x and y
+direction (disabling the
+<I>wrapx</I> and <I>wrapy</I>
+
+options).
 <P>
 Examples:
 
@@ -6401,8 +6718,8 @@ MoveToPage -1 -1
 MoveToPage prev
 
 # Move window two pages to the right and one
-# page up
-MoveToPage +2p -1p</PRE></blockquote>
+# page up, wrap at desk boundaries
+MoveToPage wrapx wrapy +2p -1p</PRE></blockquote>
 <P>
 
 
@@ -6520,7 +6837,7 @@ style is used; see
 
 command) otherwise it is lowered.
 <P>
-<DT><B>Resize [[</B><I>frame] width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [<I>bottomright</I> | <I>br x y</I>]
+<DT><B>Resize [[</B><I>frame</I>] [direction <I>dir</I> [<I>warptoborder</I>]] [<I>fixeddirection</I>] <I>width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [<I>bottomright</I> | <I>br x y</I>]
 
 <DD>
 Allows for resizing a window.  If called from somewhere in a window
@@ -6581,7 +6898,39 @@ may make the window bigger than the screen.  To base the new size
 on the size of the whole fvwm window, add the
 <I>frame</I>
 
-option after the command.
+option after the command.  The options
+<I>fixeddirection</I>, <I>direction</I> and <I>warptoborder</I>
+
+are only used in interactive move operations.  With
+<I>fixeddirection</I>
+
+the same border is moved even if the pointer moves past the
+opposite border.  The
+<I>direction</I>
+
+option must be followed by a direction name such as &quot;NorthWest&quot;,
+&quot;South&quot; or &quot;East&quot; (you get the idea).  Resizing is started
+immediately, even if the pointer is not on a border.  The
+<I>warptoborder</I>
+
+option changes the behaviour of the
+<I>direction</I>
+
+option so that the pointer is automatically warped to the border
+in the given direction before starting to resize.  Also, if
+resizing is started by clicking on the window border, the pointer
+is warped to the outer edge of the border.
+
+
+<P>
+
+
+<blockquote><PRE>AddToFunc ResizeSE I Resize Direction SE
+Mouse 3 A M ResizeSE</PRE></blockquote>
+<P>
+
+
+
 <P>
 An alternate syntax is used if the keyword
 <I>bottomright</I> or in short <I>br</I>
@@ -7126,16 +7475,24 @@ The optional
 
 argument is a space separated list containing the following
 key words:
-<I>ewmhiwa</I>, <I>layer</I> and <I>screen</I>.
+<I>ewmhiwa</I>, <I>growonwindowlayer</I>, <I>growonlayers</I> and <I>screen</I>.
 
 <I>ewmhiwa</I>
 
 causes fvwm to ignore the EWMH working area.
-<I>layer</I>
+<I>Growonwindowlayer</I>
 
-causes the various grow methods to ignore the windows with a layer
-less than or equal to the layer on the window which is maximized.
-<I>screen</I>
+causes the various grow methods to ignore windows with a layer
+other than the current layer of the window which is maximized.
+The
+<I>growonlayers</I>
+
+option must have two integer arguments.  The first one is the
+minimum layer and the second one the maximum layer to use.
+Windows that are outside of this range of layers are ignored by
+the grow methods.  A negative value as the first or second
+argument means to assume no minimum or maximum layer.
+<I>Screen</I>
 
 must have an argument which specifies the Xinerama screen on which
 to operate.
@@ -7190,14 +7547,14 @@ To expand a window horizontally until any other window is found:
 
 
 
-To expand a window until any other window with a larger layer is
-found:
+To expand a window until any other window on the same or a higher
+layer is hit.
 
 
 <P>
 
 
-<blockquote><PRE>Mouse 0 4 A Maximize layer grow grow</PRE></blockquote>
+<blockquote><PRE>Mouse 0 4 A Maximize growonlayers $[w.layer] -1 grow grow</PRE></blockquote>
 <P>
 
 
@@ -7373,8 +7730,8 @@ very strange.  Windows that were shaded without a
 
 argument stay shaded in the direction of the title bar.
 <P>
-For backward compatibility, the optional argument may also be 1
-to signify &quot;on&quot;, and 2 to signify &quot;off&quot;. Note that this syntax is
+For backward compatibility, the optional argument may also be 1 to
+signify &quot;on&quot;, and 2 to signify &quot;off&quot;. Note that this syntax is
 obsolete, and will be removed in the future.
 <P>
 <DT><B>WindowShadeAnimate  [</B><I>steps</I><B>[</B><I>p</I><B>]]</B>
@@ -7406,12 +7763,12 @@ affects the
 <I>ClickToFocus</I>
 
 style too.  This command belongs into your
-<I>.fvwm2rc</I>.
+<I>config</I>.
 
 If you issue it when your fvwm session is already up and running
 the results are unpredictable.  The should appear before any
 applications or modules are started in your
-<I>.fvwm2rc</I>
+<I>config</I>
 
 file (e.g. with the
 <B>Exec</B>
@@ -7462,10 +7819,10 @@ This command creates a lot of extra network traffic, depending on
 your CPU, network connection, the number of
 <B>Key</B> or <B>Mouse</B>
 
-commands in your configuration file and the number of modifiers you
-want to ignore.  If you do not have a lightning fast machine or
-very few bindings you should not ignore more than two modifiers.
-I.e. do not ignore
+commands in your configuration file and the number of modifiers
+you want to ignore.  If you do not have a lightning fast machine
+or very few bindings you should not ignore more than two
+modifiers. I.e. do not ignore
 <FONT>scroll-lock</FONT>
 if you have no problem with it.  In the
 <I>FAQ</I>
@@ -7524,6 +7881,8 @@ EdgeThickness 1
 # Give focus to FvwmButtons if the mouse
 # hits top edge
 EdgeCommand Top Next (FvwmButtons) Focus
+# Make sure the Next command matches the window
+Style FvwmButtons CirculateHit
 
 Module FvwmButtons
 Module FvwmAuto 100 \
@@ -7547,9 +7906,57 @@ AddToFunc AutoRaiseFunction
 
 
 
-Normally, the invisible pan frames are only on the screen edges that
-border virtual pages.  If a screen edge has a command bound to it,
-the pan frame is always created on that edge.
+Normally, the invisible pan frames are only on the screen edges
+that border virtual pages.  If a screen edge has a command bound
+to it, the pan frame is always created on that edge.
+<P>
+<DT><B>EdgeLeaveCommand [</B><I>direction</I><B> [</B><I>Function</I><B>]]</B>
+
+<DD>
+Binds a specified fvwm command
+<I>Function</I>
+
+to an edge of the screen. Direction may be one of
+&quot;North&quot;, &quot;Top&quot;, &quot;West&quot;, &quot;Left&quot;, &quot;South&quot;, &quot;Bottom&quot;, &quot;Right&quot;
+and &quot;East&quot;. If
+<I>Function</I>
+
+is omitted the binding for this edge is removed. If
+EdgeLeaveCommand is called without any arguments all edge bindings
+are removed.
+<P>
+<I>Function</I>
+
+is executed when the mouse pointer
+leaves the invisible pan frames that surround the visible screen.
+The binding works only if
+<I>EdgeThickness</I>
+
+is set to a value greater than 0.
+If a function is bound to an edge, scrolling specified by
+<I>EdgeScroll</I>
+
+is disabled for this edge.
+It is possible to bind a function only to some edges
+and use the other edges for scrolling.
+This command is intended to raise or lower certain windows
+when the mouse pointer leaves an edge.
+<I>FvwmAuto</I>
+
+can be used get a delay when raising or lowering windows.
+See example for
+<I>EdgeCommand</I>
+
+
+
+</blockquote>
+<P>
+
+
+
+Normally, the invisible pan frames are only on the screen edges
+that border virtual pages.  If a screen edge has a command bound
+to it, the pan frame is always created on that edge.
 <P>
 <DT><B>GnomeButton</B>
 
@@ -7573,7 +7980,7 @@ Mouse 3 R A GnomeButton</PRE></blockquote>
 
 
 <P>
-<DT><B>Key </B><I>Keyname Context Modifiers Function</I>
+<DT><B>Key [(</B><I>window</I><B>)] </B><I>Keyname Context Modifiers Function</I>
 
 <DD>
 Binds a keyboard key to a specified fvwm command, or
@@ -7589,10 +7996,16 @@ binding except that the mouse button number is replaced with a
 Normally, the key binding is activated when the key is pressed.
 <I>Keyname</I>
 
-is one of the entries from the file
+is a standard X11 key name as defined in
 <I>/usr/include/X11/keysymdef.h</I>,
 
-with the leading XK_ omitted, but only key names that are
+(without the 
+<I>XK_</I>
+
+prefix), or the keysym database
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
+
+Only key names that are
 generated with no modifier keys or with just the
 <FONT>Shift</FONT>
 key held are guaranteed to work.  The
@@ -7640,7 +8053,7 @@ Please refer to the
 
 command for details.
 <P>
-<DT><B>Mouse </B><I>Button Context Modifiers Function</I>
+<DT><B>Mouse [(</B><I>window</I><B>)] </B><I>Button Context Modifiers Function</I>
 
 <DD>
 Defines a mouse binding, or removes the binding if
@@ -7652,7 +8065,13 @@ is '-'.
 is the mouse button number.  If
 <I>Button</I>
 
-is zero then any button performs the specified function.
+is zero then any button performs the specified function.  Note
+that only mouse buttons 1 to 5 are fully supported by X11.  Any
+number above this works only partially.  Complex functions can not
+be used with these buttons and neither any operation that requires
+dragging the pointer with the button held.  This is due to
+limitations of X11.  By default, the highest allowed button number
+is 9.
 <P>
 <I>Context</I>
 
@@ -7663,11 +8082,54 @@ title-bar, 'S' for a window side, top, or bottom bar, '[', ']',
 '-' and '_' for the left, right, top or bottom side only, 'F' for
 a window frame (the corners), '&lt;', '^', '&gt;' and 'v' for the top
 left, top right, bottom right or bottom left corner, 'I' for an
-Icon window, or '0' through '9' for title-bar buttons, or any
+icon window, or '0' through '9' for title-bar buttons, or any
 combination of these letters.  'A' is for any context.  For
 instance, a context of &quot;FST&quot; applies when the mouse is anywhere in
 a window's border except the title-bar buttons.  Only 'S' and 'W'
 are valid for an undecorated window.
+<P>
+The special context 'M' for menus can only be used to control
+which mouse button is used to tear off menus.  See the section
+&quot;Tear Off Menus&quot; for details.
+<P>
+By default, the binding applies to all windows. You can specify
+that a binding only applies to specific windows by specifying the
+window name in brackets. The window name is a wildcard pattern
+specifying the class, resource or name of the window you want the
+binding to apply to.
+<P>
+The following example shows how the same key-binding can be used to
+perform different functions depending on the window that is focussed:
+
+
+<P>
+
+
+<blockquote><PRE>Key (rxvt)  V A C Echo ctrl-V-in-RXVT
+Key (*term) V A C Echo ctrl-V-in-Term
+Key (*vim)  V A C --
+Key         V A C Echo ctrl-V-elsewhere</PRE></blockquote>
+<P>
+
+
+
+<P>
+Note that a '--' action indicates that the event should not be
+intercepted by Fvwm and passed through to the underlying window
+instead. This is only a valid action for window-specific bindings.
+<P>
+This example shows how to display the WindowList when Button 3 is
+pressed on an rxvt window:
+
+
+<P>
+
+
+<blockquote><PRE>Mouse (rxvt) 3 A A WindowList</PRE></blockquote>
+<P>
+
+
+
 <P>
 <I>Modifiers</I>
 
@@ -7710,7 +8172,7 @@ title bar.  The highest even number determines the number or right
 side buttons which are drawn.  Actions can be bound to either
 mouse buttons or keyboard keys.
 <P>
-<DT><B>PointerKey [</B><I>-</I><B>]</B><I>Keyname Context Modifiers Function</I>
+<DT><B>PointerKey [(</B><I>window</I><B>)] </B><I>Keyname Context Modifiers Function</I>
 
 <DD>
 This command works exactly like the
@@ -7746,7 +8208,7 @@ PointerKey f1 a m Menu MainMenu</PRE></blockquote>
 
 
 <P>
-<DT><B>Stroke </B><I>Sequence Button Context Modifiers Function</I>
+<DT><B>Stroke [(</B><I>window</I><B>)] </B><I>Sequence Button Context Modifiers Function</I>
 
 <DD>
 Binds a mouse stroke sequence to a specified fvwm command,
@@ -8292,7 +8754,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>MinOverlapPercentPlacement</I> / <I>TileManualPlacement</I> / 
 
-<I>TileCascadePlacement</I>,
+<I>TileCascadePlacement</I>,<I> / </I>CenterPlacement<I>,</I>
 
 <I>MinOverlapPlacementPenalties</I>,
 
@@ -8466,7 +8928,11 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>EWMHPlacementUseDynamicWorkingArea</I>,
 
-<I>MoveByProgramMethod</I>.
+<I>MoveByProgramMethod</I>,
+
+<I>Unmanaged</I>,
+
+<I>State</I>.
 
 <P>
 
@@ -8562,14 +9028,10 @@ command is used.
 <P>
 <I>FPLenient</I>
 
-instructs fvwm to ignore the convention in the
-<FONT>ICCCM</FONT>
-which states that if an application sets the input field of the
-wm_hints structure to False, then it never wants the window
-manager to give it the input focus.  The only application that we
-know of which needs this is sxpm, and that is a silly bug with a
-trivial fix and has no overall effect on the program anyway.
-Rumor is that some older applications have problems too.
+allows to force focus upon windows that do not want it, like
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
+
+or xclock.
 <P>
 The
 <I>FPFocusClickButtons</I>
@@ -8716,21 +9178,20 @@ The above three styles are accompanied by
 <I>FPOverrideReleaseFocus</I>.
 
 These control if the focus is returned to another window when the
-window is close.  Otherwise no window or the window under the
+window is closed.  Otherwise no window or the window under the
 pointer will receive the focus.
 <P>
 <I>ClickToFocusPassesClickOff</I> and <I>ClickToFocusPassesClick</I>
 
-controls if a mouse click to focus a window using the
-<I>ClickToFocus</I>
-
-model is sent to the application or not.  Similarly,
+controls whether a mouse click to focus a window is sent to the
+application or not.  Similarly,
 <I>ClickToFocusRaisesOff/MouseFocusClickRaisesOff</I>
 
 and
 <I>ClickToFocusRaises/MouseFocusClickRaises</I>
 
-control if the window is raised.
+control if the window is raised (but depending on the focus
+model).
 <P>
 Note: in fvwm versions prior to
 2.5.3, the &quot;Click...&quot; options applied only to windows with
@@ -8826,8 +9287,8 @@ reverts back to the default.
 With the
 <I>StippledTitle</I>
 
-style, titles are drawn with the same effect that is usually reserved for
-windows with the
+style, titles are drawn with the same effect that is usually
+reserved for windows with the
 <I>Sticky</I>, <I>StickyAcrossPages</I> or <I>StickyAcrossDesks</I>
 
 style.
@@ -8890,6 +9351,13 @@ style option works similarly to
 
 but is used when the window has the focus.
 <P>
+<I>NoIconTitle</I>
+
+disables displaying icon labels while the opposite style
+<I>IconTitle</I>
+
+enables icon labels (default behaviour).
+<P>
 <I>IconTitleColorset</I>
 
 takes the colorset number as its sole argument and overrides the
@@ -8909,31 +9377,32 @@ To stop using this colorset, the argument is omitted.
 <I>IconBackgroundColorset</I>
 
 takes the colorset number as its sole argument and uses it to set
-a background for the icon picture. By default the icon picture is not
-drawn onto a background image. To restore the default, the argument is
-omitted.
+a background for the icon picture. By default the icon picture is
+not drawn onto a background image. To restore the default, the
+argument is omitted.
 <P>
 <I>IconTitleRelief</I>
 
-takes one numeric argument that may be between -50 and +50 pixels and
-defines the thickness of the 3D relief drawn around the icon
-title. With negative values the icon title gets a pressed in look.
-The default is 2 and it is restored if the argument is omitted.
+takes one numeric argument that may be between -50 and +50 pixels
+and defines the thickness of the 3D relief drawn around the icon
+title. With negative values the icon title gets a pressed in
+look. The default is 2 and it is restored if the argument is
+omitted.
 <P>
 <I>IconBackgroundRelief</I>
 
-takes one numeric argument that may be between -50 and +50 pixels and
-defines the thickness of the 3D relief drawn around the icon picture
-background (if any). With negative values the icon background gets a
-pressed in look.  The default is 2 and it is restored if the argument
-is omitted.
+takes one numeric argument that may be between -50 and +50 pixels
+and defines the thickness of the 3D relief drawn around the icon
+picture background (if any). With negative values the icon
+background gets a pressed in look.  The default is 2 and it is
+restored if the argument is omitted.
 <P>
 <I>IconBackgroundPadding</I>
 
 takes one numeric argument that may be between 0 and 50 pixels and
-defines the amount of free space between the relief of the icon background
-picture (if any) and the icon picture. The default is 2 and it is restored if
-the argument is omitted.
+defines the amount of free space between the relief of the icon
+background picture (if any) and the icon picture. The default is 2
+and it is restored if the argument is omitted.
 <P>
 The
 <I>Font</I> and <I>IconFont</I>
@@ -9290,7 +9759,7 @@ below in your configuration file:
 
 <blockquote><PRE>AddToFunc DeiconifyAndRearrange
  + C Iconify off
- + C All (CurrentPage Iconic) PlaceAgain Icon</PRE></blockquote>
+ + C All (CurrentPage, Iconic) PlaceAgain Icon</PRE></blockquote>
 <P>
 
 
@@ -9521,7 +9990,8 @@ default, fvwm uses lazy mode if there are no bad visual effects
 the
 <I>WindowShadeAlwaysLazy  or  WindowShadeBusy</I>
 
-to force using the lazy or busy mode.  The default setting is restored with
+to force using the lazy or busy mode.  The default setting is
+restored with
 <I>WindowShadeLazy</I>.
 
 <P>
@@ -9564,15 +10034,25 @@ and each desk.  The opposite style,
 
 reverts back to the default.
 <P>
-<I>StickyAcrossPages</I>
+<I>StickyAcrossPages</I> and <I>StickyAcrossPagesIcon</I>
 
-works like
-<I>Sticky</I>,
+work like
+<I>Sticky</I> and <I>StickyIcon</I>,
 
-but sticks the window only across pages, not desks while
-<I>StickyAcrossDesks</I>
+but stick the window only across pages, not desks while
+<I>StickyAcrossDesks  and  StickyAcrossDesksIcon</I>
 
 works the other way round.
+<P>
+Windows with the
+<I>StartIconic</I>
+
+style are shown as icons initially.  Note that some applications
+counteract that by deiconifying themselves.  The default is to not
+iconify windows and can be set with the
+<I>StartNormal</I>
+
+style.
 <P>
 <I>StickyIcon</I>
 
@@ -9679,9 +10159,9 @@ and
 
 to be performed on the windows. This is on by default.
 The opposite,
-<I>!Closable</I>
+<I>!Closable</I>,
 
-,inhibits the window to be closed.
+inhibits the window to be closed.
 <P>
 <I>Iconifiable</I>
 
@@ -9691,9 +10171,9 @@ enables the function
 to be performed on the windows.
 This is on by default.
 The opposite,
-<I>!Iconifiable</I>
+<I>!Iconifiable</I>,
 
-,inhibits the window from being iconified.
+inhibits the window from being iconified.
 <P>
 <I>Maximizable</I>
 
@@ -9703,9 +10183,9 @@ enables the function
 to be performed on the windows.
 This is on by default.
 The opposite,
-<I>!Maximizable</I>
+<I>!Maximizable</I>,
 
-,inhibits the window from being maximized.
+inhibits the window from being maximized.
 <P>
 <I>AllowMaximizeFixedSize</I>
 
@@ -9719,9 +10199,9 @@ has been disabled either using the style
 or throuth WM hints,
 This on by default.
 The opposite,
-<I>!AllowMaximizeFixedSize</I>
+<I>!AllowMaximizeFixedSize</I>,
 
-,inibits all widows that are not resizable from being maximized.
+inibits all windows that are not resizable from being maximized.
 <P>
 <I>ResizeHintOverride</I>
 
@@ -9772,6 +10252,10 @@ for the window.  Fvwm knows six ways to deal with this
 situation. The default is
 <I>TileCascadePlacement</I>.
 
+<P>
+<I>CenterPlacement</I>
+
+automatically places new windows in the center of the display.
 <P>
 <I>CascadePlacement</I>
 
@@ -9832,7 +10316,7 @@ takes at most 6 positive or null decimal arguments:
 <P>
 
 
-<blockquote><PRE><I>norm ontop icon sticky below strut</I></PRE></blockquote>
+<blockquote><PRE><I>normal ontop icon sticky below strut</I></PRE></blockquote>
 <P>
 
 
@@ -9854,7 +10338,7 @@ This style configures the
 
 placement policy.
 The
-<I>norm</I>
+<I>normal</I>
 
 factor affects normal windows, the
 <I>ontop</I>
@@ -9864,6 +10348,9 @@ placed, the
 <I>icon</I>
 
 factor affects icons, the
+<I>sticky</I>
+
+factor affects sticky windows, the
 <I>below</I>
 
 factor affects windows with a smaller layer than the window being
@@ -9872,7 +10359,7 @@ placed, the
 
 factor affects the complement of the EWMH working area if the
 window being placed has the
-<I>EWMHPlacementUseWoringArea</I>
+<I>EWMHPlacementUseWorkingArea</I>
 
 style and windows with an EWMH strut hint (i.e., a &quot;please don't
 not cover me&quot; hint) if the window being placed has the
@@ -9993,8 +10480,9 @@ until it hits the bottom screen border.
 
 DumbPlacement / SmartPlacement / SmartPlacementOff,
 ActivePlacement / RandomPlacement,
-ActivePlacementsHonorsStartsOnPage / ActivePlacementsHonorsStartsOnPageOff,
-GlobalOpts SmartPlacementIsReallySmart / GlobalOpts SmartPlacementIsNormal
+ActivePlacementsHonorsStartsOnPage /
+ActivePlacementsHonorsStartsOnPageOff, GlobalOpts
+SmartPlacementIsReallySmart / GlobalOpts SmartPlacementIsNormal
 are still supported but will be removed in the future. The old and
 new styles can be translated according to the following table:
 
@@ -10405,11 +10893,11 @@ restores the default.
 <P>
 <I>EWMHUseStackingOrderHints</I>
 
-causes fvwm to use EWMH hints which change the window layer (such
-a hint is used by KDE and is not standard).
+causes fvwm to use EWMH hints and respect EWMH hints which change
+the window layer.
 <I>EWMHIgnoreStackingOrderHints</I>
 
-causes fvwm to ignore such hints.
+causes fvwm to ignore EWMH layer hints.
 <P>
 An application can ask for some reserved space on the desktop by a
 hint.  In the EWMH terminology such a hint is called a strut and
@@ -10469,7 +10957,7 @@ style.
 The
 <I>BackingStore</I>, <I>BackingStoreOff</I> and <I>BackingStoreWindowDefault</I>
 
-determine if the X server uses backing storefor the window or
+determine if the X server uses backing store for the window or
 not.
 <I>BackingStore</I>
 
@@ -10612,6 +11100,117 @@ modified. To achieve this you have to issue the
 <I>UseStyle</I>
 
 line again.
+<P>
+<I>Unmanaged</I>
+
+Windows with the
+<I>Unmanaged</I>
+
+style option are ignored by fvwm.  They are not decorated, can not
+be moved or resized, etc.  You probably want to use
+<B>Bugopts RaiseOverUnmanaged</B>
+
+too.  This option can be turned off with the
+<I>!Unmanaged</I>style<I>.</I>
+
+However, windows that are already ignored at the time when the
+option is set must be recaptured with the
+<B>Recapture</B>
+
+command in order to become managed.
+<P>
+<I>State</I>
+
+sets the initial value of of one of the 32 user defined states
+which are associated with each window.  The state number ranges
+from 0 to 31 and must be given as an argument.  The states have no
+meaning in fvwm, but they can be checked in conditional commands
+like
+<B>Next</B>
+
+with the
+<I>State</I>
+
+condition and manipulated with the
+<B>State</B>
+
+command.
+
+
+<P>
+
+
+<blockquote><PRE># turn on state 11 for xterms ...
+Style xterm State 11
+# ... but not for rxvts.
+Style rxvt !State 11</PRE></blockquote>
+<P>
+
+
+
+<P>
+
+<P>
+Windows with the
+<I>WindowListSkip</I>
+
+styles do not appear in the menu that is created with the
+<B>WindowList</B>
+
+command or the lists shown in several modules like
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>.
+
+In the modules, the style can usually be ignored with an option.
+Please refer to the man pages of the module in question for
+further information.  To disable this feature, use the default
+style
+<I>WindowListHit</I>.
+
+<P>
+The styles
+<I>CirculateSkip</I> and <I>CirculateHit</I>
+
+control wheter the window is considered by conditional commands,
+for example
+<B>Next</B>, <B>Prev</B> or <B>All</B>.
+
+Windows with
+<I>CirculateSkip</I>,
+
+are never selected by conditional commands.  However, the styles
+can be overridden explicitly in the condition with the
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> or <I>CirculateHitShaded</I>
+
+conditions, and some conditional commands, e.g.
+<B>Current  and  All ,</B>
+
+do this by default.
+The styles
+<I>CirculateSkipIcon</I>, <I>CirculateHitIcon</I>,
+
+<I>CirculateSkipShaded</I> and <I>CirculateHitShaded</I>
+
+work like
+<I>CirculateSkip</I> and <I>CirculateHit</I>
+
+but apply only to iconic or shaded windows.
+Note: if multiple ...Skip... options are combined, windows are
+only selected if they match none of the given conditions.  So,
+with
+
+
+<P>
+
+
+<blockquote><PRE>Style * CirculateSkipIcon, CirculateSkipShaded</PRE></blockquote>
+<P>
+
+
+
+only windows that are neither iconic nor shaded are selecte.
+Note:  For historical reasons, the conditional commands understand
+the names of these styles as condition names.  Take care no to
+confuse them.
 <P>
 
 <DT><B>Examples</B>
@@ -11152,7 +11751,7 @@ refers to which button state should be set.  Button states are
 defined as follows: &quot;ActiveUp&quot; and &quot;ActiveDown&quot; refer to the
 un-pressed and pressed states for buttons on active windows; while
 the &quot;InactiveUp&quot; and &quot;InactiveDown&quot; states denote buttons on
-inactive windows.  Shortcut &quot;Active&quot; denotes both &quot;ActiveUp&quot; and
+inactive windows.  The shortcut &quot;Active&quot; denotes both &quot;ActiveUp&quot; and
 &quot;ActiveDown&quot; states.  Shortcut &quot;Inactive&quot; denotes both &quot;InactiveUp&quot;
 and &quot;InactiveDown&quot; states.
 The similar state names like just described, but with the &quot;Toggled&quot;
@@ -11403,11 +12002,11 @@ style fills the button with the Colorset
 The optional
 <I>alpha</I>
 
-argument is a percentage between 0 and 100.
-It causes fvwm to merge the colorset background onto the button using this
-percentage. If the percentage is 0 the colorset background is hidden and
-if it is 100 the colorset background is fully applied. The default is 100.
-So, the destructivity depends on the
+argument is a percentage between 0 and 100. It causes fvwm to
+merge the colorset background onto the button using this
+percentage. If the percentage is 0 the colorset background is
+hidden and if it is 100 the colorset background is fully
+applied. The default is 100. So, the destructivity depends on the
 <I>alpha</I>
 
 argument.
@@ -11546,8 +12145,8 @@ The
 style is similar to the
 <I>Pixmap</I>
 
-style. But if the image is bigger than the button the image is resized
-to fit into the button.
+style. But if the image is bigger than the button the image is
+resized to fit into the button.
 <P>
 The
 <I>StretchedPixmap</I>
@@ -11555,8 +12154,8 @@ The
 style is similar to the
 <I>Pixmap</I>
 
-style. But if the image is smaller than the button the image is resized
-to cover the button.
+style. But if the image is smaller than the button the image is
+resized to cover the button.
 <P>
 The
 <I>TiledPixmap</I>
@@ -12198,7 +12797,7 @@ paging or scrolling when you hit the edge of a page include
 
 
 in your
-<I>.fvwm2rc</I>
+<I>config</I>
 
 file, or possibly better, set the
 <B>EdgeThickness</B>
@@ -12434,7 +13033,7 @@ and the new page is
 (<I>xpage</I>,<I>ypage</I>).
 
 <P>
-<DT><B>GotoPage </B><I>prev</I> | <I>x</I> [<I>p</I>] <I>y</I> [<I>p</I>]
+<DT><B>GotoPage </B><I>prev</I> | [<I>options</I>] <I>x</I> [<I>p</I>] <I>y</I> [<I>p</I>]
 
 <DD>
 Moves the desktop viewport to page (x,y).  The upper left page is
@@ -12451,8 +13050,18 @@ command.  To switch to a page relative to the current one add a
 trailing
 '<I>p</I>'
 
-after any or both numerical arguments.  To go to last visited page
-use
+after any or both numerical arguments.
+<P>
+Possible
+<I>options</I>
+
+are
+<I>wrapx</I> and <I>wrapy</I>
+
+to wrap around the x or y coordinate when the viewport is moved
+beyond the border of the desktop.
+<P>
+To go to the last visited page use
 <I>prev</I>
 
 as the first argument.  The
@@ -12705,8 +13314,8 @@ Begins or adds to a function definition.  Here is an example:
 
 
 
-The function name is &quot;Move-or-Raise&quot;, and could be invoked from a menu
-or a mouse binding or key binding:
+The function name is &quot;Move-or-Raise&quot;, and could be invoked from a
+menu or a mouse binding or key binding:
 
 
 <P>
@@ -12820,7 +13429,7 @@ could use
 
 
 in the same
-<I>.fvwm2rc</I>,
+<I>config</I>,
 
 if you wanted.  An example of using &quot;$[w.id]&quot; is:
 
@@ -12884,7 +13493,7 @@ Prints a message to
 <I>stderr</I>.
 
 Potentially useful for debugging things in your
-<I>.fvwm2rc</I>.
+<I>config</I>.
 
 
 
@@ -13102,7 +13711,7 @@ The
 command executes synchronously.  If you want to
 <B>Exec</B>
 
-something, but need the command to run sunchronously,
+something, but need the command to run synchronously,
 you might do something like:
 
 
@@ -13116,6 +13725,13 @@ you might do something like:
 
 The redirection causes any output from the program to go to stderr
 instead of being read as a sequence of commands by fvwm.
+<B>PipeRead</B>
+
+returns 1 if the given command could be executed or -1 if not
+(see the section
+<B>CONDITIONAL COMMANDS</B>
+
+for the meaning of return codes).
 <P>
 <DT><B>Read </B><I>filename</I><B> [</B><I>quiet</I><B>]</B>
 
@@ -13135,7 +13751,15 @@ directory.  The user's data directory is by default
 It can be overridden by exporting
 <I>FVWM_USERDIR</I>
 
-set to any other directory.
+set to any other directory.  The
+<B>Read</B>
+
+command returns 1 if the given file could be read or -1 if not
+(see the section
+<B>CONDITIONAL COMMANDS</B>
+
+for the meaning of return codes).
+<P>
 <P>
 <DT><B>SetEnv </B><I>variable value</I>
 
@@ -13174,7 +13798,7 @@ If
 includes whitespace, you should enclose it in quotes.  If no
 <I>value</I>
 
-is given, the command is ignored.
+is given, the variable is deleted.
 <P>
 <DT><B>Silent </B><I>command</I>
 
@@ -13646,7 +14270,8 @@ may be one of &quot;North&quot;, &quot;NorthEast&quot;, &quot;East&quot;, &quot;
 &quot;SouthWest&quot;, &quot;West&quot;, and &quot;NorthWest&quot;.  Which window
 <B>ScanForWindow</B>
 
-selects depends first on the position along the primary axis given by
+selects depends first on the position along the primary axis given
+by
 <I>direction</I>.
 
 If any windows have the exact same coordinate along the primary
@@ -13671,21 +14296,21 @@ given.
 See <B>Conditions</B> section below for a list of contitions.
 
 <P>
-<DT><B>Test [(</B><I>on-conditions</I><B>)] </B><I>command</I>
+<DT><B>Test [(</B><I>test-conditions</I><B>)] </B><I>command</I>
 
 <DD>
 Performs
 <I>command</I>
 
-if the all
-<I>on-conditions</I>
+if all
+<I>test-conditions</I>
 
 are satisfied.  The
-<I>on-conditions</I>
+<I>test-conditions</I>
 
-are a list of keywords with possible arguments from the list below
+are keywords with possible arguments from the list below
 and are separated by commas or whitespace.  They include
-<I>Version pattern</I>,
+<I>Version operator x.y.z</I>,
 
 <I>Start</I>,
 
@@ -13695,22 +14320,63 @@ and are separated by commas or whitespace.  They include
 
 <I>Exit</I>,
 
-<I>Quit</I>and
+<I>Quit</I> and
 
-<I>ToRestart</I>.
+<I>ToRestart</I>,
 
-An on-condition prefixed with &quot;!&quot; is reverted.
+<I>True</I>,
+
+<I>False</I>,
+
+<I>F</I>,
+
+<I>R</I>,
+
+<I>W</I>,
+
+<I>X</I>,
+
+<I>I</I>.
+
+A test-condition prefixed with &quot;!&quot; is reverted.
 <P>
 The
-<I>Version pattern</I>
+<I>Version operator x.y.z</I>
 
-on-condition is fulfilled if the pattern matches the version
-number of the fvwm executable.  The wildcards '*' (any number of
-random characters) and '?' (one random character) may be used in
-the pattern.  The
+test-condition is fulfilled if the logical condition of the expression is
+true. Valid
+<I>operator</I>
+
+values are:
+<I>&gt;=</I>,
+
+<I>&gt;</I>,
+
+<I>&lt;=</I>,
+
+<I>&lt;</I>,
+
+<I>==</I>
+
+and
+<I>!=</I>.
+
+<P>
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>Test (Version &gt;= 2.5.11) Echo 2.5.11 or later.</PRE></blockquote>
+<P>
+
+
+
+The
 <I>Start</I>
 
-on-condition is the same as either
+test-condition is the same as either
 <I>Init</I> or <I>Restart</I>.
 
 It is only true on startup or restart prior and during
@@ -13720,13 +14386,40 @@ execution.
 The
 <I>Exit</I>
 
-on-condition is the same as either
+test-condition is the same as either
 <I>Quit</I> or <I>ToRestart</I>.
 
 It is only valid on shutdown during
 <B>ExitFunction</B>
 
 function execution.
+<P>
+The
+<I>True</I>
+
+and
+<I>False</I>
+
+test-conditions are, well, unconditionally true and false.
+<P>
+Additionally, if a test-condition name is not recognized, the Error
+return code is set and the command is not executed.
+<P>
+The
+<I>F file</I>,
+
+<I>R file</I>,
+
+<I>W file</I>,
+
+<I>X file</I> and
+
+<I>I file</I>
+
+test-conditions test for existance of the given [F]ile (possibly
+with [R]ead/[W]rite permissions), e[X]ecutable (in $PATH),
+or the [I]mage (in ImagePath).
+<P>
 Example:
 
 
@@ -13738,7 +14431,10 @@ Example:
 AddToFunc VerifyVersion
 + I Test (Version 2.5.*) Echo 2.5.x detected
 + I TestRc (NoMatch) Test (!Version 2.6.*) Echo Future version
-+ I TestRc (NoMatch) Echo 2.6.x is detected</PRE></blockquote>
++ I TestRc (NoMatch) Echo 2.6.x is detected
+
+Test (f $[FVWM_USERDIR]/local-config) Read local-config
+Test (x xterm-utf16) Exec exec xterm-utf16</PRE></blockquote>
 <P>
 
 
@@ -13904,18 +14600,79 @@ parentheses (this is still supported for backward compatibility).
 In addition, the
 <I>conditions</I>
 
-may include one window name to match to.  The window name may
-include the wildcards '*' and '?'.  The window name, icon name,
-class, and resource are considered when attempting to find a
-match.  The window name can begin with '!' which prevents
+may include one or more window names to match to.  If more than
+one window name is given, all of them must match.  The window
+name, icon name, class, and resource are considered when
+attempting to find a match. Each name may include the wildcards
+
+separated by the character '|', which acts as an OR operator.  (If
+OR operators are used, they must not be separated by spaces from
+the names.)  Each window name can begin with '!', which prevents
 <I>command</I>
 
 if any of the window name, icon name, class or resource match.
+However, '!' must not be applied to individual names in a group
+separated by OR operators; it may only be applied to the beginning
+of the group, and then it operates on the whole group.
+<P>
+Examples:
+
+
+<P>
+
+
+<blockquote><PRE> Next (&quot;Netscape|konqueror|Mozilla*&quot;) WarpToWindow 99 90</PRE></blockquote>
+<P>
+
+
+
+This goes to the next web browser window, no matter which of the
+three named web browsers is being used.
+
+
+<P>
+
+
+<blockquote><PRE> Next (&quot;Mozilla*&quot;, &quot;Bookmark*&quot;) WarpToWindow 99 90</PRE></blockquote>
+<P>
+
+
+
+This goes to Mozilla's bookmark manager window, ignoring other
+Mozilla windows and other browsers' bookmark windows.
+
+
+<P>
+
+
+<blockquote><PRE> All (&quot;XTerm|rxvt&quot;, !console) Iconify</PRE></blockquote>
+<P>
+
+
+
+This iconifies all the xterm and rxvt windows on the current page,
+except that the one named &quot;console&quot; (with the -name option to xterm)
+is excluded.
+
+
+<P>
+
+
+<blockquote><PRE> Next (!&quot;FvwmPager|FvwmForm*|FvwmButtons&quot;) Raise
+ Next (!FvwmPager, !FvwmForm*, !FvwmButtons) Raise</PRE></blockquote>
+<P>
+
+
+
+These two commands are equivalent; either one raises the next window
+which is not one of the named fvwm modules.
 <P>
 Any condition can be negated by using a an exclamation mark ('!')
 directly in front of its name.
 <P>
 <I>AcceptsFocus</I>,
+
+<I>AnyScreen</I>,
 
 <I>CirculateHit</I>,
 
@@ -13955,6 +14712,8 @@ directly in front of its name.
 
 <I>Maximized</I>,
 
+<I>Overlapped</I>,
+
 <I>PlacedByButton3</I>,
 
 <I>PlacedByFvwm</I>,
@@ -13992,6 +14751,28 @@ command.  Also, all windows using the
 
 style are ignored.
 <P>
+With the
+<I>AnyScreen</I>
+
+condition used together with any of the
+<I>Current...</I>
+
+conditions, windows that do not intersect the Xinerama screen
+containing the mouse pointer are considered for a match too.  For
+example:
+
+
+<P>
+
+
+<blockquote><PRE># Focus next window on current page,
+# regardless of Xinerama screen
+Next (CurrentPage, AnyScreen) Focus</PRE></blockquote>
+<P>
+
+
+
+<P>
 The
 <I>CirculateHit</I> and <I>CirculateHitIcon</I>
 
@@ -14016,11 +14797,39 @@ command.  They can be turned off by specifying
 <I>!CirculateHit</I>
 
 etc. explicitly.
+Note:  Do not confuse these conditions with the style options of
+the same name.  Specifically,
+
+
+<P>
+
+
+<blockquote><PRE>Style foo CirculateSkip
+Next (foo, CirculateHit) ...</PRE></blockquote>
+<P>
+
+
+
+is not the same as
+
+
+<P>
+
+
+<blockquote><PRE>Style foo CirculateHit ...
+Next (foo)</PRE></blockquote>
+<P>
+
+
+
+The prior selects windows with the name foo only in the Next
+command.  In the second example, these windows are always matched
+in all conditional commands.
 <P>
 The
 <I>Closable</I>
 
-matches only windows that are allowed to be closed.
+condition matches only windows that are allowed to be closed.
 <P>
 The
 <I>CurrentDesk</I>
@@ -14056,7 +14865,7 @@ activates the
 condition.
 <P>
 The
-<I>CurrentPageAnyDesk</I> and <I>CurrentScreen</I>
+<I>CurrentPageAnyDesk</I> and <I>CurrentScrene</I>
 
 conditions matche only windows that are on the current page of any
 desk.  If Xinerama support is enabled, they only match windows
@@ -14128,6 +14937,20 @@ The
 <I>Maximized</I>
 
 condition matches only maximized windows.
+<P>
+The
+<I>Overlapped</I>
+
+condition matches only windows that are overlapped by other windows
+on the same layer (or unmanaged windows if the option
+<I>RaiseOverUnmanaged</I>
+
+of the
+<B>BugOpts</B>
+
+command is used).  Note that this condition can be slow if you
+have many windows or if RaiseOverUnmanaged is used and the
+connection to the X server is slow.
 <P>
 The
 <I>PlacedByButton3</I>
@@ -14375,7 +15198,7 @@ de-iconified),
 <B><a href="<?php echo conv_link_target('./FvwmCpp.php');?>">FvwmCpp</a></B>
 
 (to preprocess your
-<I>.fvwm2rc</I>
+<I>config</I>
 
 with cpp),
 <B><a href="<?php echo conv_link_target('./FvwmDebug.php');?>">FvwmDebug</a></B>
@@ -14405,7 +15228,7 @@ with cpp),
 <B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 (to preprocess your
-<I>.fvwm2rc</I>
+<I>config</I>
 
 with m4),
 <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
@@ -14728,42 +15551,670 @@ xsm remotely.
 <H3>COLORSETS</H3>
 
 <P>
-Colorsets are a powerful method to control colors.  Generally,
-colorset provides support for colored rectangle, this includes,
-foreground color, background color, shadow and highlight colors
-(often based on the background color), background face (this
-includes images and all kinds of gradients).  There is a way to
-render background face and specify other color operations.
+Colorsets are a powerful method to control colors. Colorsets
+create appearance resources that are shared by fvwm and its
+modules.  When a colorset is modified all parts of fvwm react to
+that change. A colorset includes a foreground color, background
+color, shadow and highlight color (often based on the background
+color), background face (this includes images and all kinds of
+gradients).  There is a way to render background face and specify
+other color operations.
 <P>
 In the 2.4.x versions a special module
 <B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>
 
-was introduced to manage colorsets.  The FvwmTheme functionality
-was moved to the core fvwm, so this module became obsolete.
-Some additional information about colorsets may be found in the
-man page of
-<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>(1),
+was introduced to manage colorsets.  Starting with the 2.5.x beta
+version, the FvwmTheme functionality was moved to the core fvwm,
+so this module became obsolete.
+<P>
+The old syntax:
 
-although it is obsolete now.
+
 <P>
-Old syntax:
+
+
+<blockquote><PRE>DestroyModuleConfig FvwmTheme: *
+*FvwmTheme: Colorset 0 fg black, bg rgb:b4/aa/94
+*FvwmTheme: Colorset 1 fg black, bg rgb:a1/b2/c8</PRE></blockquote>
 <P>
-<BR>&nbsp;&nbsp;DestroyModuleConfig&nbsp;FvwmTheme:&nbsp;*
-<BR>&nbsp;&nbsp;*FvwmTheme:&nbsp;Colorset&nbsp;0&nbsp;fg&nbsp;black,&nbsp;bg&nbsp;rgb:b4/aa/94
-<BR>&nbsp;&nbsp;*FvwmTheme:&nbsp;Colorset&nbsp;1&nbsp;fg&nbsp;black,&nbsp;bg&nbsp;rgb:a1/b2/c8
-<P>
+
+
+
 corresponds to the new syntax:
+
+
 <P>
-<BR>&nbsp;&nbsp;CleanupColorsets
-<BR>&nbsp;&nbsp;Colorset&nbsp;0&nbsp;fg&nbsp;black,&nbsp;bg&nbsp;rgb:b4/aa/94
-<BR>&nbsp;&nbsp;Colorset&nbsp;1&nbsp;fg&nbsp;black,&nbsp;bg&nbsp;rgb:a1/b2/c8
+
+
+<blockquote><PRE>CleanupColorsets
+Colorset 0 fg black, bg rgb:b4/aa/94
+Colorset 1 fg black, bg rgb:a1/b2/c8</PRE></blockquote>
+<P>
+
+
+
 <P>
 <DL COMPACT>
 <DT><B>Colorset </B><I>num</I><B> [</B><I>options</I><B>]</B>
 
 <DD>
-Defines a colorset, see <a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a>(1).
+Creates or modifies colorset
+<I>num</I>.
+
+Colorsets are identified by this number. The number can start at
+zero and can be a very large number.
 <P>
+Warning: The highest colorset number used determines memory
+consumption. Thus, if you define 'Colorset 100000', the memory for
+100001 colorsets is used.  Keep your colorset numbers as small as
+possible.
+<P>
+By convention, colorsets are numbered like this:
+
+
+<P>
+
+
+<blockquote><PRE># 0 = Default colors
+# 1 = Inactive windows
+# 2 = Active windows
+# 3 = Inactive menu entry and menu background
+# 4 = Active menu entry
+# 5 = greyed out menu entry (only bg used)
+# 6 = module foreground and background
+# 7 = hilight colors</PRE></blockquote>
+<P>
+
+
+
+<P>
+If you need to have more colors and do not want to reinvent the
+wheel, you may use the convention used in fvwm-themes, it defines
+the meaning of the first 40 colorsets for nearly all purposes:
+<P>
+<B><A HREF="http://fvwm-themes.sourceforge.net/doc/colorsets">http://fvwm-themes.sourceforge.net/doc/colorsets</A></B>
+
+<P>
+Each colorset has four colors, an optional pixmap and an optional
+shape mask.  The four colors are used by modules as the
+foreground, background, highlight and shadow colors.  When a
+colorset is created it defaults to a foreground of black and
+background of gray.  The background and foreground are marked as
+&quot;average&quot; and &quot;contrast&quot; (see later) so that just specifying a
+pixmap or gradient gives sensible results.
+<P>
+<I>options</I>
+
+is a comma separated list containing some of the keywords:
+fg, Fore, Foreground,
+bg, Back, Background,
+hi, Hilite, Hilight,
+sh, Shade, Shadow,
+fgsh,
+Pixmap, TiledPixmap, AspectPixmap,
+Transparent, RootTransparent,
+Shape, TiledShape, AspectShape, NoShape,
+?Gradient,
+Tint, fgTint, bgTint,
+Alpha, fgAlpha,
+Dither, NoDither,
+IconTint,
+IconAlpha,
+Plain.
+<P>
+<I>fg</I>, <I>Fore</I> and <I>Foreground</I>
+
+take a color name as an argument and set the foreground color.
+The special name
+<I>Contrast</I>
+
+may be used to select a color that contrasts well with the
+background color.  To reset the foreground color to the default
+value you can simply omit the color name.
+<P>
+<I>bg</I>, <I>Back</I> and <I>Background</I>
+
+take a color name as an argument and set the background color.  It
+also sets the highlight and shadow colors to values that give a 3d
+effect unless these have been explicitly set with the options
+below.  The special name
+<I>Average</I>
+
+may be used to select a color that is the average color of the
+pixmap.  If the pixmap is tinted with the
+<I>Tint</I>
+
+option, the tint is not taken in account in the computation of the
+average color. You should use the
+<I>bgTint</I>
+
+option to get the &quot;real&quot; average color.  The background color is
+reset to the default value if the color name is omitted.
+<P>
+<I>hi</I>, <I>Hilite</I> and <I>Hilight</I>
+
+take a color name as as argument and set the highlight color.  If
+the highlight color is not explicitly set, the default is to
+calculate it from the background color.  To switch back to the
+default behavior the color name can be omitted.
+<P>
+<I>sh ,  Shade  and  Shadow</I>
+
+take a color name as as argument and set the shadow color.  If the
+shadow color is not explicitly set, the default is to calculate it
+from the background color.  To switch back to the default behavior
+the color name can be omitted.
+<P>
+<I>fgsh</I>
+
+takes a color name as an argument and sets the color used by the
+shadowing font effect. See the
+<B>FONT SHADOW EFFECTS</B>
+
+section of the fvwm man page.  By default this color is computed
+from the foreground and background colors.  To switch back to the
+default the color name can be omitted.
+<P>
+<I>Pixmap</I>, <I>TiledPixmap</I> and <I>AspectPixmap</I>
+
+take a file name as an argument, search the
+<B>ImagePath</B>
+
+and use it as the background pixmap.  Any transparent parts are
+filled with the background color.  Not specifying a file name
+removes any existing image from the colorset.
+<I>TiledPixmap</I>
+
+produces repeated copies of the image with no scaling,
+<I>Pixmap</I>
+
+causes the image to be stretched to fit whatever object the
+colorset is applied to and
+<I>AspectPixmap</I>
+
+stretches to fit but retains the image aspect ratio.
+<P>
+<I>Transparent</I>
+
+creates a transparent background pixmap.  The pixmap is used as a
+window background to achieve root transparency.  For this you
+should use the
+<I>ParentalRelativity</I>
+
+option to the
+<B>Style</B>
+
+command.
+A subsequent root background change may be detected or not, this
+depends on the program used to set the background.  If you use
+fvwm-root, xsetbg (xli), FvwmBacker with solid or colorset colors
+or a recent version of Esetroot (&gt;= 9.2) a background change is
+detected. If background changes are not detected (e.g., if you use
+xv or xsetroot) you can force detection by using the -d option of
+fvwm-root:
+
+
+<P>
+
+
+<blockquote><PRE>xv -root -quit mybg.png; fvwm-root -d</PRE></blockquote>
+<P>
+
+
+
+Due to the way X implements transparency no guarantees can be made
+that the desired effect can be achieved.  The application may even
+crash.  If you experience any problems with this option, do not
+use it.
+<P>
+Using outline move and resize (see the
+<B>OpaqueMoveSize</B>
+
+command and the
+<I>ResizeOpaque</I>
+
+<B>Style</B>
+
+option) as well as setting the
+<I>WindowShadeShrinks</I>
+
+style may help.  The transparency achieved with
+<I>Transparent</I>
+
+depends on whether the colorset is applied to the foreground or
+the background of a window. In the second case the transparency is
+relative to the parent window of the window on which the colorset
+is defined.  For example:
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 12 VGradient 200 grey30 gery60
+Colorset 17 Transparent
+*FvwmIconMan: Colorset 10
+*FvwmIconMan: PlainColorset 17</PRE></blockquote>
+<P>
+
+
+
+gives an IconMan with a vertical grey gradient background and the
+buttons use the background (by transparency). To obtain a (root)
+transparent IconMan:
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 12 Transparent
+Colorset 17 Transparent
+Colorset 18 Transparent
+Colorset 19 Transparent
+*FvwmIconMan: Colorset 12
+*FvwmIconMan: PlainColorset 17
+*FvwmIconMan: FocusColorset 18
+*FvwmIconMan: IconColorset  19</PRE></blockquote>
+<P>
+
+
+
+The Colorset IconMan option defines the IconMan window background,
+but the PlainColorset and the FocusColorset are drawn on the
+foreground. So, the transparency of the IconMan buttons is
+achieved by drawing nothing.  Now if this IconMan is swallowed in
+an FvwmButtons as:
+
+
+<P>
+
+
+<blockquote><PRE>FvwmButtons:(Colorset 10, Swallow \
+  &quot;FvwmIconMan&quot; 'FvwmIconMan')</PRE></blockquote>
+<P>
+
+
+
+then,
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>
+
+becomes a child of
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+
+and it is transparent relative to
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>.
+
+So, in this case
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>
+
+uses Colorset 10 as background. If you want root transparency use
+the
+<I>RootTransparent</I>
+
+option.
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>, <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>, <B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>, <B><a href="<?php echo conv_link_target('./FvwmScroll.php');?>">FvwmScroll</a></B>
+
+and
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
+
+are relatively simple. There is one main colorset option which
+defines the background of the window and the other colorsets (if
+any) are drawn on the foreground. The case of
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> and <B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B>
+
+are simpler. With
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
+
+all the colorsets are drawn on the foreground and with
+<B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B>
+
+the two colorsets refer to the window backgrounds.
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
+
+is more complicated as almost everything in the pager are windows
+with some parental relations (the mini windows are the child and
+the desktops are the parents and all this is complicated by the
+hilighted page). So, the colorsets apply to the background of
+these windows. You should experiment. For
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> and <B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
+
+the situation is similar. There is a main window (a child of the
+root window) which corresponds to the main colorset and most of
+the widgets are windows which are children of the main window.
+<I>Tint</I>
+
+may work or not with the
+<I>Transparent</I>
+
+option. When the colorset is drawn on the foreground
+<I>Tint</I>
+
+should work. In some cases, tinting may be very slow. Tinting may
+work with fvwm menu (without animation). Tinting may work better
+if your X server has backing store enabled (try xdpyinfo to see if
+this the case). There is a chance that the backing store support
+of your X server does not work well with the terrible hack used to
+Tint the ParentRelative Pixmap. So, to get tinted root
+transparency it is more safe to use the
+<I>RootTransparent</I>
+
+option.
+<P>
+<I>RootTransparent</I> [ <I>buffer</I> ] 
+
+creates a root transparent background. To make this option work,
+you must use an Esetroot compatible program, fvwm-root with the
+--retain-pixmap option or FvwmBacker with the RetainPixmap option
+(and colorset or solid backgrounds).  The
+<I>buffer</I>
+
+keyword is useful only when the
+<I>Tint</I>
+
+option is used too. This speeds up creation of windows which use
+the colorset (useful for fvwm menus) at the cost of memory
+usage. It also speeds up opaque move and resize which can be
+unacceptably slow without
+<I>buffer</I>.
+
+However, this option may add a lot of memory to your X server
+(depending on the size of the image used to set the
+background). In summary, using outline move and resize for modules
+which use such a colorset may be a good idea.
+<P>
+<I>Shape</I>, <I>TiledShape</I> and <I>AspectShape</I>
+
+take a file name as an argument, search the
+<B>ImagePath</B>
+
+and use it as the shape bitmap.
+<I>TiledShape</I>
+
+produces repeated copies of the bitmap with no scaling,
+<I>Shape</I>
+
+causes the bitmap to be stretched to fit whatever object the
+colorset is applied to and
+<I>AspectShape</I>
+
+stretches to fit but retains the bitmap aspect ratio.  If the file
+is a pixmap in xpm format, the shape mask of the pixmap is used.
+<P>
+Warning: Due to the way X11 implements shapes you cannot take back
+making windows shaped. You may have to restart fvwm or the shaped
+application.
+<P>
+<I>?Gradient ...</I>
+
+creates a pixmap and stretches it to fit the window.
+<I>?Gradient</I>
+
+may be one of HGradient, VGradient, DGradient, BGradient,
+SGradient, CGradient, RGradient or YGradient.  The gradient types
+are as follows:  H is horizontal; V is vertical; D is diagonal
+from top left to bottom right; B is a backwards diagonal from
+bottom left to top right; S is concentric squares; C is concentric
+circles; R is a radar like pattern and Y is a Yin Yang style (but
+without the dots).
+Please refer to the
+<B>COLOR GRADIENTS</B>
+
+section for the syntax of gradients.
+<P>
+<I>Tint</I>
+
+takes 2 arguments, a color and a percentage between 0 and 100. It
+causes the image defined using
+<I>?Pixmap</I>
+
+or
+<I>?Gradient</I>
+
+to be tinted with the specified color using the percentage. If the
+image is transparent
+<I>Tint</I>
+
+tints only the image part. Unfortunately, a colorset background
+specified using the
+<I>Transparent</I>
+
+option can give strange results. See the
+<I>Transparent</I>
+
+option for details. With no arguments this option removes the
+tint.
+<P>
+<I>fgTint</I>
+
+takes 2 arguments, a color and a percentage between 0 and 100. It
+causes the color defined using
+<I>fg</I>
+
+to be tinted with the specified color using the percentage. With
+no arguments this option removes the tint.
+<P>
+<I>bgTint</I>
+
+takes 2 arguments, a color and a percentage between 0 and 100. It
+causes the color defined using
+<I>bg</I>
+
+to be tinted with the specified color using the percentage. If the
+<I>sh</I>
+
+and
+<I>hi</I>
+
+colors are not specified, they are recomputed from the tinted bg
+color. With no arguments this option removes the tint.
+<P>
+<I>Alpha</I>
+
+takes a percentage between 0 and 100 as an argument. It causes
+fvwm to merge the image defined using
+<I>?Pixmap</I>
+
+or
+<I>?Gradient</I>
+
+with the
+<I>bg</I>
+
+color using the percentage. If the percentage is 0 the image is
+hidden and if it is 100 the image is displayed as usual (no
+merge). The default is 100 and it is restored if no argument is
+given.
+<P>
+<I>fgAlpha</I>
+
+takes a percentage between 0 and 100 as an argument. It causes
+fvwm to merge the text and the colorset background using the
+percentage. If the percentage is 0 the text is hidden and if it is
+100 the text is displayed as usual (no merge). This option has an
+effect only with fonts loaded by Xft, see the
+<B>FONT NAMES AND FONT LOADING</B>
+
+section. The default is 100 and it is restored if no argument is
+given.
+<P>
+<I>Dither</I>
+
+causes fvwm to dither the image defined using
+<I>?Pixmap</I>
+
+or
+<I>?Gradient.</I>
+
+This is useful only with displays with depth less than or equal to
+16 (i.e., on displays which can only display less than 65537
+colors at once). The dithering effect lets you simulate having
+more colors available that you actually have.
+<I>NoDither</I>
+
+causes fvwm to do not dither the images.
+<I>Dither</I>
+
+is the default if the depth is less than or equal to 8 (a screen
+with 256 colors or less). In depth 15 (32768 colors) and 16 (65536
+colors), the default is
+<I>NoDither</I>,
+
+however this effect can be useful with images which contain a lot
+of close colors. For example a fine gradient will look more
+smooth.
+<P>
+<I>IconTint</I>
+
+takes 2 arguments, a color and a percentage between 0 and 100. It
+causes fvwm or a module to tint the &quot;icons&quot; which are rendered
+into the colorset background with the specified color using a
+percentage. Here &quot;icons&quot; means, fvwm Icons, fvwm menu icons,
+MiniIcons which represent applications in various modules, images
+loaded by modules (e.g., images specified by the
+<I>Icon</I>
+
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+
+button option) ...etc. With no arguments this option removes the
+icon tint.
+<P>
+<I>IconAlpha</I>
+
+takes a percentage between 0 and 100 as an argument. It causes
+fvwm to merge the &quot;icons&quot; which are rendered into the colorset
+background using this percentage. The default is 100 and it is
+restored if no argument is given.
+<P>
+<I>Note</I>:
+
+It is equivalent to use &quot;Tint a_color rate&quot; and &quot;Alpha a&quot; if a =
+100 and the bg color is a_color. This equivalence does not hold
+for IconAlpha and IconTint as the background can be an image or a
+gradient (and not a uniform color background).
+However, in some cases you can achieve (almost) the same effect by
+using IconTint in the place of IconAlpha. This is preferable as,
+in general, IconAlpha generates more redrawing than IconTint.
+<P>
+<I>NoShape</I>
+
+removes the shape mask from the colorset while
+<I>Plain</I>
+
+removes the background pixmap or gradient.
+<P>
+</DL>
+<A NAME="lbCE">&nbsp;</A>
+<H2>EXAMPLES</H2>
+
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 3 fg tan, bg navy</PRE></blockquote>
+<P>
+
+
+
+<P>
+If necessary this creates colorsets 0, 1, 2 and 3 and then changes
+colorset 3 to have a foreground of tan, a background of navy.
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 3 bg &quot;navy blue&quot;</PRE></blockquote>
+<P>
+
+
+
+<P>
+changes the background color of colorset 3 to navy blue. The
+foreground and pixmap are unchanged.
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 3 AspectPixmap large_murky_dungeon.xpm</PRE></blockquote>
+<P>
+
+
+
+<P>
+Causes depression.
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 3 bg Average</PRE></blockquote>
+<P>
+
+
+
+<P>
+Sets the background color and the relief colors to match the
+background pixmap. This is the default setting but it must be used
+if a background color was specified and is now not required.
+
+
+<P>
+
+
+<blockquote><PRE>Colorset 3 YGradient 200 3 blue 1000 navy 1 blue 1000 navy</PRE></blockquote>
+<P>
+
+
+
+Adds a Yin Yang gradient background pixmap to colorset 3.  If the
+background is set to average it is recomputed along with the
+foreground if that is set to contrast.
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>#!/bin/sh
+FvwmCommand &quot;Colorset 7 fg navy, bg gray&quot;
+while true
+do
+  FvwmCommand &quot;Colorset 7 fg gray&quot;
+  sleep 1
+  FvwmCommand &quot;Colorset 7 fg navy&quot;
+  sleep 1
+done</PRE></blockquote>
+<P>
+
+
+
+Makes colorset 7 blink.
+<P>
+The color names used in colorsets are saved as fvwm variables can
+be substituted in any fvwm command. For example:
+
+
+<P>
+
+
+<blockquote><PRE>AddToFunc InitFunction
++ I Exec exec xterm -fg $[fg.cs0] -bg $[bg.cs0]</PRE></blockquote>
+<P>
+
+
+
+Where $[fg.cs0] is the foreground color of colorset zero. Please
+refer to the
+<B>COMMAND EXPANSION</B>
+
+section for more information.
+<P>
+<DL COMPACT>
 <DT><B>CleanupColorsets</B>
 
 <DD>
@@ -14771,7 +16222,7 @@ Resets a definition of all colorsets.
 <P>
 <P>
 </DL>
-<A NAME="lbCE">&nbsp;</A>
+<A NAME="lbCF">&nbsp;</A>
 <H3>COLOR GRADIENTS</H3>
 
 <P>
@@ -14878,7 +16329,7 @@ Colorset 0 Blue Red HGradient \
 
 <P>
 </DL>
-<A NAME="lbCF">&nbsp;</A>
+<A NAME="lbCG">&nbsp;</A>
 <H2>ENVIRONMENT</H2>
 
 <P>
@@ -14926,7 +16377,7 @@ Note, the state files are named
 and normally are removed automatically when not used anymore.
 <P>
 </DL>
-<A NAME="lbCG">&nbsp;</A>
+<A NAME="lbCH">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -14935,7 +16386,7 @@ was written by Tom LaStrange.  After Robert Nation came Charles
 Hines, followed by Brady Montz. Currently fvwm is developed by a
 number of people on the fvwm-workers mailing list.
 <P>
-<A NAME="lbCH">&nbsp;</A>
+<A NAME="lbCI">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 <P>
@@ -14946,7 +16397,7 @@ distribution are subject to the GNU General Public License
 
 file that came with fvwm for details.
 <P>
-<A NAME="lbCI">&nbsp;</A>
+<A NAME="lbCJ">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -14975,7 +16426,6 @@ or reported through the bug tracking system.
 The official fvwm homepage is
 <B><A HREF="http://fvwm.org/">http://fvwm.org/</A></B>.
 
-<P>
 <P>
 
 <HR>
@@ -15037,20 +16487,23 @@ The official fvwm homepage is
 <DT><A HREF="#lbCB">MODULE COMMANDS</A><DD>
 <DT><A HREF="#lbCC">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
 <DT><A HREF="#lbCD">COLORSETS</A><DD>
-<DT><A HREF="#lbCE">COLOR GRADIENTS</A><DD>
 </DL>
-<DT><A HREF="#lbCF">ENVIRONMENT</A><DD>
-<DT><A HREF="#lbCG">AUTHORS</A><DD>
-<DT><A HREF="#lbCH">COPYRIGHT</A><DD>
-<DT><A HREF="#lbCI">BUGS</A><DD>
+<DT><A HREF="#lbCE">EXAMPLES</A><DD>
+<DL>
+<DT><A HREF="#lbCF">COLOR GRADIENTS</A><DD>
+</DL>
+<DT><A HREF="#lbCG">ENVIRONMENT</A><DD>
+<DT><A HREF="#lbCH">AUTHORS</A><DD>
+<DT><A HREF="#lbCI">COPYRIGHT</A><DD>
+<DT><A HREF="#lbCJ">BUGS</A><DD>
 </DL>
 <HR>
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:48:04 GMT, November 01, 2003
+Time: 15:08:39 GMT, December 27, 2004
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 01-Nov-2003 -->
+<!-- Automatically generated by manpages2php on 27-Dec-2004 -->

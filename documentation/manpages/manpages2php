@@ -120,14 +120,16 @@ sub processTemplate ($) {
 sub saveFile ($$) {
 	my $fileName = shift;
 	my $text = shift;
-	open(OUT, ">$outputDir/$fileName") || die($!);
+	my $file = "$outputDir/$fileName";
+	open(OUT, ">$file") || die "Can't save $file: $!\n";
 	print OUT $text;
 	close(OUT) || die($!);
 }
 
 sub loadFile ($) {
 	my $fileName = shift;
-	open(IN, "<$scriptDir/$fileName") || die($!);
+	my $file = "$scriptDir/$fileName";
+	open(IN, "<$file") || die "Can't open $file: $!\n";
 	my $text = join('', <IN>);
 	close(IN) || die($!);
 	return $text;
@@ -195,6 +197,6 @@ foreach my $topic ("index", @topics) {
 
 	saveFile(
 		$phpFile,
-		processTemplate(loadFile("template.php"))
+		processTemplate(loadFile("template.php_"))
 	);
 }

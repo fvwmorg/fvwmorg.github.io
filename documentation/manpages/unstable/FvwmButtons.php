@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_unstable_FvwmButtons";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmButtons in unstable branch (2.5.8)"); ?>
+<?php decoration_window_start("Manual page for FvwmButtons in unstable branch (2.5.13)"); ?>
 
 <H1>FvwmButtons</H1>
-Section: FVWM Modules (1)<BR>Updated: 23 September 2002<BR><A HREF="#index">This page contents</A>
+Section: FVWM Modules (1)<BR>Updated: (not released yet) (2.5.13)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -99,7 +99,7 @@ The
 
 option tells FvwmButtons to terminate itself after the first key
 or button press has been received (presses to open a sub panel do
-not count) or a sub panel has been closed or re-spawned. This is
+not count) or a sub panel has been closed or respawned. This is
 especially useful for sub panels where you want to select a single
 button and have it closed automatically.  It could be used to
 create two-dimensional graphical menus.  Since
@@ -190,6 +190,15 @@ This is the default.
 Tells the module to use colorset <I>colorset</I> for the window
 background.  Refer to the FvwmTheme man page
 for details about colorsets.
+<P>
+<DT>*FvwmButtons: ActiveColorset <I>colorset</I><DD>
+Tells the module to use colorset <I>colorset</I> for the background
+color/image and/or title color of a button when the mouse is hovering
+above a button.
+<P>
+<DT>*FvwmButtons: PressColorset <I>colorset</I><DD>
+Tells the module to use colorset <I>colorset</I> for the background
+color/image and/or title color of a button when it is pressed.
 <P>
 <DT>*FvwmButtons: Columns <I>columns</I><DD>
 Specifies the number of columns of buttons to be created. If
@@ -421,10 +430,20 @@ inverted. This makes the button sunken normally and raised when
 activated.
 <P>
 <DT>Icon <I>filename</I><DD>
-The name of an X11 bitmap file or XPM color icon file, containing
-the icon to display on the button. FvwmButtons searches through
-the path specified in the fvwm ImagePath configuration item to
-find the icon file.
+The name of an image file, containing the icon to display on the button.
+FvwmButtons searches through the path specified in the fvwm ImagePath
+configuration item to find the icon file.
+<P>
+<DT>ActiveIcon <I>filename</I><DD>
+The name of an image file, containing an alternative icon to display
+on the button when the mouse is hovering above the button. If no
+ActiveIcon is specified, the image specified by Icon is displayed
+(if there is one).
+<P>
+<DT>PressIcon <I>filename</I><DD>
+The name of an image file, containing an alternative icon to display
+on the button when the button is pressed. If no PressIcon is specified,
+the image specified by Icon is displayed (if there is one).
 <P>
 <DT>Id <I>id</I><DD>
 The id to be used to identify this button.
@@ -631,11 +650,13 @@ it or by sending a message to it. This can be useful in ending
 programs that doesn't accept window manager protocol. The default
 value is &quot;NoKill&quot;. This has no effect if &quot;NoClose&quot; is specified.
 <P>
-NoRespawn / Respawn -
-Specifies whether the swallowed program is to be re-spawned
-(re-started) if it dies. If &quot;Respawn&quot; is specified, the program is
-re-spawned using the original <I>command</I>. Use this option with
-care, the program might have a legitimate reason to die.
+NoRespawn / Respawn / SwallowNew -
+Specifies whether the swallowed program is to be respawned
+(restarted) if it dies. If &quot;Respawn&quot; is specified, the program is
+respawned using the original <I>command</I>. Use this option with
+care, the program might have a legitimate reason to die.  If
+&quot;SwallowNew&quot; is given, the program is not respawned, but if a new
+window with the specified name appears, it is swallowed.
 <P>
 NoOld / UseOld -
 Specifies whether the button will try to swallow an existing
@@ -696,6 +717,16 @@ Side - Causes the title to appear on the right hand side of any
 icon or swallowed window, instead of below which is the
 default. If you use small icons, and combine this with the &quot;Left&quot;
 or &quot;Right&quot; option, you can get a look similar to fvwm's menus.
+<P>
+<DT>ActiveTitle <I>name</I><DD>
+Specifies the title to be written on the button when the mouse is
+hovering above the button. If no ActiveTitle is specified, the text
+specified by Title is displayed (if there is any).
+<P>
+<DT>PressTitle <I>name</I><DD>
+Specifies the title to be written on the button when the button is
+pressed. If no PressTitle is specified, the text specified by Title
+is displayed (if there is any).
 <P>
 <DT>Legacy fields [<I>title icon command</I>]<DD>
 These fields are kept for compatibility with previous versions of
@@ -1089,8 +1120,10 @@ with the given number is assumed.  And finally,
 may be in the form +x+y, where x and y are a column number and
 a row number of the button to be changed.
 It is possible to specify multiple option pairs (name with value)
-by delimiting them using comma. Currentrly options include
-<B>Title</B> and <B>Icon</B>.
+by delimiting them using comma. Currently options include
+<B>Title</B>, <B>ActiveTitle</B>, <B>PressTitle</B>, <B>Icon</B>, 
+
+<B>ActiveIcon</B> and <B>PressIcon</B>.
 
 <P>
 <DT>ExpandButtonVars <I>button_id</I> command<DD>
@@ -1122,7 +1155,7 @@ SendToModule FvwmButtons Silent \
 <A NAME="lbAN">&nbsp;</A>
 <H2>SAMPLE CONFIGURATION</H2>
 
-The following are excepts from a .fvwm2rc file which describe
+The following are excerpts from a .fvwm2rc file which describe
 FvwmButtons initialization commands:
 <P>
 <PRE>
@@ -1260,7 +1293,8 @@ DestroyModuleConfig FvwmButtons: *
 
 # Pop up a module menu directly above the button.
 *FvwmButtons: (9x1+3+0, Padding 0, Title &quot;Modules&quot;,   \
-  Action `Menu Modulepopup rectangle $wx$h+$l+$t o+50 -100m`)
+  Action `Menu Modulepopup rectangle \
+  $widthx$height+$lleft+$top o+50 -100m`)
 
 # first row of buttons from left to right:
 *FvwmButtons: (3x2+0+1, Icon my_lock.xpm, Action `Exec xlock`)
@@ -1317,7 +1351,7 @@ Further modifications and patching by Jarl Totland, copyright
 <H2>AUTHOR</H2>
 
 Robert Nation.  Somewhat enhanced by Jarl Totland, Jui-Hsuan
-Joshua Feng.
+Joshua Feng, Scott Smedley.
 <P>
 
 <HR>
@@ -1346,9 +1380,9 @@ Joshua Feng.
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:48:06 GMT, November 01, 2003
+Time: 15:08:40 GMT, December 27, 2004
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 01-Nov-2003 -->
+<!-- Automatically generated by manpages2php on 27-Dec-2004 -->

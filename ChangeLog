@@ -1,3 +1,9 @@
+2004-12-27  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/manpages/manpages2php:
+	* documentation/manpages/unstable/*.php:
+	update script and regenerate 2.5.x man pages
+
 2004-12-20  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* index.php: 

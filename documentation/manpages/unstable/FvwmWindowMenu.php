@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_unstable_FvwmWindowMenu";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,37 +42,54 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmWindowMenu in unstable branch (2.5.8)"); ?>
+<?php decoration_window_start("Manual page for FvwmWindowMenu in unstable branch (2.5.13)"); ?>
 
 <H1>FVWMWINDOWMENU</H1>
-Section: FVWM Modules (1)<BR>Updated: 2002-12-30<BR><A HREF="#index">This page contents</A>
+Section: FVWM Modules (1)<BR>Updated: 2004-06-29<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
-<H2>DESCRIPTION</H2>
+<H2>NAME</H2>
+
+FvwmWindowMenu - open configurable fvwm menu listing current windows
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
+FvwmWindowMenu should be spawned by <I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1) for normal functionality.
+<P>
+
+Run this module from your StartFunction:
+<P>
+
+<blockquote><pre>    AddToFunc StartFunction
+    + I Module FvwmWindowMenu</pre></blockquote>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<A NAME="ixAAD"></A>
 A substitute for <I>fvwm</I> builtin <B>WindowList</B>, but written in Perl
 and easy to customize. Unlike <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> the
 module does not draw its own window, but instead creates an
 <I>fvwm</I> menu and asks <I>fvwm</I> to pop it up.
 <P>
 
-By defining a set of regular expressions using Show, windows may
-be sorted into sections based on the regexp matching their
-name, icon name, class or resource.
+By defining a set of regular expressions, windows may
+be sorted into sections based on a regexp matching the window
+name, class or resource and included in the menu.
 <P>
 
-Similarly, matches in DontShow will be excluded from the list.
+Similarly, another set of regular expressions can be used to exclude
+items from the menu.
 <P>
 
-Any windows not matching an instance of Show or DontShow will
+Any windows not matching an instance of the include or exclude list will
 be placed in the last section of the menu.
-<A NAME="lbAC">&nbsp;</A>
+<A NAME="lbAE">&nbsp;</A>
 <H2>USAGE</H2>
 
-<A NAME="ixAAD"></A>
-Place this line in e.g. your StartFunction in <I>.fvwm2rc</I>:
+<A NAME="ixAAE"></A>
+Run the module, supposedly from StartFunction in <I>.fvwm2rc</I>:
 <P>
 
 <blockquote><pre>    Module FvwmWindowMenu</pre></blockquote>
@@ -98,38 +115,47 @@ menu name, see fvwm.
 Recognized actions are <B>Post</B> (or its alias <B>Menu</B>) and <B>Popup</B>, they
 create <I>fvwm</I> menus and invoke them using the corresponding commands
 <B>Menu</B> and <B>Popup</B>. If the module was started with ``-g'' switch, it
-additionally supports <B>PostBar</B>.
+additionally supports <B>PostBar</B> (not implemented yet).
 <P>
 
-Set module options for windows to show or not show. The syntax is:
+Set module options for windows to include (Show) or exclude (DontShow).
+The syntax is:
 <P>
 
-<blockquote><pre>    *FvwmWindowMenu: Show type = pattern
-    *FvwmWindowMenu: DontShow type = pattern</pre></blockquote>
+<blockquote><pre>    *FvwmWindowMenu: ShowName pattern
+    *FvwmWindowMenu: ShowClass pattern
+    *FvwmWindowMenu: ShowResource pattern
+    *FvwmWindowMenu: DontShowName pattern
+    *FvwmWindowMenu: DontShowClass pattern
+    *FvwmWindowMenu: DontShowResource pattern</pre></blockquote>
 <P>
 
-where type is one of <I>name</I>, <I>icon</I>, <I>class</I> or <I>resource</I>. Pattern is
-a perl regular expression that will be evaluated in m// context.
+Pattern is a perl regular expression that will be evaluated in m// context.
 See <I><A HREF="http://localhost/cgi-bin/man/man2html/1+perlre">perlre</A></I>(1).
 <P>
 
 For example:
 <P>
 
-<blockquote><pre>    *FvwmWindowMenu: Show resource = Galeon|Navigator|mozilla-bin
-    *FvwmWindowMenu: Show name = ^emacs</pre></blockquote>
+<blockquote><pre>    *FvwmWindowMenu: ShowResource ^gvim
+    *FvwmWindowMenu: ShowName Galeon|Navigator|mozilla-bin|Firefox</pre></blockquote>
 <P>
 
-will define two sections containing respectively browsers, and emacs.
-Number of sections is unlimited. The strings are perl regular
-expressions that will be evaluated in m// context. See <I><A HREF="http://localhost/cgi-bin/man/man2html/1+perlre">perlre</A></I>(1).
+will define two sections containing respectively browsers, and GVim. A third
+section will contain all other windows.
+<P>
+
+To only include matching windows, add:
+<P>
+
+<blockquote><pre>    *FvwmWindowMenu: DontShowName .*</pre></blockquote>
 <P>
 
 Similarly:
 <P>
 
-<blockquote><pre>    *FvwmWindowMenu: DontShow name = ^Fvwm
-    *FvwmWindowMenu: DontShow class = Gkrellm</pre></blockquote>
+<blockquote><pre>    *FvwmWindowMenu: DontShowName ^Fvwm
+    *FvwmWindowMenu: DontShowClass Gkrellm</pre></blockquote>
 <P>
 
 will cause the menu to ignore windows with name beginning with Fvwm
@@ -138,56 +164,61 @@ or class gkrellm.
 
 Other options:
 <DL COMPACT>
-<DT>*FvwmWindowMenu: <I>OnlyIconic</I> {on|off}<DD>
-<A NAME="ixAAE"></A>
+<DT>*FvwmWindowMenu: <I>OnlyIconified</I> {on|off}<DD>
+<A NAME="ixAAF"></A>
 show only iconified windows
 <DT>*FvwmWindowMenu: <I>AllDesks</I> {on|off}<DD>
-<A NAME="ixAAF"></A>
+<A NAME="ixAAG"></A>
 show windows from all desks
 <DT>*FvwmWindowMenu: <I>AllPages</I> {on|off}<DD>
-<A NAME="ixAAG"></A>
-show windows from all pages
-<DT>*FvwmWindowMenu: <I>Maxlen</I> 32<DD>
 <A NAME="ixAAH"></A>
+show windows from all pages
+<DT>*FvwmWindowMenu: <I>MaxLen</I> 32<DD>
+<A NAME="ixAAI"></A>
 max length in chars of entry
 <DT>*FvwmWindowMenu: <I>MenuName</I> MyMenu<DD>
-<A NAME="ixAAI"></A>
+<A NAME="ixAAJ"></A>
 name of menu to popup
 <DT>*FvwmWindowMenu: <I>MenuStyle</I> MyMenuStyle<DD>
-<A NAME="ixAAJ"></A>
+<A NAME="ixAAK"></A>
 name of MenuStyle to apply
 <DT>*FvwmWindowMenu: <I>Debug</I> {0,1,2,3}<DD>
-<A NAME="ixAAK"></A>
+<A NAME="ixAAL"></A>
 level of debug info output, 0 means no debug
 <DT>*FvwmWindowMenu: <I>Function</I> MyWindowListFunc<DD>
-<A NAME="ixAAL"></A>
+<A NAME="ixAAM"></A>
 function to invoke on menu entries; defaults to WindowListFunc
 <DT>*FvwmWindowMenu: <I>ItemFormat</I> formatstring<DD>
-<A NAME="ixAAM"></A>
+<A NAME="ixAAN"></A>
 how to format menu entries; substitutions are made as follows:
 <DL COMPACT><DT><DD>
 <DL COMPACT>
 <DT>%n, %i, <TT>%c</TT>, <TT>%r<DD>
 
 
-<A NAME="ixAAN"></A>
+<A NAME="ixAAO"></A>
 the window name, icon name, class or resource
 <DT>%x, %y<DD>
 
 
-<A NAME="ixAAO"></A>
-the window x or y coordinates on current page
-<DT>%d<DD>
 <A NAME="ixAAP"></A>
+the window x or y coordinates w.r.t. the page the window is on.
+<DT>%X, %Y<DD>
+
+
+<A NAME="ixAAQ"></A>
+the window x or y coordinates w.r.t. the desk the window is on.
+<DT>%d<DD>
+<A NAME="ixAAR"></A>
 the window desk number
 <DT>%m<DD>
-<A NAME="ixAAQ"></A>
+<A NAME="ixAAS"></A>
 the window's mini-icon
 <DT>%M<DD>
-<A NAME="ixAAR"></A>
+<A NAME="ixAAT"></A>
 the window's mini-icon only for iconified windows, otherwise empty
 <DT>%t<DD>
-<A NAME="ixAAS"></A>
+<A NAME="ixAAU"></A>
 a tab
 <DT>%%<DD>
 a literal %
@@ -205,10 +236,10 @@ The format string must be quoted. The default string is
 </DL>
 
 </DL>
-<A NAME="lbAD">&nbsp;</A>
+<A NAME="lbAF">&nbsp;</A>
 <H2>MORE EXAMPLES</H2>
 
-<A NAME="ixAAT"></A>
+<A NAME="ixAAV"></A>
 Fancy binding of the window menu to the right windows key on some keyboards.
 Hold this button while navigating using cursor keys, then release it.
 <P>
@@ -222,28 +253,41 @@ Hold this button while navigating using cursor keys, then release it.
 <P>
 
 <blockquote><pre>    Key Super_R A A SendToModule FvwmWindowMenu Post Root c c WarpTitle</pre></blockquote>
-<A NAME="lbAE">&nbsp;</A>
-<H2>AUTHOR</H2>
+<A NAME="lbAG">&nbsp;</A>
+<H2>AUTHORS</H2>
 
-<A NAME="ixAAU"></A>
-Ric Lister &lt;<A HREF="http://cns.georgetown.edu/~ric/">http://cns.georgetown.edu/~ric/</A>&gt;
+<A NAME="ixAAW"></A>
+
+<DL COMPACT>
+<DT>Ric Lister &lt;<A HREF="http://cns.georgetown.edu/~ric/">http://cns.georgetown.edu/~ric/</A>&gt;<DD>
+<A NAME="ixAAX"></A>
+
+
+<DT>Scott Smedley<DD>
+<A NAME="ixAAY"></A>
+
+<DT>Mikhael Goikhman<DD>
+<A NAME="ixAAZ"></A>
 <P>
+</DL>
 
 <HR>
 <A NAME="index">&nbsp;</A><H2>Index</H2>
 <DL>
-<DT><A HREF="#lbAB">DESCRIPTION</A><DD>
-<DT><A HREF="#lbAC">USAGE</A><DD>
-<DT><A HREF="#lbAD">MORE EXAMPLES</A><DD>
-<DT><A HREF="#lbAE">AUTHOR</A><DD>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">USAGE</A><DD>
+<DT><A HREF="#lbAF">MORE EXAMPLES</A><DD>
+<DT><A HREF="#lbAG">AUTHORS</A><DD>
 </DL>
 <HR>
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:48:08 GMT, November 01, 2003
+Time: 15:08:42 GMT, December 27, 2004
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 01-Nov-2003 -->
+<!-- Automatically generated by manpages2php on 27-Dec-2004 -->
