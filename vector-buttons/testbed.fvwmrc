@@ -1,6 +1,10 @@
 #  Modification History
 
+#  Changed on 02/05/00 by Dan Espen (dane):
+#  Added Color specification (hiliteFore/back).
+
 #  Some corrections on 08/Dec/1999 by Mikhael Goikhman (migo).
+
 #  Created on 11/21/99 by Dan Espen (dane):
 #  - With help from Dominik.
 
@@ -37,6 +41,7 @@ DestroyFunc button_demo
 AddToFunc   button_demo
 + I 10_buttons
 + I Style "button_demo_style*" UseDecor DecorDemo, MWMBorder, HandleWidth 10
++ I Style "button_demo_style*" HilightFore white, HilightBack greym
 # Setting the height to either zero or 1 seemed to have the same effect.
 + I Exec xv -name button_demo_style -geometry 300x1
 

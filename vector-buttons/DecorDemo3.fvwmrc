@@ -19,9 +19,12 @@ AddToDecor   DecorDemo
 + ButtonStyle 0 14 0x0@1 0x20@1 20x20@0 20x0@0 0x0@1 0x25@1 25x25@1 25x0@1 55x0@1 55x55@0 0x55@0 0x60@1 60x60@1 60x0@1
 # Nested Right Angles (looks kinda crappy)
 + ButtonStyle 8 13 10x0@1 80x0@1 80x10@1 80x80@0 0x80@0 0x60@1 10x65@1 70x65@0 70x0@0 55x0@1 55x10@1 55x55@0 10x55@0
-# Nothing (replace this)
-+ ButtonStyle 6 2 0x0@0 0x100@0
-# Nothing (replace this)
-+ ButtonStyle 4 2 0x0@0 0x100@0
-# Nothing (replace this)
-+ ButtonStyle 2 2 0x0@0 0x100@0
+# Push Pin
++ ButtonStyle 6 10 25x20@1 30x25@1 30x55@1 43x55@0 50x85@1 57x55@0 70x55@0 70x25@0 75x20@0 25x20@1
+# Nested Boxes
++ ButtonStyle 4 10 40x55@1 40x80@0 15x80@0 15x55@1 40x55@1 30x45@1 30x30@1 70x30@1 70x70@1 45x70@1
+# Nested Boxes
++ ButtonStyle 2 10 25x40@1 20x40@1 20x80@1 60x80@1 60x65@1 35x65@0 85x65@0 85x10@0 30x10@1 30x65@1
+
+# When you need to leave an empty box, this works:
+#+ ButtonStyle N 2 0x0@0 0x100@0
