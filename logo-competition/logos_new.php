@@ -350,7 +350,7 @@ width="453" height="157" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Anthony Lee (2 images)", "", "", 0); ?>
+<?php decoration_window_start("By Anthony Lee (4 images)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Anthony_Lee/index.php'); ?>">
 

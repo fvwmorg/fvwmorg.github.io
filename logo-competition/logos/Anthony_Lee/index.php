@@ -54,6 +54,8 @@ decoration_window_start("By Anthony Lee", "100%", "");
 
 <p><img src="fvwmlogo.gif" width="656" height="352"></p>
 <p><img src="fvwmlogo1.gif" width="649" height="392"></p>
+<p><img src="paw.png" width="777" height="572"></p>
+<p><img src="logocatgreen.jpg" width="404" height="447"></p>
 
 <?php decoration_window_end(); ?>
 
