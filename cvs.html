@@ -195,15 +195,25 @@ to install autoconf and automake, right?)
 do is:
 
 <pre><font color="yellow"> cd fvwm
- autoreconf
+ aclocal
+ acheaders
  automake --add-missing
+ autoreconf
 </font></pre>
 
-<p>The second command is <code>auto<font color="violet">re</font>conf</code>,
-not <code>autoconf</code>!
+<p>The last command is <code>auto<font color="violet">re</font>conf</code>,
+not <code>autoconf</code>.
 You will get some warning messages from <code>autoreconf</code> and
 possibly from <code>automake</code>.  As long as you end up with a
 working configure script, you should ignore them.
+
+<p>To automate this step we include a shell script
+
+<pre><font color="yellow"> utils/configure_dev.sh
+</font></pre>
+
+<p>in the cvs tree, it may be run with usual
+<code>./configure</code> arguments instead of all <i>auto</i> commands above.
 
 <p>Once that's done, you can proceed to build the code as discussed in
 the <code>INSTALL.fvwm</code> and <code>INSTALL</code> files:
