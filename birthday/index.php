@@ -11,11 +11,8 @@ if (strlen($rel_path) == 0) $rel_path = "./..";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
+$_GET["theme"] = "birthday";
 include("$rel_path/definitions.inc");
-
-$theme = "default";
-$theme_file = theme_file("birthday_theme.inc");
-$layout_file = $theme_file;
 
 //--------------------------------------------------------------------
 // Site definitions

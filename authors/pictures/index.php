@@ -18,10 +18,6 @@ if (strlen("$navigation_check") > 0) return;
 //--------------------------------------------------------------------
 include("$rel_path/definitions.inc");
 
-$theme = "default";
-$theme_file = theme_file("birthday_theme.inc");
-$layout_file = $theme_file;
-
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
@@ -54,32 +50,32 @@ decoration_window_start("FVWM Developers");
 <center>
 <table>
 <tr>
-<td align="center" valign="middle"><a href="Cameron_Simpson.php"><img src="Cameron_Simpson_small.jpg" border="1"></a><br>Cameron Simpson</td>
-<td align="center" valign="middle"><a href="Dan_Espen.php"><img src="Dan_Espen_small.jpg" border="1"></a><br>Dan Espen</td>
-<td align="center" valign="middle"><a href="Greg_Badros.php"><img src="Greg_Badros_small.jpg" border="1"></a><br>Greg Badros</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Cameron_Simpson.php'); ?>"><img src="Cameron_Simpson_small.jpg" border="1"></a><br>Cameron Simpson</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Dan_Espen.php'); ?>"><img src="Dan_Espen_small.jpg" border="1"></a><br>Dan Espen</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Greg_Badros.php'); ?>"><img src="Greg_Badros_small.jpg" border="1"></a><br>Greg Badros</td>
 </tr>
 
 <tr>
-<td align="center" valign="middle"><a href="Marcus_Lundblad-2.php"><img src="Marcus_Lundblad-2_small.jpg" border="1"></a><br>Marcus Lundblad</td>
-<td align="center" valign="middle"><a href="Mikhael_Goikhman.php"><img src="Mikhael_Goikhman_small.jpg" border="1"></a><br>Mikhael Goikhman</td>
-<td align="center" valign="middle"><a href="Tomas_Oegren.php"><img src="Tomas_Oegren_small.jpg" border="1"></a><br>Tomas &Ouml;gren</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Marcus_Lundblad-2.php'); ?>"><img src="Marcus_Lundblad-2_small.jpg" border="1"></a><br>Marcus Lundblad</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Mikhael_Goikhman.php'); ?>"><img src="Mikhael_Goikhman_small.jpg" border="1"></a><br>Mikhael Goikhman</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Tomas_Oegren.php'); ?>"><img src="Tomas_Oegren_small.jpg" border="1"></a><br>Tomas &Ouml;gren</td>
 </tr>
 
 <tr>
-<td align="center" valign="middle"><a href="Dominik_Vogt.php"><img src="Dominik_Vogt_small.jpg" border="1"></a><br>Dominik Vogt</td>
-<td align="center" valign="middle"><a href="Chuck_Hines.php"><img src="Chuck_Hines_small.jpg" border="1"></a><br>Chuck Hines</td>
-<td align="center" valign="middle"><a href="Bob_Woodside.php"><img src="Bob_Woodside_small.jpg" border="1"></a><br>Bob Woodside</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Dominik_Vogt.php'); ?>"><img src="Dominik_Vogt_small.jpg" border="1"></a><br>Dominik Vogt</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Chuck_Hines.php'); ?>"><img src="Chuck_Hines_small.jpg" border="1"></a><br>Chuck Hines</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Bob_Woodside.php'); ?>"><img src="Bob_Woodside_small.jpg" border="1"></a><br>Bob Woodside</td>
 </tr>
 
 <tr>
-<td align="center" valign="middle"><a href="Olivier_Chapuis.php"><img src="Olivier_Chapuis_small.jpg" border="1"></a><br>Olivier Chapuis</td>
-<td align="center" valign="middle"><a href="Richard_Lister.php"><img src="Richard_Lister_small.jpg" border="1"></a><br>Richard Lister</td>
-<td align="center" valign="middle"><a href="Steve_Robbins.php"><img src="Steve_Robbins_small.jpg" border="1"></a><br>Steve Robbins</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Olivier_Chapuis.php'); ?>"><img src="Olivier_Chapuis_small.jpg" border="1"></a><br>Olivier Chapuis</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Richard_Lister.php'); ?>"><img src="Richard_Lister_small.jpg" border="1"></a><br>Richard Lister</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Steve_Robbins.php'); ?>"><img src="Steve_Robbins_small.jpg" border="1"></a><br>Steve Robbins</td>
 </tr>
 
 <tr>
-<td align="center" valign="middle"><a href="Suzanne_Britton.php"><img src="Suzanne_Britton_small.jpg" border="1"></a><br>Suzanne Britton</td>
-<td align="center" valign="middle"><a href="Uwe_Pross.php"><img src="Uwe_Pross_small.jpg" border="1"></a><br>Uwe Pro&szlig;</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Suzanne_Britton.php'); ?>"><img src="Suzanne_Britton_small.jpg" border="1"></a><br>Suzanne Britton</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Uwe_Pross.php'); ?>"><img src="Uwe_Pross_small.jpg" border="1"></a><br>Uwe Pro&szlig;</td>
 </tr>
 </table>
 </center>

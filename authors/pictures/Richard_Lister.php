@@ -18,24 +18,16 @@ if (strlen("$navigation_check") > 0) return;
 //--------------------------------------------------------------------
 include("$rel_path/definitions.inc");
 
-$theme = "default";
-$theme_file = theme_file("birthday_theme.inc");
-$layout_file = $theme_file;
-
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Richard Lister";
-$heading        = "Richard Lister";
-$link_name      = "Richard Lister";
-$link_picture   = "pictures/icons/authors";
+$title          = "Richard_Lister";
+$heading        = "Richard_Lister";
+$link_name      = "Richard_Lister";
+$link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array();
-//  RBW...
-//  Must be able to cope with register_globals = off.
-//$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-
 $this_site      = "authors";
 
 //--------------------------------------------------------------------
@@ -52,16 +44,14 @@ if (strlen("$site_has_been_loaded") == 0) {
   exit();
 }
 
-decoration_window_start("Richard Lister"); 
+decoration_window_start("Richard_Lister"); 
 ?>
 
-
-<a href="index.php"><img src="Richard_Lister.jpg" border="0"></a><br>
+Click on the image to go back to the overview.<br>
+<a href="<?php echo conv_link_target('index.php');?>"><img src="Richard_Lister.jpg" border="0"></a><br>
 <br>
 
-<a href="http://cns.georgetown.edu/~ric/">Personal Website</a><br>
-<br>
-
+<a href="">Personal Website</a><br>
 
 <?php 
 decoration_window_end(); 

@@ -18,24 +18,16 @@ if (strlen("$navigation_check") > 0) return;
 //--------------------------------------------------------------------
 include("$rel_path/definitions.inc");
 
-$theme = "default";
-$theme_file = theme_file("birthday_theme.inc");
-$layout_file = $theme_file;
-
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Uwe Pross";
-$heading        = "Uwe Pross";
-$link_name      = "Uwe Pross";
-$link_picture   = "pictures/icons/authors";
+$title          = "Uwe_Pross";
+$heading        = "Uwe_Pross";
+$link_name      = "Uwe_Pross";
+$link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array();
-//  RBW...
-//  Must be able to cope with register_globals = off.
-//$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-
 $this_site      = "authors";
 
 //--------------------------------------------------------------------
@@ -52,16 +44,14 @@ if (strlen("$site_has_been_loaded") == 0) {
   exit();
 }
 
-decoration_window_start("Uwe Pross"); 
+decoration_window_start("Uwe_Pross"); 
 ?>
 
-
-<a href="index.php"><img src="Uwe_Pross.jpg" border="0"></a><br>
+Click on the image to go back to the overview.<br>
+<a href="<?php echo conv_link_target('index.php');?>"><img src="Uwe_Pross.jpg" border="0"></a><br>
 <br>
 
-<a href="http://www-user.tu-chemnitz.de/~uwp/">Personal Website</a><br>
-<br>
-
+<a href="">Personal Website</a><br>
 
 <?php 
 decoration_window_end(); 
