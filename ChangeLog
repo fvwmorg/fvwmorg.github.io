@@ -1,3 +1,9 @@
+2002-01-19  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* mod_m2f_communication.html:
+	* mod_f2m_communication.html:
+	documented new message types and new message interface
+
 2002-01-12  Dan Espen  <dane@mk.telcordia.com>
 
 	* developers.html: Link to bug downloads.

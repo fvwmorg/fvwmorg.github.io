@@ -99,19 +99,29 @@ other kinds of commands are sent along with module configuration lines.
 <h2><font color="turquoise">
 Controlling information sent to modules
 </font></h2>
-Fvwm lets each module control exactly what information is passed to the module.
-A module can send the command Set_Mask, followed by a number which is the
-bitwise OR of the packet-types the module wishes to receive. If the module
-never sends the Set_Mask command, then all message types in the default mask
-are sent. The default mask is defined in fvwm/module.h as "MAX_MASK". This
-currently (November 1999) includes all messages except M_SENDCONFIG. A library function, SetMessageMask, makes it
-easy to set this mask. Here is an example from FvwmBacker.c:
+Fvwm lets each module control exactly what information is passed
+to the module. A module can send the command Set_Mask, followed by
+a number which is the bitwise OR of the packet-types the module
+wishes to receive. If the module never sends the Set_Mask command,
+then all message types in the default mask are sent. The default
+mask is defined in fvwm_module_interface.h as "MAX_MASK" and "MAX_XMASK".
+This currently (January 2002) includes all messages except M_SENDCONFIG.
+A library function, SetMessageMask, makes it easy to set this
+mask. Since 2.5.0 was released, the highest bit in the message
+mask marks extended messages that were introduced to allow more
+than 32 message types.  The type of a message received by a module
+can be compared against one of the macros in libs/Module.h as
+usual, but when passing a mask to the SetMessageMask, SetSyncMask
+or SetNoGrabMask functions, the normal and extended masks must be
+set in separate calls.
+Here is an example from FvwmGtk.c:
 <font color="yellow"><pre>
-SetMessageMask(Fvwm_fd,M_NEW_DESK|M_CONFIG_INFO|M_END_CONFIG_INFO);
+SetMessageMask(fvwm_fd, M_STRING | M_CONFIG_INFO | M_SENDCONFIG | ...);
+SetMessageMask(fvwm_fd, MX_VISIBLE_ICON_NAME);
 
 </pre></font>
-This mask is used to reduce the amount of communication
-between fvwm and its modules so that a module only gets the messages it
+This mask is used to reduce the amount of communication between
+fvwm and its modules so that a module only gets the messages it
 needs.
 
 <h2><font color="turquoise"><a name="M_SENDCONFIG"></a>
@@ -135,7 +145,7 @@ A library function, SetSyncMask, allows this mask to be set.
 Here is an example from FvwmAnimate.c:
 <font color="yellow"><pre>
 SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
-</pre></font> 
+</pre></font>
 When this mask is set, every message in the mask sent to the
 module from fvwm must be answered with an "UNLOCK" message.
 FvwmAnimate is the first module to implement this and should be

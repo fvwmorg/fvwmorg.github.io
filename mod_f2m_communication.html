@@ -38,37 +38,42 @@ from the X server, which is expressed in milliseconds.
 The body information is packet specific, as described below.
 
 <pre><font color="yellow">
-     #define <a href="#M_NEW_PAGE"        >M_NEW_PAGE</a>             (1 &lt;&lt; 0)
-     #define <a href="#M_NEW_DESK"        >M_NEW_DESK</a>             (1 &lt;&lt; 1)
-     #define <a name="obsolete"           >M_OLD_ADD_WINDOW</a>       (1 &lt;&lt; 2)
-     #define <a href="#M_RAISE_WINDOW"    >M_RAISE_WINDOW</a>         (1 &lt;&lt; 3)
-     #define <a href="#M_LOWER_WINDOW"    >M_LOWER_WINDOW</a>         (1 &lt;&lt; 4)
-     #define <a name="obsolete"           >M_OLD_CONFIGURE_WINDOW</a> (1 &lt;&lt; 5)
-     #define <a href="#M_FOCUS_CHANGE"    >M_FOCUS_CHANGE</a>         (1 &lt;&lt; 6)
-     #define <a href="#M_DESTROY_WINDOW"  >M_DESTROY_WINDOW</a>       (1 &lt;&lt; 7)
-     #define <a href="#M_ICONIFY"         >M_ICONIFY</a>              (1 &lt;&lt; 8)
-     #define <a href="#M_DEICONIFY"       >M_DEICONIFY</a>            (1 &lt;&lt; 9)
-     #define <a href="#M_WINDOW_NAME"     >M_WINDOW_NAME</a>          (1 &lt;&lt; 10)
-     #define <a href="#M_ICON_NAME"       >M_ICON_NAME</a>            (1 &lt;&lt; 11)
-     #define <a href="#M_RES_CLASS"       >M_RES_CLASS</a>            (1 &lt;&lt; 12)
-     #define <a href="#M_RES_NAME"        >M_RES_NAME</a>             (1 &lt;&lt; 13)
-     #define <a href="#M_END_WINDOWLIST"  >M_END_WINDOWLIST</a>       (1 &lt;&lt; 14)
-     #define <a href="#M_ICON_LOCATION"   >M_ICON_LOCATION</a>        (1 &lt;&lt; 15)
-     #define <a href="#M_MAP"             >M_MAP</a>                  (1 &lt;&lt; 16)
-     #define <a href="#M_ERROR"           >M_ERROR</a>                (1 &lt;&lt; 17)
-     #define <a href="#M_CONFIG_INFO"     >M_CONFIG_INFO</a>          (1 &lt;&lt; 18)
-     #define <a href="#M_END_CONFIG_INFO" >M_END_CONFIG_INFO</a>      (1 &lt;&lt; 19)
-     #define <a href="#M_ICON_FILE"       >M_ICON_FILE</a>            (1 &lt;&lt; 20)
-     #define <a href="#M_DEFAULTICON"     >M_DEFAULTICON</a>          (1 &lt;&lt; 21)
-     #define <a href="#M_STRING"          >M_STRING</a>               (1 &lt;&lt; 22)
-     #define <a href="#M_MINI_ICON"       >M_MINI_ICON</a>            (1 &lt;&lt; 23)
-     #define <a href="#M_WINDOWSHADE"     >M_WINDOWSHADE</a>          (1 &lt;&lt; 24)
-     #define <a href="#M_DEWINDOWSHADE"   >M_DEWINDOWSHADE</a>        (1 &lt;&lt; 25)
+     #define <a href="#M_NEW_PAGE"         >M_NEW_PAGE</a>             (1 &lt;&lt; 0)
+     #define <a href="#M_NEW_DESK"         >M_NEW_DESK</a>             (1 &lt;&lt; 1)
+     #define <a name="obsolete"            >M_OLD_ADD_WINDOW</a>       (1 &lt;&lt; 2)
+     #define <a href="#M_RAISE_WINDOW"     >M_RAISE_WINDOW</a>         (1 &lt;&lt; 3)
+     #define <a href="#M_LOWER_WINDOW"     >M_LOWER_WINDOW</a>         (1 &lt;&lt; 4)
+     #define <a name="obsolete"            >M_OLD_CONFIGURE_WINDOW</a> (1 &lt;&lt; 5)
+     #define <a href="#M_FOCUS_CHANGE"     >M_FOCUS_CHANGE</a>         (1 &lt;&lt; 6)
+     #define <a href="#M_DESTROY_WINDOW"   >M_DESTROY_WINDOW</a>       (1 &lt;&lt; 7)
+     #define <a href="#M_ICONIFY"          >M_ICONIFY</a>              (1 &lt;&lt; 8)
+     #define <a href="#M_DEICONIFY"        >M_DEICONIFY</a>            (1 &lt;&lt; 9)
+     #define <a href="#M_WINDOW_NAME"      >M_WINDOW_NAME</a>          (1 &lt;&lt; 10)
+     #define <a href="#M_ICON_NAME"        >M_ICON_NAME</a>            (1 &lt;&lt; 11)
+     #define <a href="#M_RES_CLASS"        >M_RES_CLASS</a>            (1 &lt;&lt; 12)
+     #define <a href="#M_RES_NAME"         >M_RES_NAME</a>             (1 &lt;&lt; 13)
+     #define <a href="#M_END_WINDOWLIST"   >M_END_WINDOWLIST</a>       (1 &lt;&lt; 14)
+     #define <a href="#M_ICON_LOCATION"    >M_ICON_LOCATION</a>        (1 &lt;&lt; 15)
+     #define <a href="#M_MAP"              >M_MAP</a>                  (1 &lt;&lt; 16)
+     #define <a href="#M_ERROR"            >M_ERROR</a>                (1 &lt;&lt; 17)
+     #define <a href="#M_CONFIG_INFO"      >M_CONFIG_INFO</a>          (1 &lt;&lt; 18)
+     #define <a href="#M_END_CONFIG_INFO"  >M_END_CONFIG_INFO</a>      (1 &lt;&lt; 19)
+     #define <a href="#M_ICON_FILE"        >M_ICON_FILE</a>            (1 &lt;&lt; 20)
+     #define <a href="#M_DEFAULTICON"      >M_DEFAULTICON</a>          (1 &lt;&lt; 21)
+     #define <a href="#M_STRING"           >M_STRING</a>               (1 &lt;&lt; 22)
+     #define <a href="#M_MINI_ICON"        >M_MINI_ICON</a>            (1 &lt;&lt; 23)
+     #define <a href="#M_WINDOWSHADE"      >M_WINDOWSHADE</a>          (1 &lt;&lt; 24)
+     #define <a href="#M_DEWINDOWSHADE"    >M_DEWINDOWSHADE</a>        (1 &lt;&lt; 25)
+     #define <a href="#M_VISIBLE_NAME"     >M_VISIBLE_NAME</a>         (1 &lt;&lt; 26)
+     #define <a href="#M_SENDCONFIG"       >M_SENDCONFIG</a>           (1 &lt;&lt; 27)
+     #define <a href="#M_RESTACK"          >M_RESTACK</a>              (1 &lt;&lt; 28)
+     #define <a href="#M_ADD_WINDOW"       >M_ADD_WINDOW</a>           (1 &lt;&lt; 29)
+     #define <a href="#M_CONFIGURE_WINDOW" >M_CONFIGURE_WINDOW</a>     (1 &lt;&lt; 30)
+     #define <a href="#M_EXTENDED_MSG"     >M_EXTENDED_MSG</a>         (1 &lt;&lt; 31)
 
-     #define <a href="#M_SENDCONFIG"      >M_SENDCONFIG</a>           (1 &lt;&lt; 27)
-     #define <a href="#M_RESTACK"         >M_RESTACK</a>              (1 &lt;&lt; 28)
-     #define <a href="#M_ADD_WINDOW"      >M_ADD_WINDOW</a>           (1 &lt;&lt; 29)
-     #define <a href="#M_CONFIGURE_WINDOW">M_CONFIGURE_WINDOW</a>     (1 &lt;&lt; 30)
+     #define <a href="#MX_VISIBLE_ICON_NAME">MX_VISIBLE_ICON_NAME</a>  (1 &lt;&lt; 0 + M_EXTENDED_MSG)
+     #define <a href="#MX_ENTER_WINDOW"     >MX_ENTER_WINDOW</a>       (1 &lt;&lt; 1 + M_EXTENDED_MSG)
+     #define <a href="#MX_LEAVE_WINDOW"     >MX_LEAVE_WINDOW</a>       (1 &lt;&lt; 2 + M_EXTENDED_MSG)
 
 <h2><a name="M_NEW_PAGE"></a>
 M_NEW_PAGE
@@ -346,6 +351,12 @@ changed. The RES_CLASS and RES_NAME packets are sent on window creation.
 All packets are sent in response to a Send_WindowList request from a module.
 
 <h2>
+<a name="M_VISIBLE_NAME"></a><a name="MX_VISIBLE_ICON_NAME"></a>
+M_VISIBLE_NAME, M_VISIBLE_ICON_NAME
+</h2>
+Documentation is missing.
+
+<h2>
 <a name="M_END_WINDOWLIST"></a>
 M_END_WINDOWLIST
 </h2>
@@ -432,20 +443,31 @@ and finally a string that is the path to the file (also not useful).
 M_WINDOWSHADE and M_DEWINDOWSHADE
 </h2>
 This packet is sent when a window is window shaded. It contains just the
-window identifiers
+window identifiers.
 
 <h2>
 <a name="M_SENDCONFIG"></a>
-M_SENDCONFIG</h2>
+M_SENDCONFIG
+</h2>
 This is a dummy packet that is never sent by fvwm and is described under
 <a href="mod_m2f_communication.html#M_SENDCONFIG">Module to Fvwm communication</a>.
-<h2>
 
-<a name="M_RESTACK"></a>M_RESTACK</h2>
+<h2>
+<a name="M_RESTACK"></a>
+M_RESTACK
+</h2>
 This packet is sent when the stacking order changes. It contains a list
 of windows, each one being given by its three identifiers. The meaning
 is that the first window keeps its position in the stacking order and all
 subsequent windows are restacked below it (like XRestackWindows).
+
+<h2>
+<a name="MX_ENTER_WINDOW"></a><a name="MX_LEAVE_WINDOW"></a>
+M_ENTER_WINDOW, M_LEAVE_WINDOW
+</h2>
+These packets are sent when the pointer enters or leaves a window.
+It contains just the window identifiers. Note that multiple pakets of the
+same type for the same window may be sent at any time.
 <p>
 <hr>
 </body>
