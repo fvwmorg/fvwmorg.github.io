@@ -641,5 +641,34 @@ blue to match my fvwm theme :)
 
  	</td></tr>
 
+<!-- Maciej Delmanowski - submitted 12 May 2003 -->
+       <tr valign="top"><td valign="middle">
+	  <a href="<?php echo conv_link_target('Maciej_Delmanowski-desk-1024x768.php');?>" target="screenshot_window">
+	    <img src="Maciej_Delmanowski-desk-thumbnail.jpg"
+	      border="0" alt="Maciej_Delmanowski"></a></td>
+	  <td valign="middle">
+	  Submitted by Maciej_Delmanowski.
+Maciej says:
+
+I used FVWM to create my own desktop enviroment. It's called
+'FVWM - Crystal' and it's based on the unstable/CVS branch (2.5.6). It's features
+include:
+
+- transparent panels/window titles
+- intensive use of mouse buttons; normal is using 2 buttons to make
+  different tasks, usually all three are used
+- new look at user interface, for example close/minimize/kill functions
+  are combined in one title-bar button; there are two modes of moving or
+  maximizing a window; interface is clean and provides a lot of space on
+  the desktop - all panels can be hid by just middle-clicking on the
+  desktop
+- intensive use of keyboard shortcuts (example: numpad, used to control
+  windows - resizing, moving, shading, etc. - has 37 different
+  shortcuts); there are keys to control window placement, moving windows
+  between dekstops and resizing them; also included is control over xmms
+  with additional programs
+
+ 	</td></tr>
+
     </table>
 	<?php decoration_window_end(); ?>

@@ -16,21 +16,25 @@
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 # ##########################################################################
 
-# Use this script after adding an image to index.html.
-# This script goes thru index.html and finds the lines with the
+# Use this script after adding an image to desktops.php.
+# This script goes thru desktops.php and finds the lines with the
 # format:
 
-# <a href="X.htmlY
+# <a href="X.phpY
 
 # it then looks for an image ending in .jpg, .gif, or .png
 # with the X part of the name above.
 
-# Then it builds an html page containing the image and next and
-# previous links. This way, if you select an image for viewing,
+# Then it builds an php page containing the image
+
+# This next part isn't working right now: dje May 2003:
+
+# and next and  previous links.
+# This way, if you select an image for viewing,
 # you can easily navigate forward and backward thru all the full
 # size images.
 
-# To avoid timestamp corruption, only html pages that change are
+# To avoid timestamp corruption, only php pages that change are
 # replaced.
 
 #  Modification History
@@ -57,7 +61,7 @@ LINE: while (<INPUT>) {
   }
   ++$count;
 }
-print STDERR "Done, $count lines in index.php, $found_count image references checked.\n";
+print STDERR "Done, $count lines in desktops.php, $found_count image references checked.\n";
 exit 0;
 
 
@@ -65,7 +69,7 @@ exit 0;
 sub create_php {
   my $image = $_;
   chomp $image;
-  $image =~ s/.*a href=\"(.*).php.*/$1/; # Pull out image base name
+  $image =~ s/.*a href=\".*'(.*).php'.*/$1/; # Pull out image base name
   my $name = $image;
   if ( ! -f "$image.jpg" ) {	# Look for jpg image
     if ( ! -f "$image.gif" ) {	# or gif
@@ -83,8 +87,7 @@ sub create_php {
   if ( ! -f $image ) {	# Look for jpg image
     die "$0: Image $image not found, giving up.\n";
   }
-  print "Generating ".$name.".php\n";
-  open( php , "> $name.php") || die "Could not write to $name.php.";
+  open( php , "> $name.php~") || die "Could not write to $name.php.";
   open( template, "< desktop_shot_template.php_") || die "Could not open template file.";
   my $line;
   while( $line = <template> ) {
@@ -94,5 +97,21 @@ sub create_php {
   }
   close(php);
   close(template);
+  # See if the php page is already there and unchanged...
+  if ( -f "$name.php" ) {
+    my $debuger = `diff "$name.php" "$name.php~" 2>&1`;
+    if ( $? == 0 ) {
+      print STDERR "Existing file $name.php unchanged.\n";
+      unlink "$name.php~";
+    } else {
+      print STDERR "Existing file $name.php changed, replaced.\n";
+      unlink "$name.php";
+      rename "$name.php~","$name.php";
+    }
+  } else {
+    rename "$name.php~","$name.php";
+    print STDERR "New file $name.php created.\n";
+  }
+
 }
 

@@ -1,3 +1,11 @@
+2003-05-12  Dan Espen  <dane@mk.telcordia.com>
+
+	* screenshots/make-php.pl: Fixup comments, fix matching on lines in desktops.php,
+	put diff check back.
+
+	* screenshots/desktops.php: New screenshot from Maciej Delmanowski.
+	
+
 2003-05-06  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* contact/index.php:
