@@ -1,6 +1,10 @@
 #!/bin/ksh
 #  Modification History
 
+#  Changed on 01/12/00 by Dan Espen (dane):
+#  - Split banner into banner and banner2.
+#  The image wouldn't fit on one screen.
+
 #  Created on 09/11/99 by DanEspen (dje):
 #  - Using xbmbrowser, create screenshots of the icons.
 #  (Another approach would be to have the web page load each image
@@ -57,8 +61,10 @@ case $1 in
   icons)
     make_display icons 750x800 !(mini[.]*|button*|side[.]*|fvwm[23]*|READ*|ChangeLog|Icon_Screen*|banner[.]*);;
   banner)
-    # Note, this is so big, it needs to be split:
-    make_display banner  886x1120 fvwm[23]* banner[.]*;;
+    # Note, this is so big, it needed to be split:
+    make_display banner 750x800 fvwm[23]*;;
+  banner2)
+    make_display banner  886x1120 banner[.]*;;
   *)
     echo "Unknown option, , use 'side', 'mini1', mini2', 'icons' or 'banner'. Exiting!"
     exit 1;;
