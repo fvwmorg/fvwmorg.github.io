@@ -273,7 +273,7 @@ class Default_Theme extends Base_Theme {
         // mini icon
         echo $td;
         echo '<a href="'.$target.'">';
-        echo '<img src="'.$this->rel_path.'/'.$this->nav_array["$site"]["link_pic"];
+        echo '<img src="'.$this->rel_path.'/'.$this->nav_array["$site"]["link_picture"];
         echo '_mini.gif" border="0" alt="" hspace="0" vspace="0"></a>';
         echo '</td>'."\n";
 
@@ -352,8 +352,8 @@ class Default_Theme extends Base_Theme {
 
         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
 
-        if( file_exists($this->rel_path.'/'.$this->nav_array["$site"]["link_pic"]."_pager.gif") ) {
-            $img = $this->rel_path.'/'.$this->nav_array["$site"]["link_pic"]."_pager.gif";
+        if( file_exists($this->rel_path.'/'.$this->nav_array["$site"]["link_picture"]."_pager.gif") ) {
+            $img = $this->rel_path.'/'.$this->nav_array["$site"]["link_picture"]."_pager.gif";
         } else {
             $img = $this->rel_path.'/pictures/icons/default_pager.gif';
         }
@@ -561,8 +561,8 @@ class Default_Theme extends Base_Theme {
 
                 if( list($key, $jump) = each($quick_jump_array) ) {
                     if( ! is_array($jump) ) {
-                        if( file_exists($this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif") ) {
-                            $img = $this->rel_path.'/'.$this->nav_array["$jump"]["link_pic"]."_mini.gif";
+                        if( file_exists($this->rel_path.'/'.$this->nav_array["$jump"]["link_picture"]."_mini.gif") ) {
+                            $img = $this->rel_path.'/'.$this->nav_array["$jump"]["link_picture"]."_mini.gif";
                         } else {
                             $img = $this->rel_path.'/pictures/icons/default_mini.gif';
                         }

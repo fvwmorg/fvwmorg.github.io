@@ -85,13 +85,6 @@ if (strlen($heading) == 0) $heading = $title;
 
     <?php include(sec_filename($requested_file)); ?>
 
-    <p>
-    Switch to 
-      <a href="<?php echo "./$requested_file";?>?theme=default">window theme</a>, 
-      <a href="<?php echo "./$requested_file";?>?theme=plain">fast plain theme</a>, 
-      <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
-    </p>
-
     <!-- bottom of the page - display last modified information -->
     <p class="bottominfo"><?php $theme_object->insert_timestamp($requested_file); ?></p>
     

@@ -90,8 +90,8 @@ class Pager_On_Top_Theme extends Default_Theme {
 
         $target = $this->conv_link_target($this->rel_path.'/'.$this->nav_array["$site"]["file"]);
 
-        if( file_exists($this->rel_path.'/'.$this->nav_array["$site"]["link_pic"]."_pager.gif") ) {
-            $img = $this->rel_path.'/'.$this->nav_array["$site"]["link_pic"]."_pager.gif";
+        if( file_exists($this->rel_path.'/'.$this->nav_array["$site"]["link_picture"]."_pager.gif") ) {
+            $img = $this->rel_path.'/'.$this->nav_array["$site"]["link_picture"]."_pager.gif";
         } else {
             $img = $this->rel_path.'/pictures/icons/default_pager.gif';
         }
@@ -214,13 +214,14 @@ class Pager_On_Top_Theme extends Default_Theme {
         echo "
         body {
             background-color:".$this->style_array["window_bg"].";
-            /* background-image:url(\"".$this->style_array['body_bg_image']."\"); */
+            background-image:url(\"".$this->style_array['body_bg_image']."\");
             color:".$this->style_array["window_fg"].";
             margin-right:15pt;
             margin-left:15pt;
         }
         .windowcontents {
         	color:".$this->style_array["window_fg"]."; 
+            background-image:url(\"".$this->style_array['body_bg_image']."\");
         } 
         a:link, a:visited, a:active, a:hover {
         	color:".$this->style_array["link_fg"].";

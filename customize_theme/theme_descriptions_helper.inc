@@ -153,7 +153,7 @@ class Theme_Descriptions_Helper {
     function insert_theme_option_list() {
         $style_array = $this->theme_descriptions[$this->selected_theme]["style"];
         if( ! is_array($style_array) || count($style_array) == 0 ) {
-            echo '<tr><td colspan="3" class="windowcontents"><h3>This theme does not have options</h3></td></tr>';
+            // echo '<tr><td colspan="3" class="windowcontents"><h3>This theme does not have options</h3></td></tr>';
             return;
         }
 
@@ -171,14 +171,14 @@ class Theme_Descriptions_Helper {
 
         switch($option_array["type"]) {
         case "color":
-            echo "<tr>\n";
-            echo '<td align="right" class="windowcontents">';
-            echo $option_array["name"];
-            echo ": </td>\n";
-            echo '<td align="left" class="windowcontents">';
-            echo '<input name="'.$option.'" type="text" size="8" maxlength="10" value="'.$option_array["value"].'" style="font-family:monospace; ">';
-            echo "</td>\n";
-            echo "</tr>\n";
+//             echo "<tr>\n";
+//             echo '<td align="right" class="windowcontents">';
+//             echo $option_array["name"];
+//             echo ": </td>\n";
+//             echo '<td align="left" class="windowcontents">';
+//             echo '<input name="'.$option.'" type="text" size="8" maxlength="10" value="'.$option_array["value"].'" style="font-family:monospace; ">';
+//             echo "</td>\n";
+//             echo "</tr>\n";
             break;
         case "file":
         case "directory":

@@ -1,5 +1,21 @@
 <?php
+//--------------------------------------------------------------------
+//-  File          : fvwm-web/navgen.cli                              
+//-  Project       : Fvwm Home Page                                   
+//-  Author        : Uwe Pross                                        
+//--------------------------------------------------------------------
+
 if( strlen("$navigation_check") > 0 ) return;
+
+// array to store which variables should be exported
+$export_array = array("file", 
+                      "rel_path", 
+                      "link_name", 
+                      "short_name",
+                      "link_chapter", 
+                      "link_picture", 
+                      "parent_site", 
+                      "child_sites");
 
 echo "navgen start";
 
@@ -114,7 +130,7 @@ function read_directory($directory_name) {
 // exports the navigation defintion
 //--------------------------------------------------------------------
 function export_nav($this_site, $export_depth = 0) {
-    global $$this_site, $child_array, $child_file_array, $nav_file;
+    global $$this_site, $child_array, $child_file_array, $nav_file, $export_array;
 
     for( $ii=0; $ii<$export_depth; $ii++ ) {
         echo "    ";
@@ -169,17 +185,11 @@ function export_nav($this_site, $export_depth = 0) {
                         $found_childs[] = $searched_child;
                         // export this child with sub childs
                         $child_array["$child_file"]["is_exported"] = 1;
-                        // $this_name = $this_site."_".$searched_child;
-                        // $this_name = $searched_child;
-                        // echo "** $this_name $this_site\n";
-                        ${$this_name}["file"]        = $child_array["$child_file"]["file"];
-                        ${$this_name}["url"]         = $child_array["$child_file"]["url"];
-                        ${$this_name}["rel_path"]    = $child_array["$child_file"]["rel_path"];
-                        ${$this_name}["link_chapter"]= $child_array["$child_file"]["link_chapter"];
-                        ${$this_name}["link_name"]   = $child_array["$child_file"]["link_name"];
-                        ${$this_name}["link_pic"]    = $child_array["$child_file"]["link_pic"];
+                        foreach($export_array as $var_name) {
+                            ${$this_name}[$var_name] = $child_array["$child_file"][$var_name];
+                        }
+                        // corrent parent site
                         ${$this_name}["parent_site"] = $this_site;
-                        ${$this_name}["child_sites"] = $child_array["$child_file"]["child_sites"];
                         export_nav($this_name, $export_depth+1);
                     }
                 } else {
@@ -202,13 +212,6 @@ function export_nav($this_site, $export_depth = 0) {
     if( ${$this_site}["is_exported"] != 1 ) {
         // export information of this file
         fputs($nav_file, "\n");
-        $export_array = array("file", 
-                              "rel_path", 
-                              "link_name", 
-                              "link_chapter", 
-                              "link_pic", 
-                              "parent_site", 
-                              "child_sites");
         foreach( $export_array as $entry) {
             //export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry]);
             export_entry($nav_file, $this_site, $entry, ${$this_site}[$entry], '$this->');
@@ -220,6 +223,7 @@ function export_nav($this_site, $export_depth = 0) {
 }
 
 function export_entry($nav_file, $name, $entry, $value, $prefix = '$') {
+    if( !is_array($value) && strlen($value)==0 ) return;
     fputs($nav_file, $prefix.'nav_array["'.$name.'"]["'.$entry.'"] = ');
     if( is_array($value) ) {
         fputs($nav_file, 'array(');
@@ -308,15 +312,14 @@ while( list($index, $php_file) = each($php_file_array) ) {
         if( $parent_site == "top" ) {
 
             if( ! is_in_array($this_site, $top_array) ) {
-                $top_array[]                 = $this_site;
+                $top_array[] = $this_site;
+                foreach($export_array as $var_name) {
+                    ${$this_site}[$var_name] = ${$var_name};
+                }
+                // correct special settings
                 ${$this_site}["file"]        = $php_file;
                 ${$this_site}["url"]         = $php_file;
                 ${$this_site}["rel_path"]    = get_relative_path($php_file);
-                ${$this_site}["link_name"]   = $link_name;
-                ${$this_site}["link_chapter"]= $link_chapter;
-                ${$this_site}["link_pic"]    = $link_picture;
-                ${$this_site}["parent_site"] = $parent_site;
-                ${$this_site}["child_sites"] = $child_sites;
                 ${$this_site}["is_exported"] = 0;
                 info_output( 'top - loaded'."\n");
             } else {
@@ -325,15 +328,14 @@ while( list($index, $php_file) = each($php_file_array) ) {
         } else {
 
             $child_file_array[] = "$php_file";
+            foreach($export_array as $var_name) {
+                $child_array["$php_file"][$var_name] = ${$var_name};
+            }
+            // correct special settings
             $child_array["$php_file"]["file"]        = $php_file;
             $child_array["$php_file"]["url"]         = $php_file;
             $child_array["$php_file"]["rel_path"]    = get_relative_path($php_file);
             $child_array["$php_file"]["this_site"]   = $this_site;
-            $child_array["$php_file"]["link_name"]   = $link_name;
-            $child_array["$php_file"]["link_chapter"]= $link_chapter;
-            $child_array["$php_file"]["link_pic"]    = $link_picture;
-            $child_array["$php_file"]["parent_site"] = $parent_site;
-            $child_array["$php_file"]["child_sites"] = $child_sites;
             $child_array["$php_file"]["is_exported"]    = 0;
             info_output( 'loaded'."\n");
 
@@ -361,7 +363,7 @@ fputs($nav_file, "<?php\n");
 fputs($nav_file, "//=============================================================\n");
 fputs($nav_file, "// This file is generated automatically by navgen.\n");
 fputs($nav_file, "// You may change the order of ".'$top_array'." only!\n");
-fputs($nav_file, "// Uwe Pross 2003\n");
+fputs($nav_file, "// Uwe Pross 2003, 2004\n");
 fputs($nav_file, "//=============================================================\n");
 fputs($nav_file, "\n");
 fputs($nav_file, "// Names of the top sites - you may change the order if you like.\n");

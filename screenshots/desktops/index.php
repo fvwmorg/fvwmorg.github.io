@@ -16,6 +16,7 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 $title          = "FVWM - Desktop Screenshots";
 $link_name      = "Desktop Screenshots";
+$short_name     = "Desktops";
 $link_picture   = "pictures/icons/screenshots_desks";
 $parent_site    = "screenshots";
 $child_sites    = array();

@@ -114,7 +114,8 @@ class Blue_Theme extends Base_Theme {
             echo '<a href="'.$target.'" style="color:'.$fg.';" class="menu">';
         }
         // echo '<font color="'.$fg.'">';
-        echo $this->nav_array["$site"]["link_name"].' ';
+            $short_name = $this->nav_array["$site"]["short_name"] ? $this->nav_array["$site"]["short_name"] : $this->nav_array["$site"]["link_name"];
+        echo $short_name.' ';
         // echo '</font>';
         echo '</a></td>'."\n";
 

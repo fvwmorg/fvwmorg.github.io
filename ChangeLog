@@ -1,3 +1,21 @@
+2004-03-19  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
+
+	* web-theme/classes/default_class.inc: 
+	* web-theme/classes/pager_on_top_class.inc: 
+	changed link_pic to link_picture
+
+	* customize_theme/index.php: 
+	disabled option for each theme - too buggy :-\
+
+	* screenshots/windowdecors/index.php: 
+	* screenshots/desktops/index.php: 
+	* screenshots/menus/index.php:
+	added short_link definition
+
+	* navgen.cli: 
+	made script more generic, empty variables will be not exported,
+	export now short_name as well
+
 2004-03-19  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* authors/index.php:

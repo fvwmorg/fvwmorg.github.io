@@ -18,6 +18,7 @@ if( ! strlen("$navigation_check") ) include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 $title          = "FVWM - Window Decoration Screenshots";
 $link_name      = "Window Decoration Screenshots";
+$short_name     = "Window Decors";
 $link_picture   = "pictures/icons/screenshots_decor";
 $parent_site    = "screenshots";
 $child_sites    = array();

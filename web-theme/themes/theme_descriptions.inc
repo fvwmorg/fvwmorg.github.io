@@ -167,13 +167,12 @@ $this->theme_descriptions = array(
             ),
          "body_bg_image"    => array(
             "type"    => "file",
-            "value"   => "@REL_PATH@/pictures/backgrounds/default_small.jpg",
+            "value"   => "none",
             "alt"     => array(
+                "None"   => "none",
                 "Swirl"  => "@REL_PATH@/pictures/backgrounds/default_small.jpg",
-                "Paper"  => "@REL_PATH@/pictures/backgrounds/paper01.jpg",
                 "Clouds" => "@REL_PATH@/pictures/backgrounds/clouds01.jpg",
                 "Stars"  => "@REL_PATH@/pictures/backgrounds/stars01.jpg",
-                "None"   => "none"
                 ),
             "name"    => "Background Image",
             ),
@@ -237,18 +236,7 @@ $this->theme_descriptions = array(
    
   "plain"   => array(
      "name"   => "Clean",
-     "style"  => array(
-         "window_bg"  => array(
-            "type"    => "color",
-            "value"   => "none",
-            "name"    => "Background",
-            ),
-         "window_fg"  => array(
-            "type"    => "color",
-            "value"   => "none",
-            "name"    => "Foreground",
-            ),
-         ),
+     "style"  => array(),
      ),
   
   "birthday"   => array(
@@ -269,6 +257,11 @@ $this->theme_descriptions = array(
 
   "blue" => array(
      "name"   => "Blue Theme",
+     "style"  => array(),
+     ),
+
+  "navigate" => array(
+     "name"   => "Navigation",
      "style"  => array(),
      ),
 

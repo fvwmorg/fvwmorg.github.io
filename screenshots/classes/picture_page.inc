@@ -72,12 +72,12 @@ class Picture_Page {
         } else {
             $link_target = $screenshot;
         }
-        echo '<tr style="border-bottom:1pt '.$bg.' solid;">'."\n";
-        echo "<td".$td_opts.' valign="middle">';
+        echo '<tr>'."\n";
+        echo "<td".$td_opts.' valign="middle" class="showpageprev">';
         mylink($link_target, '<img src="'.$preview.'" border="1" alt="Preview">');
         // echo '<a href="'.$link_target.'"><img src="'.$preview.'" border="1" alt="Preview"></a>';
         echo "</td>";
-        echo "<td".$td_opts.' align="center">';
+        echo "<td".$td_opts.' align="center" class="showpageprop">';
         echo date("y/m/d", $date)."<br>";
         echo ceil($size/1024)."k<br>";
         echo $dimension;
@@ -85,7 +85,7 @@ class Picture_Page {
             echo '<br><a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>';
         }
         echo "</td>";
-        echo "<td".$td_opts.">";
+        echo '<td'.$td_opts.' class="showpagedesc">';
         $description = str_replace("@fvwm2rc@", '<a href="'.$entry["path"]."/".$fvwmrc.'">fvwm2rc</a>', $description);
         $description = str_replace("@path@", $entry["path"], $description);
         echo $description;
@@ -146,7 +146,7 @@ class Picture_Page {
         } else {
             mylink( $requested_file, $pic_range, "", array("start" => $from, "num" => $num));
         }
-        echo "&nbsp; &nbsp; &nbsp; ";
+        echo "&nbsp;&nbsp;&nbsp;";
     }
 
     function insert_navigation() {
@@ -157,7 +157,7 @@ class Picture_Page {
         echo '<td>';
         echo 'Total number of '.$this->item_plural.': '.$this->max;
         echo '</td>';
-        echo '<td>';
+        echo '<td nowrap="nowrap">';
         $this->insert_prev_next_list();
         echo '</td>';
         echo '<td align="right">';

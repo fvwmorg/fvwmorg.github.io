@@ -16,6 +16,7 @@ if (strlen("$navigation_check") == 0) include($rel_path.'/definitions.inc');
 //--------------------------------------------------------------------
 $title          = "FVWM - Menu Screenshots";
 $link_name      = "Menu Screenshots";
+$short_name     = "Menus";
 $link_picture   = "pictures/icons/screenshots_menu";
 $parent_site    = "screenshots";
 $child_sites    = array();
