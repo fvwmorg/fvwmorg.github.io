@@ -108,7 +108,7 @@ $this->nav_array["desktops"]["child_sites"] = array();
 
 $this->nav_array["windowdecors"]["file"] = "screenshots/windowdecors/index.php"; 
 $this->nav_array["windowdecors"]["rel_path"] = "./../.."; 
-$this->nav_array["windowdecors"]["link_name"] = "Window Decorations"; 
+$this->nav_array["windowdecors"]["link_name"] = "Window Decoration Screenshots"; 
 $this->nav_array["windowdecors"]["link_chapter"] = ""; 
 $this->nav_array["windowdecors"]["link_pic"] = "pictures/icons/screenshots_decor"; 
 $this->nav_array["windowdecors"]["parent_site"] = "screenshots"; 
@@ -178,21 +178,13 @@ $this->nav_array["dev_creating_rpms"]["link_pic"] = "pictures/icons/doc_develope
 $this->nav_array["dev_creating_rpms"]["parent_site"] = "developers"; 
 $this->nav_array["dev_creating_rpms"]["child_sites"] = array(); 
 
-$this->nav_array["dev_webpage"]["file"] = "documentation/dev_webpage.php"; 
-$this->nav_array["dev_webpage"]["rel_path"] = "./.."; 
-$this->nav_array["dev_webpage"]["link_name"] = "Web site"; 
-$this->nav_array["dev_webpage"]["link_chapter"] = ""; 
-$this->nav_array["dev_webpage"]["link_pic"] = "pictures/icons/doc_developers_webpage"; 
-$this->nav_array["dev_webpage"]["parent_site"] = "developers"; 
-$this->nav_array["dev_webpage"]["child_sites"] = array(); 
-
 $this->nav_array["developers"]["file"] = "documentation/developers.php"; 
 $this->nav_array["developers"]["rel_path"] = "./.."; 
 $this->nav_array["developers"]["link_name"] = "Developer Info"; 
 $this->nav_array["developers"]["link_chapter"] = ""; 
 $this->nav_array["developers"]["link_pic"] = "pictures/icons/doc_developers"; 
 $this->nav_array["developers"]["parent_site"] = "documentation"; 
-$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", "dev_webpage", ); 
+$this->nav_array["developers"]["child_sites"] = array("dev_cvs", "dev_modules", "dev_downloadbugs", "dev_creating_rpms", ); 
 
 $this->nav_array["documentation"]["file"] = "documentation/index.php"; 
 $this->nav_array["documentation"]["rel_path"] = "./.."; 
