@@ -23,6 +23,19 @@ include(helper_file("members2globals.inc"));
 if( strlen($heading) == 0 ) $heading = $title;
 ?>
 
+<?php
+if( $_GET["window_bg"] ) {
+    $bg_color = $_GET["window_bg"];
+} else {
+    $bg_color = "#305050";
+}
+if( $_GET["window_fg"] ) {
+    $fg_color = $_GET["window_fg"];
+} else {
+    $fg_color = "#e0e0e0";
+}
+?>
+
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -39,8 +52,8 @@ if( strlen($heading) == 0 ) $heading = $title;
   </head>
     
   <body 
-    text="#e0e0e0"
-    bgcolor="#305050"
+    text="<?php echo $fg_color;?>"
+    bgcolor="<?php echo $bg_color;?>"
     link="#e0e050"
     alink="#e05050"
     vlink="#e05050"

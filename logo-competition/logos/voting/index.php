@@ -128,11 +128,11 @@ foreach( $logo_array as $number => $logos ) {
     // echo $number;
     foreach( $logos as $logo ) {
         $logo_preview = preg_replace('/...$/', "png", $logo);
-        echo '<a href="../'.dirname($logo).'" target="newwindow">';
+        echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">';
         echo '<img src="previews/'.$logo_preview.'" border="0" align="middle" vspace="3" hspace="3">';
         echo '</a>';
     }
-    echo '<a href="../'.dirname($logo).'" target="newwindow">Author page</a>';
+    echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">Author page</a>';
     echo "<br>\n";
     insert_color_list();
     echo '<hr size="1" width="100%" noshade>'."\n";

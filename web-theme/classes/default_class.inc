@@ -38,7 +38,13 @@ class Default_Theme extends Base_Theme {
         echo ' style="background-image:url('.$pic.'); ';
         echo 'background-repeat:'.$bg_repeat.'; ';
         echo 'background-position:'.$bg_pos.'; '.$css.'"';
-        if( ereg("(left)|(right)", "$position") ) echo ' width="1"';
+        if( ereg("(left)|(right)", "$position") ) {
+            if( isset($border_width) ) {
+                echo ' width="'.$border_width.'"';                
+            } else {
+                echo ' width="1"';
+            }
+        }
         echo '>'.$string;
         echo '<img src="'.$this->decoration_pic("transparent").'" ';
         echo 'border="0" vspace="0" hspace="0" '.$dimension.' alt="">';

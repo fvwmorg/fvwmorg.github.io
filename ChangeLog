@@ -1,3 +1,13 @@
+2003-10-04  Uwe Pross  <uwe.pross@gmx.net>
+
+	* web-theme/themes/voting_theme.inc: 
+	* logo-competition/logos/color_select.inc:
+	* logo-competition/logos/voting/index.php:
+	fixed minor bugs in color change functionality
+	
+	* web-theme/classes/default_class.inc:
+	added specification of cell width border cells
+
 2003-09-30  Uwe Pross  <uwe.pross@gmx.net>
 
 	* screenshots/desktops/Klaus_Umbach-1280x1024/*:
