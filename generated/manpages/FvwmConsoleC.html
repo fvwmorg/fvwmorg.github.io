@@ -12,210 +12,208 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     FvwmConsoleC.pl - Command  editor  for  FVWM  command  input
-     interface
+       FvwmConsoleC.pl  -  Command  editor for FVWM command input
+       interface
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmConsole -e /usr/X11/lib/fvwm2/FvwmConsoleC.pl
+       FvwmConsole -e /usr/X11/lib/fvwm2/FvwmConsoleC.pl
 
 
 
 </PRE>
 <H2>COPYRIGHT</H2><PRE>
-     Copyright 1996, Toshi Isogai. No  guarantees  or  warranties
-     are provided.  Use this program at your own risk. Permission
-     to use this program for any purpose is given, as long as the
-     copyright is kept intact.
+       Copyright 1996, Toshi Isogai. No guarantees or  warranties
+       are  provided.  Use this program at your own risk. Permis-
+       sion to use this program for any purpose is given, as long
+       as the copyright is kept intact.
 
 
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     FvwmConsoleC.pl  offers  editing  capabilities   while   the
-     user   is  entering  the line.  By default, the line editing
-     commands are similar to those of emacs. It also offers  <font color="cyan">sub-</font color="cyan">
-     <font color="cyan">stitution</font color="cyan">  ,  which replaces a pattern to a string before it
-     sends the command.
+       FvwmConsoleC.pl  offers  editing  capabilities  while  the
+       user  is entering  the line.  By default, the line editing
+       commands  are  similar  to  those of emacs. It also offers
+       <font color="cyan">substitution</font color="cyan"> , which replaces a pattern to a string before
+       it sends the command.
 
 
 
 </PRE>
 <H2>FUNCTIONS</H2><PRE>
-     Functions are bound to  a  key  or  key  combination  to  be
-     invoked.  The  followings  are functions available and their
-     default key bindings.
+       Functions  are  bound  to  a  key or key combination to be
+       invoked. The followings are functions available and  their
+       default key bindings.
 
-          <font color="cyan">bind</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">k</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">x</font color="yellow"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">b</font color="yellow">
-               List up key bindings and substitutions.
+              <font color="cyan">bind</font color="cyan">   <font color="yellow">Meta-k,</font color="yellow"> <font color="yellow">Cntl-x</font color="yellow"> <font color="yellow">Cntl-b</font color="yellow">
+                     List up key bindings and substitutions.
 
-          <font color="cyan">boh</font color="cyan">
-               Move to the beginning of history.
+              <font color="cyan">boh</font color="cyan">
+                     Move to the beginning of history.
 
-          <font color="cyan">boh_ign_mode</font color="cyan">  <font color="yellow">Esc</font color="yellow">-&lt;
-               Move to the beginning of  history.  If  it  is  in
-               search mode, continue.
+              <font color="cyan">boh_ign_mode</font color="cyan">  <font color="yellow">Esc-&lt;</font color="yellow">
+                     Move  to  the beginning of history. If it is
+                     in search mode, continue.
 
-          <font color="cyan">bol</font color="cyan">  <font color="yellow">Home</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">a</font color="yellow">
-               Move cursor to the beginning of the line.
+              <font color="cyan">bol</font color="cyan">    <font color="yellow">Home,</font color="yellow"> <font color="yellow">Cntl-a</font color="yellow">
+                     Move cursor to the beginning of the line.
 
-          <font color="cyan">bs[(n)]</font color="cyan"> <font color="yellow">BackSpace</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">h</font color="yellow">
-               Backspace n times. default of n is 1.
+              <font color="cyan">bs[(n)]</font color="cyan"> <font color="yellow">BackSpace,</font color="yellow"> <font color="yellow">Cntl-h</font color="yellow">
+                     Backspace n times. default of n is 1.
 
-          <font color="cyan">cancel</font color="cyan">
-               <font color="yellow">Cntl</font color="yellow">-<font color="yellow">x</font color="yellow"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">k</font color="yellow">
-               Cancel the current input.
+              <font color="cyan">cancel</font color="cyan"> <font color="yellow">Cntl-x</font color="yellow"> <font color="yellow">Cntl-k</font color="yellow">
+                     Cancel the current input.
 
-          <font color="cyan">del_back_line</font color="cyan">
-               Delete the line from the beginning to the cursor.
+              <font color="cyan">del_back_line</font color="cyan">
+                     Delete the line from the  beginning  to  the
+                     cursor.
 
-          <font color="cyan">del_back_word</font color="cyan"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">w</font color="yellow">
-               Delete the word from the beginning to the cursor.
+              <font color="cyan">del_back_word</font color="cyan"> <font color="yellow">Cntl-w</font color="yellow">
 
-          <font color="cyan">del_char</font color="cyan"> <font color="cyan">[(n)]</font color="cyan"> <font color="yellow">Delete</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">d</font color="yellow">
-               Delete n characters from the cursor to the  right.
-               Default of n is 1.
+              <font color="cyan">del_char</font color="cyan"> <font color="cyan">[(n)]</font color="cyan"> <font color="yellow">Delete,</font color="yellow"> <font color="yellow">Cntl-d</font color="yellow">
+                     Delete n characters from the cursor  to  the
+                     right. Default of n is 1.
 
-          <font color="cyan">del_forw_line</font color="cyan"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">k</font color="yellow">
-               Delete the line from the cursor to the end.
+              <font color="cyan">del_forw_line</font color="cyan"> <font color="yellow">Cntl-k</font color="yellow">
+                     Delete  the line from the cursor to the end.
 
-          <font color="cyan">del_forw_word</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">d</font color="yellow">
-               Delete the word from the cursor to the end.
+              <font color="cyan">del_forw_word</font color="cyan"> <font color="yellow">Meta-d</font color="yellow">
+                     Delete the word from the cursor to the  end.
 
-          <font color="cyan">del_line</font color="cyan"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">u</font color="yellow">
-               Delete the entire line.
+              <font color="cyan">del_line</font color="cyan"> <font color="yellow">Cntl-u</font color="yellow">
+                     Delete the entire line.
 
-          <font color="cyan">enter</font color="cyan">
-               <font color="yellow">Enter</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">j</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">m</font color="yellow">
-               Perform substitution if applicable  and  send  the
-               line to Fvwm.
+              <font color="cyan">enter</font color="cyan">  <font color="yellow">Enter,</font color="yellow"> <font color="yellow">Cntl-j,</font color="yellow"> <font color="yellow">Cntl-m</font color="yellow">
+                     Perform  substitution if applicable and send
+                     the line to Fvwm.
 
-          <font color="cyan">enter_wo_subst</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">Enter</font color="yellow">
-               Send the line to Fvwm without any substitution.
+              <font color="cyan">enter_wo_subst</font color="cyan"> <font color="yellow">Meta-Enter</font color="yellow">
+                     Send the line to Fvwm without any  substitu-
+                     tion.
 
-          <font color="cyan">eoh</font color="cyan">
-               Move to the end of history.
+              <font color="cyan">eoh</font color="cyan">
+                     Move to the end of history.
 
-          <font color="cyan">eoh_ign_mode</font color="cyan"> <font color="yellow">Esc</font color="yellow">-&gt;
-               Move to the end of history. If  it  is  in  search
-               mode, continue.
+              <font color="cyan">eoh_ign_mode</font color="cyan"> <font color="yellow">Esc-&gt;</font color="yellow">
+                     Move  to  the  end  of  history. If it is in
+                     search mode, continue.
 
-          <font color="cyan">eol</font color="cyan">  <font color="yellow">End</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">e</font color="yellow">
-               Move the cursor to the end of line.
+              <font color="cyan">eol</font color="cyan">    <font color="yellow">End,</font color="yellow"> <font color="yellow">Cntl-e</font color="yellow">
+                     Move the cursor to the end of line.
 
-          <font color="cyan">ins_char</font color="cyan"> <font color="cyan">(str)</font color="cyan">
-               Insert string at the cursor.
+              <font color="cyan">ins_char</font color="cyan"> <font color="cyan">(str)</font color="cyan">
+                     Insert string at the cursor.
 
-          <font color="cyan">ins_last_word</font color="cyan"> <font color="yellow">Esc</font color="yellow">-.
-               Insert the last argument of the  previous  command
-               at the cursor.
+              <font color="cyan">ins_last_word</font color="cyan"> <font color="yellow">Esc-.</font color="yellow">
+                     Insert the last  argument  of  the  previous
+                     command at the cursor.
 
-          <font color="cyan">ins_nth_word</font color="cyan"> <font color="yellow">Meta</font color="yellow">-[<font color="yellow">1</font color="yellow">..<font color="yellow">9</font color="yellow">]
-               Insert the n-th argument of the  previous  command
-               at the cursor.
+              <font color="cyan">ins_nth_word</font color="cyan"> <font color="yellow">Meta-[1..9]</font color="yellow">
+                     Insert  the  n-th  argument  of the previous
+                     command at the cursor.
 
-          <font color="cyan">list_func</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">l</font color="yellow">
-               List up available editing functions.
+              <font color="cyan">list_func</font color="cyan"> <font color="yellow">Meta-l</font color="yellow">
+                     List up available editing functions.
 
-          <font color="cyan">next_char</font color="cyan"> <font color="yellow">Right</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">f</font color="yellow">
-               Move the cursor to the next character.
+              <font color="cyan">next_char</font color="cyan"> <font color="yellow">Right,</font color="yellow"> <font color="yellow">Cntl-f</font color="yellow">
+                     Move the cursor to the next character.
 
-          <font color="cyan">next_line</font color="cyan"> <font color="yellow">Down</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">n</font color="yellow">
-               Move to the next line in history.
+              <font color="cyan">next_line</font color="cyan"> <font color="yellow">Down,</font color="yellow"> <font color="yellow">Cntl-n</font color="yellow">
+                     Move to the next line in history.
 
-          <font color="cyan">next_word</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">f</font color="yellow">
-               Move the cursor to the next word.
+                     Move the cursor to the next word.
 
-          <font color="cyan">prefix</font color="cyan">
-               Wait for the next character typed in   for  multi-
-               key binding.
+              <font color="cyan">prefix</font color="cyan">
+                     Wait for the next character  typed  in   for
+                     multi-key binding.
 
-          <font color="cyan">prev_char</font color="cyan"> <font color="yellow">Left</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">b</font color="yellow">
-               Move the cursor to the previous character.
+              <font color="cyan">prev_char</font color="cyan"> <font color="yellow">Left,</font color="yellow"> <font color="yellow">Cntl-b</font color="yellow">
+                     Move the cursor to the previous character.
 
-          <font color="cyan">prev_line</font color="cyan"> <font color="yellow">Up</font color="yellow">, <font color="yellow">Cntl</font color="yellow">-<font color="yellow">p</font color="yellow">
-               Move to the previous line in history.
+              <font color="cyan">prev_line</font color="cyan"> <font color="yellow">Up,</font color="yellow"> <font color="yellow">Cntl-p</font color="yellow">
+                     Move to the previous line in history.
 
-          <font color="cyan">prev_word</font color="cyan"> <font color="yellow">Meta</font color="yellow">-<font color="yellow">b</font color="yellow">
-               Move the cursor to the previous word.
+              <font color="cyan">prev_word</font color="cyan"> <font color="yellow">Meta-b</font color="yellow">
+                     Move the cursor to the previous word.
 
-          <font color="cyan">quote</font color="cyan">
-               <font color="yellow">Cntl</font color="yellow">-<font color="yellow">q</font color="yellow">
-               Insert  the  next  character   typed   into    the
-               buffer literally.
+              <font color="cyan">quote</font color="cyan">  <font color="yellow">Cntl-q</font color="yellow">
+                     Insert  the next character  typed  into  the
+                     buffer literally.
 
-          <font color="cyan">search</font color="cyan">
-               <font color="yellow">Cntl</font color="yellow">-<font color="yellow">s</font color="yellow">
-               Search pattern in history.
+              <font color="cyan">search</font color="cyan"> <font color="yellow">Cntl-s</font color="yellow">
+                     Search pattern in history.
 
-          <font color="cyan">search_rev</font color="cyan"> <font color="yellow">Cntl</font color="yellow">-<font color="yellow">r</font color="yellow">
-               Search pattern in history in reverse order.
+              <font color="cyan">search_rev</font color="cyan"> <font color="yellow">Cntl-r</font color="yellow">
+                     Search pattern in history in reverse  order.
 
-          <font color="cyan">subst</font color="cyan">
-               <font color="yellow">Meta</font color="yellow">-<font color="yellow">s</font color="yellow">
-               Substitute all patterns to strings and reprint the
-               line.   The  substitutions are not nested and per-
-               formed in the order that they are defined.
+              <font color="cyan">subst</font color="cyan">  <font color="yellow">Meta-s</font color="yellow">
+                     Substitute   all  patterns  to  strings  and
+                     reprint the line.  The substitutions are not
+                     nested  and performed in the order that they
+                     are defined.
 
 
 
 </PRE>
 <H2>CONFIGURATION</H2><PRE>
-     The key binding can be overridden or defined in fvwm  module
-     configuration.
+       The key binding can be overridden or defined in fvwm  mod-
+       ule configuration.
 
-          *FvwmConsoleKey \ck prev_line
+              *FvwmConsoleKey \ck prev_line
 
-     Non-space character sequence need not be quoted.   In  order
-     to undefine, omit the last argument.
+       Non-space character sequence need not be quoted.  In order
+       to undefine, omit the last argument.
 
-          *FvwmConsoleKey \ck
+              *FvwmConsoleKey \ck
 
-     Note that non-meta character is  case  sensitive.  \c  means
-     control key, \e means escape, and \m is alt key.
-     It also accepts Subst configuration. Users often input  long
-     fvwm command repeatedly. Subst will replace particular input
-     sequence to user defined string. Example:
+       Note that non-meta character is case sensitive.  \c  means
+       control key, \e means escape, and \m is alt key.
+       It  also  accepts  Subst  configuration. Users often input
+       long fvwm command repeatedly. Subst will replace  particu-
+       lar input sequence to user defined string. Example:
 
-          *FvwmConsoleSubst '^bigx' 'Exec xterm -g 120x60+0+0 -fn
-          10x20 -fg black -bg lemonchiffon'
+              *FvwmConsoleSubst '^bigx' 'Exec xterm -g 120x60+0+0
+              -fn 10x20 -fg black -bg lemonchiffon'
 
-     Typing 'bigx&lt;return&gt;' in FvwmConsole will launch xterm.  '^'
-     denotes the beginning of line in <font color="cyan">regular</font color="cyan"> <font color="cyan">expression.</font color="cyan"> 'pl' in
-     the middle of the command will not be replaced. Although the
-     format looks different, it takes Perl regular expression. It
-     just uses single or double quote as the  delimiter.   Single
-     or  double  quotes have no difference, although they have to
-     match, and cannot include itself in the string.
+       'pl' in the middle of the command will  not  be  replaced.
+       Although the format looks different, it takes Perl regular
+       expression.  It just uses single or double  quote  as  the
+       delimiter.   Single  or  double quotes have no difference,
+       although they have to match, and cannot include itself  in
+       the string.
 
-          *FvwmConsoleSubst '^g\s*(\d+)' 'Desk  0  0\nGotoPage  0
-          $1\nFocus'
+              *FvwmConsoleSubst  '^g\s*(\d+)' 'Desk 0 0\nGotoPage
+              0 $1\nFocus'
 
-     Entering 'g4' or 'g  4' will jump to desk 0  page  0  4  and
-     focus.
+       Entering 'g4' or 'g  4' will jump to desk 0 page 0  4  and
+       focus.
 
 
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
-     FvwmConsoleC.pl should be invoked by FvwmConsole.
+       FvwmConsoleC.pl should be invoked by FvwmConsole.
 
 
 
 </PRE>
 <H2>SEE ALSO</H2><PRE>
-     <B>FvwmConsole(1x)</B>, <B>perlre(1)</B>
+       <B>FvwmConsole(1x)</B>, <B>perlre(1)</B>
 
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     Toshi Isogai
+       Toshi Isogai
+
+
+
+
+
+
 
 
 
@@ -242,7 +240,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:35 EDT 2001 -->
+on Wed Jul  4 08:11:22 EDT 2001 -->
 </body>
 </html>
 

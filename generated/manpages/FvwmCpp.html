@@ -12,256 +12,254 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     FvwmCpp - the FVWM  Cpp pre-processor
+       FvwmCpp - the FVWM  Cpp pre-processor
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmCpp is spawned by fvwm, so no  command  line  invocation
-     will work.
+       FvwmCpp  is spawned by fvwm, so no command line invocation
+       will work.
 
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     When called, this module will attempt to  have  /usr/lib/cpp
-     pre-process  the  file specified in its invocation, and then
-     have fvwm read the resulting file.
+       When called, this module will attempt to have /usr/lib/cpp
+       pre-process the file specified in its invocation, and then
+       have fvwm read the resulting file.
 
 
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
-     FvwmCpp can be invoked by inserting the  line  'FvwmCpp'  in
-     the  .fvwm2rc  file.  It  can  also be called from a menu or
-     mouse binding.  If the user wants his entire  .fvwm2rc  file
-     pre-processed with FvwmCpp, then fvwm should be invoked as:
+       FvwmCpp can be invoked by inserting the line 'FvwmCpp'  in
+       the  .fvwm2rc  file.  It can also be called from a menu or
+       mouse binding.  If the user wants his entire .fvwm2rc file
+       pre-processed  with  FvwmCpp,  then fvwm should be invoked
+       as:
 
 
-          fvwm2 -cmd "FvwmCpp .fvwm2rc"
+            fvwm2 -cmd "FvwmCpp .fvwm2rc"
 
 
-     Some options can be specified on the command line:
+       Some options can be specified on the command line:
 
-     -cppopt <font color="yellow">option</font color="yellow">
-          Lets you pass an option to the cpp program.  Not really
-          needed  as  any  unknown  options  will  be  passed  on
-          automatically.
-
-
-     -cppprog <font color="yellow">name</font color="yellow">
-          Instead of invoking "/usr/lib/cpp",  fvwm  will  invoke
-          <font color="yellow">name</font color="yellow">.
+       -cppopt <font color="yellow">option</font color="yellow">
+              Lets you pass an option to the  cpp  program.   Not
+              really needed as any unknown options will be passed
+              on automatically.
 
 
-     -outfile <font color="yellow">filename</font color="yellow">
-          Instead of creating a random unique name for  the  tem-
-          porary  file  for the preprocessed rc file, this option
-          will let you specify the name of the temporary file  it
-          will  create.  Please note that FvwmCpp will attempt to
-          remove this file before writing to it, so  don't  point
-          it  at anything important even if it has read-only pro-
-          tection.
+       -cppprog <font color="yellow">name</font color="yellow">
+              Instead  of  invoking  "/usr/lib/cpp",  fvwm   will
+              invoke <font color="yellow">name</font color="yellow">.
 
 
-     -debug
-          Causes the temporary file create by Cpp to be retained.
-          This file is usually called "/tmp/fvwmrcXXXXXX"
+       -outfile <font color="yellow">filename</font color="yellow">
+              Instead  of  creating  a random unique name for the
+              temporary file for the preprocessed rc  file,  this
+              option  will let you specify the name of the tempo-
+              rary file it will create.  Please note that FvwmCpp
+              will  attempt to remove this file before writing to
+              it, so don't point it at anything important even if
+              it has read-only protection.
 
 
-     -lock
-          If you want to  use  this  option  you  need  to  start
-          FvwmCpp with ModuleSynchronous. This option causes fvwm
-          to wait that the pre-process finish  and  that  FvwmCpp
-          asks  fvwm  to  Read the pre-processed file before con-
-          tinuing. This may be useful at startup  if  you  use  a
-          session  manager  as Gnome. Also, this is useful if you
-          want to process and run a Form in a fvwm function.
+       -debug Causes  the  temporary  file  create  by  Cpp to be
+              retained. This file is usually called  "/tmp/fvwmr-
+              cXXXXXX"
 
 
-     -noread
-          Causes the pre-processed file to be not read  by  fvwm.
-          Useful to pre-process a FvwmScript script with FvwmCpp.
+              fvwm  to  wait that the pre-process finish and that
+              FvwmCpp asks fvwm to Read  the  pre-processed  file
+              before continuing. This may be useful at startup if
+              you use a session manager as Gnome. Also,  this  is
+              useful  if  you want to process and run a Form in a
+              fvwm function.
+
+
+       -noread
+              Causes the pre-processed file to  be  not  read  by
+              fvwm.  Useful  to  pre-process  a FvwmScript script
+              with FvwmCpp.
 
 
 
 </PRE>
 <H2>CONFIGURATION OPTIONS</H2><PRE>
-     FvwmCpp defines some values for  use  in  the  pre-processor
-     file:
+       FvwmCpp defines some values for use in  the  pre-processor
+       file:
 
 
-     TWM_TYPE
-          Always set to "fvwm".
+       TWM_TYPE
+              Always set to "fvwm".
 
-     SERVERHOST
-          The name of the machine running the X Server.
+       SERVERHOST
+              The name of the machine running the X Server.
 
-     CLIENTHOST
-          The name of the machine running fvwm.
+       CLIENTHOST
+              The name of the machine running fvwm.
 
-     HOSTNAME
-          The host name of the machine  running  fvwm.  Generally
-          the same as CLIENTHOST.
+       HOSTNAME
+              The  host  name of the machine running fvwm. Gener-
+              ally the same as CLIENTHOST.
 
-     OSTYPE
-          The operating system for CLIENTHOST.
+       OSTYPE The operating system for CLIENTHOST.
 
-     USER The name of the person running fvwm.
+       USER   The name of the person running fvwm.
 
-     HOME The home directory of the person running fvwm.
+       HOME   The home directory of the person running fvwm.
 
-     VERSION
-          The X11 version.
+       VERSION
+              The X11 version.
 
-     REVISION
-          The X11 revision number.
+       REVISION
+              The X11 revision number.
 
-     VENDOR
-          The X server vendor.
+       VENDOR The X server vendor.
 
-     RELEASE
-          The X server release number.
+       RELEASE
+              The X server release number.
 
-     SCREEN
-          The screen number.
+       SCREEN The screen number.
 
-     WIDTH
-          The screen width in pixels.
+       WIDTH  The screen width in pixels.
 
-     HEIGHT
-          The screen height in pixels.
+       X_RESOLUTION
+              Some distance/pixel measurement for the  horizontal
+              direction, I think.
 
-     X_RESOLUTION
-          Some  distance/pixel  measurement  for  the  horizontal
-          direction, I think.
+       Y_RESOLUTION
+              Some  distance/pixel  measurement  for the vertical
+              direction, I think.
 
-     Y_RESOLUTION
-          Some distance/pixel measurement for the vertical direc-
-          tion, I think.
+       PLANES Number of color planes for the X server display
 
-     PLANES
-          Number of color planes for the X server display
+       BITS_PER_RGB
+              Number of bits in each rgb triplet.
 
-     BITS_PER_RGB
-          Number of bits in each rgb triplet.
+       CLASS  The X11 default visual class, e.g. PseudoColor.
 
-     CLASS
-          The X11 default visual class, e.g. PseudoColor.
+       COLOR  Yes or No, Yes if the default visual class is  nei-
+              ther StaticGrey or GreyScale.
 
-     COLOR
-          Yes or No, Yes if the default visual class  is  neither
-          StaticGrey or GreyScale.
+       FVWM_CLASS
+              The  visual  class  that  fvwm is using, e.g. True-
+              Color.
 
-     FVWM_CLASS
-          The visual class that fvwm is using, e.g. TrueColor.
+       FVWM_COLOR
+              Yes or No, Yes if the FVWM_CLASS is neither Static-
+              Grey or GreyScale.
 
-     FVWM_COLOR
-          Yes or No, Yes if the FVWM_CLASS is neither  StaticGrey
-          or GreyScale.
+       FVWM_VERSION
+              The fvwm version number, ie 2.0
 
-     FVWM_VERSION
-          The fvwm version number, ie 2.0
+       OPTIONS
+              Some  combination of SHAPE, XPM, NO_SAVEUNDERS, and
+              Cpp, as defined in configure.h at compile time.
 
-     OPTIONS
-          Some combination of SHAPE, XPM, NO_SAVEUNDERS, and Cpp,
-          as defined in configure.h at compile time.
+       FVWM_MODULEDIR
+              The directory where fvwm looks for .fvwmrc and mod-
+              ules by default, as determined at compile time.
 
-     FVWM_MODULEDIR
-          The directory where fvwm looks for .fvwmrc and  modules
-          by default, as determined at compile time.
+       FVWM_USERDIR
+              The value of $FVWM_USERDIR.
 
-     FVWM_USERDIR
-          The value of $FVWM_USERDIR.
-
-     SESSION_MANAGER
-          The value of $SESSION_MANAGER. Undefined if this  vari-
-          able is not set.
+       SESSION_MANAGER
+              The  value  of  $SESSION_MANAGER. Undefined if this
+              variable is not set.
 
 
 
 </PRE>
 <H2>EXAMPLE PROLOG</H2><PRE>
-          #define TWM_TYPE fvwm
-          #define SERVERHOST spx20
-          #define CLIENTHOST grumpy
-          #define HOSTNAME grumpy
-          #define OSTYPE SunOS
-          #define USER nation
-          #define HOME /local/homes/dsp/nation
-          #define VERSION 11
-          #define REVISION 0
-          #define VENDOR HDS human designed systems, inc. (2.1.2-D)
-          #define RELEASE 4
-          #define SCREEN 0
-          #define WIDTH 1280
-          #define HEIGHT 1024
-          #define X_RESOLUTION 3938
-          #define Y_RESOLUTION 3938
-          #define PLANES 8
-          #define BITS_PER_RGB 8
-          #define CLASS PseudoColor
-          #define COLOR Yes
-          #define FVWM_VERSION 2.0 pl 1
-          #define OPTIONS SHAPE XPM Cpp
-          #define FVWM_MODULEDIR /local/homes/dsp/nation/modules
-          #define FVWM_USERDIR /local/homes/dsp/nation/.fvwm2rc.d
-          #define SESSION_MANAGER local/grumpy:/tmp/.ICE-unix/440,tcp/spx20:1025
+            #define TWM_TYPE fvwm
+            #define SERVERHOST spx20
+            #define CLIENTHOST grumpy
+            #define HOSTNAME grumpy
+            #define OSTYPE SunOS
+            #define VERSION 11
+            #define REVISION 0
+            #define VENDOR HDS human designed systems, inc. (2.1.2-D)
+            #define RELEASE 4
+            #define SCREEN 0
+            #define WIDTH 1280
+            #define HEIGHT 1024
+            #define X_RESOLUTION 3938
+            #define Y_RESOLUTION 3938
+            #define PLANES 8
+            #define BITS_PER_RGB 8
+            #define CLASS PseudoColor
+            #define COLOR Yes
+            #define FVWM_VERSION 2.0 pl 1
+            #define OPTIONS SHAPE XPM Cpp
+            #define FVWM_MODULEDIR /local/homes/dsp/nation/modules
+            #define FVWM_USERDIR /local/homes/dsp/nation/.fvwm2rc.d
+            #define SESSION_MANAGER local/grumpy:/tmp/.ICE-unix/440,tcp/spx20:1025
 
 
 
 
 </PRE>
 <H2>BUGS</H2><PRE>
-     Module configurations do not become active  until  fvwm  has
-     restarted  if  you use FvwmCpp on startup. FvwmCpp creates a
-     temporary file and passes this to fvwm, so you would have to
-     edit  this  file too.  There are some problems with comments
-     in your .fvwm2rc file.  The comment sign # is misinterpreted
-     by  the  preprocessor.   This has usually no impact on func-
-     tionality but  generates  annoying  warning  messages.   The
-     sequence  /* is interpreted as the start of a C comment what
-     is probably not what you want in a filename. You might  want
-     to  try  /?*  (for  filenames  only) or /\* or "/*" instead.
-     Depending on your preprocessor you may have the same problem
-     with  "//".   Macros  are  not replaced within single (') or
-     double quotes ( back quotes (`)  to  circumvent  this.  Fvwm
-     accepts  back  quotes  for  quoting and at least FvwmButtons
-     does too.  The preprocessor may place a space after a  macro
+       Module configurations do not become active until fvwm  has
+       restarted if you use FvwmCpp on startup. FvwmCpp creates a
+       temporary file and passes this to fvwm, so you would  have
+       to  edit this file too.  There are some problems with com-
+       ments in your .fvwm2rc file.  The comment sign # is misin-
+       terpreted by the preprocessor.  This has usually no impact
+       on functionality but generates annoying warning  messages.
+       The sequence /* is interpreted as the start of a C comment
+       what is probably not what you  want  in  a  filename.  You
+       might  want to try /?* (for filenames only) or /\* or "/*"
+       instead. Depending on your preprocessor you may  have  the
+       same  problem  with  "//".  Macros are not replaced within
+       single (') or double quotes ( back quotes (`)  to  circum-
+       vent  this.  Fvwm  accepts  back quotes for quoting and at
+       least FvwmButtons does too.  The preprocessor may place  a
+       space after a macro substitution, so with
+
+            #define MYCOMMAND ls
+            "Exec "MYCOMMAND" -l"
+
+       you might get
+
+            "Exec "ls " -l" (two words)
+
+       and not
+
+            "Exec "ls" -l" (one word).
 
 
-
-     substitution, so with
-
-          #define MYCOMMAND ls
-          "Exec "MYCOMMAND" -l"
-
-     you might get
-
-          "Exec "ls " -l" (two words)
-
-     and not
-
-          "Exec "ls" -l" (one word).
-
-
-     If you use gcc you can use this invocation to turn off  '//'
-     comments:
-
-
-          FvwmCpp -Cppprog '/your/path/to/gcc -C -E -' &lt;filename&gt;
+       If  you  use  gcc  you can use this invocation to turn off
 
 
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     FvwmCpp is the result of a random bit  mutation  on  a  hard
-     disk,  presumably  a  result  of  a  cosmic-ray or some such
-     thing.
+       FvwmCpp is the result of a random bit mutation on  a  hard
+       disk,  presumably  a  result of a  cosmic-ray or some such
+       thing.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -292,7 +290,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:35 EDT 2001 -->
+on Wed Jul  4 08:11:24 EDT 2001 -->
 </body>
 </html>
 

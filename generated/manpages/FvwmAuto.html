@@ -12,90 +12,88 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     <font color="yellow">FvwmAuto</font color="yellow"> - the FVWM auto-raise module
+       <font color="yellow">FvwmAuto</font color="yellow"> - the FVWM auto-raise module
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     <font color="yellow">FvwmAuto</font color="yellow"> is spawned by fvwm, so no command  line  invocation
-     will work.  The correct syntax is:
+       <font color="yellow">FvwmAuto</font color="yellow"> is spawned by fvwm, so no command line invocation
+       will work.  The correct syntax is:
 
-          Module FvwmAuto Timeout [EnterCommand [LeaveCommand]]
+            Module FvwmAuto Timeout [EnterCommand [LeaveCommand]]
 
-          AddToMenu Modules
-          + "Auto Raise (300 ms)"  Module FvwmAuto 300
-          + "Auto Raise/Lower"     Module FvwmAuto 300 "Silent Raise" "Silent Lower"
+            AddToMenu Modules
+            + "Auto Raise (300 ms)"  Module FvwmAuto 300
+            + "Auto Raise/Lower"     Module FvwmAuto 300 "Silent Raise" "Silent Lower"
 
-     The <font color="yellow">Timeout</font color="yellow"> argument is required. It specifies  how  long  a
-     window  must retain the keyboard input focus before the com-
-     mand is executed. The delay is measured in milliseconds, and
-     any integer 0 or greater is acceptable.
+       The <font color="yellow">Timeout</font color="yellow"> argument is required. It specifies how long  a
+       window  must  retain  the  keyboard input focus before the
+       command is executed. The delay is  measured  in  millisec-
+       onds, and any integer 0 or greater is acceptable.
 
-     <font color="yellow">EnterCommand</font color="yellow"> and <font color="yellow">LeaveCommand</font color="yellow"> are optional.  <font color="yellow">EnterCommand</font color="yellow"> is
-     executed  <font color="yellow">Timeout</font color="yellow"> milliseconds after a window gets the input
-     focus, <font color="yellow">LeaveCommand</font color="yellow"> is executed <font color="yellow">Timeout</font color="yellow">  milliseconds  after
-     the  window has lost focus.  Note that you always should use
-     the 'Silent' keyword before the  command  itself.   FvwmAuto
-     prepends  "Silent  " to the command string on its own if yor
-     forget this.  Without this prefix fvwm would ask you  for  a
-     window  to  act on if the window has died before the command
-     sent by FvwmAuto has been processed by fvwm.  This  can  for
-     example happen with popup menus.
+       <font color="yellow">EnterCommand</font color="yellow">  and <font color="yellow">LeaveCommand</font color="yellow"> are optional.  <font color="yellow">EnterCommand</font color="yellow">
+       is executed <font color="yellow">Timeout</font color="yellow"> milliseconds after a window  gets  the
+       input focus, <font color="yellow">LeaveCommand</font color="yellow"> is executed <font color="yellow">Timeout</font color="yellow"> milliseconds
+       after the window has lost focus.   Note  that  you  always
+       should use the 'Silent' keyword before the command itself.
+       FvwmAuto prepends "Silent " to the command string  on  its
+       own  if  yor  forget this.  Without this prefix fvwm would
+       ask you for a window to act on  if  the  window  has  died
+       before  the command sent by FvwmAuto has been processed by
+       fvwm.  This can for example happen with popup menus.
 
-     "Silent Raise" is the default for <font color="yellow">EnterCommand</font color="yellow">, but any fvwm
-     function  is  allowed.  I would not use "Close" or "Destroy"
-     with a low timeout, though.  The <font color="yellow">LeaveCommand</font color="yellow"> can  be  handy
-     for a tidy desktop.  Experiment with:
+       "Silent Raise" is the default for  <font color="yellow">EnterCommand</font color="yellow">,  but  any
+       fvwm  function  is  allowed.  I  would  not use "Close" or
+       "Destroy" with a low timeout,  though.   The  <font color="yellow">LeaveCommand</font color="yellow">
+       can be handy for a tidy desktop.  Experiment with:
 
-          Module FvwmAuto 0 Nop "Silent Lower"
-          Module FvwmAuto 0 Nop "Silent Iconify"
+            Module FvwmAuto 0 Nop "Silent Lower"
+            Module FvwmAuto 0 Nop "Silent Iconify"
 
 
-     More complex example (three FvwmAuto's are running):
+       More complex example (three FvwmAuto's are running):
 
-          DestroyFunc RestoreIconified
-          AddToFunc   RestoreIconified
-          + I Current (Iconic) Iconify false
+            DestroyFunc RestoreIconified
+            AddToFunc   RestoreIconified
+            + I Current (Iconic) Iconify false
 
-          DestroyFunc RegisterFocus
-          AddToFunc   RegisterFocus
-          + I Exec echo "`date +%T` $n focussed" &gt;&gt;/tmp/focus-stats.txt
+            DestroyFunc RegisterFocus
+            AddToFunc   RegisterFocus
+            + I Exec echo "`date +%T` $n focussed" &gt;&gt;/tmp/focus-stats.txt
 
-          DestroyFunc RegisterUnfocus
-          AddToFunc   RegisterUnfocus
-          + I Exec echo "`date +%T` $n unfocussed" &gt;&gt;/tmp/focus-stats.txt
+            DestroyFunc RegisterUnfocus
+            AddToFunc   RegisterUnfocus
+            + I Exec echo "`date +%T` $n unfocussed" &gt;&gt;/tmp/focus-stats.txt
 
-          KillModule FvwmAuto
-          Module FvwmAuto 250 Raise Nop
-          Module FvwmAuto 800 RestoreIconified Nop
-          Module FvwmAuto   0 RegisterFocus RegisterUnfocus
+            KillModule FvwmAuto
+            Module FvwmAuto   0 RegisterFocus RegisterUnfocus
 
 
 
 
 </PRE>
 <H2>NOTES</H2><PRE>
-     There is a special Raise/Lower support in FvwmAuto.  It  was
-     added  to  improve  Raise/Lower  callbacks,  since  most  of
-     FvwmAuto  usages  is  auto-raising  or  auto-lowering.  This
-     imrovement    includes   locking   on   M_RAISE_WINDOW   and
-     M_LOWER_WINDOW packets and not raising/lowering  explicitely
-     raised  windows.  The special Raise/Lower support is enabled
-     only when either <font color="yellow">EnterCommand</font color="yellow"> or <font color="yellow">LeaveCommand</font color="yellow">  contain  sub-
-     string  "Raise"  or  "Lower".  You  can  use  this  fact  to
-     enable/disable any special support by  renaming  these  com-
-     mands, if FvwmAuto does not automatically do want you expect
-     it to do.
+       There is a special Raise/Lower support in FvwmAuto. It was
+       added to improve Raise/Lower callbacks, since most of Fvw-
+       mAuto   usages  is  auto-raising  or  auto-lowering.  This
+       imrovement  includes   locking   on   M_RAISE_WINDOW   and
+       M_LOWER_WINDOW    packets    and    not   raising/lowering
+       explicitely raised windows.  The special Raise/Lower  sup-
+       port is enabled only when either <font color="yellow">EnterCommand</font color="yellow"> or <font color="yellow">LeaveCom-</font color="yellow">
+       <font color="yellow">mand</font color="yellow"> contain substring "Raise" or  "Lower".  You  can  use
+       this  fact to enable/disable any special support by renam-
+       ing these commands, if FvwmAuto does not automatically  do
+       want you expect it to do.
 
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     FvwmAuto just appeared one day, nobody knows how.
-     FvwmAuto was simply rewritten 09/96, nobody knows by whom.
+       FvwmAuto just appeared one day, nobody knows how.
+       FvwmAuto was simply rewritten 09/96, nobody knows by whom.
+
+
+
 
 
 
@@ -128,7 +126,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:32 EDT 2001 -->
+on Wed Jul  4 08:11:09 EDT 2001 -->
 </body>
 </html>
 

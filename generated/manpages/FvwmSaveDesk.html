@@ -12,107 +12,103 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     FvwmSaveDesk - another FVWM desktop-layout saving module
+       FvwmSaveDesk - another FVWM desktop-layout saving module
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmSaveDesk is spawned by fvwm, so no command line  invoca-
-     tion will work.
+       FvwmSaveDesk  is spawned by fvwm, so no command line invo-
+       cation will work.
 
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     When called, this module will attempt to save  your  current
-     desktop  layout as a definition of extra lines for the func-
-     tion InitFunction into the  file  .<font color="yellow">fvwm2desk</font color="yellow">  in  your  home
-     directory. As explain in the other documentation, this func-
-     tion is called at startup of fvwm.  You have to include this
-     file  in .<font color="yellow">fvwm2rc</font color="yellow"> after the definition of the Function Init-
-     function.  You can do this by using  the  module  <font color="yellow">FvwmM4</font color="yellow">  or
-     <font color="yellow">FvwmCpp</font color="yellow">.
+       When called, this module will attempt to save your current
+       desktop  layout  as  a  definition  of extra lines for the
+       function InitFunction into the  file  <font color="yellow">.fvwm2desk</font color="yellow">  in  your
+       home  directory.  As  explain  in the other documentation,
+       this function is called at startup of fvwm.  You  have  to
+       include  this file in <font color="yellow">.fvwm2rc</font color="yellow"> after the definition of the
+       Function Initfunction.  You can do this by using the  mod-
+       ule <font color="yellow">FvwmM4</font color="yellow"> or <font color="yellow">FvwmCpp.</font color="yellow">
 
-     Your applications must supply certain hints to the X  window
-     system.   <font color="yellow">Emacs</font color="yellow">  and  <font color="yellow">Netscape</font color="yellow">,  for  example,  does not, so
-     FvwmSaveDesk can't get any information from it.
+       Your  applications must supply certain hints to the X win-
+       dow system.  <font color="yellow">Emacs</font color="yellow"> and <font color="yellow">Netscape</font color="yellow">, for example, does not, so
+       FvwmSaveDesk can't get any information from it.
 
-     Also, FvwmSaveDesk assumes that certain command line options
-     are  globally accepted by applications, which may not be the
-     case.
+       Also,  FvwmSaveDesk  assumes  that  certain  command  line
+       options are globally accepted by applications,  which  may
+       not be the case.
 
 
 
 </PRE>
 <H2>SETUP USING FVWMM4 MODULE</H2><PRE>
-     The M4 Macro processor substitutes its macros  even  in  the
-     middle of a word. Because of that you may have problems with
-     predefined macros such as include or define. To  avoid  this
-     the  GNU  M4 has an extra option to prefix all builtins with
-     'm4_'. FvwmM4 can be called with option -m4-prefix and  then
-     will  provide  the  option  -P  to M4.  I personally use the
-     FvwmM4 module this way.
+       The  M4 Macro processor substitutes its macros even in the
+       middle of a word. Because of that you  may  have  problems
+       with predefined macros such as include or define. To avoid
+       this the GNU M4 has an extra option to prefix all builtins
+       with  'm4_'.  FvwmM4  can be called with option -m4-prefix
+       and then will provide the option -P to M4.   I  personally
+       use the FvwmM4 module this way.
 
-     fvwm2 -cmd "FvwmM4 -m4-prefix -m4opt -I$HOME $HOME/.fvwm2rc"
+       fvwm2 -cmd "FvwmM4 -m4-prefix -m4opt -I$HOME $HOME/.fvwm2rc"
 
-     Simply add the following line to the end of .fvwm2rc:
+       Simply add the following line to the end of .fvwm2rc:
 
-     m4_include(`.fvwm2desk') .
+       m4_include(`.fvwm2desk') .
 
 
 
 </PRE>
 <H2>SETUP USING FVWMCPP MODULE</H2><PRE>
-     With the FVWMCPP you may have the problem that  the  prepro-
-     cessor  directives starts with the comment character '#' and
-     will complain about unknown directives, if you have comments
-     in your .fvwm2rc.
+       With the FVWMCPP you may have the problem that the prepro-
+       cessor directives starts with the  comment  character  '#'
+       and  will  complain  about unknown directives, if you have
+       comments in your .fvwm2rc.
 
-     fvwm2 -cmd "FvwmCpp -C-I$HOME $HOME/.fvwm2rc"
+       fvwm2 -cmd "FvwmCpp -C-I$HOME $HOME/.fvwm2rc"
 
-     Simply add the following line to the end of .fvwm2rc:
-     #include ".fvwm2desk"
+       Simply add the following line to the end of .fvwm2rc:
 
+       FvwmSaveDesk can be invoked by adding  it  to  a  menu  or
+       binding it to a mouse button or key stroke in the <font color="yellow">.fvwm2rc</font color="yellow">
+       file.  Fvwm will search directory specified  in  the  Mod-
+       ulePath configuration option to locate FvwmSaveDesk.
 
+       To insert it to a menu, add the line
 
-</PRE>
-<H2>INVOCATION</H2><PRE>
-     FvwmSaveDesk can be invoked by adding it to a menu or  bind-
-     ing it to a mouse button or key stroke in the .<font color="yellow">fvwm2rc</font color="yellow"> file.
-     Fvwm will search directory specified in the ModulePath  con-
-     figuration option to locate FvwmSaveDesk.
+       +    "Save Desktop" Module FvwmSaveDesk
 
-     To insert it to a menu, add the line
+       to  the  menu  definition.   I thing binding it to a mouse
+       button is not very useful, but you can do that, by  adding
+       for example this line.
 
-     +    "Save Desktop" Module FvwmSaveDesk
+       Mouse 3        R    CS   Module FvwmSaveDesk
 
-     to the menu definition.  I thing binding it to a mouse  but-
-     ton  is  not very useful, but you can do that, by adding for
-     example this line.
+       Than  FvwmSaveDesk  will  be  called  if you hit the right
+       mouse button on the root window while  holding  the  shift
+       and control button down.
 
-     Mouse 3        R    CS   Module FvwmSaveDesk
+       You  can bind FvwmSaveDesk to a function key F10 for exam-
+       ple you have to insert the following line:
 
-     Than FvwmSaveDesk will be called if you hit the right  mouse
-     button  on  the root window while holding the shift and con-
-     trol button down.
+       Key  F10  A    Module FvwmSaveDesk
 
-     You can bind FvwmSaveDesk to a function key F10 for  example
-     you have to insert the following line:
+       I personally add it as a Button to the module FvwmButtons:
 
-     Key  F10  A    Module FvwmSaveDesk
-
-     I personally add it as a Button to the module FvwmButtons:
-
-     *FvwmButtons SaveDesc desk.xpm   Module FvwmSaveDesk
+       *FvwmButtons SaveDesc desk.xpm   Module FvwmSaveDesk
 
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     Carsten Paeth (calle@calle.in-berlin.de)
+       Carsten Paeth (calle@calle.in-berlin.de)
+
+
+
+
 
 
 
@@ -134,7 +130,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:41 EDT 2001 -->
+on Wed Jul  4 08:11:48 EDT 2001 -->
 </body>
 </html>
 

@@ -12,212 +12,210 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     focus-link.pl - perl FvwmCommand script
+       focus-link.pl - perl FvwmCommand script
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     focus-link.pl [-v]
+       focus-link.pl [-v]
 
 
 </PRE>
 <H2>OPTION</H2><PRE>
-     -v  show version number and exit.
+       -v  show version number and exit.
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     This  is  a  user  programmable  window  focus  script.   It
-     requires  FvwmCommand  version  1.5  or later.  FvwmCommandS
-     must be invoked from fvwm prior to this command.
+       This  is  a  user  programmable  window  focus script.  It
+       requires FvwmCommand version 1.5 or  later.   FvwmCommandS
+       must be invoked from fvwm prior to this command.
 
-     This script can be invoked from a shell  or  from  .fvwm2rc.
-     For example.
+       This  script can be invoked from a shell or from .fvwm2rc.
+       For example.
 
-        AddToFunc "InitFunction"
-        + "I" Exec exec xcb -n 4 -l vertical -g 240x180-0+530
-        + "I" Exec sleep 2; $HOME/scripts/focus-link.pl
+          AddToFunc "InitFunction"
+          + "I" Exec exec xcb -n 4 -l vertical -g 240x180-0+530
+          + "I" Exec sleep 2; $HOME/scripts/focus-link.pl
 
-     Sleep is used in order to avoid un-necessary reaction during
-     initial  window creation. Note, fvwm itself continues to run
-     during these 2 seconds.
+       Sleep is used in order to avoid un-necessary reaction dur-
+       ing  initial  window creation. Note, fvwm itself continues
+       to run during these 2 seconds.
 
-     Default behavior is listed below.  In order  to  change  the
-     behavior, modify user_function using user functions.
+       Default behavior is listed below.  In order to change  the
+       behavior, modify user_function using user functions.
 
-     1.   When a window is opened up, focus the window  and  move
-          the pointer to it. The parent window regains focus when
-          a window is closed.  Parenthood is  determined  when  a
-          window  is  opened.  It is the last focused window with
-          the same X class.
+       1.     When  a  window  is opened up, focus the window and
+              move the pointer to it. The parent  window  regains
+              focus  when  a  window  is  closed.   Parenthood is
+              determined when a window is opened. It is the  last
+              focused window with the same X class.
 
-     2.   #1 would not occur to AcroRead opening window.
+       2.     #1 would not occur to AcroRead opening window.
 
-     3.   #1 would not occur when SkipMapping is set and the win-
-          dow is the only window of its class.
+       3.     #1  would not occur when SkipMapping is set and the
+              window is the only window of its class.
 
-     4.   For Netscape find dialog window, addition to #1, resize
-          the  window  to 300x150 pixels and move it to East edge
-          of the screen.  Download/upload  windows  will  not  be
-          focused nor be in focus link list.
+       4.     For Netscape find dialog window,  addition  to  #1,
+              resize  the window to 300x150 pixels and move it to
+              East edge of the screen.   Download/upload  windows
+              will not be focused nor be in focus link list.
 
-     5.   Move appletviewer to NorthWest corner.
+       5.     Move appletviewer to NorthWest corner.
 
-     6.   Xterm won't focus back to its parent after closed.
+       6.     Xterm  won't focus back to its parent after closed.
 
-     7.   When a window is de-iconified, focus it  and  move  the
-          pointer.
+       7.     When a window is de-iconified, focus  it  and  move
+              the pointer.
 
 
 
 </PRE>
 <H2>USER FUNCTIONS</H2><PRE>
-     These are collection of functions a user can call from  pro-
-     grammable section.
 
-  <font color="cyan">move_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;direction&gt;</font color="cyan">
-       or
+   <font color="cyan">move_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;direction&gt;</font color="cyan">
+         or
 
-  <font color="cyan">move_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;x&gt;</font color="cyan"> <font color="cyan">&lt;y&gt;</font color="cyan">
-     If &lt;id&gt; is prensent in hex format, then  move  &lt;id&gt;  window.
-     Otherwise, move the window in question.
+   <font color="cyan">move_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;x&gt;</font color="cyan"> <font color="cyan">&lt;y&gt;</font color="cyan">
+       If &lt;id&gt; is prensent in hex format, then move &lt;id&gt;  window.
+       Otherwise, move the window in question.
 
-     If &lt;y&gt; is present, move window to &lt;x&gt; &lt;y&gt; in  percentage  of
-     screen.
+       If &lt;y&gt; is present, move window to &lt;x&gt; &lt;y&gt; in percentage of
+       screen.
 
-     If 'p' is appended to &lt;width&gt; or &lt;height&gt;, it  specifies  in
-     pixel  count. And, if &lt;width'p'&gt; or &lt;height'p'&gt; is lead with
-     '-', it signifies that pixel  count  from  right  or  bottom
-     edge.
+       If 'p' is appended to &lt;width&gt; or &lt;height&gt;, it specifies in
+       pixel  count.  And,  if  &lt;width'p'&gt; or &lt;height'p'&gt; is lead
+       with '-', it signifies that pixel count from right or bot-
+       tom edge.
 
-     If &lt;y&gt; does not exist, &lt;dir&gt; must be one of North  Northeast
-     East Southeast South Southwest West Northwest to move window
-     to edge.
+       If  &lt;y&gt;  does not exist, &lt;dir&gt; must be one of North North-
+       east East Southeast South Southwest West Northwest to move
+       window to edge.
 
-  <font color="cyan">resize_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;width&gt;</font color="cyan"> <font color="cyan">&lt;height&gt;</font color="cyan">
-     Resize window to  &lt;width&gt;  and  &lt;height&gt;  in  percentage  of
-     screen size.
+   <font color="cyan">resize_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;width&gt;</font color="cyan"> <font color="cyan">&lt;height&gt;</font color="cyan">
+       Resize  window  to  &lt;width&gt;  and &lt;height&gt; in percentage of
+       screen size.
 
-     If &lt;id&gt; is not null, resize &lt;id&gt;. Otherwise resize the  win-
-     dow in question.
+       If &lt;id&gt; is not null, resize  &lt;id&gt;.  Otherwise  resize  the
+       window in question.
 
-     Letter 'p' can  be  appended  to  &lt;width&gt;  and  &lt;height&gt;  to
-     specify in pixel count.
+       Letter  'p'  can  be  appended  to &lt;width&gt; and &lt;height&gt; to
+       specify in pixel count.
 
-  <font color="cyan">focus_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
-     If &lt;id&gt; is not null, focus on &lt;id&gt;.  Otherwise, focus on the
-     window in question.
+   <font color="cyan">focus_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
+       If &lt;id&gt; is not null, focus on &lt;id&gt;.  Otherwise,  focus  on
+       the window in question.
 
-  <font color="cyan">warp_to_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">[&lt;x&gt;</font color="cyan"> <font color="cyan">&lt;y&gt;]</font color="cyan">
-     Move pointer to window.
+   <font color="cyan">warp_to_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">[&lt;x&gt;</font color="cyan"> <font color="cyan">&lt;y&gt;]</font color="cyan">
+       Move pointer to window.
 
-     If &lt;id&gt; is a window id, warp to &lt;id&gt;.   Otherwise,  warp  to
-     the window in question.
+       If  &lt;id&gt; is a window id, warp to &lt;id&gt;.  Otherwise, warp to
+       the window in question.
 
-     If &lt;x&gt; and &lt;y&gt; are present, warp to &lt;x&gt; and  &lt;y&gt;  percentage
-     of window size down and in from the upper left hand corner.
+       If &lt;x&gt; and &lt;y&gt; are present, warp to &lt;x&gt; and &lt;y&gt; percentage
+       of  window  size down and in from the upper left hand cor-
+       ner.
 
-     Letter 'p' can  be  appended  to  &lt;width&gt;  and  &lt;height&gt;  to
-     specify in pixel count.
+       Letter 'p' can be appended  to  &lt;width&gt;  and  &lt;height&gt;  to
+       specify in pixel count.
 
-  <font color="cyan">class_matches</font color="cyan"> <font color="cyan">&lt;class&gt;</font color="cyan"> <font color="cyan">[&lt;resource&gt;]</font color="cyan">
-     Check if window class and optional resource match.
+   <font color="cyan">class_matches</font color="cyan"> <font color="cyan">&lt;class&gt;</font color="cyan"> <font color="cyan">[&lt;resource&gt;]</font color="cyan">
+       Check if window class and optional resource match.
 
-     If arg1 is present, and if class matches  with  &lt;class&gt;  and
-     resource matches with &lt;resource&gt;, then return 1.
+       If  arg1 is present, and if class matches with &lt;class&gt; and
+       resource matches with &lt;resource&gt;, then return 1.
+       then return 1.  Otherwise, return null.
 
-     If arg1 is not present, and if class  matches  with  &lt;class&gt;
-     then return 1.  Otherwise, return null.
+   <font color="cyan">window_flag</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;flag&gt;</font color="cyan">
+       Return  1 if &lt;flag&gt; is true in the window in question.  If
+       &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise  check  on  the
+       window  in  question.  &lt;flag&gt; must be a exact match to one
+       of these:
 
-  <font color="cyan">window_flag</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan"> <font color="cyan">&lt;flag&gt;</font color="cyan">
-     Return 1 if &lt;flag&gt; is true in the window  in  question.   If
-     &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise check on the win-
-     dow in question.  &lt;flag&gt; must be a exact  match  to  one  of
-     these:
+         StartIconic
+         OnTop
+         Sticky
+         WindowListSkip
+         SuppressIcon
+         NoiconTitle
+         Lenience
+         StickyIcon
+         CirculateSkipIcon
+         CirculateSkip
+         ClickToFocus
+         SloppyFocus
+         SkipMapping
+         Handles
+         Title
+         Mapped
+         Iconified
+         Transient
+         Visible
+         IconOurs
+         PixmapOurs
+         ShapedIcon
+         Maximized
+         WmTakeFocus
+         WmDeleteWindow
+         IconMoved
+         IconUnmapped
+         MapPending
+         HintOverride
+         MWMButtons
+         MWMBorders
 
-       StartIconic
-       OnTop
-       Sticky
-       WindowListSkip
-       SuppressIcon
-       NoiconTitle
-       Lenience
-       StickyIcon
-       CirculateSkipIcon
-       CirculateSkip
-       ClickToFocus
-       SloppyFocus
-       SkipMapping
-       Handles
-       Title
-       Mapped
-       Iconified
-       Transient
-       Visible
-       IconOurs
-       PixmapOurs
-       ShapedIcon
-       Maximized
-       WmTakeFocus
-       WmDeleteWindow
-       IconMoved
-       IconUnmapped
-       MapPending
-       HintOverride
-       MWMButtons
-       MWMBorders
+   <font color="cyan">resource_matches</font color="cyan"> <font color="cyan">&lt;resource&gt;</font color="cyan">
+       Check if window resource matches pattern  &lt;resource&gt;.   If
+       it matches, return 1.  Otherwise return null.
 
-  <font color="cyan">resource_matches</font color="cyan"> <font color="cyan">&lt;resource&gt;</font color="cyan">
-     Check if window resource matches pattern &lt;resource&gt;.  If  it
-     matches, return 1.  Otherwise return null.
+   <font color="cyan">action_was</font color="cyan"> <font color="cyan">&lt;action&gt;</font color="cyan">
+       Check if &lt;action&gt; was taken place.
 
-  <font color="cyan">action_was</font color="cyan"> <font color="cyan">&lt;action&gt;</font color="cyan">
-     Check if &lt;action&gt; was taken place.
+       &lt;action&gt; must be a exact match to one of these:
 
-     &lt;action&gt; must be a exact match to one of these:
-       new page
-       new desk
-       add
-       raise
-       lower
-       focus change
-       destroy
-       iconify
-       deiconify
-       windowshade
-       dewindowshade
-       end windowlist
-       icon location
-       end configinfo
-       string
+         new page
+         new desk
+         add
+         focus change
+         destroy
+         iconify
+         deiconify
+         windowshade
+         dewindowshade
+         end windowlist
+         icon location
+         end configinfo
+         string
 
-  <font color="cyan">get_parent_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
-     Return parent window id.
+   <font color="cyan">get_parent_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
+       Return parent window id.
 
-     If &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise check  on  the
-     window in question.
+       If &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise check on the
+       window in question.
 
-  <font color="cyan">no_parent_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
-     Return 1 if no parent window exits.
+   <font color="cyan">no_parent_window</font color="cyan"> <font color="cyan">[&lt;id&gt;]</font color="cyan">
+       Return 1 if no parent window exits.
 
-     If &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise check  on  the
-     window in question.
+       If &lt;id&gt; is not null, check on &lt;id&gt;. Otherwise check on the
+       window in question.
 
-  <font color="cyan">delete_from_list</font color="cyan">
-     Delete the window from link list
+   <font color="cyan">delete_from_list</font color="cyan">
+       Delete the window from link list
 
 
 </PRE>
 <H2>SEE ALSO</H2><PRE>
-     FvwmCommand
+       FvwmCommand
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     Toshi Isogai  isogai@ucsub.colorado.edu
+       Toshi Isogai  isogai@ucsub.colorado.edu
+
+
+
+
+
 
 
 
@@ -238,7 +236,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:34 EDT 2001 -->
+on Wed Jul  4 08:11:19 EDT 2001 -->
 </body>
 </html>
 

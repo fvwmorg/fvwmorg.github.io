@@ -12,276 +12,220 @@
 
 <PRE>
 <!-- Manpage converted by man2html 3.0.1 -->
-
-</PRE>
-<H2>NAME</H2><PRE>
-     FvwmM4 - the FVWM  M4 pre-processor
+       FvwmM4 - the FVWM  M4 pre-processor
 
 
 </PRE>
 <H2>SYNOPSIS</H2><PRE>
-     FvwmM4 is spawned by fvwm, so  no  command  line  invocation
-     will work.
+       FvwmM4  is  spawned by fvwm, so no command line invocation
+       will work.
 
 
 
 </PRE>
 <H2>DESCRIPTION</H2><PRE>
-     When called, this module will attempt to have M4 pre-process
-     the  file  specified  in  its invocation, and then have fvwm
-     read the resulting file.
+       When called, this module will attempt to have M4  pre-pro-
+       cess  the  file specified in its invocation, and then have
+       fvwm read the resulting file.
 
 
 
 </PRE>
 <H2>INVOCATION</H2><PRE>
-     FvwmM4 can be invoked by inserting the line 'FvwmM4' in  the
-     .fvwm2rc  file.  It  can also be called from a menu or mouse
-     binding.  If the user wants his entire  .fvwm2rc  file  pre-
-     processed with FvwmM4, then fvwm should be invoked as:
+       FvwmM4 can be invoked by inserting the  line  'FvwmM4'  in
+       the  .fvwm2rc  file.  It can also be called from a menu or
+       mouse binding.  If the user wants his entire .fvwm2rc file
+       pre-processed with FvwmM4, then fvwm should be invoked as:
 
 
-          fvwm2 -cmd "FvwmM4 .fvwm2rc"
+            fvwm2 -cmd "FvwmM4 .fvwm2rc"
 
 
-     Note that the  argument  to  the  option  "-cmd"  should  be
-     enclosed in quotes, and no other quoting should be used. For
-     example, a typical invocation might be:
+       Note that the argument to  the  option  "-cmd"  should  be
+       enclosed  in  quotes, and no other quoting should be used.
+       For example, a typical invocation might be:
 
 
-          fvwm2 -cmd "FvwmM4 -m4-squote { -m4-equote } .fvwm2rc"
+            fvwm2 -cmd "FvwmM4 -m4-squote { -m4-equote } .fvwm2rc"
 
 
-     Some options can be specified on the command line:
+       Some options can be specified on the command line:
 
-     -m4-prefix
-          I think this makes all the m4  directives  require  the
-          prefix "m4_".
-
-
-     -m4opt <font color="yellow">option</font color="yellow">
-          Lets you pass an option to the m4 program.  Not  really
-          needed  as  any  unknown  options  will  be  passed  on
-          automatically.
+       -m4-prefix
+              I think this makes all the  m4  directives  require
+              the prefix "m4_".
 
 
-     -m4-squote <font color="yellow">character</font color="yellow">
-          Lets you change  the  m4  start-of-quote  character  to
-          <font color="yellow">character</font color="yellow">.
+       -m4opt <font color="yellow">option</font color="yellow">
+              Lets  you  pass  an  option to the m4 program.  Not
+              really needed as any unknown options will be passed
+              on automatically.
 
 
-     -m4-equote <font color="yellow">character</font color="yellow">
-          Lets  you  change  the  m4  end-of-quote  character  to
-          <font color="yellow">character</font color="yellow">.
+       -m4-squote <font color="yellow">character</font color="yellow">
+              Lets  you change the m4 start-of-quote character to
+              <font color="yellow">character</font color="yellow">.
 
 
-     -m4prog <font color="yellow">name</font color="yellow">
-          Instead of invoking "m4", fvwm will invoke <font color="yellow">name</font color="yellow">.
+       -m4-equote <font color="yellow">character</font color="yellow">
+              Lets you change the m4  end-of-quote  character  to
+              <font color="yellow">character</font color="yellow">.
+              Instead of invoking "m4", fvwm will invoke <font color="yellow">name</font color="yellow">.
 
 
-     -outfile <font color="yellow">filename</font color="yellow">
-          Instead of creating a random unique name for  the  tem-
-          porary  file  for the preprocessed rc file, this option
-          will let you specify the name of the temporary file  it
-          will  create.   Please note that FvwmM4 will attempt to
-          remove this file before writing to it, so  don't  point
-          it  at anything important even if it has read-only pro-
-          tection.
+       -outfile <font color="yellow">filename</font color="yellow">
+              Instead  of  creating  a random unique name for the
+              temporary file for the preprocessed rc  file,  this
+              option  will let you specify the name of the tempo-
+              rary file it will create.  Please note that  FvwmM4
+              will  attempt to remove this file before writing to
+              it, so don't point it at anything important even if
+              it has read-only protection.
 
 
-     -debug
-          Causes the temporary file create by m4 to be  retained.
-          This file is usually called "/tmp/fvwmrcXXXXXX"
+       -debug Causes  the  temporary  file  create  by  m4  to be
+              retained. This file is usually called  "/tmp/fvwmr-
+              cXXXXXX"
 
 
-     -lock
-          If you want to use this option you need to start FvwmM4
-          with ModuleSynchronous. This option causes fvwm to wait
-          that the pre-process finish and that FvwmM4  asks  fvwm
-          to  Read the pre-processed file before continuing. This
-          may be useful at startup if you use a  session  manager
-          as  Gnome.  Also, this is useful if you want to process
-          and run a Form in a fvwm function.
+       -lock  If  you  want  to use this option you need to start
+              FvwmM4 with ModuleSynchronous. This  option  causes
+              fvwm  to  wait that the pre-process finish and that
+              FvwmM4 asks fvwm to  Read  the  pre-processed  file
+              before continuing. This may be useful at startup if
+              you use a session manager as Gnome. Also,  this  is
+              useful  if  you want to process and run a Form in a
+              fvwm function.
 
 
-     -noread
-          Causes the pre-processed file to be not read  by  fvwm.
-          Useful to pre-process a FvwmScript script with FvwmM4.
+       -noread
+              Causes the pre-processed file to  be  not  read  by
+              fvwm.  Useful  to  pre-process  a FvwmScript script
+              with FvwmM4.
 
 
 
 
 </PRE>
 <H2>CONFIGURATION OPTIONS</H2><PRE>
-     FvwmM4 defines some values  for  use  in  the  pre-processor
-     file:
+       FvwmM4 defines some values for use  in  the  pre-processor
+       file:
 
 
-     TWM_TYPE
-          Always set to "fvwm".
+       TWM_TYPE
+              Always set to "fvwm".
 
-     SERVERHOST
-          The name of the machine running the X Server.
+       SERVERHOST
+              The name of the machine running the X Server.
 
-     CLIENTHOST
-          The name of the machine running fvwm.
+       CLIENTHOST
+              The name of the machine running fvwm.
 
-     HOSTNAME
-          The hostname of the machine running fvwm. Generally the
-          same as CLIENTHOST.
+       HOSTNAME
+              The hostname of the machine running fvwm. Generally
+              the same as CLIENTHOST.
 
-     OSTYPE
-          The operating system for CLIENTHOST.
+       USER   The name of the person running fvwm.
 
-     USER The name of the person running fvwm.
+       HOME   The home directory of the person running fvwm.
 
-     HOME The home directory of the person running fvwm.
+       VERSION
+              The X11 version.
 
-     VERSION
-          The X11 version.
+       REVISION
+              The X11 revision number.
 
-     REVISION
-          The X11 revision number.
+       VENDOR The X server vendor.
 
-     VENDOR
-          The X server vendor.
+       RELEASE
+              The X server release number.
 
-     RELEASE
-          The X server release number.
+       SCREEN The screen number.
 
-     SCREEN
-          The screen number.
+       WIDTH  The screen width in pixels.
 
-     WIDTH
-          The screen width in pixels.
+       HEIGHT The screen height in pixels.
 
-     HEIGHT
-          The screen height in pixels.
+       X_RESOLUTION
+              Some distance/pixel measurement for the  horizontal
+              direction, I think.
 
-     X_RESOLUTION
-          Some  distance/pixel  measurement  for  the  horizontal
-          direction, I think.
+       Y_RESOLUTION
+              Some  distance/pixel  measurement  for the vertical
+              direction, I think.
 
-     Y_RESOLUTION
-          Some distance/pixel measurement for the vertical direc-
-          tion, I think.
+       PLANES Number of color planes for the X server display
 
-     PLANES
-          Number of color planes for the X server display
+       BITS_PER_RGB
+              Number of bits in each rgb triplet.
 
-     BITS_PER_RGB
-          Number of bits in each rgb triplet.
+       CLASS  The X11 default visual class, e.g. PseudoColor.
 
-     CLASS
-          The X11 default visual class, e.g. PseudoColor.
+       COLOR  Yes or No, Yes if the default visual class is  nei-
+              ther StaticGrey or GreyScale.
 
-     COLOR
-          Yes or No, Yes if the default visual class  is  neither
-          StaticGrey or GreyScale.
+       FVWM_CLASS
+              The  visual  class  that  fvwm is using, e.g. True-
+              Color.
 
-     FVWM_CLASS
-          The visual class that fvwm is using, e.g. TrueColor.
+       FVWM_COLOR
+              Yes or No, Yes if the FVWM_CLASS is neither Static-
+              Grey or GreyScale.
 
-     FVWM_COLOR
-          Yes or No, Yes if the FVWM_CLASS is neither  StaticGrey
-          or GreyScale.
+       FVWM_VERSION
+              The fvwm version number, ie 2.0
 
-     FVWM_VERSION
-          The fvwm version number, ie 2.0
+       OPTIONS
 
-     OPTIONS
-          Some combination of SHAPE, XPM, NO_SAVEUNDERS, and  M4,
-          as defined in configure.h at compile time.
+       FVWM_MODULEDIR
+              The directory where fvwm looks for .fvwmrc and mod-
+              ules by default, as determined at compile time.
 
-     FVWM_MODULEDIR
-          The directory where fvwm looks for .fvwmrc and  modules
-          by default, as determined at compile time.
+       FVWM_USERDIR
+              The value of $FVWM_USERDIR.
 
-     FVWM_USERDIR
-          The value of $FVWM_USERDIR.
-
-     SESSION_MANAGER
-          The value of $SESSION_MANAGER. Undefined if this  vari-
-          able is not set.
+       SESSION_MANAGER
+              The  value  of  $SESSION_MANAGER. Undefined if this
+              variable is not set.
 
 
 
 </PRE>
 <H2>EXAMPLE PROLOG</H2><PRE>
-          define(TWM_TYPE,``fvwm'')dnl
-          define(SERVERHOST,``spx20'')dnl
-          define(CLIENTHOST,``grumpy'')dnl
-          define(HOSTNAME,``grumpy'')dnl
-          define(OSTYPE,``SunOS'')dnl
-          define(USER,``nation'')dnl
-          define(HOME,``/local/homes/dsp/nation'')dnl
-          define(VERSION,``11'')dnl
-          define(REVISION,``0'')dnl
-          define(VENDOR,``HDS human designed systems, inc. (2.1.2-D)'')dnl
-          define(RELEASE,``4'')dnl
-          define(SCREEN,``0'')dnl
-          define(WIDTH,``1280'')dnl
-          define(HEIGHT,``1024'')dnl
-          define(X_RESOLUTION,``3938'')dnl
-          define(Y_RESOLUTION,``3938'')dnl
-          define(PLANES,``8'')dnl
-          define(BITS_PER_RGB,``8'')dnl
-          define(CLASS,``PseudoColor'')dnl
-          define(COLOR,``Yes'')dnl
-          define(FVWM_VERSION,``1.24l'')dnl
-          define(OPTIONS,``SHAPE XPM M4 '')dnl
-          define(FVWM_MODULEDIR,``/local/homes/dsp/nation/modules'')dnl
-          define(FVWM_USERDIR,``/local/homes/dsp/nation/.fvwm2rc.d'')dnl
-          define(SESSION_MANAGER,``local/grumpy:/tmp/.ICE-unix/440,tcp/spx20:1025'')dnl
+            define(TWM_TYPE,``fvwm'')dnl
+            define(SERVERHOST,``spx20'')dnl
+            define(CLIENTHOST,``grumpy'')dnl
+            define(HOSTNAME,``grumpy'')dnl
+            define(OSTYPE,``SunOS'')dnl
+            define(USER,``nation'')dnl
+            define(HOME,``/local/homes/dsp/nation'')dnl
+            define(VERSION,``11'')dnl
+            define(REVISION,``0'')dnl
+            define(VENDOR,``HDS human designed systems, inc. (2.1.2-D)'')dnl
+            define(RELEASE,``4'')dnl
+            define(SCREEN,``0'')dnl
+            define(WIDTH,``1280'')dnl
+            define(HEIGHT,``1024'')dnl
+            define(X_RESOLUTION,``3938'')dnl
+            define(Y_RESOLUTION,``3938'')dnl
+            define(PLANES,``8'')dnl
+            define(BITS_PER_RGB,``8'')dnl
+            define(CLASS,``PseudoColor'')dnl
+            define(COLOR,``Yes'')dnl
+            define(FVWM_VERSION,``1.24l'')dnl
+            define(OPTIONS,``SHAPE XPM M4 '')dnl
+            define(FVWM_MODULEDIR,``/local/homes/dsp/nation/modules'')dnl
+            define(FVWM_USERDIR,``/local/homes/dsp/nation/.fvwm2rc.d'')dnl
+            define(SESSION_MANAGER,``local/grumpy:/tmp/.ICE-unix/440,tcp/spx20:1025'')dnl
+
+
 
 
 </PRE>
 <H2>AUTHOR</H2><PRE>
-     FvwmM4 is the result of a random  bit  mutation  on  a  hard
-     disk,  presumably  a  result  of  a  cosmic-ray or some such
-     thing.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+       FvwmM4 is the result of a random bit mutation  on  a  hard
+       disk,  presumably  a  result of a  cosmic-ray or some such
+       thing.
 
 
 
@@ -292,7 +236,7 @@
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.ksh
-on Tue Jul  3 21:54:40 EDT 2001 -->
+on Wed Jul  4 08:11:42 EDT 2001 -->
 </body>
 </html>
 
