@@ -153,6 +153,16 @@ width="240" height="200" border="0" hspace="0" vspace="0"></a>
 <?php decoration_window_end(); ?>
 
 <!-- ============================================================= -->
+<?php decoration_window_start("By Scott Smedley (6 images)", "", "", 0); ?>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Scott_Smedley/index.php');
+?>" class="nohilight"><img src="logos/Scott_Smedley/fvwm-overview.png"
+border="0" hspace="0" vspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
 <!--
 <?php decoration_window_start("By Felix E. Klee (7 images)", "", "", 0); ?>
 

@@ -212,7 +212,7 @@ class Default_Theme extends Base_Theme {
         echo '<tr>'."\n";
         echo '<td valign="top" align="left" bgcolor="'.$this->style_array["window_bg"].'"';
         if(strlen($height)> 0) echo ' height="'.$height.'"';
-        echo ' class="windowcontents">';
+        echo ' class="windowcontents" name="decorated_window">';
     }
 
     // insert the right and lower corner of the window decoration
