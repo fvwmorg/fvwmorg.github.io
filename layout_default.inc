@@ -4,7 +4,7 @@
 //-  Project       : FVWM Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <09.04.2003 11:05:03 uwp>
+//-  Last modified : <10.04.2003 07:43:15 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -305,7 +305,7 @@ function decoration_window_start($string="",$width="100%",$height="800",$padding
   echo '<td bgcolor="'.$window_bg.'">';
   echo '<table';
   if(strlen($padding)> 0) echo ' cellpadding="'.$padding.'"';
-  echo ' summary="">'."\n";
+  echo ' summary="" width="100%">'."\n";
   echo '<tr>'."\n";
   echo '<td valign="top" align="left"';
   if(strlen($height)> 0) echo ' height="'.$height.'"';

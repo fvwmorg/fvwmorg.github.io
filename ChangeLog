@@ -1,3 +1,12 @@
+2003-04-10  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* documentation/manpages/fvwm.php: 
+	Example page.
+	* layout_default.inc:
+	Fixed window size problem.
+	* logo_competition/index.php
+	Formating changes. Added end tags.
+
 2003-04-09  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* layout_default.inc: 

@@ -3,7 +3,7 @@
 //-  File          : @FILENAME@
 //-  Project       : FVWM Home page
 //-  Programmer    : Logo Competitor
-//-  Last modified : <09.04.2003 08:14:03 uwp>
+//-  Last modified : <10.04.2003 07:43:48 uwp>
 //--------------------------------------------------------------------
 
 $rel_path = "..";
@@ -44,17 +44,19 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php decoration_window_start("New Logo Competition"); ?>
+<?php decoration_window_start("New Logo Competition", "100%", ""); ?>
 
-<h1>Welcome to FVWM Logo Competition</h1>
+<h2>Welcome to FVWM Logo Competition</h2>
 
 <p>If you like to participate, please read
-<a href="rules.php">the competition rules</a>.
+<a href="rules.php">the competition rules</a>.</p>
 
-<p>The submitted logos are exhibited here.
+<p>The submitted logos are exhibited here.</p>
 <?php decoration_window_end(); ?>
 
 <p>
-<?php decoration_window_start("Submitted logos", "", "4", "10"); ?>
-<p>to be added
+<?php decoration_window_start("Submitted logos", "100%", "500"); ?>
+
+<p>to be added</p>
+
 <?php decoration_window_end(); ?>
