@@ -1,7 +1,15 @@
-2003-06-30  Mikhael Goikhman  <migo@homemail.com>
+2003-07-02  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.php:
 	removed "new" status of latest releases and birthday_celebration banner
+
+	* logo-competition/logos/Phil_Harper/*-thumb.png:
+	* logo-competition/logos/Phil_Harper/index.php:
+	added thumbnails of Phil's FVWM related wallpapers
+
+	* logo-competition/logos_new.php:
+	* logo-competition/logos/Wolf_Bergenheim/index.php:
+	small improvements
 
 2003-07-02  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 

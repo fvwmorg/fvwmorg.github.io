@@ -87,10 +87,26 @@ logo'ish since the competition is getting very impressive.
 
 <p>More FVWM related art by this <a href="http://gug.sunsite.dk/gallery.php?artist=123">artist</a>:
 <ul>
-  <li><a href="http://fvwm-themes.sf.net/backgrounds/">TigerSkin FVWM Wallpaper (GPL'd source, nice)</a>
-  <li><a href="http://gug.sunsite.dk/pictures/1051903001.png">TigerSkin FVWM Wallpaper (Black Stripes)</a>
-  <li><a href="http://www.deviantart.com/deviation/1814563">SynthSkin FVWM Wallpaper on deviantART</a>
-  <li><a href="http://gug.sunsite.dk/pictures/1051839576.png">Another Skin Variation Wallpaper</a>
+  <li>
+    <a href="http://fvwm-themes.sf.net/backgrounds/">
+    <img src="TigerSkin_FVWM_Wallpaper-thumb.png" align="middle">
+    TigerSkin FVWM Wallpaper (GPL'd source)
+    </a>
+  <li>
+    <a href="http://gug.sunsite.dk/pictures/1051903001.png">
+    <img src="TigerSkin_FVWM_Black_Wallpaper-thumb.png" align="middle">
+    TigerSkin FVWM Wallpaper (Black Stripes)
+    </a>
+  <li>
+    <a href="http://www.deviantart.com/deviation/1814563">
+    <img src="SynthSkin_FVWM_Wallpaper-thumb.png" align="middle">
+    SynthSkin FVWM Wallpaper on deviantART
+    </a>
+  <li>
+    <a href="http://gug.sunsite.dk/pictures/1051839576.png">
+    <img src="SynthSkin_Variation_Wallpaper-thumb.png" align="middle">
+    Another Skin Variation Wallpaper
+    </a>
 </ul>
 
 <?php decoration_window_end(); ?>

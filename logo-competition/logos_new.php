@@ -100,11 +100,11 @@ width="130" height="161" border="0" vspace="0" hspace="0">
 
 <a href="<?php echo conv_link_target('logos/Tian/index.php'); ?>">
 
-<p class="centered"><img src="logos/Tian/logo_shaded.png"
-width="399" height="215" border="0" vspace="0" hspace="0">
-
 <p class="centered"><img src="logos/Tian/logo_sunny.png"
 width="266" height="143" border="0" vspace="0" hspace="0">
+
+<p class="centered"><img src="logos/Tian/logo_float_bg.png"
+width="251" height="102" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
@@ -258,8 +258,10 @@ width="197" height="99" border="0" vspace="0" hspace="0">
 
 <a href="<?php echo conv_link_target('logos/Colin_May/index.php'); ?>">
 
-<p class="centered"><img src="logos/Colin_May/Colin1.png" width="200" height="120" border="0" vspace="0" hspace="0">
-<p class="centered"><img src="logos/Colin_May/Colin3.png" width="200" height="120" border="0" vspace="0" hspace="0">
+<p class="centered"><img src="logos/Colin_May/Colin1.png"
+width="200" height="120" border="0" vspace="0" hspace="0">
+<p class="centered"><img src="logos/Colin_May/Colin3.png"
+width="200" height="120" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
@@ -272,7 +274,8 @@ width="197" height="99" border="0" vspace="0" hspace="0">
 
 <a href="<?php echo conv_link_target('logos/Wolf_Bergenheim/index.php'); ?>">
 
-<p class="centered"><img src="logos/Wolf_Bergenheim/overview.png" width="388" height="301" border="0" vspace="0" hspace="0">
+<p class="centered"><img src="logos/Wolf_Bergenheim/overview.png"
+width="388" height="301" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
