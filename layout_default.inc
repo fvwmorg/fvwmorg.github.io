@@ -611,7 +611,7 @@ function insert_pager_navigation() {
   $pages_per_desk = 4;
 
   // table for the border
-  echo '<table width = "110" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
+  echo '<table width="110" border="0" cellspacing="0" cellpadding="0" summary="">'."\n";
   decoration_top_line();
   echo "<tr>\n";
   decoration_left_cell();
