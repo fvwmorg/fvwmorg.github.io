@@ -20,8 +20,9 @@ include("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition Rules";
-$link_name      = "Logo Competition Rules";
+$title          = "FVWM - Logo Competition - Rules";
+$heading        = "FVWM Logo Competition Rules";
+$link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/default";
 $parent_site    = "news";
 $child_sites    = array();
@@ -42,13 +43,14 @@ if (strlen("$site_has_been_loaded") == 0) {
 }
 ?>
 
-<?php decoration_window_start("Competition Rules"); ?>
+<?php decoration_window_start("Participant information"); ?>
 
     <h1>The FVWM Logo Competition</h1>
     
-    <p>FVWM stands for F? Virtual Window Manager (see FAQ to get an idea
-      what F? may mean).  Historically, fvwm had no good logo, but this
-      is going to be changed.  With your help.</p>
+    <p>FVWM stands for F? Virtual Window Manager (see 
+      <a href="<?php echo conv_link_target('../documentation/faq.php#1.1');
+      ?>">FAQ</a> to get an idea what F? may mean).  Historically, fvwm had
+      no good logo, but this is going to be changed.  With your help.</p>
     
     <h2>Competition Schedule</h2>
     
@@ -58,7 +60,7 @@ if (strlen("$site_has_been_loaded") == 0) {
 	<th>Description</th>
       </tr>
       <tr>
-	<td>15-Apr-2003 / 10-Aug-2003</td>
+	<td>21-Apr-2003 / 10-Aug-2003</td>
 	<td>Logo contributions are accepted.</td>
       </tr>
       <tr>
@@ -152,3 +154,5 @@ if (strlen("$site_has_been_loaded") == 0) {
     </p>
     
 <?php decoration_window_end(); ?>
+
+<p>Return to <a href="<?php echo conv_link_target('index.php');?>">index</a>.</p>

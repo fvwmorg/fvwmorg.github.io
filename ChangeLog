@@ -1,3 +1,16 @@
+2003-04-20  Mikhael Goikhman  <migo@homemail.com>
+
+	* logo-competition/logos/old/*.png:
+	* logo-competition/logos_old.php:
+	* logo-competition/logos_old_overview.png:
+	* logo-competition/logos_new.php:
+	* logo-competition/logos_new_overview.png:
+	* logo-competition/*.php:
+	added old logos from the previous competition, improvements
+
+	* layout_default.inc:
+	don't use strict black as background, may be bad in some situations
+
 2003-04-19  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/perrlib/*:

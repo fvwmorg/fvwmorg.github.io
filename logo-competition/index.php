@@ -53,12 +53,24 @@ echo '<a href="'.conv_link_target("rules.php").'">the competition rules</a>.';
 ?>
 </p>
 
-<p>The submitted logos are exhibited here.</p>
+<p>The submitted works are exhibited here.</p>
 <?php decoration_window_end(); ?>
 
 <p>
-<?php decoration_window_start("Submitted logos", "100%", "500"); ?>
+<?php decoration_window_start("Submitted logos", "100%", "", 0); ?>
 
-<p>to be added</p>
+<div align=center>
+<table cellpadding="10" cellspacing="0" border="0"
+	width="90%" frame="void" rules="none" summary="">
+<tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>"><img src="logos_old_overview.png" border="0"></a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>"><img src="logos_new_overview.png" border="0"></a></td>
+</tr>
+<tr>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_old.php');?>">Old Logos</a></td>
+	<td align="center" valign="middle"><a href="<?php echo conv_link_target('logos_new.php');?>">New Logos</a></td>
+</tr>
+</table>
+</div>
 
 <?php decoration_window_end(); ?>
