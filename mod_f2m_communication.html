@@ -371,7 +371,8 @@ with the character ``*''. When the built-in command ``Send_ConfigInfo''
 is invoked by a module, this entire list is transmitted to the module in
 packets (one line per packet) of this type. The packet consists of three
 zeros, followed by a variable length character string. In addition, the
-DeskTopSize, ImagePath, ColorLimit and Colorset definitions are sent to the module.
+DeskTopSize, ImagePath, ColorLimit, Colorset, XineramaEnable and
+XineramaDisable definitions are sent to the module.
 <p>Note that all the module configuration commands are sent. Each module
 has to check the configuration commands to see if it is a command for that
 specific module. This is actually a feature. This way one module can learn
@@ -380,7 +381,8 @@ anything about module aliases.
 <p>Starting with release 2.0.47, a module can set M_SENDCONFIG on in its
 mask and receive M_CONFIG_INFO packets while it is running. (M_CONFIG_INFO
 has to be on also.) A module can use M_SENDCONFIG to be able to change
-configuration while it is running. Refer to module FvwmAnimate for an example.
+configuration while it is running. Refer to module FvwmAnimate for an
+example.
 
 <h2><a name="M_END_CONFIG_INFO"></a>
 M_END_CONFIG_INFO
