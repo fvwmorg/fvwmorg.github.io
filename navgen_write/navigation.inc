@@ -46,12 +46,28 @@ $this->nav_array["home"]["link_picture"] = "pictures/icons/home";
 $this->nav_array["home"]["parent_site"] = "top"; 
 $this->nav_array["home"]["child_sites"] = array("authors", "history", "fvwm_cats", ); 
 
-$this->nav_array["logo_competition"]["file"] = "logo-competition/logos/voting/index.php"; 
-$this->nav_array["logo_competition"]["rel_path"] = "./../../.."; 
-$this->nav_array["logo_competition"]["link_name"] = "Logo Competition Voting Page"; 
+$this->nav_array["logo_competition_results1"]["file"] = "logo-competition/logos/voting/results1.php"; 
+$this->nav_array["logo_competition_results1"]["rel_path"] = "./../../.."; 
+$this->nav_array["logo_competition_results1"]["link_name"] = "Logo Competition Stage 1 Result Page"; 
+$this->nav_array["logo_competition_results1"]["short_name"] = "Stage 1 Results"; 
+$this->nav_array["logo_competition_results1"]["link_picture"] = "pictures/icons/logo_competition"; 
+$this->nav_array["logo_competition_results1"]["parent_site"] = "logo_competition"; 
+$this->nav_array["logo_competition_results1"]["child_sites"] = array(); 
+
+$this->nav_array["logo_competition_results2"]["file"] = "logo-competition/logos/voting/results2.php"; 
+$this->nav_array["logo_competition_results2"]["rel_path"] = "./../../.."; 
+$this->nav_array["logo_competition_results2"]["link_name"] = "Logo Competition Final Result Page"; 
+$this->nav_array["logo_competition_results2"]["short_name"] = "Final Results"; 
+$this->nav_array["logo_competition_results2"]["link_picture"] = "pictures/icons/logo_competition"; 
+$this->nav_array["logo_competition_results2"]["parent_site"] = "logo_competition"; 
+$this->nav_array["logo_competition_results2"]["child_sites"] = array(); 
+
+$this->nav_array["logo_competition"]["file"] = "logo-competition/index.php"; 
+$this->nav_array["logo_competition"]["rel_path"] = "./.."; 
+$this->nav_array["logo_competition"]["link_name"] = "Logo Competition"; 
 $this->nav_array["logo_competition"]["link_picture"] = "pictures/icons/logo_competition"; 
 $this->nav_array["logo_competition"]["parent_site"] = "news"; 
-$this->nav_array["logo_competition"]["child_sites"] = array(); 
+$this->nav_array["logo_competition"]["child_sites"] = array("logo_competition_results1", "logo_competition_results2", ); 
 
 $this->nav_array["logo"]["file"] = "fvwm-logo/index.php"; 
 $this->nav_array["logo"]["rel_path"] = "./.."; 

@@ -64,12 +64,17 @@ if (strlen($heading) == 0) $heading = $title;
 
     <!-- bottom of the page - display last modified information -->
     <p class="bottominfo">
+        <a href="<?php echo "./$requested_file";?>?theme=default">:Window theme:</a> 
+        <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">:Pager theme:</a> 
+        <a href="<?php echo "./$requested_file";?>?theme=plain">:Fast theme:</a> 
+        <a href="<?php echo "./$requested_file";?>?theme=birthday">:Birthday theme:</a>
+
     <a href="http://validator.w3.org/check/referer"><img
        src="http://www.w3.org/Icons/valid-html401"
-       alt="Valid HTML 4.01!" height="31" width="88" border="0" hspace="2" vspace="2"></a>
+       alt="Valid HTML 4.01!" height="31" width="88" border="0" hspace="2" vspace="2" align="middle"></a>
     <a href="http://jigsaw.w3.org/css-validator/"><img
        src="http://jigsaw.w3.org/css-validator/images/vcss" 
-       alt="Valid CSS!" border="0" height="31" width="88" hspace="2" vspace="2"></a>
+       alt="Valid CSS!" border="0" height="31" width="88" hspace="2" vspace="2" align="middle"></a>
     <?php $theme_object->insert_timestamp($requested_file); ?>
     </p>
     

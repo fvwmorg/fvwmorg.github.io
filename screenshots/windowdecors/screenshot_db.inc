@@ -7,6 +7,21 @@
 //--------------------------------------------------------
 $db = array(
       0 => array(
+                 'path' => './brushedmetal',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'shot.png',
+                 'date' => 1087847919,
+                 'size' => 11886,
+                 'dimension' => '474x292',
+                 'description' => ' Brushed metal decoration taken from fvwm-theme.
+',
+                 'rc' => array(
+                               'name' => 'brushedmetal_config.tgz',
+                               'size' => 75900,
+                               'date' => 1088344854,
+                               ),
+                 ),
+      1 => array(
                  'path' => './simple',
                  'preview' => 'preview.png',
                  'screenshot' => 'shot2.png',
@@ -17,8 +32,8 @@ $db = array(
 ',
                  'rc' => array(
                                'name' => 'simple_decor_config.tgz',
-                               'size' => 7292,
-                               'date' => 1085309607,
+                               'size' => 7969,
+                               'date' => 1085334346,
                                ),
                  ),
       );

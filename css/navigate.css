@@ -21,7 +21,6 @@ a.link, a.sellink {
   color:#777777;
 }
 
-
 a:focus, a:hover {
   text-decoration:underline overline;
   color:#000000;
@@ -42,7 +41,7 @@ a.sellink, .sellink {
 
 .bottominfo { 
   text-align:right;
-  font-size:x-small;
+  font-size:xx-small;
 }
 
 .showpageprop, .showpagedesc, .showpageprev { 

@@ -51,23 +51,33 @@ and support is excellent.  Check it out!
 </p>
 
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
-<tr>
-        <td class="windowcontents">Latest Stable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php mylink("download", $latest_stable_release); ?> </b></td>
-	<td class="windowcontents">&nbsp; <!img src="pictures/new.gif" width=28 height=12></td>
-</tr>
-<tr>
-        <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
-        <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
-	<td class="windowcontents">&nbsp; <img src="pictures/new.gif" width=28 height=12></td>
-</tr>
+  <tr>
+    <td class="windowcontents">Latest Stable Release: &nbsp; </td>
+    <td class="windowcontents"><b><?php mylink("download", $latest_stable_release); ?> </b></td>
+    <td class="windowcontents"><!-- img src="pictures/new.gif" width="28" height="12" hspace="5"--></td>
+  </tr>
+  <tr>
+    <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
+    <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
+    <td class="windowcontents"><img src="pictures/new.gif" width="28" height="12" hspace="5"></td>
+  </tr>
 </table>
-
 <hr>
+
+<?php
+//--------------------------------------------------------------------
+// -- begin news section
+//--------------------------------------------------------------------
+?>
 <b>News:</b> The 
 <?php mylink("logo-competition", "FVWM Logo Competition"); ?> is over.
 FVWM has a <?php mylink("fvwm-logo", "new logo");?>.
 <hr>
+<?php
+//--------------------------------------------------------------------
+// -- end news section
+//--------------------------------------------------------------------
+?>
 
 <div align="center">
 <h2>Quick jumps</h2>

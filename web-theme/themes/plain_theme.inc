@@ -66,6 +66,7 @@ echo ">";
     Switch to 
       <a href="<?php echo "./$requested_file";?>?theme=default">window theme</a>, 
       <a href="<?php echo "./$requested_file";?>?theme=pager_on_top">pager on top theme</a>, 
+      <a href="<?php echo "./$requested_file";?>?theme=navigate">navigation theme</a>, 
       <a href="<?php echo "./$requested_file";?>?theme=birthday">birthday theme</a>.
     </p>
 

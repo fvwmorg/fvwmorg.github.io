@@ -171,7 +171,8 @@ class Default_Theme extends Base_Theme {
             echo '<tr>'."\n";
             // $td_opts = 'width="1"';
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_1").'); ">';
-            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
+            echo '<a href="./'.$this->requested_file.'?theme=navigate" class="nohilight">';
+            echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></a></td>'."\n";
 
             echo '<td '.$td_opts.' style="background-image:url('.$this->decoration_pic("button_3").'); " >';
             echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";

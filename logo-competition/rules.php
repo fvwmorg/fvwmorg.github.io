@@ -27,7 +27,7 @@ $link_picture   = "pictures/icons/default";
 $parent_site    = "news";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "logo_competition";
+$this_site      = "logo_competition_rules";
 
 //--------------------------------------------------------------------
 // load the layout file
