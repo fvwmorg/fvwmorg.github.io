@@ -24,7 +24,7 @@
 </HEAD><BODY>
 <H1>FvwmCommand</H1>
 Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
-<A HREF="./">Return to Main Contents</A><HR>
+- <A HREF="./">Return to Main Contents</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
@@ -50,7 +50,7 @@ used to send commands including spaces.
 <P>
 
 
-<PRE><blockquote>FvwmCommand 'FvwmPager 0 1'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand 'FvwmPager 0 1'</PRE></blockquote>
 <P>
 
 
@@ -71,11 +71,11 @@ From within .fvwm2rc file:
 <P>
 
 
-<PRE><blockquote>Module FvwmCommandS
+<blockquote><PRE>Module FvwmCommandS
 
     or
 
-AddToFunc StartFunction &quot;I&quot; Module FvwmCommandS</blockquote></PRE>
+AddToFunc StartFunction &quot;I&quot; Module FvwmCommandS</PRE></blockquote>
 <P>
 
 
@@ -88,7 +88,7 @@ Then, in script file or from shell:
 <P>
 
 
-<PRE><blockquote>FvwmCommand  'popup Utilities'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand  'popup Utilities'</PRE></blockquote>
 <P>
 
 
@@ -108,7 +108,7 @@ This disables <I>-m</I> or <I>-i</I>.
 <P>
 
 
-<PRE><blockquote>(echo &quot;Exec xload&quot;; echo &quot;Beep&quot;) | FvwmCommand -c</blockquote></PRE>
+<blockquote><PRE>(echo &quot;Exec xload&quot;; echo &quot;Beep&quot;) | FvwmCommand -c</PRE></blockquote>
 <P>
 
 
@@ -158,7 +158,7 @@ Error messages only.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -i0 FvwmBanner</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -i0 FvwmBanner</PRE></blockquote>
 <P>
 
 
@@ -169,7 +169,7 @@ will show a banner without any output. On the other hand,
 <P>
 
 
-<PRE><blockquote>FvwmCommand -i 0 foobar</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -i 0 foobar</PRE></blockquote>
 <P>
 
 
@@ -180,8 +180,8 @@ will return,
 <P>
 
 
-<PRE><blockquote>[FVWM][executeModule]: &lt;&lt;ERROR&gt;&gt; No such module
-'foobar' in ModulePath '/usr/lib/X11/fvwm2'</blockquote></PRE>
+<blockquote><PRE>[FVWM][executeModule]: &lt;&lt;ERROR&gt;&gt; No such module
+'foobar' in ModulePath '/usr/lib/X11/fvwm2'</PRE></blockquote>
 <P>
 
 
@@ -195,7 +195,7 @@ cases like below since 'windowid' itself is a valid command.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -i 0 'windowid foo bar'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -i 0 'windowid foo bar'</PRE></blockquote>
 <P>
 
 
@@ -207,7 +207,7 @@ Errors and window configuration information. This is the default.
 <P>
 
 
-<PRE><blockquote>FvwmCommand send_windowlist</blockquote></PRE>
+<blockquote><PRE>FvwmCommand send_windowlist</PRE></blockquote>
 <P>
 
 
@@ -218,7 +218,7 @@ Information like below will show up.
 <P>
 
 
-<PRE><blockquote>0x02000014 window               FvwmConsole
+<blockquote><PRE>0x02000014 window               FvwmConsole
 0x02000014 icon                 FvwmConsole
 0x02000014 class                XTerm
 0x02000014 resource             FvwmConsole
@@ -235,7 +235,7 @@ Information like below will show up.
 0x00c0002c icon file            xemacs.xpm
 0x00c0002c class                Emacs
 0x00c0002c resource             emacs
-end windowlist</blockquote></PRE>
+end windowlist</PRE></blockquote>
 <P>
 
 
@@ -252,7 +252,7 @@ Above and static window information.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -i2 'FvwmPager 0 1'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -i2 'FvwmPager 0 1'</PRE></blockquote>
 <P>
 
 
@@ -263,7 +263,7 @@ The below is its output.
 <P>
 
 
-<PRE><blockquote>0x03c00003 frame                x 962, y 743, width 187, height 114
+<blockquote><PRE>0x03c00003 frame                x 962, y 743, width 187, height 114
 0x03c00003 desktop              0
 0x03c00003 StartIconic          no
 0x03c00003 OnTop                yes
@@ -308,7 +308,7 @@ The below is its output.
 0x03c00003 window               Fvwm Pager
 0x03c00003 icon                 Fvwm Pager
 0x03c00003 class                FvwmModule
-0x03c00003 resource             FvwmPager</blockquote></PRE>
+0x03c00003 resource             FvwmPager</PRE></blockquote>
 <P>
 
 
@@ -320,7 +320,7 @@ All information available.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -i3 'Killmodule Fvwm*'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -i3 'Killmodule Fvwm*'</PRE></blockquote>
 <P>
 
 
@@ -331,8 +331,8 @@ This will report which windows are closed.
 <P>
 
 
-<PRE><blockquote>0x03400003 destroy
-0x02400002 destroy</blockquote></PRE>
+<blockquote><PRE>0x03400003 destroy
+0x02400002 destroy</PRE></blockquote>
 <P>
 
 
@@ -352,7 +352,7 @@ dynamically.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -mi3 | grep 'iconify'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -mi3 | grep 'iconify'</PRE></blockquote>
 <P>
 
 
@@ -368,8 +368,8 @@ grep is filled.
 <P>
 
 
-<PRE><blockquote>FvwmCommand -mi3 | grep ' map' |
-sed 's/\(0x[0-9a-f]*\).*/windowid \1 move 0 0/'</blockquote></PRE>
+<blockquote><PRE>FvwmCommand -mi3 | grep ' map' |
+sed 's/\(0x[0-9a-f]*\).*/windowid \1 move 0 0/'</PRE></blockquote>
 <P>
 
 
@@ -381,10 +381,10 @@ The below will iconify new windows when opened.
 <P>
 
 
-<PRE><blockquote>Fvwm -mi3 | perl -ne '
+<blockquote><PRE>Fvwm -mi3 | perl -ne '
 $|=1;
 print &quot;windowid $1 iconify\n&quot; if /^(0x\S+) add/;
-' &gt; ~/.FvwmCommandC</blockquote></PRE>
+' &gt; ~/.FvwmCommandC</PRE></blockquote>
 <P>
 
 
@@ -446,9 +446,9 @@ This file is to be sourced:
 <P>
 
 
-<PRE><blockquote>. FvwmCommand.sh
+<blockquote><PRE>. FvwmCommand.sh
 <BR>
-DesktopSize 5x5</blockquote></PRE>
+DesktopSize 5x5</PRE></blockquote>
 <P>
 
 
@@ -463,12 +463,12 @@ Commas can be used to separate fvwm commands' arguments.
 <P>
 
 
-<PRE><blockquote>use FvwmCommand;
+<blockquote><PRE>use FvwmCommand;
 if( $ARGV[0] eq 'home' ) {
     Desk 0,0; GotoPage '1 1';
 }elsif( $ARGV[0] eq 'jump' ) {
     Desk &quot;0 2&quot;; GotoPage 0, 1;
-}</blockquote></PRE>
+}</PRE></blockquote>
 <P>
 
 
@@ -487,8 +487,8 @@ is not running.
 <P>
 
 
-<PRE><blockquote>FvwmCommand error in opening message fifo
---No such file or directory--</blockquote></PRE>
+<blockquote><PRE>FvwmCommand error in opening message fifo
+--No such file or directory--</PRE></blockquote>
 <P>
 
 
@@ -600,13 +600,13 @@ Toshi Isogai  <A HREF="mailto:isogai@ucsub.colorado.edu">isogai@ucsub.colorado.e
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 15:54:07 GMT, July 04, 2001
+Time: 21:46:48 GMT, July 04, 2001
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Wed Jul  4 18:54:08 IDT 2001 -->
+on Thu Jul  5 00:46:48 IDT 2001 -->
 </body>
 </html>
 

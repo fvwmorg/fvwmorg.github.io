@@ -1,3 +1,14 @@
+2001-07-04  Mikhael Goikhman  <migo@homemail.com>
+
+	* generated/manpages/index.html:
+	* generated/index.html:
+	renamed from man-pages.html to index.html,
+	implemented support for man2html found with man on linux
+
+	* generated/manpages/*.html:
+	regenerated, now pages do not have fixed column size, i.e. browser
+	resizing is allowed, some more features
+
 2001-07-04  Dan Espen  <dane@mk.telcordia.com>
 
 	* generated/manpages/man-pages.html: Regenerate pages on Linux,

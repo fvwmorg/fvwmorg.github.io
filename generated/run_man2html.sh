@@ -112,9 +112,10 @@ for i in `find $sourcedir -name '*.[1]' | sort` ; do
 	s=http://localhost/cgi-bin/man/man2html=./=;
 	s/<A HREF="mailto:StartMenu@/<a name="local-fix:/;
 	s=%(/?blockquote)%=<$1>=;
+	s/^(.*Return to Main Contents)/- $1/;
     ' \
-    | perl -e '$_ = join("", <>); s/(<pre>)\s+(<blockquote>)\n*/$1$2/sig; \
-      s=\n*(</pre>)\s+(</blockquote>)=$2$1=sig; print' \
+    | perl -e '$_ = join("", <>); s/(<pre>)\s+(<blockquote>)\n*/$2$1/sig; \
+      s=\n*(</pre>)\s+(</blockquote>)=$1$2=sig; print' \
     >> $outdir/$file.html
   else
     nroff -man $i | man2html -bare \

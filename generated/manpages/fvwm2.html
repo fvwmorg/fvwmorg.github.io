@@ -24,7 +24,7 @@
 </HEAD><BODY>
 <H1>FVWM2</H1>
 Section: User Commands  (1)<BR>Updated: 20 May 2001<BR><A HREF="#index">Index</A>
-<A HREF="./">Return to Main Contents</A><HR>
+- <A HREF="./">Return to Main Contents</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
@@ -335,7 +335,7 @@ is:
 <P>
 
 
-<PRE><blockquote>xterm -geometry +0+0</blockquote></PRE>
+<blockquote><PRE>xterm -geometry +0+0</PRE></blockquote>
 <P>
 
 
@@ -351,7 +351,7 @@ left hand corner of the desktop, invoking:
 <P>
 
 
-<PRE><blockquote>xterm -geometry +1000+1000</blockquote></PRE>
+<blockquote><PRE>xterm -geometry +1000+1000</PRE></blockquote>
 <P>
 
 
@@ -365,7 +365,7 @@ specified as something like:
 <P>
 
 
-<PRE><blockquote>xterm -geometry -5-5</blockquote></PRE>
+<blockquote><PRE>xterm -geometry -5-5</PRE></blockquote>
 <P>
 
 
@@ -405,7 +405,7 @@ the start-up desk or page on the command line:
 <P>
 
 
-<PRE><blockquote>xterm -xrm &quot;*Desk:1&quot;</blockquote></PRE>
+<blockquote><PRE>xterm -xrm &quot;*Desk:1&quot;</PRE></blockquote>
 <P>
 
 
@@ -416,7 +416,7 @@ starts an xterm on desk number 1;
 <P>
 
 
-<PRE><blockquote>xterm -xrm &quot;*Page:3 2 1&quot;</blockquote></PRE>
+<blockquote><PRE>xterm -xrm &quot;*Page:3 2 1&quot;</PRE></blockquote>
 <P>
 
 
@@ -433,7 +433,7 @@ file:
 <P>
 
 
-<PRE><blockquote>XTerm*Desk: 1</blockquote></PRE>
+<blockquote><PRE>XTerm*Desk: 1</PRE></blockquote>
 <P>
 
 
@@ -444,7 +444,7 @@ or
 <P>
 
 
-<PRE><blockquote>XTerm*Page: 3 2 1</blockquote></PRE>
+<blockquote><PRE>XTerm*Page: 3 2 1</PRE></blockquote>
 <P>
 
 
@@ -463,7 +463,7 @@ searches for configuration files using the command
 <P>
 
 
-<PRE><blockquote><B>Read </B><I>.fvwm2rc</I></blockquote></PRE>
+<blockquote><PRE><B>Read </B><I>.fvwm2rc</I></PRE></blockquote>
 <P>
 
 
@@ -522,7 +522,7 @@ you can simply put
 <P>
 
 
-<PRE><blockquote>Exec app</blockquote></PRE>
+<blockquote><PRE>Exec app</PRE></blockquote>
 <P>
 
 
@@ -533,7 +533,7 @@ or
 <P>
 
 
-<PRE><blockquote>Module FvwmXxx</blockquote></PRE>
+<blockquote><PRE>Module FvwmXxx</PRE></blockquote>
 <P>
 
 
@@ -599,7 +599,7 @@ is used instead of ExitFunction.
 <P>
 
 
-<PRE><blockquote>DestroyFunc StartFunction
+<blockquote><PRE>DestroyFunc StartFunction
 AddToFunc StartFunction
  + I ModuleSynchronous FvwmTheme
  + I Module FvwmPager * *
@@ -623,7 +623,7 @@ AddToFunc SessionInitFunction
 
 DestroyFunc SessionRestartFunction
 AddToFunc SessionRestartFunction
- + I Nop</blockquote></PRE>
+ + I Nop</PRE></blockquote>
 <P>
 
 
@@ -733,8 +733,8 @@ states that windows possessing the property
 <P>
 
 
-<PRE><blockquote>WM_HINTS(WM_HINTS):
-    Client accepts input or input focus: False</blockquote></PRE>
+<blockquote><PRE>WM_HINTS(WM_HINTS):
+    Client accepts input or input focus: False</PRE></blockquote>
 <P>
 
 
@@ -761,7 +761,7 @@ The differences between
 <P>
 
 
-<PRE><blockquote>fvwm2; vi .fvwm2rc; fvwm2 -replace</blockquote></PRE>
+<blockquote><PRE>fvwm2; vi .fvwm2rc; fvwm2 -replace</PRE></blockquote>
 <P>
 
 
@@ -788,13 +788,13 @@ are executed when the flag is set/cleared.  Their default definitions are:
 <P>
 
 
-<PRE><blockquote>AddToFunc UrgencyFunc
+<blockquote><PRE>AddToFunc UrgencyFunc
  + I Iconify off
  + I FlipFocus
  + I Raise
  + I WarpToWindow 5p 5p
 AddToFunc UrgencyDoneFunc
- + I Nop</blockquote></PRE>
+ + I Nop</PRE></blockquote>
 <P>
 
 
@@ -843,7 +843,7 @@ line to your .fvwm2rc:
 <P>
 
 
-<PRE><blockquote>Style * OLDecor</blockquote></PRE>
+<blockquote><PRE>Style * OLDecor</PRE></blockquote>
 <P>
 
 
@@ -875,7 +875,7 @@ file (if it appears at all), and start fvwm with the command
 <P>
 
 
-<PRE><blockquote>fvwm2 -cmd &quot;FvwmM4 .fvwm2rc&quot;</blockquote></PRE>
+<blockquote><PRE>fvwm2 -cmd &quot;FvwmM4 .fvwm2rc&quot;</PRE></blockquote>
 <P>
 
 
@@ -1005,7 +1005,7 @@ need to be performed separately on each screen.  The use of
 <P>
 
 
-<PRE><blockquote> EdgeScroll 0 0</blockquote></PRE>
+<blockquote><PRE> EdgeScroll 0 0</PRE></blockquote>
 <P>
 
 
@@ -1053,7 +1053,7 @@ it is really needed,
 <P>
 
 
-<PRE><blockquote>Exec exec killall fvwm2</blockquote></PRE>
+<blockquote><PRE>Exec exec killall fvwm2</PRE></blockquote>
 <P>
 
 
@@ -1083,7 +1083,7 @@ The following commands are built-in to fvwm:
 <P>
 
 
-<PRE><blockquote>Key Help R A Popup MenuFvwmRoot
+<blockquote><PRE>Key Help R A Popup MenuFvwmRoot
 Key F1 R A Popup MenuFvwmRoot
 Key Tab A M WindowList Root c c NoDeskSort
 Key Escape A MC EscapeFunc
@@ -1092,7 +1092,7 @@ Mouse 1 TS A FuncFvwmRaiseLowerX Move
 Mouse 1 F  A FuncFvwmRaiseLowerX Resize
 AddToFunc FuncFvwmRaiseLowerX I Raise
 + M $0
-+ D Lower</blockquote></PRE>
++ D Lower</PRE></blockquote>
 <P>
 
 
@@ -1126,7 +1126,7 @@ To remove the window list binding, use this:
 <P>
 
 
-<PRE><blockquote>Key Tab A M -</blockquote></PRE>
+<blockquote><PRE>Key Tab A M -</PRE></blockquote>
 <P>
 
 
@@ -1145,7 +1145,7 @@ should have been
 <P>
 
 
-<PRE><blockquote>Function (rest of command)</blockquote></PRE>
+<blockquote><PRE>Function (rest of command)</PRE></blockquote>
 <P>
 
 
@@ -1156,7 +1156,7 @@ or
 <P>
 
 
-<PRE><blockquote>Module (rest of command)</blockquote></PRE>
+<blockquote><PRE>Module (rest of command)</PRE></blockquote>
 <P>
 
 
@@ -1173,7 +1173,7 @@ file contains the line
 <P>
 
 
-<PRE><blockquote>HelpMe</blockquote></PRE>
+<blockquote><PRE>HelpMe</PRE></blockquote>
 <P>
 
 
@@ -1213,7 +1213,7 @@ backslash character.  For example, if you have a pop-up menu called
 <P>
 
 
-<PRE><blockquote>Popup Window-Ops</blockquote></PRE>
+<blockquote><PRE>Popup Window-Ops</PRE></blockquote>
 <P>
 
 
@@ -1225,7 +1225,7 @@ quotes:
 <P>
 
 
-<PRE><blockquote>Popup &quot;Window Ops&quot;</blockquote></PRE>
+<blockquote><PRE>Popup &quot;Window Ops&quot;</PRE></blockquote>
 <P>
 
 
@@ -1275,13 +1275,13 @@ Example:
 <P>
 
 
-<PRE><blockquote># Print the current desk number, horizontal
+<blockquote><PRE># Print the current desk number, horizontal
 # page and the window's class.
 Echo $d $[page.nx] $c
 # But a function that prints $d needs $$,
 # but not before $[page.nx] or $c:
 AddToFunc PrintDeskNumber
-+ I Echo $$d $[page.nx] $c</blockquote></PRE>
++ I Echo $$d $[page.nx] $c</PRE></blockquote>
 <P>
 
 
@@ -1299,7 +1299,7 @@ command can be used:
 <P>
 
 
-<PRE><blockquote>Current Echo $d $[page.nx] $c</blockquote></PRE>
+<blockquote><PRE>Current Echo $d $[page.nx] $c</PRE></blockquote>
 <P>
 
 
@@ -1487,7 +1487,7 @@ you use this in commands like
 <P>
 
 
-<PRE><blockquote>Style * HilightFore $[fg.cs0], HilightBack $[bg.cs0]</blockquote></PRE>
+<blockquote><PRE>Style * HilightFore $[fg.cs0], HilightBack $[bg.cs0]</PRE></blockquote>
 <P>
 
 
@@ -1522,7 +1522,7 @@ order of usefulness to the newcomer.
 <P>
 
 
-<PRE><blockquote>- Menu commands
+<blockquote><PRE>- Menu commands
 - Miscellaneous commands
 - Commands affecting window movement and placement
 - Commands for focus and mouse movement
@@ -1535,7 +1535,7 @@ order of usefulness to the newcomer.
 - Conditional commands
 - Module commands
 - Quit, restart and session management commands
-- Color gradients</blockquote></PRE>
+- Color gradients</PRE></blockquote>
 <P>
 
 
@@ -1556,7 +1556,7 @@ looks like this:
 <P>
 
 
-<PRE><blockquote>AddToMenu Utilities Utilities Title
+<blockquote><PRE>AddToMenu Utilities Utilities Title
  + Xterm           Exec  exec xterm -e tcsh
  + Rxvt            Exec  exec rxvt
  + &quot;Remote Logins&quot; Popup Remote-Logins
@@ -1571,7 +1571,7 @@ looks like this:
  + &quot;&quot;              Nop
  + Modules         Popup Module-Popup
  + &quot;&quot;              Nop
- + Exit Fvwm       Popup Quit-Verify</blockquote></PRE>
+ + Exit Fvwm       Popup Quit-Verify</PRE></blockquote>
 <P>
 
 
@@ -1582,7 +1582,7 @@ The menu could be invoked via
 <P>
 
 
-<PRE><blockquote>Mouse 1 R A Menu Utilities Nop</blockquote></PRE>
+<blockquote><PRE>Mouse 1 R A Menu Utilities Nop</PRE></blockquote>
 <P>
 
 
@@ -1593,7 +1593,7 @@ or
 <P>
 
 
-<PRE><blockquote>Mouse 1 R A Popup Utilities</blockquote></PRE>
+<blockquote><PRE>Mouse 1 R A Popup Utilities</PRE></blockquote>
 <P>
 
 
@@ -1645,12 +1645,12 @@ Example (File browser):
 <P>
 
 
-<PRE><blockquote># You can find the shell script
+<blockquote><PRE># You can find the shell script
 # fvwm_make_browse_menu.sh in the utils
 # directory of the distribution.
 AddToMenu BrowseMenu
 + DynamicPopupAction Piperead \
-  'fvwm_make_browse_menu.sh BrowseMenu'</blockquote></PRE>
+  'fvwm_make_browse_menu.sh BrowseMenu'</PRE></blockquote>
 <P>
 
 
@@ -1661,7 +1661,7 @@ Example (Picture menu):
 <P>
 
 
-<PRE><blockquote># Build a menu of all .jpg files in
+<blockquote><PRE># Build a menu of all .jpg files in
 # $HOME/Pictures
 AddToMenu JpgMenu foo title
 + DynamicPopupAction Function MakeJpgMenu
@@ -1670,7 +1670,7 @@ AddToFunc MakeJpgMenu
 + I DestroyMenu recreate JpgMenu
 + I AddToMenu JpgMenu Pictures Title
 + I PipeRead 'for i in $HOME/Pictures/*.jpg; \
-  do echo AddToMenu JpgMenu &quot;`basename $i`&quot; Exec xv $i; done'</blockquote></PRE>
+  do echo AddToMenu JpgMenu &quot;`basename $i`&quot; Exec xv $i; done'</PRE></blockquote>
 <P>
 
 
@@ -1690,7 +1690,7 @@ follows it, fvwm executes this command:
 <P>
 
 
-<PRE><blockquote>Function &lt;function-name&gt; &lt;menu-name&gt;</blockquote></PRE>
+<blockquote><PRE>Function &lt;function-name&gt; &lt;menu-name&gt;</PRE></blockquote>
 <P>
 
 
@@ -1704,7 +1704,7 @@ Example:
 <P>
 
 
-<PRE><blockquote># There is another shell script
+<blockquote><PRE># There is another shell script
 # fvwm_make_directory_menu.sh in the utils
 # directory of the distribution. To use it,
 # define this function in your configuration
@@ -1715,7 +1715,7 @@ AddToFunc MakeMissingDirectoryMenu
 
 AddToMenu SomeMenu
 + MissingSubmenuFunction MakeMissingDirectoryMenu
-+ &quot;Root directory&quot; Popup /</blockquote></PRE>
++ &quot;Root directory&quot; Popup /</PRE></blockquote>
 <P>
 
 
@@ -1736,7 +1736,7 @@ already, it is overwritten.
 <P>
 
 
-<PRE><blockquote>AddToMenu Utilities Tools Title top</blockquote></PRE>
+<blockquote><PRE>AddToMenu Utilities Tools Title top</PRE></blockquote>
 <P>
 
 
@@ -1772,7 +1772,7 @@ insert &quot;**&quot;.  For example
 <P>
 
 
-<PRE><blockquote> + Calculator*xcalc.xpm* Exec exec xcalc</blockquote></PRE>
+<blockquote><PRE> + Calculator*xcalc.xpm* Exec exec xcalc</PRE></blockquote>
 <P>
 
 
@@ -1784,7 +1784,7 @@ calculator above it.  The following:
 <P>
 
 
-<PRE><blockquote> + *xcalc.xpm*           Exec exec xcalc</blockquote></PRE>
+<blockquote><PRE> + *xcalc.xpm*           Exec exec xcalc</PRE></blockquote>
 <P>
 
 
@@ -1802,7 +1802,7 @@ For example
 <P>
 
 
-<PRE><blockquote> + Calculator%xcalc.xpm% Exec exec xcalc</blockquote></PRE>
+<blockquote><PRE> + Calculator%xcalc.xpm% Exec exec xcalc</PRE></blockquote>
 <P>
 
 
@@ -1814,7 +1814,7 @@ calculator to the left.  The following:
 <P>
 
 
-<PRE><blockquote> + %xcalc.xpm%           Exec exec xcalc</blockquote></PRE>
+<blockquote><PRE> + %xcalc.xpm%           Exec exec xcalc</PRE></blockquote>
 <P>
 
 
@@ -1837,7 +1837,7 @@ command instead.  To get a literal '@', insert &quot;@@&quot;.  For example
 <P>
 
 
-<PRE><blockquote>AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@</blockquote></PRE>
+<blockquote><PRE>AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@</PRE></blockquote>
 <P>
 
 
@@ -1859,7 +1859,7 @@ command.  To get a literal '^', insert &quot;^^&quot;.  Example:
 <P>
 
 
-<PRE><blockquote>AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@^blue^</blockquote></PRE>
+<blockquote><PRE>AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@^blue^</PRE></blockquote>
 <P>
 
 
@@ -1884,8 +1884,8 @@ You may specified more than one menu in each call of
 <P>
 
 
-<PRE><blockquote>ChangeMenuStyle pixmap1 \
-  ScreenSaverMenu ScreenLockMenu</blockquote></PRE>
+<blockquote><PRE>ChangeMenuStyle pixmap1 \
+  ScreenSaverMenu ScreenLockMenu</PRE></blockquote>
 <P>
 
 
@@ -1923,7 +1923,7 @@ but to throw away all the menu items (including the title).
 <P>
 
 
-<PRE><blockquote>DestroyMenu Utilities</blockquote></PRE>
+<blockquote><PRE>DestroyMenu Utilities</PRE></blockquote>
 <P>
 
 
@@ -1942,7 +1942,7 @@ cannot destroy the default menu style.
 <P>
 
 
-<PRE><blockquote>DestroyMenuStyle pixamp1</blockquote></PRE>
+<blockquote><PRE>DestroyMenuStyle pixamp1</PRE></blockquote>
 <P>
 
 
@@ -2049,7 +2049,7 @@ arguments consist of several parts:
 <P>
 
 
-<PRE><blockquote><B>[</B><I>context-rectangle</I><B>] </B><I>x y</I><B> [</B><I>special-options</I><B>]</B></blockquote></PRE>
+<blockquote><PRE><B>[</B><I>context-rectangle</I><B>] </B><I>x y</I><B> [</B><I>special-options</I><B>]</B></PRE></blockquote>
 <P>
 
 
@@ -2172,7 +2172,7 @@ is equivalent to &quot;o50&quot;.  Examples:
 <P>
 
 
-<PRE><blockquote># window list in the middle of the screen
+<blockquote><PRE># window list in the middle of the screen
 WindowList Root c c
 
 # menu to the left of a window
@@ -2194,7 +2194,7 @@ AddToMenu foobar-menu
 # above the first menu item
 AddToMenu foobar-menu
  + &quot;first item&quot; Popup &quot;another menu&quot; item \
-                +0 -100m</blockquote></PRE>
+                +0 -100m</PRE></blockquote>
 <P>
 
 
@@ -2509,12 +2509,12 @@ Some examples of MenuFaces are:
 <P>
 
 
-<PRE><blockquote>MenuFace DGradient 128 2 lightgrey 50 blue 50 \
+<blockquote><PRE>MenuFace DGradient 128 2 lightgrey 50 blue 50 \
   white
 MenuFace TiledPixmap texture10.xpm
 MenuFace HGradient 128 2 Red 40 Maroon 60 \
   White
-MenuFace Solid Maroon</blockquote></PRE>
+MenuFace Solid Maroon</PRE></blockquote>
 <P>
 
 
@@ -2533,8 +2533,8 @@ off:
 <P>
 
 
-<PRE><blockquote>MenuStyle &lt;style&gt; Hilight3DOff, HilightBackOff
-MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;</blockquote></PRE>
+<blockquote><PRE>MenuStyle &lt;style&gt; Hilight3DOff, HilightBackOff
+MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;</PRE></blockquote>
 <P>
 
 
@@ -2546,7 +2546,7 @@ menus being redrawn every time a sub-menu pops up or down.
 <P>
 
 
-<PRE><blockquote>MenuStyle &lt;style&gt; PopupOffset 1 100</blockquote></PRE>
+<blockquote><PRE>MenuStyle &lt;style&gt; PopupOffset 1 100</PRE></blockquote>
 <P>
 
 
@@ -2558,7 +2558,7 @@ with the -bs option, turn it off.  If not try the -wm option.
 <P>
 
 
-<PRE><blockquote>startx -- -wm</blockquote></PRE>
+<blockquote><PRE>startx -- -wm</PRE></blockquote>
 <P>
 
 
@@ -2845,7 +2845,7 @@ like this:
 <P>
 
 
-<PRE><blockquote><B>%</B><I>left</I><B>.</B><I>right</I><B>p</B></blockquote></PRE>
+<blockquote><PRE><B>%</B><I>left</I><B>.</B><I>right</I><B>p</B></PRE></blockquote>
 <P>
 
 
@@ -2909,8 +2909,8 @@ Examples:
 <P>
 
 
-<PRE><blockquote>MenuStyle * ItemFormat \
-  &quot;%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|&quot;</blockquote></PRE>
+<blockquote><PRE>MenuStyle * ItemFormat \
+  &quot;%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|&quot;</PRE></blockquote>
 <P>
 
 
@@ -2925,8 +2925,8 @@ Is the default string used by fvwm: (side picture + 4 pixels gap)
 <P>
 
 
-<PRE><blockquote>MenuStyle * ItemFormat \
-  &quot;%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s&quot;</blockquote></PRE>
+<blockquote><PRE>MenuStyle * ItemFormat \
+  &quot;%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s&quot;</PRE></blockquote>
 <P>
 
 
@@ -2980,7 +2980,7 @@ Examples:
 <P>
 
 
-<PRE><blockquote>MenuStyle * Mwm
+<blockquote><PRE>MenuStyle * Mwm
 MenuStyle * Foreground Black, Background gray40
 MenuStyle * Greyed gray70, ActiveFore White
 MenuStyle * HilightBackOff, Hilight3DOff
@@ -2994,7 +2994,7 @@ MenuStyle red Background Maroon
 MenuStyle red Greyed Red, ActiveFore Red
 MenuStyle red HilightBackOff, Hilight3DOff
 MenuStyle red Font lucidasanstypewriter-12
-MenuStyle red MenuFace DGradient 64 Red Black</blockquote></PRE>
+MenuStyle red MenuFace DGradient 64 Red Black</PRE></blockquote>
 <P>
 
 
@@ -3079,8 +3079,8 @@ of shift, control, or meta).
 <P>
 
 
-<PRE><blockquote>Mouse 2 FST N Popup &quot;Window Ops&quot;
-Mouse 3 FST N Popup &quot;Window Ops&quot;</blockquote></PRE>
+<blockquote><PRE>Mouse 2 FST N Popup &quot;Window Ops&quot;
+Mouse 3 FST N Popup &quot;Window Ops&quot;</PRE></blockquote>
 <P>
 
 
@@ -3104,7 +3104,7 @@ into a main menu, called &quot;RootMenu&quot;:
 <P>
 
 
-<PRE><blockquote>AddToMenu Quit-Verify
+<blockquote><PRE>AddToMenu Quit-Verify
  + &quot;Really Quit Fvwm?&quot; Title
  + &quot;Yes, Really Quit&quot;  Quit
  + &quot;Restart Fvwm&quot;      Restart
@@ -3135,7 +3135,7 @@ AddToMenu RootMenu &quot;Root Menu&quot; Title
                        $HOME/.Xdefaults
  + &quot;&quot;                  Nop
  + &quot;&quot;                  Nop
- + Quit                Popup Quit-Verify</blockquote></PRE>
+ + Quit                Popup Quit-Verify</PRE></blockquote>
 <P>
 
 
@@ -3265,9 +3265,9 @@ command.  &quot;False&quot; forces to not display the cursor.  The default is:
 <P>
 
 
-<PRE><blockquote>BusyCursor DynamicMenu False, \
+<blockquote><PRE>BusyCursor DynamicMenu False, \
   ModuleSynchronous False, Read False, \
-  Recapture True, Wait False</blockquote></PRE>
+  Recapture True, Wait False</PRE></blockquote>
 <P>
 
 
@@ -3352,7 +3352,7 @@ and magenta.  The command
 <P>
 
 
-<PRE><blockquote>ColorLimit 9</blockquote></PRE>
+<blockquote><PRE>ColorLimit 9</PRE></blockquote>
 <P>
 
 
@@ -3391,7 +3391,7 @@ is in.  If you use
 <P>
 
 
-<PRE><blockquote>ColormapFocus FollowsFocus</blockquote></PRE>
+<blockquote><PRE>ColormapFocus FollowsFocus</PRE></blockquote>
 <P>
 
 
@@ -3580,12 +3580,12 @@ the image).  Furthermore the name can be
 <P>
 
 
-<PRE><blockquote># make the kill cursor be XC_gumby (both forms work):
+<blockquote><PRE># make the kill cursor be XC_gumby (both forms work):
 CursorStyle DESTROY 56
 CursorStyle DESTROY gumby
 
 CursorStyle TOP_LEFT topl.xpm
-CursorStyle ROOT hand1 yellow black</blockquote></PRE>
+CursorStyle ROOT hand1 yellow black</PRE></blockquote>
 <P>
 
 
@@ -3626,7 +3626,7 @@ colors use
 <P>
 
 
-<PRE><blockquote>DefaultColorset -1</blockquote></PRE>
+<blockquote><PRE>DefaultColorset -1</PRE></blockquote>
 <P>
 
 
@@ -3714,8 +3714,8 @@ command allows to configure this key sequence.  An example:
 <P>
 
 
-<PRE><blockquote>Key Escape A MC -
-Key Escape A  S EscapeFunc</blockquote></PRE>
+<blockquote><PRE>Key Escape A MC -
+Key Escape A  S EscapeFunc</PRE></blockquote>
 <P>
 
 
@@ -3790,7 +3790,7 @@ Note that events propagate upward.
 <P>
 
 
-<PRE><blockquote> FakeClick depth 2 press 1 wait 250 release 1</blockquote></PRE>
+<blockquote><PRE> FakeClick depth 2 press 1 wait 250 release 1</PRE></blockquote>
 <P>
 
 
@@ -3810,7 +3810,7 @@ following table:
 <P>
 
 
-<PRE><blockquote>GlobalOpts WindowShadeShrinks
+<blockquote><PRE>GlobalOpts WindowShadeShrinks
   --&gt;
 Style * WindowShadeShrinks
 
@@ -3888,7 +3888,7 @@ BugOpts RaiseOverNativeWindows on
 
 GlobalOpts IgnoreNativeWindows
   --&gt;
-BugOpts RaiseOverNativeWindows off</blockquote></PRE>
+BugOpts RaiseOverNativeWindows off</PRE></blockquote>
 <P>
 
 
@@ -3909,8 +3909,8 @@ Please use
 <P>
 
 
-<PRE><blockquote>Style * HilightFore textcolor, \
-        HilightBack backgroundcolor</blockquote></PRE>
+<blockquote><PRE>Style * HilightFore textcolor, \
+        HilightBack backgroundcolor</PRE></blockquote>
 <P>
 
 
@@ -3932,7 +3932,7 @@ Please use
 <P>
 
 
-<PRE><blockquote>Style * HilightColorset num</blockquote></PRE>
+<blockquote><PRE>Style * HilightColorset num</PRE></blockquote>
 <P>
 
 
@@ -3954,7 +3954,7 @@ Please use
 <P>
 
 
-<PRE><blockquote>Style * IconFont fontname</blockquote></PRE>
+<blockquote><PRE>Style * IconFont fontname</PRE></blockquote>
 <P>
 
 
@@ -3995,7 +3995,7 @@ For example:
 <P>
 
 
-<PRE><blockquote>ImagePath $HOME/icons:+:/usr/include/X11/bitmaps</blockquote></PRE>
+<blockquote><PRE>ImagePath $HOME/icons:+:/usr/include/X11/bitmaps</PRE></blockquote>
 <P>
 
 
@@ -4016,7 +4016,7 @@ command.  To fix this one may add
 <P>
 
 
-<PRE><blockquote>undefine(`include')</blockquote></PRE>
+<blockquote><PRE>undefine(`include')</PRE></blockquote>
 <P>
 
 
@@ -4058,7 +4058,7 @@ Please use
 <P>
 
 
-<PRE><blockquote>Style * Font fontname</blockquote></PRE>
+<blockquote><PRE>Style * Font fontname</PRE></blockquote>
 <P>
 
 
@@ -4089,11 +4089,11 @@ in as $0. The default &quot;WindowListFunc&quot; looks like this:
 <P>
 
 
-<PRE><blockquote>AddToFunc WindowListFunc
+<blockquote><PRE>AddToFunc WindowListFunc
  + I WindowId $0 Iconify off
  + I WindowId $0 FlipFocus
  + I WindowId $0 Raise
- + I WindowId $0 WarpToWindow 5p 5p</blockquote></PRE>
+ + I WindowId $0 WarpToWindow 5p 5p</PRE></blockquote>
 <P>
 
 
@@ -4112,7 +4112,7 @@ to the default menu style, issue the command
 <P>
 
 
-<PRE><blockquote>DestroyMenuStyle WindowList</blockquote></PRE>
+<blockquote><PRE>DestroyMenuStyle WindowList</PRE></blockquote>
 <P>
 
 
@@ -4123,7 +4123,7 @@ Example:
 <P>
 
 
-<PRE><blockquote>MenuStyle WindowList SelectOnRelease Meta_L</blockquote></PRE>
+<blockquote><PRE>MenuStyle WindowList SelectOnRelease Meta_L</PRE></blockquote>
 <P>
 
 
@@ -4173,11 +4173,11 @@ list to a key (or button) like this:
 <P>
 
 
-<PRE><blockquote># Here we call an existing function, but it may be different
+<blockquote><PRE># Here we call an existing function, but it may be different
 AddToFunc SwitchToWindow
 + I WindowListFunc $w
 
-Key Tab A M WindowList &quot;Prev SwitchToWindow&quot;</blockquote></PRE>
+Key Tab A M WindowList &quot;Prev SwitchToWindow&quot;</PRE></blockquote>
 <P>
 
 
@@ -4259,9 +4259,9 @@ $0 is the window id:
 <P>
 
 
-<PRE><blockquote>AddToFunc IFunc I WindowId $0 Iconify toggle
+<blockquote><PRE>AddToFunc IFunc I WindowId $0 Iconify toggle
 WindowList Function IFunc, NoSticky, \
-  CurrentDesk, NoIcons</blockquote></PRE>
+  CurrentDesk, NoIcons</PRE></blockquote>
 <P>
 
 
@@ -4281,7 +4281,7 @@ as an icon manager, you could invoke the following:
 <P>
 
 
-<PRE><blockquote>WindowList OnlyIcons, Sticky, OnTop, Geometry</blockquote></PRE>
+<blockquote><PRE>WindowList OnlyIcons, Sticky, OnTop, Geometry</PRE></blockquote>
 <P>
 
 
@@ -4376,9 +4376,9 @@ only in its layer.  To bring a window to the absolute bottom, use
 <P>
 
 
-<PRE><blockquote>AddToFunc lower-to-bottom
+<blockquote><PRE>AddToFunc lower-to-bottom
  + I Layer 0 0
- + I Lower</blockquote></PRE>
+ + I Lower</PRE></blockquote>
 <P>
 
 
@@ -4444,12 +4444,12 @@ Simple Examples:
 <P>
 
 
-<PRE><blockquote># Interactive move
+<blockquote><PRE># Interactive move
 Mouse 1 T A Move
 # Move window so top left is at (10%,10%)
 Mouse 2 T A Move 10 10
 # Move top left to (10pixels,10pixels)
-Mouse 3 T A Move 10p 10p</blockquote></PRE>
+Mouse 3 T A Move 10p 10p</PRE></blockquote>
 <P>
 
 
@@ -4461,7 +4461,7 @@ etc.; only the command is shown, though):
 <P>
 
 
-<PRE><blockquote># Move window so bottom right is at bottom
+<blockquote><PRE># Move window so bottom right is at bottom
 # right of screen
 Move -0 -0
 
@@ -4475,7 +4475,7 @@ Move 40p w-10p
 
 # Move window to the mouse pointer location
 #
-Move m+0 m+0</blockquote></PRE>
+Move m+0 m+0</PRE></blockquote>
 <P>
 
 
@@ -4554,7 +4554,7 @@ Examples:
 <P>
 
 
-<PRE><blockquote># Move window to page (2,3)
+<blockquote><PRE># Move window to page (2,3)
 MoveToPage 2 3
 
 # Move window to lowest and rightmost page
@@ -4565,7 +4565,7 @@ MoveToPage prev
 
 # Move window two pages to the right and one
 # page up
-MoveToPage +2p -1p</blockquote></PRE>
+MoveToPage +2p -1p</PRE></blockquote>
 <P>
 
 
@@ -4582,12 +4582,12 @@ screen area.  With
 <P>
 
 
-<PRE><blockquote>all windows are moved using the traditional rubber-band outline.
+<blockquote><PRE>all windows are moved using the traditional rubber-band outline.
 With
 
 
 <blockquote>
-OpaqueMoveSize 100</blockquote></PRE>
+OpaqueMoveSize 100</PRE></blockquote>
 <P>
 
 
@@ -4598,7 +4598,7 @@ all windows are moved as solid windows.  The default is
 <P>
 
 
-<PRE><blockquote>OpaqueMoveSize 5</blockquote></PRE>
+<blockquote><PRE>OpaqueMoveSize 5</PRE></blockquote>
 <P>
 
 
@@ -4639,9 +4639,9 @@ only in its layer. To bring a window to the absolute top, use
 <P>
 
 
-<PRE><blockquote>AddToFunc raise-to-top
+<blockquote><PRE>AddToFunc raise-to-top
  + I Layer 0 ontop
- + I Raise</blockquote></PRE>
+ + I Raise</PRE></blockquote>
 <P>
 
 
@@ -4695,7 +4695,7 @@ c) is used.  So you can say
 <P>
 
 
-<PRE><blockquote>Resize 80c 24c</blockquote></PRE>
+<blockquote><PRE>Resize 80c 24c</PRE></blockquote>
 <P>
 
 
@@ -4756,8 +4756,8 @@ Example:
 <P>
 
 
-<PRE><blockquote># Move the window to the top left corner
-ResizeMove w+0 -10p 0 -20p</blockquote></PRE>
+<blockquote><PRE># Move the window to the top left corner
+ResizeMove w+0 -10p 0 -20p</PRE></blockquote>
 <P>
 
 
@@ -4788,8 +4788,8 @@ ending location.  e.g.:
 <P>
 
 
-<PRE><blockquote>SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 \
-  .45 .6 .75 .85 .90 .94 .97 .99 1.0</blockquote></PRE>
+<blockquote><PRE>SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 \
+  .45 .6 .75 .85 .90 .94 .97 .99 1.0</PRE></blockquote>
 <P>
 
 
@@ -4892,7 +4892,7 @@ syntax has changed.  If you used
 <P>
 
 
-<PRE><blockquote>WindowsDesk n</blockquote></PRE>
+<blockquote><PRE>WindowsDesk n</PRE></blockquote>
 <P>
 
 
@@ -4904,7 +4904,7 @@ it to
 <P>
 
 
-<PRE><blockquote>MoveToDesk 0 n</blockquote></PRE>
+<blockquote><PRE>MoveToDesk 0 n</PRE></blockquote>
 <P>
 
 
@@ -4967,7 +4967,7 @@ pages, so
 <P>
 
 
-<PRE><blockquote>CursorMove 100 100</blockquote></PRE>
+<blockquote><PRE>CursorMove 100 100</PRE></blockquote>
 <P>
 
 
@@ -4978,7 +4978,7 @@ means to move down and right by one full page.
 <P>
 
 
-<PRE><blockquote>CursorMove 50 25</blockquote></PRE>
+<blockquote><PRE>CursorMove 50 25</PRE></blockquote>
 <P>
 
 
@@ -4994,7 +4994,7 @@ to the horizontal and/or vertical specification.  For example
 <P>
 
 
-<PRE><blockquote>CursorMove -10p -10p</blockquote></PRE>
+<blockquote><PRE>CursorMove -10p -10p</PRE></blockquote>
 <P>
 
 
@@ -5057,11 +5057,11 @@ use a function, like:
 <P>
 
 
-<PRE><blockquote>AddToFunc SelectWindow
+<blockquote><PRE>AddToFunc SelectWindow
 + I Focus
 + I Iconify false
 + I Raise
-+ I WarpToWindow 50 8p</blockquote></PRE>
++ I WarpToWindow 50 8p</PRE></blockquote>
 <P>
 
 
@@ -5088,7 +5088,7 @@ screen 1:
 <P>
 
 
-<PRE><blockquote>WindowId root 1 WarpToWindow 50 50</blockquote></PRE>
+<blockquote><PRE>WindowId root 1 WarpToWindow 50 50</PRE></blockquote>
 <P>
 
 
@@ -5194,7 +5194,7 @@ vertical size of the screen:
 <P>
 
 
-<PRE><blockquote>Mouse 0 4 A Maximize 0 100</blockquote></PRE>
+<blockquote><PRE>Mouse 0 4 A Maximize 0 100</PRE></blockquote>
 <P>
 
 
@@ -5205,7 +5205,7 @@ The following causes windows to be stretched to the full width:
 <P>
 
 
-<PRE><blockquote>Mouse 0 4 A Maximize 100 0</blockquote></PRE>
+<blockquote><PRE>Mouse 0 4 A Maximize 100 0</PRE></blockquote>
 <P>
 
 
@@ -5216,7 +5216,7 @@ This makes a window that is half the screen size in each direction:
 <P>
 
 
-<PRE><blockquote>Mouse 0 4 A Maximize 50 50</blockquote></PRE>
+<blockquote><PRE>Mouse 0 4 A Maximize 50 50</PRE></blockquote>
 <P>
 
 
@@ -5227,7 +5227,7 @@ To expand a window horizontally until any other window is found:
 <P>
 
 
-<PRE><blockquote>Mouse 0 4 A Maximize 0 grow</blockquote></PRE>
+<blockquote><PRE>Mouse 0 4 A Maximize 0 grow</PRE></blockquote>
 <P>
 
 
@@ -5239,7 +5239,7 @@ unoccupied
 <P>
 
 
-<PRE><blockquote>Mouse 0 4 A Maximize 100 -60p</blockquote></PRE>
+<blockquote><PRE>Mouse 0 4 A Maximize 100 -60p</PRE></blockquote>
 <P>
 
 
@@ -5399,7 +5399,7 @@ key. To turn all these pesky modifiers off you can use this command:
 <P>
 
 
-<PRE><blockquote>IgnoreModifiers L25</blockquote></PRE>
+<blockquote><PRE>IgnoreModifiers L25</PRE></blockquote>
 <P>
 
 
@@ -5435,8 +5435,8 @@ presses of mouse buttons 1 and 3 to such a program.
 <P>
 
 
-<PRE><blockquote>Mouse 1 R A GnomeButton
-Mouse 3 R A GnomeButton</blockquote></PRE>
+<blockquote><PRE>Mouse 1 R A GnomeButton
+Mouse 3 R A GnomeButton</PRE></blockquote>
 <P>
 
 
@@ -5495,7 +5495,7 @@ is hit, no matter where the mouse pointer is:
 <P>
 
 
-<PRE><blockquote>Key F11 A SCM WindowList</blockquote></PRE>
+<blockquote><PRE>Key F11 A SCM WindowList</PRE></blockquote>
 <P>
 
 
@@ -5559,7 +5559,7 @@ window (0 is short for 10).  In summary, the buttons are numbered:
 <P>
 
 
-<PRE><blockquote>1 3 5 7 9    0 8 6 4 2</blockquote></PRE>
+<blockquote><PRE>1 3 5 7 9    0 8 6 4 2</PRE></blockquote>
 <P>
 
 
@@ -5599,8 +5599,8 @@ Example:
 <P>
 
 
-<PRE><blockquote>Style * SloppyFocus
-PointerKey f1 a m Menu MainMenu</blockquote></PRE>
+<blockquote><PRE>Style * SloppyFocus
+PointerKey f1 a m Menu MainMenu</PRE></blockquote>
 <P>
 
 
@@ -5643,11 +5643,11 @@ Strokes sequences are defined in a telephone grid like this:
 <P>
 
 
-<PRE><blockquote> 1  2  3
+<blockquote><PRE> 1  2  3
 
  4  5  6
 
- 7  8  9</blockquote></PRE>
+ 7  8  9</PRE></blockquote>
 <P>
 
 
@@ -5658,11 +5658,11 @@ or in a numeric pad grid like this:
 <P>
 
 
-<PRE><blockquote> 7  8  9
+<blockquote><PRE> 7  8  9
 
  4  5  6
 
- 1  2  3</blockquote></PRE>
+ 1  2  3</PRE></blockquote>
 <P>
 
 
@@ -5684,7 +5684,7 @@ a mouse button binding (using an empty action) before using the stroke
 <P>
 
 
-<PRE><blockquote>Mouse 3 R N</blockquote></PRE>
+<blockquote><PRE>Mouse 3 R N</PRE></blockquote>
 <P>
 
 
@@ -5695,7 +5695,7 @@ Also, you can still use the stroke &quot;sequence 0&quot; to simulate a click:
 <P>
 
 
-<PRE><blockquote>Stroke 0 3 R N Menu WindowList Nop</blockquote></PRE>
+<blockquote><PRE>Stroke 0 3 R N Menu WindowList Nop</PRE></blockquote>
 <P>
 
 
@@ -5707,7 +5707,7 @@ the root window with button 3 pressed down:
 <P>
 
 
-<PRE><blockquote>Stroke 258  3  R  N  Exec exec xterm</blockquote></PRE>
+<blockquote><PRE>Stroke 258  3  R  N  Exec exec xterm</PRE></blockquote>
 <P>
 
 
@@ -5718,11 +5718,11 @@ An example for Netscape:
 <P>
 
 
-<PRE><blockquote>Stroke 7415963    3  R  N  Exec exec netscape
+<blockquote><PRE>Stroke 7415963    3  R  N  Exec exec netscape
 Stroke 74148963   3  R  N  Exec exec netscape
 Stroke 74158963   3  R  N  Exec exec netscape
 Stroke 7418963    3  R  N  Exec exec netscape
-Stroke 415963     3  R  N  Exec exec netscape</blockquote></PRE>
+Stroke 415963     3  R  N  Exec exec netscape</PRE></blockquote>
 <P>
 
 
@@ -5734,8 +5734,8 @@ a grid on your machine. Here an example:
 <P>
 
 
-<PRE><blockquote>Stroke N78963314   3  R  N  FvwmForm FvwmForm-QuitVerify
-Stroke N789633147  3  R  N  FvwmForm FvwmForm-QuitVerify</blockquote></PRE>
+<blockquote><PRE>Stroke N78963314   3  R  N  FvwmForm FvwmForm-QuitVerify
+Stroke N789633147  3  R  N  FvwmForm FvwmForm-QuitVerify</PRE></blockquote>
 <P>
 
 
@@ -5755,7 +5755,7 @@ can be obtained via anonymous ftp at
 <P>
 
 
-<PRE><blockquote><B><A HREF="http://www.etla.net/~willey/projects/libstroke/">http://www.etla.net/~willey/projects/libstroke/</A></B></blockquote></PRE>
+<blockquote><PRE><B><A HREF="http://www.etla.net/~willey/projects/libstroke/">http://www.etla.net/~willey/projects/libstroke/</A></B></PRE></blockquote>
 <P>
 
 
@@ -5783,7 +5783,7 @@ looks for a stroke binding of the form
 <P>
 
 
-<PRE><blockquote>Stroke sequence 0 Context Modifiers action</blockquote></PRE>
+<blockquote><PRE>Stroke sequence 0 Context Modifiers action</PRE></blockquote>
 <P>
 
 
@@ -5798,8 +5798,8 @@ command.  Examples:
 <P>
 
 
-<PRE><blockquote>Mouse 3 A M StrokeFunc
-Key x R N StrokeFunc</blockquote></PRE>
+<blockquote><PRE>Mouse 3 A M StrokeFunc
+Key x R N StrokeFunc</PRE></blockquote>
 <P>
 
 
@@ -5818,8 +5818,8 @@ corresponds to a stroke binding of the form
 <P>
 
 
-<PRE><blockquote>Stroke <I>sequence</I> 0 A M <I>action</I> 
-Stroke <I>sequence</I> 0 R N <I>action</I> </blockquote></PRE>
+<blockquote><PRE>Stroke <I>sequence</I> 0 A M <I>action</I> 
+Stroke <I>sequence</I> 0 R N <I>action</I> </PRE></blockquote>
 <P>
 
 
@@ -6381,7 +6381,7 @@ There is one exception to these rules, namely
 <P>
 
 
-<PRE><blockquote>Style * Icon unknown.xpm</blockquote></PRE>
+<blockquote><PRE>Style * Icon unknown.xpm</PRE></blockquote>
 <P>
 
 
@@ -6394,7 +6394,7 @@ windows to have the same icon, you can use
 <P>
 
 
-<PRE><blockquote>Style ** Icon unknown.xpm</blockquote></PRE>
+<blockquote><PRE>Style ** Icon unknown.xpm</PRE></blockquote>
 <P>
 
 
@@ -6420,8 +6420,8 @@ module icon to exist:
 <P>
 
 
-<PRE><blockquote>Style * NoIcon
-Style FvwmPager Icon</blockquote></PRE>
+<blockquote><PRE>Style * NoIcon
+Style FvwmPager Icon</PRE></blockquote>
 <P>
 
 
@@ -6436,7 +6436,7 @@ string &quot;none&quot;:
 <P>
 
 
-<PRE><blockquote>IconBox <I>l t r b</I></blockquote></PRE>
+<blockquote><PRE>IconBox <I>l t r b</I></PRE></blockquote>
 <P>
 
 
@@ -6447,7 +6447,7 @@ or
 <P>
 
 
-<PRE><blockquote>IconBox geometry</blockquote></PRE>
+<blockquote><PRE>IconBox geometry</PRE></blockquote>
 <P>
 
 
@@ -6471,7 +6471,7 @@ bottom of the screen.  Perhaps easier to use is an X11 Geometry string:
 <P>
 
 
-<PRE><blockquote>IconBox -80x200-1-1</blockquote></PRE>
+<blockquote><PRE>IconBox -80x200-1-1</PRE></blockquote>
 <P>
 
 
@@ -6491,8 +6491,8 @@ command.  For example:
 <P>
 
 
-<PRE><blockquote>Style * IconBox -80x200-1-1, \
-        IconBox 1000x70-1-1</blockquote></PRE>
+<blockquote><PRE>Style * IconBox -80x200-1-1, \
+        IconBox 1000x70-1-1</PRE></blockquote>
 <P>
 
 
@@ -6519,9 +6519,9 @@ configuration file:
 <P>
 
 
-<PRE><blockquote>AddToFunc DeiconifyAndRearrange
+<blockquote><PRE>AddToFunc DeiconifyAndRearrange
  + C Iconify off
- + C All (CurrentPage Iconic) RecaptureWindow</blockquote></PRE>
+ + C All (CurrentPage Iconic) RecaptureWindow</PRE></blockquote>
 <P>
 
 
@@ -6536,13 +6536,13 @@ function.  For example replace
 <P>
 
 
-<PRE><blockquote>AddToFunc IconFunc
+<blockquote><PRE>AddToFunc IconFunc
  + C Iconify off
  + M Raise
  + M Move
  + D Iconify off
 
-Mouse 1 I A Iconify off</blockquote></PRE>
+Mouse 1 I A Iconify off</PRE></blockquote>
 <P>
 
 
@@ -6553,13 +6553,13 @@ with
 <P>
 
 
-<PRE><blockquote>AddToFunc IconFunc
+<blockquote><PRE>AddToFunc IconFunc
  + C DeiconifyAndRearrange
  + M Raise
  + M Move
  + D DeiconifyAndRearrange
 
-Mouse 1 I A DeiconifyAndRearrange</blockquote></PRE>
+Mouse 1 I A DeiconifyAndRearrange</PRE></blockquote>
 <P>
 
 
@@ -6572,7 +6572,7 @@ takes 2 numeric arguments greater than zero.
 <P>
 
 
-<PRE><blockquote><I>IconGrid x y</I></blockquote></PRE>
+<blockquote><PRE><I>IconGrid x y</I></PRE></blockquote>
 <P>
 
 
@@ -6597,7 +6597,7 @@ definition that it applies to:
 <P>
 
 
-<PRE><blockquote>Style * IconBox -80x240-1-1, IconGrid 90 90</blockquote></PRE>
+<blockquote><PRE>Style * IconBox -80x240-1-1, IconGrid 90 90</PRE></blockquote>
 <P>
 
 
@@ -6610,7 +6610,7 @@ takes 2 arguments.
 <P>
 
 
-<PRE><blockquote>IconFill <I>Bottom Right</I></blockquote></PRE>
+<blockquote><PRE>IconFill <I>Bottom Right</I></PRE></blockquote>
 <P>
 
 
@@ -6624,7 +6624,7 @@ This would be expressed as:
 <P>
 
 
-<PRE><blockquote>IconFill left top</blockquote></PRE>
+<blockquote><PRE>IconFill left top</PRE></blockquote>
 <P>
 
 
@@ -6645,7 +6645,7 @@ definition that it applies to:
 <P>
 
 
-<PRE><blockquote>Style * IconBox -80x240-1-1, IconFill b r</blockquote></PRE>
+<blockquote><PRE>Style * IconBox -80x240-1-1, IconFill b r</PRE></blockquote>
 <P>
 
 
@@ -6705,9 +6705,9 @@ resizing you could use these lines in your configuration file:
 <P>
 
 
-<PRE><blockquote>Style * ResizeOpaque
+<blockquote><PRE>Style * ResizeOpaque
 Style rxvt ResizeOutline
-Style emacs ResizeOutline</blockquote></PRE>
+Style emacs ResizeOutline</PRE></blockquote>
 <P>
 
 
@@ -6861,7 +6861,7 @@ Example:
 <P>
 
 
-<PRE><blockquote>Style * ManualPlacement
+<blockquote><PRE>Style * ManualPlacement
 
 *FvwmEvent: PassID
 *FvwmEvent: add_window GrowDownFunc
@@ -6870,7 +6870,7 @@ AddToFunc StartFunction
 
 AddToFunc GrowDownFunc
 + I windowid $0 (PlacedByButton3) \
-  Resize bottomright keep -0p</blockquote></PRE>
+  Resize bottomright keep -0p</PRE></blockquote>
 <P>
 
 
@@ -6894,7 +6894,7 @@ table:
 <P>
 
 
-<PRE><blockquote>GlobalOpts SmartPlacementIsReallySmart
+<blockquote><PRE>GlobalOpts SmartPlacementIsReallySmart
 Style * SmartPlacement
   --&gt;
 Style * SmartPlacement, CleverPlacement
@@ -6933,7 +6933,7 @@ Style * ManualPlacementsHonorsStartsOnPage
 
 Style * ActivePlacementsHonorsStartsOnPageOff
   --&gt;
-Style * ManualPlacementsHonorsStartsOnPageOff</blockquote></PRE>
+Style * ManualPlacementsHonorsStartsOnPageOff</PRE></blockquote>
 <P>
 
 
@@ -7189,9 +7189,9 @@ possible like this
 <P>
 
 
-<PRE><blockquote>Style * RaiseTransient
+<blockquote><PRE>Style * RaiseTransient
 Style * LowerTransient
-Style * StackTransientParent</blockquote></PRE>
+Style * StackTransientParent</PRE></blockquote>
 <P>
 
 
@@ -7296,7 +7296,7 @@ without retyping.  For example:
 <P>
 
 
-<PRE><blockquote>  Style rxvt UseStyle XTerm</blockquote></PRE>
+<blockquote><PRE>  Style rxvt UseStyle XTerm</PRE></blockquote>
 <P>
 
 
@@ -7317,7 +7317,7 @@ line again.
 <P>
 
 
-<PRE><blockquote># Change default fvwm behavior to no title-
+<blockquote><PRE># Change default fvwm behavior to no title-
 # bars on windows! Also define a default icon.
 Style *             NoTitle,               \
                     Icon unknown1.xpm,     \
@@ -7358,7 +7358,7 @@ Style signal      StartsOnDesk 3
 # middle of my 3x3 virtual desktop, and don't
 # bother me with it...
 Style Netscape* SkipMapping,              \
-                StartsOnPage 1 1 1</blockquote></PRE>
+                StartsOnPage 1 1 1</PRE></blockquote>
 <P>
 
 
@@ -7380,8 +7380,8 @@ allows only the FvwmPager module icon to exist:
 <P>
 
 
-<PRE><blockquote>Style * NoIcon
-Style FvwmPager Icon</blockquote></PRE>
+<blockquote><PRE>Style * NoIcon
+Style FvwmPager Icon</PRE></blockquote>
 <P>
 
 
@@ -7422,7 +7422,7 @@ For example:
 <P>
 
 
-<PRE><blockquote>DestroyStyle Application*</blockquote></PRE>
+<blockquote><PRE>DestroyStyle Application*</PRE></blockquote>
 <P>
 
 
@@ -7484,14 +7484,14 @@ command.  Examples:
 <P>
 
 
-<PRE><blockquote>ButtonStyle 1 Pixmap led.xpm -- Top Left
+<blockquote><PRE>ButtonStyle 1 Pixmap led.xpm -- Top Left
 ButtonStyle 1 ActiveDown HGradient 8 grey \
   black
 ButtonStyle All --  UseTitleStyle
 AddButtonStyle 1 ActiveUp (Pixmap a.xpm)  \
   ActiveDown (Pixmap b.xpm -- Top)
 AddButtonStyle 1 Vector 4 50x30@1 70x70@0 \
-  30x70@0 50x30@1</blockquote></PRE>
+  30x70@0 50x30@1</PRE></blockquote>
 <P>
 
 
@@ -7610,7 +7610,7 @@ The following example creates a decor &quot;FlatDecor&quot; and style
 <P>
 
 
-<PRE><blockquote>AddToDecor FlatDecor
+<blockquote><PRE>AddToDecor FlatDecor
  + ButtonStyle All ActiveUp (-- flat) \
    Inactive (-- flat)
  + TitleStyle -- flat
@@ -7618,7 +7618,7 @@ The following example creates a decor &quot;FlatDecor&quot; and style
  + Style FlatStyle UseDecor FlatDecor, \
      Color white/grey40,HandleWidth 4
 
-Style xterm UseStyle FlatStyle</blockquote></PRE>
+Style xterm UseStyle FlatStyle</PRE></blockquote>
 <P>
 
 
@@ -7634,9 +7634,9 @@ A decor can be destroyed with
 <P>
 
 
-<PRE><blockquote>AddToDecor FlatDecor
+<blockquote><PRE>AddToDecor FlatDecor
  + Style FlatStyle UseDecor FlatDecor, \
-     Color white/grey40,HandleWidth 4</blockquote></PRE>
+     Color white/grey40,HandleWidth 4</PRE></blockquote>
 <P>
 
 
@@ -7647,7 +7647,7 @@ and now apply the style again:
 <P>
 
 
-<PRE><blockquote>Style xterm UseStyle FlatStyle</blockquote></PRE>
+<blockquote><PRE>Style xterm UseStyle FlatStyle</PRE></blockquote>
 <P>
 
 
@@ -7725,9 +7725,9 @@ pixmap, one might specify:
 <P>
 
 
-<PRE><blockquote>BorderStyle Active TiledPixmap marble.xpm
+<blockquote><PRE>BorderStyle Active TiledPixmap marble.xpm
 BorderStyle Inactive TiledPixmap granite.xpm
-BorderStyle Active -- HiddenHandles NoInset</blockquote></PRE>
+BorderStyle Active -- HiddenHandles NoInset</PRE></blockquote>
 <P>
 
 
@@ -7738,7 +7738,7 @@ To clear the style for both states:
 <P>
 
 
-<PRE><blockquote>BorderStyle Simple</blockquote></PRE>
+<blockquote><PRE>BorderStyle Simple</PRE></blockquote>
 <P>
 
 
@@ -7749,7 +7749,7 @@ To clear for a single state:
 <P>
 
 
-<PRE><blockquote>BorderStyle Active Simple</blockquote></PRE>
+<blockquote><PRE>BorderStyle Active Simple</PRE></blockquote>
 <P>
 
 
@@ -7760,7 +7760,7 @@ To unset a flag for a given state:
 <P>
 
 
-<PRE><blockquote>BorderStyle Inactive -- !NoInset</blockquote></PRE>
+<blockquote><PRE>BorderStyle Inactive -- !NoInset</PRE></blockquote>
 <P>
 
 
@@ -7831,7 +7831,7 @@ hints, if the window is maximized, shaded or sticky, respectively.
 <P>
 
 
-<PRE><blockquote>AddToDecor Default
+<blockquote><PRE>AddToDecor Default
  + ButtonStyle 6 All               \
    Vector 4 50x25@1 85x75@0 15x75@0 50x25@1
  + ButtonStyle 6 ToggledActiveUp   \
@@ -7841,7 +7841,7 @@ hints, if the window is maximized, shaded or sticky, respectively.
  + ButtonStyle 6 ToggledInactive   \
    Vector 4 50x75@0 85x25@1 15x25@0 50x75@0
  + ButtonStyle 6 - MwmDecorShade
-Mouse 0 6 N WindowShade</blockquote></PRE>
+Mouse 0 6 N WindowShade</PRE></blockquote>
 <P>
 
 
@@ -7870,9 +7870,9 @@ line should be considered independent):
 <P>
 
 
-<PRE><blockquote>ButtonStyle Left -- flat
+<blockquote><PRE>ButtonStyle Left -- flat
 ButtonStyle All ActiveUp (-- flat) \
-  Inactive (-- flat)</blockquote></PRE>
+  Inactive (-- flat)</PRE></blockquote>
 <P>
 
 
@@ -7888,7 +7888,7 @@ If you want to reset all buttons to their defaults:
 <P>
 
 
-<PRE><blockquote>ButtonStyle Reset</blockquote></PRE>
+<blockquote><PRE>ButtonStyle Reset</PRE></blockquote>
 <P>
 
 
@@ -7899,7 +7899,7 @@ To reset the &quot;ActiveUp&quot; button state of button 1 to the default:
 <P>
 
 
-<PRE><blockquote>ButtonStyle 1 ActiveUp Default</blockquote></PRE>
+<blockquote><PRE>ButtonStyle 1 ActiveUp Default</PRE></blockquote>
 <P>
 
 
@@ -7911,7 +7911,7 @@ button number 2:
 <P>
 
 
-<PRE><blockquote>ButtonStyle 1 Default 2</blockquote></PRE>
+<blockquote><PRE>ButtonStyle 1 Default 2</PRE></blockquote>
 <P>
 
 
@@ -8056,8 +8056,8 @@ is optional.  The specification is a little cumbersome:
 <P>
 
 
-<PRE><blockquote>ButtonStyle 2 Vector 4 50x30@1 70x70@0 \
-  30x70@0 50x30@1</blockquote></PRE>
+<blockquote><PRE>ButtonStyle 2 Vector 4 50x30@1 70x70@0 \
+  30x70@0 50x30@1</PRE></blockquote>
 <P>
 
 
@@ -8091,10 +8091,10 @@ down and inactive states.
 <P>
 
 
-<PRE><blockquote>ButtonStyle 2 Pixmap my_pixmap.xpm
+<blockquote><PRE>ButtonStyle 2 Pixmap my_pixmap.xpm
 ButtonStyle 4 ActiveUp (Pixmap up.xpm) \
   ActiveDown (Pixmap down.xpm)
-ButtonStyle 4 Inactive Pixmap inactive.xpm</blockquote></PRE>
+ButtonStyle 4 Inactive Pixmap inactive.xpm</PRE></blockquote>
 <P>
 
 
@@ -8132,11 +8132,11 @@ command.  This button style accepts no arguments.  Example:
 <P>
 
 
-<PRE><blockquote>Style *     MiniIcon mini-bx2.xpm
+<blockquote><PRE>Style *     MiniIcon mini-bx2.xpm
 Style xterm MiniIcon mini-term.xpm
 Style Emacs MiniIcon mini-doc.xpm
 
-ButtonStyle 1 MiniIcon</blockquote></PRE>
+ButtonStyle 1 MiniIcon</PRE></blockquote>
 <P>
 
 
@@ -8251,7 +8251,7 @@ command.
 <P>
 
 
-<PRE><blockquote>ChangeDecor CustomDecor1</blockquote></PRE>
+<blockquote><PRE>ChangeDecor CustomDecor1</PRE></blockquote>
 <P>
 
 
@@ -8288,7 +8288,7 @@ option.  The decor named &quot;Default&quot; cannot be destroyed.
 <P>
 
 
-<PRE><blockquote>DestroyDecor CustomDecor1</blockquote></PRE>
+<blockquote><PRE>DestroyDecor CustomDecor1</PRE></blockquote>
 <P>
 
 
@@ -8319,7 +8319,7 @@ keyword.  Example:
 <P>
 
 
-<PRE><blockquote>TitleStyle LeftJustified Height 24</blockquote></PRE>
+<blockquote><PRE>TitleStyle LeftJustified Height 24</PRE></blockquote>
 <P>
 
 
@@ -8367,11 +8367,11 @@ regarding the &quot;ActiveDown&quot; state.  Examples:
 <P>
 
 
-<PRE><blockquote>TitleStyle ActiveUp HGradient 16 navy black
+<blockquote><PRE>TitleStyle ActiveUp HGradient 16 navy black
 TitleStyle ActiveDown (Solid red -- flat) \
   Inactive (TiledPixmap wood.xpm)
 TitleStyle ActiveUp (-- Flat) ActiveDown  \
-  (-- Raised) Inactive (-- Flat)</blockquote></PRE>
+  (-- Raised) Inactive (-- Flat)</PRE></blockquote>
 <P>
 
 
@@ -8390,7 +8390,7 @@ An example which sets flags for all states:
 <P>
 
 
-<PRE><blockquote>TitleStyle -- flat</blockquote></PRE>
+<blockquote><PRE>TitleStyle -- flat</PRE></blockquote>
 <P>
 
 
@@ -8401,9 +8401,9 @@ For a flattened look:
 <P>
 
 
-<PRE><blockquote>TitleStyle -- flat
+<blockquote><PRE>TitleStyle -- flat
 ButtonStyle All ActiveUp (-- flat) Inactive \
-  (-- flat)</blockquote></PRE>
+  (-- flat)</PRE></blockquote>
 <P>
 
 
@@ -8475,7 +8475,7 @@ intended for people who use
 <P>
 
 
-<PRE><blockquote>EdgeScroll 100 100</blockquote></PRE>
+<blockquote><PRE>EdgeScroll 100 100</PRE></blockquote>
 <P>
 
 
@@ -8496,7 +8496,7 @@ Note that, with
 <P>
 
 
-<PRE><blockquote>EdgeScroll 0 0</blockquote></PRE>
+<blockquote><PRE>EdgeScroll 0 0</PRE></blockquote>
 <P>
 
 
@@ -8527,7 +8527,7 @@ paging or scrolling when you hit the edge of a page include
 <P>
 
 
-<PRE><blockquote>EdgeScroll 0 0</blockquote></PRE>
+<blockquote><PRE>EdgeScroll 0 0</PRE></blockquote>
 <P>
 
 
@@ -8547,7 +8547,7 @@ command. If you want whole pages, use
 <P>
 
 
-<PRE><blockquote>EdgeScroll 100 100</blockquote></PRE>
+<blockquote><PRE>EdgeScroll 100 100</PRE></blockquote>
 <P>
 
 
@@ -8567,7 +8567,7 @@ around at the edge of the desktop.  If
 <P>
 
 
-<PRE><blockquote>EdgeScroll 100000 100000</blockquote></PRE>
+<blockquote><PRE>EdgeScroll 100000 100000</PRE></blockquote>
 <P>
 
 
@@ -8713,7 +8713,7 @@ Examples:
 <P>
 
 
-<PRE><blockquote># Go to page (2,3)
+<blockquote><PRE># Go to page (2,3)
 GotoPage 2 3
 
 # Go to lowest and rightmost page
@@ -8723,7 +8723,7 @@ GotoPage -1 -1
 GotoPage prev
 
 # Go two pages to the right and one page up
-GotoPage +2p -1p</blockquote></PRE>
+GotoPage +2p -1p</PRE></blockquote>
 <P>
 
 
@@ -8747,7 +8747,7 @@ values are expressed in percent of pages, so
 <P>
 
 
-<PRE><blockquote>Scroll 100 100</blockquote></PRE>
+<blockquote><PRE>Scroll 100 100</PRE></blockquote>
 <P>
 
 
@@ -8758,7 +8758,7 @@ means to scroll down and left by one full page.
 <P>
 
 
-<PRE><blockquote>Scroll 50 25</blockquote></PRE>
+<blockquote><PRE>Scroll 50 25</PRE></blockquote>
 <P>
 
 
@@ -8779,7 +8779,7 @@ at the edge of the desktop.  If
 <P>
 
 
-<PRE><blockquote>Scroll 100000 0</blockquote></PRE>
+<blockquote><PRE>Scroll 100000 0</PRE></blockquote>
 <P>
 
 
@@ -8812,9 +8812,9 @@ Begins or adds to a function definition.  Here is an example:
 <P>
 
 
-<PRE><blockquote>AddToFunc Move-or-Raise I Raise
+<blockquote><PRE>AddToFunc Move-or-Raise I Raise
  + M Move
- + D Lower</blockquote></PRE>
+ + D Lower</PRE></blockquote>
 <P>
 
 
@@ -8826,7 +8826,7 @@ or a mouse binding or key binding:
 <P>
 
 
-<PRE><blockquote>Mouse 1 TS A Move-or-Raise</blockquote></PRE>
+<blockquote><PRE>Mouse 1 TS A Move-or-Raise</PRE></blockquote>
 <P>
 
 
@@ -8882,8 +8882,8 @@ If you call
 <P>
 
 
-<PRE><blockquote>Key F10 R A Function MailFunction \
-  xmh &quot;-font fixed&quot;</blockquote></PRE>
+<blockquote><PRE>Key F10 R A Function MailFunction \
+  xmh &quot;-font fixed&quot;</PRE></blockquote>
 <P>
 
 
@@ -8894,10 +8894,10 @@ and &quot;MailFunction&quot; is
 <P>
 
 
-<PRE><blockquote>AddToFunc MailFunction
+<blockquote><PRE>AddToFunc MailFunction
  + I Next ($0) Iconify off
  + I Next ($0) focus
- + I None ($0) Exec exec $0 $1</blockquote></PRE>
+ + I None ($0) Exec exec $0 $1</PRE></blockquote>
 <P>
 
 
@@ -8908,7 +8908,7 @@ Then the last line of the function becomes
 <P>
 
 
-<PRE><blockquote> + I None (xmh) Exec exec xmh -font fixed</blockquote></PRE>
+<blockquote><PRE> + I None (xmh) Exec exec xmh -font fixed</PRE></blockquote>
 <P>
 
 
@@ -8921,8 +8921,8 @@ could use
 <P>
 
 
-<PRE><blockquote>Key F11 R A Function MailFunction \
-  zmail &quot;-bg pink&quot;</blockquote></PRE>
+<blockquote><PRE>Key F11 R A Function MailFunction \
+  zmail &quot;-bg pink&quot;</PRE></blockquote>
 <P>
 
 
@@ -8936,9 +8936,9 @@ if you wanted.  An example of using &quot;$w&quot; is:
 <P>
 
 
-<PRE><blockquote>AddToFunc PrintFunction
+<blockquote><PRE>AddToFunc PrintFunction
  + I Raise
- + I Exec xdpr -id $w</blockquote></PRE>
+ + I Exec xdpr -id $w</PRE></blockquote>
 <P>
 
 
@@ -8953,9 +8953,9 @@ all windows of the same resource:
 <P>
 
 
-<PRE><blockquote>AddToFunc FuncIconifySameResource &quot;I&quot; \
+<blockquote><PRE>AddToFunc FuncIconifySameResource &quot;I&quot; \
   All ($r) Iconify on
-Mouse 3 6 A FuncIconifySameResource</blockquote></PRE>
+Mouse 3 6 A FuncIconifySameResource</PRE></blockquote>
 <P>
 
 
@@ -8979,7 +8979,7 @@ fvwm session.  The function can be rebuilt using
 <P>
 
 
-<PRE><blockquote>DestroyFunc PrintFunction</blockquote></PRE>
+<blockquote><PRE>DestroyFunc PrintFunction</PRE></blockquote>
 <P>
 
 
@@ -8999,7 +8999,7 @@ Potentially useful for debugging things in your
 <P>
 
 
-<PRE><blockquote>Echo Beginning style definitions...</blockquote></PRE>
+<blockquote><PRE>Echo Beginning style definitions...</PRE></blockquote>
 <P>
 
 
@@ -9031,8 +9031,8 @@ The program rxvt is started with an assortment of options.
 <P>
 
 
-<PRE><blockquote>Key F1 R N Exec exec rxvt -fg yellow -bg blue \
-  -e /bin/tcsh</blockquote></PRE>
+<blockquote><PRE>Key F1 R N Exec exec rxvt -fg yellow -bg blue \
+  -e /bin/tcsh</PRE></blockquote>
 <P>
 
 
@@ -9046,8 +9046,8 @@ to complete, so things like:
 <P>
 
 
-<PRE><blockquote>Exec &quot;echo AddToMenu ... &gt; /tmp/file&quot;
-Read /tmp/file</blockquote></PRE>
+<blockquote><PRE>Exec &quot;echo AddToMenu ... &gt; /tmp/file&quot;
+Read /tmp/file</PRE></blockquote>
 <P>
 
 
@@ -9072,8 +9072,8 @@ default Bourne shell
 <P>
 
 
-<PRE><blockquote>ExecUseShell
-ExecUseShell /usr/local/bin/tcsh</blockquote></PRE>
+<blockquote><PRE>ExecUseShell
+ExecUseShell /usr/local/bin/tcsh</PRE></blockquote>
 <P>
 
 
@@ -9093,7 +9093,7 @@ window's title-bar.
 <P>
 
 
-<PRE><blockquote>Mouse 1 T A Function Move-or-Raise</blockquote></PRE>
+<blockquote><PRE>Mouse 1 T A Function Move-or-Raise</PRE></blockquote>
 <P>
 
 
@@ -9116,7 +9116,7 @@ menu.  If the menu item specification is
 <P>
 
 
-<PRE><blockquote>Nop &quot; &quot;</blockquote></PRE>
+<blockquote><PRE>Nop &quot; &quot;</PRE></blockquote>
 <P>
 
 
@@ -9127,7 +9127,7 @@ then a blank line is inserted.  If it looks like
 <P>
 
 
-<PRE><blockquote>Nop &quot;&quot;</blockquote></PRE>
+<blockquote><PRE>Nop &quot;&quot;</PRE></blockquote>
 <P>
 
 
@@ -9166,9 +9166,9 @@ Example:
 <P>
 
 
-<PRE><blockquote>AddToMenu HomeDirMenu
+<blockquote><PRE>AddToMenu HomeDirMenu
 PipeRead 'for i in $HOME/*; \
-  do echo &quot;+ $i Exec xterm -e vi $i&quot;; done'</blockquote></PRE>
+  do echo &quot;+ $i Exec xterm -e vi $i&quot;; done'</PRE></blockquote>
 <P>
 
 
@@ -9214,7 +9214,7 @@ module; e.g.
 <P>
 
 
-<PRE><blockquote>SetEnv height HEIGHT</blockquote></PRE>
+<blockquote><PRE>SetEnv height HEIGHT</PRE></blockquote>
 <P>
 
 
@@ -9261,8 +9261,8 @@ Examples:
 <P>
 
 
-<PRE><blockquote>Silent Move 0 0
-Silent User_defined_function</blockquote></PRE>
+<blockquote><PRE>Silent Move 0 0
+Silent User_defined_function</PRE></blockquote>
 <P>
 
 
@@ -9294,14 +9294,14 @@ start windows on specific desktops:
 <P>
 
 
-<PRE><blockquote>AddToFunc InitFunction
+<blockquote><PRE>AddToFunc InitFunction
  + I exec xterm -geometry 80x64+0+0
  + I Wait xterm
  + I Desk 0 2
  + I Exec exec xmh -font fixed -geometry \
        507x750+0+0
  + I Wait xmh
- + I Desk 0 0</blockquote></PRE>
+ + I Desk 0 0</PRE></blockquote>
 <P>
 
 
@@ -9541,9 +9541,9 @@ command.
 <P>
 
 
-<PRE><blockquote>WindowId 0x34567890 Raise
+<blockquote><PRE>WindowId 0x34567890 Raise
 WindowId root 1 WarpToWindow 50 50
-WindowId $0 (Silly_Popup) Delete</blockquote></PRE>
+WindowId $0 (Silly_Popup) Delete</PRE></blockquote>
 <P>
 
 
@@ -9577,10 +9577,10 @@ module name and the rest of the line, this is recommended to avoid conflicts.
 <P>
 
 
-<PRE><blockquote>*FvwmIconBox: MaxIconSize 48x48
+<blockquote><PRE>*FvwmIconBox: MaxIconSize 48x48
 *FvwmPager: WindowBorderWidth 1
 *FvwmButtons-TopRight: Geometry 100x100-0+0
-*FvwmButtons-Bottom: Geometry +0-0</blockquote></PRE>
+*FvwmButtons-Bottom: Geometry +0-0</PRE></blockquote>
 <P>
 
 
@@ -9603,9 +9603,9 @@ between the module name and the rest of the line, in this case a module name
 <P>
 
 
-<PRE><blockquote>DestroyModuleConfig FvwmButtons*
+<blockquote><PRE>DestroyModuleConfig FvwmButtons*
 DestroyModuleConfig FvwmForm: Fore
-DestroyModuleConfig FvwmIconBox: Max*</blockquote></PRE>
+DestroyModuleConfig FvwmIconBox: Max*</PRE></blockquote>
 <P>
 
 
@@ -9626,10 +9626,10 @@ is given, only modules started with the given alias are killed.
 <P>
 
 
-<PRE><blockquote>KillModule FvwmPager  # kill all pagers
+<blockquote><PRE>KillModule FvwmPager  # kill all pagers
 
 Module FvwmEvent SoundEvent
-KillModule FvwmEvent SoundEvent</blockquote></PRE>
+KillModule FvwmEvent SoundEvent</PRE></blockquote>
 <P>
 
 
@@ -9660,7 +9660,7 @@ the following syntax may be used:
 <P>
 
 
-<PRE><blockquote>Module FvwmForm MyForm</blockquote></PRE>
+<blockquote><PRE>Module FvwmForm MyForm</PRE></blockquote>
 <P>
 
 
@@ -9810,7 +9810,7 @@ For example:
 <P>
 
 
-<PRE><blockquote>ModulePath ${HOME}/lib/fvwm/modules:+</blockquote></PRE>
+<blockquote><PRE>ModulePath ${HOME}/lib/fvwm/modules:+</PRE></blockquote>
 <P>
 
 
@@ -9944,12 +9944,12 @@ Here are several examples:
 <P>
 
 
-<PRE><blockquote>Key F1 R N Restart
+<blockquote><PRE>Key F1 R N Restart
 Key F1 R N Restart fvwm2 -s
 Key F1 R N Restart ~/bin/fvwm2 -f $HOME/.fvwm/main
 Key F1 R N Restart fvwm1 -s -f .fvwm1rc
 Key F1 R N Restart xterm -n '&quot;X console&quot;' \
-  -T \&quot;X\ console\&quot; -e fvwm1 -s</blockquote></PRE>
+  -T \&quot;X\ console\&quot; -e fvwm1 -s</PRE></blockquote>
 <P>
 
 
@@ -9966,10 +9966,10 @@ Here are some cases when 'Restart fvwm2' causes troubles:
 <P>
 
 
-<PRE><blockquote>* running fvwm under a session manager
+<blockquote><PRE>* running fvwm under a session manager
 * running fvwm with multi headed displays
 * having command line arguments, like -f themes-rc or -cmd
-* if the first fvwm2 in the $PATH is a different one</blockquote></PRE>
+* if the first fvwm2 in the $PATH is a different one</PRE></blockquote>
 <P>
 
 
@@ -9999,7 +9999,7 @@ This command is useful if you use initial arguments like
 <P>
 
 
-<PRE><blockquote>-cmd FvwmCpp</blockquote></PRE>
+<blockquote><PRE>-cmd FvwmCpp</PRE></blockquote>
 <P>
 
 
@@ -10016,7 +10016,7 @@ The same as
 <P>
 
 
-<PRE><blockquote><B>Restart [</B><I>other-params</I><B>]</B></blockquote></PRE>
+<blockquote><PRE><B>Restart [</B><I>other-params</I><B>]</B></PRE></blockquote>
 <P>
 
 
@@ -10098,7 +10098,7 @@ Example:
 <P>
 
 
-<PRE><blockquote>TitleStyle VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0</blockquote></PRE>
+<blockquote><PRE>TitleStyle VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0</PRE></blockquote>
 <P>
 
 
@@ -10133,7 +10133,7 @@ Examples:
 <P>
 
 
-<PRE><blockquote>MenuStyle * MenuFace DGradient \
+<blockquote><PRE>MenuStyle * MenuFace DGradient \
   128 2 lightgrey 50 blue 50 white
 
 # 20% gradient from red to blue,
@@ -10145,7 +10145,7 @@ MenuStyle * DGradient 100 3 Red 20 Blue 30 \
 # 50% from blue to green, then
 # 50% from yellow to red
 *FvwmTheme: Colorset 0 Blue Red HGradient \
-  128 3 Blue 1000 Green 1 Yellow 1000 Red</blockquote></PRE>
+  128 3 Blue 1000 Green 1 Yellow 1000 Red</PRE></blockquote>
 <P>
 
 
@@ -10309,13 +10309,13 @@ The official fvwm homepage is
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 15:54:07 GMT, July 04, 2001
+Time: 21:46:48 GMT, July 04, 2001
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Wed Jul  4 18:54:07 IDT 2001 -->
+on Thu Jul  5 00:46:48 IDT 2001 -->
 </body>
 </html>
 

@@ -24,7 +24,7 @@
 </HEAD><BODY>
 <H1>FvwmForm</H1>
 Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">Index</A>
-<A HREF="./">Return to Main Contents</A><HR>
+- <A HREF="./">Return to Main Contents</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
@@ -139,7 +139,7 @@ add the line:
 <P>
 
 
-<PRE><blockquote>AddToMenu &quot;Module-Popup&quot; &quot;FvwmForm Defaults&quot; FvwmForm FvwmForm-Form</blockquote></PRE>
+<blockquote><PRE>AddToMenu &quot;Module-Popup&quot; &quot;FvwmForm Defaults&quot; FvwmForm FvwmForm-Form</PRE></blockquote>
 <P>
 
 
@@ -156,7 +156,7 @@ An example of what this file might contain after a save is:
 <P>
 
 
-<PRE><blockquote>  # This file last created by FvwmForm-Form on Sun Nov 28 11:18:26 EST 1999.
+<blockquote><PRE>  # This file last created by FvwmForm-Form on Sun Nov 28 11:18:26 EST 1999.
   *FvwmFormDefault: Font 10x20
   *FvwmFormDefault: InputFont 8x13bold
   *FvwmFormDefault: ButtonFont 10x20
@@ -165,7 +165,7 @@ An example of what this file might contain after a save is:
   *FvwmFormDefault: Colorset -1
   *FvwmFormDefault: ItemFore green
   *FvwmFormDefault: ItemBack gray40
-  *FvwmFormDefault: ItemColorset -1</blockquote></PRE>
+  *FvwmFormDefault: ItemColorset -1</PRE></blockquote>
 <P>
 
 
@@ -190,7 +190,7 @@ FvwmForm (like this):
 <P>
 
 
-<PRE><blockquote>Module FvwmForm MyForm ACTION=Browse &quot;TITLE=Browse Form&quot;</blockquote></PRE>
+<blockquote><PRE>Module FvwmForm MyForm ACTION=Browse &quot;TITLE=Browse Form&quot;</PRE></blockquote>
 <P>
 
 
@@ -207,8 +207,8 @@ of &quot;MyForm&quot;, commands would be changed like this:
 <P>
 
 
-<PRE><blockquote>Before  *MyForm: Text &quot;$TITLE, Home $HOME, Going to $ACTION&quot;
-After   *MyForm: TEXT &quot;Browse Form, Home /home/me, Going to Browse&quot;</blockquote></PRE>
+<blockquote><PRE>Before  *MyForm: Text &quot;$TITLE, Home $HOME, Going to $ACTION&quot;
+After   *MyForm: TEXT &quot;Browse Form, Home /home/me, Going to Browse&quot;</PRE></blockquote>
 <P>
 
 
@@ -239,7 +239,7 @@ The following commands are accepted before the form is displayed:
 <P>
 
 
-<PRE><blockquote>Back
+<blockquote><PRE>Back
 Button
 ButtonFont
 Choice
@@ -261,7 +261,7 @@ Selection
 Text
 Title
 UseData
-WarpPointer</blockquote></PRE>
+WarpPointer</PRE></blockquote>
 <P>
 
 
@@ -273,9 +273,9 @@ The following commands are accepted while the form is displayed:
 <P>
 
 
-<PRE><blockquote>Map
+<blockquote><PRE>Map
 Stop
-UnMap</blockquote></PRE>
+UnMap</PRE></blockquote>
 <P>
 
 
@@ -577,11 +577,11 @@ The following commands create a menu to invoke the examples:
 <P>
 
 
-<PRE><blockquote>DestroyMenu Forms
+<blockquote><PRE>DestroyMenu Forms
 AddToMenu Forms &quot;&amp;Q. QuitVerify&quot; Module FvwmForm FvwmForm-QuitVerify
 AddToMenu Forms &quot;&amp;C. Capture&quot;    Module FvwmForm FvwmForm-Capture
 AddToMenu Forms &quot;&amp;R. Rlogin&quot;     Module FvwmForm FvwmForm-Rlogin
-AddToMenu Forms &quot;&amp;T. Talk&quot;       Module FvwmForm FvwmForm-Talk</blockquote></PRE>
+AddToMenu Forms &quot;&amp;T. Talk&quot;       Module FvwmForm FvwmForm-Talk</PRE></blockquote>
 <P>
 
 
@@ -596,7 +596,7 @@ Return does the logout, Escape cancels logout.
 <P>
 
 
-<PRE><blockquote>DestroyModuleConfig  FvwmForm-QuitVerify: *
+<blockquote><PRE>DestroyModuleConfig  FvwmForm-QuitVerify: *
 *FvwmForm-QuitVerify: GrabServer
 *FvwmForm-QuitVerify: WarpPointer
 *FvwmForm-QuitVerify: Command     Beep
@@ -608,7 +608,7 @@ Return does the logout, Escape cancels logout.
 *FvwmForm-QuitVerify: Button      restart   &quot;Restart&quot; ^R
 *FvwmForm-QuitVerify: Command     Restart
 *FvwmForm-QuitVerify: Button      quit &quot;Cancel&quot; ^[
-*FvwmForm-QuitVerify: Command     Nop</blockquote></PRE>
+*FvwmForm-QuitVerify: Command     Nop</PRE></blockquote>
 <P>
 
 
@@ -625,7 +625,7 @@ and opens an xterm window from the remote host.
 <P>
 
 
-<PRE><blockquote>DestroyModuleConfig  FvwmForm-Rlogin: *
+<blockquote><PRE>DestroyModuleConfig  FvwmForm-Rlogin: *
 *FvwmForm-Rlogin: WarpPointer
 *FvwmForm-Rlogin: Line         center
 *FvwmForm-Rlogin: Text         &quot;Login to Remote Host&quot;
@@ -654,7 +654,7 @@ and opens an xterm window from the remote host.
 *FvwmForm-Rlogin: Button       quit    &quot;Cancel&quot;        ^[
 *FvwmForm-Rlogin: Command      Nop
 # Tell FvwmForm to read vars from the .FvwmForm-RloginDefault file:
-*FvwmForm-Rlogin: UseData .FvwmForm-Rlogin *FvwmForm-RloginDefault</blockquote></PRE>
+*FvwmForm-Rlogin: UseData .FvwmForm-Rlogin *FvwmForm-RloginDefault</PRE></blockquote>
 <P>
 
 
@@ -669,7 +669,7 @@ This example provides a front-end to xwd, xwud, and xpr.
 <P>
 
 
-<PRE><blockquote>DestroyModuleConfig  FvwmForm-Capture: *
+<blockquote><PRE>DestroyModuleConfig  FvwmForm-Capture: *
 *FvwmForm-Capture: Line       center
 *FvwmForm-Capture: Text       &quot;Capture Window&quot;
 *FvwmForm-Capture: Line       left
@@ -696,7 +696,7 @@ This example provides a front-end to xwd, xwud, and xpr.
 *FvwmForm-Capture: Command    Exec exec xwud -in $(file) &amp;
 *FvwmForm-Capture: Button     continue        &quot;Print&quot;
 *FvwmForm-Capture: Command    Exec exec xpr -device $(PtrType) $(file) | lpr -P $(printer) &amp;
-*FvwmForm-Capture: Button     quit            &quot;Quit&quot;</blockquote></PRE>
+*FvwmForm-Capture: Button     quit            &quot;Quit&quot;</PRE></blockquote>
 <P>
 
 
@@ -723,7 +723,7 @@ intermixed with buttons, help forms require different spacing.
 <P>
 
 
-<PRE><blockquote># FvwmForm-Talk - Basic replacement for FvwmTalk
+<blockquote><PRE># FvwmForm-Talk - Basic replacement for FvwmTalk
 DestroyModuleConfig  FvwmForm-Talk: *
 *FvwmForm-Talk: WarpPointer
 # Layout
@@ -744,7 +744,7 @@ DestroyModuleConfig  FvwmForm-Talk: *
 *FvwmForm-Talk: Button       restart     &quot;F3 - Reset input&quot; F3
 *FvwmForm-Talk: Command        Nop
 *FvwmForm-Talk: Button       quit        &quot;F4 - Dismiss&quot;  F4
-*FvwmForm-Talk: Command        Nop</blockquote></PRE>
+*FvwmForm-Talk: Command        Nop</PRE></blockquote>
 <P>
 
 
@@ -755,7 +755,7 @@ DestroyModuleConfig  FvwmForm-Talk: *
 <P>
 
 
-<PRE><blockquote># FvwmForm-TalkHelp - Help Text for FvwmForm-Talk
+<blockquote><PRE># FvwmForm-TalkHelp - Help Text for FvwmForm-Talk
 DestroyModuleConfig  FvwmForm-TalkHelp: *
 *FvwmForm-TalkHelp: WarpPointer
 # Layout
@@ -778,7 +778,7 @@ DestroyModuleConfig  FvwmForm-TalkHelp: *
 # Buttons
 *FvwmForm-TalkHelp: Line    center
 *FvwmForm-TalkHelp: Button  quit    &quot;Return - Dismiss&quot;         ^M
-*FvwmForm-TalkHelp: Command   Nop</blockquote></PRE>
+*FvwmForm-TalkHelp: Command   Nop</PRE></blockquote>
 <P>
 
 
@@ -839,13 +839,13 @@ No additional copyright is imposed.
 This document was created by
 <A HREF="./">man2html</A>,
 using the manual pages.<BR>
-Time: 15:54:08 GMT, July 04, 2001
+Time: 21:46:49 GMT, July 04, 2001
 </BODY>
 </HTML>
 </pre>
 <hr>
 <!-- This file automatically generated by run_man2html.sh
-on Wed Jul  4 18:54:08 IDT 2001 -->
+on Thu Jul  5 00:46:49 IDT 2001 -->
 </body>
 </html>
 
