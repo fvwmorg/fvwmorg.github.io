@@ -1,9 +1,28 @@
+----------------------------------------------------------------------
 README file for screenshot database
+----------------------------------------------------------------------
 
-Database is stored in file "screenshot_db.inc" as php code. To update
-the database use
+The screenshot database is stored in file "screenshot_db.inc" as php
+code. To update the database use
 	
 	php update_screenshot_db.cli
 
 in this directory. This will search all subdirectories for screenshot
 descriptions. 
+
+----------------------------------------------------------------------
+Adding a new shot
+----------------------------------------------------------------------
+
+To add a new screenshot for the screenshot page create a subdirectory
+which contains the shot in common grafical format and a description
+file. The screenshot must be named "screenshot.{ext}", the description
+file "descrition.inc". The description file may contain HTML-Elements.
+After this run 
+
+	php update_screenshot_db.cli
+
+which creates a preview for this screenshot and updates the screenshot
+database. 
+Please note that you need "convert" to create the preview.
+

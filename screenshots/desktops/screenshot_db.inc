@@ -326,18 +326,18 @@ $db = array(
                   'date' => 1061586310,
                   'size' => 205920,
                   'dimension' => '1280x1024',
-                  'description' => ' 	  Submitted by Mikhael Goikhman. This is a mix of different
- 	  <a href="http://fvwm-themes.sf.net/">fvwm-themes</a> components
- 	  plus some additional commands in FvwmConsole. This screenshot shows
- 	  new 2.5.x features like transparent FvwmPager in the upper left, png
- 	  icons from <a href="http://wm-icons.sf.net/">wm-icons</a> package,
- 	  tinted transparent menus, multipixmap titlebars, FvwmButtons on the
- 	  bottom that badly simulates the RedmondXP panel (it is managed by
- 	  fvwm module written in perl), icons tinted differently in menus,
- 	  shadow text and FreeType fonts. On the right is gkrellm.
+                  'description' => ' Submitted by Mikhael Goikhman. This is a mix of different
+ <a href="http://fvwm-themes.sf.net/">fvwm-themes</a> components
+ plus some additional commands in FvwmConsole. This screenshot shows
+ new 2.5.x features like transparent FvwmPager in the upper left, png
+ icons from <a href="http://wm-icons.sf.net/">wm-icons</a> package,
+ tinted transparent menus, multipixmap titlebars, FvwmButtons on the
+ bottom that badly simulates the RedmondXP panel (it is managed by
+ fvwm module written in perl), icons tinted differently in menus,
+ shadow text and FreeType fonts. On the right is gkrellm.
  
- 	  <p>A similar configuration is availaible in the current fvwm-themes
- 	  cvs version, you probably want to wait for the final 0.7.0 to try it.
+ <p>A similar configuration is availaible out of the box in fvwm-themes 0.7.0
+ or greater.
 ',
                   ),
       18 => array(
@@ -632,7 +632,7 @@ $db = array(
  desktop to run additional programs.
  <p>
  Note: Check out Glen\'s excellent FVWM
- <a href="http://members.fcwm.org/glen/fvwm/">page</a>
+ <a href="http://www.holiness.ch/fvwm/">page</a>
  for even more FVWM
  screenshots and information.
 ',

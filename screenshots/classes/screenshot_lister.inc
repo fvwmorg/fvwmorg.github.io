@@ -12,7 +12,7 @@ class Screenshot_Lister extends Directory_Lister {
     function Screenshot_Lister($path=".") {
         $this->check_preview_size = 0;
         $this->database_filename = "./screenshot_db.inc";
-        Directory_Lister::get_valid_dir_array($path, array());
+        Directory_Lister::get_valid_dir_array($path, array(), array("CVS"));
         $this->processed_dir_array = array();
         $this->read_existing_data_base();
         $this->process_dir_array();

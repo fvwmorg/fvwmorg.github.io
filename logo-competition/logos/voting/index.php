@@ -12,7 +12,7 @@ $rel_path = "../../..";
 //--------------------------------------------------------------------
 if (strlen("$navigation_check") == 0) include($rel_path."/definitions.inc");
 
-$theme = "voting";
+$theme = "voting2";
 $theme_file = theme_file($theme."_theme.inc");
 
 //--------------------------------------------------------------------
@@ -61,15 +61,15 @@ function change_bg_color(color, fg) {
 </map>
 
 <?php 
-include_once(sec_filename("voting_functions.inc"));
+include_once(sec_filename("voting_functions2.inc"));
 ?>
 
 <?php 
 $id = trim(get_user_setting("id"));
-if( $email = id_is_registered( $id ) ) :
+if( $email = id_is_registered($id) || 1) :
 ?>
 
-<h1>Welcome to the first stage of fvwm logo voting</h1>
+<h1>Welcome to the second stage of fvwm logo voting</h1>
 
 <p>
 You have been validated having email address <b>&lt;<?php echo $email; ?>&gt;</b>
@@ -85,35 +85,78 @@ Using this web site you can vote for logos taking part in the fvwm logo competit
 <h2>Voting Rules</h2>
 
 <ul>
-  <li>You can vote for 5 or more of logos - there is no limit to the
-    number of votes.<br><b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b></li>
-  <li>To vote for a logo or logo group check the box left beside the logo. </li>
-  <li>Your are only allowed to vote once.
-    <br><b>Please hit the voting
-	  button at the bottom of this page after your are sure you have checked
-	  ALL logos you want to vote for</b>.</li>
-  <li>Changing your opinion
-    after submitting your voting is not possible.</li>
-  <li>Click on the logo or the link "Author page" to get to a page
-    where all logos of this artist are displayed.</li>
-  <li>If you have JavaScript enabled you may change the background
-    color of this page to get an impression how this logo looks on
-    different background. This is done by clicking on the grey tone
-    images below the logos.</li>
-  <li>The order of logos at this page is incidental and changes
-    each time you reload this page.</li>
-  <li>During voting time no voting results are announced.</li>
-  <li><b>Voting is possible till November 30.</b></li>
+  <li> <b>PLEASE VOTE FOR ALL LOGOS YOU LIKE.</b> </li>
+  <li> If possible, please take your time to view the large
+    versions of the logos on the author pages (click on the logo 
+    of the link "Author page" to get there). Some of the large
+    logos may not look as you expect. </li>
+  <li> You can vote any of the logos - there is no limit to the
+    number of votes. </li>
+  <li> To vote for a logo or logo group check the box left beside
+    the logo. Your vote counts only for the logo shown, not for
+    all the other logos on the author's page. </li>
+  <li>  Your are only allowed to vote once. Please hit the voting
+    button at the bottom of this page when you are sure you have
+    checked ALL logos you want to vote for. </li>
+  <li> Once you have submitted your votes, you can not change them
+    anymore. </li>
+  <li> During the voting period, no results are announced. </li>
+  <li> You can vote until and including December 31 2003. </li>
 </ul>
+
+<h2>Notes</h2>
+
+<ul>
+  <li> If you have JavaScript enabled you may change the background
+    color of this page to get an impression how this logo looks
+    on different background. This is done by clicking on the
+    grey tone images below the logos. </li>
+  <li> The order of logos at this page is incidental and changes
+    each time you reload this page. </li>
+  <li> All logos that got at least 10% of the votes in the first
+    stage made it to the second stage. </li>
+</ul>
+
 <hr>
 
-<form action="vote.php" method="GET">
+<form action="vote2.php" method="GET">
 
 <?php
 //--------------------------------------------------------------------
 //- insert logos 
 //--------------------------------------------------------------------
 $logo_list = "logo_list.inc";
+
+$stage2logos = array (
+     142, // place  1,  67 voices [29.8%] Krzysztof_Bartczak
+      91, // place  1,  67 voices [29.8%] Felix_E_Klee
+     176, // place  3,  49 voices [21.8%] Phil_Harper
+     119, // place  4,  46 voices [20.5%] Ian_Remmler
+      99, // place  4,  46 voices [20.5%] Felix_E_Klee
+      40, // place  6,  42 voices [18.7%] Christopher_Culp
+     173, // place  7,  41 voices [18.3%] Phil_Harper
+      12, // place  8,  39 voices [17.4%] Alex_Wallis
+      42, // place  9,  38 voices [16.9%] Coji_Morishita
+      53, // place 10,  36 voices [16.0%] Colin_May
+     122, // place 10,  36 voices [16.0%] Ian_Remmler
+     188, // place 12,  35 voices [15.6%] Scott_Smedley
+      79, // place 13,  33 voices [14.7%] David_Drummond
+     191, // place 14,  32 voices [14.3%] Slava_Finkelsteyn
+     165, // place 15,  31 voices [13.8%] Phil_Harper
+      86, // place 15,  31 voices [13.8%] Ester_Wilson
+     123, // place 17,  30 voices [13.4%] Ian_Remmler
+      82, // place 17,  30 voices [13.4%] Ester_Wilson
+      98, // place 19,  28 voices [12.5%] Felix_E_Klee
+     125, // place 19,  28 voices [12.5%] Julien_Guertault
+     153, // place 19,  28 voices [12.5%] Michael_Gorniak
+     150, // place 22,  26 voices [11.6%] Michael_Gorniak
+      37, // place 23,  25 voices [11.2%] Branko_Collin
+     168, // place 24,  24 voices [10.7%] Phil_Harper
+      11, // place 25,  23 voices [10.3%] Alex_Wallis
+     154, // place 25,  23 voices [10.3%] Michael_Gorniak
+      33, // place 25,  23 voices [10.3%] Aric_Campling
+      71, // place 25,  23 voices [10.3%] Daniel_Gadziemski
+);
 
 // read logo list
 $logo_array = array();
@@ -123,26 +166,29 @@ uasort($logo_array, "random_sort");
 $num_of_logos = 0;
 
 foreach( $logo_array as $number => $logos ) {
-    echo '<input type="checkbox" name="logo'.$number.'" value="'.$number.'"';
-    if( $_GET["logo".$number] ) {
-        echo " checked";
+    if( in_array("$number", $stage2logos) ) {
+        echo '<input type="checkbox" name="logo'.$number.'" value="'.$number.'"';
+        if( $_GET["logo".$number] ) {
+            echo " checked";
+        }
+        echo '>&nbsp;Vote&nbsp;&nbsp;';
+        // echo $number;
+        foreach( $logos as $logo ) {
+            // $logo_preview = preg_replace('/...$/', "png", $logo);
+            echo '<a href="../'.$logo.'" target="newwindow">';
+            echo '<img src="previews/'.$logo.'" border="0" align="middle" vspace="3" hspace="3">';
+            echo '</a>';
+        }
+        echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">Author page</a>';
+        echo "<br>\n";
+        insert_color_list();
+        echo '<hr size="1" width="100%" noshade>'."\n";
+        $num_of_logos++;
     }
-    echo '>&nbsp;Vote&nbsp;&nbsp;';
-    // echo $number;
-    foreach( $logos as $logo ) {
-        $logo_preview = preg_replace('/...$/', "png", $logo);
-        echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">';
-        echo '<img src="previews/'.$logo_preview.'" border="0" align="middle" vspace="3" hspace="3">';
-        echo '</a>';
-    }
-    echo '<a href="../'.dirname($logo).'?theme=voting" target="newwindow">Author page</a>';
-    echo "<br>\n";
-    insert_color_list();
-    echo '<hr size="1" width="100%" noshade>'."\n";
-    $num_of_logos++;
 }
-    echo "Total $num_of_logos logos\n";
+
 ?>
+
     <center>
       <input name="id" value="<?php if(get_user_setting('id')) { echo get_user_setting('id'); } ?>" type="hidden">
       <input value="Submit your voting" type="submit">

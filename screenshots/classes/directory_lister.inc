@@ -13,36 +13,41 @@ class Directory_Lister {
         $dir_array = array();
     }
 
-    function get_filetype_array($directory_name, $file_type) {
+    function get_filetype_array($directory_name, $file_type, $exclude_array=array()) {
         if( ! $directory = @opendir($directory_name) ) {
             return 0;
         }
         $file_array = array();
         while($file = readdir($directory)) {
             if( $file != "." && $file != ".." && filetype("$directory_name/$file") == $file_type ) {
-                $file_array[] = array(
+                // print_r($exclude_array);
+                if( ! in_array($file, $exclude_array) ) {
+                    $file_array[] = array(
                                       'name' => $file,
                                       'size' => filesize("$directory_name/$file"),
                                       'date' => filemtime("$directory_name/$file")
                                       );
+                } else {
+                    echo "Skipped $file\n";
+                }
             }
         }
         closedir($directory);
         return $file_array;
     }
 
-    function get_file_array($directory_name) {
-        return $this->get_filetype_array($directory_name,"file");
+    function get_file_array($directory_name, $exclude_array=array()) {
+        return $this->get_filetype_array($directory_name, "file", $exclude_array);
     }
 
-    function get_dir_array($directory_name) {
-        return $this->get_filetype_array($directory_name,"dir");
+    function get_dir_array($directory_name, $exclude_array=array()) {
+        return $this->get_filetype_array($directory_name, "dir", $exclude_array);
     }
 
     // scans the contents of all sub directories and stores them to an array if
-    // if contains all files in $required_files_regexp
-    function get_valid_dir_array($directory_name, $required_files_regexp = array()) {
-        $dir_array = $this->get_dir_array($directory_name);
+    // it contains all files in $required_files_regexp
+    function get_valid_dir_array($directory_name, $required_files_regexp=array(), $exclude_array=array()) {
+        $dir_array = $this->get_dir_array($directory_name, $exclude_array);
         // print_r($dir_array);
         foreach( $dir_array as $dir ) {
             $file_array = $this->get_file_array($directory_name."/".$dir["name"]);
