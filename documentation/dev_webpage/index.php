@@ -41,7 +41,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 decoration_window_start("Fvwm Web pages");
 
 if( strlen(my_get_global("show", "GET")) == 0 ) {
-    echo "<center><h1>This chapter is currently been written.</h1></center>";
+    echo "<center><h1>This chapter is currently under development.</h1></center>";
     decoration_window_end();
     return;
 }
