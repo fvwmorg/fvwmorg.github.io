@@ -4,7 +4,7 @@
 //-  Project       : Fvwm Home page
 //-  Date          : Fri Mar 14 21:16:52 2003
 //-  Programmer    : Uwe Pross
-//-  Last modified : <07.04.2003 09:42:03 uwp>
+//-  Last modified : <07.04.2003 10:20:53 uwp>
 //--------------------------------------------------------------------
 if( strlen("$navigation_check") > 0 ) return;
 
@@ -784,8 +784,8 @@ function insert_quick_jump_list($site_array,$col_num=2) {
             push_decoration_path("pictures/decorations/window_deco_ice");
 	    insert_pager_navigation();
             pop_decoration_path();
-            echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SCRIPT_URI"].'" target="validation">html check&nbsp;</a><br>';
-echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SCRIPT_URI"].'&warning=0&profile=css2" target="validation">css check&nbsp;</a>';
+            echo '<a href="http://www.mirror.ac.uk/services/validator/check?uri='.$_SERVER["SCRIPT_URI"].'&ss=" target="validation">html check&nbsp;</a><br>';
+            echo '<a href="http://jigsaw.w3.org/css-validator/validator?uri='.$_SERVER["SCRIPT_URI"].'&warning=1&profile=css2" target="validation">css check&nbsp;</a>';
        ?></td>
       </tr>
 

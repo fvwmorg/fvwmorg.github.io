@@ -5,7 +5,7 @@
 #-  Project       : FVWM Home Page
 #-  Date          : Tue Apr  1 20:48:44 2003
 #-  Programmer    : Uwe Pross
-#-  Last modified : <07.04.2003 08:29:42 uwp>
+#-  Last modified : <07.04.2003 10:11:01 uwp>
 #---------------------------------------------------------------------
 
 ## stack functions
@@ -60,18 +60,14 @@ BEGIN {
     }
     register_release(release);
     if( found_first ) {
-	if( open_item ) {
-	    output("</li>\n");
-	}
-	output("</ul>\n\n\n");
+	if( open_item )    output("</li>\n");
+	if( started_list ) output("</ul>\n\n\n");
     }
-    found_first = 1;
-    open_item = 0;
     output("<a name=\"" release "\"></a>\n");
     output("<h4>" text2html($0) " <a href=\"#top\">[top]</a></h4>\n");
-    output("<ul>\n");
-    start_list = 1;
-    item = 0;
+    found_first = 1;
+    open_item = 0;
+    started_list = 0;
     next;
 }
 
@@ -79,9 +75,13 @@ BEGIN {
 #- list item
 #---------------------------------------------------------------------
 /^ *[\*\-] /{
-    if( ! start_list )	output("</li>\n");
-    start_list=0;
-    item=1;
+    if( ! started_list ) {
+        output("<ul>\n");
+	started_list = 1;
+    }
+    if( open_item ) {
+	output("</li>\n");
+    }
     output("  <li>");
     open_item = 1;
     $1 = "";
@@ -90,13 +90,14 @@ BEGIN {
 }
 
 /^  */ {
-    if( item ) {
+    if( open_item ) {
 	output(text2html($0));
     }
 }
 
 END {
-    output("</ul>\n");
+    if( open_item )    output("</li>\n");
+    if( started_list ) output("</ul>\n\n\n");
 
     while ( (getline < "news_template.php_" ) > 0 ) print $0;
 

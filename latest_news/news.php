@@ -693,16 +693,8 @@ decoration_window_start("Latest News");
 
 <a name="2.3.27"></a>
 <h4>Changes in beta release 2.3.27 (3-Jan-2001) <a href="#top">[top]</a></h4>
-<ul>
-</ul>
-
-
 <a name="2.3.26"></a>
 <h4>Changes in beta release 2.3.26 (26-Dec-2000) <a href="#top">[top]</a></h4>
-<ul>
-</ul>
-
-
 <a name="2.3.25"></a>
 <h4>Changes in beta release 2.3.25 (5-Dec-2000) <a href="#top">[top]</a></h4>
 <ul>
@@ -1112,6 +1104,4 @@ decoration_window_start("Latest News");
 
 <a name="2.2.2"></a>
 <h4>Changes in official release 2.2 (February 1999) <a href="#top">[top]</a></h4>
-<ul>
-</ul>
 <?php decoration_window_end(); ?>
