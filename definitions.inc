@@ -190,7 +190,7 @@ $user_agent = my_get_global("HTTP_USER_AGENT","SERVER");
 if( strlen($layout) > 0 ) {
   $layout_file = $rel_path."layout_".$layout.".inc";
 } 
-elseif ( ereg("Emacs", $user_agent) || ereg("Lynx", $user_agent)) {
+elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/", $user_agent)) {
   $layout_file = $rel_path."/layout_plain.inc" ;
 }
 

@@ -1,3 +1,9 @@
+2003-04-25  Bob Woodside  <dumbledore@woodsway.com>
+
+	* definitions.inc: 
+	Added w3m to the list of browsers for which we set plain
+        layout (it's not always used in Emacs).
+
 2003-04-25  Uwe Pross  <uwe.pross@gmx.net>
 
 	* definitions.inc: 
