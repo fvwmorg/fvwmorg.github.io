@@ -18,6 +18,11 @@ Last updated 9 Oct 2000 for release 2.3.22
 
 Contents
 
+0. *The* most frequently asked question :)
+
+     0.1  A few minutes after fvwm is started my keyboard and mouse
+          bindings stop working. What can I do?
+
 1. About Fvwm
 
      1.1  What does FVWM stand for?
@@ -85,6 +90,8 @@ Contents
           get focus/be moved/be resized/be closed/be shaded...  How?
     3.19  When my specific window (or all windows) is closed, I want to
           switch desks/wrap to my app X/popup a menu/start app X...  How?
+    3.20  I have a multi head setup (multiple screens used under X).  How
+          can I tell fvwm to use different configurations for the screens?
 
 4. Modules
 
@@ -166,6 +173,21 @@ Contents
 
 
 ======================================================================
+                0 - The most frequently asked question
+======================================================================
+
+0.1  A few minutes after fvwm is started my keyboard and mouse
+     bindings stop working. What can I do?
+
+A: Probably your NumLock, CapsLock or ScrollLock key is pressed. See
+   Q 5.5 for more details.
+
+Trivia: In all my years as an fvwm developer this has been by far the
+   most frequently asked question.  Whoever can solve this problem so
+   that this question is never asked will me mentioned in big letters
+   on the fvwm home page :-)
+
+======================================================================
                             1 - About Fvwm
 ======================================================================
 
@@ -188,7 +210,10 @@ A: "Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
 
    Recently 'Feline' is becoming popular.  Perhaps this has something
    to do with the discovery that four of the six core developers have
-   cats (averaging 1.17 cats)? Miaow.
+   cats (averaging 1.17 cats)?  Miaow.
+
+   Know what? I found another one while stroking my cats: FOOD :-)
+
    Check this link:
    <A HREF="http://fvwm.org/fvwm-cats/">fvwm-cats</A>
 
@@ -531,7 +556,7 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
 
    o If you run gnome panel inside fvwm without GNOME support, you can't
      fully use GNOME pager applets (if at all); with such support you can
-     see right pages/desks and move windows between them inside applets. 
+     see right pages/desks and move windows between them inside applets.
      You can also use Tasklist applet and manage your windows using it.
 
    o If you run gmc and bind GnomeButton (see the man page), you can pass
@@ -1179,6 +1204,41 @@ A: Please read the answer to the previous question to understand better.
 
      AddToFunc StartFunction I FvwmEvent FvwmEvent-OldWindow
 
+----------------------------------------------------------------------
+
+3.20  I have a multi head setup (multiple screens used under X).  How
+      can I tell fvwm to use different configurations for the screens?
+
+A: FVWM spawns itself into all found screens unless -s command line
+   parameter is specified, as explained in the man page.  All spawned
+   fvwm2 processes by default use the same configuration on each screen.
+   There are several ways to change the default behavior.
+
+   Write your configuration file as you would if you had only one
+   screen.  Then move the screen specific lines into separate
+   configuration files and call them for example .fvwm2rc.&lt;screen&gt;
+   where &lt;screen&gt; is the screen number.  Usually this will be 0 for
+   the main screen and 1 for the secondary screen.  Place the screen
+   specific files in the $HOME/.fvwm directory or whatever you set
+   $FVWM_USERDIR to.  Now add this line to your .fvwm2rc:
+
+     Read .fvwm2rc.$[screen]
+
+   The $[screen] will be replaced with the number of the screen each
+   instance of fvwm is started on.
+
+
+   Another method, which should work for older fvwm versions as well,
+   is to specify a separate file for each screen explicitly. For this,
+   start a separate fvwm for each screen in your .xinitrc (or .Xclients):
+
+     fvwm2 -s -d :0.0 -f .fvwm2rc-0 &amp;
+     fvwm2 -s -d :0.1 -f .fvwm2rc-1 &amp;
+     fvwm2 -s -d :0.2 -f .fvwm2rc-2
+
+   Note that only the last command is without a trailing ampersand.
+   If you wish, .fvwm2rc-* files may all include line "Read .fvwm2rc-common".
+
 
 ======================================================================
                              4 - Modules
@@ -1460,7 +1520,7 @@ A: Because they are treated as modifiers. You can use the
    This command creates a lot of extra network traffic, depending
    on your CPU, network connection, the number of Key Mouse commands
    in you configuration file and the number of modifiers you want to
-   ignore. If you do not have a lightning fast machine ore very few
+   ignore. If you do not have a lightning fast machine or very few
    bindings you should not ignore more than two modifiers. E.g. do
    not ignore scroll-lock if you have no problem with it.
 
@@ -1536,7 +1596,7 @@ A: Errors are reported to the standard error file.  You can redirect
    fvwm-errors".  X sessions started by xdm often redirect errors to a
    file named ".xsession-errors".
 
-   Alternatively, FvwmConsole or "FvwmForm FormFvwmTalk." modules
+   Alternatively, FvwmConsole or "FvwmForm FvwmForm-Talk" modules
    will display error messages.
 
 ----------------------------------------------------------------------
@@ -1559,7 +1619,7 @@ A: The error message usually looks something like this:
    FVWM has already done so (but you weren't doing it in the rc file
    for your previous window manager).  Figure out what the offending
    key binding is and remove it from your .fvwm2rc, or temporarily via
-   "FvwmForm FormFvwmTalk." by removing the FVWM binding (see the man
+   "FvwmForm FvwmForm-Talk" by removing the FVWM binding (see the man
    page for the Key &amp; Mouse commands).
 
 ----------------------------------------------------------------------
@@ -1648,20 +1708,20 @@ A: This problem might occur on other applications besides the one
      I've been using FVWM for ages and it's always worked for me just
      fine.  However, I've started using Rational Rose for Solaris.  FVWM
      seems to get completely confused.
-     
+
      o FVWM doesn't draw any frames around the Rose window like it does for
        all other windows (except for those I explicit said not to).
-     
+
      o The Rose window is always on top.  Nothing I do can bring another
        window above the Rose window.
-     
+
      o Using FVWM's identify window module shows nothing.  No identify
        window pops up showing the window info.
-     
+
      o Focus sometimes seems to be lost.  (I have focus follows mouse).  I
        have to move the mouse out of the window and back in to get focus.
        Sometimes I also have to click in the window to get focus.
-     
+
      The annoying thing is that this all seems to work with CDE and dtwm.
      I don't want to have to switch to dtwm so any hints or pointers on
      where to look to get FVWM to understand this window would help me a
@@ -1671,10 +1731,10 @@ A: This problem might occur on other applications besides the one
 
    Rational Rose  uses software from Mainsoft  that  lets MS Windows
    applications be recompiled to run on UNIX.
-   
+
    There are 2 Mainsoft Knowledgebase pages that relate to UNIX
    window managers:
-   
+
    <A HREF="http://www.mainsoft.com/nbase/mainwin/kb/kbmw0027.htm"
    >http://www.mainsoft.com/nbase/mainwin/kb/kbmw0027.htm</A>
    <A HREF="http://www.mainsoft.com/nbase/mainwin/kb/kbmw0034.htm"
@@ -1694,7 +1754,7 @@ A: This problem might occur on other applications besides the one
      Knowledgebase pages above.)   I don't  recall what Rose
      looks like with dtwm, but I suspect it's quite close to
      all MWWM=MWM.
-   
+
 ======================================================================
                           6 - Miscellaneous
 ======================================================================
@@ -1841,7 +1901,7 @@ A: Setting the background image is not really part of the window
    Did you know that you do not need to restart X or fvwm to see what
    most configuration commands do? There are several modules
    that allow you to issue fvwm commands at any time.  Among
-   these are FvwmCommand, "FvwmForm FormFvwmTalk." and FvwmConsole.
+   these are FvwmCommand, "FvwmForm FvwmForm-Talk" and FvwmConsole.
    Personally I use FvwmCommand and FvwmConsole.
 
    When you run FvwmConsole you get a shell like window where you can
@@ -2186,7 +2246,7 @@ A: Setting the background image is not really part of the window
 </pre>
     <hr>
 <!-- This file automatically generated by txt2html.sh
-     on Tue Oct 10 03:50:31 IDT 2000 -->
+     on Sun Nov 26 23:13:05 IST 2000 -->
   </body>
 </html>
 
