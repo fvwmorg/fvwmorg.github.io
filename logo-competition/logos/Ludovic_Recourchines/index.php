@@ -63,7 +63,7 @@ On the Pic's ones, it is my Cat, so no problem for rights.
 
 <p><img src="F6.png" width="200" height="120"></p>
 
-<p><img src="LogoF.png" width="698" height="452"></p>
+<p><img src="LogoF.png" width="349" height="226"></p>
 
 <?php decoration_window_end(); ?>
 
