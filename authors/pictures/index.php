@@ -80,6 +80,8 @@ decoration_window_start("FVWM Developers");
 </table>
 </center>
 
+<a href="<?php echo conv_link_target('../index.php'); ?>">Back to authors page</a>
+
 <?php 
 decoration_window_end(); 
 ?> 

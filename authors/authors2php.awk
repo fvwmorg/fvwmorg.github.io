@@ -1,5 +1,5 @@
 #!/bin/gawk -f
-#-*-shell-scipt-*-
+#-*-shell-script-*-
 #---------------------------------------------------------------------
 #-  File          : authors2php.awk
 #-  Project       : Fvwm Web site

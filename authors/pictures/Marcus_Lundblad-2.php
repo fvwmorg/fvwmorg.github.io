@@ -1,10 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : index.php
+//-  File          : template.php_
 //-  Project       : FVWM Home Page
-//-  Date          : Fri Mar 14 21:32:08 2003
-//-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
+
+// Usage:
+// ls *jpg | grep -v small | sed 's+.jpg++;s+.*+sed "s/Marcus Lundblad/&/g" template.php_ > &.php+' | sh
+
 
 if (strlen($rel_path) == 0) $rel_path = "./../..";
 
@@ -21,9 +23,9 @@ include("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Marcus_Lundblad-2";
-$heading        = "Marcus_Lundblad-2";
-$link_name      = "Marcus_Lundblad-2";
+$title          = "Marcus Lundblad";
+$heading        = "Marcus Lundblad";
+$link_name      = "Marcus Lundblad";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array();
@@ -44,14 +46,13 @@ if (strlen("$site_has_been_loaded") == 0) {
   exit();
 }
 
-decoration_window_start("Marcus_Lundblad-2"); 
+decoration_window_start("Marcus Lundblad"); 
 ?>
 
-Click on the image to go back to the overview.<br>
-<a href="<?php echo conv_link_target('index.php');?>"><img src="Marcus_Lundblad-2.jpg" border="0"></a><br>
-<br>
+<a href="<?php echo conv_link_target('./index.php'); ?>">Back to image overview.</a><br>
+<img src="Marcus_Lundblad-2.jpg" border="0" hspace="10" vspace="10"><br>
 
-<a href="">Personal Website</a><br>
+<a href="http://tempo.update.uu.se/~ml/">Personal Website</a>
 
 <?php 
 decoration_window_end(); 

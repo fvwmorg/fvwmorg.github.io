@@ -23,6 +23,9 @@
 
 2003-05-31  Uwe Pross  <uwe.pross@gmx.net>
 
+	* definitions.inc:
+	set birthday theme as default.
+	
 	* web-theme/themes/birthday_theme.inc: 
 	Added css information for history page
 

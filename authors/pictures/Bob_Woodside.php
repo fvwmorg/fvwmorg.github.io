@@ -1,10 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : index.php
+//-  File          : template.php_
 //-  Project       : FVWM Home Page
-//-  Date          : Fri Mar 14 21:32:08 2003
-//-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
+
+// Usage:
+// ls *jpg | grep -v small | sed 's+.jpg++;s+.*+sed "s/Bob Woodside/&/g" template.php_ > &.php+' | sh
+
 
 if (strlen($rel_path) == 0) $rel_path = "./../..";
 
@@ -21,9 +23,9 @@ include("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "Bob_Woodside";
-$heading        = "Bob_Woodside";
-$link_name      = "Bob_Woodside";
+$title          = "Bob Woodside";
+$heading        = "Bob Woodside";
+$link_name      = "Bob Woodside";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
 $child_sites    = array();
@@ -44,14 +46,13 @@ if (strlen("$site_has_been_loaded") == 0) {
   exit();
 }
 
-decoration_window_start("Bob_Woodside"); 
+decoration_window_start("Bob Woodside"); 
 ?>
 
-Click on the image to go back to the overview.<br>
-<a href="<?php echo conv_link_target('index.php');?>"><img src="Bob_Woodside.jpg" border="0"></a><br>
-<br>
+<a href="<?php echo conv_link_target('./index.php'); ?>">Back to image overview.</a><br>
+<img src="Bob_Woodside.jpg" border="0" hspace="10" vspace="10"><br>
 
-<a href="">Personal Website</a><br>
+<a href="http://www.woodsway.com">Personal Website</a>
 
 <?php 
 decoration_window_end(); 

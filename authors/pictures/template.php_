@@ -1,10 +1,12 @@
 <?php
 //--------------------------------------------------------------------
-//-  File          : index.php
+//-  File          : template.php_
 //-  Project       : FVWM Home Page
-//-  Date          : Fri Mar 14 21:32:08 2003
-//-  Programmer    : Uwe Pross
 //--------------------------------------------------------------------
+
+// Usage:
+// ls *jpg | grep -v small | sed 's+.jpg++;s+.*+sed "s/@NAME@/&/g" template.php_ > &.php+' | sh
+
 
 if (strlen($rel_path) == 0) $rel_path = "./../..";
 
@@ -47,11 +49,10 @@ if (strlen("$site_has_been_loaded") == 0) {
 decoration_window_start("@NAME@"); 
 ?>
 
-Click on the image to go back to the overview.<br>
-<a href="<?php echo conv_link_target('index.php');?>"><img src="@NAME@.jpg" border="0"></a><br>
-<br>
+<a href="<?php echo conv_link_target('./index.php'); ?>">Back to image overview.</a><br>
+<img src="@FILE@.jpg" border="0" hspace="10" vspace="10"><br>
 
-<a href="">Personal Website</a><br>
+<!-- @WEBSITE@ -->
 
 <?php 
 decoration_window_end(); 

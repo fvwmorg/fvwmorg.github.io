@@ -1,29 +1,29 @@
-Dan Espen
-  http://mywebpages.comcast.net/despen/
+!/bin/sh
 
-Brady Montz
-  http://www.cs.arizona.edu/xkernel/www/people/bradym.html
+Dan_Espen='http://mywebpages.comcast.net/despen/'
 
-Paul Smith
-  http://paulandlesley.org/
+Brady_Montz='http://www.cs.arizona.edu/xkernel/www/people/bradym.html'
 
-Steve Robbins
-  http://www.cs.mcgill.ca/~stever/
+Paul_Smith='http://paulandlesley.org/'
 
-Marcus Lundblad
-  http://tempo.update.uu.se/~ml/
+Steve_Robbins='http://www.cs.mcgill.ca/~stever/'
 
-Ric Lister
-  http://cns.georgetown.edu/~ric/
+Marcus_Lundblad='http://tempo.update.uu.se/~ml/'
 
-Michael Han
-  http://www.mikehan.com/
+Richard_Lister='http://cns.georgetown.edu/~ric/'
 
-Cameron Simpson
-  http://www.cskk.ezoshosting.com/cs/
+Michael_Han='http://www.mikehan.com/'
 
-Uwe Pross
-  http://www-user.tu-chemnitz.de/~uwp/
+Cameron_Simpson='http://www.cskk.ezoshosting.com/cs/'
 
-Mikhael Goikhman
-  http://migo.sixbit.org/
+Uwe_Pross='http://www-user.tu-chemnitz.de/~uwp/'
+
+Mikhael_Goikhman='http://migo.sixbit.org/'
+
+files=`ls *.jpg | grep -v small | sed 's+.jpg++'` 
+
+for name in $files; do
+    test ${$name} && echo $name
+done 
+
+
