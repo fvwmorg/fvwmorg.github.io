@@ -18,6 +18,14 @@ if( strlen($definitions_has_been_read) > 0 ) return;
 $definitions_has_been_read = "t";
 
 //--------------------------------------------------------------------
+// fvwm release information
+// the strings here effect the release information on the home-page 
+// and the links to the ftp-server 
+//--------------------------------------------------------------------
+$latest_stable_release   = "2.4.15";
+$latest_unstable_release = "2.5.6";
+
+//--------------------------------------------------------------------
 //  my_get_global --
 //  Returns the value of a named global variable in a portable way for
 //  all known versions of PHP 3 & PHP 4.
@@ -225,35 +233,8 @@ if( strlen($theme) > 0 ) {
 // layout file - old version
 $layout_file = $theme_file;
 
-// } else {
-//     //--------------------------------------------------------------------
-//     // old version needs to be removed
-//     //--------------------------------------------------------------------
-//     $layout = my_get_global("layout", "GET");
-//     if( strlen($layout) > 0 ) {
-//         $layout_file = $rel_path."/layout_".$layout.".inc";
-//     } elseif ( preg_match("/Emacs/", $user_agent) || preg_match("/Lynx/", $user_agent) || preg_match("/w3m/",
-//                                                                                                      $user_agent)) {
-//         $layout_file = $rel_path."/layout_plain.inc" ;
-//     } else {
-//         $layout_file = $rel_path."/layout_default.inc" ;
-//     }
-//     
-//     if( ! file_exists($layout_file) ) {
-//         $layout_file = $rel_path."/layout_default.inc" ;
-//     }
-// }
-
-
 $navigation_file = $rel_path."/navgen_write/navigation.inc";
 $navgen_url      = $rel_path."/navgen.php";
-
-
-//--------------------------------------------------------------------
-// release information
-//--------------------------------------------------------------------
-$latest_stable_release = "2.4.15";
-$latest_unstable_release = "2.5.6";
 
 ?>
 
