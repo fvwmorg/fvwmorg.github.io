@@ -2,7 +2,7 @@
 
 include("./../classes/screenshot_lister.inc");
 
-$lister = new Screenshot_Lister();
+$lister = new Screenshot_Lister(".");
 
 $os = fopen("./screenshot_db.inc","w");
 fputs($os, '<?php'."\n" );

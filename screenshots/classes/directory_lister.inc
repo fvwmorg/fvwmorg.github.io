@@ -7,10 +7,10 @@
 
 class Directory_Lister {
 
-    var $valid_dir_array;
+    var $dir_array;
     
     function Directory_Lister() {
-        $valid_dir_array = array();
+        $dir_array = array();
     }
 
     function get_filetype_array($directory_name, $file_type) {
@@ -18,7 +18,7 @@ class Directory_Lister {
             return 0;
         }
         $file_array = array();
-        while ($file = readdir($directory)) {
+        while($file = readdir($directory)) {
             if( $file != "." && $file != ".." && filetype("$directory_name/$file") == $file_type ) {
                 $file_array[] = array(
                                       'name' => $file,
@@ -63,18 +63,18 @@ class Directory_Lister {
                 }
             }
             if( $add_to_valid_dir_list ) {
-                $this->valid_dir_array[] = 
+                $this->dir_array[] = 
                     array(
                           "dirname"  => $directory_name."/".$dir["name"],
                           "contents" => $file_array
                           );
-                echo "Found valid ".$dir["name"]." ... added\n";
+                echo "Found valid ".$dir["name"]."\n";
             } else {
                 echo "WARNING: Invalid ".$dir["name"].". Not added\n";
             }
         }
         echo "Results:\n";
-        print_r($this->valid_dir_array);
+        print_r($this->dir_array);
     }
     
     // nice export of variables
@@ -91,7 +91,7 @@ class Directory_Lister {
             fputs($file, str_repeat(" ",$offset).")");
         }
         elseif( is_string($var) ) {
-            $chars = fputs($file, "'".$var."'");
+            $chars = fputs($file, "'".str_replace("'", "\'", $var)."'");
         }
         else {
             $chars = fputs($file, $var);        

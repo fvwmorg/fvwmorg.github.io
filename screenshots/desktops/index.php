@@ -98,8 +98,8 @@ if( ! function_exists("my_show_shot") ) {
 
 my_show_start();
 for( $ii=$show_start; $ii<$show_start+$show_num; $ii++) {
-    $preview     = $db[$ii]["preview"];
-    $screenshot  = $db[$ii]["screenshot"];
+    $preview     = $db[$ii]["path"]."/".$db[$ii]["preview"];
+    $screenshot  = $db[$ii]["path"]."/".$db[$ii]["screenshot"];
     $description = $db[$ii]["description"];
     $date        = $db[$ii]["date"];
     $size        = $db[$ii]["size"];
