@@ -1,5 +1,10 @@
 2003-04-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
+	* navgen.cli: 
+	Changed navgen.php to navgen.cli can be run through the command
+	line interface.
+	Added check for valid identifiers.
+
 	* layout_default.inc: 
 	Added a lot of comments. Fixed a problem with ie. layout has been
 	checked which opera, netscape, mozilla, galeon and ie
