@@ -1,3 +1,8 @@
+2000-10-26  Dan Espen  <dane@mk.telcordia.com>
+
+	* screenshots/index.html: A flood of screenshots, Andre Bonhote, Kendrick Vargas,
+	and Tenebrae.
+
 2000-10-18  Mikhael Goikhman  <migo@homemail.com>
 
 	* cvs.html: reverse automake & autoreconf order, some additions
