@@ -21,7 +21,7 @@ $heading        = "Welcome to The Official FVWM Home Page";
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
-$child_sites    = array("fvwm_cats","authors");
+$child_sites    = array("fvwm_cats", "authors");
 //  RBW...
 //  Must be able to cope with register_globals = off.
 //$requested_file = basename(my_get_global("PHP_SELF", &$_SERVER));
@@ -107,7 +107,8 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		2);
 ?>
 </div>
-      
+
+<!--
 <hr>
 
 <h2>Old pages to convert</h2>
@@ -137,11 +138,12 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		<li><a href="developers.html" class="done">Developer Info (CVS, Modules)</a></li>
 		<li><a href="generated/AUTHORS.html" class="done">Acknowledgements</a></li>
 		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>
-		<li><a href="generated/perllib/">Perl library</a></li>
+		<li><a href="generated/perllib/" class="done">Perl library</a></li>
 	</ul>
 	</td>
 </tr>
 </table>
+-->
 
 <p><a href="index.html">old html version</a></p>
   

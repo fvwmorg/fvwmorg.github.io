@@ -344,7 +344,7 @@ function decoration_title_bar($string="") {
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
     echo '<td '.$td_opts.' style="background-image:url('.decoration_pic("button_2").');">';
-    echo '<a href="'.$requested_file.'?layout=plain">';
+    echo '<a href="./'.$requested_file.'?layout=plain">';
     echo '<img src="'.decoration_pic("transparent").'" border="0" '.$dimension.' alt="plain layout" title="plain layout"></a></td>';
 
     echo '</tr>'."\n";
@@ -356,7 +356,7 @@ function decoration_title_bar($string="") {
 }
 
 // inserts the upper and left corner of the window decoration
-function decoration_window_start($string="",$width="100%",$height="800",$padding="5") {
+function decoration_window_start($string="",$width="100%",$height="400",$padding="5") {
   global $window_bg;
   echo '<table';
   if(strlen($width)> 0) echo ' width="'.$width.'"';

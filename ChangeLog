@@ -1,3 +1,15 @@
+2003-04-19  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/perrlib/*:
+	converted perllib using perllib2php script
+
+	* documentation/manpages/*:
+	improved output
+
+	* layout_default.inc:
+	* layout_plain.inc:
+	handle urls of form XXX::YYY, other improvements
+
 2003-04-17  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/manpages/*:

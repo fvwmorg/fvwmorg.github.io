@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 
-# Usage: manpages2html stable ../../../fvwm-2.4.x  # both params are optional
+# Usage: manpages2php stable ../../../fvwm-2.4.x  # both params are optional
 
 use strict;
 
@@ -16,6 +16,7 @@ my $subdir = shift || "unstable";
 my $outputDir = $scriptDir;
 $outputDir  =   $subdir  if $subdir && $subdir =~ m!^/!;
 $outputDir .= "/$subdir" if $subdir && $subdir !~ m!^/!;
+my $parentDir = $subdir eq "."? ".": "..";
 
 # currently hardcoded
 my %versionInfo = (
@@ -26,10 +27,12 @@ my %versionInfo = (
 my $branch = exists $versionInfo{$subdir || "none"}? $subdir: "unstable";
 
 my $sourceDir = shift || $versionInfo{$branch}->[0];
-my $version = $versionInfo{$branch}->[1];
+my $versionMask = $versionInfo{$branch}->[1];
 
 die "No source directory $sourceDir found\n" unless -d $sourceDir;
 die "No output directory $outputDir found\n" unless -d $outputDir;
+
+my $version = `grep '^VERSION = ' '$sourceDir/Makefile' | cut -c11- | tr -d '\n'` || "x.y.z";
 
 # not really used, this template is in file now
 my $TEMPLATE_PAGE = q(
@@ -65,7 +68,7 @@ my $INDEX_BODY = q(
 	<h1>Index</h1>
 	<hr>
 	These pages were last generated on @date@ by @user@,
-	from the @version@ man pages.<!-- in directory @source@. -->
+	from the @vermask@ man pages.<!-- in directory @source@. -->
 
 	<hr>
 	Start of man pages in section 1.
@@ -80,11 +83,14 @@ my $INDEX_BODY = q(
 );
 
 my $namespace = {
-	date => `date '+%d-%b-%Y %T' | tr -d '\n'`,
+	date => `date '+%d-%b-%Y' | tr -d '\n'`,
 	user => $ENV{USER} || "mr_hacker",
 	script => $scriptName,
 	source => $sourceDir,
+	vermask => $versionMask,
 	version => $version,
+	branch => $branch,
+	parent => $parentDir,
 	topic => "*unset-topic*",
 };
 
@@ -92,8 +98,10 @@ sub topicToLink ($) {
 	my $topic = shift;
 	# don't link to itself unless forced using '!'
 	return "<u>$topic</u>" if $topic !~ s/^!// && $topic eq $namespace->{topic};
-#	return qq{<a href="$topic.php">$topic</a>};
-	return qq{<a href="<?php echo conv_link_target('$topic.php');?>">$topic</a>};
+	my $url = $topic;
+	$topic =~ s|.*/||;
+#	return qq{<a href="./$url.php">$topic</a>};
+	return qq{<a href="<?php echo conv_link_target('./$url.php');?>">$topic</a>};
 }
 
 sub processTemplate ($) {
@@ -140,6 +148,7 @@ foreach my $i (0 .. @topics - 1) { $topic2file{$topics[$i]} = $files[$i]; };
 $namespace->{topics} = [ @topics ];
 my $topicRegExp = join("|", reverse @topics);
 print "Number of man pages found in $sourceDir: ", scalar @topics, "\n";
+print "Output directory is $outputDir\n";
 
 foreach my $topic ("index", @topics) {
 	my $phpFile = "$topic.php";
@@ -163,11 +172,12 @@ foreach my $topic ("index", @topics) {
 	# replace some output
 	s!\07!!g;
 	s!<FONT SIZE="-1">!<FONT>!ig;
+	s!<FONT><B>([^<]*?)</B></FONT><B>!<B>$1!ig;
 	s!(<A HREF=".*?">)Index!$1This page contents!;
 	s!<A HREF=".*?">Return to Main Contents! - <a href="./">Return to main index!;
-	s!http://localhost/cgi-bin/man/man2html!./!g;
+	s!<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>!man2html!g;
 	s!<A HREF="mailto:StartMenu@!<a name="local-fix:!g;
-	s!<A HREF="[^<]*/1\+($topicRegExp)">[^<]*</A>!\@link($1)\@"!g;
+	s!<A HREF="[^<]*/1\+($topicRegExp)">[^<]*</A>!\@link($1)\@!g;
 
 	# correct example blocks
 	s!%(/?pre)%!<$1>!g;
@@ -179,8 +189,8 @@ foreach my $topic ("index", @topics) {
 	# add links
 	s!^((?:<blockquote><pre>)?\s*)($topicRegExp)((?:</pre></blockquote>)?)$!$1\@link($2)\@$3!mg;
 	s!(the )($topicRegExp)( manpage)!$1\@link($2)\@$3!g;
-	s!(<[bB]>)($topicRegExp)(</[bB]>)!$1\@link($2)\@$3!g;
-#	s!<a href="./$topic.html">$topic</a>!$topic!g;  # don't self-link
+	s!(<[Bb]>)($topicRegExp)(</[Bb]>)!$1\@link($2)\@$3!g;
+	s!(<[BbIi]>)((?:FVWM|General)::[\w\d:]+)(</[BbIi]>)!$1\@link(../perllib/$2)\@$3!g;
 
 	$namespace->{body} = processTemplate($_);
 

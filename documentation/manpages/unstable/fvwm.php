@@ -13,7 +13,6 @@
 //--------------------------------------------------------------------
 if (strlen("$navigation_check") > 0) return;
 
-
 $rel_path = "../../..";
 
 //--------------------------------------------------------------------
@@ -25,19 +24,12 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Man page - fvwm";
-$heading        = "Man page - fvwm";
+$heading        = "FVWM - Man page - fvwm";
 $link_name      = "Man page";
 $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-
-// Since manpages shall not apear in the navigation structure this
-// page must identify itself with another name. It says here that
-// it's name is manpages which belongs actually to the table of
-// content page for all man pages. The layout file will therefore
-// mark the navigation entry for the toc file as choosen althought
-// it is actually not choosen.
 $this_site      = "manpages";
 
 //--------------------------------------------------------------------
@@ -54,7 +46,7 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.7)"); ?>
 
 <H1>FVWM</H1>
 Section: FVWM 2.5.7 (from cvs) (1)<BR>Updated: (not released yet)<BR><A HREF="#index">This page contents</A>
@@ -570,14 +562,14 @@ command.  All virtual desktops must be (are) the same
 size.  The total number of distinct desktops does not need to be
 specified, but is limited to approximately 4 billion total. All
 windows on a range of desktops can be viewed in the
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>,
 
 a miniature view of the desktops.  The pager is an accessory
 program, called a module, which is not essential for the window
 manager to operate.  Windows may also be listed, along with their
 geometries, in a window list, accessible as a pop-up menu, or as a
 separate window, called the
-<B><a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
 
 (another module).
 <P>
@@ -1114,10 +1106,10 @@ mouse binding in the
 
 setup file.  Certain auxiliary information is also transmitted, as
 in the sample module
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>.
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>.
 
 The
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
 
 module is documented in its own man page.
 <P>
@@ -1384,14 +1376,14 @@ Style &lt;application name&gt; ClickToFocus, Lenience</PRE></blockquote>
 
 M4 pre-processing is handled by a module in fvwm.  To get more
 details, try man
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>.
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>.
 
 In short, if you want fvwm to parse your files with m4, then
 replace the command
 <B>Read</B>
 
 with
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 in your
 <I>.fvwm2rc</I>
@@ -1427,7 +1419,7 @@ re-read the M4 section above, but replace &quot;m4&quot; with &quot;cpp&quot;.
 Windows can be automatically raised when it receives focus, or
 some number of milliseconds after it receives focus, by using the
 auto-raise module,
-<B><a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a></B>.
+<B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>.
 
 <P>
 <A NAME="lbAV">&nbsp;</A>
@@ -2055,7 +2047,8 @@ Key Escape A MC EscapeFunc
 Mouse 0 R N Menu MenuFvwmRoot
 Mouse 1 TS A FuncFvwmRaiseLowerX Move
 Mouse 1 F  A FuncFvwmRaiseLowerX Resize
-AddToFunc FuncFvwmRaiseLowerX I Raise
+AddToFunc FuncFvwmRaiseLowerX
++ I Raise
 + M $0
 + D Lower</PRE></blockquote>
 <P>
@@ -2171,7 +2164,7 @@ To force that all pending changes are applied immediately, use the
 commands.
 <P>
 <A NAME="lbBI">&nbsp;</A>
-<H3>QUOTING</H3>
+<H2>QUOTING</H2>
 
 <P>
 Quotes are required only when needed to make fvwm consider two or
@@ -2209,7 +2202,7 @@ backslash.  Quoting single characters works even inside other
 kinds of quotes.
 <P>
 <A NAME="lbBJ">&nbsp;</A>
-<H3>COMMAND EXPANSION</H3>
+<H2>COMMAND EXPANSION</H2>
 
 <P>
 Whenever a fvwm command line is executed, fvwm performs parameter
@@ -2593,7 +2586,7 @@ achieve the same functionality you can use the.
 command instead.
 <P>
 <A NAME="lbBL">&nbsp;</A>
-<H3>THE LIST OF FVWM COMMANDS</H3>
+<H2>THE LIST OF FVWM COMMANDS</H2>
 
 <P>
 The command descriptions below are grouped together in the
@@ -2725,7 +2718,7 @@ crash fvwm.
 There are several configurable scripts installed together with fvwm
 for automatical menu generation.  They have their own man pages.
 Some of them, specifically
-<B><a href="<?php echo conv_link_target('fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B> and <B><a href="<?php echo conv_link_target('fvwm-menu-desktop.php');?>">fvwm-menu-desktop</a></B>,
+<B><a href="<?php echo conv_link_target('./fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B> and <B><a href="<?php echo conv_link_target('./fvwm-menu-desktop.php');?>">fvwm-menu-desktop</a></B>,
 
 may be used with
 <I>DynamicPopupAction</I>
@@ -2791,7 +2784,7 @@ I.e. the name is passed to the function as its first argument and
 can be referred to with &quot;$0&quot;.
 <P>
 The
-<B><a href="<?php echo conv_link_target('fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B>
+<B><a href="<?php echo conv_link_target('./fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B>
 
 script mentioned above may be used with
 <I>MissingSubmenuFunction</I>
@@ -5235,7 +5228,7 @@ For example:
 
 
 Note: if the
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 module is used to parse your
 <I>.fvwm2rc</I>
@@ -5265,7 +5258,7 @@ option to force all
 <B>m4</B>
 
 directives to have a prefix of &quot;m4_&quot; (see the
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 man page).
 <P>
@@ -5357,10 +5350,10 @@ AddToMenu   MenuFvwmWindowOps &quot;$[gt.Window Ops]&quot; Title
 gives a menu in the locale languages if translations are available.
 <P>
 Note that the
-<B><a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
 
 module has its own catalog and that the
-<B><a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 
 module has a set of special instructions for string translation. 
 It is out of the scoop of this documentation to explain how to
@@ -5737,13 +5730,13 @@ without a key name.
 If you pass in a function via
 <I>Function funcname</I>,
 
-$0 is the window id:
+it is called within a window context of the selected window:
 
 
 <P>
 
 
-<blockquote><PRE>AddToFunc IFunc I WindowId $0 Iconify toggle
+<blockquote><PRE>AddToFunc IFunc I Iconify toggle
 WindowList Function IFunc, NoSticky, \
   CurrentDesk, NoIcons</PRE></blockquote>
 <P>
@@ -5978,7 +5971,7 @@ argument
 is given, the top left corner of the window window is moved to the
 pointer position before starting the operation; this is mainly
 intended for internal use by modules like
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>.
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>.
 
 <P>
 The operation can be aborted with Escape or by pressing mouse
@@ -8223,7 +8216,7 @@ style
 <I>NeverFocus</I>
 
 never receives the focus.  This is useful for modules like
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>,
 
 for example.
 Note:  Once any of the &quot;FP...&quot; styles has been used, the defaults
@@ -8862,7 +8855,7 @@ is set without an argument then the
 
 attribute is cleared but no icon is specified.  An example which
 allows only the
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 
 module icon to exist:
 
@@ -9202,7 +9195,7 @@ window. This miniature icon can be drawn in a title-bar button
 <B>ButtonStyle</B>),
 
 and can be used by various fvwm modules
-(<B><a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a></B>, <B><a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a></B> and <B><a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a></B>).
+(<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>, <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> and <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>).
 
 It takes the name of a pixmap as an argument.
 <P>
@@ -11748,7 +11741,7 @@ This name is used in the
 <B>WindowList</B>
 
 command and in the
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 
 where it override the
 <I>Label</I>
@@ -12791,7 +12784,7 @@ and its
 
 are inherited by processes started directly by fvwm.  This can be
 especially useful in conjunction with the
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 module.  For example:
 
@@ -13095,32 +13088,6 @@ The
 
 are a list of keywords from the list below and are separated by
 commas or whitespace.  Conditions include
-&quot;AcceptsFocus&quot;, &quot;!AcceptsFocus&quot;,
-&quot;Focused&quot;, &quot;!Focused&quot;,
-&quot;HasPointer&quot;, &quot;!HasPointer&quot;,
-&quot;Iconic&quot;, &quot;!Iconic&quot;,
-&quot;Visible&quot;, &quot;!Visible&quot;,
-&quot;Raised&quot;, &quot;!Raised&quot;,
-&quot;Layer [n]&quot;, &quot;!Layer&quot;,
-&quot;State n&quot;, &quot;!State n&quot;,
-&quot;Sticky&quot;, &quot;!Sticky&quot;,
-&quot;FixedSize&quot;, &quot;!FixedSize&quot;,
-&quot;HasHandles&quot;, &quot;!HasHandles&quot;,
-&quot;Closable&quot;, &quot;!Closable&quot;,
-&quot;Iconifiable&quot;, &quot;!Iconifiable&quot;,
-&quot;Maximizable&quot;, &quot;!Maximizable&quot;,
-&quot;StickyAcrossPages&quot;, &quot;!StickyAcrossPages&quot;,
-&quot;StickyAcrossDesks&quot;, &quot;!StickyAcrossDesks&quot;,
-&quot;Maximized&quot;, &quot;!Maximized&quot;,
-&quot;Shaded&quot;, &quot;!Shaded&quot;,
-&quot;Transient&quot;, &quot;!Transient&quot;,
-&quot;PlacedByButton3&quot;, &quot;!PlacedByButton3&quot;,
-&quot;PlacedByFvwm&quot;, &quot;!PlacedByFvwm&quot;,
-&quot;CurrentDesk&quot;, &quot;!CurrentDesk&quot;,
-&quot;CurrentPage&quot;, &quot;!CurrentPage&quot;,
-&quot;CurrentScreen&quot;,&quot;!CurrentScreen&quot;,
-&quot;CurrentGlobalPage&quot;, &quot;!CurrentGlobalPage&quot;,
-&quot;CurrentPageAnyDesk&quot;, &quot;!CurrentPageAnyDesk&quot;,
 and &quot;CurrentGlobalPageAnyDesk&quot;, &quot;!CurrentGlobalPageAnyDesk&quot;.
 In addition, the
 <I>condition</I>
@@ -13535,14 +13502,30 @@ WindowId $0 (Silly_Popup) Delete</PRE></blockquote>
 
 
 
-Mostly this is useful for functions used with the
+In the past this command was mostly useful for functions used with
+the
 <B>WindowList</B>
 
 command, or for selective processing of
-<B><a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B>
 
-calls (as in the last example).  Returns -1 if no window with the
-given id exists.
+calls (as in the last example), but currently these handler functions
+are called within a window context, so this command is not really
+needed in these cases.  Still it may be useful if, for example, the
+window id should be stored in the environment variable for a further
+proceeding.
+
+
+<P>
+
+
+<blockquote><PRE>Pick SetEnv BOOKMARKED_WINDOW $[w.id]
+WindowId $[BOOKMARKED_WINDOW] WarpToWindow</PRE></blockquote>
+<P>
+
+
+
+Returns -1 if no window with the given id exists.
 <P>
 <DT><B>NoWindow</B><I> command</I>
 
@@ -13627,7 +13610,7 @@ output of
 <B>-cmd</B>
 
 config command), and can be later modified either by user (via
-<B><a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a></B>)
+<B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B>)
 
 or by modules.
 <P>
@@ -13717,9 +13700,9 @@ KillModule FvwmEvent SoundEvent</PRE></blockquote>
 <DD>
 Specifies a module with its optional parameters which should be
 spawned. Currently several modules, including
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>, <B><a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a></B>, <B><a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a></B>, <B><a href="<?php echo conv_link_target('FvwmGtk.php');?>">FvwmGtk</a></B>, 
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>, <B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B>, <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>, <B><a href="<?php echo conv_link_target('./FvwmGtk.php');?>">FvwmGtk</a></B>, 
 
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>, <B><a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>, <B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 
 support aliases.  Aliases are useful if more than one instance of
 the module should be spawned.  Aliases may be configured
@@ -13727,7 +13710,7 @@ separately using
 <B>*</B>
 
 syntax described above.  To start a module
-<B><a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
 
 using an alias
 <I>MyForm</I>,
@@ -13745,99 +13728,99 @@ the following syntax may be used:
 
 <P>
 At the current time the available modules (included with fvwm) are
-<B><a href="<?php echo conv_link_target('FvwmAnimate.php');?>">FvwmAnimate</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmAnimate.php');?>">FvwmAnimate</a></B>
 
 (produces animation effects when a window is iconified or
 de-iconified),
 <B>FvwmAudio</B>
 
 (makes sounds to go with window manager actions),
-<B><a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>
 
 (an auto raise module),
-<B><a href="<?php echo conv_link_target('FvwmBacker.php');?>">FvwmBacker</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmBacker.php');?>">FvwmBacker</a></B>
 
 (to change the background when you change desktops),
-<B><a href="<?php echo conv_link_target('FvwmBanner.php');?>">FvwmBanner</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmBanner.php');?>">FvwmBanner</a></B>
 
 (to display a spiffy XPM, XBM or PNG),
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
 
 (brings up a customizable tool bar),
 <B>FvwmCommandS</B>
 
 (a command server to use with shell's FvwmCommand client),
-<B><a href="<?php echo conv_link_target('FvwmConsole.php');?>">FvwmConsole</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmConsole.php');?>">FvwmConsole</a></B>
 
 (to execute fvwm commands directly),
-<B><a href="<?php echo conv_link_target('FvwmCpp.php');?>">FvwmCpp</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmCpp.php');?>">FvwmCpp</a></B>
 
 (to preprocess your
 <I>.fvwm2rc</I>
 
 with cpp),
-<B><a href="<?php echo conv_link_target('FvwmDebug.php');?>">FvwmDebug</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmDebug.php');?>">FvwmDebug</a></B>
 
 (to help debug fvwm),
-<B><a href="<?php echo conv_link_target('FvwmDragWell.php');?>">FvwmDragWell</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmDragWell.php');?>">FvwmDragWell</a></B>
 
 (the place to drag&amp;drop to),
-<B><a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B>
 
 (trigger various actions by events),
-<B><a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
 
 (to bring up dialogs),
-<B><a href="<?php echo conv_link_target('FvwmGtk.php');?>">FvwmGtk</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmGtk.php');?>">FvwmGtk</a></B>
 
 (to bring up GTK menus and dialogs),
-<B><a href="<?php echo conv_link_target('FvwmIconBox.php');?>">FvwmIconBox</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmIconBox.php');?>">FvwmIconBox</a></B>
 
 (like the mwm IconBox),
-<B><a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>
 
 (a flexible icon manager),
-<B><a href="<?php echo conv_link_target('FvwmIdent.php');?>">FvwmIdent</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>
 
 (to get window info),
-<B><a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 
 (to preprocess your
 <I>.fvwm2rc</I>
 
 with m4),
-<B><a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 
 (a mini version of the desktop),
-<B><a href="<?php echo conv_link_target('FvwmSave.php');?>">FvwmSave</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmSave.php');?>">FvwmSave</a></B>
 
 (saves the desktop state in .xinitrc style),
-<B><a href="<?php echo conv_link_target('FvwmSaveDesk.php');?>">FvwmSaveDesk</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmSaveDesk.php');?>">FvwmSaveDesk</a></B>
 
 (saves the desktop state in fvwm commands),
-<B><a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 
 (another powerful dialog toolkit),
-<B><a href="<?php echo conv_link_target('FvwmScroll.php');?>">FvwmScroll</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmScroll.php');?>">FvwmScroll</a></B>
 
 (puts scrollbars on any window),
-<B><a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
 
 (a Windows like task bar),
-<B><a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>
 
 (managed colorsets, obsolete),
-<B><a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
 
 (a window list),
-<B><a href="<?php echo conv_link_target('FvwmWharf.php');?>">FvwmWharf</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmWharf.php');?>">FvwmWharf</a></B>
 
 (an AfterStep like button bar).  These modules have their own man
 pages.  There may be other modules out on there as well.
 <P>
 <P>
 Modules can be short lived transient programs or, like
-<B><a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>,
 
 can remain for the duration of the X session.  Modules are
 terminated by the window manager prior to restarts and quits, if
@@ -14132,13 +14115,13 @@ includes images and all kinds of gradients).  There is a way to
 render background face and specify other color operations.
 <P>
 In the 2.4.x versions a special module
-<B><a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a></B>
+<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>
 
 was introduced to manage colorsets.  The FvwmTheme functionality
 was moved to the core fvwm, so this module became obsolete.
 Some additional information about colorsets may be found in the
 man page of
-<B><a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>"</B>(1),
+<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>(1),
 
 although it is obsolete now.
 <P>
@@ -14158,7 +14141,7 @@ corresponds to the new syntax:
 <DT><B>Colorset </B><I>num</I><B> [</B><I>options</I><B>]</B>
 
 <DD>
-Defines a colorset, see <a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>"(1).
+Defines a colorset, see <a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a>(1).
 <P>
 <DT><B>CleanupColorsets</B>
 
@@ -14409,13 +14392,11 @@ The official fvwm homepage is
 <DT><A HREF="#lbBF">BUILT-IN KEY AND MOUSE BINDINGS</A><DD>
 <DT><A HREF="#lbBG">MODULE AND FUNCTION COMMANDS</A><DD>
 <DT><A HREF="#lbBH">DELAYED EXECUTION OF COMMANDS</A><DD>
-<DL>
 <DT><A HREF="#lbBI">QUOTING</A><DD>
 <DT><A HREF="#lbBJ">COMMAND EXPANSION</A><DD>
-</DL>
 <DT><A HREF="#lbBK">SCRIPTING AND COMPLEX FUNCTIONS</A><DD>
-<DL>
 <DT><A HREF="#lbBL">THE LIST OF FVWM COMMANDS</A><DD>
+<DL>
 <DT><A HREF="#lbBM">COMMANDS FOR MENUS</A><DD>
 <DT><A HREF="#lbBN">MISCELLANEOUS COMMANDS</A><DD>
 <DT><A HREF="#lbBO">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
@@ -14439,11 +14420,11 @@ The official fvwm homepage is
 </DL>
 <HR>
 This document was created by
-<A HREF="./">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 02:56:48 GMT, April 17, 2003
+Time: 01:39:53 GMT, April 19, 2003
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 17-Apr-2003 05:56:47 -->
+<!-- Automatically generated by manpages2php on 19-Apr-2003 -->

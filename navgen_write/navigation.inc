@@ -1,6 +1,6 @@
 <?php
 //=============================================================
-// This file is generated automatically by navgen2.
+// This file is generated automatically by navgen.
 // You may change the order of $top_array only!
 // Uwe Pross 2003
 //=============================================================
@@ -8,13 +8,13 @@
 // names of the top sites - you may change the order if you like
 $top_array = array(
 "home", 
-"news", 
-"features", 
-"download", 
-"screenshots", 
-"documentation", 
-"mailing_lists", 
-"links", 
+  "news", 
+  "features", 
+  "download", 
+  "screenshots", 
+  "documentation", 
+  "mailing_lists", 
+  "links", 
 ); 
 
 $nav_array["fvwm_cats"]["file"]         = "fvwm-cats/index.php"; 
@@ -41,13 +41,77 @@ $nav_array["home"]["link_pic"]     = "pictures/icons/home";
 $nav_array["home"]["parent_site"]  = "top"; 
 $nav_array["home"]["child_sites"]  = array("fvwm_cats", "authors"); 
 
-$nav_array["mailing_lists"]["file"]         = "contact/index.php"; 
-$nav_array["mailing_lists"]["rel_path"]     = "./.."; 
-$nav_array["mailing_lists"]["link_name"]    = "Mailing Lists"; 
-$nav_array["mailing_lists"]["link_chapter"] = ""; 
-$nav_array["mailing_lists"]["link_pic"]     = "pictures/icons/contact_mailing_list"; 
-$nav_array["mailing_lists"]["parent_site"]  = "top"; 
-$nav_array["mailing_lists"]["child_sites"]  = array(); 
+$nav_array["logo_competition"]["file"]         = "logo-competition/index.php"; 
+$nav_array["logo_competition"]["rel_path"]     = "./.."; 
+$nav_array["logo_competition"]["link_name"]    = "Logo Competition"; 
+$nav_array["logo_competition"]["link_chapter"] = ""; 
+$nav_array["logo_competition"]["link_pic"]     = "pictures/icons/logo_competition"; 
+$nav_array["logo_competition"]["parent_site"]  = "news"; 
+$nav_array["logo_competition"]["child_sites"]  = array(); 
+
+$nav_array["news"]["file"]         = "latest_news/index.php"; 
+$nav_array["news"]["rel_path"]     = "./.."; 
+$nav_array["news"]["link_name"]    = "News"; 
+$nav_array["news"]["link_chapter"] = ""; 
+$nav_array["news"]["link_pic"]     = "pictures/icons/news"; 
+$nav_array["news"]["parent_site"]  = "top"; 
+$nav_array["news"]["child_sites"]  = array("logo_competition"); 
+
+$nav_array["features"]["file"]         = "features.php"; 
+$nav_array["features"]["rel_path"]     = "."; 
+$nav_array["features"]["link_name"]    = "Features"; 
+$nav_array["features"]["link_chapter"] = ""; 
+$nav_array["features"]["link_pic"]     = "pictures/icons/features"; 
+$nav_array["features"]["parent_site"]  = "top"; 
+$nav_array["features"]["child_sites"]  = array(); 
+
+$nav_array["icons"]["file"]         = "download/icons.php"; 
+$nav_array["icons"]["rel_path"]     = "./.."; 
+$nav_array["icons"]["link_name"]    = "Icons and Sounds"; 
+$nav_array["icons"]["link_chapter"] = ""; 
+$nav_array["icons"]["link_pic"]     = "pictures/icons/download_icons"; 
+$nav_array["icons"]["parent_site"]  = "download"; 
+$nav_array["icons"]["child_sites"]  = array(); 
+
+$nav_array["download"]["file"]         = "download/index.php"; 
+$nav_array["download"]["rel_path"]     = "./.."; 
+$nav_array["download"]["link_name"]    = "Download"; 
+$nav_array["download"]["link_chapter"] = ""; 
+$nav_array["download"]["link_pic"]     = "pictures/icons/download"; 
+$nav_array["download"]["parent_site"]  = "top"; 
+$nav_array["download"]["child_sites"]  = array("icons"); 
+
+$nav_array["desktops"]["file"]         = "screenshots/desktops.php"; 
+$nav_array["desktops"]["rel_path"]     = "./.."; 
+$nav_array["desktops"]["link_name"]    = "Desktops"; 
+$nav_array["desktops"]["link_chapter"] = ""; 
+$nav_array["desktops"]["link_pic"]     = "pictures/icons/screenshots_desks"; 
+$nav_array["desktops"]["parent_site"]  = "screenshots"; 
+$nav_array["desktops"]["child_sites"]  = array(); 
+
+$nav_array["windowdecors"]["file"]         = "screenshots/windowdecors/index.php"; 
+$nav_array["windowdecors"]["rel_path"]     = "./../.."; 
+$nav_array["windowdecors"]["link_name"]    = "Decors"; 
+$nav_array["windowdecors"]["link_chapter"] = ""; 
+$nav_array["windowdecors"]["link_pic"]     = "pictures/icons/screenshots_decor"; 
+$nav_array["windowdecors"]["parent_site"]  = "screenshots"; 
+$nav_array["windowdecors"]["child_sites"]  = array(); 
+
+$nav_array["menus"]["file"]         = "screenshots/menus/index.php"; 
+$nav_array["menus"]["rel_path"]     = "./../.."; 
+$nav_array["menus"]["link_name"]    = "Menus"; 
+$nav_array["menus"]["link_chapter"] = ""; 
+$nav_array["menus"]["link_pic"]     = "pictures/icons/screenshots_menu"; 
+$nav_array["menus"]["parent_site"]  = "screenshots"; 
+$nav_array["menus"]["child_sites"]  = array(); 
+
+$nav_array["screenshots"]["file"]         = "screenshots/index.php"; 
+$nav_array["screenshots"]["rel_path"]     = "./.."; 
+$nav_array["screenshots"]["link_name"]    = "Screenshots"; 
+$nav_array["screenshots"]["link_chapter"] = ""; 
+$nav_array["screenshots"]["link_pic"]     = "pictures/icons/screenshots"; 
+$nav_array["screenshots"]["parent_site"]  = "top"; 
+$nav_array["screenshots"]["child_sites"]  = array("desktops", "windowdecors", "menus"); 
 
 $nav_array["faq"]["file"]         = "documentation/faq.php"; 
 $nav_array["faq"]["rel_path"]     = "./.."; 
@@ -113,29 +177,13 @@ $nav_array["documentation"]["link_pic"]     = "pictures/icons/documentation";
 $nav_array["documentation"]["parent_site"]  = "top"; 
 $nav_array["documentation"]["child_sites"]  = array("faq", "manpages", "developers"); 
 
-$nav_array["icons"]["file"]         = "download/icons.php"; 
-$nav_array["icons"]["rel_path"]     = "./.."; 
-$nav_array["icons"]["link_name"]    = "Icons and Sounds"; 
-$nav_array["icons"]["link_chapter"] = ""; 
-$nav_array["icons"]["link_pic"]     = "pictures/icons/download_icons"; 
-$nav_array["icons"]["parent_site"]  = "download"; 
-$nav_array["icons"]["child_sites"]  = array(); 
-
-$nav_array["download"]["file"]         = "download/index.php"; 
-$nav_array["download"]["rel_path"]     = "./.."; 
-$nav_array["download"]["link_name"]    = "Download"; 
-$nav_array["download"]["link_chapter"] = ""; 
-$nav_array["download"]["link_pic"]     = "pictures/icons/download"; 
-$nav_array["download"]["parent_site"]  = "top"; 
-$nav_array["download"]["child_sites"]  = array("icons"); 
-
-$nav_array["features"]["file"]         = "features.php"; 
-$nav_array["features"]["rel_path"]     = "."; 
-$nav_array["features"]["link_name"]    = "Features"; 
-$nav_array["features"]["link_chapter"] = ""; 
-$nav_array["features"]["link_pic"]     = "pictures/icons/features"; 
-$nav_array["features"]["parent_site"]  = "top"; 
-$nav_array["features"]["child_sites"]  = array(); 
+$nav_array["mailing_lists"]["file"]         = "contact/index.php"; 
+$nav_array["mailing_lists"]["rel_path"]     = "./.."; 
+$nav_array["mailing_lists"]["link_name"]    = "Mailing Lists"; 
+$nav_array["mailing_lists"]["link_chapter"] = ""; 
+$nav_array["mailing_lists"]["link_pic"]     = "pictures/icons/contact_mailing_list"; 
+$nav_array["mailing_lists"]["parent_site"]  = "top"; 
+$nav_array["mailing_lists"]["child_sites"]  = array(); 
 
 $nav_array["links"]["file"]         = "links.php"; 
 $nav_array["links"]["rel_path"]     = "."; 
@@ -144,53 +192,5 @@ $nav_array["links"]["link_chapter"] = "";
 $nav_array["links"]["link_pic"]     = "pictures/icons/links"; 
 $nav_array["links"]["parent_site"]  = "top"; 
 $nav_array["links"]["child_sites"]  = array(); 
-
-$nav_array["desktops"]["file"]         = "screenshots/desktops.php"; 
-$nav_array["desktops"]["rel_path"]     = "./.."; 
-$nav_array["desktops"]["link_name"]    = "Desktops"; 
-$nav_array["desktops"]["link_chapter"] = ""; 
-$nav_array["desktops"]["link_pic"]     = "pictures/icons/screenshots_desks"; 
-$nav_array["desktops"]["parent_site"]  = "screenshots"; 
-$nav_array["desktops"]["child_sites"]  = array(); 
-
-$nav_array["windowdecors"]["file"]         = "screenshots/windowdecors/index.php"; 
-$nav_array["windowdecors"]["rel_path"]     = "./../.."; 
-$nav_array["windowdecors"]["link_name"]    = "Decors"; 
-$nav_array["windowdecors"]["link_chapter"] = ""; 
-$nav_array["windowdecors"]["link_pic"]     = "pictures/icons/screenshots_decor"; 
-$nav_array["windowdecors"]["parent_site"]  = "screenshots"; 
-$nav_array["windowdecors"]["child_sites"]  = array(); 
-
-$nav_array["menus"]["file"]         = "screenshots/menus/index.php"; 
-$nav_array["menus"]["rel_path"]     = "./../.."; 
-$nav_array["menus"]["link_name"]    = "Menus"; 
-$nav_array["menus"]["link_chapter"] = ""; 
-$nav_array["menus"]["link_pic"]     = "pictures/icons/screenshots_menu"; 
-$nav_array["menus"]["parent_site"]  = "screenshots"; 
-$nav_array["menus"]["child_sites"]  = array(); 
-
-$nav_array["screenshots"]["file"]         = "screenshots/index.php"; 
-$nav_array["screenshots"]["rel_path"]     = "./.."; 
-$nav_array["screenshots"]["link_name"]    = "Screenshots"; 
-$nav_array["screenshots"]["link_chapter"] = ""; 
-$nav_array["screenshots"]["link_pic"]     = "pictures/icons/screenshots"; 
-$nav_array["screenshots"]["parent_site"]  = "top"; 
-$nav_array["screenshots"]["child_sites"]  = array("desktops", "windowdecors", "menus"); 
-
-$nav_array["logo_competition"]["file"]         = "logo-competition/index.php"; 
-$nav_array["logo_competition"]["rel_path"]     = "./.."; 
-$nav_array["logo_competition"]["link_name"]    = "Logo Competition"; 
-$nav_array["logo_competition"]["link_chapter"] = ""; 
-$nav_array["logo_competition"]["link_pic"]     = "pictures/icons/logo_competition"; 
-$nav_array["logo_competition"]["parent_site"]  = "news"; 
-$nav_array["logo_competition"]["child_sites"]  = array(); 
-
-$nav_array["news"]["file"]         = "latest_news/index.php"; 
-$nav_array["news"]["rel_path"]     = "./.."; 
-$nav_array["news"]["link_name"]    = "News"; 
-$nav_array["news"]["link_chapter"] = ""; 
-$nav_array["news"]["link_pic"]     = "pictures/icons/news"; 
-$nav_array["news"]["parent_site"]  = "top"; 
-$nav_array["news"]["child_sites"]  = array("logo_competition"); 
 
 ?>

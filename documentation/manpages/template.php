@@ -13,8 +13,7 @@
 //--------------------------------------------------------------------
 if (strlen("$navigation_check") > 0) return;
 
-
-$rel_path = "../../..";
+$rel_path = "@parent@/../..";
 
 //--------------------------------------------------------------------
 // load some global definitions
@@ -25,19 +24,12 @@ include("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "FVWM - Man page - @topic@";
-$heading        = "Man page - @topic@";
+$heading        = "FVWM - Man page - @topic@";
 $link_name      = "Man page";
 $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-
-// Since manpages shall not apear in the navigation structure this
-// page must identify itself with another name. It says here that
-// it's name is manpages which belongs actually to the table of
-// content page for all man pages. The layout file will therefore
-// mark the navigation entry for the toc file as choosen althought
-// it is actually not choosen.
 $this_site      = "manpages";
 
 //--------------------------------------------------------------------
@@ -54,7 +46,7 @@ if (strlen($site_has_been_loaded) == 0) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for @topic@"); ?>
+<?php decoration_window_start("Manual page for @topic@ in @branch@ branch (@version@)"); ?>
 
 @body@
 

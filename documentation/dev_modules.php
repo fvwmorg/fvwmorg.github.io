@@ -48,22 +48,21 @@ decoration_window_start("Module Interface");
   <h2>Table Of Contents</h2>
 
   <ul>
-    <li><a href="#mod_changes">Important Changes Since Fvwm-1.xx</a></li>
+    <li><a href="#mod_changes">Important Changes Since fvwm-1.xx</a></li>
     <li><a href="#mod_concept">Concept</a></li>
     <li><a href="#mod_security">Security</a></li>
     <li><a href="#mod_initialization">Initialization</a> and 
       <a href="#mod_initialization_colorsets">Colorsets</a></li>
-    <li><a href="#mod_m2f_communication">Module-to-Fvwm Communication</a></li>
-    <li><a href="#mod_f2m_communication">Fvwm-to-Module Communication</a></li>
-    <!-- <li><a href="generated/perllib/">Perl Library Documentation</a> <i>[new]</i></li> -->
+    <li><a href="#mod_m2f_communication">module-to-fvwm Communication</a></li>
+    <li><a href="#mod_f2m_communication">fvwm-to-module Communication</a></li>
   </ul>
   <!--====================================================================== 
   ==  mod_changes.html
   ======================================================================== -->
   <a name="mod_changes"></a> 
-  <h3>Important Changes Since Fvwm-1.xx <a href="#top">[top]</a></h3> 
+  <h3>Important Changes Since fvwm-1.xx <a href="#top">[top]</a></h3> 
   <p>The module interface remained fairly stable when going from
-    Fvwm-1.xx to Fvwm-2.xx. The change most likely to affect modules is
+    fvwm-1.xx to fvwm-2.xx. The change most likely to affect modules is
     the addition of an extra value to the header. This value is a
     timestamp. Most modules contained the line:</p>
 <pre class="doc">
@@ -95,7 +94,9 @@ static void ParseOptions() {
     4''.</p>
   <p>Some new packet types are defined, and a few values were added
     to some packet types.</p>
-  
+  <p>Starting in fvwm-2.5.2, <a href="<?php echo conv_link_target('perllib/');
+    ?>">Perl library</a> is provided that enables writing FVWM modules in Perl.
+
   <!--======================================================================
   == mod_concept.html 
   ======================================================================== -->
@@ -110,16 +111,20 @@ static void ParseOptions() {
       manager with a limited amount of instruction regarding instructions
       to execute.</li>
     <li>Modules should not be able to corrupt the internal data bases
-      maintained by Fvwm, nor should unauthorized modules be able to
-      interface to Fvwm.</li>
+      maintained by fvwm, nor should unauthorized modules be able to
+      interface to fvwm.</li>
     <li>Modules should be able to extract all or nearly all information
       held by the window manager, in a simple manner, to provide users
       with feedback not available from built in services.</li>
     <li>Modules should gracefully terminate when the window manager
       dies, quits, or is re-started.</li>
     <li>It should be possible for programmer-users to add modules
-      without understanding the internals of Fvwm. Ideally, modules could
-      be written in some scripting language such as Tcl/Tk.</li>
+      without understanding the internals of fvwm. Ideally, modules could
+      be written in some scripting language such as Tcl/Tk,
+      <a href="<?php echo conv_link_target('perllib/FVWM::Module::Tk.php')
+      ?>">Perl/Tk</a> or
+      <a href="<?php echo conv_link_target('perllib/FVWM::Module::Gtk.php')
+      ?>">Perl/Gtk</a>.</li>
   </ul>
 
   <!--====================================================================== 
@@ -128,25 +133,25 @@ static void ParseOptions() {
   <a name="mod_security"></a>
   <h2>Security <a href="#top">[top]</a></h2> 
   <p>Limited effort has been placed on security issues. In short,
-    modules can not communicate with Fvwm unless they are launched by
-    Fvwm, which means that they must be listed in the user's .fvwmrc
-    file. Modules can only issue commands to Fvwm that could be issued
+    modules can not communicate with fvwm unless they are launched by
+    fvwm, which means that they must be listed in the user's .fvwmrc
+    file. Modules can only issue commands to fvwm that could be issued
     from a menu or key binding. These measures do not keep a poorly
     written module from destroying windows or terminating an X session,
     but they do keep users from maliciously connecting to another users
-    window manager, and it should keep modules from corrupting the Fvwm
-    internal databases. </p>
+    window manager, and it should keep modules from corrupting the fvwm
+    internal databases.</p>
 
   <!--======================================================================
   == mod_initialization.html 
   ======================================================================== -->
   <a name="mod_initialization"></a>
   <h2>Initialization <a href="#top">[top]</a></h2> 
-  <p>Modules MUST be launched by Fvwm. Fvwm will first open a pair of
+  <p>Modules MUST be launched by fvwm that will first open a pair of
     pipes for communication with the module. One pipe is for messages
-    to Fvwm from the module, and the other is for messages to the
-    module from Fvwm. Each module has its own pair of pipes. After the
-    pipes are open, Fvwm will fork and exec the module. Modules not
+    to fvwm from the module, and the other is for messages to the
+    module from fvwm. Each module has its own pair of pipes. After the
+    pipes are open, fvwm will fork and exec the module. Modules not
     specified with an absolute path must be located in the ModulePath,
     as specified in the user's .fvwm2rc file. Modules can be initiated
     as fvwm starts up, or can be launched part way through an X
@@ -163,7 +168,7 @@ static void ParseOptions() {
   <h3>Args 1 and 2</h3>
   <p> The pipes are open when the module starts execution. The integer
     file descriptors are passed to the module as the first and second
-    command line arguments. </p>
+    command line arguments.</p>
 
   <h3>Arg 3</h3>
   <p>The third command line argument is a character pointer pointing to
@@ -171,16 +176,16 @@ static void ParseOptions() {
     was started. If the module was not started from any configuration
     file (for example, it is started from StartFunction), this arg
     points to a string containing "none". This argument is mostly for
-    backward compatibility with old modules. </p>
+    backward compatibility with old modules.</p>
 
   <h3>Arg 4</h3>
   <p>The next command line argument is the application window in whose
     context the module was launched. This is 0 if the module is
-    launched without an application window context. </p>
+    launched without an application window context.</p>
 
   <h3>Arg 5</h3>
   <p>The next argument is the context of the window decoration in which
-    the module was launched. Contexts are listed below: </p>
+    the module was launched. Contexts are listed below:</p>
 
 <pre class="doc">
 #define C_NO_CONTEXT     0 - launched during initialization
@@ -203,31 +208,31 @@ static void ParseOptions() {
 </pre>
 
 <p>Note that no more than one bit will ever be set so a case statement
-    may be used with the values above. </p>
+    may be used with the values above.</p>
 
   <h3>Arg 6 and above</h3>
   <p>A number of user specified command line arguments may be present
     (optional). Any number of arguments may be passed. For example, in:</p>
 
 <pre class="doc">
-Module  "FvwmIdentify"  FvwmIdentify Hello rob! ``-fg purple''
+Module  "FvwmIdent" Hello rob! ``-fg purple''
 </pre>
   <p>we would get argv[6] = ``Hello'', argv[7] = ``rob!'', argv[8] =
-    ``-fg purple''. </p>
+    ``-fg purple''.</p>
 
   <h2>Module Aliases <a href="#top">[top]</a></h2> 
   <p>In the original fvwm, if you wanted to run 2 copies of a module,
     you were advised to copy or soft-link the module executable to
     another name. For example, you might have had to copies of
     FvwmButtons running. Some of the modules now accept arg 6 as an
-    Alias of the module name. </p>
+    Alias of the module name.</p>
   <p>This alias is used in module generated messages, in recognizing
     configuration commands, and possibly other uses. FvwmAnimate makes
     full use of this and might provide a good model to follow.</p>
 
   <h2>Acquiring the read/write pipes <a href="#top">[top]</a></h2> 
   <p>The following mechanism is recommended to acquire the pipe
-    descriptors: </p>
+    descriptors:</p>
 
 <pre class="doc">
 int fd[2];
@@ -246,17 +251,17 @@ void main(int argc, char **argv) {
     from fvwm. Since "int fd[2]" is an array, you will often see
     modules send commands to fvwm with the construct
     "SendText(fd,"Command",0);". Of course, they really mean
-    "SendText(&amp;fd[0],"Command",0);". </p>
+    "SendText(&amp;fd[0],"Command",0);".</p>
 
   <h2>Pipe Status <a href="#top">[top]</a></h2> 
-  <p>Special attention is paid to the status of the pipe. If Fvwm gets a
+  <p>Special attention is paid to the status of the pipe. If fvwm gets a
     read error on a module-to-fvwm pipe, then it assumes that the
     module is terminating, and all communication with the module is
     terminated. Similarly, if a module gets a read error on an
     fvwm-to-module pipe, then it should assume that fvwm is
     terminating, and it should gracefully shut down. All modules should
     also allow themselves to be shut down via the Delete Window
-    protocol for X11. </p>
+    protocol for X11.</p>
 
   <h2>Reading initial configuration information <a href="#top">[top]</a></h2> 
   <p>In previous implementations, the modules were expected to read and
@@ -268,14 +273,13 @@ void main(int argc, char **argv) {
     command to fvwm. Modules can request configuration commands to be
     sent whenever fvwm reads one, even after the module has started up,
     see <a href="#M_SENDCONFIG">M_SENDCONFIG</a> in
-    <a href="#mod_m2f_communication">Module-to-Fvwm
-      Communication</a>. </p>
+    <a href="#mod_m2f_communication">module-to-fvwm Communication</a>.</p>
 
   <h2><a name="colorsets"></a>Colorset support <a href="#top">[top]</a></h2> 
   <p>When a module requests configuration information the configuration
     commands sent are preceded by some global configuration lines and a
     list of colorsets. In order to use colorsets a module must do the
-    following: </p>
+    following:</p>
   <ul>
     <li>make sure <em>-lm</em> is contained in the <em>LDADD</em>
       variable in <em>Makefile.am</em></li>
@@ -356,8 +360,7 @@ void main(int argc, char **argv) {
     X11 makes it impossible to examine the background color or pixmap
     of any window so there is no facility to tint or shade the root
     window background. Transpency is only supported in colorsets
-    managed by FvwmTheme and it won't work if you start fvwm with the
-    -visual option. </p>
+    and it won't work if you start fvwm with the -visual option.</p>
   <p>In order to support transparency a module must do the
     following:</p>
   <ul>
@@ -432,7 +435,7 @@ window background being drawn in windows in some circumstances
 <p>I humbly apologize for <em>ParentalRelativity</em>, it's the
 only thing I could think of that wouldn't imply something else.
 Count yourself lucky that the opposite setting is <em>Opacity</em>
-and not <em>Obscurity</em> or <em>ParentalIndifference</em> </p>
+and not <em>Obscurity</em> or <em>ParentalIndifference</em></p>
 
 <!--======================================================================
   == mod_m2f_communication.html 
@@ -448,10 +451,10 @@ and not <em>Obscurity</em> or <em>ParentalIndifference</em> </p>
   <p>Modules communicate with fvwm via a simple protocol. In essence, a
     textual command line, similar to a command line which could be
     bound to a mouse, or key-stroke in the .fvwm2rc, is transmitted to
-    fvwm. </p>
+    fvwm.</p>
   <p>First the module should send the ID of the window which should
     be manipulated. A window ID of ``None'' may be used, in which case
-    Fvwm will prompt the user to select a window if needed. Next the
+    fvwm will prompt the user to select a window if needed. Next the
     length of the the command line is sent as an integer. After that
     the command line itself is sent. Finally, an integer 1 is sent if
     the module plans to continue operating, or 0 if the module is
@@ -474,7 +477,7 @@ void SendText(int *fd, char *message, unsigned long window) {
 </pre>
   <p>This routine is available as a library function in libfvwm. For
     compatibility with older code, there is a macro "SendInfo" which
-    can be used instead of the function name SendText. </p>
+    can be used instead of the function name SendText.</p>
 
   <h2>Module information requests <a href="#top">[top]</a></h2> 
   <p>There are special built-in functions, Send_WindowList and
@@ -486,7 +489,7 @@ void SendText(int *fd, char *message, unsigned long window) {
     configuration, window, icon, and class names, and, if the window is
     iconified, the icon location and size. For example, some modules
     during start up want to know the state of all current windows. The
-    would ask fvwm for this information like this: </p>
+    would ask fvwm for this information like this:</p>
 
 <pre class="doc">
 SendText(Channel,"Send_WindowList",0);
@@ -502,7 +505,7 @@ SendText(Channel,"Send_WindowList",0);
     module startup for a module to read its current configuration and
     some general information. Fvwm provides some subroutines to make
     this process fairly painless. Here is an example from
-    FvwmAnimate.c: </p>
+    FvwmAnimate.c:</p>
 <pre class="doc">
 static void ParseOptions() {
   char *buf;
@@ -517,7 +520,7 @@ static void ParseOptions() {
     need to use this command. Most modules only want module commands
     for the module itself. As shown in the example above, the second
     argument includes the leading asterisk. The match is case
-    insensitive. </p>
+    insensitive.</p>
   <p>InitGetConfigInfo improves performance. Since the command
     matching is done in fvwm2, time is saved in both fvwm2 and the
     module. Remember that the module still has to name match if it
@@ -540,7 +543,7 @@ static void ParseOptions() {
     compared against one of the macros in libs/Module.h as usual, but
     when passing a mask to the SetMessageMask, SetSyncMask or
     SetNoGrabMask functions, the normal and extended masks must be set
-    in separate calls. Here is an example from FvwmGtk.c: </p>
+    in separate calls. Here is an example from FvwmGtk.c:</p>
 
 <pre class="doc">
 SetMessageMask(fvwm_fd, M_STRING | M_CONFIG_INFO | M_SENDCONFIG | ...);
@@ -549,7 +552,7 @@ SetMessageMask(fvwm_fd, MX_VISIBLE_ICON_NAME);
 
   <p>This mask is used to reduce the amount of communication between
     fvwm and its modules so that a module only gets the messages it
-    needs. </p>
+    needs.</p>
 
   <h2><a name="M_SENDCONFIG_desc"></a> Dynamic reconfiguration <a href="#top">[top]</a></h2> 
   <p>Fvwm can change configuration whilst running and modules can also
@@ -557,7 +560,7 @@ SetMessageMask(fvwm_fd, MX_VISIBLE_ICON_NAME);
     configuration but other module config lines may be added at any
     time from a variety of sources. If a module wants to be notified of
     any configuration changes it must set the <em>M_SENDCONFIG</em> bit
-    in the event mask </p>
+    in the event mask</p>
 
   <h2>Synchronous vs. Asynchronous Operation <a href="#top">[top]</a></h2> 
   <p>A module normally runs asynchrously with fvwm2. For example
@@ -568,7 +571,7 @@ SetMessageMask(fvwm_fd, MX_VISIBLE_ICON_NAME);
     case, the module must nform fvwm which packet-types it wishes to be
     processed synchronously. There is a mask for this propose. A
     library function, SetSyncMask, allows this mask to be set. Here is
-    an example from FvwmAnimate.c: </p>
+    an example from FvwmAnimate.c:</p>
 <pre class="doc">
 SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 </pre>
@@ -582,7 +585,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     tracking what they have done. The Afterstep documentation doesn't
     seem to say, but most likely this is the time in seconds that fvwm
     should wait for the module to respond with "UNLOCK" before it
-    proceeds without the module's response. </p>
+    proceeds without the module's response.</p>
 
 <!--====================================================================== 
   == mod_f2m_communication.html 
@@ -595,7 +598,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     whether they want it or not. Modules are able to request
     information about current windows from fvwm, via the
     Send_WindowList built-in. When invoked this way, only the
-    requesting module receives the data. </p>
+    requesting module receives the data.</p>
 
   <h2>Communication packet format <a href="#top">[top]</a></h2> 
   <p>Packets from fvwm to modules conform to a standard format, so
@@ -609,7 +612,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     types will be defined in the future. The third entry in the header
     tells the total length of the packet, in unsigned longs, including
     the header. The fourth entry is the last time stamp received from
-    the X server, which is expressed in milliseconds. </p>
+    the X server, which is expressed in milliseconds.</p>
 
   <p>The body information is packet specific, as described below.</p>
 <pre class="doc">
@@ -666,8 +669,8 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
   <h4 class="doctt"><a name="M_ADD_WINDOW"></a><a name="M_CONFIGURE_WINDOW"></a>M_ADD_WINDOW, and M_CONFIGURE_WINDOW <a href="#top">[top]</a></h4> 
   <p>These packets contain 25 values.
     The first value is the ID of the affected application's top level window,
-    the next is the ID of the Fvwm frame window, and the final value is the
-    pointer to Fvwm's internal database entry for that window. The
+    the next is the ID of the fvwm frame window, and the final value is the
+    pointer to fvwm's internal database entry for that window. The
     pointer itself is of no use to a module, it is there for backward
     compatibilty with older modules.
     The next 22 identify the location and size, as described in the table below.
@@ -682,16 +685,16 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     position of the value in the packet.  Instead, use the structures
     defined in libs/vpacket.h.</p>
 
-  <table summary="Developer information">
+  <table summary="Developer information" border="1">
     <tr>
-      <td></td>
+      <td align="right">0</td>
       <td>ID of the application's top level window</td></tr>
     <tr>
       <td align="right">1</td>
-      <td>ID of the Fvwm frame window</td></tr>
+      <td>ID of the fvwm frame window</td></tr>
     <tr>
       <td align="right">2</td>
-      <td>Pointer to the Fvwm database entry (not useful)</td></tr>
+      <td>Pointer to the fvwm database entry (not useful)</td></tr>
     <tr>
       <td align="right">3</td>
       <td>X location of the window's frame</td></tr>
@@ -767,17 +770,17 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
   <p>These packets contain 5 values, all of the same size as an unsigned
     long. The first value is the ID of the affected application's (the
     application which now has the input focus) top level window, the
-    next is the ID of the Fvwm frame window, and the third value is set
+    next is the ID of the fvwm frame window, and the third value is set
     to 0 when the focus change is from the Focus command and 1 for all
     other focus changes (FlipFocus, focusing with the mouse etc.). The
     third value can be used by the module to manage the windowlist in
-    the same way as Fvwm i.e. 0 means rotate the list around to the
+    the same way as fvwm i.e. 0 means rotate the list around to the
     target, 1 means pluck the target from the list and insert at the
     beginning. The fourth and fifth values are the text focus color's
     pixel value and the window border's focus color's pixel value. In
     the event that the window which now has the focus is not a window
     which fvwm recognizes, only the ID of the affected application's
-    top level window is passed. Zeros are passed for the other values. </p>
+    top level window is passed. Zeros are passed for the other values.</p>
 
     <table summary="Developer information" border="1">
       <tr>
@@ -785,7 +788,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 	<td>ID of the application's top level window</td></tr>
       <tr>
 	<td align="right">1</td>
-	<td>ID of the Fvwm frame window</td></tr>
+	<td>ID of the fvwm frame window</td></tr>
       <tr>
 	<td align="right">2</td>
 	<td>Focus change type</td></tr>
@@ -804,7 +807,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       describe the location and size of the icon, as described in the
       table. An M_ICON_LOCATION packet will be sent when an icon is
       created or moved and when the icon window is changed via the
-      XA_WM_HINTS in a property notify event. </p>
+      XA_WM_HINTS in a property notify event.</p>
 
     <table summary="Developer information" border="1">
       <tr>
@@ -812,10 +815,10 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 	<td>ID of the application's top level window</td></tr>
       <tr>
 	<td>1</td>
-	<td>ID of the Fvwm frame window</td></tr>
+	<td>ID of the fvwm frame window</td></tr>
       <tr>
 	<td>2</td>
-	<td>Pointer to the Fvwm database entry (not useful)</td></tr>
+	<td>Pointer to the fvwm database entry (not useful)</td></tr>
       <tr>
 	<td>3</td>
 	<td>X location of the icon</td></tr>
@@ -835,7 +838,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       describe the location and size of the icon. If 4 further items are
       sent they are the location and size of the window being iconified.
       Note that M_ICONIFY packets are also sent whenever a window is
-      started in the iconic state. </p>
+      started in the iconic state.</p>
     <p>In addition, if a window which has transients is iconified, then
       an M_ICONIFY packet is sent for each transient window, with the
       icon x and y fields set to -10000. This packet will be sent even if
@@ -850,10 +853,10 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 	<td>ID of the application's top level window</td></tr>
       <tr>
 	<td align="right">1</td>
-	<td>ID of the Fvwm frame window</td></tr>
+	<td>ID of the fvwm frame window</td></tr>
       <tr>
 	<td align="right">2</td>
-	<td>Pointer to the Fvwm database entry</td></tr>
+	<td>Pointer to the fvwm database entry</td></tr>
       <tr>
 	<td align="right">3</td>
 	<td>X location of the icon</td></tr>
@@ -883,13 +886,13 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     <p>These packets contain up to 3, 7 or 11 values starting with the
       usual window identifiers. The packet is sent when a window is
       de-iconified. Like M_ICONIFY icon and window location and size are
-      sent. </p>
+      sent.</p>
 
     <h4 class="doctt"><a name="M_MAP"></a> M_MAP <a href="#top">[top]</a></h4> 
     <p>These packets contain 3 values, which are the usual window
       identifiers. The packets are sent when a window is mapped, if it is
       not being deiconified. This is useful to determine when a window is
-      finally mapped, after being added. </p>
+      finally mapped, after being added.</p>
 
     <h4 class="doctt"><a name="M_WINDOW_NAME"></a><a name=
    "M_ICON_NAME"></a><a name="M_RES_CLASS"></a><a name=
@@ -904,7 +907,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       be sent upon window creation or whenever the name is changed. The
       RES_CLASS and RES_NAME packets are sent on window creation. All
       packets are sent in response to a Send_WindowList request from a
-      module. </p>
+      module.</p>
 
     <h4 class="doctt"><a name="M_VISIBLE_NAME"></a><a name=
      "MX_VISIBLE_ICON_NAME"></a> MX_VISIBLE_NAME,
@@ -913,20 +916,20 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       packets (respectively). The difference is that they contain the
       window and icon title that fvwm displays (which may be differrent
       than the Window name and the Icon name if the IndexedWindowName and
-      IndexedIconName fvwm styles are used). </p>
+      IndexedIconName fvwm styles are used).</p>
 
     <h4 class="doctt"><a name="M_END_WINDOWLIST"></a> M_END_WINDOWLIST <a href="#top">[top]</a></h4> 
     <p>These packets contain no values. This packet is sent to mark the
       end of transmission in response to a Send_WindowList request. A
       module which requests Send_WindowList, and processes all packets
       received between the request and the M_END_WINDOWLIST will have a
-      snapshot of the status of the desktop. </p>
+      snapshot of the status of the desktop.</p>
 
     <h4 class="doctt"><a name="M_ERROR"></a> M_ERROR <a href="#top">[top]</a></h4> 
     <p>When fvwm has an error message to report, it is echoed to the
       modules in a packet of this type. This packet has 3 values, all
       zero, followed by a variable length string which contains the error
-      message. </p>
+      message.</p>
 
     <h4 class="doctt"><a name="M_CONFIG_INFO"></a> M_CONFIG_INFO <a href="#top">[top]</a></h4> 
     <p>Fvwm records all configuration commands that it encounters which
@@ -938,7 +941,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       ColorLimit, Colorset and XineramaConfig definitions are sent to the
       module. The XineramaConfig string is followed by the primary screen
       number (counting from 1 upwards, 0 for the global screen or -1 if
-      Xinerama is disabled). </p>
+      Xinerama is disabled).</p>
     <p>Note that all the module configuration commands are sent. Each
       module has to check the configuration commands to see if it is a
       command for that specific module. This is actually a feature. This
@@ -957,7 +960,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       sends a packet of this type to indicate the end of the
       configuration information. This packet contains no values. This
       packet it not sent for subsequent config lines sent when the
-      M_SENDCONFIG mask bit is on. </p>
+      M_SENDCONFIG mask bit is on.</p>
 
     <h4 class="doctt"><a name="M_ICON_FILE"></a> M_ICON_FILE <a href="#top">[top]</a></h4> 
     <p>This packet is broadcast when a window is added or during send
@@ -967,12 +970,12 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     <h4 class="doctt"><a name="M_DEFAULTICON"></a> M_DEFAULTICON <a href="#top">[top]</a></h4> 
     <p>This packet is sent during send window list. This is the icon
       associated with Style "*". The packet contains the filename of the
-      icon. </p>
+      icon.</p>
 
     <h4 class="doctt"><a name="M_STRING"></a> M_STRING <a href="#top">[top]</a></h4> 
     <p>This packet is sent when a "SendToModule" command is processed. It
       contains the usual 3 window identifiers (of the current window)
-      plus the actual string. </p>
+      plus the actual string.</p>
 
     <h4 class="doctt"><a name="M_MINI_ICON"></a> M_MINI_ICON <a href="#top">[top]</a></h4> 
     <p>This packet is broadcast when a window is added or during send
@@ -982,37 +985,36 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       mini_icon, the depth (which is useless, it is always the depth of
       the visual that fvwm is using), the window ID of the pixmap and
       mask, and finally a string that is the path to the file (also not
-      useful). </p>
+      useful).</p>
 
     <h4 class="doctt"><a name="M_WINDOWSHADE"></a><a name="M_DEWINDOWSHADE"></a>
       M_WINDOWSHADE and M_DEWINDOWSHADE <a href="#top">[top]</a></h4> 
     <p>This packet is sent when a window is window shaded. It contains
-      just the window identifiers. </p>
+      just the window identifiers.</p>
 
     <h4 class="doctt"><a name="M_SENDCONFIG"></a> M_SENDCONFIG <a href="#top">[top]</a></h4> 
     <p>This is a dummy packet that is never sent by fvwm and is described
-      under <a href="#M_SENDCONFIG_desc">Module to
-	Fvwm communication</a>. </p>
+      under <a href="#M_SENDCONFIG_desc">module-to-fvwm communication</a>.</p>
 
     <h4 class="doctt"><a name="M_RESTACK"></a> M_RESTACK <a href="#top">[top]</a></h4> 
     <p>This packet is sent when the stacking order changes. It contains a
       list of windows, each one being given by its three identifiers. The
       meaning is that the first window keeps its position in the stacking
       order and all subsequent windows are restacked below it (like
-      XRestackWindows). </p>
+      XRestackWindows).</p>
 
     <h4 class="doctt"><a name="MX_ENTER_WINDOW"></a><a name="MX_LEAVE_WINDOW"></a>
       MX_ENTER_WINDOW, MX_LEAVE_WINDOW <a href="#top">[top]</a></h4> 
     <p>These packets are sent when the pointer enters or leaves a window.
       It contains just the window identifiers. Note that multiple packets
-      of the same type for the same window may be sent at any time. </p>
+      of the same type for the same window may be sent at any time.</p>
 
     <h4 class="doctt"><a name="MX_PROPERTY_CHANGE"></a> MX_PROPERTY_CHANGE <a href="#top">[top]</a></h4>
     <p>This packet is an all purpose message. It contains 3 values
       followed by a variable length character string. The first value is
       the type of the message, the others values depend on the message
       type. The message types are: <b>MX_PROPERTY_CHANGE_BACKGROUND</b>
-      and <b>MX_PROPERTY_CHANGE_SWALLOW</b>. </p>
+      and <b>MX_PROPERTY_CHANGE_SWALLOW</b>.</p>
 
     <p><b>MX_PROPERTY_CHANGE_BACKGROUND</b> is sent by fvwm and
       FvwmButtons (and maybe other modules) to indicate a background

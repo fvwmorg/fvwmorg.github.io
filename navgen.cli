@@ -354,8 +354,9 @@ fputs($nav_file, "\"$site\", \n");
 /* migo: it is always good to have all lines with commas, less conflicts */
 /* uwp: I am not shure about this. 
         The correct php systax should be array(1,2,3) not array(1,2,3,)  */
+/* migo: all C-like languages support trailing comma in declarations */
 while( list($index, $site) = each($top_array) ) {
-  fputs($nav_file, "\"$site\", \n");
+  fputs($nav_file, "  \"$site\", \n");
 }
 fputs($nav_file, "); \n");
 
