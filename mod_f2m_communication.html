@@ -371,8 +371,10 @@ with the character ``*''. When the built-in command ``Send_ConfigInfo''
 is invoked by a module, this entire list is transmitted to the module in
 packets (one line per packet) of this type. The packet consists of three
 zeros, followed by a variable length character string. In addition, the
-DeskTopSize, ImagePath, ColorLimit, Colorset, XineramaEnable and
-XineramaDisable definitions are sent to the module.
+DeskTopSize, ImagePath, ColorLimit, Colorset and XineramaConfig
+definitions are sent to the module. The XineramaConfig string is
+followed by the primary screen number (counting from 1 upwards, 0
+for the global screen or -1 if Xinerama is disabled).
 <p>Note that all the module configuration commands are sent. Each module
 has to check the configuration commands to see if it is a command for that
 specific module. This is actually a feature. This way one module can learn
