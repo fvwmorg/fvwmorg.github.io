@@ -20,8 +20,8 @@ include($rel_path."/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Logo Competition - Aric Campling logos";
-$heading        = "FVWM - Logo Competition - Aric Campling logos";
+$title          = "FVWM - Logo Competition - Ludovic Recourchines logos";
+$heading        = "FVWM - Logo Competition - Ludovic Recourchines logos";
 $link_name      = "Logo Competition";
 $link_picture   = "pictures/icons/logo_competition";
 $parent_site    = "news";
@@ -41,33 +41,29 @@ if (strlen($site_has_been_loaded) == 0) {
 if( file_exists("./../color_select.inc") ) include("./../color_select.inc");
 ?>
 
-<?php decoration_window_start("By Aric Campling", "100%", ""); ?>
+<?php decoration_window_start("By Ludovic Recourchines", "100%", ""); ?>
 
 <p>
 <!-- 
-From: "A. Campling" <denim@hosers.org>
-Date: Sat, 7 Jun 2003 23:04:19 -0400 (EDT)
+From: ludox <ludorec@wanadoo.fr>
+Date: Wed, 11 Jun 2003 01:25:04 +0200
 To: fvwm-logo@lists.sourceforge.net
-Subject: [FVWM-LOGO] Submission  
+Subject: [FVWM-LOGO] Logo bis...
 -->
-Here's one.  That's my own cat back there.  She luvs linux, too.
-<!--
-URL: http://killerfrog.hopto.org/~ruyduck/felineinside2.png
-it's 270x180, comes out at about 41.4Mb.  I know it's a bit big, hope it
-will still qualify.
+Hi from France,
+  
+Logos are simply but not too bad they seems.
 
-I can provide high-resolution, uncompressed TIF on request.  Thanks!
+My name is Ludovic Recourchines.
 
-- Aric Campling
--->
+On the Pic's ones, it is my Cat, so no problem for rights.
 </p>
 
-<!--<p><img src="logo-white_bg.png" width="270" height="180"></p>-->
-<p><img src="logo-transparent_bg.png" width="300" height="180"></p>
+<p><img src="F5.png" width="200" height="120"></p>
 
-<p><img src="felineinside.png" width="300" height="200"></p>
+<p><img src="F6.png" width="200" height="120"></p>
 
-<p><img src="logo-gradient_bg.png" width="300" height="180"></p>
+<p><img src="LogoF.png" width="698" height="452"></p>
 
 <?php decoration_window_end(); ?>
 

@@ -186,11 +186,21 @@ border="0" hspace="0" vspace="0"></a>
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Aric Campling (2 images)", "", "", 0); ?>
+<?php decoration_window_start("By Aric Campling (3 images)", "", "", 0); ?>
 
 <p class="centered">
 <a href="<?php echo conv_link_target('logos/Aric_Campling/index.php');
 ?>" class="nohilight"><img src="logos/Aric_Campling/logos-overview.png" width="300" height="180" border="0" vspace="0" hspace="0"></a>
+
+<?php decoration_window_end(); ?>
+
+<!-- ============================================================= -->
+
+<?php decoration_window_start("By Ludovic Recourchines (3 images)", "", "", 0); ?>
+
+<p class="centered">
+<a href="<?php echo conv_link_target('logos/Ludovic_Recourchines/index.php');
+?>" class="nohilight"><img src="logos/Ludovic_Recourchines/logos-overview.png" width="200" height="240" border="0" vspace="0" hspace="0"></a>
 
 <?php decoration_window_end(); ?>
 

@@ -1,3 +1,12 @@
+2003-06-11  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
+
+	* documentation/dev_cvs.php: 
+	Fixed Typo.
+
+	* logo-competition/logos/Ludovic_Recourchines/index.php:
+	* logo-competition/logos_new.php:
+	Added logos from Ludovic Recourchines.
+
 2003-06-10  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/perllib/*.php:
@@ -17,7 +26,7 @@
 
 2003-06-08  Uwe Pross  <uwe.pross@gmx.net>
 
-	* logo-competition/logos_new.php (border): 
+	* logo-competition/logos_new.php: 
 	* logo-competition/logos/Aric_Campling/index.php: 
 	Added logos from Aric Campling.
 
