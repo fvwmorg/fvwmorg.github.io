@@ -1,3 +1,12 @@
+2000-12-06  Mikhael Goikhman  <migo@homemail.com>
+
+	* index.html, download.html: increased version number to 2.3.25
+	* generated/NEWS.html: regenerated
+
+	* icons.html:
+	corrected all links - removed ftp: url scheme (this is incorrect) and
+	incomplete http: url scheme (this is bad and not supported by lynx)
+
 2000-11-30  Mikhael Goikhman  <migo@homemail.com>
 
 	* index.html, download.html: increased version number to 2.3.24
