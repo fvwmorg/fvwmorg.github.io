@@ -96,13 +96,13 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		      ),
 		array(
 		      array("Mailing List Archive",
-			    "http://www.hpc.uh.edu/fvwm/archive",
+			    "http://www.hpc.uh.edu/fvwm/archive/",
 			    "mail_archive"),
-		      array("FVWM Bug Reporting",
+		      array("Bug Reporting",
 			    "http://www.fvwm.org/cgi-bin/fvwm-bug",
 			    "fvwm_bug_reporting"),
-		      array("Fvwm Themes Homepage",
-			    "http://www.fvwm-themes.org",
+		      array("FVWM Themes",
+			    "http://fvwm-themes.sf.net/",
 			    "fvwm_themes")),
 		2);
 ?>
@@ -121,7 +121,7 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		<li><a href="generated/NEWS.html" class="done">Latest News</a></li>
 		<li><a href="generated/FAQ.html" class="done">FAQ</a></li>
 		<li><a href="screenshots/" class="done">Screen Shots</a></li>
-		<li><a href="generated/manpages/">Manual Pages</a></li>
+		<li><a href="generated/manpages/" class="done">Manual Pages</a></li>
 		<li><a href="sample-menus/index.html" class="done">Sample Menus</a></li>
 		<li><a href="vector-buttons/vector-buttons.html" class="done">Vector Buttons</a></li>
 	</ul>
@@ -137,7 +137,7 @@ echo '<a href="'.conv_link_target("logo-competition").'">Logo Competition</a>.';
 		<li><a href="developers.html" class="done">Developer Info (CVS, Modules)</a></li>
 		<li><a href="generated/AUTHORS.html" class="done">Acknowledgements</a></li>
 		<li><a href="fvwm-cats/" class="done">Other Important Info ^_^</a></li>
-		<li><a href="generated/perllib/">Perlib doc</a></li>
+		<li><a href="generated/perllib/">Perl library</a></li>
 	</ul>
 	</td>
 </tr>

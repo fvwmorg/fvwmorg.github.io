@@ -1,3 +1,9 @@
+2003-04-17  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/manpages/*:
+	converted stable and unstable man pages using manpages2php script,
+	more work is needed
+
 2003-04-15  Uwe Pross  <uwe.pross@e-technik.tu-chemnitz.de>
 
 	* ** 
