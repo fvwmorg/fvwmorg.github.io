@@ -74,20 +74,7 @@ width="300" height="180" border="0" vspace="0" hspace="0">
 
 <a href="<?php echo conv_link_target('logos/Ian_Remmler/index.php');?>">
 
-<p><img src="logos/Ian_Remmler/3d.png"
-width="184" height="213" border="0" vspace="0" hspace="0">
-
-<p><img src="logos/Ian_Remmler/contrast.png"
-width="269" height="89" border="0" vspace="0" hspace="0">
-
-<p><img src="logos/Ian_Remmler/future.png"
-width="297" height="98" border="0" vspace="0" hspace="0">
-
-<p><img src="logos/Ian_Remmler/groovy-3d.png"
-width="262" height="121" border="0" vspace="0" hspace="0">
-
-<p><img src="logos/Ian_Remmler/block.png"
-width="130" height="161" border="0" vspace="0" hspace="0">
+<p><img src="logos/Ian_Remmler/overview.png" border="0" vspace="0" hspace="0">
 
 <p>More...
 </a>
@@ -113,22 +100,11 @@ width="251" height="102" border="0" vspace="0" hspace="0">
 
 <!-- ============================================================= -->
 
-<?php decoration_window_start("By Phil Harper (9 images + 5 bg)", "", "", 0); ?>
+<?php decoration_window_start("By Phil Harper (10 images + 5 bg)", "", "", 0); ?>
 
 <a href="<?php echo conv_link_target('logos/Phil_Harper/index.php'); ?>">
 
-<p><img src="logos/Phil_Harper/feeble.png"
-width="199" height="191" border="0" vspace="0" hspace="0" align="middle">
-
-<img src="logos/Phil_Harper/tiger2.png"
-width="270" height="246" border="0" vspace="0" hspace="0" align="middle">
-
-<p><img src="logos/Phil_Harper/fvwmpower2-overview.png"
-width="146" height="91" border="0" vspace="0" hspace="0" align="middle">
-
-<img src="logos/Phil_Harper/tigerskin6.png"
-width="239" height="67" border="0" vspace="0" hspace="0" align="middle">
-
+<p><img src="logos/Phil_Harper/overview.png" border="0" vspace="0" hspace="0" align="middle">
 <p>More...
 </a>
 
