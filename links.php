@@ -201,13 +201,13 @@ if( strlen("$site_has_been_loaded") == 0 ) {
   <ul>
     <li><a href="news:comp.windows.x.apps">comp.windows.x.apps</a>
       - for discussing and announcing apps like FVWM.
-      (Questions about about are best asked by sending mail to
+      (Questions about FVWM are best asked by sending mail to
       <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.)</li>
     
     <li><a href="news:comp.windows.x">comp.windows.x</a>
       - for general X11 discussions and advice.</li>
   </ul>
-  
+
   <!--
   And how about an online version of the ICCCM:
   -->
@@ -221,5 +221,15 @@ if( strlen("$site_has_been_loaded") == 0 ) {
       <li><A HREF="http://tronche.com/gui/x/icccm/">Inter-Client Communication Conventions Manual</A></li>
     </ul>
 
+  <h2>Miscellaneous</h2>
 
+  <p>
+    <ul>
+      <li><a href="http://freshmeat.net/projects/fvwm/?topic_id=56">FVWM
+	  freshmeat page</a> - New stable releases are announced on
+	freshmeat.
+    </ul>
+  </p>
+      
+  </ul>
 <?php decoration_window_end() ?>
