@@ -69,8 +69,11 @@ if (strlen($site_has_been_loaded) == 0) {
 
     <li>
       RPM packages:
-      <!-- <a href="ftp://fvwm-themes.sourceforge.net/pub/fvwm-themes/rpm/"> -->
       <a href="http://fvwm-themes.sourceforge.net/rpm/">here</a>
+
+    <li>
+      DEB packages:
+      <a href="http://fvwm-themes.sourceforge.net/deb/">here</a>
   </ul>
   
   <h4>Obsolete packages:</h4>

@@ -1,3 +1,8 @@
+2003-11-01  Mikhael Goikhman  <migo@homemail.com>
+
+	* download/index.php:
+	added a link to deb packages
+
 2003-10-22  Uwe Pross  <uwe.pross@gmx.net>
 
 	* download/index.php: 
