@@ -13,30 +13,30 @@ class Birthday_Theme extends Default_Theme {
         $this->init();
         // cheating here 
         $this->style_array = array(
-           "decoration_path"  => $this->rel_path."/birthday/window_decor_birthday",
-           "window_border_bg" => "#c5cecd",
-           "window_border_fg" => "#ffffff",
+           "decoration_path"  => $this->rel_path."/birthday/window_decor_birthday3",
+           "window_border_bg" => "#9fe0e3",
+           "window_border_fg" => "#000000",
            "window_bg"        => "#001040",
-           "window_fg"        => "#b7c2f9",
+           "window_fg"        => "#9fe0e3",
            "body_bg"          => "#001040",
-           "body_fg"          => "#ffffff",
-           "body_bg_image"    => $this->rel_path."/birthday/ballons9_bg.gif",
-           "pager_bg"         => "#9ca7e1",
+           "body_fg"          => "#000000",
+           "body_bg_image"    => $this->rel_path."/birthday/ballons3.jpg",
+           "pager_bg"         => "#9fe0e3",
            "pager_fg"         => "#000000",
            "hilight_bg"       => "#4f4a5f",
            "hilight_fg"       => "#ffffff",
-           "link_fg"          => "#c0c0ff",
-           "link_visited_fg"  => "#c0c0ff",
-           "heading_fg"       => "#c7d2f9",
+           "link_fg"          => "#ddddee",
+           "link_visited_fg"  => "#ccccdd",
+           "heading_fg"       => "#aff0f3",
            "code_fg"          => "#ffff99",
            "code_bg"          => "#404040",
+           "titlebar_fg"      => "#000000",
            );
         if( $bg = my_get_global("body_bg_image","GET") ) {
             $this->style_array["body_bg_image"] = $bg;
         }
-//         $_GET=array();
-//         $this->set_user_settings();
     }
+
     // inserts a table row <tr>... </tr> which contains the window
     // buttons like the window decoration of a window manager
     function decoration_title_bar($string="") {
@@ -69,7 +69,7 @@ class Birthday_Theme extends Default_Theme {
             echo '<td style="background-image:url('.$this->decoration_pic("title").'); "';
             echo ' align="center" nowrap bgcolor="'.$title_background.'">';
             if( strlen($string) > 0 )
-                echo '<font size="3" color="'.$this->style_array["hilight_fg"].'">&nbsp;'.$string.'</font></td>'."\n";
+                echo '<b><font size="3" color="'.$this->style_array["titlebar_fg"].'">&nbsp;'.$string.'</font></b></td>'."\n";
             else
                 echo '<img src="'.$this->decoration_pic("transparent").'" border="0" '.$dimension.' alt=""></td>'."\n";
 
