@@ -7,6 +7,18 @@
 //--------------------------------------------------------
 $db = array(
       0 => array(
+                 'path' => './Nuno_Alexandre-1600x1200',
+                 'preview' => 'preview.gif',
+                 'screenshot' => 'screenshot.jpg',
+                 'date' => 1079624718,
+                 'size' => 327869,
+                 'dimension' => '1600x1200',
+                 'description' => ' Screenshot submitted by Nuno Alexandre. He made a couple of nice
+ screenshots which are available together with configs and window
+ decoration buttons at his personal <a
+ href="http://ikaro.homepage.dk/fvwm">fvwm screenshot page</a>.',
+                 ),
+      1 => array(
                  'path' => './Tavis_Ormandy-desk-1152x864',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.jpg',
@@ -29,7 +41,7 @@ $db = array(
                                'date' => 1074977750,
                                ),
                  ),
-      1 => array(
+      2 => array(
                  'path' => './Andrew_Dolgov-1152x864',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.png',
@@ -41,7 +53,7 @@ $db = array(
  with configs and pixmaps used at this screenshot.
 ',
                  ),
-      2 => array(
+      3 => array(
                  'path' => './Klaus_Umbach-1280x1024',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.png',
@@ -60,7 +72,7 @@ $db = array(
  </p>
 ',
                  ),
-      3 => array(
+      4 => array(
                  'path' => './j_g_a_van_riswick-desk-1152x864',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.gif',
@@ -85,7 +97,7 @@ $db = array(
  here</a>.
 ',
                  ),
-      4 => array(
+      5 => array(
                  'path' => './Windows95-desk-1280x1024',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.png',
@@ -98,7 +110,7 @@ $db = array(
  	  fvwm.
 ',
                  ),
-      5 => array(
+      6 => array(
                  'path' => './Thomas_Adam-desk-1024x768',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.png',
@@ -116,7 +128,7 @@ $db = array(
  <a href="http://rox.sf.net">Rox-Filer</a> that complements FVWM extremely well.
 ',
                  ),
-      6 => array(
+      7 => array(
                  'path' => './Tenebrae-desk-800x600',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.gif',
@@ -138,7 +150,7 @@ $db = array(
                                'date' => 1018565232,
                                ),
                  ),
-      7 => array(
+      8 => array(
                  'path' => './Taviso-desk-1024x768',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.jpg',
@@ -170,7 +182,7 @@ $db = array(
  blue to match my fvwm theme :)
 ',
                  ),
-      8 => array(
+      9 => array(
                  'path' => './Stric-desk1-1152x900',
                  'preview' => 'preview.gif',
                  'screenshot' => 'screenshot.gif',
@@ -182,19 +194,19 @@ $db = array(
            FvwmButtons, xmeter, xbuffy, gimp and some stuff on other pages.
 ',
                  ),
-      9 => array(
-                 'path' => './S_Anderson-desk-1024x768',
-                 'preview' => 'preview.gif',
-                 'screenshot' => 'screenshot.jpg',
-                 'date' => 1062102107,
-                 'size' => 159175,
-                 'dimension' => '1024x768',
-                 'description' => ' 	  Submitted by Shawn Anderson.    After seeing An Thi-Nguyen  Le\'s
+      10 => array(
+                  'path' => './S_Anderson-desk-1024x768',
+                  'preview' => 'preview.gif',
+                  'screenshot' => 'screenshot.jpg',
+                  'date' => 1062102107,
+                  'size' => 159175,
+                  'dimension' => '1024x768',
+                  'description' => ' 	  Submitted by Shawn Anderson.    After seeing An Thi-Nguyen  Le\'s
  	  screenshots(they are very nice BTW), I thought I would send one also
  	  :-). It is fvwm 2.3.28.
 ',
-                 ),
-      10 => array(
+                  ),
+      11 => array(
                   'path' => './Robert-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -206,7 +218,7 @@ $db = array(
  	  FvwmPager with pixmap backgrounds, some nice icons and mini-icons,
  	  and an interesting purple/blue color scheme.',
                   ),
-      11 => array(
+      12 => array(
                   'path' => './Remko_Troncon-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -230,7 +242,7 @@ $db = array(
  <A HREF="http://wm-icons.sourceforge.net/">wm-icons</A> distribution.
 ',
                   ),
-      12 => array(
+      13 => array(
                   'path' => './Ploum-desk-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -271,7 +283,7 @@ $db = array(
                                 'date' => 1062102159,
                                 ),
                   ),
-      13 => array(
+      14 => array(
                   'path' => './Paul_Johnson-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -281,7 +293,7 @@ $db = array(
                   'description' => ' 	  Submitted by Paul E. Johnson.
 ',
                   ),
-      14 => array(
+      15 => array(
                   'path' => './Parv-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
@@ -303,7 +315,7 @@ $db = array(
  annotated version of the screen shot</a>.
   	',
                   ),
-      15 => array(
+      16 => array(
                   'path' => './Olivier_Chapuis-panelup-800x600',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -318,7 +330,7 @@ $db = array(
  	  run only if I use it: this saves my battery.
 ',
                   ),
-      16 => array(
+      17 => array(
                   'path' => './Olivier_Chapuis-paneldown-800x600',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -333,7 +345,7 @@ $db = array(
  	  run only if I use it: this saves my battery.
 ',
                   ),
-      17 => array(
+      18 => array(
                   'path' => './Mikhael-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
@@ -354,7 +366,7 @@ $db = array(
  or greater.
 ',
                   ),
-      18 => array(
+      19 => array(
                   'path' => './Michael-desk-1152x900',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -366,7 +378,7 @@ $db = array(
  	  FvwmButtons, swallowing FvwmPager, procmeter and FvwmIconMan. Liberal
  	  use of MiniIcons.',
                   ),
-      19 => array(
+      20 => array(
                   'path' => './Marc_A_Lehmann-desk-2880x1094',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
@@ -397,7 +409,7 @@ $db = array(
                                 'date' => 1040570309,
                                 ),
                   ),
-      20 => array(
+      21 => array(
                   'path' => './Maciej_Delmanowski-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -427,7 +439,7 @@ $db = array(
    with additional programs</li>
  </ul>',
                   ),
-      21 => array(
+      22 => array(
                   'path' => './MURAKAMI_Tomokazu-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -440,7 +452,7 @@ $db = array(
  	  up Emacs to be able to use JIS X 0213."
 ',
                   ),
-      22 => array(
+      23 => array(
                   'path' => './Len_Philpot-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
@@ -461,7 +473,7 @@ $db = array(
  FVWM man pages, which launch in their own xterms.
 ',
                   ),
-      23 => array(
+      24 => array(
                   'path' => './Lee_Willis-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -473,7 +485,7 @@ $db = array(
  	  easy on the eye, and hardly any decorations to get in your way :)
 ',
                   ),
-      24 => array(
+      25 => array(
                   'path' => './Kendrick_Vargas-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -486,7 +498,7 @@ $db = array(
  	  browser. GTK theme used is minEgtk.
 ',
                   ),
-      25 => array(
+      26 => array(
                   'path' => './Jules_Alberts-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
@@ -505,7 +517,7 @@ $db = array(
  to work with.
 ',
                   ),
-      26 => array(
+      27 => array(
                   'path' => './Jason_Kibble-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -520,7 +532,7 @@ $db = array(
  	  one has probably changed since this shot was taken.
 ',
                   ),
-      27 => array(
+      28 => array(
                   'path' => './J_C_Lawrence-desk-1920x1440',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -556,7 +568,7 @@ $db = array(
                                 'date' => 1018565232,
                                 ),
                   ),
-      28 => array(
+      29 => array(
                   'path' => './Ives_Aerts-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -574,7 +586,7 @@ $db = array(
  	  mutt (mail reader), switch between windows and desks, etc.
 ',
                   ),
-      29 => array(
+      30 => array(
                   'path' => './GlenLeeEdwards-desk4-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -591,7 +603,7 @@ $db = array(
  FVWM\'s flexibility. 
 ',
                   ),
-      30 => array(
+      31 => array(
                   'path' => './GlenLeeEdwards-desk3-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -618,7 +630,7 @@ $db = array(
  screenshots and information.
 ',
                   ),
-      31 => array(
+      32 => array(
                   'path' => './FilipHroch-desk-800x600',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -639,7 +651,7 @@ $db = array(
                                 'date' => 1006362469,
                                 ),
                   ),
-      32 => array(
+      33 => array(
                   'path' => './Dominik-desk2-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -653,7 +665,7 @@ $db = array(
  	  page with netscape 8-)
 ',
                   ),
-      33 => array(
+      34 => array(
                   'path' => './Dominik-desk1-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -670,7 +682,7 @@ $db = array(
  	  \'Popup menu-name item +100 c\' for this effect).
 ',
                   ),
-      34 => array(
+      35 => array(
                   'path' => './Dan-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -681,7 +693,7 @@ $db = array(
  	  the Fvwm2 setup dialog using FvwmForm,
  	  shaped icons, and a minimal use of fvwm modules.',
                   ),
-      35 => array(
+      36 => array(
                   'path' => './Christian_Michon-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -703,7 +715,7 @@ $db = array(
  </p>
 ',
                   ),
-      36 => array(
+      37 => array(
                   'path' => './Christian_Lyra-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -713,7 +725,7 @@ $db = array(
                   'description' => ' 	  Submitted by Christian Lyra.
 ',
                   ),
-      37 => array(
+      38 => array(
                   'path' => './Cameron_Simpson-desk-2560x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -726,7 +738,7 @@ $db = array(
  <a href="http://www.cskk.ezoshosting.com/cs/fvwm/index.html">details here</a>.
 ',
                   ),
-      38 => array(
+      39 => array(
                   'path' => './Brian_Sturk-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -740,7 +752,7 @@ $db = array(
  and gkrellm respectively.
 ',
                   ),
-      39 => array(
+      40 => array(
                   'path' => './Andre_Bonhote-desk-1280x1024',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.jpg',
@@ -761,7 +773,7 @@ $db = array(
  	  by xplanet and refreshed every 15 minutes.
 ',
                   ),
-      40 => array(
+      41 => array(
                   'path' => './Andre_Bonhote-desk-1024x768',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -779,7 +791,7 @@ $db = array(
  	  and fonts and puts it into my fvwm2rc. it\'s quite useful, I think.
 ',
                   ),
-      41 => array(
+      42 => array(
                   'path' => './An_Thi_Nguyen_Le-desk1-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -797,7 +809,7 @@ $db = array(
  	  system monitors.
 ',
                   ),
-      42 => array(
+      43 => array(
                   'path' => './An_Thi_Nguyen_Le-desk3-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -811,7 +823,7 @@ $db = array(
  	  the heck  of  it).    Cheery happy  yellowy  and   all that.
 ',
                   ),
-      43 => array(
+      44 => array(
                   'path' => './An_Thi_Nguyen_Le-desk2-1152x864',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.gif',
@@ -826,7 +838,7 @@ $db = array(
  called 3051.
 ',
                   ),
-      44 => array(
+      45 => array(
                   'path' => './Uwe_Pross-896x672',
                   'preview' => 'preview.gif',
                   'screenshot' => 'screenshot.png',
