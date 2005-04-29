@@ -91,6 +91,8 @@ if(!isset($site_has_been_loaded)) {
       <li><a href="http://ayukawa.spb.ru/~fox/fvwm/">FVWM site from Andrew Dolgov</a> - 
         Nice screenshots, window decorations, configuration files and shell scripts.</li>
 
+      <li><a href="http://www.zensites.net/fvwm/guide/">FVWM Beginners Guide</a> - 
+        Good to read when you start with FVWM</li>
     </ul>
 
 
