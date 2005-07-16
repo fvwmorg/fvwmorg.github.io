@@ -210,7 +210,7 @@ if (strlen($site_has_been_loaded) == 0) {
           what happened to to rxvt and rclock which Rob Nation
           used to support?  Where can I find them now?
 <a name="toc_6.6"></a>     <a href="#6.6">6.6</a>  How do I set the background with fvwm?
-<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  Whats
+<a name="toc_6.7"></a>     <a href="#6.7">6.7</a>  When I use Fvwm, my XYZ isn't the right color.  What's
           wrong?
 <a name="toc_6.8"></a>     <a href="#6.8">6.8</a>  I just got a mouse with 57 buttons.  How do I make Fvwm
           use them?
@@ -262,7 +262,7 @@ Trivia: In all my years as an fvwm developer this has been by far the
 
 <a name="0.2"></a><a href="#toc_0.2">0.2</a>  I use XMMS, but it ignores some window styles.
 
-A: XMMS wants to do evrything by itself and overrides many
+A: XMMS wants to do everything by itself and overrides many
    settings of the window manager.  Check the options menu in XMMS
    and if that does not help, ask the XMMS people about it at
 
@@ -270,7 +270,7 @@ A: XMMS wants to do evrything by itself and overrides many
 
    <u>Please</u> do not ask XMMS questions on the fvwm mailing lists
    and do not report XMMS related bugs before you tried the XMMS
-   mailing lists.  No offence meant, but we really have more
+   mailing lists.  No offense meant, but we really have more
    important things to do than providing user support for third
    party software.
 
@@ -1107,7 +1107,7 @@ A: Start with a new one or convert your old one.  This can be done by
    CirculateDown [ name window_name ]         Next (not compatible)
    CirculateUp [ name window_name ]           Prev (not compatible)
    Close                                      &lt;-
-   CursorMove horizonal vertical              &lt;-
+   CursorMove horizontal vertical             &lt;-
    Delete                                     &lt;-
    Desk arg1 arg2                             &lt;-
    Destroy                                    &lt;-
@@ -1560,7 +1560,7 @@ A: First, it may help to read about colorsets in fvwm and FvwmTheme
      Colorset 23 RootTransparent, fg rgb:ff/ff/c4, bg darkcyan
 
    The good thing about RootTransparent is that it is possible to
-   automatically claculate the average background color (used for
+   automatically calculate the average background color (used for
    highlighting/shading) and efficiently tint the visible part of the
    root image using something like:
 
@@ -1573,7 +1573,7 @@ A: First, it may help to read about colorsets in fvwm and FvwmTheme
    If you are not sure whether you use &quot;fvwm-root -r&quot; or similar
    utility to set the root background, do not use RootTransparent
    option, use Transparent option without tinting, and set the bg
-   color explicitely.
+   color explicitly.
 
    Once a transparent colorset is defined, use it in menus:
 
@@ -1872,7 +1872,7 @@ A: If you plan to write a patch, <u>please</u>, first of all fetch the
    older releases may prove completely worthless, e.g. because the
    fix has already been integrated, a feature already added or
    removed or simply because the code is very different to the code
-   you patches.  You will do yourself and us a great favour.
+   you patches.  You will do yourself and us a great favor.
    Otherwise all your hard work may be wasted.
 
    People are always requesting or suggesting new features (many of
@@ -1918,7 +1918,7 @@ A: If you plan to write a patch, <u>please</u>, first of all fetch the
 
 A: First of all, please read the first section of the answer to Q5.1!
 
-   Creating a patch against CVS sources (preferrable) -
+   Creating a patch against CVS sources (preferable) -
 
         1) Execute &quot;cvs update -AdP&quot; to ensure there are no conflicts
            with the most recent sources.
@@ -2290,7 +2290,7 @@ A: This problem might occur on other applications besides the one
      all MWWM=MWM.
 
    Next we had Klaus Zeitler report that the Rational Rose official
-   startup script is explictly setting ALLWM to nothing.  This makes
+   startup script is explicitly setting ALLWM to nothing.  This makes
    it more difficult for an individual user to set this variable.
    If you can, you can just modify the script, otherwise, your other
    alternative is to copy the script somewhere where you can modify it
@@ -2315,7 +2315,7 @@ A: Make sure you have
       the edges, and other times I don't.  What's going on?
 
 A: The ICCCM specification allows applications to specify certain
-   properties the window manager should honour, such as aspect
+   properties the window manager should honor, such as aspect
    ratio (PAspect) or increments to be resized in (PResizeInc).  Of
    course, sometimes these properties won't perfectly match the
    size of your desktop (or ewmh struts), if that should happen,
@@ -2468,7 +2468,7 @@ A: Setting the background image is not really part of the window
    The fvwm module FvwmBacker can be used to change the background
    depending on the desk you are currently on by calling an external
    program.  One big disadvantage of external programs is that
-   changing the beckground on the fly can be pretty slow.  FvwmBacker
+   changing the background on the fly can be pretty slow.  FvwmBacker
    can use the image defined in a colorset and cached by fvwm for fast
    background changing.  For example:
 
@@ -2489,7 +2489,7 @@ A: Under this heading we've had questions about FvwmForm being all
    allocate colors.
 
    Older hardware uses something called 8 bit color.  You can also
-   misconfigure newer hardware so that its only using 8 bit color.
+   mis-configure newer hardware so that its only using 8 bit color.
    When you use 8 bit color, your display can only have 256 colors on
    it at once.
 
@@ -3007,6 +3007,10 @@ your applications request.
    install the &quot;unclutter&quot; program.  Unclutter hides the mouse
    pointer after you haven't moved the mouse for a while.
 
+   If you find unclutter causes the pointer to flash on and off
+   or move around on its own, run unclutter with the -noevents
+   argument.
+
 ----------------------------------------------------------------------
 
 <a name="7.16"></a><a href="#toc_7.16">7.16</a>  Finding the mouse pointer.
@@ -3122,13 +3126,13 @@ your applications request.
      ;(setq live-icon-max-width 48)
 
    Make sure you are not using the style IconOverride for these
-   applications.  It idsables the use of active icons.  There may be
+   applications.  It disables the use of active icons.  There may be
    other applications with similar features.
 
 
    Assuming you want application thumbnails as icons provided by fvwm,
    you need fvwm 2.5.8 or later, as this solution requires the
-   WindowStyle command, and you should have the ImageMagick utililties
+   WindowStyle command, and you should have the ImageMagick utilities
    available in your $PATH &lt;URL:<a href="http://www.imagemagick.org/&gt;.">http://www.imagemagick.org/&gt;.</a>
 
    The function below provides a Replacement for the Iconify command

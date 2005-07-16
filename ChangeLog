@@ -1,3 +1,13 @@
+2005-07-16  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated
+
+	* definitions.inc:
+	updated for 2.5.13
+
 2005-07-07  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* .htaccass:
@@ -18,7 +28,7 @@
 2005-02-17  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
 	* screenshots/desktops/Pierre-Eric_Marchandet-1600x1200:
-	* screenshots/desktops/Thomas_Adam-desk-1280x960
+	* screenshots/desktops/Thomas_Adam-desk-1280x960:
 	added screenshots
 
 2005-02-13  Mikhael Goikhman  <migo@homemail.com>
@@ -35,7 +45,7 @@
 
 2005-01-06  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* index.php: 
+	* index.php:
 	Removed banner against software patents.
 
 2004-12-27  Mikhael Goikhman  <migo@homemail.com>
@@ -46,7 +56,7 @@
 
 2004-12-20  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* index.php: 
+	* index.php:
 	Added banner against software patents.
 
 2004-12-07  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
@@ -59,12 +69,12 @@
 
 2004-12-06  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* links.php: 
+	* links.php:
 	Changed second link to Suzanne Skinners page.
 
 2004-12-02  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* links.php: 
+	* links.php:
 	Changed links to Suzanne Skinners homepage.
 
 2004-11-09  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
@@ -74,11 +84,11 @@
 
 2004-11-08  Uwe Pross  <keinFruehstuecksfleisch@gmx.net>
 
-	* index.php: 
+	* index.php:
 	* links.php:
 	Added link to new fvwm forum page. Changed link to wiki.
 	Changed link to Glens page.
-	
+
 2004-10-06  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* authors/index.php:

@@ -44,6 +44,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Viktor Griph</h4>
+<p class="author">
+Patch for Perl modules on 64 bit machines.
+</p>
+
+<h4 class="author">Bjoern Steinbrink</h4>
+<p class="author">
+Patch for FvwmScript tasks running too often.
+</p>
+
 <h4 class="author">Arnaud Vrac</h4>
 <p class="author">
 Patch which fixes maximize by growing vs EWMH working area
@@ -96,7 +106,7 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: HoverIcon, HoverTitle, HoverColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker.
+Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: ActiveIcon, ActiveTitle, ActiveColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker.
 </p>
 
 <h4 class="author">Francis Litterio</h4>
