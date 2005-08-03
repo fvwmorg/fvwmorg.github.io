@@ -69,7 +69,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-<b>News:</b> Added link 
+<b>News:</b> Added link
 <?php mylink("http://fvwm.lair.be", "FVWM Forum"); ?> page.
 <hr>
 <?php
@@ -98,23 +98,27 @@ and support is excellent.  Check it out!
                       "mailing_lists",
                       "menus",
 
-                      array("Mailing List Archive",
-                            "http://www.hpc.uh.edu/fvwm/archive/",
-                            "mail_archive"),
+                      array("User Mailing List Archive",
+                            "http://www.mail-archive.com/fvwm@fvwm.org/",
+                            "fvwm_mail_archive"),
+                      array("Workers Mailing List Archive",
+                            "http://www.mail-archive.com/fvwm-workers@fvwm.org/",
+                            "fvwm_workers_mail_archive"),
+
                       array("FVWM Themes",
                             "http://fvwm-themes.sf.net/",
                             "fvwm_themes"),
-                      
                       "manpages",
-                      "icons",
-                      
-                      "authors",
-                      "links",
-                      
-                      "developers",
-                      "fvwm_cats",
 
+                      "icons",
+                      "authors",
+
+                      "links",
+                      "developers",
+
+                      "fvwm_cats",
                       "donations",
+
                       array("FVWM Wiki Pages",
                             "http://www.fvwmwiki.org",
                             "fvwm_wiki"),
