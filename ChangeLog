@@ -1,3 +1,8 @@
+2005-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* index.php:
+	removed the ugly starburst effect from logo
+
 2005-08-03  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* index.php:

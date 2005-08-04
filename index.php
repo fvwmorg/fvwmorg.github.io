@@ -17,7 +17,7 @@ include_once("$rel_path/definitions.inc");
 // Site definitions
 //--------------------------------------------------------------------
 $title          = "The Official FVWM Home Page";
-$heading        = 'The Official <img src="fvwm-logo/fvwm-logo-starburst-blue-250x83.png" border="0" alt="FVWM" align="middle"> Home Page';
+$heading        = 'The Official <img src="fvwm-logo/fvwm-logo-gradient-small.png" border="0" alt="FVWM" align="middle"> Home Page';
 $link_name      = "Home";
 $link_picture   = "pictures/icons/home";
 $parent_site    = "top";
