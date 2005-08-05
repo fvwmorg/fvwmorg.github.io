@@ -69,7 +69,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-<b>News:</b> Added link
+<b>News:</b> Added link to
 <?php mylink("http://fvwm.lair.be", "FVWM Forum"); ?> page.
 <hr>
 <?php

@@ -1,5 +1,9 @@
 2005-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
 
+	* features.php:
+	* index.php:
+	corrected typos
+
 	* index.php:
 	removed the ugly starburst effect from logo
 

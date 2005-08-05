@@ -11,7 +11,7 @@ $rel_path = ".";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include_once($rel_path.'/definitions.inc'); 
+include_once($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -47,7 +47,7 @@ if(!isset($site_has_been_loaded)) {
 <ul>
   <li>Full Enhanced Window Manager Hints support</li>
   <li>Full internationalization</li>
-  <li>Greately improved font support, including anti-aliasing</li>
+  <li>Greatly improved font support, including anti-aliasing</li>
   <li>Improved decoration code (no flickering anymore)</li>
   <li>Featuring side titles, including vertical text</li>
   <li>Powerful WindowShade in all directions, including diagonal</li>
