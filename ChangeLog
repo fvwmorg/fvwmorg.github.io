@@ -1,3 +1,16 @@
+2005-08-24  Dominik Vogt  <dominik.vogt@gmx.de>
+
+	* index.php:
+	updated News
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated
+
+	* definitions.inc:
+	updated for 2.5.14
+
 2005-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
 
 	* features.php:

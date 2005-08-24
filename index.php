@@ -69,8 +69,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-<b>News:</b> Added link to
-<?php mylink("http://fvwm.lair.be", "FVWM Forum"); ?> page.
+    <b>News:</b> Fvwm-2.5.14 now supports 64-bit platforms (AMD64).
 <hr>
 <?php
 //--------------------------------------------------------------------
