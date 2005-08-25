@@ -23,6 +23,9 @@ function stack_value() {
 }
 
 function output(s) {
+        # output is printed by printf to not have newlines appended
+        # thus % needs to be escaped as %%       
+        gsub("%","%%",s);
 	output_array[out_nr++] = s;
 }
 
@@ -57,6 +60,7 @@ BEGIN {
 	}
 	register_release(release);
 	if (found_first) {
+		if (started_sublist) output("</li>\n    </ul>\n  ");
 		if (open_item) output("</li>\n");
 		if (started_list) output("</ul>\n\n\n");
 	}
@@ -72,15 +76,22 @@ BEGIN {
 #- list item
 #---------------------------------------------------------------------
 /^ *[\*\-] / {
+	match($0,"^ *[\\*\\-] ");
+	indent = RLENGTH;	
 	if (!started_list) {
 		output("<ul>\n");
 		started_list = 1;
 	}
 	if (open_item) {
+		if (started_sublist) {
+			output("</li>\n    </ul>\n  ");
+		}
 		output("</li>\n");
 	}
 	output("  <li>");
 	open_item = 1;
+	no_hang = 1;
+	started_sublist = 0;
 	$1 = "";
 	output(text2html($0));
 	next;
@@ -88,11 +99,29 @@ BEGIN {
 
 /^  */ {
 	if (open_item) {
+		match($0,"^  *");
+		if (RLENGTH>indent && !no_hang) {
+			if (!started_sublist) {
+				output("\n    <ul>\n");
+				started_sublist = 1;
+			} else {
+				output("</li>\n");
+			}
+			output("        <li>");
+		} else if (RLENGTH<=indent && started_sublist) {
+			output("</li>\n    </ul>\n  ");
+			started_sublist = 0;
+		}
 		output(text2html($0));
 	}
 }
+no_hang=0;
+/, *$/ {
+    no_hang=1;
+}
 
 END {
+    	if (started_sublist) output("</li>\n    </ul>\n  ");
 	if (open_item) output("</li>\n");
 	if (started_list) output("</ul>\n\n\n");
 
