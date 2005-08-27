@@ -46,10 +46,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FVWM::Tracker::WindowList in unstable branch (2.5.8)"); ?>
+<?php decoration_window_start("Manual page for FVWM::Tracker::WindowList in unstable branch (2.5.14)"); ?>
 
 <H1>FVWM::Tracker::WindowList</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2003-10-26<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Tracker/WindowList.pm">FVWM/Tracker/WindowList.pm</a><br>
+Section: FVWM Perl library (3)<BR>Updated: 2005-08-24<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Tracker/WindowList.pm">FVWM/Tracker/WindowList.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
@@ -66,27 +66,47 @@ This tracker defines the following observables:
 
 <blockquote><pre>    &quot;window added&quot;,
     &quot;window deleted&quot;,
-    &quot;window properties updated&quot;,</pre></blockquote>
-<P>
-
-<FONT>NOT</FONT> <FONT>USABLE</FONT> <FONT>YET</FONT>.
+    &quot;window properties updated&quot;,
+    &quot;window moved&quot;,
+    &quot;window resized&quot;,
+    &quot;window iconified&quot;,
+    &quot;window deiconified&quot;,
+    &quot;window name updated&quot;,
+    &quot;window stack updated&quot;,
+    &quot;window icon updated&quot;,</pre></blockquote>
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSYS</H2>
 
 <A NAME="ixAAD"></A>
-Using <B><a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a></B> <TT>$module</TT> object (preferably):
+Using <B><a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a></B> <TT>$module</TT> object:
 <P>
 
-<blockquote><pre>    my $windowsTracker = $module-&gt;track(&quot;ModuleConfig&quot;);
-    my $windows = $windowsTracker-&gt;data;
-    my $windowSizeX = $windows-&gt;{$winId}-&gt;{'x'};</pre></blockquote>
+<blockquote><pre>    my $tracker = $module-&gt;track(&quot;WindowList&quot;);
+    my @windows = $tracker-&gt;windows;
+    foreach my $window ($tracker-&gt;windows) {
+        print &quot;+$window-&gt;{x}+$window-&gt;{y}, $window-&gt;{name}\n&quot;;
+    }</pre></blockquote>
 <P>
 
 or:
 <P>
 
-<blockquote><pre>    my $windowsTracker = $module-&gt;track(&quot;WindowList&quot;);
-    my $windowSizeX = $windowsTracker-&gt;data($winId)-&gt;{'x'};</pre></blockquote>
+<blockquote><pre>    my $tracker = $module-&gt;track(&quot;WindowList&quot;, &quot;winfo&quot;);
+    my $x = $tracker-&gt;data(&quot;0x230002a&quot;)-&gt;{x};</pre></blockquote>
+<P>
+
+or:
+<P>
+
+<blockquote><pre>    my $tracker = $module-&gt;track(&quot;WindowList&quot;, $options);
+    my $data = $tracker-&gt;data;
+    while (my ($winId, $window) = each %$data) {
+        next unless $window-&gt;match(&quot;CurrentPage, Iconified&quot;);
+        $module-&gt;send(&quot;Iconify off&quot;, $winId);
+    }</pre></blockquote>
+<P>
+
+Default <TT>$options</TT> string is: ``!stack !icons names winfo''
 <A NAME="lbAD">&nbsp;</A>
 <H2>OVERRIDDEN METHODS</H2>
 
@@ -104,20 +124,36 @@ To be written.
 <DT><B>data</B> [<I>window-id</I>]<DD>
 <A NAME="ixAAG"></A>
 Returns array ref of window hash refs. or one window hash ref if
-<I>window-id</I> is given. The hash keys are not finalized yet.
+<I>window-id</I> is given.
 <DT><B>dump</B> [<I>window-id</I>]<DD>
 <A NAME="ixAAH"></A>
 Works similarly to <B>data</B>, but returns debug lines for one or all windows.
 </DL>
 <A NAME="lbAE">&nbsp;</A>
-<H2>AUTHOR</H2>
+<H2>METHODS</H2>
 
 <A NAME="ixAAI"></A>
-Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
+<DL COMPACT>
+<DT><B>pageInfo</B> [<I>field</I>]<DD>
+<A NAME="ixAAJ"></A>
+Returns hash ref of page/desk info, or actual hash value using <B>field</B> as a key (if specified).
+</DL>
 <A NAME="lbAF">&nbsp;</A>
+<H2>AUTHORS</H2>
+
+<A NAME="ixAAK"></A>
+<DL COMPACT>
+<DT>Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;<DD>
+<A NAME="ixAAL"></A>
+
+<DT>Scott Smedley<DD>
+<A NAME="ixAAM"></A>
+
+</DL>
+<A NAME="lbAG">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixAAJ"></A>
+<A NAME="ixAAN"></A>
 For more information, see <a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a> and <a href="<?php echo conv_link_target('./FVWM::Tracker.php');?>">FVWM::Tracker</a>.
 <P>
 
@@ -127,16 +163,17 @@ For more information, see <a href="<?php echo conv_link_target('./FVWM::Module.p
 <DT><A HREF="#lbAB">DESCRIPTION</A><DD>
 <DT><A HREF="#lbAC">SYNOPSYS</A><DD>
 <DT><A HREF="#lbAD">OVERRIDDEN METHODS</A><DD>
-<DT><A HREF="#lbAE">AUTHOR</A><DD>
-<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAE">METHODS</A><DD>
+<DT><A HREF="#lbAF">AUTHORS</A><DD>
+<DT><A HREF="#lbAG">SEE ALSO</A><DD>
 </DL>
 <HR>
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:49:06 GMT, November 01, 2003
+Time: 00:51:35 GMT, August 27, 2005
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by perllib2php on 01-Nov-2003 -->
+<!-- Automatically generated by perllib2php on 27-Aug-2005 -->

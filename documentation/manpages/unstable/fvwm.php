@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.13)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.14)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.13 (from cvs) (1)<BR>Updated: (not released yet)<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.14 (1)<BR>Updated: 24 August 2005<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -3209,9 +3209,11 @@ Example:
 # in the utils/ directory of the distribution. To use it,
 # define this function in your configuration file:
 
+DestroyFunc MakeMissingDirectoryMenu
 AddToFunc MakeMissingDirectoryMenu
-+ I Exec fvwm_make_directory_menu.sh $0
++ I PipeRead fvwm_make_directory_menu.sh $0
 
+DestroyMenu SomeMenu
 AddToMenu SomeMenu
 + MissingSubmenuFunction MakeMissingDirectoryMenu
 + &quot;Root directory&quot; Popup /</PRE></blockquote>
@@ -8114,9 +8116,8 @@ Key         V A C Echo ctrl-V-elsewhere</PRE></blockquote>
 
 
 <P>
-Note that a '--' action indicates that the event should not be
-intercepted by Fvwm and passed through to the underlying window
-instead. This is only a valid action for window-specific bindings.
+A '--' action indicates that the event should be propagated to the specified
+window to handle. This is only a valid action for window-specific bindings.
 <P>
 This example shows how to display the WindowList when Button 3 is
 pressed on an rxvt window:
@@ -8126,6 +8127,24 @@ pressed on an rxvt window:
 
 
 <blockquote><PRE>Mouse (rxvt) 3 A A WindowList</PRE></blockquote>
+<P>
+
+
+
+<P>
+Note that Fvwm actually intercepts all events for a window-specific
+binding and (if the focussed window doesn't match any of the bindings)
+sends a synthetic copy of the event to the window. This should be
+transparent to most applications, however (for security reasons) some programs
+ignore these synthetic events by default - xterm is one of them. To enable
+handling of these events, add the following line to your ~/.Xdefaults file:
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>XTerm*allowSendEvents:  true</PRE></blockquote>
 <P>
 
 
@@ -8947,14 +8966,14 @@ be used if you want to change the fvwm default behavior.
 <DD>
 <I>ClickToFocus</I>
 
-instructs fvwm to give the focus to the window when it is clicked
+instructs fvwm to give the focus to a window when it is clicked
 in.  The default
 <I>MouseFocus</I>
 
 (or its alias
 <I>FocusFollowsMouse</I>)
 
-tells fvwm to give the window the focus as soon as the pointer
+tells fvwm to give a window the focus as soon as the pointer
 enters the window, and take it away when the pointer leaves the
 window.
 <I>SloppyFocus</I>
@@ -8976,10 +8995,10 @@ latter are used again.  For example, once !FPGrabFocus has been
 used, using ClickToFocus does not restore FPGrabFocus.
 <P>
 The focus model can be augmented with several additional options.
-In fvwm-2.5.3 and later, there is a large number of advanced
-option beginning with &quot;FP&quot; or &quot;!FP&quot;.  These options shall replace
+In fvwm-2.5.3 and later, there are a large number of advanced
+options beginning with &quot;FP&quot; or &quot;!FP&quot;.  These options shall replace
 the older options one day and are described first.  Using any of
-this new options may limit compatibility with older releases.  In
+these new options may limit compatibility with older releases.  In
 general, options beginning with &quot;FP&quot; turn a feature on, while
 those beginning with &quot;!FP&quot; turn it off.
 <P>
@@ -8989,19 +9008,19 @@ those beginning with &quot;!FP&quot; turn it off.
 With
 <I>FPEnterToFocus</I>,
 
-when the pointer enters the window it receives focus.
+when the pointer enters a window it receives focus.
 <P>
 With
 <I>FPLeaveToUnfocus</I>
 
-the window loses focus when the pointer leaves it.
+a window loses focus when the pointer leaves it.
 <P>
 With
 <I>FPClickToFocus</I>, <I>FPClickDecorToFocus</I> or 
 
 <I>FPClickIconToFocus</I>,
 
-the window reveices focus when the inside of the window or the
+a window receives focus when the inside of the window or the
 decorations or its icon is clicked.
 <P>
 The
@@ -9012,7 +9031,7 @@ style allows windows to take the focus themselves.
 The
 <I>!FPFocusByFunction</I>
 
-style forbids that the window receives the focus via the
+style forbids that a window receives the focus via the
 <B>Focus</B> and <B>FlipFocus</B>
 
 commands.
@@ -9020,7 +9039,7 @@ commands.
 The
 <I>FPFocusByFunctionWarpPointer</I>
 
-style controls if the pointer is warped to the selected window
+style controls if the pointer is warped to a selected window
 when the
 <B>Focus</B>
 
@@ -9028,7 +9047,7 @@ command is used.
 <P>
 <I>FPLenient</I>
 
-allows to force focus upon windows that do not want it, like
+allows focus on windows that do not want it, like
 <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 
 or xclock.
@@ -9053,13 +9072,13 @@ to use no modifiers (&quot;N&quot;).
 With the
 <I>FPPassFocusClick</I>
 
-style, the click that was used to focus the window is passed to
+style, the click that was used to focus a window is passed to
 the application.
 <P>
 With the
 <I>FPAllowFocusClickFunction</I>
 
-style, the click that was used to focus the window can also
+style, the click that was used to focus a window can also
 trigger a normal action that was bound to the window with the
 <B>Mouse</B>
 
@@ -9076,7 +9095,7 @@ the mouse without raising the window.  However, mouse bindings on
 the client window are not guaranteed to work anymore (see
 <B>Mouse</B>
 
-command.  Note that this style forces that the initial click is
+command).  This style forces the initial click to be
 passed to the application.  The distance that the pointer must be
 moved to trigger this is controlled by the
 <B>MoveThreshold</B>
@@ -13999,7 +14018,7 @@ Execute
 
 on all windows meeting the conditions.  It returns 1 if any window
 matches the condition and 0 otherwise.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14020,7 +14039,7 @@ if any window which satisfies all
 <I>conditions</I>
 
 exists.  The command is run in the context of the root window.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 <DT><B>Break [levels]</B>
@@ -14062,7 +14081,7 @@ Performs
 on the currently focused window if it satisfies all
 <I>conditions</I>.
 
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14105,7 +14124,7 @@ those farther away.  The
 
 direction simply selects the window closest to the starting point.
 Returns -1 if an invalid direction was given.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 <DT><B>KeepRc </B><I>command</I>
@@ -14140,7 +14159,7 @@ on the next window which satisfies all
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
 focused window.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 <DT><B>None [(</B><I>conditions</I><B>)] </B><I>command</I>
@@ -14154,7 +14173,7 @@ if no window which satisfies all
 
 exists.  The command is run in the context of the root window.
 Returns 1 if no window matches the conditions and 0 otherwise.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14195,7 +14214,7 @@ if the given
 <I>conditions</I>
 
 are met.  Returns -1 if no window was selected.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14216,7 +14235,7 @@ if the window under the pointer satisfies all
 <I>conditions</I>.
 
 Returns -1 if there is no window under the pointer.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14242,7 +14261,7 @@ on the previous window which satisfies all
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
 focused window.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 <DT><B>ScanForWindow [</B><I>FromPointer</I>] <I>direction</I> <I>direction2</I> [(<I>conditions</I>)] <I>command</I>
@@ -14293,7 +14312,7 @@ windows matching the conditions will eventually be found.  If the
 focus reaches a limit along the primary axis, it will wrap around
 to the opposite side.  Returns -1 if an invalid direction was
 given.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 <DT><B>Test [(</B><I>test-conditions</I><B>)] </B><I>command</I>
@@ -14311,6 +14330,14 @@ are satisfied.  The
 are keywords with possible arguments from the list below
 and are separated by commas or whitespace.  They include
 <I>Version operator x.y.z</I>,
+
+<I>EnvIsSet varname</I>,
+
+<I>EnvMatch varname pattern</I>,
+
+<I>EdgeHasPointer direction</I>,
+
+<I>EdgeIsActive direction</I>,
 
 <I>Start</I>,
 
@@ -14373,6 +14400,40 @@ Example:
 
 
 
+The
+<I>EnvIsSet varname</I>
+
+test-condition is true if the given environment variable is set.
+The
+<I>EnvMatch varname pattern</I>
+
+test-condition is true if
+<I>pattern</I>
+
+matches the given environment variable value.
+The pattern may contain special &quot;*&quot; and &quot;?&quot; chars.
+<P>
+The 
+<I>EdgeHasPointer </I><B>[</B><I>direction</I><B>]</B>
+
+test-condition is true if the edge in the given direction currently
+contains the pointer. 
+The 
+<I>EdgeIsActive </I><B>[</B><I>direction</I><B>]</B>
+
+test-condition is true if the edge in the given direction currently is
+active. An edge is active, and can contain a pointer if either a
+command is bound to it or edge scroll is available in that
+direction. The direction may be one of
+<I> Any,</I> North,<I> Top,</I> Up,<I> West,</I> Left,<I> South,</I> Bottom,
+
+<I> Down,</I> Right<I>and</I> East<I>.</I>
+
+If no direction is specified
+<I>Any</I>
+
+is assumed.
+<P>
 The
 <I>Start</I>
 
@@ -14472,7 +14533,7 @@ replaced by the new one.  Example:
 
 
 <blockquote><PRE>AddToFunc ToggleXterm
-+ I Any (my_xtermwindow) Close
++ I All (my_xtermwindow) Close
 + I TestRc (NoMatch) Exec xterm -T my_xtermwindow</PRE></blockquote>
 <P>
 
@@ -14496,7 +14557,7 @@ is never interactive.  The command is executed only if the given
 <I>conditions</I>
 
 are met.  It returns -1 if used outside a window context.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14534,7 +14595,7 @@ windows, there are some exceptions, for example the
 
 command.
 Returns -1 if no window with the given id exists.
-See <B>Conditions</B> section below for a list of contitions.
+See <B>Conditions</B> section below for a list of conditions.
 
 <P>
 This command implies the conditions
@@ -14694,6 +14755,8 @@ directly in front of its name.
 
 <I>CurrentScreen</I>,
 
+<I>FixedPosition</I>,
+
 <I>FixedSize</I>,
 
 <I>Focused</I>,
@@ -14834,7 +14897,7 @@ condition matches only windows that are allowed to be closed.
 The
 <I>CurrentDesk</I>
 
-contition matches only windows that are on the current desk.
+condition matches only windows that are on the current desk.
 <P>
 The
 <I>CurrentGlobalPage</I>
@@ -14873,6 +14936,31 @@ that are at least partially on the Xinerama screen containing the
 mouse pointer.
 <P>
 The
+<I>FixedPosition</I>
+
+condition excludes all windows that don't have a fixed position,
+either set through WM hints or the
+<B>Style</B>
+
+option
+<I>FixedPosition</I>.
+
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>DestroyFunc ToggleFixedGeometry
+AddToFunc   ToggleFixedGeometry
++ I Pick (FixedPosition) WindowStyle VariablePosition, VariableSize
++ I TestRc (NoMatch) WindowStyle FixedPosition, FixedSize</PRE></blockquote>
+<P>
+
+
+
+<P>
+The
 <I>FixedSize</I>
 
 condition excludes all windows that don't have a fixed size,
@@ -14886,7 +14974,7 @@ option
 The
 <I>Focused</I>
 
-matches on the the window the currently has the keyboard focus.
+matches on the the window that currently has the keyboard focus.
 This is not useful for the
 <B>Current</B>
 
@@ -16501,9 +16589,9 @@ The official fvwm homepage is
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 15:08:39 GMT, December 27, 2004
+Time: 01:10:56 GMT, August 27, 2005
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 27-Dec-2004 -->
+<!-- Automatically generated by manpages2php on 27-Aug-2005 -->

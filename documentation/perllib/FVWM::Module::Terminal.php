@@ -23,8 +23,8 @@ include_once("$rel_path/definitions.inc");
 //--------------------------------------------------------------------
 // Site definitions
 //--------------------------------------------------------------------
-$title          = "FVWM - Perl library - FVWM::Module::Gtk2";
-$heading        = "FVWM - Perl library - FVWM::Module::Gtk2";
+$title          = "FVWM - Perl library - FVWM::Module::Terminal";
+$heading        = "FVWM - Perl library - FVWM::Module::Terminal";
 $link_name      = "Perl library";
 $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
@@ -46,66 +46,69 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FVWM::Module::Gtk2 in unstable branch (2.5.14)"); ?>
+<?php decoration_window_start("Manual page for FVWM::Module::Terminal in unstable branch (2.5.14)"); ?>
 
-<H1>FVWM::Module::Gtk2</H1>
-Section: FVWM Perl library (3)<BR>Updated: 2005-08-24<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Gtk2.pm">FVWM/Module/Gtk2.pm</a><br>
+<H1>FVWM::Module::Terminal</H1>
+Section: FVWM Perl library (3)<BR>Updated: 2005-08-24<BR>Source: <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/perllib/FVWM/Module/Terminal.pm">FVWM/Module/Terminal.pm</a><br>
 <A HREF="#index">This page contents</A>
  - <a href="./">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FVWM::Module::Gtk2 - FVWM::Module with the GTK+ v2 widget library attached
+FVWM::Module::Terminal - FVWM::Module with X terminal based solutions
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
-Name this module TestModuleGtk2, make it executable and place in ModulePath:
+<FONT>NOTE:</FONT> This class is not functional yet.
+<P>
+
+Name this module TestModuleTerminal, make it executable and place in ModulePath:
 <P>
 
 <blockquote><pre>    #!/usr/bin/perl -w</pre></blockquote>
 <P>
 
 <blockquote><pre>    use lib `fvwm-perllib dir`;
-    use FVWM::Module::Gtk2;
-    use Gtk2 -init;  # preferably in this order</pre></blockquote>
+    use FVWM::Module::Terminal;</pre></blockquote>
 <P>
 
-<blockquote><pre>    my $module = new FVWM::Module::Gtk2(
-        Debug =&gt; 2,
+<blockquote><pre>    my $module = new FVWM::Module::Terminal(
+        XTerm =&gt; 'rxvt', Debug =&gt; 2, Name =&gt; &quot;TestModuleTerminal&quot;,
     );</pre></blockquote>
 <P>
 
-<blockquote><pre>    my $dialog = new Gtk2::Dialog;
-    $dialog-&gt;signal_connect(&quot;destroy&quot;, sub { Gtk2-&gt;main_quit; });
-    $dialog-&gt;set_title(&quot;Simple Test&quot;);
-    my $button = new Gtk2::Button &quot;Close&quot;;
-    $button-&gt;signal_connect(&quot;clicked&quot;, sub { $dialog-&gt;destroy; });
-    $dialog-&gt;action_area-&gt;pack_start($button, 1, 1, 0);
-    $dialog-&gt;show_all;
-    my $id = $dialog-&gt;window-&gt;XWINDOW();</pre></blockquote>
+<blockquote><pre>    my $id = undef;
+    $module-&gt;send('Next (TestModuleTerminal) SendToModule myid $[w.id]');</pre></blockquote>
 <P>
 
 <blockquote><pre>    $module-&gt;addDefaultErrorHandler;
+    $module-&gt;addHandler(M_STRING, sub {
+        $[1]-&gt;_text =~ /^myid (.*)$/ &amp;&amp; $id = eval $1;
+    };
     $module-&gt;addHandler(M_ICONIFY, sub {
+        return unless defined $id;
         my $id0 = $_[1]-&gt;_win_id;
-        $module-&gt;send(&quot;Iconify off&quot;, $id) if $id0 == $id;
+        $module-&gt;send(&quot;WindowId $id Iconify off&quot;) if $id0 == $id;
     });
     $module-&gt;track('Scheduler')-&gt;schedule(60, sub {
         $module-&gt;showMessage(&quot;You run this module for 1 minute&quot;)
     });</pre></blockquote>
 <P>
 
-<blockquote><pre>    $module-&gt;send('Style &quot;Simple Test&quot; Sticky');
-    $module-&gt;eventLoop;</pre></blockquote>
+<blockquote><pre>    $module-&gt;eventLoop;</pre></blockquote>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-The <B><u>FVWM::Module::Gtk2</u></B> class is a sub-class of <B><a href="<?php echo conv_link_target('./FVWM::Module::Toolkit.php');?>">FVWM::Module::Toolkit</a></B>
-that overloads the methods <B>eventLoop</B>, <B>showError</B>, <B>showMessage</B> and
-<B>showDebug</B> to manage <FONT>GTK+</FONT> version 2 objects as well.
+<FONT>NOTE:</FONT> This class is not functional yet.
+<P>
+
+The <B><u>FVWM::Module::Terminal</u></B> class is a sub-class of
+<B><a href="<?php echo conv_link_target('./FVWM::Module::Toolkit.php');?>">FVWM::Module::Toolkit</a></B> that overloads the methods <B>waitPacket</B>,
+<B>showError</B>, <B>showMessage</B> and <B>showDebug</B> to manage terminal
+functionality.
 <P>
 
 This manual page details only those differences. For details on the
@@ -116,62 +119,36 @@ This manual page details only those differences. For details on the
 <A NAME="ixAAE"></A>
 Only overloaded or new methods are covered here:
 <DL COMPACT>
-<DT><B>eventLoop</B><DD>
+<DT><B>waitPacket</B><DD>
 <A NAME="ixAAF"></A>
-From outward appearances, this methods operates just as the parent
-<B>eventLoop</B> does. It is worth mentioning, however, that this version
-enters into the <B>Gtk2</B>-&gt;<B>main</B> subroutine, ostensibly not to return.
+Listen to the terminal read-line while waiting for the packet from fvwm.
 <DT><B>showError</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAG"></A>
-This method creates a dialog box using the <FONT>GTK+</FONT> widgets. The dialog has
-three buttons labeled ``Close'', ``Close All Errors'' and ``Exit Module''.
-Selecting the ``Close'' button closes the dialog. ``Close All Errors'' closes
-all error dialogs that may be open on the screen at that time.
-``Exit Module'' terminates your entire module.
+Shows the error message in terminal.
 
 
 <P>
 
 
-Useful for diagnostics of a <FONT>GTK+</FONT> based module.
+Useful for diagnostics of a Terminal based module.
 <DT><B>showMessage</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAH"></A>
-Creates a message window with one ``Close'' button.
+Shows the message in terminal.
 
 
 <P>
 
 
-Useful for notices by a <FONT>GTK+</FONT> based module.
+Useful for notices by a Terminal based module.
 <DT><B>showDebug</B> <I>msg</I> [<I>title</I>]<DD>
 <A NAME="ixAAI"></A>
-Creates a persistent debug window with 3 buttons ``Close'', ``Clear'' and ``Save''.
-All new debug messages are added to this window (i.e. the existing debug
-window is reused if found).
+Shows the debug info in terminal.
 
 
 <P>
 
 
-``Close'' withdraws the window until the next debug message arrives.
-
-
-<P>
-
-
-``Clear'' erases the current contents of the debug window.
-
-
-<P>
-
-
-``Save'' dumps the current contents of the debug window to the selected file.
-
-
-<P>
-
-
-Useful for debugging a <FONT>GTK+</FONT> based module.
+Useful for debugging a Terminal based module.
 </DL>
 <A NAME="lbAF">&nbsp;</A>
 <H2>BUGS</H2>
@@ -184,21 +161,10 @@ Awaiting for your reporting.
 <A NAME="ixAAK"></A>
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <A NAME="lbAH">&nbsp;</A>
-<H2>THANKS TO</H2>
-
-<A NAME="ixAAL"></A>
-gtk2-perl.sf.net team for Gtk2-Perl extension.
-<A NAME="lbAI">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixAAM"></A>
-For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a> and Gtk2.
-
-
-<P>
-
-
-See also <a href="<?php echo conv_link_target('./FVWM::Module::Gtk.php');?>">FVWM::Module::Gtk</a> for use with <FONT>GTK+</FONT> version 1.
+<A NAME="ixAAL"></A>
+For more information, see fvwm, <a href="<?php echo conv_link_target('./FVWM::Module.php');?>">FVWM::Module</a> and Term::ReadLine.
 <P>
 
 <HR>
@@ -210,14 +176,13 @@ See also <a href="<?php echo conv_link_target('./FVWM::Module::Gtk.php');?>">FVW
 <DT><A HREF="#lbAE">METHODS</A><DD>
 <DT><A HREF="#lbAF">BUGS</A><DD>
 <DT><A HREF="#lbAG">AUTHOR</A><DD>
-<DT><A HREF="#lbAH">THANKS TO</A><DD>
-<DT><A HREF="#lbAI">SEE ALSO</A><DD>
+<DT><A HREF="#lbAH">SEE ALSO</A><DD>
 </DL>
 <HR>
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 00:51:28 GMT, August 27, 2005
+Time: 00:51:29 GMT, August 27, 2005
 
 
 <?php decoration_window_end(); ?>

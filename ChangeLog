@@ -1,3 +1,11 @@
+2005-08-28  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/manpages/manpages2php:
+	* documentation/manpages/unstable/*.php:
+	* documentation/perllib/perllib2php:
+	* documentation/perllib/unstable/*.php:
+	regenerate documentation pages for 2.5.14
+
 2005-08-25  Viktor Griph  <griph@dd.calmers.se>
 
 	* news/news2php: 

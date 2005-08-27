@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmProxy in unstable branch (2.5.13)"); ?>
+<?php decoration_window_start("Manual page for FvwmProxy in unstable branch (2.5.14)"); ?>
 
 <H1>FvwmProxy</H1>
-Section: FVWM Modules (1)<BR>Updated: (not released yet) (2.5.13)<BR><A HREF="#index">This page contents</A>
+Section: FVWM Modules (1)<BR>Updated: 24 August 2005 (2.5.14)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -108,6 +108,10 @@ Specifies the color theme for unselected proxy windows.
 <DT>*FvwmProxy: SelectColorset <I>n</I><DD>
 Specifies the color theme for the selected proxy window.
 <P>
+<DT>*FvwmProxy: IconifiedColorset <I>n</I><DD>
+Specifies the color theme for proxy windows of iconified windows.
+This is only meaningful in conjuction with the ProxyIconified option on.
+<P>
 <DT>*FvwmProxy: Font <I>font</I><DD>
 Specifies the font used for all proxy window text.
 <P>
@@ -134,6 +138,11 @@ The default is false.
 If true, moving a proxy window will move the window it represents.
 Currently, the proxied window doesn't recognize snap effects during
 this operation.
+<P>
+<DT>*FvwmProxy: ProxyIconified <I>bool</I><DD>
+If true, continue to proxy windows when they are iconified.
+In addition, consider adding click actions that Iconify on and off,
+such as on the middlemouse button.
 <P>
 <DT>*FvwmProxy: Action <I>mouseaction</I> <I>response</I><DD>
 Tells FvwmProxy to do the specified <I>response</I> when the given
@@ -215,7 +224,7 @@ An example argument to Circulate is
 If the proxies aren't already shown (such as with the Show command),
 any Circulate command will automatically show the proxies.
 <P>
-<DT>SendToModule FvwmProxy Next<DD>
+<DT>SendToModule FvwmProxy Next (temporary)<DD>
 If a proxy window is selected, the next proxy is selected.
 Windows with the WindowListSkip option are ignored.
 The proxies are sorted left to right during the Show command.
@@ -226,7 +235,7 @@ the leftmost proxy is used.
 This nearly duplicates the functionality of
 Circulate ScanForWindow East South (CurrentPage).
 <P>
-<DT>SendToModule FvwmProxy Prev<DD>
+<DT>SendToModule FvwmProxy Prev (temporary)<DD>
 If a proxy window is selected, the previous proxy is selected.
 The starting point is the same as with the Next command, except
 that the choice with no recent selection is the rightmost proxy.
@@ -241,20 +250,31 @@ The following are excerpts from a .fvwm2rc file which describe
 FvwmProxy initialization commands:
 <PRE>
 
-Key Tab    A M  SendToModule FvwmProxy Circulate ScanForWindow East South (CurrentPage)
-Key Tab    A SM SendToModule FvwmProxy Circulate ScanForWindow West North (CurrentPage)
+    Key Tab A M SendToModule FvwmProxy Circulate \
+        ScanForWindow East South (CurrentPage)
+    Key Tab A SM SendToModule FvwmProxy Circulate \
+        ScanForWindow West North (CurrentPage)
 
-*FvwmProxy: Action ModifierRelease M SendToModule FvwmProxy Hide
+    *FvwmProxy: Action ModifierRelease M SendToModule FvwmProxy Hide
 
 </PRE>
 
+But Meta-Shift-Tab can be awkward, so Meta-Q may be a better alternative.
+<PRE>
+
+    Key Q A M SendToModule FvwmProxy Circulate \
+        ScanForWindow West North (CurrentPage)
+
+</PRE>
+
+<P>
 You might consider adding !Sticky to the (CurrentPage) conditional if you
 use Sticky for low-interactivity programs, like load meters and music players.
 <P>
 To have the proxies immediately pop up when you hold the Alt key, add
 <PRE>
 
-Key Meta_L A N  SendToModule FvwmProxy Show
+    Key Meta_L A N SendToModule FvwmProxy Show
 
 </PRE>
 
@@ -262,7 +282,7 @@ If that's too intrusive, you can assign Alt-Esc to switch the proxies
 on and off by adding
 <PRE>
 
-Key Escape A M  SendToModule FvwmProxy ShowToggle
+    Key Escape A M SendToModule FvwmProxy ShowToggle
 
 </PRE>
 
@@ -274,18 +294,18 @@ To have the mouse jump to the center instead of the upper left corner,
 try adding
 <PRE>
 
-AddToFunc WindowListFunc
-+ I WarpToWindow 50 50
+    AddToFunc WindowListFunc
+    + I WarpToWindow 50 50
 
 </PRE>
 
 or just make your own list function from scratch, for example
 <PRE>
 
-DestroyFunc WindowListFunc
-AddToFunc WindowListFunc
-+ I WindowId $w Raise
-+ I WindowId $w WarpToWindow 50 50
+    DestroyFunc WindowListFunc
+    AddToFunc WindowListFunc
+    + I WindowId $[w.id] Raise
+    + I WindowId $[w.id] WarpToWindow 50 50
 
 </PRE>
 
@@ -294,6 +314,22 @@ Note that the default configuration does not activate any Next/Prev operations
 for Alt-Tab since that sequence is, by default, used by another module.
 Adding appropriate key mappings to your .fvwm2rc will switch this
 responsibility to FvwmProxy.
+<P>
+If you use ProxyIconified, you might consider adding Iconify actions.
+<PRE>
+
+    AddToFunc WindowListFunc
+    + I WindowId $[w.id] Iconify Off
+
+    AddToFunc Raise-and-Deiconify
+    + I WindowId $[w.id] Raise
+    + I WindowId $[w.id] Iconify Off
+
+    *FvwmProxy: Action Click1 Raise-and-Deiconify
+    *FvwmProxy: Action Click2 Iconify
+
+</PRE>
+
 <P>
 <A NAME="lbAJ">&nbsp;</A>
 <H2>AUTHOR</H2>
@@ -318,9 +354,9 @@ Jason Weber
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 15:08:41 GMT, December 27, 2004
+Time: 01:10:58 GMT, August 27, 2005
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 27-Dec-2004 -->
+<!-- Automatically generated by manpages2php on 27-Aug-2005 -->
