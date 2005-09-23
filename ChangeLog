@@ -1,3 +1,16 @@
+2005-09-23  Viktor Griph  <griph@dd.calmers.se>
+	
+	* screenshots/vectorbuttons/decor_demo.fvwmrc:
+	updated to close demo windows, and clean up fvwm after run
+	removed hardcoded directory
+
+	* screenshots/vectorbuttons/create_fvwm_script.awk: 
+	added USAGE comment
+
+	* screenshots/vectorbuttons/vectorbutton*.gif:
+	* screenshots/vectorbuttons/vectorbuttonlist.inc:
+	regenerated
+
 2005-08-28  Mikhael Goikhman  <migo@homemail.com>
 
 	* documentation/manpages/manpages2php:

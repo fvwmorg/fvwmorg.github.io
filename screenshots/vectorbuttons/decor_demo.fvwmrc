@@ -1,4 +1,4 @@
-setenv DIR /home/uwp/fvwm-web/screenshots/vectorbuttons
+# Invoked with the variables DIR, DECORNAME and SHOTNAME to create decor demo
 setenv COLOR SteelBlue
 
 DestroyDecor $[DECORNAME]
@@ -18,15 +18,22 @@ Style "$[DECORNAME]" NoButton 6
 Style "$[DECORNAME]" NoButton 7
 Style "$[DECORNAME]" NoButton 8
 Style "$[DECORNAME]" NoButton 9
-Style "$[DECORNAME]" UseDecor $[DECORNAME], BorderWidth 7, HandleWidth 7, BackColor $[COLOR], ForeColor black, HilightBack $[COLOR], HilightFore black, BorderColorset, HilightBorderColorset, ClickToFocus, WindowListSkip
+Style "$[DECORNAME]" UseDecor $[DECORNAME], BorderWidth 7, HandleWidth 7, \
+		     BackColor $[COLOR], ForeColor black, HilightBack $[COLOR],\
+		     HilightFore black, BorderColorset, HilightBorderColorset,\
+		     WindowListSkip, NeverFocus, Layer 6, MwmBorder
 
-Exec xterm -name $[DECORNAME] -geometry 10x10 -T "$[DECORNAME]"
+Exec xterm -name $[DECORNAME] -geometry 15x10 -T "$[DECORNAME]"
 wait $[DECORNAME]
 
-Current WindowShade on
+Next ($[DECORNAME]) WindowShade on
 
-Exec import -window "$[DECORNAME]" -frame -silent $[DIR]/$[SHOTNAME]
-Exec echo '<tr><td><img src="$[SHOTNAME]" alt="vector button"></td><td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?> $[VECTOR]</td></tr>' >> $[DIR]/vectorbuttonlist.inc
+Next ($[DECORNAME]) PipeRead 'import -window "$[w.id]" -frame -silent\
+			     $[DIR]/$[SHOTNAME]'
+Exec echo '<tr><td><img src="$[SHOTNAME]" alt="vector button"></td>\
+	   <td class="vectorbutton">ButtonStyle <?php echo $num ? $num : 1; ?>\
+	   $[VECTOR]</td></tr>' >> $[DIR]/vectorbuttonlist.inc
 
-# Current Close
-
+Next ($[DECORNAME]) Close
+DestroyDecor $[DECORNAME]
+DestroyStyle "$[DECORNAME]"

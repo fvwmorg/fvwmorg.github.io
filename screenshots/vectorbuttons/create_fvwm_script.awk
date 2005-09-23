@@ -1,4 +1,7 @@
 #!/usr/bin/awk -f
+# USAGE: FvwmCommand "PipeRead 'cd $PWD &&\
+#                     ./create_fvwm_script.awk < vectorbutton_list'"
+# (Requires Fvwm Module FvwmCommandS)
 
 BEGIN {
     "pwd" | getline
