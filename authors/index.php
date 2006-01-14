@@ -44,6 +44,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Malcolm Still</h4>
+<p class="author">
+New MenuStyle option TrianglesUseFore.
+</p>
+
+<h4 class="author">Evgeny Stambulchik</h4>
+<p class="author">
+Patch to improve look of &quot;BorderStyle TiledPixmap&quot; windows.
+</p>
+
 <h4 class="author">Jonathan Kotta</h4>
 <p class="author">
 FixedPosition condition.
@@ -51,7 +61,7 @@ FixedPosition condition.
 
 <h4 class="author">Viktor Griph</h4>
 <p class="author">
-Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions.
+Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions. Nested variable expansion. MouseWheel and ScrollOffPage menu style options. Simple placement mouse bindings and PlacedByButton window condition.
 </p>
 
 <h4 class="author">Bjoern Steinbrink</h4>

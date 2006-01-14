@@ -1,3 +1,13 @@
+2006-01-14  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated
+
+	* definitions.inc:
+	updated for 2.5.15
+
 2005-09-23  Viktor Griph  <griph@dd.calmers.se>
 
 	* screenshots/vectorbuttons/decor_demo.fvwmrc:
