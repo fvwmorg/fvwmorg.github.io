@@ -69,7 +69,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-    <b>News:</b> Fvwm-2.5.14 now supports 64-bit platforms (AMD64).
+    <b>News:</b> Improved support of 64-bit platforms in fvwm-2.5.15.
 <hr>
 <?php
 //--------------------------------------------------------------------
