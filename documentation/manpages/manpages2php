@@ -138,7 +138,8 @@ sub loadFile ($) {
 # ---- main ------------------------------------------------------------------
 
 # currently only support .1 manpages, but it is possible to extend this
-my @files = map { chomp($_); $_ } `find $sourceDir -name '*.[1]'`;
+my @files = map { chomp($_); $_ } 
+	`find $sourceDir -name '*.[1]' -and -not -path "*/autom4te.cache/*"`;
 @files = grep !/FvwmOld/, @files;
 my @topics = map { m!/([^/]+)\.\d$!; $1 || "internal error" } @files;
 my %topic2file = ();

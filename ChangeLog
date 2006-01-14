@@ -1,5 +1,10 @@
 2006-01-14  Viktor Griph  <griph@dd.chalmers.se>
 
+	* documentation/manpages/manpages2php: 
+	changed to ignore autom4te.cache-files
+	* documentation/manpages/unstable/*.php
+	regenerated
+
 	* news/index.php: 
 	regenerated
 
@@ -11,7 +16,7 @@
 	* authors/index.php:
 	* news/index.php:
 	* documentation/faq/index.php:
-	regenerated
+	regenerated for 2.5.15
 
 	* definitions.inc:
 	updated for 2.5.15

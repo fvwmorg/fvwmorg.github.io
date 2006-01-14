@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.14)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.15)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.14 (1)<BR>Updated: 24 August 2005<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.15 (1)<BR>Updated: 14 January 2006<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -814,10 +814,10 @@ the
 command.
 <P>
 Xinerama support was designed to work out of the box with the same
-configurations file that would work on a single screen.  It may
-not work too well if the involved screens use different screen
+configuration file that would work on a single screen.  It may
+not perforrm very well if the involved screens use different screen
 resolutions.  In this situation, windows may get stuck in the
-portion of the whole desktop that belongs to neither screen.  If
+portion of the whole desktop that belongs to neither screen.  When
 this happens, the windows or icons can be retrieved with the
 command
 <P>
@@ -2833,6 +2833,13 @@ displayed if the pointer hovers over the item long enough or moves
 close to the triangle indicating the sub menu.  This behaviour can
 be tuned with menu styles.
 <P>
+Scrolling a mouse wheel over a menu either wraps the pointer along the
+menu (default), scrolls the menu under the pointer or act as if the
+menu was clicked depending on the
+<I>MouseWheel</I>
+
+menu style.
+<P>
 Clicking on a selected item activates it - what happens exactly
 depends on the type of the item.
 <P>
@@ -3777,10 +3784,15 @@ SelectOnRelease,
 ItemFormat,
 VerticalItemSpacing,
 VerticalTitleSpacing,
-AutomaticHotkeys / AutomaticHotkeysOff.
+AutomaticHotkeys / AutomaticHotkeysOff,
+MouseWheel,
+ScrollOffPage / !ScrollOffPage,
+TrianglesUseFore / !TrianglesUseFore.
 <P>
 In the above list some options are listed as option pairs or
 triples with a '/' in between.  These options exclude each other.
+All paired options can be negated to have the effect of the
+counterpart option by prefixing ! to the option.
 <P>
 <I>Fvwm</I>, <I>Mwm</I>, <I>Win</I>
 
@@ -4256,7 +4268,7 @@ navigation.
 The key name is a standard X11 key name as defined in
 <I>/usr/include/X11/keysymdef.h</I>,
 
-(without the 
+(without the
 <I>XK_</I>
 
 prefix), or the keysym database
@@ -4337,8 +4349,7 @@ menu. This directive may be used only once and only as the first
 or last in the format string. If the
 <B>%s</B>
 
-is not at the beginning of the string, all characters to the right
-of it are silently ignored.
+is not at the beginning of the string, menus are not drawn properly.
 </blockquote>
 <B>Space</B>, <B>Tab</B>, <B>%Space</B> and <B>%Tab</B>
 
@@ -4498,6 +4509,36 @@ always overridden if an explicit hot-key is assigned in the
 <B>AddToMenu</B>
 
 command.
+<P>
+<I>MouseWheel</I>
+
+controls the ability to scroll the menu using a mouse wheel. It takes
+one argument, that can be one of
+ScrollsPointer, ScrollsMenu, ScrollsMenuBackwards or ActivatesItem.
+ScrollsPointer makes the mouse wheel scroll the pointer over a menu.
+This is the default. ScrollsMenu and ScrollsMenuBackwards scroll the menu
+beneath the pointer. ActivatesItem disables scrolling by mouse wheel and
+makes the use of a mouse wheel act as if the menu was clicked.
+If no argument is supplied the default setting is restored.
+<P>
+<I>ScrollOffPage</I>
+
+allows a menu to be scrolled out of the visible area if
+<I>MouseWheel</I>
+
+is set to ScrollsMenu or ScrollsMenuBackwards. This is the default.
+The opposite,
+<I>!ScrollOffPage</I>
+
+disables this behaviour.
+<P>
+<I>TrianglesUseFore</I>
+
+draws sub menu triangles with the foreground color of the menu colorset
+(normally drawn with the hilight color).
+<I>!TrianglesUseFore</I>
+
+disables this behaivour.
 <P>
 Examples:
 
@@ -5471,11 +5512,11 @@ commands which consist of pairs of command tokens and values.
 The
 <I>press</I> and <I>release</I>
 
-commands are followed by a key name.  
+commands are followed by a key name.
 The key name is a standard X11 key name as defined in
 <I>/usr/include/X11/keysymdef.h</I>,
 
-(without the 
+(without the
 <I>XK_</I>
 
 prefix), or the keysym database
@@ -6197,6 +6238,8 @@ passed to WindowList are separated by commas and can be
 
 <I>NoDeskNum,</I>
 
+<I>NoLayer,</I>
+
 <I>NoNumInDeskTitle</I>,
 
 <I>NoCurrentDeskTitle</I>,
@@ -6514,13 +6557,28 @@ only in its layer.  To bring a window to the absolute bottom, use
 
 
 <P>
-<DT><B>Move [[</B><I>w</I><BR>&nbsp;|&nbsp;<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]
+<DT><B>Move [[screen </B><I>screen</I>]
 
 <DD>
+<BR>&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]&quot;
 Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
-window.  If the optional argument
+window.
+<P>
+If the literal option Screen followed by a
+<I>screen</I>
+
+argument is specified, the coordinates are interpreted as relative
+to the given screen.  The width and height of the screen are used
+for the calculations instead of the display dimensions.  The
+<I>screen</I>
+
+as interpreted as in the
+<B>MoveToScreen</B>
+
+command.
+If the optional argument
 <I>Warp</I>
 
 is specified the pointer is warped with the window.  If the single
@@ -6533,11 +6591,21 @@ intended for internal use by modules like
 <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>.
 
 <P>
-The operation can be aborted with Escape or by pressing mouse
-button 2. Pressing button 3 sets the
-<I>PlacedByButton3</I>
+The operation can be aborted with Escape or any mouse button not set
+to place the window. By default mouse button 2 is set to cancel the move
+operation. To change this you may use the
+<B>Mouse</B>
 
-condition (see
+command with special context 'P' for Placement (see
+<B>Mouse</B>
+
+command for details).
+<P>
+The window condition
+<I>PlacedByButton</I>
+
+can be used to check if a specific button was pressed to place the
+window (see
 <B>Current</B>
 
 command).
@@ -6653,14 +6721,13 @@ to 3, which is now the default value.  If
 is negative or omitted the default value (which might be increased
 when 16000x9000 pixel displays become affordable) is restored.
 <P>
-<DT><B>MoveToPage [</B><I>options</I>
+<DT><B>MoveToPage [</B><I>options</I>] [<I>x</I>[<I>p</I>|<I>w</I>] <I>y</I>[<I>p</I>|<I>w</I>]] | [<I>prev</I>]
 
 <DD>
-] [<I>x</I>[<I>p</I>|<I>w</I>] <I>y</I>[<I>p</I>|<I>w</I>]] | [<I>prev]&quot;
 Moves the selected window to another page (x,y).  The upper left
 page is (0,0), the upper right is (M,0), where M is one less than
 the current number of horizontal pages specified in the
-</I><B>DeskTopSize</B>
+<B>DeskTopSize</B>
 
 command.  Similarly the lower left page is (0,N), and the lower
 right page is (M,N).  Negative page numbers refer to pages from
@@ -6839,7 +6906,7 @@ style is used; see
 
 command) otherwise it is lowered.
 <P>
-<DT><B>Resize [[</B><I>frame</I>] [direction <I>dir</I> [<I>warptoborder</I>]] [<I>fixeddirection</I>] <I>width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [<I>bottomright</I> | <I>br x y</I>]
+<DT><B>Resize [[</B><I>frame</I>] [direction <I>dir</I> [<I>warptoborder</I>]] [<I>fixeddirection</I>] <I>width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [bottomright | br <I>x y</I>]
 
 <DD>
 Allows for resizing a window.  If called from somewhere in a window
@@ -6947,7 +7014,10 @@ window.  They are interpreted exactly like the
 arguments of the
 <B>Move</B>
 
-command.
+command.  Actually, any of the options accepted by the
+<B>Move</B>
+
+command can be used.
 <P>
 <DT><B>ResizeMaximize [</B><I>resize-arguments</I><B>]</B>
 
@@ -7007,6 +7077,15 @@ ResizeMove w+0 -10p 0 -20p</PRE></blockquote>
 
 
 
+<P>
+Note:  Fvwm may not be able to parse the command properly if the
+option
+<I>bottomright</I>
+
+of the
+<B>Resize</B>
+
+command is used.
 <P>
 <DT><B>ResizeMoveMaximize </B><I>resize-arguments move-arguments</I>
 
@@ -8001,7 +8080,7 @@ Normally, the key binding is activated when the key is pressed.
 is a standard X11 key name as defined in
 <I>/usr/include/X11/keysymdef.h</I>,
 
-(without the 
+(without the
 <I>XK_</I>
 
 prefix), or the keysym database
@@ -8094,14 +8173,87 @@ The special context 'M' for menus can only be used to control
 which mouse button is used to tear off menus.  See the section
 &quot;Tear Off Menus&quot; for details.
 <P>
-By default, the binding applies to all windows. You can specify
-that a binding only applies to specific windows by specifying the
-window name in brackets. The window name is a wildcard pattern
-specifying the class, resource or name of the window you want the
-binding to apply to.
+The special context 'P' controls what buttons that can be used to place
+a window. When using this context no modifiers are allowed (
+<I>Modifiers</I>
+
+must be N), no
+<I>window</I>
+
+is allowed, and the
+<I>Function</I>
+
+must be one of
+<I>PlaceWindow</I>, <I>PlaceWindowDrag</I>, <I>PlaceWindowInteractive</I>, 
+
+<I>CancelPlacement</I>, <I>CancelPlacementDrag</I>, <I>CancelPlacementInteractive</I>
+
+ or <I>-</I>.
+
+<P>
+<I>PlaceWindow</I>
+
+makes
+<I>Button</I>
+
+usable for window placement, both for interactive and drag move.
+<I>CancelPlacement</I>
+
+does the inverse. That is makes
+<I>Button</I>
+
+to cancel move for both interactive and drag move. It may however not
+override how new windows are resized after being placed. This is
+controlled by the
+<B>Emulate</B>
+
+command. Also a window being dragged can always be placed
+by releasing the button hold while dragging, regardless of if it is
+set to
+<I>PlaceWindow</I>
+
+or not.
+<P>
+<I>PlaceWindowDrag</I> and <I>PlaceWindowInteractive</I>/<I>CancelPlacementDrag</I>
+
+ and <I>CancelPlacementInteractive</I>
+
+work as
+<I>PlaceWindow</I>/<I>CancelPlacement</I>
+
+with the exception that they only affect either windows dragged /
+placed interactively.
+<P>
+<I>-</I>
+
+is equivalent to
+<I>CancelPlacement</I>.
+
+<P>
+The following example makes all buttons but button 3 usable for
+interactive placement and makes drag moves started by other buttons
+than one cancel if button 1 is pressed before finishing the move:
+
+
+<P>
+
+
+<blockquote><PRE>Mouse 0 P N PlaceWindow
+Mouse 3 P N CancelPlacement
+Mouse 1 P N CancelPlacementDrag</PRE></blockquote>
+<P>
+
+
+
+<P>
+By default, the binding applies to all windows. You can specify that a
+binding only applies to specific windows by specifying the window name
+in brackets. The window name is a wildcard pattern specifying the
+class, resource or name of the window you want the binding to apply
+to.
 <P>
 The following example shows how the same key-binding can be used to
-perform different functions depending on the window that is focussed:
+perform different functions depending on the window that is focused:
 
 
 <P>
@@ -8703,6 +8855,8 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>CirculateSkipShaded</I> / <I>CirculateHitShaded</I>,
 
+<I>CirculateSkipIcon</I> / <I>CirculateHitIcon</I>,
+
 <I>Layer</I>,
 
 <I>StaysOnTop</I> / <I>StaysOnBottom</I> / <I>StaysPut</I>,
@@ -8938,6 +9092,8 @@ slashes ('/').  The last style in these groups is the default.
 <I>EWMHIgnoreStateHints</I> / <I>EWMHUseStateHints</I>,
 
 <I>EWMHIgnoreStrutHints</I> / <I>EWMHUseStrutHints</I>,
+
+<I>EWMHIgnoreWindowType</I> / <I>!EWMHIgnoreWindowType</I>,
 
 <I>EWMHMaximizeIgnoreWorkingArea</I> / <I>EWMHMaximizeUseWorkingArea</I> / 
 
@@ -9177,7 +9333,8 @@ style automatically receive the focus when they are created.
 is the default for windows with the
 <I>ClickToFocus</I>
 
-style.
+style.  Note that even if these styles are disabled, the
+application may take the focus itself.  Fvwm can not prevent this.
 <P>
 The
 <I>OverrideGrabFocus</I>
@@ -10102,7 +10259,7 @@ is active.
 <I>FixedPosition</I> and <I>FixedUSPosition</I>
 
 make fvwm ignore attempts of the user to move the window.  It is
-still possible to move the window by resizing is.  To allow the
+still possible to move the window by resizing it.  To allow the
 user to move windows, use the
 <I>VariablePosition</I>or<I>VariableUSPosition</I>
 
@@ -10211,16 +10368,14 @@ inhibits the window from being maximized.
 enables the function
 <I>Maximize</I>
 
-to be performed on windows that are not resizable, unless maximisation
-has been disabled either using the style
-<I>Unmaximizable</I>
+to be performed on windows that are not resizable, unless
+maximization has been disabled either using the style
+<I>!Maximizable</I>
 
-or throuth WM hints,
-This on by default.
-The opposite,
+or through WM hints.  This is on by default.  The opposite,
 <I>!AllowMaximizeFixedSize</I>,
 
-inibits all windows that are not resizable from being maximized.
+inhibits all windows that are not resizable from being maximized.
 <P>
 <I>ResizeHintOverride</I>
 
@@ -10461,9 +10616,21 @@ pressed during the initial placement of a window (respectively
 and mouse button 1 in case Mwm emulation has been enabled with the
 <B>Emulate</B>
 
-command), the user is asked to resize the window too.  Pressing
-button 3 sets the
-<I>PlacedByButton3</I>
+command), the user is asked to resize the window too.
+<P>
+It is possible to define buttons usable to place windows with the
+<B>Move</B>
+
+command and the special context 'P' for placement (see
+<B>Move</B>
+
+command). However, you can't redefine the way to also resize the
+window other than the way it is affected by the
+<B>Emulate</B>
+
+command. The button used for placing the window can be checked with
+the
+<I>PlacedByButton</I>
 
 condition (see
 <B>Current</B>
@@ -10484,7 +10651,7 @@ AddToFunc StartFunction
 + I FvwmEvent
 
 AddToFunc GrowDownFunc
-+ I windowid $0 (PlacedByButton3) \
++ I windowid $0 (PlacedByButton 3) \
   Resize bottomright keep -0p</PRE></blockquote>
 <P>
 
@@ -10498,6 +10665,7 @@ until it hits the bottom screen border.
 <I>Old placement styles</I>
 
 DumbPlacement / SmartPlacement / SmartPlacementOff,
+CleverPlacement / CleverPlacementOff,
 ActivePlacement / RandomPlacement,
 ActivePlacementsHonorsStartsOnPage /
 ActivePlacementsHonorsStartsOnPageOff, GlobalOpts
@@ -10936,6 +11104,13 @@ is mapped. The default
 <I>EWMHUseStateHints</I>
 
 causes fvwm to accept such hints.
+<P>
+<I>EWMHIgnoreWindowType</I>
+
+causes fvwm to ignore EWMH window type specification. The default
+<I>!EWMHIgnoreWindowType</I>
+
+causes fvwm to style windows of specified types as such.
 <P>
 <I>EWMHMaximizeIgnoreWorkingArea</I>
 
@@ -14347,7 +14522,7 @@ and are separated by commas or whitespace.  They include
 
 <I>Exit</I>,
 
-<I>Quit</I> and
+<I>Quit</I>,
 
 <I>ToRestart</I>,
 
@@ -14361,7 +14536,7 @@ and are separated by commas or whitespace.  They include
 
 <I>W</I>,
 
-<I>X</I>,
+<I>X</I> and
 
 <I>I</I>.
 
@@ -14413,12 +14588,12 @@ test-condition is true if
 matches the given environment variable value.
 The pattern may contain special &quot;*&quot; and &quot;?&quot; chars.
 <P>
-The 
+The
 <I>EdgeHasPointer </I><B>[</B><I>direction</I><B>]</B>
 
 test-condition is true if the edge in the given direction currently
-contains the pointer. 
-The 
+contains the pointer.
+The
 <I>EdgeIsActive </I><B>[</B><I>direction</I><B>]</B>
 
 test-condition is true if the edge in the given direction currently is
@@ -14777,6 +14952,8 @@ directly in front of its name.
 
 <I>Overlapped</I>,
 
+<I>PlacedByButton n</I>,
+
 <I>PlacedByButton3</I>,
 
 <I>PlacedByFvwm</I>,
@@ -14921,7 +15098,7 @@ The
 condition matches only windows that are on the current page of the
 current desk.  If Xinerama support is enabled, it only matches
 windows that are at least partially on the Xinerama screen
-containing the mouse pointer.  This conditions implicitly
+containing the mouse pointer.  This condition implicitly
 activates the
 <I>CurrentDesk</I>
 
@@ -15041,20 +15218,44 @@ have many windows or if RaiseOverUnmanaged is used and the
 connection to the X server is slow.
 <P>
 The
-<I>PlacedByButton3</I>
+<I>PlacedByButton n</I>
 
 condition is fulfilled if the last interactive motion of the
 window (with the
 <B>Move</B>
 
-command) was ended by pressing mouse button 3.  This is especially
-useful with the
-<I>ManualPlacement</I>
+command or as
+<I>ManualPlacement</I>)
 
-option of the
-<B>Style</B>
+was ended by pressing mouse button
+<I>n</I>.
 
-command.
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>Mouse   1 T     A       Function MoveWindow
+
+DestroyFunc MoveWindow
+AddToFunc MoveWindow
++ C Move
++ C ThisWindow (PlacedByButton 5) WindowShade off
++ C TestRc (Match) Maximize on 0 100
++ C ThisWindow (PlacedByButton 4) WindowShade on</PRE></blockquote>
+<P>
+
+
+
+<P>
+The
+<I>PlacedByButton3</I>
+
+condition has the same meaning as
+<I>PlacedByButton</I>
+
+3. It remains only for backward compatibility.
 <P>
 The
 <I>PlacedByFvwm</I>
@@ -16589,9 +16790,9 @@ The official fvwm homepage is
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 01:10:56 GMT, August 27, 2005
+Time: 20:43:06 GMT, January 14, 2006
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 27-Aug-2005 -->
+<!-- Automatically generated by manpages2php on 14-Jan-2006 -->
