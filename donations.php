@@ -57,7 +57,7 @@ Donations not dedicated to a specific task will be spent to pay my
 bills while I work on the most pressing items on the list below.
 Also, I will work an additional day on my spare time for every 4
 days funded.  If you are interested in sponsoring fvwm, send mail
-to <a href="mailto:dominik.vogt@gmx.de">dominik.vogt@gmx.de</a> or
+to <a href="mailto:dominik(dot)vogt(at)gmx(dot)de">dominik(dot)vogt(at)gmx(dot)de</a> or
 contact the <a
 href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>
 mailing list.  Any sponsors will be mentioned on this page.

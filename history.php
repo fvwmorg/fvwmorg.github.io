@@ -9,7 +9,7 @@ $rel_path = ".";
 //--------------------------------------------------------------------
 // load some global definitions
 //--------------------------------------------------------------------
-include_once($rel_path.'/definitions.inc'); 
+include_once($rel_path.'/definitions.inc');
 
 //--------------------------------------------------------------------
 // Site definitions
@@ -41,7 +41,7 @@ if(!isset($site_has_been_loaded)) {
 <?php decoration_window_start("Read about the history of fvwm"); ?>
 
 <pre class="historydominik">
->>>>> "DV" == Dominik Vogt <dominik.vogt@gmx.de> writes:
+>>>>> "DV" == Dominik Vogt <dominik(dot)vogt(at)gmx(dot)de> writes:
 
 DV> ((Chuck, are you still lurking?  Can you fill in the gaps before
 DV> 1998?))
@@ -81,24 +81,24 @@ CH> trying to figure out bugs. :)
 
 <pre class="historyrobert">
 RN> There were two or three reasons for starting FVWM and RXVT. First, I had
-RN> a need 33 MHZ 486 laptop PC with only 4 MB of RAM, and I thought linux and X11 were 
-RN> way better than the windows versions of the day. X11 with TWM and xterm would run on 
+RN> a need 33 MHZ 486 laptop PC with only 4 MB of RAM, and I thought linux and X11 were
+RN> way better than the windows versions of the day. X11 with TWM and xterm would run on
 RN> my PC, but just barely. Second, I had a need at work to analyze spectrograms which
-RN> were about 4000 x 200 pixels when displayed at full resolution (analyzing acoustic 
-RN> signatures for the DOD) - twm couldn't display 
+RN> were about 4000 x 200 pixels when displayed at full resolution (analyzing acoustic
+RN> signatures for the DOD) - twm couldn't display
 RN> that, although some other window managers could (they used more memory though!). Finally,
 RN> I thought it would be nice to learn a few GUI software skills.
 
 RN> I think I did rxvt first. The source code fro xterm was pretty hard to understand,
-RN> so I found xvt on the net somewhere. I cleaned it up a bit and improved its vt-100 
+RN> so I found xvt on the net somewhere. I cleaned it up a bit and improved its vt-100
 RN> compatibility in a few areas. Next, I tore apart twm to find out why it was so big, and
 RN> generated a very simple, low memory, low-flexibility version of a window manager. I added
 RN> the virtual desktop stuff and started using it at work too, since it could display my
-RN> spectrograms very nicely. 
+RN> spectrograms very nicely.
 
 RN> After I put the these things on the net, it was fun and educational for a while, as
 RN> the programs became more capable. But as my kids got a little older and needed more
-RN> attention from me), and the maintenance function got to be mostly integrating patches 
+RN> attention from me), and the maintenance function got to be mostly integrating patches
 RN> from various people (and the patches had little or no utility to me), the fun went
 RN> away, and Chuck Hines stepped up to take over.
 </pre>
@@ -137,21 +137,21 @@ CH> get it to compile nicely under AIX and some stuff with colormap behavior (I'
 CH> so happy to not have an 8bit display any more).  By the way, if anyone has (or
 CH> can track down) any archives of that earlier mailing list, it'd probably be
 CH> pretty cool to resurrect them...
-CH> 
+CH>
 CH> Then one day Rob had sent out a message (on the mailing list, I believe) that
 CH> stated something to the effect that he didn't want to work on fvwm any more,
 CH> and was looking for someone else to maintain it.  I wanted to offer to take it
 CH> over (as an X11 learning experience - I had dealt with X at the toolkits level
 CH> but was curious about the more low level stuff) but didn't feel I had the time
 CH> to properly devote to it so I didn't say anything at first.
-CH> 
+CH>
 CH> Then after about 2 weeks of watching people say "I'd love to, but I can't
 CH> program" I figured I'd better make that offer after all, qualifying it with
 CH> something like "I don't know if I have time to do this right, but I'm willing
 CH> to make an attempt".  Rob remembered my previous contributions and figured I'd
 CH> be able to make a go at it, so he turned it over to me.  That was version
 CH> "pre-2.0-patchlevel-33" if I remember correctly.
-CH> 
+CH>
 CH> Then I worked on it sporadically over the next couple of years.  At first I
 CH> wasn't too bad about getting releases out, but the length of time between each
 CH> one got longer as "real life" invaded.  Another part of the problem was
@@ -160,13 +160,13 @@ CH> that were submitted to me so I really understood what was happening and with
 CH> an eye towards making things "easier" in the future (which I'm sure pissed off
 CH> a couple of people, but at the time I thought I had good reasons for doing
 CH> things that way).
-CH> 
+CH>
 CH> Finially I had to admit that I just didn't have the time to properly devote to
 CH> it any more.  So it May of 1998 (I believe) I sent some email privately to
 CH> Brady Montz, as I felt that the stuff he contributed showed him to have the
 CH> most promise for taking it over at the time, and he (reluctantly?) agreed to
 CH> give it a shot.
-CH> 
+CH>
 CH> And you know the rest of the story from there...  I wish I could have done
 CH> (and learned) more, but I'm happy to have done my part.
 </pre>

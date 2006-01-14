@@ -1,10 +1,10 @@
 2005-09-23  Viktor Griph  <griph@dd.calmers.se>
-	
+
 	* screenshots/vectorbuttons/decor_demo.fvwmrc:
 	updated to close demo windows, and clean up fvwm after run
 	removed hardcoded directory
 
-	* screenshots/vectorbuttons/create_fvwm_script.awk: 
+	* screenshots/vectorbuttons/create_fvwm_script.awk:
 	added USAGE comment
 
 	* screenshots/vectorbuttons/vectorbutton*.gif:
@@ -21,15 +21,15 @@
 
 2005-08-25  Viktor Griph  <griph@dd.calmers.se>
 
-	* news/news2php: 
+	* news/news2php:
 	% characters in output escaped to make printf work with % characters
 	in NEWS
 	hang indented lines in NEWS will now be generated as a nestled list
 
-	* news/index.php:	
+	* news/index.php:
 	regenerated
 
-2005-08-24  Dominik Vogt  <dominik.vogt@gmx.de>
+2005-08-24  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.php:
 	updated News
@@ -42,7 +42,7 @@
 	* definitions.inc:
 	updated for 2.5.14
 
-2005-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
+2005-08-05  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* features.php:
 	* index.php:
@@ -51,13 +51,13 @@
 	* index.php:
 	removed the ugly starburst effect from logo
 
-2005-08-03  Dominik Vogt  <dominik.vogt@gmx.de>
+2005-08-03  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.php:
 	* contact/index.php:
 	updated links to mailing list archives
 
-2005-07-16  Dominik Vogt  <dominik.vogt@gmx.de>
+2005-07-16  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:
 	* news/index.php:
@@ -148,7 +148,7 @@
 	Added link to new fvwm forum page. Changed link to wiki.
 	Changed link to Glens page.
 
-2004-10-06  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-10-06  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:
 	* news/index.php:
@@ -158,7 +158,7 @@
 	* definitions.inc:
 	updated for 2.5.12
 
-2004-09-30  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-09-30  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:
 	* news/index.php:
@@ -187,7 +187,7 @@
 	* almost all files:
 	changed php code so that it does not produce warnings
 
-2004-08-05  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-08-05  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* contact/index.php:
 	added rules for writing list mail.
@@ -212,12 +212,12 @@
 	fixed "focus" setting when number of subpages is equal to number
 	of pages per desk
 
-2004-07-15  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-07-15  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.php:
 	updated wiki link
 
-2004-07-09  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-07-09  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.php:
 	* navgen_write/navigation.inc:
@@ -280,7 +280,7 @@
 	made script more generic, empty variables will be not exported,
 	export now short_name as well
 
-2004-03-19  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-03-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:
 	* news/index.php:
@@ -319,7 +319,7 @@
 	* screenshots/menus/Scott_Smedley/*:
 	Added menu screenshots
 
-2004-03-02  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-03-02  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:
 	* news/index.php:
@@ -375,7 +375,7 @@
 	* screenshots/desktops/Andrew_Dolgov-1152x864:
 	Added screenshot.
 
-2004-01-05  Dominik Vogt  <dominik.vogt@gmx.de>
+2004-01-05  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.php:
 	* logo-competition/index.php:
@@ -1010,7 +1010,7 @@
 
         * screenshots/desktops.php: New screenshot from Maciej Delmanowski.
 
-2003-05-06  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-05-06  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* contact/index.php:
 	--> ask xmms questions on the XMMS mailing list
@@ -1227,7 +1227,7 @@
 	* default.css:
 	reformat
 
-2003-04-23  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-04-23  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* logo-competition/rules.php:
 	updated logo competition schedule
@@ -1494,12 +1494,12 @@
 	* index.html:
 	disabled NEWS FLASH
 
-2003-03-15  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-03-15  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	added a news entry for the birthday
 
-2003-03-11  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-03-11  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* xxxacknowledgements.html:
 	removed "thank you" for a contribution that was never made
@@ -1513,7 +1513,7 @@
 
 	* screenshots/index.html: Added screenshot from Taviso.
 
-2003-02-28  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-02-28  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1538,13 +1538,13 @@
 	* index.html: Update dates at bottom of page and indicate a date
 	for 2.4.15.
 
-2003-01-26  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-01-26  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mailinglist.html:
 	* index.html:
 	added info about irc channels and cleaned up front page a bit
 
-2003-01-24  Dominik Vogt  <dominik.vogt@gmx.de>
+2003-01-24  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1592,7 +1592,7 @@
 	* developers.html:
 	added full instructions for creating rpm packages
 
-2002-12-02  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-12-02  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1614,7 +1614,7 @@
 
 	* vector-buttons/vector-buttons.html: Added some vector buttons.
 
-2002-11-01  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-11-01  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1634,7 +1634,7 @@
 	* generated/NEWS.html:
 	updated for 2.5.4
 
-2002-10-10  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-10-10  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1652,7 +1652,7 @@
 	* generated/manpages/FvwmGtkDebug.html:
 	added
 
-2002-09-25  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-09-25  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_m2f_communication.html:
 	corrected a typo
@@ -1666,7 +1666,7 @@
 	replaced Mikhael and Windows95 images;
 	replaced xv-resized gifs with convert-resized jpgs
 
-2002-09-20  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-09-20  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1691,24 +1691,24 @@
 	* generated/manpages/*.html:
 	regenerated all 2.4.x manpages, added new 2.5.x pages (not linked)
 
-2002-09-15  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-09-15  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
 	updated for 2.4.10
 
-2002-09-02  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-09-02  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	clarified stability of current devel versions
 
-2002-08-25  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-08-25  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
 	updated for 2.5.3
 
-2002-08-11  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-08-11  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1773,7 +1773,7 @@
 	updated description of Suzanne link;
 	removed fvwm.themes.org link
 
-2002-05-26  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-05-26  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* links.html:
 	added a link to Suzanne Skinner's fvwm site
@@ -1788,7 +1788,7 @@
 	* features.html:
 	added missing features of 2.4.x and 2.5.x
 
-2002-05-08  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-05-08  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	mark 2.5.1 as alpha quality
@@ -1817,12 +1817,12 @@
 	* screenshots/index.html:
 	handle fvwm2 executable (that was renamed to fvwm)
 
-2002-03-31  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-03-31  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* generated/txt2html.sh (outfile):
 	automatically insert the "last updated" date at the end
 
-2002-03-10  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-03-10  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1851,13 +1851,13 @@
 	Say a word on the MX_PROPERTY_CHANGE message in the Transparent section,
 	also replace root by parent in one place
 
-2002-01-27  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-01-27  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
 	updated for 2.4.5 and 2.5.0
 
-2002-01-19  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-01-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_m2f_communication.html:
 	* mod_f2m_communication.html:
@@ -1868,7 +1868,7 @@
 	* developers.html: Link to bug downloads.
 	* downloadbugs.html: Add page with links for downloading bug reports.
 
-2002-01-01  Dominik Vogt  <dominik.vogt@gmx.de>
+2002-01-01  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* icons.html:
 	Updated
@@ -1882,7 +1882,7 @@
 	* screenshots/index.html:
 	* Tenebrae.fvwm2rc: Added Tenabrae's config file.
 
-2001-12-16  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-12-16  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1895,7 +1895,7 @@
 	at fvwm@fvwm.org.
 	Link to Glen Lee Edwards excellent page.
 
-2001-11-27  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-11-27  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* fvwm-cats/index.html:
 	no comment
@@ -1913,7 +1913,7 @@
 	* generated/manpages/*.html:
 	regenerated man pages
 
-2001-10-08  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-10-08  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -1925,18 +1925,18 @@
 	* screenshots/index.html: Screenshot from C J Lawrence.
 	* screenshots/index.html: Screenshots from Glen Lee Edwards.
 
-2001-09-16  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-09-16  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html:
 	updated for 2.4.2
 
-2001-09-15  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-09-15  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
 	updated for 2.4.1
 
-2001-07-29  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-07-29  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_f2m_communication.html:
 	updated Xinerama module interface
@@ -1958,7 +1958,7 @@
 	* download.html:
 	fixed link to manpages
 
-2001-07-22  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-07-22  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_f2m_communication.html:
 	added description for Xinerama
@@ -1995,7 +1995,7 @@
 	* generated/manpages/man-pages.html: Bring man pages up to 2.4.0 level.
 	Remove FvwmAudio,Config,GoodStuff,Talk.
 
-2001-07-03  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-07-03  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html:
@@ -2005,11 +2005,11 @@
 
 	* links.html: added a link to fvwm-ewmh
 
-2001-06-26  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-06-26  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html: fixed latest beta release number
 
-2001-06-22  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-06-22  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html, index.html: News Flash, download 2.3.33.
 
@@ -2034,7 +2034,7 @@
 	* index.html:
 	* download.html: Typos.
 
-2001-04-08  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-04-08  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html, index.html: News Flash, download 2.3.31.
 
@@ -2044,7 +2044,7 @@
 	* index.html: actually updated News Flash and date
 	* generated/NEWS.html: regenerated
 
-2001-03-29  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-03-29  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html, index.html: News Flash, download 2.3.30.
 
@@ -2052,7 +2052,7 @@
 
 	* generated/FAQ.html: Regenerate FAQ.
 
-2001-03-02  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-03-02  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html, index.html: News Flash, download 2.3.29.
 
@@ -2099,17 +2099,17 @@
 	* index.html:
 	added a link to AUTHORS and minor spacing needed for some browsers
 
-2001-01-03  Dominik Vogt  <dominik.vogt@gmx.de>
+2001-01-03  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	* download.html: increased version number to 2.3.27
 
-2000-12-29  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-12-29  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html:
 	upped beta release number
 
-2000-12-26  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-12-26  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.26
 
@@ -2154,11 +2154,11 @@
 	* generated/{FAQ,NEWS}.html:
 	regenerated
 
-2000-11-25  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-11-25  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.23
 
-2000-11-20  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-11-20  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* fvwm-cats/index.html:
 	added to trivia
@@ -2182,7 +2182,7 @@
 
 	* cvs.html: reverse automake & autoreconf order, some additions
 
-2000-10-12  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-10-12  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_initialization.html:
 	updated documentation of number of module arguments
@@ -2193,7 +2193,7 @@
 	* download.html: added rpm link, currently outside of fvwm.org
 	* cvs.html: small corrections
 
-2000-09-17  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-09-17  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* fvwm-cats/index.html:
 	updated pictures of kassandra and geoffrey
@@ -2202,27 +2202,27 @@
 
 	* generated/FAQ.html,generated/NEWS.html: regenerated.
 
-2000-09-04  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-09-04  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.21
 
-2000-07-04  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-07-04  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.20
 
-2000-06-04  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-06-04  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.19
 
-2000-05-25  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-05-25  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.18
 
-2000-05-11  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-05-11  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.17
 
-2000-04-17  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-04-17  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.16
 
@@ -2254,11 +2254,11 @@
 	* vector-buttons/DecorDemo3.fvwmrc, DecorDemo3.gif: Fix to minimize
  	button from Fabian Beutin.
 
-2000-02-25  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-02-25  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.15
 
-2000-02-23  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-02-23  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.14
 
@@ -2279,7 +2279,7 @@
 	* fvwm-cats/index.html:
 	* fvwm-cats/blaise.jpg: added my little girl
 
-2000-01-23  Dominik Vogt  <dominik.vogt@gmx.de>
+2000-01-23  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.13
 
@@ -2298,7 +2298,7 @@
 	* screendhots: added Jason Kibblewhite's screentshot
 	* fvwm-cats/index.html: fixed the title and bad html
 
-1999-12-30  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-12-30  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.12
 
@@ -2318,11 +2318,11 @@
 	* screenshots/Mikhael-desk-{1152x864,thumbnail}.gif:
 	a slightly updated version of the desktop screenshot
 
-1999-12-17  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-12-17  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.11
 
-1999-12-04  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-12-04  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html:
 	fixed typo
@@ -2340,13 +2340,13 @@
 	binding changes are superfluous); added 'MWMBorder, HandleWidth 10'
 	to demo style.
 
-1999-11-30  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-11-30  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html:
 	* index.html:
 	set stable version to 2.2.4
 
-1999-11-27  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-11-27  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.10
 
@@ -2366,11 +2366,11 @@
 
 	* mod_f2m_communication.html: Replaced M_LOCKONSEND by M_NOTUSED
 
-1999-09-26  Dominik Vogt  <dominik_vogt@gmx.de>
+1999-09-26  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* mod_initialization.html: more colorset instructions
 
-1999-10-19  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-10-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* index.html: added news for 2.2.3
 
@@ -2380,11 +2380,11 @@
 
 	* screenshots: Added some screenshots from Lee Willis.
 
-1999-10-08  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-10-08  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: increased version number to 2.3.8
 
-1999-09-19  Dominik Vogt  <dominik_vogt@gmx.de>
+1999-09-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* fvwm-cats/index.html: 'Cats' doesn't blink anymore
 
@@ -2429,7 +2429,7 @@ Sun Sep 12 09:36:37 1999  DanEspen  <dje@blue>
 
 	* fvwm-cats.html: fixed typo
 
-1999-09-01  Dominik Vogt  <dominik.vogt@gmx.de>
+1999-09-01  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download.html: changed latest beta to 2.3.7
 
