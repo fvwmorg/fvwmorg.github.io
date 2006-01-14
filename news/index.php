@@ -140,8 +140,8 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
-<a name="2.5.15"></a>
-<h4>Changes in beta release 2.5.15 (not released yet) <a href="#top">[top]</a></h4>
+<a name="2.5.16"></a>
+<h4>Changes in beta release 2.5.16 (not released yet) <a href="#top">[top]</a></h4>
 <a name="2.5.15"></a>
 <h4>Changes in beta release 2.5.15 (14-Jan-2006) <a href="#top">[top]</a></h4>
 <ul>
