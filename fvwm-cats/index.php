@@ -232,14 +232,12 @@ if(!isset($site_has_been_loaded)) {
 
   <h3 class="cats">Quotes and trivia:</h3>
   <ul class="cats">
+    <li>"To err is human, To purr feline." -- Robert Byrne</li>
     <li>"Cats are like people: the females are the prickly ones and the males
       are good-natured idiots."</li>
     <li>"Will he ever stop feeding?"</li>
     <li>"Ta-tadi, tatatatataaaa! Dies sind die Abenteuer des Raumschiffs Katerschweif."
       (Sorry, can't translate this to English.)</li>
-    <li>Did you ever try to find the 'Pussy Versand' in the internet? You may
-      get a lot of hits with carelessly chosen search words. [German: Versand =
-      English: mail order firm].</li>
     <li>Did you know that cats sleep about 16 hours a day?</li>
     <li>54lopbg2qw^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ "Tilion! Down from
       my keyboard, NOW!"</li>
