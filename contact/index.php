@@ -105,7 +105,9 @@ decoration_window_start("Mailing lists");
   </p>
 
   <p>
-    Also the mailing lists are archived:  <a href="http://www.mail-archive.com/fvwm@fvwm.org/">fvwm</a>, <a href="http://www.mail-archive.com/fvwm-workers@fvwm.org/">fvwm-workers</a>
+    Also the mailing lists are archived:
+    <a href="http://www.mail-archive.com/fvwm@lists.math.uh.edu/">fvwm</a>,
+    <a href="http://www.mail-archive.com/fvwm-workers@lists.math.uh.edu/">fvwm-workers</a>.
   </p>
 
   <p>

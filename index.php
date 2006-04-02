@@ -98,10 +98,10 @@ and support is excellent.  Check it out!
                       "menus",
 
                       array("User Mailing List Archive",
-                            "http://www.mail-archive.com/fvwm@fvwm.org/",
+                            "http://www.mail-archive.com/fvwm@lists.math.uh.edu/",
                             "fvwm_mail_archive"),
                       array("Workers Mailing List Archive",
-                            "http://www.mail-archive.com/fvwm-workers@fvwm.org/",
+                            "http://www.mail-archive.com/fvwm-workers@lists.math.uh.edu/",
                             "fvwm_workers_mail_archive"),
 
                       array("FVWM Themes",
