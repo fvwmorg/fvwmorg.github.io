@@ -790,7 +790,7 @@ A: The built in command WindowList provides a very close approximation
 
    A simpler style can be used with the following:
 
-      Key Tab A M WindowList Root c c CurrentDesk NoGeometry
+      Key Tab A M WindowList Root c c CurrentDesk, NoGeometry
 
    This will just list the windows on the current desk (titles only).
 
@@ -1917,6 +1917,18 @@ A: If you plan to write a patch, <u>please</u>, first of all fetch the
 <a name="5.2"></a><a href="#toc_5.2">5.2</a>  How do I create/submit/apply patches?
 
 A: First of all, please read the first section of the answer to Q5.1!
+
+   Please add proper entries to the ChangeLog file(s) and possibly to
+   NEWS and AUTHORS files whenever you submit a patch.  The ChangeLog
+   lists <u>all</u> changed files and functions along with a useful
+   explanation of the change details.  The NEWS file mentions all
+   user-visible changes, including bug fixes.  Also, do not forget to
+   write a section for the man page if the patch includes new
+   features.
+
+   You can find more detailed instructions for working with the
+   fvwm sources in the files doc/DEVELOPERS and doc/CONVENTIONS in
+   CVS or the tarballs.
 
    Creating a patch against CVS sources (preferable) -
 
@@ -3045,7 +3057,7 @@ your applications request.
 
      # Start FvwmAuto
      AddToFunc StartFunction
-     + I Module FvwmAuto FvwmAutohide -menter enter_handler
+     + I Module FvwmAuto 1 -menter enter_handler
 
      # Add the windows you want to autohide
      AddToFunc enter_handler
@@ -3087,7 +3099,7 @@ your applications request.
      + I Schedule $0 $[w.id] Deschedule -$[w.id]
 
      AddToFunc StartFunction
-     + I Module FvwmAuto FvwmAutohide -menter enter_handler
+     + I Module FvwmAuto 1 -menter enter_handler
 
      AddToFunc enter_handler
      + I autohide FvwmButtons 250 500 S
