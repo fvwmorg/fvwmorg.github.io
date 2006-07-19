@@ -44,6 +44,26 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Serge (gentoosiast) Koksharov</h4>
+<p class="author">
+Documentation fixes, bug fixes.
+</p>
+
+<h4 class="author">Arwed von Merkatz</h4>
+<p class="author">
+UnderMousePlacement style.
+</p>
+
+<h4 class="author">David Maciver</h4>
+<p class="author">
+Menu styles TitleColorset, HilightTitle and TitleFont.
+</p>
+
+<h4 class="author">Renato Caldas</h4>
+<p class="author">
+Cleaned up module initialization.
+</p>
+
 <h4 class="author">Malcolm Still</h4>
 <p class="author">
 New MenuStyle option TrianglesUseFore.
@@ -61,7 +81,7 @@ FixedPosition condition.
 
 <h4 class="author">Viktor Griph</h4>
 <p class="author">
-Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions. Nested variable expansion. MouseWheel and ScrollOffPage menu style options. Simple placement mouse bindings and PlacedByButton window condition.
+Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions. Nested variable expansion. MouseWheel and ScrollOffPage menu style options. Simple placement mouse bindings and PlacedByButton window condition. Use of fvwmstyle resource. Warnings for unconsumed arguments to style options. Bug fixes. 
 </p>
 
 <h4 class="author">Bjoern Steinbrink</h4>
@@ -81,7 +101,7 @@ WindowLayer and Layers options to the Maximize command. EdgeLeaveCommand
 
 <h4 class="author">George Potapov</h4>
 <p class="author">
-ShowOnlyFocused option for FvwmIconMan.
+ShowOnlyFocused option for FvwmIconMan. PressButton command in FvwmButtons
 </p>
 
 <h4 class="author">Jim C. Brown</h4>
@@ -121,7 +141,7 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: ActiveIcon, ActiveTitle, ActiveColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker.
+Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: ActiveIcon, ActiveTitle, ActiveColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker; Version test condition. Added &quot;Periodic&quot; option to Schedule command.
 </p>
 
 <h4 class="author">Francis Litterio</h4>
@@ -256,7 +276,7 @@ fvwm-logo-colorful.xpm, a prototype of a current default FvwmBanner logo.
 
 <h4 class="author">Olivier Chapuis</h4>
 <p class="author">
-Rewrote fonts loading and text rendering with locale, Xft, rotation, encoding and shadow support.  Rewrote image loading and added PNG support with alpha blending.  Added XRender support with full emulation if not present.  Added XShm support for faster XImage manipulation.  Added EWMH support (with a lot of new styles and commands) for KDE and GNOME.  Added Gettext support and (LocalePath command and $[gt.str] variable).  Some French translation.  Rewrote the color limit code and added dithering for screen with a depth &lt; 24. Colorset support in BorderStyle, TitleStyle and ButtonsStyle and MultiPixmap. Solid option of MultiPixmap. Merge MultiPixmap code and regular title bar drawing code.  AdjustedPixmap, StretchedPixmap and ShrunkPixmap options for the decorations commands. MinHeight option to TitleStyle. UseTitleDecorRotation Style.  Colorset Improvement: lot of works with the Transparent option, new options RootTransparent, Tint, fgTint, bgTint, Alpha, fgAlpha, Dither, NoDither, IconTint, IconAlpha, fgsh. Bitmap support in Colorset.  BorderColorset, HilightBorderColorset, IconBackgroundColorset, IconTitleColorset, HilightIconTitleColorset, IconTitleRelief, IconBackgroundRelief and IconBackgroundPadding Styles.  MinOverlapPercentPlacement, PlacementOverlapPenalties and PlacementOverlapPercentPenalties Styles. Indexed{Window,Icon}Name Styles.  Adjusted, Stretched, Shrunk option to IconSize style.  layer flags to the Maximize command.  DesktopName command with variables $[desk.name&lt;n&gt;] and dynamic update for FvwmPager.  layer flags to the Maximize command.  OnlySkipList, NoDeskNum, NoCurrentDeskTitle, TitleForAllDesks, NoNumInDeskTitle options to WindowList.  CopyMenuStyle, BusyCursor, EscapeFunc and PrintInfo commands.  StrokeFunc command and some works on the STROKE patch.  PlacedByFvwm condition. libs: setSyncMask to define the messages on which a module is lock on send (not my idea); put SendFvwmPipe in the library; amelioration of SlideWindow. FvwmButtons: (No)FvwmModule Swallow option; Vastly improved redrawing with complex colorset configuration; position option for panel. FvwmBacker: RetainPixmap option.  FvwmEvent: StartDelay option. FvwmIconBox: UseSkipList options; aliases support.  FvwmIconMan: Full colorset support.  FvwmM4/Cpp: -lock and -noread options.  FvwmPager: Aliases support; some fixes.  FvwmPager: Aliases support.  FvwmScript: The Default configuration options; UseGettext and WindowLocaleTitle head instruction; LocaleTitle widget instruction; NoFocus and Left, Center, and Right flags option for text position; Key and ChangeLocaleTitle instructions; GetPid, Parse, SendMsgAndGet, LastString and Gettext functions; SendToModule ScriptName SendString command; rewrite some scripts examples and new script examples. FvwmScroll: p option for a percentage reduction.  FvwmTaskBar: Focus, Rows, 3DFvwm, NoIconAction options, take in account the real border width for geometry computation, AutoHide amelioration; aliases support.  FvwmWinList: geometries fixes; aliases support. utile: fvwm-menu-desktop script for GNOME and KDE desktop menus.  fvwm-root improvement (root properties). Bugfixes!
+Rewrote fonts loading and text rendering with locale, Xft, rotation, encoding and shadow support.  Rewrote image loading and added PNG support with alpha blending.  Added XRender support with full emulation if not present.  Added XShm support for faster XImage manipulation.  Added EWMH support (with a lot of new styles and commands) for KDE and GNOME.  Added Gettext support and (LocalePath command and $[gt.str] variable).  Some French translation.  Rewrote the color limit code and added dithering for screen with a depth &lt; 24. Colorset support in BorderStyle, TitleStyle and ButtonsStyle and MultiPixmap. Solid option of MultiPixmap. Merge MultiPixmap code and regular title bar drawing code.  AdjustedPixmap, StretchedPixmap and ShrunkPixmap options for the decorations commands. MinHeight option to TitleStyle. UseTitleDecorRotation Style.  Colorset Improvement: lot of works with the Transparent option, new options RootTransparent, Tint, fgTint, bgTint, Alpha, fgAlpha, Dither, NoDither, IconTint, IconAlpha, fgsh. Bitmap support in Colorset.  BorderColorset, HilightBorderColorset, IconBackgroundColorset, IconTitleColorset, HilightIconTitleColorset, IconTitleRelief, IconBackgroundRelief and IconBackgroundPadding Styles.  MinOverlapPercentPlacement, PlacementOverlapPenalties and PlacementOverlapPercentPenalties Styles. Indexed{Window,Icon}Name Styles.  Adjusted, Stretched, Shrunk option to IconSize style.  layer flags to the Maximize command.  DesktopName command with variables $[desk.name&lt;n&gt;] and dynamic update for FvwmPager.  layer flags to the Maximize command.  OnlySkipList, NoDeskNum, NoCurrentDeskTitle, TitleForAllDesks, NoNumInDeskTitle options to WindowList.  CopyMenuStyle, BusyCursor, EscapeFunc and PrintInfo commands.  StrokeFunc command and some works on the STROKE patch.  PlacedByFvwm condition. libs: setSyncMask to define the messages on which a module is lock on send (not my idea); put SendFvwmPipe in the library; amelioration of SlideWindow. FvwmButtons: (No)FvwmModule Swallow option; Vastly improved redrawing with complex colorset configuration; position option for panel. FvwmBacker: RetainPixmap option.  FvwmEvent: StartDelay option. FvwmIconBox: UseSkipList options; aliases support.  FvwmIconMan: Full colorset support.  FvwmM4/Cpp: -lock and -noread options.  FvwmPager: Aliases support; some fixes.  FvwmPager: Aliases support.  FvwmScript: The Default configuration options; UseGettext and WindowLocaleTitle head instruction; LocaleTitle widget instruction; NoFocus and Left, Center, and Right flags option for text position; Key and ChangeLocaleTitle instructions; GetPid, Parse, SendMsgAndGet, LastString and Gettext functions; SendToModule ScriptName SendString command; rewrite some scripts examples and new script examples. FvwmScroll: p option for a percentage reduction.  FvwmTaskBar: Focus, Rows, 3DFvwm, NoIconAction options, take in account the real border width for geometry computation, AutoHide amelioration; aliases support.  FvwmWinList: geometries fixes; aliases support. utils: fvwm-menu-desktop script for GNOME and KDE desktop menus.  fvwm-root improvement (root properties). Bugfixes!
 </p>
 
 <h4 class="author">Mikhael Goikhman</h4>
@@ -276,7 +296,7 @@ Original idea for 'previous page' parameter (MoveToPage and GotoPage).
 
 <h4 class="author">Dan Espen</h4>
 <p class="author">
-Color Limiting, Multiple IconBoxes, Iconification Animation, new 3d hilight/shadow calc from scwm as a library routine, updated web docs, lots of improvements in FvwmForm, replacement of FvwmTalk with FvwmForm, fvwm setup form.
+Common-color Color Limiting, Multiple IconBoxes, Iconification Animation, lots of improvements in FvwmForm, replacement of FvwmTalk with FvwmForm, fvwm setup form.
 </p>
 
 <h4 class="author">Tony Finch</h4>
@@ -296,7 +316,7 @@ Fixes in the fvwmrc_convert script.
 
 <h4 class="author">German Gomez Garcia</h4>
 <p class="author">
-Implemented new menu style definition, allowing multiple definitios and gradients and pixmaps 'ala' ButtonStyle. See doc/README.styles for more info.
+Implemented new menu style definition, allowing multiple definitions and gradients and pixmaps 'ala' ButtonStyle. See doc/README.styles for more info.
 </p>
 
 <h4 class="author">Udo Grabowski</h4>

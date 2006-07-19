@@ -1,3 +1,16 @@
+2006-07-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
+
+	* donations.php:
+	updated
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated for 2.5.17
+
+	* definitions.inc:
+	updated for 2.5.17
+
 2006-07-13  Scott Smedley <ss@aa.gov.au>
 
 	* documentation/faq/index.php:

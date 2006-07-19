@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
 <td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 <td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
-<td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
 <td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
-<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
-<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
-<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 <td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 <td><a href="#2.3.33" style="font-weight:normal;">&nbsp;2.3.33&nbsp;</a></td>
 <td><a href="#2.3.32" style="font-weight:normal;">&nbsp;2.3.32&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.29" style="font-weight:normal;">&nbsp;2.3.29&nbsp;</a></td>
 <td><a href="#2.3.28" style="font-weight:normal;">&nbsp;2.3.28&nbsp;</a></td>
 <td><a href="#2.3.27" style="font-weight:normal;">&nbsp;2.3.27&nbsp;</a></td>
-<td><a href="#2.3.26" style="font-weight:normal;">&nbsp;2.3.26&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.26" style="font-weight:normal;">&nbsp;2.3.26&nbsp;</a></td>
 <td><a href="#2.3.25" style="font-weight:normal;">&nbsp;2.3.25&nbsp;</a></td>
 <td><a href="#2.3.24" style="font-weight:normal;">&nbsp;2.3.24&nbsp;</a></td>
 <td><a href="#2.3.23" style="font-weight:normal;">&nbsp;2.3.23&nbsp;</a></td>
@@ -109,9 +110,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.20" style="font-weight:normal;">&nbsp;2.3.20&nbsp;</a></td>
 <td><a href="#2.3.19" style="font-weight:normal;">&nbsp;2.3.19&nbsp;</a></td>
 <td><a href="#2.3.18" style="font-weight:normal;">&nbsp;2.3.18&nbsp;</a></td>
-<td><a href="#2.3.17" style="font-weight:normal;">&nbsp;2.3.17&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.17" style="font-weight:normal;">&nbsp;2.3.17&nbsp;</a></td>
 <td><a href="#2.3.16" style="font-weight:normal;">&nbsp;2.3.16&nbsp;</a></td>
 <td><a href="#2.3.15" style="font-weight:normal;">&nbsp;2.3.15&nbsp;</a></td>
 <td><a href="#2.3.14" style="font-weight:normal;">&nbsp;2.3.14&nbsp;</a></td>
@@ -120,9 +121,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.11" style="font-weight:normal;">&nbsp;2.3.11&nbsp;</a></td>
 <td><a href="#2.3.10" style="font-weight:normal;">&nbsp;2.3.10&nbsp;</a></td>
 <td><a href="#2.3.9" style="font-weight:normal;">&nbsp;2.3.9&nbsp;</a></td>
-<td><a href="#2.3.8" style="font-weight:normal;">&nbsp;2.3.8&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.3.8" style="font-weight:normal;">&nbsp;2.3.8&nbsp;</a></td>
 <td><a href="#2.3.7" style="font-weight:normal;">&nbsp;2.3.7&nbsp;</a></td>
 <td><a href="#2.3.6" style="font-weight:normal;">&nbsp;2.3.6&nbsp;</a></td>
 <td><a href="#2.3.5" style="font-weight:normal;">&nbsp;2.3.5&nbsp;</a></td>
@@ -131,9 +132,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.3.2" style="font-weight:normal;">&nbsp;2.3.2&nbsp;</a></td>
 <td><a href="#2.3.1" style="font-weight:normal;">&nbsp;2.3.1&nbsp;</a></td>
 <td><a href="#2.3.0" style="font-weight:normal;">&nbsp;2.3.0&nbsp;</a></td>
-<td><a href="#2.2.5" style="font-weight:normal;">&nbsp;2.2.5&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.2.5" style="font-weight:normal;">&nbsp;2.2.5&nbsp;</a></td>
 <td><a href="#2.2.4" style="font-weight:normal;">&nbsp;2.2.4&nbsp;</a></td>
 <td><a href="#2.2.3" style="font-weight:normal;">&nbsp;2.2.3&nbsp;</a></td>
 <td><a href="#2.2.2" style="font-weight:normal;">&nbsp;2.2.2&nbsp;</a></td>
@@ -141,8 +142,46 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
+<a name="2.5.18"></a>
+<h4>Changes in beta release 2.5.18 (not released yet) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> Bug Fixes:</li>
+</ul>
+
+
 <a name="2.5.17"></a>
-<h4>Changes in beta release 2.5.17 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.17 (19-Jul-2006) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> New MenuStyle options TitleFont, TitleColorset and     HilightTitleBack.</li>
+  <li> New command PressButton in module FvwmButtons for being able     to emulate button press via other means than the mouse.</li>
+  <li> New wrap options to EdgeScroll command for wrapping with pixel     distances.</li>
+  <li> New Style option UnderMousePlacement.</li>
+  <li> Unused arguments to Style options generate warnings.</li>
+  <li> The name style names match against can be augmented by the     X-resource &quot;fvwmstyle&quot;.</li>
+  <li> New options, Reverse and UseStack, to All command.</li>
+  <li> WindowShade can now reshade windows using the Last direction.</li>
+  <li> Positional parameters to complex functions can now be expanded     using $[n], $[n-m], $[n-] and $[*] expressions.</li>
+  <li> The width and height arguments of the Resize command now     accept the prefix 'w' to allow resizing relative to the     current window size.</li>
+  <li> New command ModuleListenOnly.</li>
+  <li> New &quot;Periodic&quot; option added to Schedule command.</li>
+  <li> Bug Fixes:</li>
+  <li> Fixed detection of running non-ICCCM2 wm (bug #3151).</li>
+  <li> Fixed drawing of menus with the sidepic on the right.</li>
+  <li> EdgeScroll no longer divides pixel distances &gt;1000 by 1000.     (bug #3162)</li>
+  <li> The configure script can now cope with four-part version     numbers when detecting some libraries.</li>
+  <li> The WarpToWindow command followed by Move in a complex     function now uses the correct pointer position.</li>
+  <li> The menu style TitleWarp does no longer warp the pointer for     root menus (as it is documented).</li>
+  <li> Fixed detection of safe system version of mkstemp.</li>
+  <li> Fixed the conditions Iconifiable, Fixed, FixedSize,     Maximizable and Closable.</li>
+  <li> Fixed problem with window outline and placement position     running out of sync.</li>
+  <li> FvwmConsole no longer conflicts with Cygwin stdio (bug #3772).</li>
+  <li> FvwmGtk now configures correctly on Cygwin (bug #3772).</li>
+  <li> Fixed tempfile vulnerabilities in FvwmCommand.</li>
+</ul>
+
+
 <a name="2.5.16"></a>
 <h4>Changes in beta release 2.5.16 (20-Jan-2006) <a href="#top">[top]</a></h4>
 <ul>
@@ -181,7 +220,7 @@ decoration_window_start("Latest News");
 <h4>Changes in beta release 2.5.14 (24-Aug-2005) <a href="#top">[top]</a></h4>
 <ul>
   <li> New features:</li>
-  <li> Fvwm now officially supports 64-bit architertures.</li>
+  <li> Fvwm now officially supports 64-bit architectures.</li>
   <li> New Test conditions EnvIsSet, EnvMatch, EdgeHasPointer and     EdgeIsActive.</li>
   <li> New window condition FixedPosition.</li>
   <li> New module features:</li>
@@ -202,8 +241,8 @@ decoration_window_start("Latest News");
   <li> PopupDelayed menu style option was not copied on     CopyMenuStyle.</li>
   <li> Transparent Animated menus with non-transparent popup were     not animated correctly.</li>
   <li> Supported euc-jp class of encodings.</li>
-  <li> A window's default layer is no longer set to 0 durin a     restart.</li>
-  <li> Fixed an annoying MouseFocus/SloppyFocus problem in     conjunction with EdgeResistance + EdgeScroll (sometimes a     window did noit get the focus as it should have). This     problem first occured in 2.5.11.</li>
+  <li> A window's default layer is no longer set to 0 during a     restart.</li>
+  <li> Fixed an annoying MouseFocus/SloppyFocus problem in     conjunction with EdgeResistance + EdgeScroll (sometimes a     window did not get the focus as it should have). This     problem first occured in 2.5.11.</li>
 </ul>
 
 
@@ -566,7 +605,7 @@ decoration_window_start("Latest News");
   <li> Fixed a hang when restarting FvwmCommand or FvwmConsole.</li>
   <li> A double click no longer occurs when two different mouse  buttons are pressed.</li>
   <li> Fixed a relief drawing problem in FvwmWinList.</li>
-  <li> Fixed traveling windows on restart if a window used non NorthWest  gravity and changed that before the restart.</li>
+  <li> Fixed travelling windows on restart if a window used non NorthWest  gravity and changed that before the restart.</li>
   <li> Fixed installation of FvwmGtk.1 for debian (with DESTDIR set).</li>
   <li> The clock in FvwmTaskBar is redrawn immediately when its colour  changes.</li>
   <li> The option CurrentGlobalPageAnyDesk was accidentally named  CurrentGlobbalPageAnyDesk before.</li>
@@ -613,7 +652,7 @@ decoration_window_start("Latest News");
   <li> The PageOnly option in FvwmTaskBar now works after a desk change  too.</li>
   <li> Fixed a possible core dump when more than 256 windows are on  the desktop.</li>
   <li> Initial drawing and final undrawing of wire frame no longer  toggles the pixel in the top left corner of the screen.</li>
-  <li> Fixed parsing of button geometries in FvwmButtons when the  geometry specificaiton appeared after another option with a comma  at the end.</li>
+  <li> Fixed parsing of button geometries in FvwmButtons when the  geometry specification appeared after another option with a comma  at the end.</li>
   <li> FvwmCommand works too when invoked without the DISPLAY variable  set.</li>
   <li> Fixed displaying iconified windows without an icon in  FvwmIconMan.</li>
   <li> All single letter variables are deprecated now; new variables:
@@ -733,7 +772,7 @@ decoration_window_start("Latest News");
   <li> A number of drawing fixes in FvwmPager.</li>
   <li> Fixed a slight bug when waiting until all buttons are released,  for example after executing a complex function.</li>
   <li> Fixed potentially harmful change in module interface.</li>
-  <li> Fixed displaying menu items with icons when using the MenuStyle  SubmmenusLeft.</li>
+  <li> Fixed displaying menu items with icons when using the MenuStyle  SubmenusLeft.</li>
   <li> Fixed problems with the pointer moving off screen in a multi  head setup.</li>
   <li> Fixed a potential crash with windows being destroyed during a  recapture operation.</li>
   <li> Fixed a memory leak in some modules when not using glibc.</li>
@@ -930,7 +969,7 @@ decoration_window_start("Latest News");
   <li> Fixed drawing of the grid lines in an iconified FvwmPager window.</li>
   <li> Fixed button grabbing problem for buttons &gt; 3 in FvwmTaskBar.</li>
   <li> Fixed some exotic problems with window gravity and resizing  windows.</li>
-  <li> Fixed a problem with maximizing windows with the vieport not  starting on a page boundary.</li>
+  <li> Fixed a problem with maximizing windows with the viewport not  starting on a page boundary.</li>
   <li> Fixed handling of parentheses in FvwmButtons button actions.</li>
   <li> Work around a key binding problem with keys that generate the  same symbol with more than one key code (e.g. Shift-F1 = F11).</li>
   <li> The Desk option of FvwmBacker is compatible to earlier  version. Desk or Page coordinates can be omitted to indicate  that desk or page changes trigger no action at all.</li>
@@ -939,7 +978,7 @@ decoration_window_start("Latest News");
   <li> Fixed PlacedByButton3 condition.</li>
   <li> Fixed vanishing windows when mapping/unmapping too fast.</li>
   <li> Fixed prev option of the GotoDeskAndPage command.</li>
-  <li> Fixed calculations of X_RESOLUTION and Y_RESOLUTION for screen  dimmensions larger than 2147.</li>
+  <li> Fixed calculations of X_RESOLUTION and Y_RESOLUTION for screen  dimensions larger than 2147.</li>
   <li> Fixed compatibility of the FvwmM4 modules on platforms that have  a System V implementation of m4 (Solaris 2.6).</li>
   <li> The SetEnv command without a value for a variable is the same as  UnsetEnv.</li>
   <li> Fixed shading/unshading shaped windows and windows without title  and border.</li>
@@ -1111,8 +1150,8 @@ decoration_window_start("Latest News");
   <li> $FVWM_USERHOME used to set the fvwm user directory renamed to  $FVWM_USERDIR.</li>
   <li> The default fvwm user directory is now $HOME/.fvwm, not $HOME,  the fvwm user directory is now created if needed.</li>
   <li> It is suggested to put all personal fvwm files to $HOME/.fvwm;  to simulate the old fvwm behaviour, export FVWM_USERDIR=$HOME.</li>
-  <li> Instalating fvwm goodies is now to share/fvwm (FVWM_DATADIR),  not etc/fvwm.</li>
-  <li> fvwm-config utility can be used for querying fvwm instalation.</li>
+  <li> Installing fvwm goodies is now to share/fvwm (FVWM_DATADIR),  not etc/fvwm.</li>
+  <li> fvwm-config utility can be used for querying fvwm installation.</li>
 </ul>
 
 
@@ -1188,7 +1227,7 @@ decoration_window_start("Latest News");
   <li> New commands DefaultColorset and HilightColorset.</li>
   <li> FvwmBacker is now page-aware, using a new configuration syntax.</li>
   <li> New styles TitleAtBottom and TitleAtTop.</li>
-  <li> FvwmIconBox, FvwmIconMan, FvwmTaskBar and FvwmWinList support  animatation via FvwmAnimate.</li>
+  <li> FvwmIconBox, FvwmIconMan, FvwmTaskBar and FvwmWinList support  animation via FvwmAnimate.</li>
   <li> New command StrokeFunc to handle mouse stroke.</li>
   <li> The default root cursor, unless specified otherwise, is now left  pointer.</li>
   <li> New command BusyCursor to control a busy cursor during execution  of certain commands.</li>
@@ -1266,7 +1305,7 @@ decoration_window_start("Latest News");
   <li> The behaviour of the Raised and Visible flags for Next,  Circulate, ... commands has been changed. They now do what their  names suggest, i.e. visible = partially visible and raised =  fully visible.</li>
   <li> The new styles RaiseTransient and DontRaiseTransient allow to  control if the transients of a window are raised when the window  itself is raised (default) or not.</li>
   <li> A new action type 'H' for 'Hold' can be assigned to complex fvwm  functions. It is triggered when the button is pressed and held  longer than ClickTime milliseconds.</li>
-  <li> The activedow-button and inactive-button configure options have  been replaced with the ButtonState built in command.</li>
+  <li> The activedown-button and inactive-button configure options have  been replaced with the ButtonState built in command.</li>
   <li> Most of the configure options have been removed.</li>
   <li> The cursors used for resizing and selecting windows and handling  menus have changed.</li>
 </ul>
@@ -1276,7 +1315,7 @@ decoration_window_start("Latest News");
 <h4>Changes in alpha release 2.3.4 (June 1999) <a href="#top">[top]</a></h4>
 <ul>
   <li> Fvwm is GNOME compliant.</li>
-  <li> Dynamic menus enhancement: The special menu item name  'MissingSubmenuFunc' alows to create submenus on the fly. See  manpage on 'AddToMenu' for details.</li>
+  <li> Dynamic menus enhancement: The special menu item name  'MissingSubmenuFunc' allows to create submenus on the fly. See  manpage on 'AddToMenu' for details.</li>
   <li> The Restart command accepts simple shell-like syntax now.</li>
   <li> Added support for mouse strokes recognition, uses LibStroke 0.3  by Mark Willey(willey@etla.net).  (http://www.etla.net/~willey/projects/libstroke/)</li>
 </ul>
@@ -1382,7 +1421,7 @@ decoration_window_start("Latest News");
   <li> FvwmPager tracks windows during opaque/animated moves.</li>
   <li> Session management. Fvwm talks to a session manager  and saves and restores its state.</li>
   <li> Layers. New commands Layer, DefaultLayers; new Style option,  WindowList option and condition Layer.</li>
-  <li> Lots of changes to FvwmForm:  No limits of form size.  Fonts and colors can change anywhere in the form.  Form appearance can be configured globaly:
+  <li> Lots of changes to FvwmForm:  No limits of form size.  Fonts and colors can change anywhere in the form.  Form appearance can be configured globally:
     <ul>
         <li>    Form defaults are read from .FvwmForm.</li>
         <li>    There is a built in Default setting/saving dialogue.</li>
@@ -1395,7 +1434,7 @@ decoration_window_start("Latest News");
 <a name="2.2.5"></a>
 <h4>Changes in official release 2.2.5 (February 2001) <a href="#top">[top]</a></h4>
 <ul>
-  <li> When fvwm is run remotely, startup is noticably faster.</li>
+  <li> When fvwm is run remotely, startup is noticeably faster.</li>
   <li> Fixed the description of Focus in the man page.</li>
   <li> Fixed a compile problem with Slackware 7.1.</li>
   <li> Security fix related to .fvwm2rc being searched in the current  directory when $HOME is not set.</li>

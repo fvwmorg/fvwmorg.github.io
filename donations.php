@@ -49,25 +49,25 @@ keep us working on fvwm, but we can usually not make any
 guarantees when - or even if - things get done.
 </p>
 
-<p>
-Personally, I (Dominik) partially earn my living as a
-freelance programmer.  To help the fvwm cause, you can make a
-donation to me or hire me to implement a specific feature.
-Donations not dedicated to a specific task will be spent to pay my
-bills while I work on the most pressing items on the list below.
-Also, I will work an additional day on my spare time for every 4
-days funded.  If you are interested in sponsoring fvwm, send mail
-to <a href="mailto:dominik(dot)vogt(at)gmx(dot)de">dominik(dot)vogt(at)gmx(dot)de</a> or
-contact the <a
-href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>
-mailing list.  Any sponsors will be mentioned on this page.
-</p>
-
-  <h3>Currently, donations are welcome to </h3>
-  <ul>
-    <li> Help to get fvwm-2.6 released (about 1 person month of work)</li>
-  </ul>
-
-<h2>Donators</h2>
+//<p>
+//Personally, I (Dominik) partially earn my living as a
+//freelance programmer.  To help the fvwm cause, you can make a
+//donation to me or hire me to implement a specific feature.
+//Donations not dedicated to a specific task will be spent to pay my
+//bills while I work on the most pressing items on the list below.
+//Also, I will work an additional day on my spare time for every 4
+//days funded.  If you are interested in sponsoring fvwm, send mail
+//to <a href="mailto:dominik(dot)vogt(at)gmx(dot)de">dominik(dot)vogt(at)gmx(dot)de</a> or
+//contact the <a
+//href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>
+//mailing list.  Any sponsors will be mentioned on this page.
+//</p>
+//
+//  <h3>Currently, donations are welcome to </h3>
+//  <ul>
+//    <li> Help to get fvwm-2.6 released (about 1 person month of work)</li>
+//  </ul>
+//
+//<h2>Donators</h2>
 
 <?php decoration_window_end(); ?>
