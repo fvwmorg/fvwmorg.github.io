@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.15)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.17)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.15 (1)<BR>Updated: 14 January 2006<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.17 (1)<BR>Updated: 19 July 2006<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -372,7 +372,7 @@ must not be used. Moreover, in this case the
 
 options are forced. Note that XFree-4.2 pre-allocate 244 colors
 (if you use a driver with Render support) leaving only a few free
-colors. This may leads to some colors problems (and nothing can be
+colors. This may lead to some color problems (and nothing can be
 done). XFree-4.3 or better pre-allocate only 85 colors.  If no
 pre-allocated palette is auto detected the defaults are as follow:
 
@@ -406,7 +406,7 @@ documentation. Note that some hardware can support two different
 depths on the same screen (typically depth 8 and depth 24). If
 depth 8 is the default, you can force fvwm to use the best depth
 by using the
-<B>C</B>
+<B>-C</B>
 
 option with
 <I>TrueColor</I>
@@ -416,7 +416,7 @@ as argument.  So now we assume that you are forced to run in depth
 better or because you need to use an application which needs to
 run under this mode (e.g., because this application needs
 read-write colors). What it should be understand is that you have
-only 256 colors and that all the applications which uses the
+only 256 colors and that all the applications which use the
 default color map must share these colors. The main problem is
 that there are applications which use a lot or even all the
 colors.  If you use such application you will have no more free
@@ -435,9 +435,9 @@ visually disturbing (see the
 
 command for a better control of the color maps switching). The
 second method is to limit the number of colors that the
-applications used. Again, some applications have options to
+applications use. Again, some applications have options to
 specify a given color limit. With fvwm you may try various values,
-61 (a special &quot;visual&quot; palette), 56 (a 4x4x3 color cubes plus 6
+61 (a special &quot;visual&quot; palette), 56 (a 4x4x3 color cube plus 6
 grey), 29 (a 3x3x3 color cube plus 2 grey), 10 or 9. Also, you may
 use the
 <B>-L</B>
@@ -468,7 +468,7 @@ allocated the colors).
 <DT><B>-L</B> | <B>--strict-color-limit</B>
 
 <DD>
-If the screens display 256 colors (or less) and has a dynamic visual,
+If the screen displays 256 colors (or less) and has a dynamic visual,
 causes fvwm to use its palette for all the colors. By default, the
 palette is used only for images and gradients.
 <DT><B>-P</B> | <B>--visual-palette</B>
@@ -494,9 +494,11 @@ option.
 If the screen displays 256 colors (or less) and has a dynamic
 visual this option causes fvwm to allocate all the colors of its
 palette at start up for reserving these colors for future
-use. This option forces the .B -static-palette option. By default,
-fvwm allocates (reserves) a color in its palette only if it needs
-this color.
+use. This option forces the
+<B>-static-palette</B>
+
+option. By default, fvwm allocates (reserves) a color in its palette
+only if it needs this color.
 <DT><B>-S</B> | <B>--static-palette</B>
 
 <DD>
@@ -509,7 +511,8 @@ speed up image loading and save a few bits of memory.
 
 <DD>
 This option is provided for backward compatibility only.  Blacking
-out the screen during startup is not necessary anymore.
+out the screen during startup is not necessary (and doesn't work)
+anymore. This option will be removed in the future.
 <DT><B>--debug-stack-ring</B>
 
 <DD>
@@ -607,7 +610,7 @@ option has been added.
 
 windows are windows which transcend the virtual desktop by
 &quot;Sticking to the screen's glass&quot;.  They always stay put on the
-screen. This is convenient for things like clocks and xbiff's, so
+screen. This is convenient for things like clocks and xbiffs, so
 you only need to run one such gadget and it always stays with you.
 Icons can also be made to stick to the glass, if desired.
 <P>
@@ -765,7 +768,7 @@ This is not to be confused with Xinerama support.
 
 <P>
 Fvwm supports the Xinerama extension of newer X servers which
-is similar to multi head support (multiple screens) but allows for
+is similar to multi head support (multiple screens) but allows to
 move windows between screens.  If Xinerama support has been
 compiled into fvwm, it is used whenever fvwm runs on an X server
 that supports and uses multiple screens via Xinerama.  Without
@@ -815,7 +818,7 @@ command.
 <P>
 Xinerama support was designed to work out of the box with the same
 configuration file that would work on a single screen.  It may
-not perforrm very well if the involved screens use different screen
+not perform very well if the involved screens use different screen
 resolutions.  In this situation, windows may get stuck in the
 portion of the whole desktop that belongs to neither screen.  When
 this happens, the windows or icons can be retrieved with the
@@ -887,7 +890,7 @@ $HOME/.fvwm2rc
 
 
 
-Please note, the last 5 locations are not guarranteed to be
+Please note, the last 5 locations are not guaranteed to be
 supported in the future.
 <P>
 If a configuration file is not found, the left mouse button, or
@@ -910,7 +913,7 @@ may be
 or
 <I>:0.0</I>,
 
-which doesn't work too well when passed through rsh to another
+which doesn't work too well when passed through ssh to another
 machine, so
 <I>$HOSTDISPLAY</I>
 
@@ -1037,7 +1040,7 @@ AddToFunc SessionRestartFunction
 
 
 
-You don't need to define all special functions if some are empty.
+You do not need to define all special functions if some are empty.
 Also note, all these special functions may be emulated now using
 <B>StartFunction</B> and <B>ExitFunction,</B>
 
@@ -1133,8 +1136,8 @@ for fvwm and the module to communicate with.  The pipes are
 already open for the module when it starts and the file
 descriptors for the pipes are provided as command line arguments.
 <P>
-Modules can be spawned during fvwm at any time during the X
-session by use of the
+Modules can be spawned by fvwm at any time during the X session by
+use of the
 <B>Module</B>
 
 command.  Modules can exist for the duration of the X
@@ -1173,7 +1176,10 @@ section for details.
 <P>
 Fvwm attempts to be
 <FONT>ICCCM</FONT>
-2.0 compliant.  In addition,
+2.0 compliant.  Check
+<B><A HREF="http://tronche.com/gui/x/icccm/">http://tronche.com/gui/x/icccm/</A></B>
+
+for more info. In addition,
 <FONT>ICCCM</FONT>
 states that it should be possible for applications to receive any
 keystroke, which is not consistent with the keyboard shortcut
@@ -1235,12 +1241,13 @@ the last client in your
 file.
 <P>
 Further additions are support for client-side colormap
-installation (see the .SM ICCCM for details) and the urgency hint.
-Clients can set this hint in the WM_HINTS property of their window
-and expect the window manager to attract the users attention to
-the window.  Fvwm has two re-definable functions for this purpose,
-&quot;UrgencyFunc&quot; and &quot;UrgencyDoneFunc&quot;, which are executed when the
-flag is set/cleared.  Their default definitions are:
+installation (see the
+<FONT>ICCCM</FONT>
+for details) and the urgency hint. Clients can set this hint in
+the WM_HINTS property of their window and expect the window manager
+to attract the user's attention to the window.  Fvwm has two re-definable
+functions for this purpose, &quot;UrgencyFunc&quot; and &quot;UrgencyDoneFunc&quot;, which
+are executed when the flag is set/cleared.  Their default definitions are:
 
 
 <P>
@@ -1279,7 +1286,7 @@ style can be used.
 <P>
 Fvwm attempts to respect the extended window manager hints (ewmh
 or EWMH for short) specification:
-<B><A HREF="http://www.freedesktop.org/standards/wm-spec.html">http://www.freedesktop.org/standards/wm-spec.html</A></B>
+<B><A HREF="http://www.freedesktop.org/wiki/Standards_2fwm_2dspec">http://www.freedesktop.org/wiki/Standards_2fwm_2dspec</A></B>
 
 and some extensions of this specification.  This allows fvwm to
 work with
@@ -1504,7 +1511,7 @@ is supplied with the fvwm distribution.  It is well commented and
 can be used as a source of examples for fvwm configuration.
 It may be copied to /usr/local/share/fvwm/config file.
 <P>
-Alternativelly, the built-in menu (accessible when no
+Alternatively, the built-in menu (accessible when no
 configuration file is found) has options to create an initial
 config file for the user.
 <P>
@@ -1531,7 +1538,7 @@ package demonstrating the powerful fvwm functionality.
 The fonts used for the text of a window title, icon titles, menus
 and geometry window can be specified by using the Font and
 IconFont Style, the Font MenuStyle and the DefaultFont
-command. Also, all the Modules which use text have configuration
+commands. Also, all the Modules which use text have configuration
 command(s) to specify font(s). All these styles and commands take
 a font name as an argument. This section explains what is a font
 name for fvwm and which fonts fvwm loads.
@@ -1632,7 +1639,7 @@ Xft2. The first string which follows &quot;xft:&quot; is always considered
 as the family. With the second example Luxi Mono is the Family
 (Other XFree TTF families: &quot;Luxi Serif&quot;, &quot;Luxi Sans&quot;), Medium is
 the Weight (other possible weights: Light, DemiBold, Bold, Black),
-Roman is the slant or the style (other possibility: Regular,
+Roman is the slant or the style (other possibilities: Regular,
 Oblique, Italic) size specifies the point size (for a pixel size
 use pixelsize=), encoding allows for enforce a charset (iso8859-1
 or iso10646-1 only; if no encoding is given the locale charset is
@@ -1805,7 +1812,7 @@ UTF-8 and use a font in the locale charset:
 
 <P>
 In most cases, fvwm correctly determines the encoding of the
-font. However, some fonts don't end with valid encoding
+font. However, some fonts do not end with valid encoding
 names. When the font name isn't normal, for example:
 
 
@@ -2022,12 +2029,12 @@ and
 <P>
 Fvwm supports session management according to the X Session
 Management Protocol.  It saves and restores window position, size,
-stacking order, desk, stickiness, shadedness, maximizedness,
+stacking order, desk, stickiness, shadiness, maximizedness,
 iconifiedness for all windows. Furthermore, some global state is
 saved.
 <P>
 Fvwm doesn't save any information regarding styles, decors,
-functions or menus.  If you change any on these resources during a
+functions or menus.  If you change any of these resources during a
 session (e.g. by issuing
 <B>Style</B>
 
@@ -2230,7 +2237,7 @@ Quotes are required only when needed to make fvwm consider two or
 more words to be a single argument.  Unnecessary quoting is
 allowed.  If you want a quote character in your text, you must
 escape it by using the backslash character.  For example, if you
-have a pop-up menu called &quot;Window-Ops&quot;, then you don't need
+have a pop-up menu called &quot;Window-Ops&quot;, then you do not need
 quotes:
 
 
@@ -2272,9 +2279,12 @@ to a string indicated by the parameter name.  Unknown parameters
 are left untouched.  Parameter expansion is performed before
 quoting.  To get a literal '$' use &quot;$$&quot;.
 <P>
-In the past, some single letter variables were supported.  It is
-deprecated now, since they cause a number of problems.  You should
-use the longer substitutes instead.
+The longer variables may contain additional variables inside the 
+name, which are expanded before the outer variable.
+<P>
+In earlier versions of fvwm, some single letter variables were
+supported.  It is deprecated now, since they cause a number of
+problems.  You should use the longer substitutes instead.
 <P>
 Example:
 <P>
@@ -2345,6 +2355,59 @@ $*
 <blockquote>
 All positional parameters given to a complex function.  This
 includes parameters that follow after &quot;$9&quot;.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[<I>n</I>]
+
+<blockquote>
+The
+<I>n</I>:th
+
+positional parameter given to a complex function, counting from 0.
+If the corresponding parameter is undefined, the &quot;$[n]&quot; is deleted
+from the command line. The parameter will be expanded unquoted.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[<I>n</I>-<I>m</I>]
+
+<blockquote>
+The positional parameters given to a complex function, starting
+with parameter
+<I>n</I>
+
+and ending with parameter
+<I>m</I>.
+
+If all the corresponding parameters are undefined, the &quot;$[...]&quot; is
+deleted from the command line. If only some of the parameters are
+defined, all defined parameters are expanded, and the remaining
+silently ignored. All parameters will be expanded unquoted.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[<I>n</I>-]
+
+<blockquote>
+All the positional parameters given to a complex function,
+starting with parameter
+<I>n</I>.
+
+If all the corresponding parameters are undefined, the &quot;$[...]&quot; is
+deleted from the command line. All parameters will be expanded
+unquoted.
+</blockquote>
+</blockquote>
+<P>
+<blockquote>
+$[*]
+<blockquote>
+All the positional parameters given to a complex function. This is
+equivalent of $[0-].
 </blockquote>
 </blockquote>
 <P>
@@ -2440,20 +2503,28 @@ with the command.
 <blockquote>
 $[w.name]
 $[w.iconname]
-$[w.iconfile]
-$[w.miniiconfile]
 $[w.class]
 $[w.resource]
+$[w.iconfile]
+$[w.miniiconfile]
 <blockquote>
-The window's name, icon name, file name of its icon or mini icon
-defined with the
+The window's name, icon name, resource class and resource name,
+file name of its icon or mini icon defined with the
 <I>Icon</I> or <I>MiniIcon</I>
 
-style including the path information if the file was found on
-disk, resource class or resource name respectivelly, or unexpanded
-&quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated with the
-command.
+style (including the full path if the file was found on disk),
+or unexpanded &quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated
+with the command.
 <P>
+Note, the first 4 variables may include any kind of characters, so
+these variables are quoted.  It means that the value is surrounded
+by single quote characters and any contained single quote is
+prefixed with a backslash.  This guarantees that commands like:
+<P>
+<BR>&nbsp;&nbsp;Style&nbsp;$[w.resource]&nbsp;Icon&nbsp;norm/network.png
+<P>
+work correctly, regardless of any special symbols the value may
+contain, like spaces and different kinds of quotes.
 </blockquote>
 </blockquote>
 <P>
@@ -2629,11 +2700,11 @@ $[gt.str]
 return the translation of
 <I>str</I>
 
-by looking in the current locale catalog(s). If no translation is
+by looking in the current locale catalogs. If no translation is
 found
 <I>str</I>
 
-is returned as is. See the
+is returned as is.  See the
 <B>LocalePath</B>
 
 command.
@@ -2713,6 +2784,7 @@ usefulness to the newcomer.
 - Conditional commands
 - Module commands
 - Quit, restart and session management commands
+- Colorsets
 - Color gradients</PRE></blockquote>
 <P>
 
@@ -2757,7 +2829,7 @@ part of a window.  The
 
 command opens popup menus.  If the popup menu was invoked with a
 mouse button held down, it is closed when the button is released.
-THe item under the pointer is then activated and the associated
+The item under the pointer is then activated and the associated
 action is executed.
 <P>
 <B>Menu</B>
@@ -3005,6 +3077,25 @@ configuration file:
 
 
 <P>
+To remove borders and buttons from a tear-off menu but keep the
+menu title, you can use
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>Style fvwm_menu !Button 0, !Button 1
+Style fvwm_menu !Button 2, !Button 3
+Style fvwm_menu !Button 4, !Button 5
+Style fvwm_menu !Button 6, !Button 7
+Style fvwm_menu !Button 8, !Button 9
+Style fvwm_menu Title, HandleWidth 0</PRE></blockquote>
+<P>
+
+
+
+<P>
 A tear off menu is a cross breeding between a window and a menu.
 The menu is swallowed by a window and its title is stripped off
 and displayed in the window title.  The main advantage is that the
@@ -3131,7 +3222,7 @@ commands as dynamic menu actions.  Chances are good that this will
 crash fvwm.
 <P>
 There are several configurable scripts installed together with fvwm
-for automatical menu generation.  They have their own man pages.
+for automatic menu generation.  They have their own man pages.
 Some of them, specifically
 <B><a href="<?php echo conv_link_target('./fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B> and <B><a href="<?php echo conv_link_target('./fvwm-menu-desktop.php');?>">fvwm-menu-desktop</a></B>,
 
@@ -3181,7 +3272,7 @@ The keyword
 has a similar meaning.  It is executed whenever you try to pop up
 a sub menu that does not exist.  With this function you can define
 and destroy menus on the fly.  You can use any command after the
-keyword, but the name of an item (that is a submenu) defined with
+keyword, but if the name of an item (that is a submenu) defined with
 <B>AddToFunc</B>
 
 follows it, fvwm executes this command:
@@ -3302,10 +3393,11 @@ Omits the &quot;Calculator&quot; label, but leaves the picture.
 <P>
 If the menu-label contains a sub-string which is set off by
 percent signs, then the text between the percent signs is expected
-to be the name of image file (a so called mini
-icon to insert to the left of the menu label.  A second mini icon
-that is drawn at the right side of the menu can be given in the
-same way.  To get a literal '%', insert &quot;%%&quot;. For example
+to be the name of image file (a so called mini icon to insert to
+the left of the menu label.  A second mini icon that is drawn at
+the right side of the menu can be given in the same way.  To get a
+literal '%', insert &quot;%%&quot;. For example
+<P>
 
 
 <P>
@@ -3330,6 +3422,7 @@ calculator to the left.  The following:
 
 Omits the &quot;Calculator&quot; label, but leaves the picture.  The
 pictures used with this feature should be small (perhaps 16x16).
+<P>
 If the menu-name (not the label) contains a sub-string which is
 set off by at signs ('@'), then the text between them is expected
 to be the name of an xpm or bitmap file to draw along the left
@@ -3385,7 +3478,7 @@ delimiters.
 Changes the menu style of
 <I>menu</I> to <I>menustyle</I>.
 
-You may specified more than one menu in each call of
+You may specify more than one menu in each call of
 <B>ChangeMenuStyle</B>.
 
 
@@ -3451,7 +3544,7 @@ cannot destroy the default menu style.
 <P>
 
 
-<blockquote><PRE>DestroyMenuStyle pixamp1</PRE></blockquote>
+<blockquote><PRE>DestroyMenuStyle pixmap1</PRE></blockquote>
 <P>
 
 
@@ -3756,14 +3849,17 @@ Foreground,
 Background,
 Greyed,
 HilightBack / HilightBackOff,
+HilightTitleBack,
 ActiveFore / ActiveForeOff,
 MenuColorset,
 ActiveColorset,
 GreyedColorset,
+TitleColorset,
 Hilight3DThick / Hilight3DThin / Hilight3DOff,
 Hilight3DThickness,
 Animation / AnimationOff,
 Font,
+TitleFont,
 MenuFace,
 PopupDelay,
 PopupOffset,
@@ -3887,6 +3983,14 @@ the menu's background color.  The
 
 option overrides the specified color.
 <P>
+<I>HilightTitleBack</I>
+
+switches hilighting the background of menu titles on.  If a
+<I>TitleColorset</I>
+
+was used, the background colour is taken from there.  Otherwise
+the color is based on the menu's background color.
+<P>
 <I>ActiveFore  and  ActiveForeOff</I>
 
 switch hilighting the foreground of the selected menu item on and
@@ -3964,6 +4068,13 @@ the
 
 menu style.  No other parts of the colorset are used.
 <P>
+<I>TitleColorset</I>
+
+works exactly like
+<I>MenuColorset</I>,
+
+but is used only for menu titles.
+<P>
 <I>Hilight3DThick</I>, <I>Hilight3DThin</I> and <I>Hilight3DOff</I>
 
 determine if the selected menu item is hilighted with a 3D
@@ -3980,14 +4091,17 @@ The above three commands are equivalent to a thickness of 2, 1 and
 <I>Animation</I> and <I>AnimationOff</I>
 
 turn menu animation on or off.  When animation is on, sub menus
-that don't fit on the screen cause the parent menu to be shifted
+that do not fit on the screen cause the parent menu to be shifted
 to the left so the sub menu can be seen.
 <P>
-<I>Font</I>
+<I>Font</I> and <I>TitleFont</I>
 
-takes a font name as an argument.  If a font by this name exists
+take a font name as an argument.  If a font by this name exists
 it is used for the text of all menu items.  If it does not exist
-or if the name is left blank the built-in default is used.
+or if the name is left blank the built-in default is used.  If a
+<I>TitleFont</I>
+
+is given, it is used for all menu titles instead of the normal font.
 <P>
 <I>MenuFace</I>
 
@@ -4195,7 +4309,7 @@ picture is drawn along the left side of the menu.  The
 option can be overridden by a menu specific side pixmap (see
 <B>AddToMenu</B>).
 
-If the file name is omitted an existing side pixmap is remove from
+If the file name is omitted an existing side pixmap is removed from
 the menu style.
 <P>
 <I>SideColor</I>
@@ -4227,7 +4341,7 @@ navigating through the menu.  Any keystroke while a menu is posted
 reverts the menu back to the normal behavior.  With
 <I>PopupClose</I>
 
-the menu is cloed when a sub menu item is activated, and the menu
+the menu is closed when a sub menu item is activated, and the menu
 stays open if
 <I>PopupIgnore</I>
 
@@ -4241,7 +4355,7 @@ is the default.
 <P>
 <I>RemoveSubmenus</I>
 
-instructs fvwm to remove sub menus when you move back into the
+instructs fvwm to remove sub menu when you move back into the
 parent menu.  With
 <I>HoldSubmenus</I>
 
@@ -4259,7 +4373,7 @@ affects menu navigation with the keyboard.
 <I>SelectOnRelease</I>
 
 takes an optional key name as an argument.  If the given key is
-release in a menu using this style, the current menu item is
+released in a menu using this style, the current menu item is
 selected.  This is intended for
 <FONT>Alt-Tab</FONT>
 <B>WindowList</B>
@@ -4337,7 +4451,7 @@ a background color or a relief (or both).  The second
 marks the end of this area.
 <B>%|</B>
 
-can be used up to twice in the string.  If you don't add one or
+can be used up to twice in the string.  If you do not add one or
 both of them, fvwm sets the margins to the margins of the whole
 item (not counting the side picture).
 </blockquote>
@@ -4404,7 +4518,7 @@ pixels after it.  You may leave out the
 or the
 <I>.right</I>
 
-parts if you don't need them.  All values up to the screen width
+parts if you do not need them.  All values up to the screen width
 are allowed.  Even negative values can be used with care.  The
 <B>p</B>
 
@@ -4538,7 +4652,7 @@ draws sub menu triangles with the foreground color of the menu colorset
 (normally drawn with the hilight color).
 <I>!TrianglesUseFore</I>
 
-disables this behaivour.
+disables this behaviour.
 <P>
 Examples:
 
@@ -4591,21 +4705,21 @@ which changes the appearance and operation of the menus.
 <I>Mwm</I> and <I>Win</I>
 
 style menus popup sub menus automatically.
-<I>win</I>
+<I>Win</I>
 
 menus indicate the current menu item by changing the background to
 black.
-<I>fvwm</I>
+<I>Fvwm</I>
 
 sub menus overlap the parent menu,
-<I>Mwm</I> and <I>win</I>
+<I>Mwm</I> and <I>Win</I>
 
 style menus never overlap the parent menu.
 <P>
 When the
 <I>anim</I>
 
-option is given, sub menus that don't fit on the screen cause the
+option is given, sub menus that do not fit on the screen cause the
 parent menu to be shifted to the left so the sub menu can be
 seen. See also
 <B>SetAnimation</B>
@@ -4807,7 +4921,7 @@ turn it off.
 <I>RaiseOverNativeWindows</I>
 
 makes fvwm try to raise the windows it manages over native windows
-of the X servers host system.  This is needed for some X servers
+of the X server's host system.  This is needed for some X servers
 running under Windows or Windows NT.  Fvwm tries to detect if it
 is running under such an X server and initializes the flag
 accordingly.
@@ -4818,7 +4932,7 @@ makes fvwm try to raise the windows it manages over
 override_redirect windows.  This is used to cope with ill-mannered
 applications that use long-lived windows of this sort, contrary to
 <FONT>ICCCM</FONT>
-conventions.  It is usefull with the
+conventions.  It is useful with the
 <I>Unmanaged</I>
 
 style option too.
@@ -5057,7 +5171,7 @@ used in a window title-bar
 <B>DEFAULT </B>(top_left_arrow)
 
 <blockquote>
-used in windows that don't set their cursor
+used in windows that do not set their cursor
 </blockquote>
 <P>
 <B>SYS </B>(hand2)
@@ -5201,7 +5315,7 @@ The second is either the numeric value of the cursor as defined in
 the include file
 <I>X11/cursorfont.h</I>
 
-or its name (without the XC_ prefix). Alternativelly the xpm file
+or its name (without the XC_ prefix). Alternatively, the xpm file
 name may be specified.  This xpm file should contain a pixmap
 using 3 colors (None, black, white) and an optional hot-spot.  If
 no hot-spot is defined, the hot-spot is placed in the center of
@@ -5279,7 +5393,7 @@ example, the hot-spot is in the second row, and second column.
 
 sets the default foreground and background colors used in
 miscellaneous windows created by fvwm, for example in the geometry
-feedback windows during a move or resize operation. If you don't
+feedback windows during a move or resize operation. If you do not
 want to change one color or the other, use - as its color name. To
 revert to the built-in default colors omit both color names. Note
 that the default colors are not used in menus, window titles or
@@ -5625,7 +5739,7 @@ Style * MouseFocusClickRaises
 
 GlobalOpts NoStipledTitles
   --&gt;
-Style * StippledTitleOff
+Style * !StippledTitle
 
 GlobalOpts StipledTitles
   --&gt;
@@ -5905,7 +6019,7 @@ AddToMenu   MenuFvwmWindowOps &quot;$[gt.Window Ops]&quot; Title
 + &quot;$[gt.(Un)Ma&amp;ximize]&quot;      Maximize
 + &quot;&quot; Nop
 + &quot;$[gt.&amp;Close]&quot;             Close
-+ &quot;$[gt.&amp;Destroy]&quot;            Destroy</PRE></blockquote>
++ &quot;$[gt.&amp;Destroy]&quot;           Destroy</PRE></blockquote>
 <P>
 
 
@@ -5995,7 +6109,7 @@ menu  or the
 
 command is executed again.
 <P>
-<DT><B>Schedule </B><I>delay_ms [command_id] command</I>
+<DT><B>Schedule </B><I>[Periodic] delay_ms [command_id] command</I>
 
 <DD>
 The
@@ -6049,6 +6163,38 @@ Example:
 
 
 
+<P>
+The
+<B>Schedule</B>
+
+command also supports the optional keyword
+<I>Periodic</I>
+
+which indicates that the
+<I>command</I>
+
+should be executed every
+<I>delay_ms</I>.
+
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>Schedule Periodic 10000 PipeRead '[ -N &quot;$MAIL&quot; ] &amp;&amp; echo \
+   Echo You have mail'</PRE></blockquote>
+<P>
+
+
+
+Use the
+<B>Deschedule</B>
+
+command to stop periodic commands.
+<P>
+<P>
+<P>
 <P>
 <DT><B>State </B><I>state</I><B> [</B><I>bool</I><B>]</B>
 
@@ -6390,8 +6536,10 @@ is only useful if a desktop name is defined with the
 
 command. It causes fvwm to not display the desktop number before
 the desktop name.  By default, the WindowList menu have a title
-which indicates the current desk or the selected desktop if the .I
-Desk condition is used. The
+which indicates the current desk or the selected desktop if the
+<I>Desk</I>
+
+condition is used. The
 <I>NoCurrentDeskTitle</I>
 
 option removes this title.
@@ -6462,7 +6610,7 @@ debugging only.
 The
 <B>XSynchronize</B>
 
-command controls wether X requests are sent to the X server
+command controls whether X requests are sent to the X server
 immediately or not.  Normally, requests are sent in larger batches
 to save unnecessary communication.  To send requests immediately,
 use &quot;True&quot; as the argument, to disable this use &quot;False&quot; or to
@@ -6471,7 +6619,7 @@ toggle between both methods use &quot;Toggle&quot; or omit the
 
 argument.  Fvwm defaults to synchronized requests when started
 with the
-<B>-debug</B>
+<B>--debug</B>
 
 option.  This command is intended for debugging only.
 <P>
@@ -6557,10 +6705,9 @@ only in its layer.  To bring a window to the absolute bottom, use
 
 
 <P>
-<DT><B>Move [[screen </B><I>screen</I>]
+<DT><B>Move [[screen </B><I>screen</I>]<BR>&nbsp;[<I>w</I>|<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>|<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]
 
 <DD>
-<BR>&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>&nbsp;|&nbsp;<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]&quot;
 Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
@@ -6585,7 +6732,7 @@ is specified the pointer is warped with the window.  If the single
 argument
 <I>pointer</I>
 
-is given, the top left corner of the window window is moved to the
+is given, the top left corner of the window is moved to the
 pointer position before starting the operation; this is mainly
 intended for internal use by modules like
 <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>.
@@ -6763,7 +6910,7 @@ beyond the border of the desktop. For example, with
 
 when the window moves past the right edge of the desktop, it
 reappears on the left edge.  The options
-<I>nodesklimitx</I> and <I>nodesklimit</I>
+<I>nodesklimitx</I> and <I>nodesklimity</I>
 
 allow moving windows beyond the desk boundaries in x and y
 direction (disabling the
@@ -6906,7 +7053,7 @@ style is used; see
 
 command) otherwise it is lowered.
 <P>
-<DT><B>Resize [[</B><I>frame</I>] [direction <I>dir</I> [<I>warptoborder</I>]] [<I>fixeddirection</I>] <I>width</I> [<I>p</I> | <I>c</I>] <I>height</I> [<I>p</I> | <I>c</I>]] | [bottomright | br <I>x y</I>]
+<DT><B>Resize [[</B><I>frame</I>] [direction <I>dir</I> [<I>warptoborder</I>]] [<I>fixeddirection</I>] [<I>w</I>]<I>width</I>[<I>p</I>|<I>c</I>] [<I>w</I>]<I>height</I>[<I>p</I>|<I>c</I>]] | [bottomright | br <I>x y</I>]
 
 <DD>
 Allows for resizing a window.  If called from somewhere in a window
@@ -6946,7 +7093,28 @@ used.  So you can say
 
 
 to make a terminal window just big enough for 80x24
-characters. Both,
+characters.
+<P>
+If the
+<I>width</I> or <I>height</I>
+
+is prefixed with the letter
+'<I>w</I>'
+
+the size is not taken as an absolute value but added to the
+current size of the window.  Example:
+
+
+<P>
+
+
+<blockquote><PRE># Enlarge window by one line
+Resize keep w+1c</PRE></blockquote>
+<P>
+
+
+
+Both,
 <I>width</I> and <I>height</I>
 
 can be negative.  In this case the new size is the screen size
@@ -7065,14 +7233,18 @@ option which is not supported by the
 
 command.
 <P>
-Example:
+Examples:
 
 
 <P>
 
 
-<blockquote><PRE># Move the window to the top left corner
-ResizeMove w+0 -10p 0 -20p</PRE></blockquote>
+<blockquote><PRE># Move window to top left corner and cover
+# most of the screen
+ResizeMove -10p -20p 0 0
+
+# Grow the focused window towards the top of screen
+Current Resize keep w+$[w.y]p keep 0</PRE></blockquote>
 <P>
 
 
@@ -7707,7 +7879,7 @@ commands were issued inside a fvwm function.
 
 <DD>
 Causes the chosen window to redraw itself. All pending updates of
-the window's style and looks are applied immediately.  E.g. if
+the window's style and look are applied immediately.  E.g. if
 <B>Style</B> or <B>TitleStyle</B>
 
 commands were issued inside a fvwm function.
@@ -7762,15 +7934,20 @@ state.  To force shading in a certain direction, the
 <I>direction</I>
 
 argument can be used.  Any of the strings &quot;North&quot;, &quot;South&quot;,
-&quot;West&quot;, &quot;East&quot;, &quot;NorthWest&quot;, &quot;NorthEast&quot;, &quot;SouthWest&quot; or
-&quot;SouthEast&quot; can be given.  The direction can be abbreviated with
+&quot;West&quot;, &quot;East&quot;, &quot;NorthWest&quot;, &quot;NorthEast&quot;, &quot;SouthWest&quot;,
+&quot;SouthEast&quot; or &quot;Last&quot; can be given. The direction can be abbreviated with
 the usual one or two letters &quot;N&quot;, &quot;NW&quot;, etc.  Using a direction on
 a window that was already shaded unshades the window.  To shade it
 in a different direction, use the
 <I>ShadeAgain</I>
 
-option.  Windows without titles can be shaded too.  Please refer
-also to the options
+option. The direction
+<I>Last</I>
+
+will shade the window in the direction it last was shaded. If the
+window has never been shaded before it will be shaded as if no
+direction were given. Windows without titles can be shaded too.
+Please refer also to the options
 <I>WindowShadeSteps</I>, <I>WindowShadeShrinks</I>,
 
 <I>WindowShadeScrolls</I>, <I>WindowShadeLazy</I>,
@@ -7788,10 +7965,10 @@ command.  Examples:
 
 <blockquote><PRE>Style * WindowShadeShrinks, \
 WindowShadeSteps 20, WindowShadeLazy
-Mouse 1 S - WindowShade North
-Mouse 1 S [ WindowShade West
-Mouse 1 S ] WindowShade E
-Mouse 1 S _ WindowShade S</PRE></blockquote>
+Mouse 1 - S WindowShade North
+Mouse 1 [ S WindowShade West
+Mouse 1 ] S WindowShade E
+Mouse 1 _ S WindowShade S</PRE></blockquote>
 <P>
 
 
@@ -8112,7 +8289,7 @@ command instead.  If you want to bind keys to a window with
 
 that are supposed to work when the pointer is not over the window,
 fvwm assumes the pointer is over the client window (i.e. you have
-to use the 'W' modifier).
+to use the 'W' context).
 <P>
 The following example binds the built-in window list to pop up
 when
@@ -8173,9 +8350,9 @@ The special context 'M' for menus can only be used to control
 which mouse button is used to tear off menus.  See the section
 &quot;Tear Off Menus&quot; for details.
 <P>
-The special context 'P' controls what buttons that can be used to place
-a window. When using this context no modifiers are allowed (
-<I>Modifiers</I>
+The special context 'P' controls what buttons that can be used to
+place a window. When using this context no modifiers are allowed
+(<I>Modifiers</I>
 
 must be N), no
 <I>window</I>
@@ -8184,11 +8361,11 @@ is allowed, and the
 <I>Function</I>
 
 must be one of
-<I>PlaceWindow</I>, <I>PlaceWindowDrag</I>, <I>PlaceWindowInteractive</I>, 
+<I>PlaceWindow</I>, <I>PlaceWindowDrag</I>, <I>PlaceWindowInteractive</I>
 
-<I>CancelPlacement</I>, <I>CancelPlacementDrag</I>, <I>CancelPlacementInteractive</I>
+, <I>CancelPlacement</I>, <I>CancelPlacementDrag</I>
 
- or <I>-</I>.
+, <I>CancelPlacementInteractive</I> or <I>-</I>.
 
 <P>
 <I>PlaceWindow</I>
@@ -8202,9 +8379,9 @@ usable for window placement, both for interactive and drag move.
 does the inverse. That is makes
 <I>Button</I>
 
-to cancel move for both interactive and drag move. It may however not
-override how new windows are resized after being placed. This is
-controlled by the
+to cancel move for both interactive and drag move. It may however
+not override how new windows are resized after being placed. This
+is controlled by the
 <B>Emulate</B>
 
 command. Also a window being dragged can always be placed
@@ -8246,11 +8423,11 @@ Mouse 1 P N CancelPlacementDrag</PRE></blockquote>
 
 
 <P>
-By default, the binding applies to all windows. You can specify that a
-binding only applies to specific windows by specifying the window name
-in brackets. The window name is a wildcard pattern specifying the
-class, resource or name of the window you want the binding to apply
-to.
+By default, the binding applies to all windows. You can specify
+that a binding only applies to specific windows by specifying the
+window name in brackets. The window name is a wildcard pattern
+specifying the class, resource or name of the window you want the
+binding to apply to.
 <P>
 The following example shows how the same key-binding can be used to
 perform different functions depending on the window that is focused:
@@ -8268,8 +8445,9 @@ Key         V A C Echo ctrl-V-elsewhere</PRE></blockquote>
 
 
 <P>
-A '--' action indicates that the event should be propagated to the specified
-window to handle. This is only a valid action for window-specific bindings.
+A '--' action indicates that the event should be propagated to the
+specified window to handle. This is only a valid action for
+window-specific bindings.
 <P>
 This example shows how to display the WindowList when Button 3 is
 pressed on an rxvt window:
@@ -8285,11 +8463,12 @@ pressed on an rxvt window:
 
 <P>
 Note that Fvwm actually intercepts all events for a window-specific
-binding and (if the focussed window doesn't match any of the bindings)
-sends a synthetic copy of the event to the window. This should be
-transparent to most applications, however (for security reasons) some programs
-ignore these synthetic events by default - xterm is one of them. To enable
-handling of these events, add the following line to your ~/.Xdefaults file:
+binding and (if the focused window doesn't match any of the
+bindings) sends a synthetic copy of the event to the window. This
+should be transparent to most applications, however (for security
+reasons) some programs ignore these synthetic events by default -
+xterm is one of them. To enable handling of these events, add the
+following line to your ~/.Xdefaults file:
 <P>
 
 
@@ -8339,7 +8518,7 @@ are numbered:
 
 The highest odd numbered button which has an action bound to it
 determines the number of buttons drawn on the left side of the
-title bar.  The highest even number determines the number or right
+title bar.  The highest even number determines the number of right
 side buttons which are drawn.  Actions can be bound to either
 mouse buttons or keyboard keys.
 <P>
@@ -8442,8 +8621,8 @@ or in a numeric pad grid like this:
 
 The telephone grid is used by default, to use the numeric pad grid
 you should begin the sequence with a 'N'.  Note that a complex
-motion may gives several different sequences (see the &quot;netscape&quot;
-example below to handle such motion).  Moreover, sequence are
+motion may produce several different sequences (see the &quot;netscape&quot;
+example below to handle such motion).  Moreover, sequences are
 limited to 20 elements (with the present version of
 <B>libstroke</B>),
 
@@ -8644,8 +8823,9 @@ binding.
 
 takes an integer argument, which must be &gt;= 0 and &lt;= 100 and which
 defines the width of the line for the
-<I>DrawMotion option.</I>
+<I>DrawMotion</I>
 
+option.
 <P>
 <I>NotStayPressed</I>
 
@@ -8791,32 +8971,42 @@ immediately.  E.g. if
 
 commands were issued inside a fvwm function.
 <P>
-<DT><B>Style </B><I>stylename options</I>
+<DT><B>Style </B><I>stylename options ...</I>
 
 <DD>
 This command is intended to replace the old fvwm 1.xx global
 commands NoBorder, NoTitle, StartsOnDesk, Sticky, StaysOnTop,
 Icon, WindowListSkip, CirculateSkip, SuppressIcons, BoundaryWidth,
 NoBoundaryWidth, StdForeColor, and StdBackColor with a single
-flexible and comprehensive window specific command.  This command
-is used to set attributes of a window to values other than the
-default or to set the window manager default styles.
+flexible and comprehensive window specific command.  The
+<B>Style</B>
+
+command is used to set attributes of a window to values other than
+the default or to set the window manager default styles.
 <P>
 <I>stylename</I>
 
 can be a window's name, class, or resource string.  It may contain
 the wildcards '*' and '?', which are matched in the usual Unix
-filename manner.  They are searched in the reverse order stated.
-When two conflicting styles apply to the same window, the style
-that was changed last wins.
+filename manner.  Multiple style options in a single
+<B>Style</B>
+
+command are read from left to right as if they were issued one
+after each other in separate commands.  A given style always
+overrides all conflicting styles that have been issued earlier (or
+further left on the same style line).
 <P>
 Note: windows that have no name (WM_NAME) are given a name of
-&quot;Untitled&quot;, and windows that don't have a class (WM_CLASS,
-res_class) are given class &quot;NoClass&quot; and those that don't have a
+&quot;Untitled&quot;, and windows that do not have a class (WM_CLASS,
+res_class) are given class &quot;NoClass&quot; and those that do not have a
 resource (WM_CLASS, res_name) are given resource &quot;NoResource&quot;.
 <P>
-<I>options is a comma separated list containing one or more of the</I>
+If a window has the resource &quot;fvwmstyle&quot; set, the value of that resource
+will be used in addition to any window names when selecting the style.
+<P>
+<I>options</I>
 
+is a comma separated list containing one or more of the
 following keywords.  Each group of style names is separated by
 slashes ('/').  The last style in these groups is the default.
 <I>BorderWidth</I>, <I>HandleWidth</I>,
@@ -8825,21 +9015,21 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>IconBox</I>, <I>IconGrid</I>, <I>IconFill</I>, <I>IconSize</I>,
 
-<I>NoTitle</I> / <I>Title</I>,
+<I>!Title</I> / <I>Title</I>,
 
 <I>TitleAtBottom</I> / <I>TitleAtLeft</I> / <I>TitleAtRight</I> / <I>TitleAtTop</I>,
 
-<I>LeftTitleRotatedCW</I> / <I>LeftTitleRotatedCCW,</I>
+<I>LeftTitleRotatedCW</I> / <I>LeftTitleRotatedCCW</I>,
 
-<I>RightTitleRotatedCCW</I> / <I>RightTitleRotatedCW,</I>
+<I>RightTitleRotatedCCW</I> / <I>RightTitleRotatedCW</I>,
 
-<I>TopTitleRotated</I> / <I>TopTitleNotRotated,</I>
+<I>TopTitleRotated</I> / <I>TopTitleNotRotated</I>,
 
-<I>BottomTitleRotated</I> / <I>BottomTitleNotRotated,</I>
+<I>BottomTitleRotated</I> / <I>BottomTitleNotRotated</I>,
 
-<I>!UseTitleDecorRotation</I> / <I>UseTitleDecorRotation,</I>
+<I>!UseTitleDecorRotation</I> / <I>UseTitleDecorRotation</I>,
 
-<I>StippledTitle</I> / <I>StippledTitleOff</I>,
+<I>StippledTitle</I> / <I>!StippledTitle</I>,
 
 <I>IndexedWindowName</I> / <I>ExactWindowName</I>,
 
@@ -8847,7 +9037,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>!Borders</I> / <I>Borders</I>,
 
-<I>NoHandles</I> / <I>Handles</I>,
+<I>!Handles</I> / <I>Handles</I>,
 
 <I>WindowListSkip</I> / <I>WindowListHit</I>,
 
@@ -8897,7 +9087,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>StartsOnPageIncludesTransients</I> / <I>StartsOnPageIgnoresTransients</I>,
 
-<I>IconTitle</I> / <I>NoIconTitle</I>,
+<I>IconTitle</I> / <I>!IconTitle</I>,
 
 <I>MwmButtons</I> / <I>FvwmButtons</I>,
 
@@ -8909,7 +9099,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>HintOverride</I> / <I>NoOverride</I>,
 
-<I>NoButton</I> / <I>Button</I>,
+<I>!Button</I> / <I>Button</I>,
 
 <I>ResizeHintOverride</I> / <I>NoResizeOverride</I>,
 
@@ -8927,7 +9117,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>MinOverlapPercentPlacement</I> / <I>TileManualPlacement</I> / 
 
-<I>TileCascadePlacement</I>,<I> / </I>CenterPlacement<I>,</I>
+<I>TileCascadePlacement</I> / <I>CenterPlacement</I> / <I>UnderMousePlacement</I>,
 
 <I>MinOverlapPlacementPenalties</I>,
 
@@ -8979,61 +9169,61 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>FPFocusClickModifiers</I>,
 
-<I>!FPSortWindowlistByFocus</I> / <I>FPSortWindowlistByFocus,</I>
+<I>!FPSortWindowlistByFocus</I> / <I>FPSortWindowlistByFocus</I>,
 
-<I>FPClickRaisesFocused</I> / <I>!FPClickRaisesFocused,</I>
+<I>FPClickRaisesFocused</I> / <I>!FPClickRaisesFocused</I>,
 
-<I>FPClickDecorRaisesFocused</I> / <I>!FPClickDecorRaisesFocused,</I>
+<I>FPClickDecorRaisesFocused</I> / <I>!FPClickDecorRaisesFocused</I>,
 
-<I>FPClickIconRaisesFocused</I> / <I>!FPClickIconRaisesFocused,</I>
+<I>FPClickIconRaisesFocused</I> / <I>!FPClickIconRaisesFocused</I>,
 
-<I>!FPClickRaisesUnfocused</I> / <I>FPClickRaisesUnfocused,</I>
+<I>!FPClickRaisesUnfocused</I> / <I>FPClickRaisesUnfocused</I>,
 
-<I>FPClickDecorRaisesUnfocused</I> / <I>!FPClickDecorRaisesUnfocused,</I>
+<I>FPClickDecorRaisesUnfocused</I> / <I>!FPClickDecorRaisesUnfocused</I>,
 
-<I>FPClickIconRaisesUnfocused</I> / <I>!FPClickIconRaisesUnfocused,</I>
+<I>FPClickIconRaisesUnfocused</I> / <I>!FPClickIconRaisesUnfocused</I>,
 
-<I>FPClickToFocus</I> / <I>!FPClickToFocus,</I>
+<I>FPClickToFocus</I> / <I>!FPClickToFocus</I>,
 
-<I>FPClickDecorToFocus</I> / <I>!FPClickDecorToFocus,</I>
+<I>FPClickDecorToFocus</I> / <I>!FPClickDecorToFocus</I>,
 
-<I>FPClickIconToFocus</I> / <I>!FPClickIconToFocus,</I>
+<I>FPClickIconToFocus</I> / <I>!FPClickIconToFocus</I>,
 
-<I>!FPEnterToFocus</I> / <I>FPEnterToFocus,</I>
+<I>!FPEnterToFocus</I> / <I>FPEnterToFocus</I>,
 
-<I>!FPLeaveToUnfocus</I> / <I>FPLeaveToUnfocus,</I>
+<I>!FPLeaveToUnfocus</I> / <I>FPLeaveToUnfocus</I>,
 
-<I>!FPFocusByProgram</I> / <I>FPFocusByProgram,</I>
+<I>!FPFocusByProgram</I> / <I>FPFocusByProgram</I>,
 
-<I>!FPFocusByFunction</I> / <I>FPFocusByFunction,</I>
+<I>!FPFocusByFunction</I> / <I>FPFocusByFunction</I>,
 
-<I>FPFocusByFunctionWarpPointer</I> / <I>!FPFocusByFunctionWarpPointer,</I>
+<I>FPFocusByFunctionWarpPointer</I> / <I>!FPFocusByFunctionWarpPointer</I>,
 
-<I>FPLenient</I> / <I>!FPLenient,</I>
+<I>FPLenient</I> / <I>!FPLenient</I>,
 
-<I>!FPPassFocusClick</I> / <I>FPPassFocusClick,</I>
+<I>!FPPassFocusClick</I> / <I>FPPassFocusClick</I>,
 
-<I>!FPPassRaiseClick</I> / <I>FPPassRaiseClick,</I>
+<I>!FPPassRaiseClick</I> / <I>FPPassRaiseClick</I>,
 
-<I>FPIgnoreFocusClickMotion</I> / <I>!FPIgnoreFocusClickMotion,</I>
+<I>FPIgnoreFocusClickMotion</I> / <I>!FPIgnoreFocusClickMotion</I>,
 
-<I>FPIgnoreRaiseClickMotion</I> / <I>!FPIgnoreRaiseClickMotion,</I>
+<I>FPIgnoreRaiseClickMotion</I> / <I>!FPIgnoreRaiseClickMotion</I>,
 
-<I>!FPAllowFocusClickFunction</I> / <I>FPAllowFocusClickFunction,</I>
+<I>!FPAllowFocusClickFunction</I> / <I>FPAllowFocusClickFunction</I>,
 
-<I>!FPAllowRaiseClickFunction</I> / <I>FPAllowRaiseClickFunction,</I>
+<I>!FPAllowRaiseClickFunction</I> / <I>FPAllowRaiseClickFunction</I>,
 
-<I>FPGrabFocus</I> / <I>!FPGrabFocus,</I>
+<I>FPGrabFocus</I> / <I>!FPGrabFocus</I>,
 
-<I>!FPGrabFocusTransient</I> / <I>FPGrabFocusTransient,</I>
+<I>!FPGrabFocusTransient</I> / <I>FPGrabFocusTransient</I>,
 
-<I>FPOverrideGrabFocus</I> / <I>!FPOverrideGrabFocus,</I>
+<I>FPOverrideGrabFocus</I> / <I>!FPOverrideGrabFocus</I>,
 
-<I>FPReleaseFocus</I> / <I>!FPReleaseFocus,</I>
+<I>FPReleaseFocus</I> / <I>!FPReleaseFocus</I>,
 
-<I>!FPReleaseFocusTransient</I> / <I>FPReleaseFocusTransient,</I>
+<I>!FPReleaseFocusTransient</I> / <I>FPReleaseFocusTransient</I>,
 
-<I>FPOverrideReleaseFocus</I> / <I>!FPOverrideReleaseFocus,</I>
+<I>FPOverrideReleaseFocus</I> / <I>!FPOverrideReleaseFocus</I>,
 
 <I>StartsLowered</I> / <I>StartsRaised</I>,
 
@@ -9099,7 +9289,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>EWMHMaximizeUseDynamicWorkingArea</I>,
 
-<I>EWMHPlacementIgnoreWorkingArea</I> / <I>EWMHPlacementUseWorkingArea</I>
+<I>EWMHPlacementIgnoreWorkingArea</I> / <I>EWMHPlacementUseWorkingArea</I> / 
 
 <I>EWMHPlacementUseDynamicWorkingArea</I>,
 
@@ -9304,6 +9494,7 @@ trigger a normal action that was bound to the window with the
 
 command.
 <P>
+If the
 <I>FPIgnoreRaiseClickMotion</I>
 
 style is used, clicking in a window and then dragging the pointer
@@ -9401,10 +9592,16 @@ is equivalent to the new style
 
 <DD>
 The
-<I>Title</I> and <I>NoTitle</I>
+<I>Title</I> and <I>!Title</I>
 
 options determine if the window has a title-bar or not.  By
 default all windows have a title-bar.
+<I>NoTitle</I>
+
+is equivalent to
+<I>!Title</I>
+
+but is deprecated.
 <P>
 Windows with the
 <I>TitleAtBottom</I>, <I>TitleAtLeft</I> or <I>TitleAtRight</I>
@@ -9414,7 +9611,7 @@ window instead of above as usual.  The
 <I>TitleAtTop</I>
 
 style restores the default placement.  Even if the window has the
-<I>NoTitle</I>
+<I>!Title</I>
 
 style set, this affects the
 <I>WindowShade</I>
@@ -9468,9 +9665,15 @@ reserved for windows with the
 <I>Sticky</I>, <I>StickyAcrossPages</I> or <I>StickyAcrossDesks</I>
 
 style.
-<I>StippledTitleOff</I>
+<I>!StippledTitle</I>
 
 reverts back to normal titles.
+<I>StippledTitleOff</I>
+
+is equivalent to
+<I>!StippledTitle</I>
+
+but is deprecated.
 <P>
 <I>Color</I>
 
@@ -9527,12 +9730,18 @@ style option works similarly to
 
 but is used when the window has the focus.
 <P>
-<I>NoIconTitle</I>
+<I>!IconTitle</I>
 
 disables displaying icon labels while the opposite style
 <I>IconTitle</I>
 
 enables icon labels (default behaviour).
+<I>NoIconTitle</I>
+
+is equivalent to
+<I>!IconTitle</I>
+
+but is deprecated.
 <P>
 <I>IconTitleColorset</I>
 
@@ -9641,10 +9850,16 @@ styles but for the icon titles.
 <DT><B>Title buttons</B>
 
 <DD>
-<I>Button</I> and <I>NoButton</I>
+<I>Button</I> and <I>!Button</I>
 
 take a numeric argument which is the number of the title-bar
 button which is to be included/omitted.
+<I>NoButton</I>
+
+is equivalent to
+<I>!Button</I>
+
+but is deprecated.
 <P>
 <I>MwmButtons</I>
 
@@ -9677,17 +9892,17 @@ affecting window borders are meaningless.
 <P>
 <I>MwmBorder</I>
 
-makes the 3-D bevel more closely match Mwm's.
+makes the 3D bevel more closely match Mwm's.
 <I>FvwmBorder</I>
 
 turns off the previous option.
 <P>
 With the
-<I>NoHandles</I>
+<I>!Handles</I>
 
 style, the window does not get the handles in the window corners
 that are commonly used to resize it.  With
-<I>NoHandles</I>,
+<I>!Handles</I>,
 
 the width from the
 <I>BorderWidth</I>
@@ -9695,10 +9910,16 @@ the width from the
 style is used.  By default, or if
 <I>Handles</I>
 
-is is specified, the width from the
+is specified, the width from the
 <I>HandleWidth</I>
 
 style is used.
+<I>NoHandles</I>
+
+is equivalent to
+<I>!Handles</I>
+
+but is deprecated.
 <P>
 <I>HandleWidth</I>
 
@@ -9710,7 +9931,7 @@ the window if it does have resize-handles.
 takes a numeric argument which is the width of the border to place
 the window if it does not have resize-handles.  It is used only if
 the
-<I>NoHandles</I>
+<I>!Handles</I>
 
 style is specified too.
 <P>
@@ -10159,7 +10380,7 @@ shading can be 50% slower than lazy shading, but the latter can
 look strange under some conditions, for example, if the window
 borders, buttons or the title are filled with a tiled pixmap.
 Also, the window handles are not drawn in lazy mode and the border
-relief may only be draw partially right before the window reaches
+relief may only be drawn partially right before the window reaches
 the shaded state or tight after leaves the unshaded state. By
 default, fvwm uses lazy mode if there are no bad visual effects
 (not counting the window handles) and busy mode otherwise.  Use
@@ -10185,7 +10406,7 @@ style (default) negates the
 
 style.  Many applications do not like their windows being resized
 opaque, e.g. XEmacs, Netscape or terminals with a pixmap
-background. If you do not like the result, don't use the
+background. If you do not like the result, do not use the
 <I>ResizeOpaque</I>
 
 style for these windows.  To exempt certain windows from opaque
@@ -10234,7 +10455,7 @@ style.
 
 makes the window sticky when its iconified.  It de-iconifies on
 top the active desktop.
-<I>SlipperIcon</I>
+<I>SlipperyIcon</I>
 
 reverts back to the default.
 <P>
@@ -10261,7 +10482,7 @@ is active.
 make fvwm ignore attempts of the user to move the window.  It is
 still possible to move the window by resizing it.  To allow the
 user to move windows, use the
-<I>VariablePosition</I>or<I>VariableUSPosition</I>
+<I>VariablePosition</I> or <I>VariableUSPosition</I>
 
 style.
 <P>
@@ -10287,7 +10508,7 @@ windows are created at strange places, try either the
 styles.  The
 <I>FixedPSize</I>
 
-style may screw up window dimensions for some applications.  Don't
+style may screw up window dimensions for some applications.  Do Not
 use this style in this case.
 <P>
 <I>MoveByProgramMethod</I>
@@ -10326,7 +10547,7 @@ rule.
 <I>Closable</I>
 
 enables the functions
-<I>Close,</I>
+<I>Close</I>,
 
 <I>Delete</I>
 
@@ -10381,9 +10602,9 @@ inhibits all windows that are not resizable from being maximized.
 
 instructs fvwm to ignore the program supplied minimum and maximum
 size.  This can be handy for broken applications that refuse to be
-resized.  Don't use it if you don't need it.  The default
+resized.  Do not use it if you do not need it.  The default
 (opposite) style is
-<I>NoResizeOverride.</I>
+<I>NoResizeOverride</I>.
 
 <P>
 <I>MaxWindowSize  [ width [ p ]  height [ p ] ]</I>
@@ -10422,7 +10643,7 @@ only for selected applications.
 Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
-for the window.  Fvwm knows six ways to deal with this
+for the window.  Fvwm knows several ways to deal with this
 situation. The default is
 <I>TileCascadePlacement</I>.
 
@@ -10453,6 +10674,10 @@ but uses
 <I>ManualPlacement</I>
 
 as the fall-back method.
+<P>
+<I>UnderMousePlacement</I>
+
+automatically places new windows centered at the current cursor position.
 <P>
 <I>MinOverlapPlacement</I>
 
@@ -10535,8 +10760,8 @@ factor affects the complement of the EWMH working area if the
 window being placed has the
 <I>EWMHPlacementUseWorkingArea</I>
 
-style and windows with an EWMH strut hint (i.e., a &quot;please don't
-not cover me&quot; hint) if the window being placed has the
+style and windows with an EWMH strut hint (i.e., a &quot;please do not
+cover me&quot; hint) if the window being placed has the
 <I>EWMHPlacementUseDynamicWorkingArea</I>
 
 style.  These factors represent the amount of area that these
@@ -10734,7 +10959,7 @@ Style * ManualPlacementsHonorsStartsOnPageOff</PRE></blockquote>
 
 instructs fvwm to ignore the program specified position (PPosition
 hint) when adding new windows.  Using PPosition is required for
-some applications, but if you don't have one of those its a real
+some applications, but if you do not have one of those its a real
 headache.  Many programs set PPosition to something obnoxious like
 0,0 (upper left corner).
 <P>
@@ -10965,7 +11190,7 @@ decorations.
 
 (the default) causes transient windows not to be given the
 standard decorations. You can only bind keys or mouse buttons to
-the sides and the client window of an undecorated window ('S' and
+the sides and the client part of an undecorated window ('S' and
 'W' contexts in bindings, see
 <B>Mouse</B> and <B>Key</B>
 
@@ -11164,7 +11389,7 @@ connection is slow (see also
 below).
 <I>BackingStoreOff</I>
 
-tells disables backing store for the window.  By default, fvwm
+disables backing store for the window.  By default, fvwm
 does not enable or disable backing store itself but leaves is as
 the window requested it.  To revert back to the application's
 choice, use the
@@ -11184,8 +11409,8 @@ the same machine as the X server.
 <I>SaveUnder</I>
 
 may speed up fvwm if the connection to the X server is slow
-(e.g. over a modem link).  To disable backing store, use the
-<I>BackingStoreOff</I>
+(e.g. over a modem link).  To disable save under, use the
+<I>SaveUnderOff</I>
 
 style.  This is the default. See also
 <I>BackingStore</I>
@@ -11305,8 +11530,9 @@ be moved or resized, etc.  You probably want to use
 <B>Bugopts RaiseOverUnmanaged</B>
 
 too.  This option can be turned off with the
-<I>!Unmanaged</I>style<I>.</I>
+<I>!Unmanaged</I>
 
+style.
 However, windows that are already ignored at the time when the
 option is set must be recaptured with the
 <B>Recapture</B>
@@ -11315,7 +11541,7 @@ command in order to become managed.
 <P>
 <I>State</I>
 
-sets the initial value of of one of the 32 user defined states
+sets the initial value of one of the 32 user defined states
 which are associated with each window.  The state number ranges
 from 0 to 31 and must be given as an argument.  The states have no
 meaning in fvwm, but they can be checked in conditional commands
@@ -11355,7 +11581,7 @@ command or the lists shown in several modules like
 <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>.
 
 In the modules, the style can usually be ignored with an option.
-Please refer to the man pages of the module in question for
+Please refer to the man page of the module in question for
 further information.  To disable this feature, use the default
 style
 <I>WindowListHit</I>.
@@ -11364,7 +11590,7 @@ style
 The styles
 <I>CirculateSkip</I> and <I>CirculateHit</I>
 
-control wheter the window is considered by conditional commands,
+control whether the window is considered by conditional commands,
 for example
 <B>Next</B>, <B>Prev</B> or <B>All</B>.
 
@@ -11376,7 +11602,7 @@ can be overridden explicitly in the condition with the
 <I>CirculateHit</I>, <I>CirculateHitIcon</I> or <I>CirculateHitShaded</I>
 
 conditions, and some conditional commands, e.g.
-<B>Current  and  All ,</B>
+<B>Current</B> and <B>All</B>,
 
 do this by default.
 The styles
@@ -11401,9 +11627,9 @@ with
 
 
 
-only windows that are neither iconic nor shaded are selecte.
+only windows that are neither iconic nor shaded are selected.
 Note:  For historical reasons, the conditional commands understand
-the names of these styles as condition names.  Take care no to
+the names of these styles as condition names.  Take care not to
 confuse them.
 <P>
 
@@ -11417,22 +11643,22 @@ confuse them.
 
 <blockquote><PRE># Change default fvwm behavior to no title-
 # bars on windows! Also define a default icon.
-Style *             NoTitle,               \
+Style *             !Title,                \
                     Icon unknown1.xpm,     \
                     BorderWidth 4,         \
                     HandleWidth 5
 
 # now, window specific changes:
-Style Fvwm*       NoHandles, Sticky,       \
+Style Fvwm*       !Handles, Sticky,        \
                   WindowListSkip,          \
                   BorderWidth 0
 Style FvwmPager   StaysOnTop, BorderWidth 0
-Style *lock       NoHandles, Sticky,       \
+Style *lock       !Handles, Sticky,        \
                   StaysOnTop, WindowListSkip
 Style xbiff       Sticky, WindowListSkip
-Style FvwmButtons NoHandles, Sticky,       \
+Style FvwmButtons !Handles, Sticky,        \
                   WindowListSkip
-Style sxpm        NoHandles
+Style sxpm        !Handles
 
 # Put title-bars back on xterms only!
 Style xterm     Title, Color black/grey
@@ -11453,7 +11679,7 @@ Style Maker       StartsOnDesk 1
 Style signal      StartsOnDesk 3
 
 # Fire up Netscape on the second desk, in the
-# middle of my 3x3 virtual desktop, and don't
+# middle of my 3x3 virtual desktop, and do not
 # bother me with it...
 Style Netscape* SkipMapping,              \
                 StartsOnPage 1 1 1</PRE></blockquote>
@@ -11466,38 +11692,13 @@ above example &quot;FvwmPager&quot; gets the property
 <I>StaysOnTop</I>
 
 via an exact window name match but also gets
-<I>NoHandles</I>, <I>Sticky</I> and <I>WindowListSkip</I>
+<I>!Handles</I>, <I>Sticky</I> and <I>WindowListSkip</I>
 
 by a match to &quot;Fvwm*&quot;.  It gets
-<I>NoTitle</I>
+<I>!Title</I>
 
 by virtue of a match to &quot;*&quot;.  If conflicting styles are specified
-for a window, then the last style specified are used.
-<P>
-If the
-<I>NoIcon</I>
-
-attribute is set then the specified window simply disappears when
-it is iconified.  The window can be recovered through the
-window-list.  If
-<I>Icon</I>
-
-is set without an argument then the
-<I>NoIcon</I>
-
-attribute is cleared but no icon is specified.  An example which
-allows only the FvwmPager module icon to exist:
-
-
-<P>
-
-
-<blockquote><PRE>Style * NoIcon
-Style FvwmPager Icon</PRE></blockquote>
-<P>
-
-
-
+for a window, then the last style specified is used.
 <P>
 <DT><B>WindowStyle </B><I>options</I>
 
@@ -11533,7 +11734,7 @@ can be &quot;ActiveUp&quot;, &quot;ActiveDown&quot;, &quot;InactiveUp&quot; or &
 or &quot;Active&quot; (the same as both &quot;ActiveUp&quot; and &quot;ActiveDown&quot;)
 or &quot;Inactive&quot; (the same as both &quot;InactiveUp&quot; and &quot;InactiveDown&quot;)
 or any of these 6 with &quot;Toggled&quot; prepended.
-The &quot;Active&quot; states apply to the focussed window, the &quot;Inactive&quot;
+The &quot;Active&quot; states apply to the focused window, the &quot;Inactive&quot;
 ones apply to all other windows. The &quot;Up&quot; states apply to the
 non pressed buttons, the &quot;Down&quot; ones apply to pressed buttons.
 The &quot;Toggled&quot; prefix refers to maximized, shaded or sticky windows
@@ -11541,7 +11742,7 @@ that have the corresponding
 <I>MwmDecor...</I>
 
 button style set.
-Additionally, the following shotcuts may be used: &quot;AllNormal&quot;,
+Additionally, the following shortcuts may be used: &quot;AllNormal&quot;,
 &quot;AllToggled&quot;, &quot;AllActive&quot;, &quot;AllInactive&quot;, &quot;AllUp&quot;, &quot;AllDown&quot;.
 They are actually different masks for 4 individual states from
 8 total.  These are supported too: &quot;AllActiveUp&quot;, &quot;AllActiveDown&quot;,
@@ -11602,7 +11803,7 @@ before drawing the buttons.  Finally,
 
 is used to place additional pixmaps for both &quot;ActiveUp&quot; and
 &quot;ActiveDown&quot; states and a vector button style is drawn on top of
-all state.
+all states.
 <P>
 <DT><B>AddTitleStyle [</B><I>state</I>] [<I>style</I>] [-- [!] <I>flag</I> 
 
@@ -11916,7 +12117,7 @@ If
 argument is &quot;False&quot; (only applied when
 <I>Inactive</I>
 
-is &quot;True&quot;), the pressed titles and title buttons in non-focussed
+is &quot;True&quot;), the pressed titles and title buttons in non-focused
 windows are drawn using &quot;InactiveUp&quot; or &quot;ActiveUp&quot; states
 depending on the values of the other key words.
 <P>
@@ -11952,7 +12153,8 @@ The similar state names like just described, but with the &quot;Toggled&quot;
 prefix are used instead for title buttons which have one of the
 <I>MwmDecorMax</I>, <I>MwmDecorShade</I>, <I>MwmDecorStick</I> or <I>MwmDecorLayer</I>
 
-hints, if the window is maximized, shaded or sticky, respectively.
+hints, if the window is maximized, shaded, sticky or placed on specific
+layer, respectively.
 
 
 <P>
@@ -11973,7 +12175,7 @@ Mouse 0 6 N WindowShade</PRE></blockquote>
 
 
 
-Additionally, the following shotcuts may be used: &quot;AllNormal&quot;,
+Additionally, the following shortcuts may be used: &quot;AllNormal&quot;,
 &quot;AllToggled&quot;, &quot;AllActive&quot;, &quot;AllInactive&quot;, &quot;AllUp&quot;, &quot;AllDown&quot;.
 They are actually different masks for 4 individual states from
 8 total.  These are supported too: &quot;AllActiveUp&quot;, &quot;AllActiveDown&quot;,
@@ -12090,7 +12292,7 @@ inhibits the relief pattern from being drawn.
 <I>UseTitleStyle</I>
 
 causes the given button state to render the current title style
-before rendering the buttons own styles.  The
+before rendering the buttons' own styles.  The
 <I>Raised</I>, <I>Flat</I> and <I>Sunk</I>
 
 <B>TitleStyle</B>
@@ -12200,7 +12402,7 @@ argument is a percentage between 0 and 100. It causes fvwm to
 merge the colorset background onto the button using this
 percentage. If the percentage is 0 the colorset background is
 hidden and if it is 100 the colorset background is fully
-applied. The default is 100. So, the destructivity depends on the
+applied. The default is 100. So, the destructiveness depends on the
 <I>alpha</I>
 
 argument.
@@ -12559,7 +12761,7 @@ Sets attributes for the title-bar.  Justifications can be
 sets the title bar's height to an amount in pixels.
 <I>MinHeight</I>
 
-sets the minimal height in pixels of the title bar's.
+sets the minimal height in pixels of the title bar.
 Defaults are
 <I>Centered</I>,
 
@@ -12578,7 +12780,7 @@ height is reseted by
 <I>Height</I>
 
 or if given with no argument.
-is Example:
+Example:
 
 
 <P>
@@ -12755,7 +12957,7 @@ are:
 None of these are mandatory except for
 <I>Main</I>
 
-(or, if you don't define
+(or, if you do not define
 <I>Main</I>,
 
 you must define both
@@ -12875,14 +13077,14 @@ This command has been renamed.  Please see
 
 command.
 <P>
-<DT><B>DesktopName </B><I>desk</I><B>name</B>
+<DT><B>DesktopName </B><I>desk</I><B> name</B>
 
 <DD>
 Defines the name of the desktop number
 <I>desk</I>
 
 to
-<I>name .</I>
+<I>name</I>.
 
 This name is used in the
 <B>WindowList</B>
@@ -12923,7 +13125,7 @@ intended for people who use
 
 
 
-but find themselves accidentally flipping pages when they don't
+but find themselves accidentally flipping pages when they do not
 want to.
 <P>
 The second parameter tells how many pixels over the edge of the
@@ -12932,7 +13134,7 @@ partially off the screen.  By default the viewport is moved a full
 page in the requested direction, but if you used
 <B>EdgeScroll</B>
 
-and set any values other than zero they is used instead.
+and set any values other than zero they are used instead.
 <P>
 Note that, with
 
@@ -12968,17 +13170,17 @@ Set
 <I>xinerama-moving</I>
 
 to zero to ignore individual screen edges.  Note that the center of
-the window being moved determines the xinarema screen on which the
+the window being moved determines the xinerama screen on which the
 window should be kept.
 <P>
-<DT><B>EdgeScroll </B><I>horizontal</I><B>[</B><I>p</I><B>] </B><I>vertical</I><B>[</B><I>p</I><B>]</B>
+<DT><B>EdgeScroll </B><I>horizontal</I><B>[</B><I>p</I><B>] </B><I>vertical</I><B>[</B><I>p</I><B>] [</B><I>wrap</I><B>|</B><I>wrapx</I><B>|</B><I>wrapy</I><B>]</B>
 
 <DD>
 Specifies the percentage of a page to scroll when the cursor hits
 the edge of a page.  A trailing
 '<I>p</I>'
 
-changes the interpretation to mean pixels.  If you don't want any
+changes the interpretation to mean pixels.  If you do not want any
 paging or scrolling when you hit the edge of a page include
 
 
@@ -13018,8 +13220,11 @@ should be positive numbers.
 If the
 <I>horizontal</I> and <I>vertical</I>
 
-percentages are multiplied by 1000 then scrolling wraps around at
-the edge of the desktop.  If
+percentages are multiplied by 1000 or one of the keywords
+<I>wrap</I>, <I>wrapx</I> and <I>wrapy</I>
+
+is given then scrolling wraps around at the edge of the desktop.
+If
 
 
 <P>
@@ -13047,7 +13252,7 @@ window edge. Because of the way this works, they need to be at the
 top of the stack and eat mouse events, so if you have any kind of
 error along the lines of: &quot;mouse clicks at the edge of the screen
 do the wrong thing&quot; you're having trouble with the pan frames and
-(assuming you don't use the mouse to flip between pages) should
+(assuming you do not use the mouse to flip between pages) should
 set the EdgeThickness to 0.
 <P>
 A value of
@@ -13309,7 +13514,7 @@ values are expressed in percent of pages, so
 
 
 
-means to scroll down and left by one full page.
+means to scroll down and right by one full page.
 
 
 <P>
@@ -13320,7 +13525,7 @@ means to scroll down and left by one full page.
 
 
 
-means to scroll left half a page and down a quarter of a page.
+means to scroll right half a page and down a quarter of a page.
 The
 <B>Scroll</B>
 
@@ -13330,8 +13535,8 @@ scrolling stops at the edge of the desktop.
 If the
 <I>horizontal</I> and <I>vertical</I>
 
-percentages are multiplied by 1000 then scrolling wraps around at
-the edge of the desktop.  If
+percentages are 100 or more and are multiplied by 1000 then
+scrolling wraps around at the edge of the desktop.  If
 
 
 <P>
@@ -13359,7 +13564,7 @@ then the scroll amount is measured in pixels.
 <DD>
 Enables Xinerama support if the boolean argument is true and
 disables it if the argument is false.  Calling this command
-without arguments turns on Xinerama support it was disabled before
+without arguments turns on Xinerama support if it was disabled before
 and turns it off if it was enabled.  For example:
 
 
@@ -13416,7 +13621,7 @@ equal sized monitors in a rectangular grid.  The
 command turns SLS support on or off or toggles it to the opposite
 state, depending on if the boolean argument is &quot;True&quot;, &quot;False&quot; or
 &quot;toggle&quot;.  If no argument is given, this is treated like &quot;toggle&quot;.
-The default layout uses 1 by one screens.  To configure the
+The default layout uses one by one screens.  To configure the
 layout, use the
 <B>XineramaSlsSize</B> or <B>XineramaSlsScreens</B>
 
@@ -13430,7 +13635,7 @@ feature.  It takes two arguments,
 <I>Horizontal</I> and <I>Vertical</I>
 
 which must be an integer value dividing evenly into the total
-desktop width, and height height.  For an example with two
+desktop width, and height.  For an example with two
 monitors side by side which appear as one screen through the
 X-Server with the right screen as the primary screen, use:
 
@@ -13439,9 +13644,9 @@ X-Server with the right screen as the primary screen, use:
 
 
 <blockquote><PRE>XineramaSlsSize 2x1
-XineramaSlsOn
+XineramaSls On
 XineramaPrimaryScreen 1
-XineramaOn</PRE></blockquote>
+Xinerama On</PRE></blockquote>
 <P>
 
 
@@ -13460,11 +13665,11 @@ geometry format: &quot;&lt;width&gt;x&lt;height&gt;+&lt;x&gt;+&lt;y&gt;&quot; or
 list of numbers: &quot;x y width height&quot;. Both ways of describing
 screens can be mixed in a single command.  All four numbers must
 be supplied.  The
-<I>x</I>and<I>y</I>
+<I>x</I> and <I>y</I>
 
 values specify the origin of the screen in relation to the global
 screen's origin while
-<I>width</I>and<I>height</I>
+<I>width</I> and <I>height</I>
 
 specify the size of the screen in pixels.  No checks are done if
 the geometries make sense, so it is possible to define overlapping
@@ -13477,9 +13682,9 @@ all.
 
 <blockquote><PRE>XineramaSlsScreens 3 \
   512x768+0+0 512x300+512+0 512 300 512 468
-XineramaSlsOn
+XineramaSls On
 XineramaPrimaryScreen 1
-XineramaOn</PRE></blockquote>
+Xinerama On</PRE></blockquote>
 <P>
 
 
@@ -13508,7 +13713,7 @@ Begins or adds to a function definition.  Here is an example:
 
 
 
-The function name is &quot;Move-or-Raise&quot;, and could be invoked from a
+The function name is &quot;Move-or-Raise&quot;, and it could be invoked from a
 menu or a mouse binding or key binding:
 
 
@@ -13540,7 +13745,7 @@ stands for &quot;Motion&quot;, i.e. if the user starts moving the mouse.
 '<I>C</I>'
 
 stands for &quot;Click&quot;, i.e., if the user presses and releases the
-mouse.
+mouse button.
 '<I>H</I>'
 
 stands for &quot;Hold&quot;, i.e. if the user presses a mouse button and
@@ -13591,7 +13796,7 @@ and &quot;MailFunction&quot; is
 
 <blockquote><PRE>AddToFunc MailFunction
  + I Next ($0) Iconify off
- + I Next (AcceptsFocus, $0) focus
+ + I Next (AcceptsFocus, $0) Focus
  + I None ($0) Exec exec $0 $1</PRE></blockquote>
 <P>
 
@@ -13649,8 +13854,8 @@ iconify all windows of the same resource:
 
 
 <blockquote><PRE>AddToFunc FuncIconifySameResource &quot;I&quot; \
-  All ($r) Iconify on
-Mouse 3 6 A FuncIconifySameResource</PRE></blockquote>
+  All ($0) Iconify on
+Mouse 3 6 A FuncIconifySameResource $[w.resource]</PRE></blockquote>
 <P>
 
 
@@ -13980,7 +14185,7 @@ module.  For example:
 
 
 
-makes the FvwmM4-set variable
+makes the FvwmM4 set variable
 <I>HEIGHT</I>
 
 usable by processes started by fvwm as the environment variable
@@ -14045,7 +14250,7 @@ Examples:
 
 <blockquote><PRE>Silent Move 0 0
 Silent User_defined_function
-# don't complain on keyboards without &quot;Help&quot; key
+# do not complain on keyboards without &quot;Help&quot; key
 Silent Key Help R A Popup HelpMenu</PRE></blockquote>
 <P>
 
@@ -14078,7 +14283,7 @@ are trying to start windows on specific desktops:
 
 
 <blockquote><PRE>AddToFunc InitFunction
- + I exec xterm -geometry 80x64+0+0
+ + I Exec exec xterm -geometry 80x64+0+0
  + I Wait xterm
  + I Desk 0 2
  + I Exec exec xmh -font fixed -geometry \
@@ -14116,7 +14321,7 @@ command.
 <H3>CONDITIONAL COMMANDS</H3>
 
 <P>
-Conditional command are command that are only executed if certain
+Conditional commands are commands that are only executed if certain
 conditions are met.  Most conditional commands work on windows,
 like
 <B>Next</B>, <B>ThisWindow</B> or <B>All</B>.
@@ -14167,15 +14372,15 @@ Fvwm stores windows in a ring internally.  Think of the focused
 window as a cursor on the current position in the ring.  The
 <B>Next</B>
 
-command and many other command searche forwards through the ring
+command and many other commands search forwards through the ring
 for a matching window, and
 <B>Prev</B>
 
 searches backwards.  The windows in the ring are either ordered by
 creation time (if the
-<I>FPSortWindowlistByFocus</I>
+<I>!FPSortWindowlistByFocus</I>
 
-respecively
+respectively
 <I>NeverFocus</I> or <I>MouseFocus</I>
 
 styles are used) or by the last time they had the focus.
@@ -14185,14 +14390,28 @@ styles are used) or by the last time they had the focus.
 
 <P>
 <DL COMPACT>
-<DT><B>All [(</B><I>conditions</I><B>)] </B><I>command</I>
+<DT><B>All [</B><I>options</I><B>] [(</B><I>conditions</I><B>)] </B><I>command</I>
 
 <DD>
 Execute
 <I>command</I>
 
 on all windows meeting the conditions.  It returns 1 if any window
-matches the condition and 0 otherwise.
+matches the condition and 0 otherwise. The execution starts at the top of the
+window ring and continues towards the bottom. The
+<I>options</I>
+
+can be any combination of
+<I>Reverse</I> and <I>UseStack</I>.
+
+If the option
+<I>Reverse</I>
+
+is given the execution order is reversed. The option
+<I>UseStack</I>
+
+makes All use the stacking order instead of the window ring when walking
+through windows.
 See <B>Conditions</B> section below for a list of conditions.
 
 <P>
@@ -14226,7 +14445,7 @@ processed.  Normally, all nested invocations of complex functions
 are left.  An optional integer number
 <I>levels</I>
 
-may be given to break out of the given number of nested function
+may be given to break out of the given number of nested functions
 and continue execution of a higher level function.
 The
 <B>Break</B>
@@ -14540,7 +14759,7 @@ and are separated by commas or whitespace.  They include
 
 <I>I</I>.
 
-A test-condition prefixed with &quot;!&quot; is reverted.
+A test-condition prefixed with &quot;!&quot; is negated.
 <P>
 The
 <I>Version operator x.y.z</I>
@@ -14602,7 +14821,7 @@ command is bound to it or edge scroll is available in that
 direction. The direction may be one of
 <I> Any,</I> North,<I> Top,</I> Up,<I> West,</I> Left,<I> South,</I> Bottom,
 
-<I> Down,</I> Right<I>and</I> East<I>.</I>
+<I> Down,</I> Right<I> and </I> East<I>.</I>
 
 If no direction is specified
 <I>Any</I>
@@ -14652,7 +14871,7 @@ The
 
 <I>I file</I>
 
-test-conditions test for existance of the given [F]ile (possibly
+test-conditions test for existence of the given [F]ile (possibly
 with [R]ead/[W]rite permissions), e[X]ecutable (in $PATH),
 or the [I]mage (in ImagePath).
 <P>
@@ -14669,8 +14888,8 @@ AddToFunc VerifyVersion
 + I TestRc (NoMatch) Test (!Version 2.6.*) Echo Future version
 + I TestRc (NoMatch) Echo 2.6.x is detected
 
-Test (f $[FVWM_USERDIR]/local-config) Read local-config
-Test (x xterm-utf16) Exec exec xterm-utf16</PRE></blockquote>
+Test (F $[FVWM_USERDIR]/local-config) Read local-config
+Test (X xterm-utf16) Exec exec xterm-utf16</PRE></blockquote>
 <P>
 
 
@@ -15017,11 +15236,11 @@ The
 <I>CirculateHit</I> and <I>CirculateHitIcon</I>
 
 options override the
-<I>CirculateSkip</I>
+<I>CirculateSkip</I> and <I>CirculateSkipIcon</I>
 
 <B>Style</B>
 
-attribute for normal or iconic windows.  The
+attributes for normal or iconic windows.  The
 <I>CirculateHitShaded</I>
 
 option overrides the
@@ -15081,7 +15300,7 @@ The
 
 condition matches only windows that are on the current page of the
 current desk, regardless of whether Xinerama support is enabled or
-not.  This conditions implicitly activates the
+not.  This condition implicitly activates the
 <I>CurrentDesk</I>
 
 condition.
@@ -15105,9 +15324,9 @@ activates the
 condition.
 <P>
 The
-<I>CurrentPageAnyDesk</I> and <I>CurrentScrene</I>
+<I>CurrentPageAnyDesk</I> and <I>CurrentScreen</I>
 
-conditions matche only windows that are on the current page of any
+conditions matches only windows that are on the current page of any
 desk.  If Xinerama support is enabled, they only match windows
 that are at least partially on the Xinerama screen containing the
 mouse pointer.
@@ -15115,7 +15334,7 @@ mouse pointer.
 The
 <I>FixedPosition</I>
 
-condition excludes all windows that don't have a fixed position,
+condition excludes all windows that do not have a fixed position,
 either set through WM hints or the
 <B>Style</B>
 
@@ -15140,7 +15359,7 @@ AddToFunc   ToggleFixedGeometry
 The
 <I>FixedSize</I>
 
-condition excludes all windows that don't have a fixed size,
+condition excludes all windows that do not have a fixed size,
 either set through WM hints or the
 <B>Style</B>
 
@@ -15151,7 +15370,7 @@ option
 The
 <I>Focused</I>
 
-matches on the the window that currently has the keyboard focus.
+matches on the window that currently has the keyboard focus.
 This is not useful for the
 <B>Current</B>
 
@@ -15160,7 +15379,7 @@ command but can be used with the other conditional commands.
 The
 <I>HasHandles</I>
 
-condition excludes all windoows that don't have resize handles.
+condition excludes all windows that do not have resize handles.
 <P>
 The
 <I>HasPointer</I>
@@ -15312,7 +15531,7 @@ transient.
 The
 <I>Visible</I>
 
-conditions matches only windows that are at least partially
+condition matches only windows that are at least partially
 visible on the current viewport and not completely overlapped by
 other windows.
 <P>
@@ -15463,9 +15682,6 @@ At the current time the available modules (included with fvwm) are
 
 (produces animation effects when a window is iconified or
 de-iconified),
-<B>FvwmAudio</B>
-
-(makes sounds to go with window manager actions),
 <B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>
 
 (an auto raise module),
@@ -15523,6 +15739,15 @@ with m4),
 <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 
 (a mini version of the desktop),
+<B><a href="<?php echo conv_link_target('./FvwmPerl.php');?>">FvwmPerl</a></B>
+
+(a Perl manipulator and preprocessor),
+<B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B>
+
+(to locate and control obscured windows by using small proxy windows),
+<B><a href="<?php echo conv_link_target('./FvwmRearrange.php');?>">FvwmRearrange</a></B>
+
+(to rearrange windows),
 <B><a href="<?php echo conv_link_target('./FvwmSave.php');?>">FvwmSave</a></B>
 
 (saves the desktop state in .xinitrc style),
@@ -15535,18 +15760,24 @@ with m4),
 <B><a href="<?php echo conv_link_target('./FvwmScroll.php');?>">FvwmScroll</a></B>
 
 (puts scrollbars on any window),
+<B><a href="<?php echo conv_link_target('./FvwmTabs.php');?>">FvwmTabs</a></B>
+
+(a generic tabbing module),
 <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
 
 (a Windows like task bar),
 <B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>
 
 (managed colorsets, obsolete),
-<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
-
-(a window list),
 <B><a href="<?php echo conv_link_target('./FvwmWharf.php');?>">FvwmWharf</a></B>
 
-(an AfterStep like button bar).  These modules have their own man
+(an AfterStep like button bar),
+<B><a href="<?php echo conv_link_target('./FvwmWindowMenu.php');?>">FvwmWindowMenu</a></B>
+
+(a configurable fvwm menu listing current windows),
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
+
+(a window list).  These modules have their own man
 pages.  There may be other modules out on there as well.
 <P>
 <P>
@@ -15562,6 +15793,21 @@ may be omitted if
 <I>modulename</I>
 
 is distinct from all fvwm commands.
+<P>
+<DT><B>ModuleListenOnly </B><I>modulename</I><B> [</B><I>moduleparams</I><B>]</B>
+
+<DD>
+This command works like the
+<B>Module</B>
+
+command, but fvwm never sends any messages to the module. This may
+be handy to write a module as a shell script that is triggered by
+external events without the burden to answer packets sent by
+fvwm. For example, a module written as a shell script may change
+labels of the
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+
+module to implement a simple clock.
 <P>
 <DT><B>ModulePath </B><I>path</I>
 
@@ -15610,7 +15856,7 @@ The
 <B>ModuleSynchronous</B>
 
 command is very similar to
-<B>Module</B><I>.</I>
+<B>Module</B>.
 
 Fvwm stops processing any commands and user input until the module
 sends a string beginning with &quot;NOP FINISHED STARTUP&quot; back to fvwm.
@@ -15718,10 +15964,11 @@ can have optional parameters with simple shell-like syntax.  You
 can use
 <I>~</I>
 
-(is expanded to the user home directory) and environmental
+(is expanded to the user's home directory) and environmental
 variables
-<I>$VAR</I> or <I>${VAR}</I>.<I>Here</I>are<I>several</I>examples:
+<I>$VAR</I> or <I>${VAR}</I>.
 
+Here are several examples:
 
 
 <P>
@@ -15982,14 +16229,14 @@ reset to the default value if the color name is omitted.
 <P>
 <I>hi</I>, <I>Hilite</I> and <I>Hilight</I>
 
-take a color name as as argument and set the highlight color.  If
+take a color name as an argument and set the highlight color.  If
 the highlight color is not explicitly set, the default is to
 calculate it from the background color.  To switch back to the
 default behavior the color name can be omitted.
 <P>
-<I>sh ,  Shade  and  Shadow</I>
+<I>sh</I>, <I>Shade</I> and <I>Shadow</I>
 
-take a color name as as argument and set the shadow color.  If the
+take a color name as an argument and set the shadow color.  If the
 shadow color is not explicitly set, the default is to calculate it
 from the background color.  To switch back to the default behavior
 the color name can be omitted.
@@ -16079,9 +16326,9 @@ is defined.  For example:
 <P>
 
 
-<blockquote><PRE>Colorset 12 VGradient 200 grey30 gery60
+<blockquote><PRE>Colorset 12 VGradient 200 grey30 grey60
 Colorset 17 Transparent
-*FvwmIconMan: Colorset 10
+*FvwmIconMan: Colorset 12
 *FvwmIconMan: PlainColorset 17</PRE></blockquote>
 <P>
 
@@ -16484,8 +16731,8 @@ done</PRE></blockquote>
 
 Makes colorset 7 blink.
 <P>
-The color names used in colorsets are saved as fvwm variables can
-be substituted in any fvwm command. For example:
+The color names used in colorsets are saved as fvwm variables which
+can be substituted in any fvwm command. For example:
 
 
 <P>
@@ -16605,12 +16852,12 @@ Examples:
 # 20% gradient from red to blue,
 # 30% from blue to black,
 # 50% from black to grey
-MenuStyle * DGradient 100 3 Red 20 Blue 30 \
+MenuStyle * MenuFace DGradient 100 3 Red 20 Blue 30 \
   Black 50 Grey
 
 # 50% from blue to green, then
 # 50% from yellow to red
-Colorset 0 Blue Red HGradient \
+Colorset 0 HGradient \
   128 3 Blue 1000 Green 1 Yellow 1000 Red</PRE></blockquote>
 <P>
 
@@ -16698,7 +16945,7 @@ bugs. If we follow this to its logical conclusion we will have an
 infinite number of unidentified bugs before the number of bugs can
 start to diminish, at which point the program will be bug-free.
 Since this is a computer program infinity = 3.4028e+38 if you
-don't insist on double-precision.  At the current rate of bug
+do not insist on double-precision.  At the current rate of bug
 discovery we should expect to achieve this point in 4.27e+27
 years.  I guess we better plan on passing this thing on to our
 children...
@@ -16790,9 +17037,9 @@ The official fvwm homepage is
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 20:43:06 GMT, January 14, 2006
+Time: 03:30:48 GMT, July 21, 2006
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 14-Jan-2006 -->
+<!-- Automatically generated by manpages2php on 21-Jul-2006 -->
