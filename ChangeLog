@@ -1,3 +1,13 @@
+2006-09-11  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated for 2.5.18
+
+	* definitions.inc:
+	updated for 2.5.18
+
 2006-07-19  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* donations.php:
