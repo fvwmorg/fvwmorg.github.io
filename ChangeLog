@@ -1,3 +1,8 @@
+2006-11-26  Dan Espen  <dane@mk.telcordia.com>
+
+	* contact/index.php: Change search to search the www.mail-archive.
+	Separate fvwm and fvwm-workers searches.
+
 2006-09-11  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* authors/index.php:

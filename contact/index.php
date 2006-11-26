@@ -111,11 +111,20 @@ decoration_window_start("Mailing lists");
   </p>
 
   <p>
-  <form method="GET" action="http://www.google.com/search">
-  <b>Search the mail archive with Google: </b>
+  <form method="GET" action="http://www.mail-archive.com/search">
+  <b>Search the fvwm mail archive: </b>
     <input type="text" value="" name="q" size="30">
     <input type="hidden" name="num" value="100">
-    <input type="hidden" name="as_q" value="site:www.hpc.uh.edu inurl:/fvwm/archive inurl:html -inurl:index -inurl:threads">
+    <input type="hidden" name="l" value="fvwm@lists.math.uh.edu">
+    <input type="submit" name="btnG" value="Search Archives">
+  </form>
+
+  <p>
+  <form method="GET" action="http://www.mail-archive.com/search">
+  <b>Search the fvwm workers mail archive: </b>
+    <input type="text" value="" name="q" size="30">
+    <input type="hidden" name="num" value="100">
+    <input type="hidden" name="l" value="fvwm-workers@lists.math.uh.edu">
     <input type="submit" name="btnG" value="Search Archives">
   </form>
 
