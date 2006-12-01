@@ -142,9 +142,6 @@ if(!isset($site_has_been_loaded)) {
         Enables integration with KDE2, GTK+2 and the future GNOME2 (this support has
         been integrated by the author into the FVWM 2.6 core)</li>
 
-      <li><a href="http://users.tpg.com.au/users/scottie7/fvwmtabs.html">FvwmTabs Module</a> - 
-        SCoTT SMeDLeY's FvwmTabs module.</li>
-
       <li><a href="http://www.blackie.dk/dotfile/">The Dotfile Generator Home Page</a> - 
       A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files (pretty old)</li>
 
