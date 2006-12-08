@@ -481,16 +481,16 @@ void SendText(int *fd, char *message, unsigned long window)
     can be used instead of the function name SendText.</p>
 
   <h2>Module information requests <a href="#top">[top]</a></h2> 
-  <p>There are special built-in functions, Send_WindowList and
-    Send_ConfigInfo. Send_WindowList causes fvwm to transmit everything
-    that it is currently thinking about to the module which requests
-    the information. This information contains the paging status
-    (enabled/disabled), current desktop number, position on the
-    desktop, current focus and, for each window, the window
-    configuration, window, icon, and class names, and, if the window is
-    iconified, the icon location and size. For example, some modules
-    during start up want to know the state of all current windows. The
-    would ask fvwm for this information like this:</p>
+    <p>There are special built-in functions, Send_WindowList,
+    Send_ConfigInfo and Send_Reply. Send_WindowList causes fvwm to
+    transmit everything that it is currently thinking about to the
+    module which requests the information. This information contains
+    the paging status (enabled/disabled), current desktop number,
+    position on the desktop, current focus and, for each window, the
+    window configuration, window, icon, and class names, and, if the
+    window is iconified, the icon location and size. For example, some
+    modules during start up want to know the state of all current windows.
+    The would ask fvwm for this information like this:</p>
 
 <pre class="doc">
 SendText(Channel,"Send_WindowList",0);
@@ -529,6 +529,11 @@ static void ParseOptions()
     module. Remember that the module still has to name match if it
     wants to find its own configuration lines since other kinds of
     commands are sent along with module configuration lines.</p>
+
+  <p>Send_Reply causes fvwm to send back a string to the sending
+    module. This may be used to accnowledge that fvwm has reached
+    a certain point in the message queue, or to get some information
+    from fvwm variable expansion.</p>
 
   <h2>Controlling information sent to modules <a href="#top">[top]</a></h2> 
   <p>Fvwm lets each module control exactly what information is passed to
@@ -655,6 +660,7 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 #define <a href="#MX_ENTER_WINDOW">MX_ENTER_WINDOW</a>        (1 &lt;&lt; 1 + M_EXTENDED_MSG)
 #define <a href="#MX_LEAVE_WINDOW">MX_LEAVE_WINDOW</a>        (1 &lt;&lt; 2 + M_EXTENDED_MSG)
 #define <a href="#MX_PROPERTY_CHANGE">MX_PROPERTY_CHANGE</a>     (1 &lt;&lt; 3 + M_EXTENDED_MSG)
+#define <a href="#MX_REPLY">MX_REPLY</a>               (1 &lt;&lt; 4 + M_EXTENDED_MSG)
 </pre>
 
   <h4 class="doctt"><a name="M_NEW_PAGE"></a>M_NEW_PAGE <a href="#top">[top]</a></h4> 
@@ -670,20 +676,25 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
     whenever the desktop number is changed.</p>
 
   <h4 class="doctt"><a name="M_ADD_WINDOW"></a><a name="M_CONFIGURE_WINDOW"></a>M_ADD_WINDOW, and M_CONFIGURE_WINDOW <a href="#top">[top]</a></h4> 
-  <p>These packets contain 25 values.
+  <p>These packets contain 25 long values, 2 short values and 2 structures.
     The first value is the ID of the affected application's top level window,
     the next is the ID of the fvwm frame window, and the final value is the
     pointer to fvwm's internal database entry for that window. The
     pointer itself is of no use to a module, it is there for backward
     compatibilty with older modules.
-    The next 22 identify the location and size, as described in the table below.
+    The next 24 identify the location and size, as described in the table below.
     Configure packets will be generated when the viewport on the current desktop
-    changes, or when the size or location of the window is changed. The flags
-    field is an bitwise OR of the flags defined in fvwm.h.</p>
+    changes, or when the size or location of the window is changed. The style flags
+    field a structure, window_flags, defined in fvwm.h with access macros
+    defined in window_flags.h. Not all flag changes trigger
+    <a href="#M_CONFIGURE_WINDOW">M_CONFIGURE_WINDOW</a> message, which
+    mean that they might be outdated. The action flags is a structure,
+    action_flags, define in fvwm.h which controls what actions are possible
+    to perform on the window from the module.</p>
 
   <p>Important note:  The individual fields of the packet must not be
     accessed directly with the 'body' member of the packet structure.
-    THe size of these fields may change in the future and has changed
+    The size of these fields may change in the future and has changed
     in the past, thus breaking any module relying on the exact
     position of the value in the packet.  Instead, use the structures
     defined in libs/vpacket.h.</p>
@@ -718,52 +729,70 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       <td>Layer number</td></tr>
     <tr>
       <td align="right">9</td>
-      <td>Window Title Height</td></tr>
-    <tr>
-      <td>10</td>
-      <td>Window Border Width</td></tr>
-    <tr>
-      <td>11</td>
       <td>Window Base Width</td></tr>
     <tr>
-      <td>12</td>
+      <td>10</td>
       <td>Window Base Height</td></tr>
     <tr>
-      <td>13</td>
+      <td>11</td>
       <td>Window Resize Width Increment</td></tr>
     <tr>
-      <td>14</td>
+      <td>12</td>
       <td>Window Resize Height Increment</td></tr>
     <tr>
-      <td>15</td>
+      <td>13</td>
       <td>Window Minimum Width</td></tr>
     <tr>
-      <td>16</td>
+      <td>14</td>
       <td>Window Minimum Height</td></tr>
     <tr>
-      <td>17</td>
+      <td>15</td>
       <td>Window Maximum Width</td></tr>
     <tr>
-      <td>18</td>
+      <td>16</td>
       <td>Window Maximum Height</td></tr>
     <tr>
-      <td>19</td>
+      <td>17</td>
       <td>Icon Label Window ID, or 0</td></tr>
     <tr>
-      <td>20</td>
+      <td>18</td>
       <td>Icon Pixmap Window ID, or 0</td></tr>
     <tr>
-      <td>21</td>
+      <td>19</td>
       <td>Window Gravity</td></tr>
     <tr>
-      <td>22</td>
+      <td>20</td>
       <td>Pixel value of the text color</td></tr>
     <tr>
-      <td>23</td>
+      <td>21</td>
       <td>Pixel value of the window border color</td></tr>
     <tr>
+      <td>22</td>
+      <td>EWMH layer</td></tr>
+    <tr>
+      <td>23</td>
+      <td>EWMH desktop</td></tr>
+    <tr>
       <td>24</td>
+      <td>EWMH window type</td></tr>
+    <tr>
+      <td>25</td>
+      <td>Window Title Height</td></tr>
+    <tr>
+      <td></td>
+      <td>Window Border Width</td></tr>
+    <tr>
+      <td></td>
+      <td><i>padding</i></td></tr>
+    <tr>
+      <td></td>
+      <td><i>padding</i></td></tr>
+    <tr>
+      <td></td>
       <td>Style flags</td></tr>
+    <tr>
+      <td></td>
+      <td>Action flags</td></tr>
   </table>
 
   <h4 class="doctt"><a name="M_LOWER_WINDOW"></a><a name="M_RAISE_WINDOW"></a><a name="M_DESTROY_WINDOW"></a>M_LOWER_WINDOW, M_RAISE_WINDOW, and M_DESTROY_WINDOW <a href="#top">[top]</a></h4> 
@@ -1041,5 +1070,10 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
 
     <p><b>PropertyChange</b> 1st_value 2nd_value 3rd_value
       "string"</p>
+
+    <h4 class="doctt"><a name="MX_REPLY"></a> MX_REPLY <a href="#top">[top]</a></h4> 
+    <p>This packet is sent when a "Send_Reply" command is processed. It
+      contains the usual 3 window identifiers (of the current window)
+      plus the actual string.</p>
 
 <?php decoration_window_end(); ?>
