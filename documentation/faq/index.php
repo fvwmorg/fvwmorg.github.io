@@ -1867,12 +1867,12 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
 
 A: If you plan to write a patch, <u>please</u>, first of all fetch the
    latest development release from our web site or better yet use CVS
-   as described in <a href="http://www.fvwm.org/cvs.html.">http://www.fvwm.org/cvs.html.</a>  It is also a good
-   idea to contact the fvwm-workers list.  At times, patches for
-   older releases may prove completely worthless, e.g. because the
-   fix has already been integrated, a feature already added or
-   removed or simply because the code is very different to the code
-   you patches.  You will do yourself and us a great favor.
+   as described in <a href="http://fvwm.org/documentation/dev_cvs.php.">http://fvwm.org/documentation/dev_cvs.php.</a>  It is
+   also a good idea to contact the fvwm-workers list.  At times,
+   patches for older releases may prove completely worthless, e.g.
+   because the fix has already been integrated, a feature already
+   added or removed or simply because the code is very different to
+   the code you patches.  You will do yourself and us a great favor.
    Otherwise all your hard work may be wasted.
 
    People are always requesting or suggesting new features (many of
@@ -2284,10 +2284,11 @@ A: This problem might occur on other applications besides the one
    window managers:
 
         <a href="http://www.mainsoft.com/kb_mainwin/kbmw0027.html">http://www.mainsoft.com/kb_mainwin/kbmw0027.html</a>
-        <a href="http://www.mainsoft.com/kb_mainwin/kbmw0034.html">http://www.mainsoft.com/kb_mainwin/kbmw0034.html</a>
+        <a href="http://dev.mainsoft.com/Default.aspx?tabid=58">http://dev.mainsoft.com/Default.aspx?tabid=58</a> [KBMW0034]
 
    These pages suggest that you export MWWM=allwm or MWWM=MWM before
-   starting the application.
+   starting the application. The first page is missing, but can be
+   found using <a href="http://web.archive.org.">http://web.archive.org.</a>
 
    Raymond reports:
 
