@@ -746,6 +746,12 @@ SetSyncMask(Channel,M_ICONIFY|M_DEICONIFY|M_STRING);
       <td>14</td>
       <td>Window Minimum Height</td></tr>
     <tr>
+      <td>13</td>
+      <td>Original Window Resize Width Increment (before fvwm messed with it)</td></tr>
+    <tr>
+      <td>14</td>
+      <td>Original Window Resize Height Increment (before fvwm messed with it)</td></tr>
+    <tr>
       <td>15</td>
       <td>Window Maximum Width</td></tr>
     <tr>
