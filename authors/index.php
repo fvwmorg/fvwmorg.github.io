@@ -44,6 +44,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Thomas Adam</h4>
+<p class="author">
+Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle.
+</p>
+
 <h4 class="author">Serge (gentoosiast) Koksharov</h4>
 <p class="author">
 Documentation fixes, bug fixes.
@@ -81,7 +86,7 @@ FixedPosition condition.
 
 <h4 class="author">Viktor Griph</h4>
 <p class="author">
-Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions. Nested variable expansion. MouseWheel and ScrollOffPage menu style options. Simple placement mouse bindings and PlacedByButton window condition. Use of fvwmstyle resource. Warnings for unconsumed arguments to style options. Bug fixes. 
+Patch for Perl modules on 64 bit machines. EdgeHasPointer and EdgeIsActive test conditions. Nested variable expansion. MouseWheel and ScrollOffPage menu style options. Simple placement mouse bindings and PlacedByButton window condition. Use of fvwmstyle resource. Warnings for unconsumed arguments to style options. Bug fixes. Advance Menu context bindings.
 </p>
 
 <h4 class="author">Bjoern Steinbrink</h4>

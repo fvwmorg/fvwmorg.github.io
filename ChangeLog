@@ -1,3 +1,58 @@
+2007-01-15  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
+
+	* definitions.inc:
+	updated for 2.5.20 release
+	* news/index.php:
+	* authors/index.php:
+	* unstable/FvwmAnimate.php:
+	* unstable/FvwmAuto.php:
+	* unstable/FvwmBacker.php:
+	* unstable/FvwmBanner.php:
+	* unstable/FvwmButtons.php:
+	* unstable/FvwmCommand.php:
+	* unstable/FvwmConsole.php:
+	* unstable/FvwmConsoleC.pl.php:
+	* unstable/FvwmCpp.php:
+	* unstable/FvwmDebug.php:
+	* unstable/FvwmDragWell.php:
+	* unstable/FvwmEvent.php:
+	* unstable/FvwmForm.php:
+	* unstable/FvwmGtk.php:
+	* unstable/FvwmGtkDebug.php:
+	* unstable/FvwmIconBox.php:
+	* unstable/FvwmIconMan.php:
+	* unstable/FvwmIdent.php:
+	* unstable/FvwmM4.php:
+	* unstable/FvwmPager.php:
+	* unstable/FvwmPerl.php:
+	* unstable/FvwmProxy.php:
+	* unstable/FvwmRearrange.php:
+	* unstable/FvwmSave.php:
+	* unstable/FvwmSaveDesk.php:
+	* unstable/FvwmScript.php:
+	* unstable/FvwmScroll.php:
+	* unstable/FvwmTabs.php:
+	* unstable/FvwmTaskBar.php:
+	* unstable/FvwmTheme.php:
+	* unstable/FvwmWharf.php:
+	* unstable/FvwmWinList.php:
+	* unstable/FvwmWindowMenu.php:
+	* unstable/focus-link.php:
+	* unstable/fvwm-bug.php:
+	* unstable/fvwm-config.php:
+	* unstable/fvwm-convert-2.2.php:
+	* unstable/fvwm-convert-2.4.php:
+	* unstable/fvwm-convert-2.6.php:
+	* unstable/fvwm-menu-desktop.php:
+	* unstable/fvwm-menu-directory.php:
+	* unstable/fvwm-menu-headlines.php:
+	* unstable/fvwm-menu-xlock.php:
+	* unstable/fvwm-perllib.php:
+	* unstable/fvwm-root.php:
+	* unstable/fvwm.php:
+	* unstable/index.php:
+	regenerated
+
 2007-01-14  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* documentation/dev_modules.php:

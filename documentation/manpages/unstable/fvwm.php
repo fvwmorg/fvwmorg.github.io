@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.17)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.20)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.17 (1)<BR>Updated: 19 July 2006<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.20 (1)<BR>Updated: 15 January 2006<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -2279,7 +2279,7 @@ to a string indicated by the parameter name.  Unknown parameters
 are left untouched.  Parameter expansion is performed before
 quoting.  To get a literal '$' use &quot;$$&quot;.
 <P>
-The longer variables may contain additional variables inside the 
+The longer variables may contain additional variables inside the
 name, which are expanded before the outer variable.
 <P>
 In earlier versions of fvwm, some single letter variables were
@@ -2898,8 +2898,8 @@ section for details.
 Moving the pointer over a menu selects the item below it.
 Normally this is indicated by a 3d border around the item, but not
 all parts of a menu can be selected.  Pressing any mouse button
-while a menu is open activates the item below it.  Items of a
-popup menu are also activated by releasing a held mouse button.
+while a menu is open by default activates the item below it.  Items
+of a popup menu are also activated by releasing a held mouse button.
 In case of an item that hides a sub menu, the sub menu is
 displayed if the pointer hovers over the item long enough or moves
 close to the triangle indicating the sub menu.  This behaviour can
@@ -2954,7 +2954,7 @@ The most basic keys to navigate through menus are the cursor keys
 (activate item) and
 <FONT>Escape</FONT>
 (close menu).  Numerous other keys can be used to navigate through
-menus:
+menus by default:
 <P>
 <FONT><I>Enter</I>,</FONT>
 <FONT><I>Return</I>,</FONT>
@@ -3002,25 +3002,29 @@ move up five items.
 <FONT><I>Ctrl-Cursor-Down</I>,</FONT>
 <FONT><I>Ctrl-J</I></FONT>
 <FONT><I>Ctrl-N</I>,</FONT>
-<FONT><I>Ctrl-Meta-Tab,P,</I></FONT><I>
-</I><FONT><I>Page-Down</I></FONT>
+<FONT><I>Ctrl-Meta-Tab</I>,</FONT>
+<FONT><I>Page-Down</I></FONT>
 move down five items.
 <P>
+<FONT><I>Shift-P</I>,</FONT>
 <FONT><I>Home</I>,</FONT>
 <FONT><I>Shift-Cursor-Up</I>,</FONT>
 <FONT><I>Ctrl-A</I></FONT>
 move to the first item.
 <P>
+<FONT><I>Shift-N</I>,</FONT>
 <FONT><I>End</I>,</FONT>
 <FONT><I>Shift-Cursor-Down</I>,</FONT>
 <FONT><I>Ctrl-E</I></FONT>
 move to the last item.
 <P>
+<FONT><I>Meta-P</I>,</FONT>
 <FONT><I>Meta-Cursor-Up</I>,</FONT>
 <FONT><I>Ctrl-Cursor-Left</I>,</FONT>
 <FONT><I>Shift-Ctrl-Tab</I></FONT>
 move up just below the next separator.
 <P>
+<FONT><I>Meta-N</I>,</FONT>
 <FONT><I>Meta-Cursor-Down</I>,</FONT>
 <FONT><I>Ctrl-Cursor-Right</I>,</FONT>
 <FONT><I>Ctrl-Tab</I></FONT>
@@ -3031,6 +3035,97 @@ opens the &quot;More...&quot; sub menu if any.
 <P>
 <FONT><I>Backspace</I></FONT>
 tears off the menu.
+<P>
+<DT><B>Menu Bindings</B>
+
+<DD>
+The keys and mouse buttons used to navigate the menu can be configured
+using the
+<B>Key</B> and <B>Mouse</B>
+
+commands with the special context 'M', possible combined with 'T' for
+the menu title, 'I' for other menu items, 'S' for any border or
+sidepic, '[' for left border including a left sidepic, ']' for right
+border including a right sidepic, '-' for top border, '_' for bottom
+border.  The menu context uses its own set of actions that can be bound
+to keys and mouse buttons.  These are
+<I>MenuClose</I>, <I>MenuEnterContinuation</I>, <I>MenuEnterSubmenu</I>, 
+
+<I>MenuLeaveSubmenu</I>, <I>MenuMoveCursor</I>, <I>MenuCursorLeft</I>, 
+
+<I>MenuCursorRight</I>, <I>MenuSelectItem</I>, <I>MenuScroll</I> and 
+
+<I>MenuTearOff</I>.
+
+<P>
+It is not possible to override the key Escape with no modifiers for
+closing the menu. Neither is it possible to undefine mouse button 1,
+the arrow keys or the enter key for minimal navigation.
+<P>
+<B>MenuClose</B>
+
+exits from the current sequence of menus or destroys a tear off menu.
+<P>
+<B>MenuEnterContinuation</B>
+
+opens the &quot;More...&quot; sub menu if any.
+<P>
+<B>MenuEnterSubmenu</B>
+
+enters a sub menu.
+<P>
+<B>MenuLeaveSubmenu</B>
+
+returns to the prior menu.
+<P>
+<B>MenuMoveCursor</B>
+
+<I>n</I><B> [</B><I>m</I><B>]</B>
+
+moves the selection to another item.  If the first argument is zero
+the second argument specifies an absolute item in the menu to move
+the pointer to. Negative items are counted from the end of the menu.
+If the first argument is non-zero, the second argument must be omitted,
+and the first argument specifies a relative change in the selected item.
+The positions may be suffixed with a 's' to indicate that the items should
+refer only to the first items after separators.
+<P>
+<B>MenuCursorLeft</B>
+
+enters a sub menu with the
+<I>SubmenusLeft</I>
+
+menu style, and returns to the prior menu with the
+<I>SubmenusRight</I> menu style.
+
+<P>
+<B>MenuCursorRight</B>
+
+enters a sub menu with the
+<I>SubmenusRight</I>
+
+menu style, and returns to the prior menu with the
+<I>SubmenusLeft</I> menu style.
+
+<P>
+<B>MenuSelectItem</B>
+
+triggers the action for the menu item.
+<P>
+<B>MenuScroll </B><I>n</I>
+
+performs menu scrolling according to the
+<I>MouseWheel</I> menu style with <I>n</I> items.  The distance can be
+
+suffixed with an 's' to indicate the items should refer only to the
+first items after separators.
+<P>
+<B>MenuTearOff</B>
+
+turns a normal menu into a &quot;torn off&quot; menu. See
+<B>Tear Off Menus</B>
+
+for details.
 <P>
 <DT><B>Tear Off Menus</B>
 
@@ -3047,20 +3142,41 @@ other item by assigning them the command
 <B>TearMenuOff</B>.
 
 <P>
-The action taken with the backspace key cannot be overridden
-but the action of mouse button 2 on the title can.
-To remove the builtin mouse button 2 binding, use:
+The builtin tear off actions can be overridden by undefining the
+builtin menu actions bound to tear off. To remove the builtin mouse
+button 2 binding, use:
 <P>
-Mouse 2 M N -
+
+
 <P>
-(&quot;M&quot; is for &quot;Menu&quot; context)
+
+
+<blockquote><PRE>Mouse 2 MT A -</PRE></blockquote>
 <P>
-To assign some other button for tearoff, use:
+
+
+
 <P>
-Mouse 1 M N TearOff
+and to remove the builtin backspace binding, use:
 <P>
-Note that the Modifier, must be &quot;N&quot; (none) and that the
-notation &quot;Mouse 0&quot; (for any mouse button cannot be used.)
+
+
+<P>
+
+
+<blockquote><PRE>Key Backspace M A -</PRE></blockquote>
+<P>
+
+
+
+<P>
+See the section
+<B>Menu Bindings</B>
+
+for details on how to assign other bindings for tear off.
+<P>
+Note that prior to fvwm 2.5.20 the tear off mouse bindings were
+redefined in different way, which no longer work.
 <P>
 The window containing the menu is placed as any other window would
 be.  If you find it confusing to have your tear off menus appear
@@ -3848,22 +3964,22 @@ BorderWidth,
 Foreground,
 Background,
 Greyed,
-HilightBack / HilightBackOff,
+HilightBack / !HilightBack,
 HilightTitleBack,
-ActiveFore / ActiveForeOff,
+ActiveFore / !ActiveFore,
 MenuColorset,
 ActiveColorset,
 GreyedColorset,
 TitleColorset,
 Hilight3DThick / Hilight3DThin / Hilight3DOff,
 Hilight3DThickness,
-Animation / AnimationOff,
+Animation / !Animation,
 Font,
 TitleFont,
 MenuFace,
 PopupDelay,
 PopupOffset,
-TitleWarp / TitleWarpOff,
+TitleWarp / !TitleWarp,
 TitleUnderlines0 / TitleUnderlines1 / TitleUnderlines2,
 SeparatorsLong / SeparatorsShort,
 TrianglesSolid / TrianglesRelief,
@@ -3880,7 +3996,7 @@ SelectOnRelease,
 ItemFormat,
 VerticalItemSpacing,
 VerticalTitleSpacing,
-AutomaticHotkeys / AutomaticHotkeysOff,
+AutomaticHotkeys / !AutomaticHotkeys,
 MouseWheel,
 ScrollOffPage / !ScrollOffPage,
 TrianglesUseFore / !TrianglesUseFore.
@@ -3889,6 +4005,14 @@ In the above list some options are listed as option pairs or
 triples with a '/' in between.  These options exclude each other.
 All paired options can be negated to have the effect of the
 counterpart option by prefixing ! to the option.
+<P>
+Some options are now negated by prefixing ! to the option. This
+will soon be the preferred form for all such options. The other
+negative forms are now deprecated and will be removed in the future.
+<P>
+This is a list of MenuStyle deprecated negative options:
+ActiveForeOff, AnimationOff, AutomaticHotkeysOff, HilightBackOff,
+TitleWarpOff
 <P>
 <I>Fvwm</I>, <I>Mwm</I>, <I>Win</I>
 
@@ -3921,34 +4045,33 @@ style menus never overlap the parent menu.
 <P>
 <I>Fvwm</I>
 
-style is equivalent to HilightBackOff, Hilight3DThin,
-ActiveForeOff, ActiveBackOff,
-AnimationOff, Font, MenuFace, PopupOffset 0 67,
+style is equivalent to !HilightBack, Hilight3DThin,
+!ActiveFore,
+!Animation, Font, MenuFace, PopupOffset 0 67,
 TitleWarp, TitleUnderlines1, SeparatorsShort, TrianglesRelief,
 PopupDelayed, PopdownDelayed, PopupDelay 150, PopdownDelay 150,
 PopupAsSubmenu, HoldSubmenus,
-SubmenusRight, BorderWidth 2, AutomaticHotkeysOff,
+SubmenusRight, BorderWidth 2, !AutomaticHotkeys,
 PopupActiveArea 75.
 <P>
 <I>Mwm</I>
 
-style is equivalent to HilightBackOff, Hilight3DThick,
-ActiveForeOff, ActiveBackOff,
-AnimationOff, Font, MenuFace, PopupOffset -3 100,
-TitleWarpOff, TitleUnderlines2, SeparatorsLong, TrianglesRelief,
+style is equivalent to !HilightBack, Hilight3DThick,
+!ActiveFore,
+!Animation, Font, MenuFace, PopupOffset -3 100,
+!TitleWarp, TitleUnderlines2, SeparatorsLong, TrianglesRelief,
 PopupImmediately, PopdownDelayed, PopdownDelay 150,
 PopupAsSubmenu, HoldSubmenus, SubmenusRight, BorderWidth 2,
-AutomaticHotkeysOff, PopupActiveArea 75.
+!AutomaticHotkeys, PopupActiveArea 75.
 <P>
 <I>Win</I>
 
 style is equivalent to HilightBack, Hilight3DOff, ActiveFore,
-ActiveBack,
-AnimationOff, Font, MenuFace, PopupOffset -5 100, TitleWarpOff,
+!Animation, Font, MenuFace, PopupOffset -5 100, !TitleWarp,
 TitleUnderlines1, SeparatorsShort, TrianglesSolid,
 PopupImmediately, PopdownDelayed, PopdownDelay 150,
 PopupAsSubmenu, RemoveSubmenus, SubmenusRight, BorderWidth 2,
-AutomaticHotkeysOff, PopupActiveArea 75.
+!AutomaticHotkeys, PopupActiveArea 75.
 <P>
 <I>BorderWidth</I>
 
@@ -3970,7 +4093,7 @@ by the Mwm hints which an application has specified. If the color
 is omitted the color of greyed menu entries is based on the
 background color of the menu.
 <P>
-<I>HilightBack</I> and <I>HilightBackOff</I>
+<I>HilightBack</I> and <I>!HilightBack</I>
 
 switch hilighting the background of the selected menu item on and
 off.  A specific background color may be used by providing the
@@ -3981,7 +4104,8 @@ If you use this option without an argument the color is based on
 the menu's background color.  The
 <I>ActiveColorset</I>
 
-option overrides the specified color.
+option overrides the specified color.  If the colorset has a
+non solid background it is used for the hilighting.
 <P>
 <I>HilightTitleBack</I>
 
@@ -3989,9 +4113,10 @@ switches hilighting the background of menu titles on.  If a
 <I>TitleColorset</I>
 
 was used, the background colour is taken from there.  Otherwise
-the color is based on the menu's background color.
+the color is based on the menu's background color.  If the colorset
+has a non solid background it is used for the hilighting.
 <P>
-<I>ActiveFore  and  ActiveForeOff</I>
+<I>ActiveFore  and  !ActiveFore</I>
 
 switch hilighting the foreground of the selected menu item on and
 off.  A specific foreground color may be used by providing the
@@ -4002,7 +4127,7 @@ Omitting the color turns hilighting on when an
 <I>ActiveColorset</I>
 
 is used.
-<I>ActiveForeOff</I>
+<I>ActiveFore</I>
 
 turns off hilighting the foreground completely.  The
 <I>ActiveColorset</I>
@@ -4053,7 +4178,7 @@ menu style too).  If specified, the hilight and shadow colors
 from the colorset are used too.  The pixmap and shape mask from
 the colorset are not used.  Hilighting the background or
 foreground can be turned off individually with the
-<I>ActiveForeOff</I> or <I>HilightBackOff</I>
+<I>!ActiveFore</I> or <I>!HilightBack</I>
 
 menu styles.
 <P>
@@ -4088,7 +4213,7 @@ pixels. With negative values the menu item gets a pressed in look.
 The above three commands are equivalent to a thickness of 2, 1 and
 0.
 <P>
-<I>Animation</I> and <I>AnimationOff</I>
+<I>Animation</I> and <I>!Animation</I>
 
 turn menu animation on or off.  When animation is on, sub menus
 that do not fit on the screen cause the parent menu to be shifted
@@ -4153,7 +4278,7 @@ color off:
 <P>
 
 
-<blockquote><PRE>MenuStyle &lt;style&gt; Hilight3DOff, HilightBackOff
+<blockquote><PRE>MenuStyle &lt;style&gt; Hilight3DOff, !HilightBack
 MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;</PRE></blockquote>
 <P>
 
@@ -4270,7 +4395,7 @@ Setting this value to 100 disables this kind of automatic popups
 altogether.  The default value is restored if no or an illegal
 value is given.
 <P>
-<I>TitleWarp</I> and <I>TitleWarpOff</I>
+<I>TitleWarp</I> and <I>!TitleWarp</I>
 
 affect if the pointer warps to the menu title when a sub menu is
 opened or not. Note that regardless of this setting the pointer is
@@ -4615,7 +4740,7 @@ as context rectangle and position hints using
 
 offsets.
 <P>
-<I>AutomaticHotkeys</I> and <I>AutomaticHotkeysOff</I>
+<I>AutomaticHotkeys</I> and <I>!AutomaticHotkeys</I>
 
 control the menu's ability to automatically provide hot-keys on
 the first character of each menu item's label.  This behavior is
@@ -4663,7 +4788,7 @@ Examples:
 <blockquote><PRE>MenuStyle * Mwm
 MenuStyle * Foreground Black, Background gray40
 MenuStyle * Greyed gray70, ActiveFore White
-MenuStyle * HilightBackOff, Hilight3DOff
+MenuStyle * !HilightBack, Hilight3DOff
 MenuStyle * Font lucidasanstypewriter-14
 MenuStyle * MenuFace DGradient 64 darkgray \
   MidnightBlue
@@ -4672,7 +4797,7 @@ MenuStyle red Mwm
 MenuStyle red Foreground Yellow
 MenuStyle red Background Maroon
 MenuStyle red Greyed Red, ActiveFore Red
-MenuStyle red HilightBackOff, Hilight3DOff
+MenuStyle red !HilightBack, Hilight3DOff
 MenuStyle red Font lucidasanstypewriter-12
 MenuStyle red MenuFace DGradient 64 Red Black</PRE></blockquote>
 <P>
@@ -8291,6 +8416,10 @@ that are supposed to work when the pointer is not over the window,
 fvwm assumes the pointer is over the client window (i.e. you have
 to use the 'W' context).
 <P>
+The special context 'M' for menus can be used to (re)define the menu
+controls. It can only be used alone or together with 'T' for the menu
+title bar.  See the section &quot;Menu Bindings&quot; for details.
+<P>
 The following example binds the built-in window list to pop up
 when
 <FONT>Alt-Ctrl-Shift-F11</FONT>
@@ -8346,9 +8475,9 @@ instance, a context of &quot;FST&quot; applies when the mouse is anywhere in
 a window's border except the title-bar buttons.  Only 'S' and 'W'
 are valid for an undecorated window.
 <P>
-The special context 'M' for menus can only be used to control
-which mouse button is used to tear off menus.  See the section
-&quot;Tear Off Menus&quot; for details.
+The special context 'M' for menus can be used to (re)define the menu
+controls. It can only be used alone or together with 'T' for the menu
+title bar.  See the section &quot;Menu Bindings&quot; for details.
 <P>
 The special context 'P' controls what buttons that can be used to
 place a window. When using this context no modifiers are allowed
@@ -8974,11 +9103,7 @@ commands were issued inside a fvwm function.
 <DT><B>Style </B><I>stylename options ...</I>
 
 <DD>
-This command is intended to replace the old fvwm 1.xx global
-commands NoBorder, NoTitle, StartsOnDesk, Sticky, StaysOnTop,
-Icon, WindowListSkip, CirculateSkip, SuppressIcons, BoundaryWidth,
-NoBoundaryWidth, StdForeColor, and StdBackColor with a single
-flexible and comprehensive window specific command.  The
+The
 <B>Style</B>
 
 command is used to set attributes of a window to values other than
@@ -9001,8 +9126,9 @@ Note: windows that have no name (WM_NAME) are given a name of
 res_class) are given class &quot;NoClass&quot; and those that do not have a
 resource (WM_CLASS, res_name) are given resource &quot;NoResource&quot;.
 <P>
-If a window has the resource &quot;fvwmstyle&quot; set, the value of that resource
-will be used in addition to any window names when selecting the style.
+If a window has the resource &quot;fvwmstyle&quot; set, the value of that
+resource will be used in addition to any window names when
+selecting the style.
 <P>
 <I>options</I>
 
@@ -9011,7 +9137,7 @@ following keywords.  Each group of style names is separated by
 slashes ('/').  The last style in these groups is the default.
 <I>BorderWidth</I>, <I>HandleWidth</I>,
 
-<I>NoIcon</I> / <I>Icon</I>, <I>MiniIcon</I>,
+<I>!Icon</I> / <I>Icon</I>, <I>MiniIcon</I>,
 
 <I>IconBox</I>, <I>IconGrid</I>, <I>IconFill</I>, <I>IconSize</I>,
 
@@ -9030,6 +9156,8 @@ slashes ('/').  The last style in these groups is the default.
 <I>!UseTitleDecorRotation</I> / <I>UseTitleDecorRotation</I>,
 
 <I>StippledTitle</I> / <I>!StippledTitle</I>,
+
+<I>StippledIconTitle</I> / <I>!StippledIconTitle</I>,
 
 <I>IndexedWindowName</I> / <I>ExactWindowName</I>,
 
@@ -9056,6 +9184,10 @@ slashes ('/').  The last style in these groups is the default.
 <I>StickyAcrossPages</I> / <I>!StickyAcrossPages</I>,
 
 <I>StickyAcrossDesks</I> / <I>!StickyAcrossDesks</I>,
+
+<I>!StickyStippledTitle</I> / <I>StickyStippledTitle</I>,
+
+<I>!StickyStippledIconTitle</I> / <I>StickyStippledIconTitle</I>,
 
 <I>StartIconic</I> / <I>StartNormal</I>,
 
@@ -9093,17 +9225,17 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>MwmBorder</I> / <I>FvwmBorder</I>,
 
-<I>MwmDecor</I> / <I>NoDecorHint</I>,
+<I>MwmDecor</I> / <I>!DecorHint</I>,
 
-<I>MwmFunctions</I> / <I>NoFuncHint</I>,
+<I>MwmFunctions</I> / <I>!FuncHint</I>,
 
-<I>HintOverride</I> / <I>NoOverride</I>,
+<I>HintOverride</I> / <I>!Override</I>,
 
 <I>!Button</I> / <I>Button</I>,
 
-<I>ResizeHintOverride</I> / <I>NoResizeOverride</I>,
+<I>ResizeHintOverride</I> / <I>!ResizeHintOverride</I>,
 
-<I>OLDecor</I> / <I>NoOLDecor</I>,
+<I>OLDecor</I> / <I>!OLDecor</I>,
 
 <I>GNOMEUseHints</I> / <I>GNOMEIgnoreHints</I>,
 
@@ -9139,17 +9271,21 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>UseStyle</I>,
 
-<I>NoPPosition</I> / <I>UsePPosition</I>,
+<I>!UsePPosition</I> / <I>NoPPosition</I> / <I>UsePPosition</I>,
 
-<I>NoUSPosition</I> / <I>UseUSPosition</I>,
+<I>!UseUSPosition</I> / <I>NoUSPosition</I> / <I>UseUSPosition</I>,
 
-<I>NoTransientPPosition</I> / <I>UseTransientPPosition</I>,
+<I>!UseTransientPPosition</I> / <I>NoTransientPPosition</I> / 
 
-<I>NoTransientUSPosition</I> / <I>UseTransientUSPosition</I>,
+<I>UseTransientPPosition</I>,
 
-<I>NoIconPosition</I> / <I>UseIconPosition</I>,
+<I>!UseTransientUSPosition</I> / <I>NoTransientUSPosition</I> / 
 
-<I>Lenience</I> / <I>NoLenience</I>,
+<I>UseTransientUSPosition</I>,
+
+<I>!UseIconPosition</I> / <I>NoIconPosition</I> / <I>UseIconPosition</I>,
+
+<I>Lenience</I> / <I>!Lenience</I>,
 
 <I>ClickToFocus</I> / <I>SloppyFocus</I> /
 
@@ -9853,7 +9989,7 @@ styles but for the icon titles.
 <I>Button</I> and <I>!Button</I>
 
 take a numeric argument which is the number of the title-bar
-button which is to be included/omitted.
+button which is to be shown or omitted.
 <I>NoButton</I>
 
 is equivalent to
@@ -10431,6 +10567,14 @@ and each desk.  The opposite style,
 
 reverts back to the default.
 <P>
+<I>StickyIcon</I>
+
+makes the window sticky when its iconified.  It de-iconifies on
+top the active desktop.
+<I>SlipperyIcon</I>
+
+reverts back to the default.
+<P>
 <I>StickyAcrossPages</I> and <I>StickyAcrossPagesIcon</I>
 
 work like
@@ -10440,6 +10584,29 @@ but stick the window only across pages, not desks while
 <I>StickyAcrossDesks  and  StickyAcrossDesksIcon</I>
 
 works the other way round.
+<P>
+Windows that have been marked as
+<I>Sticky</I> or 
+
+<I>StickyAcrossDesks</I> or 
+
+<I>StickyAcrossPages</I> will have stipples drawn 
+
+on the titlebar.  This can be negated with the
+<I>!StickyStippledTitle</I>
+
+style.  The style
+<I>StickyStippledTitle</I>
+
+puts back the stipples where that window has also been marked as
+<I>Sticky</I>.  Note that this is the default style for 
+
+<I>Sticky</I> windows.  Sticky icons will have stipples drawn 
+
+on the icon title. This can be disabled in the same way with the
+<I>!StickyStippledIconTitle</I>
+
+style.
 <P>
 Windows with the
 <I>StartIconic</I>
@@ -10451,23 +10618,13 @@ iconify windows and can be set with the
 
 style.
 <P>
-<I>StickyIcon</I>
-
-makes the window sticky when its iconified.  It de-iconifies on
-top the active desktop.
-<I>SlipperyIcon</I>
-
-reverts back to the default.
-<P>
-<I>StickyIconPage</I>
+<I>StippledIconTitle</I>
 
 works like
-<I>StickyIcon</I>,
+<I>StippledTitle</I>
 
-but sticks the icon only across pages, not desks while
-<I>StickyIconDesk</I>
-
-works the other way round.
+in that it draws stipples on the titles of icons but doesn't
+make the icon sticky.
 <P>
 <I>IgnoreRestack</I>
 
@@ -10601,11 +10758,16 @@ inhibits all windows that are not resizable from being maximized.
 <I>ResizeHintOverride</I>
 
 instructs fvwm to ignore the program supplied minimum and maximum
-size.  This can be handy for broken applications that refuse to be
-resized.  Do not use it if you do not need it.  The default
-(opposite) style is
-<I>NoResizeOverride</I>.
+size as well as the resize step size (the character size in many
+applications).  This can be handy for broken applications that
+refuse to be resized.  Do not use it if you do not need it.  The
+default (opposite) style is
+<I>!ResizeHintOverride</I>.
 
+Note:  With this style,
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>
+
+reports the window's geometry in pixels instead of characters.
 <P>
 <I>MaxWindowSize  [ width [ p ]  height [ p ] ]</I>
 
@@ -10625,8 +10787,8 @@ the default).
 With
 <I>IconifyWindowGroups</I>
 
-all windows in the same window group are iconified at once when
-group leader is iconified.  The default is
+all windows in the same window group are iconified and deiconified
+at once when any window in the group is (de)iconified.  The default is
 <I>IconifyWindowGroupsOff</I>,
 
 which disables this behavior.  Although a number of applications
@@ -10955,36 +11117,60 @@ Style * ManualPlacementsHonorsStartsOnPageOff</PRE></blockquote>
 <DT><B>Placement policy options and window stacking</B>
 
 <DD>
-<I>NoPPosition</I>
+<I>!UsePPosition</I>
 
 instructs fvwm to ignore the program specified position (PPosition
 hint) when adding new windows.  Using PPosition is required for
 some applications, but if you do not have one of those its a real
 headache.  Many programs set PPosition to something obnoxious like
 0,0 (upper left corner).
+Note:
+<I>!UsePPosition</I>
+
+is equivalent to the deprecated option
+<I>NoPPosition</I>.
+
 <P>
-<I>NoUSPosition</I>
+<I>!UseUSPosition</I>
 
 works like
-<I>NoPPosition</I>
+<I>!UsePPosition</I>
 
 but applies suppresses using the user specified position indicated
 by the program (USPosition hint).  It is generally a bad thing to
 override the user's choice, but some applications misuse the
 USPosition hint to force their windows to a certain spot on the
 screen without the user's consent.
+Note:
+<I>!UseUSPosition</I>
+
+is equivalent to the deprecated option
+<I>NoUSPosition</I>.
+
 <P>
-<I>NoTransientPPosition</I> and <I>UseTransientPPosition</I>
+<I>!UseTransientPPosition</I> and <I>UseTransientPPosition</I>
 
 work like
-<I>NoPPosition</I> and <I>UsePPosition</I>
+<I>!UsePPosition</I> and <I>UsePPosition</I>
 
 but apply only to transient windows.
+Note:
+<I>!UseTransientPPosition</I>
+
+is equivalent to the deprecated option
+<I>NoTransientPPosition</I>.
+
 <P>
-<I>NoIconPosition</I>
+<I>!UseIconPosition</I>
 
 instructs fvwm to ignore the program specified icon position
 (IconPosition hint) when iconifying the window.
+Note:
+<I>!UseIconPosition</I>
+
+is equivalent to the deprecated option
+<I>NoIconPosition</I>.
+
 <P>
 <I>StartsOnDesk</I>
 
@@ -14267,16 +14453,17 @@ unsetenv command. The
 then is removed from the environment array inherited by processes
 started directly by fvwm.
 <P>
-<DT><B>Wait </B><I>windowname</I>
+<DT><B>Wait </B><I>window</I>
 
 <DD>
 This command is intended to be used in fvwm functions only.  It
-causes execution of a function to pause until a new window with
-the title
-<I>windowname</I>
+causes execution of a function to pause until a new window matching
+<I>window</I>
 
-appears.  This is particularly useful in the &quot;InitFunction&quot; if you
-are trying to start windows on specific desktops:
+appears.  This can be a window's name, class, or resource string.
+It may contain the wildcards '*' and '?', which are matched in the
+usual Unix filename manner.  This is particularly useful in the
+&quot;InitFunction&quot; if you are trying to start windows on specific desktops:
 
 
 <P>
@@ -14285,11 +14472,11 @@ are trying to start windows on specific desktops:
 <blockquote><PRE>AddToFunc InitFunction
  + I Exec exec xterm -geometry 80x64+0+0
  + I Wait xterm
- + I Desk 0 2
+ + I GotoDesk 0 2
  + I Exec exec xmh -font fixed -geometry \
        507x750+0+0
  + I Wait xmh
- + I Desk 0 0</PRE></blockquote>
+ + I GotoDesk 0 0</PRE></blockquote>
 <P>
 
 
@@ -15189,6 +15376,12 @@ directly in front of its name.
 
 <I>StickyAcrossPages</I>,
 
+<I>StickyIcon</I>,
+
+<I>StickyAcrossDesksIcon</I>,
+
+<I>StickyAcrossPagesIcon</I>,
+
 <I>Transient</I>,
 
 <I>Visible</I>.
@@ -15209,6 +15402,12 @@ command.  Also, all windows using the
 <I>NeverFocus</I>
 
 style are ignored.
+Note:
+<I>!Lenience</I>
+
+is equivalent to the deprecated option
+<I>NoLenience</I>.
+
 <P>
 With the
 <I>AnyScreen</I>
@@ -15516,6 +15715,12 @@ options with the same name and the commands
 <B>Stick</B>, <B>StickAcrossDesks</B> and <B>StickAcrossPages</B>
 
 for details.
+<P>
+The
+<I>StickyIcon</I>, <I>StickyAcrossDesksIcon</I> and <I>StickyAcrossPagesIcon</I>
+
+match only windows that become sticky, sticky across all desks or sticky
+across all pages when they are in iconified state.
 <P>
 The
 <I>Transient</I>
@@ -17037,9 +17242,9 @@ The official fvwm homepage is
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 03:30:48 GMT, July 21, 2006
+Time: 09:42:49 GMT, January 15, 2007
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 21-Jul-2006 -->
+<!-- Automatically generated by manpages2php on 15-Jan-2007 -->
