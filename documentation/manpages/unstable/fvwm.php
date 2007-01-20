@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.20)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.21)"); ?>
 
 <H1>FVWM</H1>
-Section: FVWM 2.5.20 (1)<BR>Updated: 15 January 2006<BR><A HREF="#index">This page contents</A>
+Section: FVWM 2.5.21 (1)<BR>Updated: 20 January 2006<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -224,7 +224,7 @@ module that sends back config commands.  All command line modules
 have to quit before fvwm proceeds on to the StartFunction and
 setting border decorations and styles.  There is a potential
 deadlock if you start a module other than FvwmCpp/FvwmM4/FvwmPerl
-but there is a timeout so fvwm will eventually get going.
+but there is a timeout so fvwm eventually gets going.
 <P>
 As an example, starting the pager this way hangs fvwm until
 the timeout, but the following should work well:
@@ -279,7 +279,7 @@ A short usage description is printed.
 <DD>
 Try to take over from a previously running wm.  This does not work
 unless the other wm is
-<FONT>ICCCM</FONT>
+<FONT>ICCCM2</FONT>
 2.0 compliant.
 <DT><B>-F</B> | <B>--restore </B>
 
@@ -313,9 +313,12 @@ Prints the version of fvwm to
 <I>stderr</I>.
 
 Also prints an information about the compiled in support for
-readline, rplay, stroke, xpm, png, gnome hints, EWMH hints,
-session management, bidirectional text, multibyte characters,
-xinerama and Xft aa font rendering.
+readline, rplay, stroke, xpm, png,
+<FONT>GNOME</FONT>
+hints,
+<FONT>EWMH</FONT>
+hints, session management, bidirectional text, multibyte
+characters, xinerama and Xft aa font rendering.
 <DT><B>-C</B> | <B>--visual </B>
 
 <DD>
@@ -419,13 +422,16 @@ read-write colors). What it should be understand is that you have
 only 256 colors and that all the applications which use the
 default color map must share these colors. The main problem is
 that there are applications which use a lot or even all the
-colors.  If you use such application you will have no more free
+colors.  If you use such application you may have no more free
 colors and some applications (which used only a few colors) may
 fail to start or are unusable. There are three things that can be
 done (and fvwm does not really play a particular role, all
 applications are concerned). The first is to run the applications
 which waste your (default) color map with a private color map. For
-example, run netscape with the -install option, run KDE/QT
+example, run netscape with the -install option, run
+<FONT>KDE</FONT>
+or
+<FONT>QT</FONT>
 applications with the --cmap option, use the
 <B>-C</B>
 
@@ -446,13 +452,16 @@ option.  However, limiting the number of colors is not the
 definitive solution. The definitive solution is to try cause
 applications which use a lot of colors use the same colors. This
 is a difficult task as there are no formal standards for this
-goal. However, some toolkits as QT and GTK use color cubes as
-palettes. So, the idea is to configure your applications/toolkits
-to all use the same color cube. Moreover, you can use the colors
-in this color cube in your X resources configuration files and/or
-as arguments to colors options.
-Fvwm can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R
-= G, R-1 =&lt; B &lt;= R and B &gt;= 2. To get an RxGxB color cube give an
+goal. However, some toolkits as
+<FONT>QT</FONT>
+and
+<FONT>GTK</FONT>
+use color cubes as palettes. So, the idea is to configure your
+applications/toolkits to all use the same color cube. Moreover,
+you can use the colors in this color cube in your X resources
+configuration files and/or as arguments to colors options.  Fvwm
+can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R = G,
+R-1 =&lt; B &lt;= R and B &gt;= 2. To get an RxGxB color cube give an
 argument to
 <B>-l</B>
 
@@ -479,8 +488,8 @@ visual, this option causes fvwm to use a palette designed for
 limiting the &quot;visual&quot; color distance between the points of the
 palette. Moreover, for better color sharing, if possible colors
 with a name in the X rgb data base are used for defining the
-colors (with the hope that applications and images will prefer to
-use named colors). If the
+colors (with the hope that applications and images prefer to use
+named colors). If the
 <B>-l</B>
 
 option is not used this palette has 61 colors. This palette is
@@ -1274,8 +1283,9 @@ Fvwm attempts to be
 (version 1) compliant.  Check
 <B><A HREF="http://www.gnome.org">http://www.gnome.org</A></B>
 
-for what that may mean. To disable GNOME hints for some or all
-windows, the
+for what that may mean. To disable
+<FONT>GNOME</FONT>
+hints for some or all windows, the
 <I>GNOMEIgnoreHints</I>
 
 style can be used.
@@ -1285,7 +1295,9 @@ style can be used.
 
 <P>
 Fvwm attempts to respect the extended window manager hints (ewmh
-or EWMH for short) specification:
+or
+<FONT>EWMH</FONT>
+for short) specification:
 <B><A HREF="http://www.freedesktop.org/wiki/Standards_2fwm_2dspec">http://www.freedesktop.org/wiki/Standards_2fwm_2dspec</A></B>
 
 and some extensions of this specification.  This allows fvwm to
@@ -1387,8 +1399,7 @@ Most (perhaps all) Open Look applications have a strange notion of
 keyboard focus handling.  Although a lot of work went into fvwm to
 work well with these, you may still encounter problems.  It is
 recommended to use the NeverFocus focus policy and the NoLenience
-style for all such applications (the windows will still get the
-focus):
+style for all such applications (the windows still get the focus):
 
 
 <P>
@@ -1572,8 +1583,9 @@ loaded in priority order. For example with
 
 
 
-if the locale charset is ISO8859-1, then fvwm tries to load a
-font which matches
+if the locale is using an
+<FONT>ISO8859-1</FONT>
+charset, fvwm tries to load a font which matches
 
 
 <P>
@@ -1584,7 +1596,9 @@ font which matches
 
 
 
-with the locale charset ISO8859-15 fvwm tries to load
+with the locale charset
+<FONT>ISO8859-15</FONT>
+fvwm tries to load
 
 
 <P>
@@ -1641,9 +1655,11 @@ as the family. With the second example Luxi Mono is the Family
 the Weight (other possible weights: Light, DemiBold, Bold, Black),
 Roman is the slant or the style (other possibilities: Regular,
 Oblique, Italic) size specifies the point size (for a pixel size
-use pixelsize=), encoding allows for enforce a charset (iso8859-1
-or iso10646-1 only; if no encoding is given the locale charset is
-assumed).
+use pixelsize=), encoding allows for enforce a charset (
+<FONT>iso8859-1</FONT>
+or
+<FONT>iso10646-1</FONT>
+only; if no encoding is given the locale charset is assumed).
 An important parameter is &quot;minspace=bool&quot; where bool is True or
 False. If bool is False (the default?) Xft gives a greater font
 height to fvwm than if bool is True. This may modify text
@@ -1652,11 +1668,13 @@ FvwmIdent, button height in some fvwm modules ...etc.  With a LCD
 monitor you may try to add &quot;rgba=mode&quot; where mode is either rgb,
 bgr, vrgb or vbgr to enable subpixel rendering. The best mode
 depends on the way your LCD cells are arranged. You can pass other
-specifications in between &quot;:&quot;, as &quot;foundry=foundry_name&quot;,
-&quot;spacing=type&quot; where type can be monospace, proportional or
-charcell, &quot;charwidth=integer&quot;, &quot;charheight=integer&quot; or
-&quot;antialias=bool&quot; where bool is True or False. It seems that these
-parameters are not always taken in account.
+specifications in between &quot;:&quot;, as
+&quot;foundry=foundry_name&quot;, &quot;spacing=type&quot; where type can be
+monospace, proportional or charcell,
+&quot;charwidth=integer&quot;, &quot;charheight=integer&quot; or &quot;antialias=bool&quot;
+where bool is True or False. It seems that these parameters are
+not always taken in account.
+<P>
 To determine which Xft fonts are really loaded you can export
 XFT_DEBUG=1 before starting fvwm and take a look to the error
 log. With Xft2 you may use fc-list to list the available
@@ -1689,21 +1707,27 @@ portable configuration files.
 Once a font is loaded, fvwm finds its encoding (or charset) using
 its name (the last two fields of the name). fvwm assumes that the
 strings which are displayed with this font use this encoding (an
-exception is that if an iso10646-1 font is loaded, then UTF-8 is
-assumed for string encoding).
-In a normal situation,
+exception is that if an
+<FONT>iso10646-1</FONT>
+font is loaded, then
+<FONT>UTF-8</FONT>
+<BR>&nbsp;is&nbsp;assumed&nbsp;for&nbsp;string&nbsp;encoding).&nbsp;&nbsp;In&nbsp;a&nbsp;normal&nbsp;situation,
 (i) a font is loaded by giving a font name without specifying the
 encoding,
 (ii) the encoding of the loaded font is the locale encoding, and
 then
 (iii) the strings in the fvwm configuration files should use the
 locale encoding as well as the window and icon name. With Xft the
-situation is bit different as Xft supports only iso10646-1 and
-iso8859-1. If you do not specify one of these encodings in the Xft
-font name, then fvwm does strings conversion using (iii). Note
-that with multibyte fonts (and in particular with &quot;CJK&quot; fonts) for
-good text rendering, the locale encoding should be the charset of
-the font.
+situation is bit different as Xft supports only
+<FONT>iso10646-1</FONT>
+and
+<FONT>iso8859-1 charsets. If you do not specify one of these</FONT>
+encodings in the Xft font name, then fvwm does strings conversion
+using (iii). Note that with multibyte fonts (and in particular
+with
+<FONT>CJK</FONT>
+fonts) for good text rendering, the locale encoding should be the
+charset of the font.
 <P>
 To override the previous rules, it is possible to specify the
 string encoding in the beginning of a font description as follow:
@@ -1721,14 +1745,27 @@ where
 <B>enc</B>
 
 is an encoding supported by fvwm (usually font name charset plus some
-unicode encodings: UTF-8, USC-2, USC-4 and UTF-16).
+unicode encodings:
+<FONT>UTF-8</FONT>
+,
+<FONT>USC-2</FONT>
+,
+<FONT>USC-4</FONT>
+and
+<FONT>UTF-16</FONT>
+).
 <P>
-For example, you may use an iso8859-1 locale charset and have an
-FvwmForm in Russian using koi8-r encoding. In this case, you just
-have to ask FvwmForm to load a koi8-r font by specifying the
-encoding in the font name. With a multibyte language, (as
-multibyte font works well only if the locale encoding is the
-charset of the font), you should use an iso10646-1 font:
+For example, you may use an
+<FONT>iso8859-1</FONT>
+locale charset and have an FvwmForm in Russian using
+<FONT>koi8-r</FONT>
+encoding. In this case, you just have to ask FvwmForm to load a
+<FONT>koi8-r</FONT>
+font by specifying the encoding in the font name. With a multibyte
+language, (as multibyte font works well only if the locale
+encoding is the charset of the font), you should use an
+<FONT>iso10646-1</FONT>
+font:
 
 
 <P>
@@ -1753,9 +1790,13 @@ or
 if your
 <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
 
-configuration uses jisx0208.1983-0 encoding. Another possibility
-is to use UTF-8 encoding for your FvwmForm configuration and use
-an iso10646-1 font:
+configuration uses
+<FONT>jisx0208.1983-0</FONT>
+encoding. Another possibility is to use
+<FONT>UTF-8</FONT>
+encoding for your FvwmForm configuration and use an
+<FONT>iso10646-1</FONT>
+font:
 
 
 <P>
@@ -1788,18 +1829,29 @@ or equivalently
 
 
 
-In general iso10646-1 fonts together with UTF-8 string encoding
-allows the display of any characters in a given menu, FvwmForm
-
+In general
+<FONT>iso10646-1</FONT>
+fonts together with
+<FONT>UTF-8</FONT>
+string encoding allows the display of any characters in a given
+menu, FvwmForm etc.
 <P>
-More and more, unicode is used and text files use UTF-8
+More and more, unicode is used and text files use
+<FONT>UTF-8</FONT>
 encoding. However, in practice the characters used range over your
 locale charset (this is the case when you generate a menu with
-fvwm-menu-desktop with recent versions of KDE and GNOME). For
-saving memory (an iso10646-1 font may have a very large number of
-characters) or because you have a pretty font without an
-iso10646-1 charset, you can specify the string encoding to be
-UTF-8 and use a font in the locale charset:
+fvwm-menu-desktop with recent versions of the
+<FONT>KDE</FONT>
+and
+<FONT>GNOME</FONT>
+desktop environments). For saving memory (an
+<FONT>iso10646-1</FONT>
+font may have a very large number of characters) or because you
+have a pretty font without an
+<FONT>iso10646-1</FONT>
+charset, you can specify the string encoding to be
+<FONT>UTF-8</FONT>
+and use a font in the locale charset:
 
 
 <P>
@@ -1837,16 +1889,27 @@ a delimiter. For example:
 
 
 If fvwm finds an encoding, fvwm uses the iconv system functions to
-do conversion between encodings. Unfortunately, there are no
-standards. For conversion between iso8859-1 and UTF-8: a GNU
-system uses &quot;ISO-8859-1&quot; and other systems use &quot;iso881&quot; to define
-the converters (these two names are supported by fvwm). Moreover,
-in some cases it may be necessary to use machine specific
-converters. So, if you experience problems you can try to get
-information on your iconv implementation (&quot;man iconv&quot; may help)
-and put the name which defines the converter between the font
-encoding and UTF-8 at the end of the font name after the encoding
-hint and a / (another possible solution is to use GNU
+do conversion between encodings.  Unfortunately, there are no
+standards.  For conversion between
+<FONT>iso8859-1</FONT>
+and
+<FONT>UTF-8</FONT>
+: a
+<FONT>GNU</FONT>
+system uses
+<FONT>ISO-8859-1</FONT>
+and other systems use
+<FONT>iso881</FONT>
+to define the converters (these two names are supported by
+fvwm). Moreover, in some cases it may be necessary to use machine
+specific converters. So, if you experience problems you can try to
+get information on your iconv implementation (&quot;man iconv&quot; may
+help) and put the name which defines the converter between the
+font encoding and
+<FONT>UTF-8</FONT>
+at the end of the font name after the encoding hint and a /
+(another possible solution is to use
+<FONT>GNU</FONT>
 libiconv). For example use:
 
 
@@ -1858,9 +1921,10 @@ libiconv). For example use:
 
 
 
-to use latin1 for defining the converter for the iso8859-1 encoding.
-The &quot;*&quot; in between the &quot;/&quot; says to fvwm to determine the
-encoding from the end of the font name. Use:
+to use latin1 for defining the converter for the
+<FONT>iso8859-1</FONT>
+encoding.  The &quot;*&quot; in between the &quot;/&quot; says to fvwm to determine
+the encoding from the end of the font name.  Use:
 
 
 <P>
@@ -1871,9 +1935,11 @@ encoding from the end of the font name. Use:
 
 
 
-to force fvwm to use the font with iso8859-6 as the encoding
-(this is useful for bi-directionality)
-and to use local_iso8859_6_iconv for defining the converters.
+to force fvwm to use the font with
+<FONT>iso8859-6</FONT>
+as the encoding (this is useful for bi-directionality) and to use
+<FONT>local_iso8859_6_iconv</FONT>
+for defining the converters.
 <P>
 <A NAME="lbAZ">&nbsp;</A>
 <H2>FONT SHADOW EFFECTS</H2>
@@ -1980,8 +2046,14 @@ module labels and other places if the fonts used for displaying the
 text are of one of the charsets that require
 <I>bidi</I>
 
-(bi-directional) support.  For example, this includes iso8859-6,
-iso8859-8 and iso10646-1 (unicode), but not other iso8859-* fonts.
+(bi-directional) support.  For example, this includes
+<FONT>iso8859-6,</FONT>
+<FONT>iso8859-8</FONT>
+and
+<FONT>iso10646-1</FONT>
+(unicode), but not other
+<FONT>iso8859-*</FONT>
+fonts.
 <P>
 This bi-directional text support is done using the
 <I>fribidi</I>
@@ -2301,8 +2373,8 @@ Echo $[desk.n] $[page.nx] $[w.class]</PRE></blockquote>
 
 
 <P>
-Note: If the command is called outside a window context, it will
-print &quot;$[w.class]&quot; instead of the class name.  It is usually not
+Note: If the command is called outside a window context, it
+prints &quot;$[w.class]&quot; instead of the class name.  It is usually not
 enough to have the pointer over a window to have a context window.
 To force using the window with the focus, the
 <B>Current</B>
@@ -2367,7 +2439,7 @@ The
 
 positional parameter given to a complex function, counting from 0.
 If the corresponding parameter is undefined, the &quot;$[n]&quot; is deleted
-from the command line. The parameter will be expanded unquoted.
+from the command line. The parameter is expanded unquoted.
 </blockquote>
 </blockquote>
 <P>
@@ -2385,7 +2457,7 @@ and ending with parameter
 If all the corresponding parameters are undefined, the &quot;$[...]&quot; is
 deleted from the command line. If only some of the parameters are
 defined, all defined parameters are expanded, and the remaining
-silently ignored. All parameters will be expanded unquoted.
+silently ignored. All parameters is expanded unquoted.
 </blockquote>
 </blockquote>
 <P>
@@ -2398,7 +2470,7 @@ starting with parameter
 <I>n</I>.
 
 If all the corresponding parameters are undefined, the &quot;$[...]&quot; is
-deleted from the command line. All parameters will be expanded
+deleted from the command line. All parameters is expanded
 unquoted.
 </blockquote>
 </blockquote>
@@ -2486,8 +2558,14 @@ $[page.nx]
 $[page.ny]
 <blockquote>
 The current page numbers, by X and Y axes, starting from 0.
-<I>page</I> is equivalent to <I>area</I> in the GNOME terminology.
+<I>page</I>
 
+is equivalent to
+<I>area</I>
+
+in the
+<FONT>GNOME</FONT>
+terminology.
 </blockquote>
 </blockquote>
 <P>
@@ -3326,7 +3404,7 @@ option when destroying the menu), do not forget to add the dynamic
 action again.
 <P>
 Note: Do not trigger actions that require user interaction. They
-will probably fail and may screw up your menus.  See the
+would probably fail and may screw up your menus.  See the
 <B>Silent</B>
 
 command.
@@ -3334,8 +3412,8 @@ command.
 Warning: Do not issue
 <B>MenuStyle</B>
 
-commands as dynamic menu actions.  Chances are good that this will
-crash fvwm.
+commands as dynamic menu actions.  Chances are good that this
+crashes fvwm.
 <P>
 There are several configurable scripts installed together with fvwm
 for automatic menu generation.  They have their own man pages.
@@ -3345,7 +3423,11 @@ Some of them, specifically
 may be used with
 <I>DynamicPopupAction</I>
 
-to create a directory listing or GNOME/KDE application listing.
+to create a directory listing or
+<FONT>GNOME</FONT>
+or
+<FONT>KDE</FONT>
+application listing.
 <P>
 Example (File browser):
 
@@ -3822,11 +3904,12 @@ position before any other offsets are applied.  The menu and the
 rectangle are placed so that the pixel at &lt;number&gt; percent of the
 rectangle's width/height is right over the pixel at &lt;number&gt;
 percent of the menu's width/height. So &quot;o0&quot; means that the
-top/left borders of the menu and the rectangle overlap, with
-&quot;o100&quot; it's the bottom/right borders and if you use &quot;o50&quot; they are
-centered upon each other (try it and you will see it is much
-simpler than this description).  The default is &quot;o0&quot;.  The prefix
-&quot;o&lt;number&gt;&quot; is an abbreviation for &quot;+&lt;number&gt;-&lt;number&gt;m&quot;.
+top/left borders of the menu and the rectangle overlap,
+with &quot;o100&quot; it's the bottom/right borders and if you use &quot;o50&quot;
+they are centered upon each other (try it and you will see it is
+much simpler than this description).  The default is &quot;o0&quot;.  The
+prefix &quot;o&lt;number&gt;&quot; is an abbreviation for &quot;+&lt;number&gt;-&lt;number&gt;m&quot;.
+<P>
 <P>
 A prefix of
 '<I>c</I>'
@@ -4007,8 +4090,8 @@ All paired options can be negated to have the effect of the
 counterpart option by prefixing ! to the option.
 <P>
 Some options are now negated by prefixing ! to the option. This
-will soon be the preferred form for all such options. The other
-negative forms are now deprecated and will be removed in the future.
+is the preferred form for all such options. The other negative
+forms are now deprecated and will be removed in the future.
 <P>
 This is a list of MenuStyle deprecated negative options:
 ActiveForeOff, AnimationOff, AutomaticHotkeysOff, HilightBackOff,
@@ -5065,28 +5148,39 @@ style option too.
 <I>FlickeringQtDialogsWorkaround</I>
 
 suppresses flickering of the focused window in some modules when
-using KDE or Qt applications with application modal dialog
-windows.  By default this option is turned on.  This option may be
-visually disturbing for other applications using windows not
-managed by fvwm.  Since these applications are rare it is most
-likely safe to leave this option at its default.
+using
+<FONT>KDE</FONT>
+or
+<FONT>QT</FONT>
+applications with application modal dialog windows.  By default
+this option is turned on.  This option may be visually disturbing
+for other applications using windows not managed by fvwm.  Since
+these applications are rare it is most likely safe to leave this
+option at its default.
 <P>
 <I>EWMHIconicStateWorkaround</I>
 
-is needed by EWMH compliant pagers or taskbars which represent
-windows which are on a different desktops as iconified. These
-pagers and taskbars use a version of the EWMH specification before
-version 1.2 (the current KDE2 &amp; 3 versions).  These pagers and
-taskbars use the IconicState WM_STATE state to determine if an
-application is iconified.  This state, according to the
+is needed by
+<FONT>EWMH</FONT>
+compliant pagers or taskbars which represent windows which are on
+a different desktops as iconified. These pagers and taskbars use a
+version of the
+<FONT>EWMH</FONT>
+specification before version 1.2 (the current
+<FONT>KDE</FONT>
+2 &amp; 3 versions).  These pagers and taskbars use the IconicState
+<FONT>WM_STATE</FONT>
+state to determine if an application is iconified.  This state,
+according to the
 <FONT>ICCCM ,</FONT>
 does not imply that a window is iconified (in the usual sense).
 Turning on this option forces fvwm to establish an equivalence
-between the IconicState WM_STATE state and the iconified window.
-This violates
+between the IconicState
+<FONT>WM_STATE</FONT>
+state and the iconified window.  This violates
 <FONT>ICCCM</FONT>
-compliance but should not cause big problems.
-By default this option is off.
+compliance but should not cause big problems. By default this
+option is off.
 <P>
 With the
 <I>DisplayNewWindowNames</I>
@@ -6160,8 +6254,9 @@ module has its own catalog and that the
 
 module has a set of special instructions for string
 translation. It is out of the scope of this discussion to explain
-how to build locale catalogs. Please refer to the GNU gettext
-documentation.
+how to build locale catalogs. Please refer to the
+<FONT>GNU</FONT>
+gettext documentation.
 <P>
 <DT><B>PixmapPath </B><I>path</I>
 
@@ -7857,7 +7952,9 @@ key words:
 
 <I>ewmhiwa</I>
 
-causes fvwm to ignore the EWMH working area.
+causes fvwm to ignore the
+<FONT>EWMH</FONT>
+working area.
 <I>Growonwindowlayer</I>
 
 causes the various grow methods to ignore windows with a layer
@@ -7957,7 +8054,7 @@ Values larger than 100 can be used with caution.
 This command is obsolete and should not be used anymore.  Should
 you want to do something specific that you cannot do without it,
 please report this to the fvwm-workers mailing list
-(<A HREF="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</A>).  This command will be removed at some point
+(<A HREF="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</A>).  This command may be removed at some point
 in the future.  Please read the note at the end of the section
 <B>DELAYED EXECUTION OF COMMANDS</B>
 
@@ -8069,10 +8166,10 @@ in a different direction, use the
 option. The direction
 <I>Last</I>
 
-will shade the window in the direction it last was shaded. If the
-window has never been shaded before it will be shaded as if no
-direction were given. Windows without titles can be shaded too.
-Please refer also to the options
+shades the window in the direction it last was shaded. If the
+window has never been shaded before it is shaded as if no
+direction had been given. Windows without titles can be shaded
+too.  Please refer also to the options
 <I>WindowShadeSteps</I>, <I>WindowShadeShrinks</I>,
 
 <I>WindowShadeScrolls</I>, <I>WindowShadeLazy</I>,
@@ -9127,8 +9224,8 @@ res_class) are given class &quot;NoClass&quot; and those that do not have a
 resource (WM_CLASS, res_name) are given resource &quot;NoResource&quot;.
 <P>
 If a window has the resource &quot;fvwmstyle&quot; set, the value of that
-resource will be used in addition to any window names when
-selecting the style.
+resource is used in addition to any window names when selecting
+the style.
 <P>
 <I>options</I>
 
@@ -9682,7 +9779,7 @@ The above three styles are accompanied by
 
 These control if the focus is returned to another window when the
 window is closed.  Otherwise no window or the window under the
-pointer will receive the focus.
+pointer receives the focus.
 <P>
 <I>ClickToFocusPassesClickOff</I> and <I>ClickToFocusPassesClick</I>
 
@@ -10464,7 +10561,7 @@ and
 <I>height</I>
 
 represent the absolute size of an icon.  Icons covered by this style
-will be padded or clipped to achieve the given size.
+are padded or clipped to achieve the given size.
 <P>
 If no arguments are specified, the default values are used for each
 dimension.  This effectively places no limits on the size of an icon.
@@ -10586,24 +10683,31 @@ but stick the window only across pages, not desks while
 works the other way round.
 <P>
 Windows that have been marked as
-<I>Sticky</I> or 
+<I>Sticky</I>
 
-<I>StickyAcrossDesks</I> or 
+or
+<I>StickyAcrossDesks</I>
 
-<I>StickyAcrossPages</I> will have stipples drawn 
+or
+<I>StickyAcrossPages</I>
 
-on the titlebar.  This can be negated with the
+have stipples drawn on the titlebar.  This can be negated with the
 <I>!StickyStippledTitle</I>
 
 style.  The style
 <I>StickyStippledTitle</I>
 
 puts back the stipples where that window has also been marked as
-<I>Sticky</I>.  Note that this is the default style for 
+<I>Sticky .</I>
 
-<I>Sticky</I> windows.  Sticky icons will have stipples drawn 
+Note that this is the default style for
+<I>Sticky</I>
 
-on the icon title. This can be disabled in the same way with the
+windows.
+<I>Sticky</I>
+
+icons have stipples drawn on the title. This can be disabled in
+the same way with the
 <I>!StickyStippledIconTitle</I>
 
 style.
@@ -10623,7 +10727,7 @@ style.
 works like
 <I>StippledTitle</I>
 
-in that it draws stipples on the titles of icons but doesn't
+in that it draws stipples on the titles of icons but does not
 make the icon sticky.
 <P>
 <I>IgnoreRestack</I>
@@ -10695,7 +10799,10 @@ options first and then use
 again.
 <P>
 Note:  This option was introduced to alleviate a problem with the
-ICCCM2 specification.  The ICCCM2 clearly states that the
+<FONT>ICCCM</FONT>
+specification.  The
+<FONT>ICCCM</FONT>
+clearly states that the
 <I>UseGravity</I>
 
 option should be used, but traditionally applications ignored this
@@ -10918,12 +11025,15 @@ factor affects windows with a smaller layer than the window being
 placed, the
 <I>strut</I>
 
-factor affects the complement of the EWMH working area if the
-window being placed has the
+factor affects the complement of the
+<FONT>EWMH</FONT>
+working area if the window being placed has the
 <I>EWMHPlacementUseWorkingArea</I>
 
-style and windows with an EWMH strut hint (i.e., a &quot;please do not
-cover me&quot; hint) if the window being placed has the
+style and windows with an
+<FONT>EWMH</FONT>
+strut hint (i.e., a &quot;please do not cover me&quot; hint) if the window
+being placed has the
 <I>EWMHPlacementUseDynamicWorkingArea</I>
 
 style.  These factors represent the amount of area that these
@@ -10932,7 +11042,7 @@ placed.  For example, by default the area of ontop windows is
 counted 5 times as much as normal windows.  So
 <I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
 
-will cover 5 times as much area of another window before it will
+covers five times as much area of another window before it will
 cover an ontop window.  To treat ontop windows the same as other
 windows, set this to 1.  To really, really avoid putting windows
 under ontop windows, set this to a high value, say 1000. This
@@ -11491,16 +11601,23 @@ restores the default.
 <P>
 <I>EWMHUseStackingOrderHints</I>
 
-causes fvwm to use EWMH hints and respect EWMH hints which change
-the window layer.
+causes fvwm to use
+<FONT>EWMH</FONT>
+hints and respect
+<FONT>EWMH</FONT>
+hints which change the window layer.
 <I>EWMHIgnoreStackingOrderHints</I>
 
-causes fvwm to ignore EWMH layer hints.
+causes fvwm to ignore
+<FONT>EWMH</FONT>
+layer hints.
 <P>
 An application can ask for some reserved space on the desktop by a
-hint.  In the EWMH terminology such a hint is called a strut and
-it is used to compute the working area and may be used for window
-placement and in the maximize command.
+hint.  In the
+<FONT>EWMH</FONT>
+terminology such a hint is called a strut and it is used to
+compute the working area and may be used for window placement and
+in the maximize command.
 <I>EWMHIgnoreStrutHints</I>
 
 causes fvwm to ignore such hints, as
@@ -11510,47 +11627,63 @@ causes fvwm to use it which is the default.
 <P>
 <I>EWMHIgnoreStateHints</I>
 
-causes fvwm to ignore initial EWMH state hints when a new window
-is mapped. The default
+causes fvwm to ignore initial
+<FONT>EWMH</FONT>
+state hints when a new window is mapped. The default
 <I>EWMHUseStateHints</I>
 
 causes fvwm to accept such hints.
 <P>
 <I>EWMHIgnoreWindowType</I>
 
-causes fvwm to ignore EWMH window type specification. The default
+causes fvwm to ignore
+<FONT>EWMH</FONT>
+window type specification. The default
 <I>!EWMHIgnoreWindowType</I>
 
 causes fvwm to style windows of specified types as such.
 <P>
 <I>EWMHMaximizeIgnoreWorkingArea</I>
 
-causes fvwm to ignore the EWMH working area when it executes a
+causes fvwm to ignore the
+<FONT>EWMH</FONT>
+working area when it executes a
 <I>Maximize</I>
 
 command. With
 <I>EWMHMaximizeUseWorkingArea</I>
 
-the EWMH working area is used as with
+the
+<FONT>EWMH</FONT>
+working area is used as with
 <I>EWMHMaximizeUseDynamicWorkingArea</I>
 
-the EWMH dynamic working area is used (the default).
+the
+<FONT>EWMH</FONT>
+dynamic working area is used (the default).
 <P>
 <I>EWMHPlacementIgnoreWorkingArea</I>
 
-causes fvwm to ignore the EWMH working area when it places (or
-places again) a window. With
+causes fvwm to ignore the
+<FONT>EWMH</FONT>
+working area when it places (or places again) a window. With
 <I>EWMHPlacementUseWorkingArea</I>
 
-the EWMH working area is taken in account as with
+the
+<FONT>EWMH</FONT>
+working area is taken in account as with
 <I>EWMHPlacementUseDynamicWorkingArea</I>
 
-the EWMH dynamic working area is taken in account (the default).
-Note that with the
+the
+<FONT>EWMH</FONT>
+dynamic working area is taken in account (the default). Note that
+with the
 <I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
 
-placement policy, the way the EWMH (dynamic) working area is taken
-in account is configurable with the
+placement policy, the way the
+<FONT>EWMH</FONT>
+(dynamic) working area is taken in account is configurable with
+the
 <I>MinOverlapPlacementPenalties</I>
 
 style.
@@ -11650,11 +11783,15 @@ this option off with
 With
 <I>GNOMEIgnoreHints</I>
 
-fvwm ignores all GNOME hints for the window, even if GNOME
+fvwm ignores all
+<FONT>GNOME</FONT>
+hints for the window, even if
+<FONT>GNOME</FONT>
 compliance is compiled in.  This is useful for those pesky
 applications that try to be more clever than the user and use
-GNOME hints to force the window manager to ignore the user's
-preferences.  The
+<FONT>GNOME</FONT>
+<BR>&nbsp;hints&nbsp;to&nbsp;force&nbsp;the&nbsp;window&nbsp;manager&nbsp;to&nbsp;ignore&nbsp;the&nbsp;user's
+<BR>&nbsp;preferences.&nbsp;&nbsp;The
 <I>GNOMEUseHints</I>
 
 style switches back to the default behavior.
@@ -13282,7 +13419,8 @@ where it override the
 <I>Label</I>
 
 configuration option. Moreover, if consecutive names starting from
-desktop 0 are defined, then these names can be used by any EWMH
+desktop 0 are defined, then these names can be used by any
+<FONT>EWMH</FONT>
 compliant application (as a pager).
 <P>
 <DT><B>DeskTopSize </B><I>Horizontal</I><B>x</B><I>Vertical</I>
@@ -13349,7 +13487,7 @@ The optional third parameter does the same as the second, but for
 individual Xinerama screens.  If omitted,
 <I>xinerama-moving</I>
 
-will be set to the value of
+is set to the value of
 <I>moving</I>.
 
 Set
@@ -13676,7 +13814,7 @@ GotoPage +2p -1p</PRE></blockquote>
 
 
 <P>
-<DT><B>Scroll </B><I>horizonal</I> [<I>p</I>] <I>vertical</I> [<I>p</I>]
+<DT><B>Scroll [</B><I>horizonal</I> [<I>p</I>] <I>vertical</I> [<I>p</I>]] | [<I>reverse</I>]
 
 <DD>
 Scrolls the virtual desktop's viewport by
@@ -13685,7 +13823,8 @@ Scrolls the virtual desktop's viewport by
 pages in the x-direction and
 <I>vertical</I>
 
-pages in the y-direction.  Either or both entries may be negative.
+pages in the y-direction or starts interactive scrolling of the viewport.
+Either or both entries may be negative.
 Both
 <I>horizontal</I> and <I>vertical</I>
 
@@ -13744,6 +13883,35 @@ is appended to each coordinate
 (<I>horizontal</I> and/or <I>vertical</I>),
 
 then the scroll amount is measured in pixels.
+<P>
+Without arguments or the option
+<I>reverse</I>
+
+is given interactive scrolling takes place.  The viewporst
+scrolls as the mouse is moved. With the
+reverse
+
+option scrolling is done in opposite direction of the mouse
+movement, and without it scrolling in the same direction as the
+mouse.
+<P>
+The binding
+
+
+<P>
+
+
+<blockquote><PRE>Mouse 1 A CM Scroll reverse</PRE></blockquote>
+<P>
+
+
+
+gives an effect of grabbing and dragging the viewport with button 1
+if
+<FONT>Control</FONT>
+and
+<FONT>Meta</FONT>
+is pressed.
 <P>
 <DT><B>Xinerama </B><I>bool</I>
 
@@ -14887,12 +15055,13 @@ If
 is not perfectly perpendicular to
 <I>direction</I>,
 
-ScanForWindow will return a failure.  When using ScanForWindow
-repeatedly with the same arguments, it is guaranteed that all
-windows matching the conditions will eventually be found.  If the
-focus reaches a limit along the primary axis, it will wrap around
-to the opposite side.  Returns -1 if an invalid direction was
-given.
+<B>ScanForWindow</B>
+
+returns a failure.  When using ScanForWindow repeatedly with the
+same arguments, it is guaranteed that all windows matching the
+conditions are eventually found.  If the focus reaches a limit
+along the primary axis, it wraps around to the opposite side.
+Returns -1 if an invalid direction was given.
 See <B>Conditions</B> section below for a list of conditions.
 
 <P>
@@ -15925,7 +16094,9 @@ with cpp),
 (to bring up dialogs),
 <B><a href="<?php echo conv_link_target('./FvwmGtk.php');?>">FvwmGtk</a></B>
 
-(to bring up GTK menus and dialogs),
+(to bring up
+<FONT>GTK</FONT>
+menus and dialogs),
 <B><a href="<?php echo conv_link_target('./FvwmIconBox.php');?>">FvwmIconBox</a></B>
 
 (like the mwm IconBox),
@@ -16800,8 +16971,7 @@ colors), the default is
 <I>NoDither</I>,
 
 however this effect can be useful with images which contain a lot
-of close colors. For example a fine gradient will look more
-smooth.
+of close colors. For example a fine gradient looks more smooth.
 <P>
 <I>IconTint</I>
 
@@ -17132,8 +17302,9 @@ number of people on the fvwm-workers mailing list.
 
 <P>
 Fvwm and all the modules, scripts and other files coming with the
-distribution are subject to the GNU General Public License
-(GPL). Please refer to the
+distribution are subject to the
+<FONT>GNU</FONT>
+General Public License (GPL). Please refer to the
 <I>COPYING</I>
 
 file that came with fvwm for details.
@@ -17240,11 +17411,11 @@ The official fvwm homepage is
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 09:42:49 GMT, January 15, 2007
+Time: 11:51:35 GMT, January 20, 2007
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 15-Jan-2007 -->
+<!-- Automatically generated by manpages2php on 20-Jan-2007 -->
