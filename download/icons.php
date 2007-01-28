@@ -44,10 +44,10 @@ if(!isset($site_has_been_loaded)) {
   The icons that used to be part of the fvwm source distribution are
   now accessible separately.
   <ul>
-    <li><a href="../generated/icon_download/fvwm_icons.tgz">
+    <li><a href="../generated/icon_download/fvwm_icons-20070101.tar.gz">
 	Download</a> gzip'ed tarball with traditional old icons.
-        This archive unpacks into a directory fvwm_icons.</li>
-    <li><a href="../generated/icon_download/fvwm_icons.tar.bz2">
+        This archive unpacks into a directory fvwm_icons-20070101.</li>
+    <li><a href="../generated/icon_download/fvwm_icons-20070101.tar.bz2">
 	Download</a> the same icons in bzip2 tarball.</li>
     <li>View the <a href="../generated/icon_shots/side.gif">
 	  side</a> pixmaps.</li>

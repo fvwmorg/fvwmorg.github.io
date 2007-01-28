@@ -25,7 +25,7 @@
 #  Then, as if you haven't done enough, you need to update the download
 #  tar.gz file that contains all the images, if you have gnutar:
 #
-#    gtar zvcf - *.xpm > ../generated/icon_download/fvwm_icons.tgz
+#    gtar zvcf - *.xpm > ../generated/icon_download/fvwm_icons-yyyymmdd.tar.gz
 
 function make_display {
   type=$1
