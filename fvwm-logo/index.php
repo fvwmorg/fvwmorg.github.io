@@ -46,6 +46,7 @@ if(!isset($site_has_been_loaded)) {
 
 <h3>Original</h3>
 <img src="fvwm-logo-black-transparent.png" width="80%" border="0" alt="">
+<br /><a href="fvwm-logo-black-transparent.svg">SVG version</a>
 
 <h3>Chrome style</h3>
 <img src="fvwm-logo-chrom.png" width="80%" border="0" alt="">

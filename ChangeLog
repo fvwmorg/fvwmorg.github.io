@@ -1,3 +1,9 @@
+2007-02-18  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
+
+	* fvwm-logo/index.php:
+	* fvwm-logo/fvwm-logo-black-transparent.svg:
+	added svg version of the logo
+
 2007-01-28  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* download/icons.php:
