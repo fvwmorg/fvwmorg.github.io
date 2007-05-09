@@ -96,7 +96,8 @@ if(!isset($site_has_been_loaded)) {
     </ul>
 
 
-  <!-- -------------------------------------------------------------- -->
+
+  <!-- ======================================================== -->
   <h2>Themes</h2>
 
   <p>You say you're into desktop themes? Then one of these sites should be your
@@ -130,7 +131,7 @@ if(!isset($site_has_been_loaded)) {
     </ul>
 
 
-  <!-- -------------------------------------------------------------- -->
+  <!-- ======================================================== -->
   <h2>Add-ons</h2>
 
     <p>And here are some sites featuring programs that are designed
@@ -145,11 +146,17 @@ if(!isset($site_has_been_loaded)) {
       <li><a href="http://www.blackie.dk/dotfile/">The Dotfile Generator Home Page</a> - 
       A program that helps you generate .emacs, .cshrc, .fvwmrc, etc. config files (pretty old)</li>
 
+	  <!--
+	  User lapeyre no longer exists at this site -SS (May '07)
       <li><a href="http://newton.physics.arizona.edu/~lapeyre/fvwmconf/index.html">John Lapeyre's FvwmConf</a> -
       A module for interactively configuring FVWM (old, 1997)</li>
+	  -->
 
+	  <!--
+	  No mention of FvwmOsd at home.gna.org or gna.org -SS (May '07)
       <li><a href="http://home.gna.org/felidae/FvwmOsd.html">FvwmOsd</a> - display 
       an on-screen display (like the one on many TVs) on your X display</li>
+	  -->
 
 <!--
        Whatever happened to this one?  -RBW
