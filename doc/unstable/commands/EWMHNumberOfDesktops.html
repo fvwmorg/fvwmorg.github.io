@@ -1,0 +1,50 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>EWMHNumberOfDesktops</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EWMHNumberOfDesktops"></a>EWMHNumberOfDesktops</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> EWMHNumberOfDesktops num [max] </p></div>
+</strong></span><p>This command is useful only for an ewmh compliant pager or taskbar
+(as kpager or kicker taskbar) and not for fvwm modules (FvwmPager
+or FvwmIconMan). It causes a compliant application to consider at
+least
+<span class="emphasis"><em>num</em></span>
+desktops (desktop 0 to desktop
+<span class="emphasis"><em>num</em></span>-1).
+The optional argument
+<span class="emphasis"><em>max</em></span>
+causes a compliant application to never consider more than
+<span class="emphasis"><em>max</em></span>
+desktops. If
+<span class="emphasis"><em>max</em></span>
+is 0 (the default) there is no limitation.  The actual number of
+desktops is determined dynamically.  It is at least
+<span class="emphasis"><em>num</em></span>,
+but it can be d if there is a window on desktop d-1 (or if the
+current desktop is desktop d-1) and d is less or equal to
+<span class="emphasis"><em>max</em></span>
+or
+<span class="emphasis"><em>max</em></span>
+is null.
+Moreover, a compliant pager can ask to change
+<span class="emphasis"><em>num</em></span>
+itself.
+This is accepted by fvwm only if this number is
+less than or equal to
+<span class="emphasis"><em>max</em></span>
+or if
+<span class="emphasis"><em>max</em></span>
+is null.  Note that negative desktops are not supported by the
+ewmh specification.  The default is 4 0.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

@@ -1,0 +1,49 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>EdgeResistance</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeResistance"></a>EdgeResistance</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> EdgeResistance scrolling moving [xinerama-moving] </p></div>
+</strong></span><p>Tells how hard it should be to change the desktop viewport by
+moving the mouse over the edge of the screen and how hard it
+should be to move a window over the edge of the screen.</p><p>The first parameter tells how many milliseconds the pointer must
+spend on the screen edge before fvwm moves the viewport.  This is
+intended for people who use</p><pre class="programlisting">
+<a href="../commands/EdgeScroll.html">EdgeScroll</a> 100 100
+</pre><p>but find themselves accidentally flipping pages when they do not
+want to.</p><p>The second parameter tells how many pixels over the edge of the
+screen a window's edge must move before it actually moves
+partially off the screen.  By default the viewport is moved a full
+page in the requested direction, but if you used
+<a href="../commands/EdgeScroll.html">EdgeScroll</a>
+and set any values other than zero they are used instead.</p><p>Note that, with</p><pre class="programlisting">
+<a href="../commands/EdgeScroll.html">EdgeScroll</a> 0 0
+</pre><p>it is still possible to move or resize windows across the edge of
+the current screen.  By making the first parameter to
+<span class="emphasis"><em>EdgeResistance</em></span>
+10000 this type of motion is impossible.  With
+<span class="emphasis"><em>EdgeResistance</em></span>
+less than 10000 but greater than 0 moving over pages becomes
+difficult but not impossible.  See also
+<a href="../commands/EdgeThickness.html">EdgeThickness</a>.</p><p>The optional third parameter does the same as the second, but for
+individual Xinerama screens.  If omitted,
+<span class="emphasis"><em>xinerama-moving</em></span>
+is set to the value of
+<span class="emphasis"><em>moving</em></span>.
+Set
+<span class="emphasis"><em>xinerama-moving</em></span>
+to zero to ignore individual screen edges.  Note that the center of
+the window being moved determines the xinerama screen on which the
+window should be kept.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

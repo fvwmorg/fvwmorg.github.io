@@ -1,0 +1,61 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>FakeClick</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FakeClick"></a>FakeClick</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> FakeClick [command value] ... </p></div>
+</strong></span><p>This command is mainly intended for debugging fvwm and no
+guarantees are made that it works for you.
+<span class="emphasis"><em>FakeClick</em></span>
+can simulate mouse button press and release events and pass them
+to fvwm or the applications.  The parameters are a list of
+commands which consist of pairs of
+<span class="emphasis"><em>command</em></span>
+tokens and integer
+<span class="emphasis"><em>values</em></span>,
+The
+<a name="FakeClick_press"></a><font class="fvwmopt">press</font> and <a name="FakeClick_release"></a><font class="fvwmopt">release</font>
+commands are followed by the appropriate mouse button number and
+generate a button press or release event on the window below the
+pointer.  The
+<a name="FakeClick_wait"></a><font class="fvwmopt">wait</font>
+commands pauses fvwm for the given number of milliseconds.  The
+<a name="FakeClick_modifiers"></a><font class="fvwmopt">modifiers</font>
+command simulates pressing or releasing modifier keys.  The values
+1 to 5 are mapped to
+<span class="emphasis"><em>Mod1</em></span>
+to
+<span class="emphasis"><em>Mod5</em></span>
+while 6, 7 and 8 are mapped to
+<span class="emphasis"><em>Shift,</em></span>
+<span class="emphasis"><em>Lock</em></span>
+and
+<span class="emphasis"><em>Control.</em></span>
+The modifier is set for any further button events.  To release a
+modifier key, use the corresponding negative number.  The
+<a name="FakeClick_depth"></a><font class="fvwmopt">depth</font>
+command determines to which window the button events are
+sent. With a depth of 1, all events go to the root window,
+regardless of the pointer's position.  With 2, the event is passed
+to the top level window under the pointer which is usually the
+frame window. With 3, events go to the client window. Higher
+numbers go to successive sub windows.  Zero (0) goes to the
+smallest window that contains the pointer.  Note that events
+propagate upward.</p><pre class="programlisting">
+FakeClick depth 2 press 1 wait 250 release 1
+</pre><p>This simulates a click with button 1 in the parent window (depth
+2) with a delay of 250 milliseconds between the press and the
+release.
+Note: all command names can be abbreviated with their first letter.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

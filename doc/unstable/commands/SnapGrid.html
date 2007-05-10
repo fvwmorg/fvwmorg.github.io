@@ -1,0 +1,34 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>SnapGrid</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="SnapGrid"></a>SnapGrid</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> SnapGrid  [x-grid-size y-grid-size]</p></div>
+</strong></span><p>During an interactive move a window or icon is positioned such
+that its location (top left corner) is coincident with the nearest
+grid point. The default
+<span class="emphasis"><em>x-grid-size</em></span> and <span class="emphasis"><em>y-grid-size</em></span>
+setting are both 1, which is effectively no grid all.  An
+interactive move with both
+<span class="emphasis"><em>SnapGrid</em></span> and <a href="../commands/SnapAttraction.html">SnapAttraction</a>
+results in the window being moved to be adjacent to the nearest
+window border (if within snap proximity) or grid position.  In
+other words, the window moves the shortest distance possible to
+satisfy both
+<span class="emphasis"><em>SnapGrid</em></span> and <a href="../commands/SnapAttraction.html">SnapAttraction</a>
+Note that the x and y coordinates are not coupled.  For example, a
+window may snap to another window on the x axis while snapping to
+a grid point on the y axis.  Calling this command without
+arguments reinstates the default settings.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

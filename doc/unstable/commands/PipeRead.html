@@ -1,0 +1,57 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>PipeRead</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="PipeRead"></a>PipeRead</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> PipeRead command [quiet] </p></div>
+</strong></span><p>Causes fvwm to read commands from the output of the
+<span class="emphasis"><em>command</em></span>.
+This
+<span class="emphasis"><em>command</em></span>
+is executed by
+<code class="filename">/bin/sh</code>
+as if you typed it on the command line.  If the command consists
+of more than one word it must be quoted.  Useful for building up
+dynamic menu entries based on a directories contents, for
+example. If the keyword
+<span class="emphasis"><em>Quiet</em></span>
+follows the command no message is produced if the
+<span class="emphasis"><em>command</em></span>
+is not found.</p><p>Example:</p><pre class="programlisting">
+<a href="../commands/AddToMenu.html">AddToMenu</a> HomeDirMenu
+PipeRead 'for i in $HOME/*; \
+  do echo "+ $i <a href="../commands/Exec.html">Exec</a> xterm -e vi $i"; done'
+</pre><p>Note: The
+<span class="emphasis"><em>PipeRead</em></span>
+changes the pointer to a watch cursor by default during
+execution.  However, some commands, for example xwd, need to take
+control of the pointer themselves and do not work.  To disable the
+watch cursor, use the command prior to
+<span class="emphasis"><em>PipeRead</em></span></p><pre class="programlisting">
+<a href="../commands/BusyCursor.html">BusyCursor</a> <a href="../commands/Read.html">Read</a> off
+</pre><p>The
+<span class="emphasis"><em>PipeRead</em></span>
+command executes synchronously.  If you want to
+<a href="../commands/Exec.html">Exec</a>
+something, but need the command to run synchronously,
+you might do something like:</p><pre class="programlisting">
+PipeRead 'command 1&gt;&amp;2'
+</pre><p>The redirection causes any output from the program to go to stderr
+instead of being read as a sequence of commands by fvwm.
+<span class="emphasis"><em>PipeRead</em></span>
+returns 1 if the given command could be executed or -1 if not
+(see the section
+<a href="../fvwm/conditionals.html#conditional_commands">Conditional Commands</a>
+for the meaning of return codes).</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

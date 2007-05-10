@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ChangeDecor</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ChangeDecor"></a>ChangeDecor</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> ChangeDecor   decor </p></div>
+</strong></span><p>This command is deprecated and will be removed in the future.  There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Changes the decor of a window to
+<span class="emphasis"><em>decor</em></span>.
+<span class="emphasis"><em>decor</em></span>
+is "Default" or the name of a decor defined with
+<span class="emphasis"><em>AddToDecor</em></span>.
+If
+<span class="emphasis"><em>decor</em></span>
+is invalid, nothing occurs.  If called from somewhere in a window
+or its border, then that window is affected.  If called from the
+root window the user is allowed to select the target window.
+<span class="emphasis"><em>ChangeDecor</em></span>
+only affects attributes which can be set using the
+<span class="emphasis"><em>AddToDecor</em></span>
+command.</p><pre class="programlisting">
+ChangeDecor CustomDecor1
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

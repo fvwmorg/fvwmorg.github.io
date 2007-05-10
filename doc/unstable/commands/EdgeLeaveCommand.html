@@ -1,0 +1,52 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>EdgeLeaveCommand</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeLeaveCommand"></a>EdgeLeaveCommand</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> EdgeLeaveCommand [direction [Function]] </p></div>
+</strong></span><p>Binds a specified fvwm command
+<a href="../commands/Function.html">Function</a>
+to an edge of the screen. Direction may be one of
+"<a name="EdgeLeaveCommand_North"></a><font class="fvwmopt">North</font>",
+"<a name="EdgeLeaveCommand_Top"></a><font class="fvwmopt">Top</font>",
+"<a name="EdgeLeaveCommand_West"></a><font class="fvwmopt">West</font>",
+"<a name="EdgeLeaveCommand_Left"></a><font class="fvwmopt">Left</font>",
+"<a name="EdgeLeaveCommand_South"></a><font class="fvwmopt">South</font>",
+"<a name="EdgeLeaveCommand_Bottom"></a><font class="fvwmopt">Bottom</font>",
+"<a name="EdgeLeaveCommand_Right"></a><font class="fvwmopt">Right</font>" and
+"<a name="EdgeLeaveCommand_East"></a><font class="fvwmopt">East</font>".
+If
+<a href="../commands/Function.html">Function</a>
+is omitted the binding for this edge is removed. If
+EdgeLeaveCommand is called without any arguments all edge bindings
+are removed.</p><p><a href="../commands/Function.html">Function</a>
+is executed when the mouse pointer
+leaves the invisible pan frames that surround the visible screen.
+The binding works only if
+<a href="../commands/EdgeThickness.html">EdgeThickness</a>
+is set to a value greater than 0.
+If a function is bound to an edge, scrolling specified by
+<a href="../commands/EdgeScroll.html">EdgeScroll</a>
+is disabled for this edge.
+It is possible to bind a function only to some edges
+and use the other edges for scrolling.
+This command is intended to raise or lower certain windows
+when the mouse pointer leaves an edge.
+<a href="../modules/FvwmAuto.html">FvwmAuto</a>
+can be used get a delay when raising or lowering windows.
+See example for
+<a href="../commands/EdgeCommand.html">EdgeCommand</a></p><p>Normally, the invisible pan frames are only on the screen edges
+that border virtual pages.  If a screen edge has a command bound
+to it, the pan frame is always created on that edge.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

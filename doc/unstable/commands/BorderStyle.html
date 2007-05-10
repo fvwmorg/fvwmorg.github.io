@@ -1,0 +1,71 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>BorderStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BorderStyle"></a>BorderStyle</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> BorderStyle   state  [style] [-- [!] flag ...]</p></div>
+</strong></span><p>Defines a border style for windows.
+<span class="emphasis"><em>state</em></span>
+can be either "<a name="BorderStyle_Active"></a><font class="fvwmopt">Active</font>" or "<a name="BorderStyle_Inactive"></a><font class="fvwmopt">Inactive</font>".  If
+<span class="emphasis"><em>state</em></span>
+is omitted, then the style is set for both states.  If the
+<span class="emphasis"><em>style</em></span> and <span class="emphasis"><em>flags</em></span>
+are enclosed in parentheses, then multiple
+<span class="emphasis"><em>state</em></span>
+definitions can be specified per line.</p><p><span class="emphasis"><em>style</em></span>
+is a subset of the available button styles, and can only be
+<a name="BorderStyle_TiledPixmap"></a><font class="fvwmopt">TiledPixmap</font>
+(uniform pixmaps which match the bevel colors work best this
+way) or <a name="BorderStyle_Colorset"></a><font class="fvwmopt">Colorset</font>. If a
+'<span class="emphasis"><em>!</em></span>'
+is prefixed to any
+<span class="emphasis"><em>flag</em></span>,
+the behavior is negated.  If
+<span class="emphasis"><em>style</em></span>
+is not specified, then one can change flags without resetting the
+style.</p><p>The
+<a name="BorderStyle_HiddenHandles"></a><font class="fvwmopt">HiddenHandles</font>
+flag hides the corner handle dividing lines on windows with
+handles (this option has no effect for NoHandle windows).  By
+default,
+<span class="emphasis"><em>HiddenHandles</em></span>
+is disabled.</p><p>The
+<a name="BorderStyle_NoInset"></a><font class="fvwmopt">NoInset</font>
+flag supplements
+<span class="emphasis"><em>HiddenHandles</em></span>.
+If given, the inner bevel around the window frame is not drawn.
+If
+<span class="emphasis"><em>HiddenHandles</em></span>
+is not specified, the frame looks a little strange.</p><p>
+<a name="BorderStyle_Raised"></a><font class="fvwmopt">Raised</font>
+causes a raised relief pattern to be drawn (default).
+<a name="BorderStyle_Sunk"></a><font class="fvwmopt">Sunk</font>
+causes a sunken relief pattern to be drawn.
+<a name="BorderStyle_Flat"></a><font class="fvwmopt">Flat</font>
+inhibits the relief pattern from being drawn.</p><p>To decorate the active and inactive window borders with a textured
+pixmap, one might specify:</p><pre class="programlisting">
+BorderStyle Active TiledPixmap marble.xpm
+BorderStyle Inactive TiledPixmap granite.xpm
+BorderStyle Active -- HiddenHandles NoInset
+</pre><p>To clear the style for both states:</p><pre class="programlisting">
+BorderStyle <a name="BorderStyle_Simple"></a><font class="fvwmopt">Simple</font>
+</pre><p>To clear for a single state:</p><pre class="programlisting">
+BorderStyle Active Simple
+</pre><p>To unset a flag for a given state:</p><pre class="programlisting">
+BorderStyle Inactive -- !NoInset
+</pre><p>title-bar buttons can inherit the border style with the
+<a href="../commands/ButtonStyle.html#ButtonStyle_UseBorderStyle">UseBorderStyle</a>
+flag (see
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>).</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

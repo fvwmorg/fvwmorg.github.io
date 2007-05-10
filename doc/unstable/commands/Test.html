@@ -1,0 +1,107 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Test</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Test"></a>Test</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Test [(test-conditions)] command </p></div>
+</strong></span><p>Performs <span class="emphasis"><em>command</em></span> if all
+<span class="emphasis"><em>test-conditions</em></span> are satisfied.  The
+<span class="emphasis"><em>test-conditions</em></span>
+are keywords with possible arguments from the list below
+and are separated by commas or whitespace.  They include:
+<span class="emphasis"><em>Version operator x.y.z</em></span>,
+<span class="emphasis"><em>EnvIsSet varname</em></span>,
+<span class="emphasis"><em>EnvMatch varname pattern</em></span>,
+<span class="emphasis"><em>EdgeHasPointer direction</em></span>,
+<span class="emphasis"><em>EdgeIsActive direction</em></span>,
+<span class="emphasis"><em>Start</em></span>,
+<span class="emphasis"><em>Init</em></span>,
+<span class="emphasis"><em>Restart</em></span>,
+<span class="emphasis"><em>Exit</em></span>,
+<span class="emphasis"><em>Quit</em></span>,
+<span class="emphasis"><em>ToRestart</em></span>,
+<span class="emphasis"><em>True</em></span>,
+<span class="emphasis"><em>False</em></span>,
+<span class="emphasis"><em>F</em></span>,
+<span class="emphasis"><em>R</em></span>,
+<span class="emphasis"><em>W</em></span>,
+<span class="emphasis"><em>X</em></span> and
+<span class="emphasis"><em>I</em></span>.
+A test-condition prefixed with "!" is negated.</p><p>The
+<a name="Test_Version"></a><font class="fvwmopt">Version</font> <span class="emphasis"><em>operator x.y.z</em></span>
+test-condition is fulfilled if the logical condition of the expression is
+true. Valid <span class="emphasis"><em>operator</em></span> values are:
+<span class="emphasis"><em>&gt;=</em></span>,
+<span class="emphasis"><em>&gt;</em></span>,
+<span class="emphasis"><em>&lt;=</em></span>,
+<span class="emphasis"><em>&lt;</em></span>,
+<span class="emphasis"><em>==</em></span>
+and
+<span class="emphasis"><em>!=</em></span>.</p><p>Example:</p><pre class="programlisting">
+Test (Version &gt;= 2.5.11) <a href="../commands/Echo.html">Echo</a> 2.5.11 or later.
+</pre><p>The
+<a name="Test_EnvIsSet"></a><font class="fvwmopt">EnvIsSet</font> <span class="emphasis"><em>varname</em></span>
+test-condition is true if the given environment variable is set.
+The
+<a name="Test_EnvMatch"></a><font class="fvwmopt">EnvMatch</font> <span class="emphasis"><em>varname pattern</em></span>
+test-condition is true if
+<span class="emphasis"><em>pattern</em></span>
+matches the given environment variable value.
+The pattern may contain special "*" and "?" chars.</p><p>The
+<a name="Test_EdgeHasPointer"></a><font class="fvwmopt">EdgeHasPointer</font> <span class="emphasis"><em>[</em></span><span class="emphasis"><em>direction</em></span><span class="emphasis"><em>]</em></span>
+test-condition is true if the edge in the given direction currently
+contains the pointer.
+The
+<a name="Test_EdgeIsActive"></a><font class="fvwmopt">EdgeIsActive</font> <span class="emphasis"><em>[</em></span><span class="emphasis"><em>direction</em></span><span class="emphasis"><em>]</em></span>
+test-condition is true if the edge in the given direction currently is
+active. An edge is active, and can contain a pointer if either a
+command is bound to it or edge scroll is available in that
+direction. The direction may be one of
+<span class="emphasis"><em> Any</em></span>,<span class="emphasis"><em> North</em></span>,<span class="emphasis"><em> Top</em></span>,<span class="emphasis"><em> Up</em></span>,<span class="emphasis"><em> West</em></span>,<span class="emphasis"><em> Left</em></span>,<span class="emphasis"><em> South</em></span>,<span class="emphasis"><em> Bottom</em></span>,
+<span class="emphasis"><em> Down</em></span>,<span class="emphasis"><em> Right</em></span> and <span class="emphasis"><em> East</em></span>.
+If no direction is specified <span class="emphasis"><em>Any</em></span> is assumed.</p><p>The
+<span class="emphasis"><em><a name="Test_Start"></a><font class="fvwmopt">Start</font></em></span>
+test-condition is the same as either
+<a name="Test_Init"></a><font class="fvwmopt">Init</font> or <a name="Test_Restart"></a><font class="fvwmopt">Restart</font>.
+It is only true on startup or restart prior and during
+<span class="emphasis"><em>StartFunction</em></span>
+execution.
+The
+<a name="Test_Exit"></a><font class="fvwmopt">Exit</font>
+test-condition is the same as either
+<a name="Test_Quit"></a><font class="fvwmopt">Quit</font> or <a name="Test_ToRestart"></a><font class="fvwmopt">ToRestart</font>.
+It is only valid on shutdown during
+<span class="emphasis"><em>ExitFunction</em></span>
+function execution.</p><p>The <a name="Test_True"></a><font class="fvwmopt">True</font> and <a name="Test_False"></a><font class="fvwmopt">False</font>
+test-conditions are unconditionally true and false.</p><p>Additionally, if a test-condition name is not recognized, the Error
+return code is set and the command is not executed.</p><p>The
+<a name="Test_F"></a><font class="fvwmopt">F</font> <span class="emphasis"><em>file</em></span>,
+<a name="Test_R"></a><font class="fvwmopt">R</font> <span class="emphasis"><em>file</em></span>,
+<a name="Test_W"></a><font class="fvwmopt">W</font> <span class="emphasis"><em>file</em></span>,
+<a name="Test_X"></a><font class="fvwmopt">X</font> <span class="emphasis"><em>file</em></span> and
+<a name="Test_I"></a><font class="fvwmopt">I</font> <span class="emphasis"><em>file</em></span>
+test-conditions test for existence of the given [F]ile (possibly
+with [R]ead/[W]rite permissions), e[X]ecutable (in <code class="envar">$PATH</code>),
+or the [I]mage (in ImagePath).</p><p>Example:</p><pre class="programlisting">
+<a href="../commands/AddToFunc.html">AddToFunc</a> StartFunction I Test (Init) <a href="../commands/Exec.html">Exec</a> exec xterm
+
+<a href="../commands/AddToFunc.html">AddToFunc</a> VerifyVersion
++ I Test (Version 2.5.*) <a href="../commands/Echo.html">Echo</a> 2.5.x detected
++ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) Test (!Version 2.6.*) <a href="../commands/Echo.html">Echo</a> Future version
++ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) <a href="../commands/Echo.html">Echo</a> 2.6.x is detected
+
+Test (F $[FVWM_USERDIR]/local-config) <a href="../commands/Read.html">Read</a> local-config
+Test (X xterm-utf16) <a href="../commands/Exec.html">Exec</a> exec xterm-utf16
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

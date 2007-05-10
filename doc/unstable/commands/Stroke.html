@@ -1,0 +1,83 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Stroke</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Stroke"></a>Stroke</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Stroke [(window)] Sequence Button Context Modifiers Function </p></div>
+</strong></span><p>Binds a mouse stroke sequence to a specified fvwm command,
+or removes the binding if
+<a href="../commands/Function.html">Function</a>
+is '-'.  The syntax is the same as for a
+<a href="../commands/Mouse.html">Mouse</a>
+binding except that
+<span class="emphasis"><em>Sequence</em></span>
+is inserted in front of the button number and a value of 0 for
+<span class="emphasis"><em>Button</em></span>
+concerns the
+<a href="../commands/StrokeFunc.html">StrokeFunc</a>
+command.  The
+<span class="emphasis"><em>Context</em></span> and <span class="emphasis"><em>Modifiers</em></span>
+fields are defined as in the
+<a href="../commands/Mouse.html">Mouse</a>
+binding.  However, only the '<a name="Stroke_R"></a><font class="fvwmopt">R</font>' Context really works (if you want
+to use other contexts you need to use the
+<a href="../commands/StrokeFunc.html">StrokeFunc</a>
+below).</p><p>Strokes sequences are defined in a telephone grid like this:</p><pre class="programlisting">
+ 1  2  3
+
+ 4  5  6
+
+ 7  8  9
+</pre><p>or in a numeric pad grid like this:</p><pre class="programlisting">
+ 7  8  9
+
+ 4  5  6
+
+ 1  2  3
+</pre><p>The telephone grid is used by default, to use the numeric pad grid
+you should begin the sequence with a 'N'.  Note that a complex
+motion may produce several different sequences (see the "netscape"
+example below to handle such motion).  Moreover, sequences are
+limited to 20 elements (with the present version of
+<span class="emphasis"><em>libstroke</em></span>),
+however, in practice it is preferable to use sequence with less
+than 12 elements.</p><p>Because of the default button menu in fvwm, you may need to remove
+a mouse button binding (using an empty action) before using the
+stroke</p><pre class="programlisting">
+<a href="../commands/Mouse.html">Mouse</a> 3 R N
+</pre><p>Also, you can still use the stroke "sequence 0" to simulate a
+click:</p><pre class="programlisting">
+Stroke 0 3 R N <a href="../commands/Menu.html">Menu</a> <a href="../commands/WindowList.html">WindowList</a> <a href="../commands/Nop.html">Nop</a>
+</pre><p>The following example starts xterm when the mouse drags an 'I' on
+the root window with button 3 pressed down:</p><pre class="programlisting">
+Stroke 258  3  R  N  <a href="../commands/Exec.html">Exec</a> exec xterm
+</pre><p>An example for Netscape:</p><pre class="programlisting">
+Stroke 7415963    3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
+Stroke 74148963   3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
+Stroke 74158963   3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
+Stroke 7418963    3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
+Stroke 415963     3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
+</pre><p>You may prefer to use the numeric pad grid since you have such a
+grid on your machine. Here an example:</p><pre class="programlisting">
+Stroke N78963214   3  R  N  FvwmForm FvwmForm-QuitVerify
+Stroke N789632147  3  R  N  FvwmForm FvwmForm-QuitVerify
+</pre><p>This example starts the "QuitVerify" form if you draw a box that
+begins in the top left corner.</p><p>Note: You need
+<span class="emphasis"><em>libstroke</em></span>
+installed and fvwm compiled with stroke support.
+<span class="emphasis"><em>libstroke</em></span>
+can be obtained at
+<a class="ulink" href="http://www.etla.net/~willey/projects/libstroke/" target="_top">http://www.etla.net/~willey/projects/libstroke/</a>
+</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

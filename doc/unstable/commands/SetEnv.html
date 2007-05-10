@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>SetEnv</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="SetEnv"></a>SetEnv</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> SetEnv variable value </p></div>
+</strong></span><p>Set an environment variable to a new value, similar to the shell's
+export or setenv command.  The
+<span class="emphasis"><em>variable</em></span>
+and its
+<span class="emphasis"><em>value</em></span>
+are inherited by processes started directly by fvwm.  This can be
+especially useful in conjunction with the
+<a href="../modules/FvwmM4.html">FvwmM4</a>
+module.  For example:</p><pre class="programlisting">
+SetEnv height HEIGHT
+</pre><p>makes the <a href="../modules/FvwmM4.html">FvwmM4</a> set variable
+<span class="emphasis"><em>HEIGHT</em></span>
+usable by processes started by fvwm as the environment variable
+<span class="emphasis"><em>$height</em></span>.
+If
+<span class="emphasis"><em>value</em></span>
+includes whitespace, you should enclose it in quotes.  If no
+<span class="emphasis"><em>value</em></span>
+is given, the variable is deleted.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

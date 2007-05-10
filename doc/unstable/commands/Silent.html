@@ -1,0 +1,49 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Silent</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Silent"></a>Silent</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Silent command </p></div>
+</strong></span><p>A number of commands require a window to operate on.  If
+no window was selected when such a function is invoked the user is
+asked to select a window.  Sometimes this behavior is unwanted,
+for example if the function was called by a module and the window
+that was selected at first does not exist anymore.  You can
+prevent this by putting
+<span class="emphasis"><em>Silent</em></span>
+in front of the fvwm
+<span class="emphasis"><em>command</em></span>.
+If a function that needs a window is called with
+<span class="emphasis"><em>Silent</em></span>
+without a window selected, it simply returns without doing
+anything. If
+<span class="emphasis"><em>Silent</em></span>
+is used on a user defined function it affects all function and sub
+function calls until the original function exits.</p><p>Another usage of
+<span class="emphasis"><em>Silent</em></span>
+is with binding commands
+<a href="../commands/Key.html">Key</a>, <span class="emphasis"><em>PointerKey</em></span> and <span class="emphasis"><em>Mouse</em></span>,
+this disables error messages.</p><p><span class="emphasis"><em>Silent</em></span>
+also disables the error message for non-existent commands.  Note:
+This command is treated as a prefix to its
+<span class="emphasis"><em>command</em></span>.
+Expansion of the command line is done as if
+<span class="emphasis"><em>Silent</em></span>
+was not there.</p><p>Examples:</p><pre class="programlisting">
+Silent <a href="../commands/Move.html">Move</a> 0 0
+Silent User_defined_function
+# do not complain on keyboards without "Help" key
+Silent <a href="../commands/Key.html">Key</a> Help R A <a href="../commands/Popup.html">Popup</a> HelpMenu
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

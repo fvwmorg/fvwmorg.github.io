@@ -1,0 +1,99 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>BugOpts</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BugOpts"></a>BugOpts</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> BugOpts  [option [bool]]  , ... </p></div>
+</strong></span><p>This command controls several workarounds for bugs in third party
+programs.  The individual options are separated by commas.  The
+optional argument
+<span class="emphasis"><em>bool</em></span>
+is a boolean argument and controls if the bug workaround is
+enabled or not.  It can either be "True" or "False" to turn the
+option on or off, or "toggle" to switch is back and forth.  If
+<span class="emphasis"><em>bool</em></span>
+is omitted, the default setting is restored.</p><p><a name="BugOpts_FlickeringMoveWorkaround"></a><font class="fvwmopt">FlickeringMoveWorkaround</font>
+disables ConfigureNotify events that are usually sent to an
+application while it is moved.  If some windows flicker annoyingly
+while being moved, this option may help you.  Note that if this
+problem occurs it is not an fvwm bug, it is a problem of the
+application.</p><p><a name="BugOpts_MixedVisualWorkaround"></a><font class="fvwmopt">MixedVisualWorkaround</font>
+makes fvwm install the root colormap before it does some
+operations using the root window visuals.  This is only useful
+when the
+<code class="option">-visual</code>
+option is used to start fvwm and then only with some
+configurations of some servers (e.g. Exceed 6.0 with an 8 bit
+PseudoColor root and fvwm using a 24 bit TrueColor visual).</p><p>The
+<a name="BugOpts_ModalityIsEvil"></a><font class="fvwmopt">ModalityIsEvil</font>
+option controls whether Motif applications have the ability to
+have modal dialogs (dialogs that force you to close them first
+before you can do anything else).  The default is to not allow
+applications to have modal dialogs.  Use this option with
+care. Once this option is turned on, you have to restart fvwm to
+turn it off.</p><p><a name="BugOpts_RaiseOverNativeWindows"></a><font class="fvwmopt">RaiseOverNativeWindows</font>
+makes fvwm try to raise the windows it manages over native windows
+of the X server's host system.  This is needed for some X servers
+running under Windows or Windows NT.  Fvwm tries to detect if it
+is running under such an X server and initializes the flag
+accordingly.</p><p><a name="BugOpts_RaiseOverUnmanaged"></a><font class="fvwmopt">RaiseOverUnmanaged</font>
+makes fvwm try to raise the windows it manages over
+override_redirect windows.  This is used to cope with ill-mannered
+applications that use long-lived windows of this sort, contrary to
+<acronym class="acronym">ICCCM</acronym>
+conventions.  It is useful with the
+<span class="emphasis"><em>Unmanaged</em></span>
+style option too.</p><p><a name="BugOpts_FlickeringQtDialogsWorkaround"></a><font class="fvwmopt">FlickeringQtDialogsWorkaround</font>
+suppresses flickering of the focused window in some modules when
+using <acronym class="acronym">KDE</acronym> or <acronym class="acronym">QT</acronym> applications with application modal dialog
+windows.  By default this option is turned on.  This option may be
+visually disturbing for other applications using windows not
+managed by fvwm.  Since these applications are rare it is most
+likely safe to leave this option at its default.</p><p><a name="BugOpts_EWMHIconicStateWorkaround"></a><font class="fvwmopt">EWMHIconicStateWorkaround</font>
+is needed by <acronym class="acronym">EWMH</acronym> compliant pagers or taskbars which represent
+windows which are on a different desktops as iconified. These
+pagers and taskbars use a version of the <acronym class="acronym">EWMH</acronym> specification before
+version 1.2 (the current <acronym class="acronym">KDE</acronym> 2 &amp; 3 versions).  These pagers and
+taskbars use the IconicState WM_STATE state to determine if an
+application is iconified.  This state, according to the
+<acronym class="acronym">ICCCM</acronym>,
+does not imply that a window is iconified (in the usual sense).
+Turning on this option forces fvwm to establish an equivalence
+between the IconicState WM_STATE state and the iconified window.
+This violates
+<acronym class="acronym">ICCCM</acronym>
+compliance but should not cause big problems.
+By default this option is off.</p><p>With the
+<a name="BugOpts_DisplayNewWindowNames"></a><font class="fvwmopt">DisplayNewWindowNames</font>
+enabled, fvwm prints the name, icon name (if available), resource
+and class of new windows to the console.  This can help in finding
+the correct strings to use in the
+<a href="../commands/Style.html">Style</a>
+command.</p><p>When the
+<a name="BugOpts_ExplainWindowPlacement"></a><font class="fvwmopt">ExplainWindowPlacement</font>
+option is enabled, fvwm prints a message to the console whenever a
+new window is placed or one of the commands
+<a href="../commands/PlaceAgain.html">PlaceAgain</a>,
+<a href="../commands/Recapture.html">Recapture</a> or
+<a href="../commands/RecaptureWindow.html">RecaptureWindow</a>
+is used.  The message explains on which desk, page, Xinerama
+screen and position it was placed and why.  This option can be
+used to figure out why a specific window does not appear where you
+think it should.</p><p>The
+<a name="BugOpts_DebugCRMotionMethod"></a><font class="fvwmopt">DebugCRMotionMethod</font>
+option enables some debugging code in the ConfigureRequest
+handling routines of fvwm.  It is not helpful for the user, but if
+you report a bug to the fvwm team we may ask you to enable this
+option.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

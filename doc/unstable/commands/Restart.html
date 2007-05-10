@@ -1,0 +1,75 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Restart</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Restart"></a>Restart</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Restart [window_manager [params]] </p></div>
+</strong></span><p>Causes fvwm to restart itself if
+<span class="emphasis"><em>window_manager</em></span>
+is left blank, or to switch to an alternate window manager (or
+other fvwm version) if
+<span class="emphasis"><em>window_manager</em></span>
+is specified.  If the window manager is not in your default search
+path, then you should use the full path name for
+<span class="emphasis"><em>window_manager</em></span>.</p><p>This command should not have a trailing ampersand.  The command
+can have optional parameters with simple shell-like syntax.  You
+can use
+<span class="emphasis"><em>~</em></span>
+(is expanded to the user's home directory) and environmental
+variables
+<span class="emphasis"><em>$VAR</em></span> or <span class="emphasis"><em>${VAR}</em></span>.
+Here are several examples:</p><pre class="programlisting">
+<a href="../commands/Key.html">Key</a> F1 R N Restart
+<a href="../commands/Key.html">Key</a> F1 R N Restart fvwm -s
+<a href="../commands/Key.html">Key</a> F1 R N Restart ~/bin/fvwm -f $HOME/.fvwm/main
+<a href="../commands/Key.html">Key</a> F1 R N Restart fvwm1 -s -f .fvwmrc
+<a href="../commands/Key.html">Key</a> F1 R N Restart xterm -n '"X console"' \
+  -T \"X\ console\" -e fvwm1 -s
+</pre><p>If you need a native restart, we suggest only to use
+<span class="emphasis"><em>Restart</em></span>
+command without parameters unless there is a reason not to.  If you
+still use an old command 'Restart fvwm2' that was correct in 2.2.x,
+all current command line arguments are lost.  On a restart without
+parameters or with --pass-args, they are preserved.  Here are some
+cases when 'Restart fvwm2' or 'Restart fvwm' cause troubles:</p><pre class="programlisting">
+* running fvwm under a session manager
+* running fvwm with multi headed displays
+* having command line arguments, like
+  -f themes-rc or -cmd
+* if the first fvwm2 in the $PATH is a
+  different one
+</pre><p>This is why we are issuing a warning on an old usage. If you
+really want to restart to fvwm with no additional arguments, you
+may get rid of this warning by using "Restart fvwm -s" or
+"Restart /full/path/fvwm".</p><p>Note, currently with multi headed displays, restart of fvwms on
+different screens works independently.</p><span><strong class="command">
+<div class="cmdsynopsis"><p> Restart --pass-args window_manager </p></div>
+</strong></span><p>The same as
+<span class="emphasis"><em>Restart</em></span>
+without parameters but the name for the current window manager is
+replaced with the specified
+<span class="emphasis"><em>window_manager</em></span>
+and original arguments are preserved.</p><p>This command is useful if you use initial arguments like</p><pre class="programlisting">
+-cmd FvwmCpp
+</pre><p>and want to switch to another fvwm version without losing the
+initial arguments.</p><span><strong class="command">
+<div class="cmdsynopsis"><p> Restart --dont-preserve-state [other-params] </p></div>
+</strong></span><p>The same as</p><pre class="programlisting">
+<span class="emphasis"><em>Restart [</em></span><span class="emphasis"><em>other-params</em></span><span class="emphasis"><em>]</em></span>
+</pre><p>but it does not save any window states over the restart.</p><p>Without this option,
+<span class="emphasis"><em>Restart</em></span>
+preserves most per-window state by writing it to a file named
+<span class="markup">.fs-restart-$HOSTDISPLAY</span>
+in the user's home directory.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

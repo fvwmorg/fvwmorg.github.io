@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>All</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="All"></a>All</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> All  [options] [(conditions)]  command </p></div>
+</strong></span><p>Execute
+<span class="emphasis"><em>command</em></span>
+on all windows meeting the conditions.  It returns 1 if any window
+matches the condition and 0 otherwise. The execution starts at the top of the
+window ring and continues towards the bottom. The
+<span class="emphasis"><em>options</em></span>
+can be any combination of
+<span class="emphasis"><em>Reverse</em></span> and <span class="emphasis"><em>UseStack</em></span>.
+If the option
+<span class="emphasis"><em>Reverse</em></span>
+is given the execution order is reversed. The option
+<span class="emphasis"><em>UseStack</em></span>
+makes All use the stacking order instead of the window ring when walking
+through windows.
+See the <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
+<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+They can be turned off by specifying
+<span class="emphasis"><em>!CirculateHit</em></span>
+etc. explicitly.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

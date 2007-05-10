@@ -1,0 +1,58 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>WindowId</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="WindowId"></a>WindowId</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> WindowId [id] [(conditions)] | [root [screen]] command </p></div>
+</strong></span><p>The
+<span class="emphasis"><em>WindowId</em></span>
+command looks for a specific window
+<span class="emphasis"><em>id</em></span>
+and runs the specified
+<span class="emphasis"><em>command</em></span>
+on it.  The second form of syntax retrieves the window id of the
+root window of the given
+<span class="emphasis"><em>screen</em></span>.
+If no
+<span class="emphasis"><em>screen</em></span>
+is given, the current screen is assumed.  The window indicated by
+<span class="emphasis"><em>id</em></span>
+may belong to a window not managed by fvwm or even a window on a
+different screen.  Although most commands can not operate on such
+windows, there are some exceptions, for example the
+<span class="emphasis"><em>WarpToWindow</em></span>
+command.
+Returns -1 if no window with the given id exists.
+See <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
+<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+They can be turned off by specifying
+<span class="emphasis"><em>!CirculateHit</em></span>
+etc. explicitly.</p><p>Examples:</p><pre class="programlisting">
+WindowId 0x34567890 <a href="../commands/Raise.html">Raise</a>
+WindowId root 1 <a href="../commands/WarpToWindow.html">WarpToWindow</a> 50 50
+WindowId $0 (Silly_Popup) <a href="../commands/Delete.html">Delete</a>
+</pre><p>In the past this command was mostly useful for functions used with
+the
+<span class="emphasis"><em>WindowList</em></span>
+command, or for selective processing of
+<span class="emphasis"><em>FvwmEvent</em></span>
+calls (as in the last example), but currently these handler functions
+are called within a window context, so this command is not really
+needed in these cases.  Still it may be useful if, for example, the
+window id should be stored in the environment variable for a further
+proceeding.</p><pre class="programlisting">
+<a href="../commands/Pick.html">Pick</a> <a href="../commands/SetEnv.html">SetEnv</a> BOOKMARKED_WINDOW $[w.id]
+WindowId $[BOOKMARKED_WINDOW] <a href="../commands/WarpToWindow.html">WarpToWindow</a>
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

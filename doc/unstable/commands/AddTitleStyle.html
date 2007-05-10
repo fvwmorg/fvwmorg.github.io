@@ -1,0 +1,45 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>AddTitleStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddTitleStyle"></a>AddTitleStyle</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> AddTitleStyle  [state] [state] [style] [-- [!] flag ...]</p></div>
+</strong></span><p>Adds a title style to the title-bar.
+<span class="emphasis"><em>state</em></span> can be
+"<a name="AddTitleStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>",
+"<a name="AddTitleStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>",
+"<a name="AddTitleStyle_InactiveUp"></a><font class="fvwmopt">InactiveUp</font>" or
+"<a name="AddTitleStyle_InactiveDown"></a><font class="fvwmopt">InactiveDown</font>", or
+"<a name="AddTitleStyle_Active"></a><font class="fvwmopt">Active</font>" (the same as both "ActiveUp" and "ActiveDown") or
+"<a name="AddTitleStyle_Inactive"></a><font class="fvwmopt">Inactive</font>" (the same as both "InactiveUp" and "InactiveDown")
+or any of these 6 with "Toggled" prepended.  If
+<span class="emphasis"><em>state</em></span>
+is omitted, then the style is added to every state.  If the
+<span class="emphasis"><em>style</em></span> and <span class="emphasis"><em>flags</em></span>
+are enclosed in parentheses, then multiple
+<span class="emphasis"><em>state</em></span>
+definitions can be placed on a single line.  This command is quite
+similar to the
+<a href="../commands/AddButtonStyle.html">AddButtonStyle</a>
+command.</p><p>Title-bars are drawn in the order of definition, beginning with
+the most recent
+<a href="../commands/TitleStyle.html">TitleStyle</a>,
+followed by those added with
+<span class="emphasis"><em>AddTitleStyle</em></span>.
+To clear the title style stack, change style flags, or for the
+descriptions of available styles and flags, see the
+<a href="../commands/TitleStyle.html">TitleStyle</a> and
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+commands.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

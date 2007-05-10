@@ -1,0 +1,32 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>ThisWindow</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ThisWindow"></a>ThisWindow</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> ThisWindow [(conditions)] command </p></div>
+</strong></span><p><span class="emphasis"><em>ThisWindow</em></span>
+executes the specified
+<span class="emphasis"><em>command</em></span>
+in the context of the current operand window.  If there is no
+operand window (it is invoked in the root window), the command is
+ignored.
+<span class="emphasis"><em>ThisWindow</em></span>
+is never interactive.  The command is executed only if the given
+<span class="emphasis"><em>conditions</em></span>
+are met.  It returns -1 if used outside a window context.
+See <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
+<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+They can be turned off by specifying "!CirculateHit"
+etc. explicitly.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

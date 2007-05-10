@@ -1,0 +1,68 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>LocalePath</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="LocalePath"></a>LocalePath</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> LocalePath path </p></div>
+</strong></span><p>Specifies a colon separated list of "locale path" in which to
+search for string translations. A locale path is constituted by a
+directory path and a text domain separated by a semicolon
+(';'). As an example the default locale path is:</p><pre class="programlisting">
+/install_prefix/share/locale;fvwm
+</pre><p>where install_prefix is the fvwm installation directory. With such
+a locale path translations are searched for in</p><pre class="programlisting">
+/install_prefix/share/locale/lang/LC_MESSAGES/fvwm.mo
+</pre><p>where
+<span class="emphasis"><em>lang</em></span>
+depends on the locale. If no directory is given the default
+directory path is assumed. If no text domain is given,
+<span><strong class="command">fvwm</strong></span>
+is assumed. Without argument the default locale path is restored.</p><p>As for the
+<a href="../commands/ImagePath.html">ImagePath</a>
+command,
+<span class="emphasis"><em>path</em></span>
+may contain environment variables and a '+' to append or prepend
+the locale path easily.</p><p>For example, the fvwm-themes package uses</p><pre class="programlisting">
+LocalePath ";fvwm-themes:+"
+</pre><p>to add locale catalogs.</p><p>The default fvwm catalog contains a few strings used by the fvwm
+executable itself (Desk and Geometry) and strings used in some
+default configuration files and
+<a href="../modules/FvwmForm.html">FvwmForm</a>
+configuration. You can take a look at the po/ subdirectory of the
+fvwm source to get the list of the strings with a possible
+translation in various languages. At present, very few languages
+are supported.</p><p>The main use of locale catalogs is via the "$[gt.string]"
+parameter:</p><pre class="programlisting">
+<a href="../commands/DestroyMenu.html">DestroyMenu</a> MenuFvwmWindowOps
+<a href="../commands/AddToMenu.html">AddToMenu</a>   MenuFvwmWindowOps "$[gt.Window Ops]" <a href="../commands/Title.html">Title</a>
++ "$[gt.&amp;Move]"              <a href="../commands/Move.html">Move</a>
++ "$[gt.&amp;Resize]"            <a href="../commands/Resize.html">Resize</a>
++ "$[gt.R&amp;aise]"             <a href="../commands/Raise.html">Raise</a>
++ "$[gt.&amp;Lower]"             <a href="../commands/Lower.html">Lower</a>
++ "$[gt.(De)&amp;Iconify]"       <a href="../commands/Iconify.html">Iconify</a>
++ "$[gt.(Un)&amp;Stick]"         <a href="../commands/Stick.html">Stick</a>
++ "$[gt.(Un)Ma&amp;ximize]"      <a href="../commands/Maximize.html">Maximize</a>
++ "" <a href="../commands/Nop.html">Nop</a>
++ "$[gt.&amp;Close]"             <a href="../commands/Close.html">Close</a>
++ "$[gt.&amp;Destroy]"           <a href="../commands/Destroy.html">Destroy</a>
+</pre><p>gives a menu in the locale languages if translations are
+available.</p><p>Note that the
+<a href="../modules/FvwmTaskBar.html">FvwmTaskBar</a>
+module has its own catalog and that the
+<a href="../modules/FvwmScript.html">FvwmScript</a>
+module has a set of special instructions for string
+translation. It is out of the scope of this discussion to explain
+how to build locale catalogs. Please refer to the <acronym class="acronym">GNU</acronym> gettext
+documentation.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

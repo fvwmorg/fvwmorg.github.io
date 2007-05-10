@@ -1,0 +1,62 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Schedule</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Schedule"></a>Schedule</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Schedule [Periodic] delay_ms [command_id] command </p></div>
+</strong></span><p>The
+<span class="emphasis"><em>command</em></span>
+is executed after about
+<span class="emphasis"><em>delay_ms</em></span>
+milliseconds.  This may be useful in some tricky setups.  The
+<span class="emphasis"><em>command</em></span>
+is executed in the same context window as the
+<span class="emphasis"><em>Schedule</em></span>
+command.  An optional integer argument
+<span class="emphasis"><em>command_id</em></span>
+may be given in decimal, hexadecimal or octal format.  This id can
+be used with the
+<a href="../commands/Deschedule.html">Deschedule</a>
+command to remove the scheduled command before it is executed.  If
+no id is given, fvwm uses negative id numbers, starting with -1
+and decreasing by one with each use of the
+<span class="emphasis"><em>Schedule</em></span>
+command.
+Note that the
+<span class="emphasis"><em>Schedule</em></span>
+command and its arguments undergo the usual command line
+expansion, and, when
+<span class="emphasis"><em>command</em></span>
+is finally executed, it is expanded again.  It may therefore be
+necessary to quote the parts of the command that must not be
+expanded twice.</p><p>Note:  A window's id as it is returned with $[w.id] can be used as
+the
+<span class="emphasis"><em>command_id</em></span>.
+Example:</p><pre class="programlisting">
+<a href="../commands/Current.html">Current</a> Schedule 1000 $[w.id] <a href="../commands/WindowShade.html">WindowShade</a>
+</pre><p>The
+<span class="emphasis"><em>Schedule</em></span>
+command also supports the optional keyword
+<a name="Schedule_Periodic"></a><font class="fvwmopt">Periodic</font>
+which indicates that the
+<span class="emphasis"><em>command</em></span>
+should be executed every
+<span class="emphasis"><em>delay_ms</em></span>.
+Example:</p><pre class="programlisting">
+Schedule Periodic 10000 <a href="../commands/PipeRead.html">PipeRead</a> '[ -N "$MAIL" ] &amp;&amp; echo \
+     Echo You have mail'
+</pre><p>Use the
+<a href="../commands/Deschedule.html">Deschedule</a>
+command to stop periodic commands.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

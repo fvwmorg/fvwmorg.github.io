@@ -1,0 +1,45 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Direction</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Direction"></a>Direction</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Direction  </p></div>
+</strong></span><p>[<span class="emphasis"><em>FromPointer</em></span>] \
+<span class="emphasis"><em>direction</em></span> \
+[(<span class="emphasis"><em>conditions</em></span>)] \
+<span class="emphasis"><em>command</em></span>"
+Performs
+<span class="emphasis"><em>command</em></span>
+(typically
+<a href="../commands/Focus.html">Focus</a>)
+on a window in the given direction which satisfies all
+<span class="emphasis"><em>conditions</em></span>.
+Normally, the center of the currently focused window or the
+context window in which the command was invoked is taken as the
+starting point.  Lacking such a window, or when the
+<span class="emphasis"><em>FromPointer</em></span>
+option is given, the current position of the pointer is taken as
+the starting point.  The
+<span class="emphasis"><em>direction</em></span>
+may be one of "North", "Northeast", "East", "Southeast", "South",
+"Southwest", "West", "Northwest" and "Center".  Which window
+<span class="emphasis"><em>Direction</em></span>
+selects depends on angle and distance between the center points of
+the windows.  Closer windows are considered a better match than
+those farther away.  The
+<span class="emphasis"><em>Center</em></span>
+direction simply selects the window closest to the starting point.
+Returns -1 if an invalid direction was given.
+See the <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

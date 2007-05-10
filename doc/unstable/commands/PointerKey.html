@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>PointerKey</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="PointerKey"></a>PointerKey</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> PointerKey [(window)] Keyname Context Modifiers Function </p></div>
+</strong></span><p>This command works exactly like the
+<a href="../commands/Key.html">Key</a>
+command.  The only difference is that the binding operates on the
+window under the pointer.  Normal key bindings operate on the
+focused window instead.  The
+<span class="emphasis"><em>PointerKey</em></span>
+command can for example be used to bind keys to the root window if
+you are using
+<a href="../commands/Style.html#Style_SloppyFocus">SloppyFocus</a> or
+<a href="../commands/Style.html#Style_ClickToFocus">ClickToFocus</a>.
+However, some applications (xterm is one example) are unable to
+handle this key anymore, even if the pointer is over the xterm
+window.  It is recommended to use the
+<span class="emphasis"><em>PointerKey</em></span>
+command only for key combinations that are not needed in any
+application window.</p><p>Example:</p><pre class="programlisting">
+<a href="../commands/Style.html">Style</a> * <a href="../commands/Style.html#Style_SloppyFocus">SloppyFocus</a>
+PointerKey f1 a m <a href="../commands/Menu.html">Menu</a> MainMenu
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

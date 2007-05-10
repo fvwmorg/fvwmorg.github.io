@@ -1,0 +1,562 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>MenuStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="MenuStyle"></a>MenuStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p> MenuStyle   stylename  [options]</p></div><p>Sets a new menu style or changes a previously defined style.  The
+<span class="emphasis"><em>stylename</em></span>
+is the style name; if it contains spaces or tabs it has to be
+quoted.  The name "*" is reserved for the default menu style. The
+default menu style is used for every menu-like object (e.g. the
+window created by the
+<a href="../commands/WindowList.html">WindowList</a>
+command) that had not be assigned a style using the
+<a href="../commands/ChangeMenuStyle.html">ChangeMenuStyle</a>.
+See also
+<a href="../commands/DestroyMenuStyle.html">DestroyMenuStyle</a>.
+When using monochrome color options are ignored.</p><p><span class="emphasis"><em>options</em></span>
+is a comma separated list containing some of the keywords
+Fvwm / Mwm / Win,
+BorderWidth,
+Foreground,
+Background,
+Greyed,
+HilightBack / !HilightBack,
+HilightTitleBack,
+ActiveFore / !ActiveFore,
+MenuColorset,
+ActiveColorset,
+GreyedColorset,
+TitleColorset,
+Hilight3DThick / Hilight3DThin / Hilight3DOff,
+Hilight3DThickness,
+Animation / !Animation,
+Font,
+TitleFont,
+MenuFace,
+PopupDelay,
+PopupOffset,
+TitleWarp / !TitleWarp,
+TitleUnderlines0 / TitleUnderlines1 / TitleUnderlines2,
+SeparatorsLong / SeparatorsShort,
+TrianglesSolid / TrianglesRelief,
+PopupImmediately / PopupDelayed,
+PopdownImmediately / PopdownDelayed,
+PopupActiveArea,
+DoubleClickTime,
+SidePic,
+SideColor,
+PopupAsRootMenu / PopupAsSubmenu / PopupIgnore / PopupClose,
+RemoveSubmenus / HoldSubmenus,
+SubmenusRight / SubmenusLeft,
+SelectOnRelease,
+ItemFormat,
+VerticalItemSpacing,
+VerticalTitleSpacing,
+AutomaticHotkeys / !AutomaticHotkeys,
+MouseWheel,
+ScrollOffPage / !ScrollOffPage,
+TrianglesUseFore / !TrianglesUseFore.</p><p>In the above list some options are listed as option pairs or
+triples with a '/' in between.  These options exclude each other.
+All paired options can be negated to have the effect of the
+counterpart option by prefixing ! to the option.</p><p>Some options are now negated by prefixing ! to the option. This
+is the preferred form for all such options. The other negative
+forms are now deprecated and will be removed in the future.</p><p>This is a list of MenuStyle deprecated negative options:
+ActiveForeOff, AnimationOff, AutomaticHotkeysOff, HilightBackOff,
+TitleWarpOff</p><p>
+<a name="MenuStyle_Fvwm"></a><font class="fvwmopt">Fvwm</font>,
+<a name="MenuStyle_Mwm"></a><font class="fvwmopt">Mwm</font>,
+<a name="MenuStyle_Win"></a><font class="fvwmopt">Win</font>
+reset all options to the style with the same name in former
+versions of fvwm.  The default for new menu styles is
+<span class="emphasis"><em>Fvwm</em></span>
+style.  These options override all others except
+<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span>, <span class="emphasis"><em>Greyed</em></span>, <span class="emphasis"><em>HilightBack</em></span>, 
+<span class="emphasis"><em>ActiveFore</em></span> and <span class="emphasis"><em>PopupDelay</em></span>,
+so they should be used only as the first option specified for a
+menu style or to reset the style to defined behavior.  The same
+effect can be created by setting all the other options one by one.</p><p><span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+style menus popup sub menus automatically.
+<span class="emphasis"><em>Win</em></span>
+menus indicate the current menu item by changing the background to
+dark.
+<span class="emphasis"><em>Fvwm</em></span>
+sub menus overlap the parent menu,
+<span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+style menus never overlap the parent menu.</p><p><span class="emphasis"><em>Fvwm</em></span>
+style is equivalent to !HilightBack, Hilight3DThin,
+!ActiveFore,
+!Animation, Font, MenuFace, PopupOffset 0 67,
+TitleWarp, TitleUnderlines1, SeparatorsShort, TrianglesRelief,
+PopupDelayed, PopdownDelayed, PopupDelay 150, PopdownDelay 150,
+PopupAsSubmenu, HoldSubmenus,
+SubmenusRight, BorderWidth 2, !AutomaticHotkeys,
+PopupActiveArea 75.</p><p><span class="emphasis"><em>Mwm</em></span>
+style is equivalent to !HilightBack, Hilight3DThick,
+!ActiveFore,
+!Animation, Font, MenuFace, PopupOffset -3 100,
+!TitleWarp, TitleUnderlines2, SeparatorsLong, TrianglesRelief,
+PopupImmediately, PopdownDelayed, PopdownDelay 150,
+PopupAsSubmenu, HoldSubmenus, SubmenusRight, BorderWidth 2,
+!AutomaticHotkeys, PopupActiveArea 75.</p><p><span class="emphasis"><em>Win</em></span>
+style is equivalent to HilightBack, Hilight3DOff, ActiveFore,
+!Animation, Font, MenuFace, PopupOffset -5 100, !TitleWarp,
+TitleUnderlines1, SeparatorsShort, TrianglesSolid,
+PopupImmediately, PopdownDelayed, PopdownDelay 150,
+PopupAsSubmenu, RemoveSubmenus, SubmenusRight, BorderWidth 2,
+!AutomaticHotkeys, PopupActiveArea 75.</p><p>
+<a name="MenuStyle_BorderWidth"></a><font class="fvwmopt">BorderWidth</font>
+takes the thickness of the border around the menus in pixels. It
+may be zero to 50 pixels.  The default is 2.  Using an illegal
+value reverts the border width to the default.</p><p>
+<a name="MenuStyle_Foreground"></a><font class="fvwmopt">Foreground</font> and
+<a name="MenuStyle_Background"></a><font class="fvwmopt">Background</font>
+may have a color name as an argument.  This color is used for menu
+text or the menu's background.  You can omit the color name to
+reset these colors to the built-in default.</p><p>
+<a name="MenuStyle_Greyed"></a><font class="fvwmopt">Greyed</font>
+may have a color name as an argument.  This color is the one used
+to draw a menu-selection which is prohibited (or not recommended)
+by the Mwm hints which an application has specified. If the color
+is omitted the color of greyed menu entries is based on the
+background color of the menu.</p><p>
+<a name="MenuStyle_HilightBack"></a><font class="fvwmopt">HilightBack</font> and
+<span class="emphasis"><em>!HilightBack</em></span>
+switch hilighting the background of the selected menu item on and
+off.  A specific background color may be used by providing the
+color name as an argument to
+<span class="emphasis"><em>HilightBack</em></span>.
+If you use this option without an argument the color is based on
+the menu's background color.  The
+<span class="emphasis"><em>ActiveColorset</em></span>
+option overrides the specified color. If the colorset has a
+non solid background it is used for the hilighting.</p><p>
+<a name="MenuStyle_HilightTitleBack"></a><font class="fvwmopt">HilightTitleBack</font>
+switches hilighting the background of menu titles on.  If a
+<span class="emphasis"><em>TitleColorset</em></span>
+was used, the background colour is taken from there.  Otherwise
+the color is based on the menu's background color. If the colorset
+has a non solid background it is used for the hilighting.</p><p>
+<a name="MenuStyle_ActiveFore"></a><font class="fvwmopt">ActiveFore</font> and
+<span class="emphasis"><em>!ActiveFore</em></span>
+switch hilighting the foreground of the selected menu item on and
+off.  A specific foreground color may be used by providing the
+color name as an argument to
+<span class="emphasis"><em>ActiveFore</em></span>.
+Omitting the color turns hilighting on when an
+<span class="emphasis"><em>ActiveColorset</em></span>
+is used.
+<span class="emphasis"><em>ActiveFore</em></span>
+turns off hilighting the foreground completely.  The
+<span class="emphasis"><em>ActiveColorset</em></span>
+option overrides the specified color.</p><p>
+<a name="MenuStyle_MenuColorset"></a><font class="fvwmopt">MenuColorset</font>
+controls if a colorset is used instead of the
+<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span> and <span class="emphasis"><em>MenuFace</em></span>
+menu styles.  If the
+<span class="emphasis"><em>MenuColorset</em></span>
+keyword is followed by a number equal to zero or greater, this
+number is taken as the number of the colorset to use.  If the
+number is omitted, the colorset is switched off and the regular
+menu styles are used again.  The foreground and background colors
+of the menu items are replaced by the colors from the colorset. If
+the colorset has a pixmap defined, this pixmap is used as the
+background of the menu.  Note that the
+<span class="emphasis"><em>MenuFace</em></span>
+menu style has been optimized for memory consumption and may use
+less memory than the background from a colorset.  The shape mask
+from the colorset is used to shape the menu.  Please refer to the
+<a href="../fvwm/colorsets.html#colorsets">Colorsets</a>
+section for details about colorsets.</p><p>
+<a name="MenuStyle_ActiveColorset"></a><font class="fvwmopt">ActiveColorset</font>
+works exactly like
+<span class="emphasis"><em>MenuColorset</em></span>,
+but the foreground from the colorset replaces the color given with
+the
+<span class="emphasis"><em>ActiveFore</em></span>
+menu style and the colorset's background color replaces the color
+given with the
+<span class="emphasis"><em>HilightBack</em></span>
+command (to turn on background hilighting you have to use the
+<span class="emphasis"><em>HilightBack</em></span>
+menu style too).  If specified, the hilight and shadow colors
+from the colorset are used too.  The pixmap and shape mask from
+the colorset are not used.  Hilighting the background or
+foreground can be turned off individually with the
+<span class="emphasis"><em>!ActiveFore</em></span> or <span class="emphasis"><em>!HilightBack</em></span>
+menu styles.</p><p>
+<a name="MenuStyle_GreyedColorset"></a><font class="fvwmopt">GreyedColorset</font>
+works exactly like
+<span class="emphasis"><em>MenuColorset</em></span>,
+but the foreground from the colorset replaces the color given with
+the
+<span class="emphasis"><em>Greyed</em></span>
+menu style.  No other parts of the colorset are used.</p><p>
+<a name="MenuStyle_TitleColorset"></a><font class="fvwmopt">TitleColorset</font>
+works exactly like
+<span class="emphasis"><em>MenuColorset</em></span>,
+but is used only for menu titles.</p><p>
+<a name="MenuStyle_Hilight3DThick"></a><font class="fvwmopt">Hilight3DThick</font>,
+<a name="MenuStyle_Hilight3DThin"></a><font class="fvwmopt">Hilight3DThin</font> and
+<a name="MenuStyle_Hilight3DOff"></a><font class="fvwmopt">Hilight3DOff</font>
+determine if the selected menu item is hilighted with a 3D
+relief. Thick reliefs are two pixels wide, thin reliefs are one
+pixel wide.</p><p>
+<a name="MenuStyle_Hilight3DThickness"></a><font class="fvwmopt">Hilight3DThickness</font>
+takes one numeric argument that may be between -50 and +50
+pixels. With negative values the menu item gets a pressed in look.
+The above three commands are equivalent to a thickness of 2, 1 and
+0.</p><p>
+<a name="MenuStyle_Animation"></a><font class="fvwmopt">Animation</font> and
+<span class="emphasis"><em>!Animation</em></span>
+turn menu animation on or off.  When animation is on, sub menus
+that do not fit on the screen cause the parent menu to be shifted
+to the left so the sub menu can be seen.</p><p>
+<a name="MenuStyle_Font"></a><font class="fvwmopt">Font</font> and
+<a name="MenuStyle_TitleFont"></a><font class="fvwmopt">TitleFont</font>
+take a font name as an argument.  If a font by this name exists
+it is used for the text of all menu items.  If it does not exist
+or if the name is left blank the built-in default is used.  If a
+<span class="emphasis"><em>TitleFont</em></span>
+is given, it is used for all menu titles instead of the normal font.</p><p>
+<a name="MenuStyle_MenuFace"></a><font class="fvwmopt">MenuFace</font>
+enforces a fancy background upon the menus.  You can use the same
+options for
+<span class="emphasis"><em>MenuFace</em></span>
+as for the
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>.
+See description of
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+command and the
+
+<a href="../fvwm/colorGradients.html#color_gradients">Color Gradients</a>
+sections for more information.  If you use
+<span class="emphasis"><em>MenuFace</em></span>
+without arguments the style is reverted back to normal.</p><p>Some examples of MenuFaces are:</p><pre class="programlisting">
+MenuFace DGradient 128 2 lightgrey 50 blue 50 white
+MenuFace TiledPixmap texture10.xpm
+MenuFace HGradient 128 2 Red 40 Maroon 60 White
+MenuFace Solid Maroon
+</pre><p>Note: The gradient styles H, V, B and D are optimized for high
+speed and low memory consumption in menus.  This is not the case
+for all the other gradient styles.  They may be slow and consume
+huge amounts of memory, so if you encounter performance problems
+with them you may be better off by not using them.  To improve
+performance you can try one or all of the following:</p><p>Turn hilighting of the active menu item other than foreground
+color off:</p><pre class="programlisting">
+MenuStyle &lt;style&gt; Hilight3DOff, !HilightBack
+MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;
+</pre><p>Make sure sub menus do not overlap the parent menu. This can
+prevent menus being redrawn every time a sub menu pops up or down.</p><pre class="programlisting">
+MenuStyle &lt;style&gt; PopupOffset 1 100
+</pre><p>Run your X server with backing storage.  If your X Server is
+started with the -bs option, turn it off.  If not try the -wm
+and +bs options:</p><span><strong class="command">startx -- -wm +bs</strong></span><p>You may have to adapt this example to your system (e.g. if you use
+xinit to start X).</p><p>
+<a name="MenuStyle_PopupDelay"></a><font class="fvwmopt">PopupDelay</font>
+requires one numeric argument.  This value is the delay in
+milliseconds before a sub menu is popped up when the pointer moves
+over a menu item that has a sub menu.  If the value is zero no
+automatic pop up is done.  If the argument is omitted the built-in
+default is used. Note that the popup delay has no effect if the
+<span class="emphasis"><em>PopupImmediately</em></span>
+option is used since sub menus pop up immediately then.</p><p>
+<a name="MenuStyle_PopupImmediately"></a><font class="fvwmopt">PopupImmediately</font>
+makes menu items with sub menus pop up it up as soon as the
+pointer enters the item.  The
+<span class="emphasis"><em>PopupDelay option</em></span>
+is ignored then.  If
+<span class="emphasis"><em>PopupDelayed</em></span>
+is used fvwm looks at the
+<span class="emphasis"><em>PopupDelay</em></span>
+option if or when this automatic popup happens.</p><p>
+<a name="MenuStyle_PopdownDelay"></a><font class="fvwmopt">PopdownDelay</font>
+works exactly like
+<span class="emphasis"><em>PopupDelay</em></span>
+but determines the timeout of the
+<span class="emphasis"><em>PopupDelayed</em></span>
+style.</p><p>
+<a name="MenuStyle_PopdownImmediately"></a><font class="fvwmopt">PopdownImmediately</font>
+makes sub menus vanish as soon as the pointer leaves the sub menu
+and the correspondent item in the parent menu.  With the opposite
+option
+<span class="emphasis"><em>PopdownDelayed</em></span>
+the sub menu only pops down after the time specified with the
+<span class="emphasis"><em>PopdownDelay</em></span>
+option.  This comes handy when the pointer often strays off the
+menu item when trying to move into the sub menu.  Whenever there
+is a conflict between the
+<span class="emphasis"><em>PopupImmediately</em></span>, <span class="emphasis"><em>PopupDelayed</em></span>, <span class="emphasis"><em>PopupDelay</em></span>
+styles and the
+<span class="emphasis"><em>PopdownImmediately</em></span>, <span class="emphasis"><em>PopdownDelayed</em></span>, <span class="emphasis"><em>PopdownDelay</em></span>
+styles, the
+<span class="emphasis"><em>Popup...</em></span>
+styles win when using mouse navigation and the
+<span class="emphasis"><em>Popdown...</em></span>
+styles win when navigating with the keyboard.</p><p>
+<a name="MenuStyle_PopupOffset"></a><font class="fvwmopt">PopupOffset</font>
+requires two integer arguments.  Both values affect where sub
+menus are placed relative to the parent menu.  If both values are
+zero, the left edge of the sub menu overlaps the left edge of the
+parent menu.  If the first value is non-zero the sub menu is
+shifted that many pixels to the right (or left if negative).  If
+the second value is non-zero the menu is moved by that many
+percent of the parent menu's width to the right or left.</p><p>
+<a name="MenuStyle_PopupActiveArea"></a><font class="fvwmopt">PopupActiveArea</font>
+requires an integer value between 51 and 100.  Normally, when the
+pointer is over a menu item with a sub menu and the pointer enters
+the area that starts at 75% of the menu width, the sub menu is
+shown immediately.  This percentage can be changed with
+<span class="emphasis"><em>PopupActiveArea</em></span>.
+Setting this value to 100 disables this kind of automatic popups
+altogether.  The default value is restored if no or an illegal
+value is given.</p><p>
+<a name="MenuStyle_TitleWarp"></a><font class="fvwmopt">TitleWarp</font> and <span class="emphasis"><em>!TitleWarp</em></span>
+affect if the pointer warps to the menu title when a sub menu is
+opened or not. Note that regardless of this setting the pointer is
+not warped if the menu does not pop up under the pointer.</p><p>
+<a name="MenuStyle_TitleUnderlines0"></a><font class="fvwmopt">TitleUnderlines0</font>,
+<a name="MenuStyle_TitleUnderlines1"></a><font class="fvwmopt">TitleUnderlines1</font> and
+<a name="MenuStyle_TitleUnderlines2"></a><font class="fvwmopt">TitleUnderlines2</font>
+specify how many lines are drawn below a menu title.</p><p>
+<a name="MenuStyle_SeparatorsLong"></a><font class="fvwmopt">SeparatorsLong</font> and
+<a name="MenuStyle_SeparatorsShort"></a><font class="fvwmopt">SeparatorsShort</font>
+set the length of menu separators.  Long separators run from the
+left edge all the way to the right edge.  Short separators leave a
+few pixels to the edges of the menu.</p><p>
+<a name="MenuStyle_TrianglesSolid"></a><font class="fvwmopt">TrianglesSolid</font> and
+<a name="MenuStyle_TrianglesRelief"></a><font class="fvwmopt">TrianglesRelief</font>
+affect how the small triangles for sub menus is drawn.  Solid
+triangles are filled with a color while relief triangles are
+hollow.</p><p>
+<a name="MenuStyle_DoubleClickTime"></a><font class="fvwmopt">DoubleClickTime</font>
+requires one numeric argument.  This value is the time in
+milliseconds between two mouse clicks in a menu to be considered
+as a double click.  The default is 450 milliseconds.  If the
+argument is omitted the double click time is reset to this
+default.</p><p>
+<a name="MenuStyle_SidePic"></a><font class="fvwmopt">SidePic</font>
+takes the name of an image file as an argument. The
+picture is drawn along the left side of the menu.  The
+<span class="emphasis"><em>SidePic</em></span>
+option can be overridden by a menu specific side pixmap (see
+<a href="../commands/AddToMenu.html">AddToMenu</a>).
+If the file name is omitted an existing side pixmap is removed from
+the menu style.</p><p>
+<a name="MenuStyle_SideColor"></a><font class="fvwmopt">SideColor</font>
+takes the name of an X11 color as an argument. This color is used
+to color the column containing the side picture (see
+above). The SideColor option can be overridden by a menu specific
+side color (see
+<a href="../commands/AddToMenu.html">AddToMenu</a>).
+If the color name is omitted the side color option is switched off.</p><p>
+<a name="MenuStyle_PopupAsRootMenu"></a><font class="fvwmopt">PopupAsRootMenu</font>,
+<a name="MenuStyle_PopupAsSubmenu"></a><font class="fvwmopt">PopupAsSubmenu</font>,
+<a name="MenuStyle_PopupIgnore"></a><font class="fvwmopt">PopupIgnore</font> and
+<a name="MenuStyle_PopupClose"></a><font class="fvwmopt">PopupClose</font>
+change the behavior when you click on a menu item that opens a
+sub menu. With
+<span class="emphasis"><em>PopupAsRootMenu</em></span>
+the original menu is closed before the sub menu appears, with
+<span class="emphasis"><em>PopupAsSubmenu</em></span>
+it is not, so you can navigate back into the
+parent menu.  Furthermore, with
+<span class="emphasis"><em>PopupAsSubmenu</em></span>
+the sub menu is held open (posted) regardless of where you move
+the mouse.  Depending on your menu style this may simplify
+navigating through the menu.  <a href="../commands/Any.html">Any</a> keystroke while a menu is posted
+reverts the menu back to the normal behavior.  With
+<span class="emphasis"><em>PopupClose</em></span>
+the menu is closed when a sub menu item is activated, and the menu
+stays open if
+<span class="emphasis"><em>PopupIgnore</em></span>
+is used (even if the menu was invoked with the
+<a href="../commands/Popup.html">Popup</a>
+command).
+<span class="emphasis"><em>PopupAsSubmenu</em></span>
+is the default.</p><p>
+<a name="MenuStyle_RemoveSubmenus"></a><font class="fvwmopt">RemoveSubmenus</font>
+instructs fvwm to remove sub menu when you move back into the
+parent menu.  With
+<a name="MenuStyle_HoldSubmenus"></a><font class="fvwmopt">HoldSubmenus</font>
+the sub menu remains visible.  You probably want to use
+<span class="emphasis"><em>HoldSubmenus</em></span>
+if you are using the
+<span class="emphasis"><em>PopupDelayed</em></span>
+style.
+<span class="emphasis"><em>RemoveSubmenus</em></span>
+affects menu navigation with the keyboard.</p><p>
+<a name="MenuStyle_SelectOnRelease"></a><font class="fvwmopt">SelectOnRelease</font>
+takes an optional key name as an argument.  If the given key is
+released in a menu using this style, the current menu item is
+selected.  This is intended for
+<span class="emphasis"><em>Alt-Tab</em></span>
+<a href="../commands/WindowList.html">WindowList</a>
+navigation.
+The key name is a standard X11 key name as defined in
+<code class="filename">/usr/include/X11/keysymdef.h</code>,
+(without the
+<span class="emphasis"><em>XK_</em></span>
+prefix), or the keysym database
+<code class="filename">/usr/X11R6/lib/X11/XKeysymDB</code>.
+To disable this behavior, omit
+the key name.</p><p>Note: Some X servers do not support KeyRelease events.
+<span class="emphasis"><em>SelectOnRelease</em></span>
+does not work on such a machine.</p><p>
+<a name="MenuStyle_ItemFormat"></a><font class="fvwmopt">ItemFormat</font>
+takes a special string as its argument that determines the layout
+of the menu items.  Think of the format string as if it were a
+menu item. All you have to do is tell fvwm where to place the
+different parts of the menu item (i.e. the labels, the triangle
+denoting a sub menu, the mini icons and the side pic) in the blank
+area.  The string consists of spaces,
+<span class="emphasis"><em>Tab</em></span>
+characters and formatting directives beginning with '%'. Any
+illegal characters and formatting directives are silently ignored:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th align="center">Formatting Directive</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%c</em></span> &amp; <span class="emphasis"><em>%r</em></span></td><td align="left">Insert the next item label. Up to three labels can be used. The item column is left-aligned (<span class="emphasis"><em>%l</em></span>), centered (<span class="emphasis"><em>%c</em></span>) or right-aligned (<span class="emphasis"><em>%r</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%i</em></span></td><td align="left">Inserts the mini icon.</td></tr><tr><td align="left"><span class="emphasis"><em>%&gt;</em></span> &amp; <span class="emphasis"><em>%&lt;</em></span></td><td align="left">Insert the sub menu triangle pointing either to the right (<span class="emphasis"><em>%&gt;</em></span>) or to the left (<span class="emphasis"><em>%&lt;</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%|</em></span></td><td align="left">The first %| denotes the beginning of the area that is highlighted either with a background color or a relief (or both). The second <span class="emphasis"><em>%|</em></span> marks the end of this area.  <span class="emphasis"><em>%|</em></span> can be used up to twice in the string.  If you do not add one or both of them, fvwm sets the margins to the margins of the whole item (not counting the side picture).</td></tr><tr><td align="left"><span class="emphasis"><em>%s</em></span></td><td align="left">Places the side picture either at the beginning or the end of the menu. This directive may be used only once and only as the first or last in the format string. If the <span class="emphasis"><em>%s</em></span> is not at the beginning of the string, menus are not drawn properly.</td></tr><tr><td align="left"><span class="emphasis"><em>Space</em></span>, <span class="emphasis"><em>Tab</em></span>, <span class="emphasis"><em>%Space</em></span> &amp; <span class="emphasis"><em>%Tab</em></span></td><td align="left">Add gap of one space, or a tab, using the width of the menu font. When using a tab, the size of the gap can be one to 8 spaces since the tab position is a multiple of 8 from the edge of the menu. The whole string must be quoted if spaces or tabs are used.</td></tr><tr><td align="left"><span class="emphasis"><em>%p</em></span></td><td align="left">Like Space and Tab <span class="emphasis"><em>%p</em></span> inserts an empty area into the item, but with better control of its size (see below).</td></tr></tbody></table></div><p>You can define an additional space before and after each of the
+objects like this:</p><pre class="programlisting">
+<span class="emphasis"><em>%</em></span>left<span class="emphasis"><em>.</em></span>right<span class="emphasis"><em>p</em></span>
+</pre><p>This means: if the object is defined in the menu (e.g. if it is
+<span class="emphasis"><em>%s</em></span>
+and you use a side picture, or it is
+<span class="emphasis"><em>%l</em></span>
+for the third column and there are items defined that actually
+have a third column), then add
+<span class="emphasis"><em>left</em></span>
+pixels before the object and
+<span class="emphasis"><em>right</em></span>
+pixels after it.  You may leave out the
+<span class="emphasis"><em>left</em></span>
+or the <span class="emphasis"><em>.right</em></span>
+parts if you do not need them.  All values up to the screen width
+are allowed.  Even negative values can be used with care.  The
+<span class="emphasis"><em>p</em></span>
+may be replaced with any other formatting directives described
+above.</p><p>Note: Only items defined in the format string are visible in the
+menus. So if you do not put a
+<span class="emphasis"><em>%s</em></span>
+in there you do not see a side picture, even if one is specified.</p><p>Note: The
+<span class="emphasis"><em>SubmenusLeft</em></span>
+style changes the default
+<span class="emphasis"><em>ItemFormat</em></span>
+string, but if it was set manually it is not modified.</p><p>Note: If any unformatted title of the menu is wider than the
+widest menu item, the spaces between the different parts of the
+menu items are enlarged to match the width of the title.  Leading
+left aligned objects in the format string
+(<span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%i</em></span>, <span class="emphasis"><em>%&lt;</em></span>, first <span class="emphasis"><em>%|</em></span>)
+stick to the left edge of the menu and trailing right aligned
+objects
+(<span class="emphasis"><em>%r</em></span>, <span class="emphasis"><em>%i</em></span>, <span class="emphasis"><em>%&gt;</em></span>, second <span class="emphasis"><em>%|</em></span>)
+stick to the right edge.  The gaps between the remaining items are
+enlarged equally.</p><p>Examples:</p><pre class="programlisting">
+MenuStyle * ItemFormat "%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|"
+</pre><p>Is the default string used by fvwm: (side picture + 4 pixels gap)
+(beginning of the hilighted area + 1 pixel gap) (mini icon + 5p)
+(first column left aligned + 5p) (second column left aligned + 5p)
+(third column right aligned + 5p) (second mini icon + 5p) (2p +
+sub menu triangle + 3p) (1p + end of hilighted area).</p><pre class="programlisting">
+MenuStyle * ItemFormat "%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s"
+</pre><p>Is used by fvwm with the
+<span class="emphasis"><em>SubmenusLeft</em></span>
+option below.</p><p>
+<a name="MenuStyle_VerticalItemSpacing"></a><font class="fvwmopt">VerticalItemSpacing</font> and
+<a name="MenuStyle_VerticalTitleSpacing"></a><font class="fvwmopt">VerticalTitleSpacing</font>
+control the vertical spacing of menu items and titles like
+<span class="emphasis"><em>ItemFormat</em></span>
+controls the horizontal spacing.  Both take two numeric arguments
+that may range from -100 to +100.  The first is the gap in pixels
+above a normal menu item (or a menu title), the second is the gap
+in pixels below it.  Negative numbers do not make much sense and
+may screw up the menu completely.  If no arguments are given or
+the given arguments are invalid, the built-in defaults are used:
+one pixel above the item or title and two below.</p><p>
+<a name="MenuStyle_SubmenusLeft"></a><font class="fvwmopt">SubmenusLeft</font>
+mirrors the menu layout and behavior.  Sub menus pop up to the
+left, the sub menu triangle is drawn left and the mini icon and
+side picture are drawn at the right side of the menu.  The default
+is
+<a name="MenuStyle_SubmenusRight"></a><font class="fvwmopt">SubmenusRight</font>.
+The position hints of a menu are also affected by this setting,
+i.e. position hints using
+<span class="emphasis"><em>item</em></span> or <span class="emphasis"><em>menu</em></span>
+as context rectangle and position hints using
+<span class="emphasis"><em>m</em></span>
+offsets.</p><p>
+<a name="MenuStyle_AutomaticHotkeys"></a><font class="fvwmopt">AutomaticHotkeys</font> and
+<span class="emphasis"><em>!AutomaticHotkeys</em></span>
+control the menu's ability to automatically provide hot-keys on
+the first character of each menu item's label.  This behavior is
+always overridden if an explicit hot-key is assigned in the
+<span class="emphasis"><em>AddToMenu</em></span>
+command.</p><p>
+<a name="MenuStyle_MouseWheel"></a><font class="fvwmopt">MouseWheel</font>
+controls the ability to scroll the menu using a mouse wheel. It takes
+one argument, that can be one of
+ScrollsPointer, ScrollsMenu, ScrollsMenuBackwards or ActivatesItem.
+ScrollsPointer makes the mouse wheel scroll the pointer over a menu.
+This is the default. ScrollsMenu and ScrollsMenuBackwards scroll the menu
+beneath the pointer. ActivatesItem disables scrolling by mouse wheel and
+makes the use of a mouse wheel act as if the menu was clicked.
+If no argument is supplied the default setting is restored.</p><p>
+<a name="MenuStyle_ScrollOffPage"></a><font class="fvwmopt">ScrollOffPage</font>
+allows a menu to be scrolled out of the visible area if
+<span class="emphasis"><em>MouseWheel</em></span>
+is set to ScrollsMenu or ScrollsMenuBackwards. This is the default.
+The opposite,
+<span class="emphasis"><em>!ScrollOffPage</em></span>
+disables this behaviour.</p><p>
+<a name="MenuStyle_TrianglesUseFore"></a><font class="fvwmopt">TrianglesUseFore</font>
+draws sub menu triangles with the foreground color of the menu colorset
+(normally drawn with the hilight color).
+<span class="emphasis"><em>!TrianglesUseFore</em></span>
+disables this behaviour.</p><p>Examples:</p><pre class="programlisting">
+MenuStyle * Mwm
+MenuStyle * Foreground Black, Background gray40
+MenuStyle * Greyed gray70, ActiveFore White
+MenuStyle * !HilightBack, Hilight3DOff
+MenuStyle * Font lucidasanstypewriter-14
+MenuStyle * MenuFace DGradient 64 darkgray MidnightBlue
+
+MenuStyle red Mwm
+MenuStyle red Foreground Yellow
+MenuStyle red Background Maroon
+MenuStyle red Greyed Red, ActiveFore Red
+MenuStyle red !HilightBack, Hilight3DOff
+MenuStyle red Font lucidasanstypewriter-12
+MenuStyle red MenuFace DGradient 64 Red Black
+</pre><p>Note that all style options could be placed on a single line for
+each style name.</p><div class="cmdsynopsis"><p> MenuStyle   forecolor   backcolor   shadecolor   font   style  [anim]</p></div><p>This is the old syntax of the
+<span class="emphasis"><em>MenuStyle</em></span>
+command.  It is obsolete and may be removed in the future.  Please
+use the new syntax as described above.</p><p>Sets the menu style.  When using monochrome the colors are
+ignored.  The
+<span class="emphasis"><em>shadecolor</em></span>
+is the one used to draw a menu-selection which is prohibited (or
+not recommended) by the Mwm hints which an application has
+specified.  The style option is either
+<span class="emphasis"><em>Fvwm</em></span>, <span class="emphasis"><em>Mwm</em></span> or <span class="emphasis"><em>Win</em></span>,
+which changes the appearance and operation of the menus.</p><p><span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+style menus popup sub menus automatically.
+<span class="emphasis"><em>Win</em></span>
+menus indicate the current menu item by changing the background to
+black.
+<span class="emphasis"><em>Fvwm</em></span>
+sub menus overlap the parent menu,
+<span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+style menus never overlap the parent menu.</p><p>When the
+<span class="emphasis"><em>anim</em></span>
+option is given, sub menus that do not fit on the screen cause the
+parent menu to be shifted to the left so the sub menu can be
+seen. See also
+<a href="../commands/SetAnimation.html">SetAnimation</a>
+command.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

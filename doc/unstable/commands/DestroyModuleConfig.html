@@ -1,0 +1,29 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>DestroyModuleConfig</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="DestroyModuleConfig"></a>DestroyModuleConfig</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> DestroyModuleConfig module_config </p></div>
+</strong></span><p>Deletes module configuration entries, so that new configuration
+lines may be entered instead.  This also sometimes the only way to
+turn back some module settings, previously defined.  This changes
+the way a module runs during a fvwm session without restarting.
+Wildcards can be used for portions of the name as well.</p><p>The new non-conflicting syntax allows a delimiter, a colon and
+optional spaces between the module name and the rest of the line.
+In this case a module name (or alias) can't have wildcards.</p><pre class="programlisting">
+DestroyModuleConfig FvwmButtons*
+DestroyModuleConfig FvwmForm: Fore
+DestroyModuleConfig FvwmIconBox: Max*
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

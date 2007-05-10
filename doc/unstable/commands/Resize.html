@@ -1,0 +1,85 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Resize</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Resize"></a>Resize</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Resize   [[frame] [direction dir [warptoborder]] [fixeddirection] [w]width[p|c] [w]height[p|c]] | [bottomright | br x y] </p></div>
+</strong></span><p>Allows for resizing a window.  If called from somewhere in a window
+or its border, then that window is resized.  If called from the
+root window then the user is allowed to select the target window.</p><p>The operation can be aborted with Escape or by pressing any mouse
+button (except button 1 which confirms it).</p><p>If the optional arguments
+<span class="emphasis"><em>width</em></span> and <span class="emphasis"><em>height</em></span>
+are provided, then the window is resized so that its dimensions
+are
+<span class="emphasis"><em>width</em></span> by <span class="emphasis"><em>height</em></span>.
+The units of
+<span class="emphasis"><em>width</em></span> and <span class="emphasis"><em>height</em></span>
+are percent-of-screen, unless a letter
+'<a name="Resize_p"></a><font class="fvwmopt">p</font>'
+is appended to one or both coordinates, in which case the location
+is specified in pixels.  With a
+'<a name="Resize_c"></a><font class="fvwmopt">c</font>'
+suffix the unit defined by the client application (hence the c) is
+used.  So you can say</p><pre class="programlisting">Resize 80c 24c</pre><p>to make a terminal window just big enough for 80x24
+characters.</p><p>If the
+<span class="emphasis"><em>width</em></span> or <span class="emphasis"><em>height</em></span>
+is prefixed with the letter
+'<a name="Resize_w"></a><font class="fvwmopt">w</font>'
+the size is not taken as an absolute value but added to the
+current size of the window.  Example:</p><pre class="programlisting">
+# Enlarge window by one line
+Resize keep w+1c
+</pre><p>Both,
+<span class="emphasis"><em>width</em></span> and <span class="emphasis"><em>height</em></span>
+can be negative.  In this case the new size is the screen size
+minus the given value.  If either value is "<a name="Resize_keep"></a><font class="fvwmopt">keep</font>", the
+corresponding dimension of the window is left untouched.  The new
+size is the size of the client window, thus</p><pre class="programlisting">Resize 100 100</pre><p>may make the window bigger than the screen.  To base the new size
+on the size of the whole fvwm window, add the
+<a name="Resize_frame"></a><font class="fvwmopt">frame</font>
+option after the command.  The options
+<a name="Resize_fixeddirection"></a><font class="fvwmopt">fixeddirection</font>,
+<a name="Resize_direction"></a><font class="fvwmopt">direction</font> and
+<a name="Resize_warptoborder"></a><font class="fvwmopt">warptoborder</font>
+are only used in interactive move operations.  With
+<span class="emphasis"><em>fixeddirection</em></span>
+the same border is moved even if the pointer moves past the
+opposite border.  The
+<span class="emphasis"><em>direction</em></span>
+option must be followed by a direction name such as "NorthWest",
+"South" or "East" (you get the idea).  Resizing is started
+immediately, even if the pointer is not on a border.  The
+<span class="emphasis"><em>warptoborder</em></span>
+option changes the behaviour of the
+<span class="emphasis"><em>direction</em></span>
+option so that the pointer is automatically warped to the border
+in the given direction before starting to resize.  Also, if
+resizing is started by clicking on the window border, the pointer
+is warped to the outer edge of the border.</p><pre class="programlisting">
+<a href="../commands/AddToFunc.html">AddToFunc</a> ResizeSE I Resize <a href="../commands/Direction.html">Direction</a> SE
+<a href="../commands/Mouse.html">Mouse</a> 3 A M ResizeSE
+</pre><p>An alternate syntax is used if the keyword
+<a name="Resize_bottomright"></a><font class="fvwmopt">bottomright</font> or in short
+<a name="Resize_br"></a><font class="fvwmopt">br</font>
+follows the command name.  In this case, the arguments
+<span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span>
+specify the desired position of the bottom right corner of the
+window.  They are interpreted exactly like the
+<span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span>
+arguments of the
+<a href="../commands/Move.html">Move</a>
+command.  Actually, any of the options accepted by the
+<a href="../commands/Move.html">Move</a>
+command can be used.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

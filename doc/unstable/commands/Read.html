@@ -1,0 +1,35 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>Read</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Read"></a>Read</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> Read filename [quiet] </p></div>
+</strong></span><p>Causes fvwm to read commands from the file named
+<span class="emphasis"><em>filename</em></span>.
+If the keyword
+<span class="emphasis"><em>Quiet</em></span>
+follows the command no message is produced if the file is not
+found.  If the file name does not begin with a slash ('/'), fvwm
+looks in the user's data directory, then the system data
+directory.  The user's data directory is by default
+<span class="emphasis"><em>$HOME/.fvwm</em></span>.
+It can be overridden by exporting
+<span class="emphasis"><em>FVWM_USERDIR</em></span>
+set to any other directory.  The
+<span class="emphasis"><em>Read</em></span>
+command returns 1 if the given file could be read or -1 if not
+(see the section
+<a href="../fvwm/conditionals.html#conditional_commands">Conditional Commands</a>
+for the meaning of return codes).</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

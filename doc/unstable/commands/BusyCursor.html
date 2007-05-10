@@ -1,0 +1,60 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>BusyCursor</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BusyCursor"></a>BusyCursor</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> BusyCursor  [Option bool]  , ... </p></div>
+</strong></span><p>This command controls the cursor during the execution of certain
+commands.
+<span class="emphasis"><em>Option</em></span>
+can be
+<span class="emphasis"><em>DynamicMenu</em></span>,
+<a name="BusyCursor_ModuleSynchronous"></a><font class="fvwmopt">ModuleSynchronous</font>,
+<span class="emphasis"><em>Read</em></span>,
+<span class="emphasis"><em>Wait</em></span> or
+<span class="emphasis"><em>*</em></span>.
+An option must be followed by a boolean argument
+<span class="emphasis"><em>bool</em></span>.
+You can use commas to separate individual options.  If you set an
+option to "True", then when the corresponding command is run, fvwm
+displays the cursor of the
+<span class="emphasis"><em>WAIT</em></span>
+context of the
+<a href="../commands/CursorStyle.html">CursorStyle</a>
+command.  "False" forces to not display the cursor.  The default is:</p><pre class="programlisting">
+BusyCursor DynamicMenu False, ModuleSynchronous False, \
+  Read False, Recapture True, Wait False
+</pre><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">FIXME</h3></div><p>
+The <a name="BusyCursor_*"></a><font class="fvwmopt">*</font> option
+refers to all available options.</p><p>
+The <a name="BusyCursor_Read"></a><font class="fvwmopt">Read</font>
+option controls the <a href="../commands/PipeRead.html">PipeRead</a> command.</p><p>
+The <a name="BusyCursor_DynamicMenu"></a><font class="fvwmopt">DynamicMenu</font>
+option affects the <a href="../commands/AddToMenu.html#AddToMenu_DynamicPopupAction">DynamicPopupAction</a>
+and <a href="../commands/AddToMenu.html#AddToMenu_MissingSubmenuFunction">MissingSubmenuFunction</a>
+options of the <a href="../commands/AddToMenu.html">AddToMenu</a>
+command.  If this option is set to "False", then the busy cursor
+is not displayed during a dynamic menu command even if this
+command is a <a href="../commands/Read.html">Read</a> or <a href="../commands/PipeRead.html">PipeRead</a>
+command and the <a name="BusyCursor_Read"></a><font class="fvwmopt">Read</font>
+option is set to "True".</p><p>
+The <a name="BusyCursor_Wait"></a><font class="fvwmopt">Wait</font>
+option affects only the root cursor.  During a wait pause the root
+cursor is replaced by the busy cursor and fvwm is still fully
+functional (you can escape from the pause, see the
+<a href="../commands/EscapeFunc.html">EscapeFunc</a>
+command).  If you want to use this option and if you do not use
+the default root cursor, you must set your root cursor with the
+<a href="../commands/CursorStyle.html">CursorStyle</a> command.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

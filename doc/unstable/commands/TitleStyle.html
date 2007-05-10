@@ -1,0 +1,167 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>TitleStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TitleStyle"></a>TitleStyle</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> TitleStyle [justification] [Height [num]] [MinHeight [num]] </p></div>
+</strong></span><p>Sets attributes for the title-bar.  Justifications can be
+<span class="emphasis"><em>Centered</em></span>, <span class="emphasis"><em>RightJustified</em></span> or <span class="emphasis"><em>LeftJustified</em></span>.
+<span class="emphasis"><em>Height</em></span>
+sets the title bar's height to an amount in pixels.
+<span class="emphasis"><em>MinHeight</em></span>
+sets the minimal height in pixels of the title bar.
+Defaults are
+<span class="emphasis"><em>Centered</em></span>,
+the window's font height and no minimal height.
+To reset the font height to the
+default value, omit the
+<span class="emphasis"><em>num</em></span>
+argument after the
+<span class="emphasis"><em>Height</em></span>
+keyword. The
+<span class="emphasis"><em>MinHeight</em></span>
+height is reseted by
+<span class="emphasis"><em>Height</em></span>
+or if given with no argument.
+Example:</p><pre class="programlisting">
+TitleStyle LeftJustified Height 24
+</pre><span><strong class="command">
+<div class="cmdsynopsis"><p> TitleStyle [state] [style] [-- [!] flag ...] </p></div>
+</strong></span><p>Sets the style for the title-bar.
+See also
+<a href="../commands/AddTitleStyle.html">AddTitleStyle</a> and <span class="emphasis"><em>ButtonStyle</em></span>.
+<span class="emphasis"><em>state</em></span>
+can be one of "ActiveUp", "ActiveDown", "InactiveUp",
+or "InactiveDown".  Shortcuts like "Active" and "Inactive" are
+allowed.  The states with the "Toggled" prefix are allowed too,
+the title itself does not use "Toggled" states, but these states
+are used for the buttons with
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+<span class="emphasis"><em>UseTitleStyle</em></span>.
+If
+<span class="emphasis"><em>state</em></span>
+is omitted, then the
+<span class="emphasis"><em>style</em></span>
+is added to every state.  If parentheses are placed around the
+<span class="emphasis"><em>style</em></span> and <span class="emphasis"><em>flags</em></span>,
+then multiple state definitions can be given per line.
+<span class="emphasis"><em>style</em></span>
+can be omitted so that flags can be set while not destroying the
+current style.</p><p>If a
+'<span class="emphasis"><em>!</em></span>'
+is prefixed to any
+<span class="emphasis"><em>flag</em></span>,
+its behavior is negated.  Valid flags for each state include
+<span class="emphasis"><em>Raised</em></span>, <span class="emphasis"><em>Flat</em></span> and <span class="emphasis"><em>Sunk</em></span>
+(these are mutually exclusive).  The default is
+<span class="emphasis"><em>Raised</em></span>.
+See the note in
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+regarding the "ActiveDown" state.  Examples:</p><pre class="programlisting">
+TitleStyle ActiveUp HGradient 16 navy black
+TitleStyle ActiveDown (Solid red -- flat) \
+    Inactive (TiledPixmap wood.xpm)
+TitleStyle ActiveUp (-- Flat) ActiveDown  \
+    (-- Raised) InactiveUp (-- Flat) \
+    InactiveDown (-- Sunk)
+</pre><p>This sets the "ActiveUp" state to a horizontal gradient, the
+"ActiveDown" state to solid red, and the "Inactive" states to a
+tiled wood pixmap. Finally, "ActiveUp" and "InactiveUp" are set
+to look flat, while "ActiveDown" set to be sunk (the
+<span class="emphasis"><em>Raised</em></span>
+flag for the "ActiveDown" state causes it to appear sunk due to
+relief inversion), and "InactiveDown" is set to look raised. An
+example which sets flags for all states:</p><pre class="programlisting">
+TitleStyle -- flat
+</pre><p>For a flattened look:</p><pre class="programlisting">
+TitleStyle -- flat
+<a href="../commands/ButtonStyle.html">ButtonStyle</a> <a href="../commands/All.html">All</a> Active (-- flat) Inactive (-- flat)
+</pre><p><span class="emphasis"><em>TitleStyle</em></span>
+accepts all the
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+ styles and arguments:</p><p><span class="emphasis"><em>Simple</em></span>, <span class="emphasis"><em>Default</em></span>, <span class="emphasis"><em>Solid</em></span>, <span class="emphasis"><em>Colorset</em></span>, <span class="emphasis"><em>Vector</em></span>,
+<span class="emphasis"><em>?Gradient</em></span>, <span class="emphasis"><em>Pixmap</em></span>, <span class="emphasis"><em>AdjustedPixmap</em></span>,
+<span class="emphasis"><em>ShrunkPixmap</em></span>, <span class="emphasis"><em>StretchedPixmap</em></span>, <span class="emphasis"><em>TiledPixmap</em></span>, <span class="emphasis"><em>MiniIcon</em></span>.</p><p>See the
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+command for a description of all these styles and their arguments.</p><p>In addition to these styles
+<span class="emphasis"><em>TitleStyle</em></span>
+accepts a powerful
+<span class="emphasis"><em>MultiPixmap</em></span>
+option. This allows you to specify different pixmaps, colorsets or
+colors for different parts of the titlebar. Some of them are tiled or
+stretched to fit a particular space; others are discrete "transition"
+images. The definable
+<span class="emphasis"><em>sections</em></span>
+are:</p><pre class="programlisting">
+<span class="emphasis"><em>Main</em></span>
+  The full titlebar
+<span class="emphasis"><em>LeftMain</em></span>
+  Left of title text
+<span class="emphasis"><em>RightMain</em></span>
+  Right of title text
+<span class="emphasis"><em>UnderText</em></span>
+  Underneath title text
+<span class="emphasis"><em>LeftOfText</em></span>
+  just to the left of the title text
+<span class="emphasis"><em>RightOfText</em></span>
+  just to the right of the title text
+<span class="emphasis"><em>LeftEnd</em></span>
+  at the far left end of the titlebar
+  (just after left buttons if any)
+<span class="emphasis"><em>RightEnd</em></span>
+  at the far right end of the titlebar
+  (just before right buttons if any)
+<span class="emphasis"><em>Buttons</em></span>
+  under buttons in case of UseTitleStyle
+<span class="emphasis"><em>LeftButtons</em></span>
+  under left buttons in case of UseTitleStyle
+<span class="emphasis"><em>RightButtons</em></span>
+  under right buttons in case of UseTitleStyle
+</pre><p>None of these are mandatory except for
+<span class="emphasis"><em>Main</em></span>
+(or, if you do not define
+<span class="emphasis"><em>Main</em></span>,
+you must define both
+<span class="emphasis"><em>LeftMain</em></span> and <span class="emphasis"><em>RightMain</em></span>).
+If no
+<span class="emphasis"><em>Buttons</em></span>
+pixmaps are defined and
+<span class="emphasis"><em>UseTitleStyle</em></span>
+is specified for one or more buttons,
+<span class="emphasis"><em>Main</em></span>, <span class="emphasis"><em>LeftMain</em></span>, or <span class="emphasis"><em>RightMain</em></span>
+are used as appropriate.</p><p>The syntax for this style type is:</p><pre class="programlisting">
+MultiPixmap section style arg, ...
+</pre><p>continuing for whatever you want to define. The
+<span class="emphasis"><em>style</em></span>
+can be either
+<span class="emphasis"><em>TiledPixmap</em></span>, <span class="emphasis"><em>AdjustedPixmap</em></span>, <span class="emphasis"><em>Colorset</em></span> or <span class="emphasis"><em>Solid</em></span>.
+See the
+<a href="../commands/ButtonStyle.html">ButtonStyle</a>
+command for the description of these styles.
+In the case of a transition section,
+<span class="emphasis"><em>LeftEnd</em></span>, <span class="emphasis"><em>LeftOfText</em></span>, <span class="emphasis"><em>RightOfText</em></span> or <span class="emphasis"><em>RightEnd</em></span>,
+<span class="emphasis"><em>AdjustedPixmap</em></span>
+only resize the pixmap in the "y" direction. For the
+<a href="../commands/Colorset.html">Colorset</a> and <span class="emphasis"><em>Solid</em></span>
+styles a width of the half of the title bar height is assumed
+for the transition sections.</p><p>An example:</p><pre class="programlisting">
+MultiPixmap Main AdjustedPixmap foo.xpm, \
+            UnderText TiledPixmap bar.xpm, \
+            Buttons <a href="../commands/Colorset.html">Colorset</a> 2
+</pre><p>Note that the old syntax is still supported: if the style is omitted,
+<span class="emphasis"><em>TiledPixmap</em></span>
+is assumed and adding "(stretched)" between the section and the
+file name implies
+<span class="emphasis"><em>AdjustedPixmap</em></span>.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

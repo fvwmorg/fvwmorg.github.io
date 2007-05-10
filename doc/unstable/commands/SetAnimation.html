@@ -1,0 +1,39 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>SetAnimation</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="SetAnimation"></a>SetAnimation</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> SetAnimation   milliseconds-delay  [fractions-to-move-list]</p></div>
+</strong></span><p>Sets the time between frames and the list of fractional offsets to
+customize the animated moves of the
+<a href="../commands/AnimatedMove.html">AnimatedMove</a>
+command and the animation of menus (if the menu style is set to
+animated; see
+<a href="../commands/MenuStyle.html">MenuStyle</a>
+command).  If the
+<span class="emphasis"><em>fractions-to-move-list</em></span>
+is omitted, only the time between frames is altered.  The
+<span class="emphasis"><em>fractions-to-move-list</em></span>
+specifies how far the window should be offset at each successive
+frame as a fraction of the difference between the starting
+location and the ending location.  e.g.:</p><pre class="programlisting">
+SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 \
+  .45 .6 .75 .85 .90 .94 .97 .99 1.0
+</pre><p>Sets the delay between frames to 10 milliseconds, and sets the
+positions of the 16 frames of the animation motion.  Negative
+values are allowed, and in particular can be used to make the
+motion appear more cartoonish, by briefly moving slightly in the
+opposite direction of the main motion.  The above settings are the
+default.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

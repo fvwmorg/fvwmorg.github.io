@@ -1,0 +1,83 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>AddToFunc</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToFunc"></a>AddToFunc</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> AddToFunc  [name [I | M | C | H | D action]]</p></div>
+</strong></span><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
+AddToFunc Move-or-Raise I <a href="../commands/Raise.html">Raise</a>
+ + M <a href="../commands/Move.html">Move</a>
+ + D <a href="../commands/Lower.html">Lower</a>
+</pre><p>The function name is "Move-or-Raise", and it could be invoked from a
+menu or a mouse binding or key binding:</p><pre class="programlisting">
+<a href="../commands/Mouse.html">Mouse</a> 1 TS A Move-or-Raise
+</pre><p>The
+<span class="emphasis"><em>name</em></span>
+must not contain embedded whitespace.  No guarantees are made
+whether function names with embedded whitespace work or not.  This
+behavior may also change in the future without further notice.
+The letter before the
+<span class="emphasis"><em>action</em></span>
+tells what kind of action triggers the command which follows it.
+'<span class="emphasis"><em>I</em></span>'
+stands for "Immediate", and is executed as soon as the function is
+invoked.
+'<span class="emphasis"><em>M</em></span>'
+stands for "Motion", i.e. if the user starts moving the mouse.
+'<span class="emphasis"><em>C</em></span>'
+stands for "Click", i.e., if the user presses and releases the
+mouse button.
+'<span class="emphasis"><em>H</em></span>'
+stands for "Hold", i.e. if the user presses a mouse button and
+holds it down for more than
+<span class="emphasis"><em>ClickTime</em></span>
+milliseconds.
+'<span class="emphasis"><em>D</em></span>'
+stands for "Double-click". The action
+'<span class="emphasis"><em>I</em></span>'
+causes an action to be performed on the button-press, if the
+function is invoked with prior knowledge of which window to act
+on.</p><p>There is a number of predefined symbols that are replaced by
+certain values if they appear on the command line.  Please refer
+to the
+<a href="../fvwm/expansion.html#command_expansion">Command Expansion</a>
+section for details.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Please read the comments on executing complex functions
+in the section
+<a href="../fvwm/scripting.html#scripting_and_complex_functions">Scripting and Complex Functions</a>.
+</div><p>Examples:</p><p>If you call</p><pre class="programlisting">
+<a href="../commands/Key.html">Key</a> F10 R A <a href="../commands/Function.html">Function</a> MailFunction xmh "-font fixed"
+</pre><p>and "MailFunction" is</p><pre class="programlisting">
+AddToFunc MailFunction
+ + I <a href="../commands/Next.html">Next</a> ($0) <a href="../commands/Iconify.html">Iconify</a> off
+ + I <a href="../commands/Next.html">Next</a> (AcceptsFocus, $0) <a href="../commands/Focus.html">Focus</a>
+ + I <a href="../commands/None.html">None</a> ($0) <a href="../commands/Exec.html">Exec</a> exec $0 $1
+</pre><p>Then the last line of the function becomes</p><pre class="programlisting">
+ + I <a href="../commands/None.html">None</a> (xmh) <a href="../commands/Exec.html">Exec</a> exec xmh -font fixed
+</pre><p>The expansion is performed as the function is executed, so you can
+use the same function with all sorts of different arguments.  You
+could use</p><pre class="programlisting">
+<a href="../commands/Key.html">Key</a> F11 R A <a href="../commands/Function.html">Function</a> MailFunction zmail "-bg pink"
+</pre><p>in the same
+<span class="emphasis"><em>config</em></span>,
+if you wanted.  An example of using "$[w.id]" is:</p><pre class="programlisting">
+AddToFunc PrintFunction
+ + I <a href="../commands/Raise.html">Raise</a>
+ + I <a href="../commands/Exec.html">Exec</a> xdpr -id $[w.id]
+</pre><p>Note that "$$" is expanded to '$'.</p><p>Another example: bind right mouse button within the window button
+number 6 (this is a minimize button for the win95 theme) to
+iconify all windows of the same resource:</p><pre class="programlisting">
+AddToFunc FuncIconifySameResource "I" <a href="../commands/All.html">All</a> ($0) <a href="../commands/Iconify.html">Iconify</a> on
+<a href="../commands/Mouse.html">Mouse</a> 3 6 A FuncIconifySameResource $[w.resource]
+</pre></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

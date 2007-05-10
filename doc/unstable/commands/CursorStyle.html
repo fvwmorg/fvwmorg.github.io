@@ -1,0 +1,71 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>CursorStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="CursorStyle"></a>CursorStyle</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> CursorStyle   context  [number|name|xpm|None|Tiny [fore back]]</p></div>
+</strong></span><p>Defines a new cursor for the specified context.  Note that this
+command can not control the shapes an applications uses, for
+example, to indicate that it is busy.  The various contexts are:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><tbody><tr><td align="left" valign="top"><span class="emphasis"><em>POSITION </em></span>(top_left_corner)</td><td align="left" valign="top">used when initially placing windows</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>TITLE </em></span>(top_left_arrow)</td><td align="left" valign="top">used in a window title-bar</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>DEFAULT </em></span>(top_left_arrow)</td><td align="left" valign="top">used in windows that do not set their cursor</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>SYS </em></span>(hand2)</td><td align="left" valign="top">used in one of the title-bar buttons</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>MOVE </em></span>(fleur)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>RESIZE </em></span>(sizing)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>WAIT </em></span>(watch)</td><td align="left" valign="top">used during certain fvwm commands (see <a href="../commands/BusyCursor.html">BusyCursor</a> for details)</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>MENU </em></span>(top_left_arrow)</td><td align="left" valign="top">used in menus</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>SELECT </em></span>(crosshair)</td><td align="left" valign="top">used when the user is required to select a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>DESTROY </em></span>(pirate)</td><td align="left" valign="top">used for <a href="../commands/Destroy.html">Destroy</a>, <a href="../commands/Close.html">Close</a>, and <a href="../commands/Delete.html">Delete</a> commands</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>TOP </em></span>(top_side)</td><td align="left" valign="top">used in the top side-bar of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>RIGHT </em></span>(right_side)</td><td align="left" valign="top">used in the right side-bar of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>BOTTOM </em></span>(bottom_side)</td><td align="left" valign="top">used in the bottom side-bar of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>LEFT </em></span>(left_side)</td><td align="left" valign="top">used in the left side-bar of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>TOP_LEFT </em></span>(top_left_corner)</td><td align="left" valign="top">used in the top left corner of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>TOP_RIGHT </em></span>(top_right_corner)</td><td align="left" valign="top">used in the top right corner of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>BOTTOM_LEFT </em></span>(bottom_left_corner)</td><td align="left" valign="top">used in the bottom left corner of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>BOTTOM_RIGHT </em></span>(bottom_right_corner)</td><td align="left" valign="top">used in the bottom right corner of a window</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>TOP_EDGE </em></span>(top_side)</td><td align="left" valign="top">used at the top edge of the screen</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>RIGHT_EDGE </em></span>(right_side)</td><td align="left" valign="top">used at the right edge of the screen</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>BOTTOM_EDGE </em></span>(bottom_side)</td><td align="left" valign="top">used at the bottom edge of the screen</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>LEFT_EDGE </em></span>(left_side)</td><td align="left" valign="top">used at the left edge of the screen</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>ROOT </em></span>(left_ptr)</td><td align="left" valign="top">used as the root cursor</td></tr><tr><td align="left" valign="top"><span class="emphasis"><em>STROKE </em></span>(plus)</td><td align="left" valign="top">used during a <a href="../commands/StrokeFunc.html">StrokeFunc</a> command.</td></tr></tbody></table></div><p>The defaults are shown in parentheses above.  If you ever want to
+restore the default cursor for a specific context you can omit the
+second argument.</p><p>The second is either the numeric value of the cursor as defined in
+the include file
+<span class="emphasis"><em>X11/cursorfont.h</em></span>
+or its name (without the XC_ prefix). Alternatively, the xpm file
+name may be specified.  This xpm file should contain a pixmap
+using 3 colors (None, black, white) and an optional hot-spot.  If
+no hot-spot is defined, the hot-spot is placed in the center of
+the image.  Furthermore the name can be
+<a name="CursorStyle_None"></a><font class="fvwmopt">None</font>
+(no cursor) or
+<a name="CursorStyle_Tiny"></a><font class="fvwmopt">Tiny</font>
+(a single pixel as the cursor).  For example:</p><pre class="programlisting">
+# make the kill cursor be XC_gumby (both forms work):
+CursorStyle DESTROY 56
+CursorStyle DESTROY gumby
+
+CursorStyle TOP_LEFT topl.xpm
+CursorStyle ROOT nice_arrow.xpm yellow black
+</pre><p>The optional
+<a name="CursorStyle_fore"></a><font class="fvwmopt">fore</font> and <a name="CursorStyle_back"></a><font class="fvwmopt">back</font>
+arguments specify the foreground and background colors for the
+cursor, defaulting to black and white.</p><p>Here is an example pixmap file
+<span class="emphasis"><em>nice_arrow.xpm</em></span>:</p><pre class="programlisting">
+/* XPM */
+static char *nice_arrow_xpm[] = {
+/* width height num_colors chars_per_pixel hot-spot */
+"    14    14        3            1          1 1",
+/* colors */
+"  c None",
+". c black",
+"# c white",
+/* pixels */
+"...           ",
+".##..         ",
+".####..       ",
+" .#####..     ",
+" .#######..   ",
+"  .########.. ",
+"  .##########.",
+"   .#######.. ",
+"   .######.   ",
+"    .######.  ",
+"    .###.###. ",
+"     .#. .###.",
+"     .#.  .#. ",
+"      .    .  ",
+};
+</pre><p>The hot-spot coordinates are relative to zero, in the above
+example, the hot-spot is in the second row, and second column.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>

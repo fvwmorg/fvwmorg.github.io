@@ -1,0 +1,66 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>IgnoreModifiers</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
+<td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
+<td class="postheader" valign="top">
+	<a href="../index.html"><font class="header">Home</font></a> &#8901;
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
+	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
+</td>
+
+<td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
+</tr></tbody></table>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="IgnoreModifiers"></a>IgnoreModifiers</h2></div></div><hr></div><span><strong class="command">
+<div class="cmdsynopsis"><p> IgnoreModifiers [Modifiers] </p></div>
+</strong></span><p>Tells fvwm which modifiers to ignore when matching Mouse or Key
+bindings.
+<span class="emphasis"><em>IgnoreModifiers</em></span>
+affects the
+<a href="../commands/Style.html#Style_ClickToFocus">ClickToFocus</a>
+style too.  This command belongs into your
+<span class="emphasis"><em>config</em></span>.
+If you issue it when your fvwm session is already up and running
+the results are unpredictable.  The should appear before any
+applications or modules are started in your
+<span class="emphasis"><em>config</em></span>
+file (e.g. with the
+<a href="../commands/Exec.html">Exec</a>
+command).</p><p><span class="emphasis"><em>Modifiers</em></span>
+has the same syntax as in the
+<a href="../commands/Mouse.html">Mouse</a> or <span class="emphasis"><em>Key</em></span>
+bindings, with the addition of 'L' meaning the
+<span class="emphasis"><em>caps lock</em></span>
+key.  The default is "L".
+<span class="emphasis"><em>Modifiers</em></span>
+can be omitted, meaning no modifiers are ignored.  This command
+comes in handy if the
+<span class="emphasis"><em>num-lock</em></span>
+and
+<span class="emphasis"><em>scroll-lock</em></span>
+keys interfere with your shortcuts.  With XFree86 '2' usually is
+the
+<span class="emphasis"><em>num-lock</em></span>
+modifier and '5' refers to the
+<span class="emphasis"><em>scroll-lock</em></span>
+key. To turn all these pesky modifiers off you can use this
+command:</p><pre class="programlisting">
+IgnoreModifiers L25
+</pre><p>If the
+<span class="emphasis"><em>Modifiers</em></span>
+argument is the string "default", fvwm reverts back to the
+default value "L".</p><p><span class="emphasis"><em>Important Note:</em></span>
+This command creates a lot of extra network traffic, depending on
+your CPU, network connection, the number of
+<a href="../commands/Key.html">Key</a> or <span class="emphasis"><em>Mouse</em></span>
+commands in your configuration file and the number of modifiers
+you want to ignore.  If you do not have a lightning fast machine
+or very few bindings you should not ignore more than two
+modifiers. I.e. do not ignore
+<span class="emphasis"><em>scroll-lock</em></span>
+if you have no problem with it.  In the
+<span class="emphasis"><em>FAQ</em></span>
+you can find a better solution of this problem.</p></div>
+<HR>
+<P>FVWM 2.5.22 (from cvs)</P>
+</body></html>
