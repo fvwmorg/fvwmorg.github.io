@@ -46,14 +46,26 @@ decoration_window_start("FVWM Documentation");
     <table align=center cellpadding="10" cellspacing="0" border="0" 
 	   width="90%" frame="void" rules="none" summary="">
       <tr>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>"><img src="documentation_faq_overview.jpg" border="0"></a></td>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>"><img src="documentation_manpages_overview.jpg" border="0"></a></td>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>"><img src="documentation_developers_overview.jpg" border="0"></a></td>
-      </tr>
-      <tr>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('faq/index.php');?>">Frequently Asked Questions</a></td>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('manpages/index.php');?>">Manual Pages</a></td>
-	<td width="30%" align="center" valign="middle"><a href="<?php echo conv_link_target('developers.php');?>">Developer Information</a></td>
+	<td width="25%" align="center" valign="middle">
+		<a href="../doc/unstable/index.html">
+		<img src="documentation_htmldoc_overview.jpg" border="0"><br/>
+		HTML Documentation</a>
+	</td>
+	<td width="25%" align="center" valign="middle">
+		<a href="<?php echo conv_link_target('faq/index.php');?>">
+		<img src="documentation_faq_overview.jpg" border="0"><br/>
+		Frequently Asked Questions</a>
+	</td>
+	<td width="25%" align="center" valign="middle">
+		<a href="<?php echo conv_link_target('manpages/index.php');?>">
+		<img src="documentation_manpages_overview.jpg" border="0"><br/>
+		Manual Pages</a>
+	</td>
+	<td width="25%" align="center" valign="middle">
+		<a href="<?php echo conv_link_target('developers.php');?>">
+		<img src="documentation_developers_overview.jpg" border="0"><br/>
+		Developer Information</a>
+	</td>
       </tr>
     </table>
   </center>
