@@ -11,9 +11,7 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="LocalePath"></a>LocalePath</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> LocalePath path </p></div>
-</strong></span><p>Specifies a colon separated list of "locale path" in which to
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="LocalePath"></a>LocalePath</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">LocalePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of "locale path" in which to
 search for string translations. A locale path is constituted by a
 directory path and a text domain separated by a semicolon
 (';'). As an example the default locale path is:</p><pre class="programlisting">
@@ -29,7 +27,7 @@ directory path is assumed. If no text domain is given,
 is assumed. Without argument the default locale path is restored.</p><p>As for the
 <a href="../commands/ImagePath.html">ImagePath</a>
 command,
-<span class="emphasis"><em>path</em></span>
+<em class="replaceable"><code>path</code></em>
 may contain environment variables and a '+' to append or prepend
 the locale path easily.</p><p>For example, the fvwm-themes package uses</p><pre class="programlisting">
 LocalePath ";fvwm-themes:+"

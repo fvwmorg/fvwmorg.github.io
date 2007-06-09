@@ -11,22 +11,20 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ChangeDecor"></a>ChangeDecor</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> ChangeDecor   decor </p></div>
-</strong></span><p>This command is deprecated and will be removed in the future.  There
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ChangeDecor"></a>ChangeDecor</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ChangeDecor</code>   <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
 are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Changes the decor of a window to
-<span class="emphasis"><em>decor</em></span>.
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>.
+<em class="replaceable"><code>decor</code></em>
 is "Default" or the name of a decor defined with
-<span class="emphasis"><em>AddToDecor</em></span>.
+<a href="../commands/AddToDecor.html">AddToDecor</a>.
 If
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>
 is invalid, nothing occurs.  If called from somewhere in a window
 or its border, then that window is affected.  If called from the
 root window the user is allowed to select the target window.
 <span class="emphasis"><em>ChangeDecor</em></span>
 only affects attributes which can be set using the
-<span class="emphasis"><em>AddToDecor</em></span>
+<a href="../commands/AddToDecor.html">AddToDecor</a>
 command.</p><pre class="programlisting">
 ChangeDecor CustomDecor1
 </pre></div>

@@ -11,21 +11,19 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="PipeRead"></a>PipeRead</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> PipeRead command [quiet] </p></div>
-</strong></span><p>Causes fvwm to read commands from the output of the
-<span class="emphasis"><em>command</em></span>.
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="PipeRead"></a>PipeRead</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
+<em class="replaceable"><code>command</code></em>.
 This
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 is executed by
 <code class="filename">/bin/sh</code>
 as if you typed it on the command line.  If the command consists
 of more than one word it must be quoted.  Useful for building up
 dynamic menu entries based on a directories contents, for
 example. If the keyword
-<span class="emphasis"><em>Quiet</em></span>
+<a name="PipeRead_Quiet"></a><font class="fvwmopt">Quiet</font>
 follows the command no message is produced if the
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 is not found.</p><p>Example:</p><pre class="programlisting">
 <a href="../commands/AddToMenu.html">AddToMenu</a> HomeDirMenu
 PipeRead 'for i in $HOME/*; \
@@ -37,7 +35,7 @@ execution.  However, some commands, for example xwd, need to take
 control of the pointer themselves and do not work.  To disable the
 watch cursor, use the command prior to
 <span class="emphasis"><em>PipeRead</em></span></p><pre class="programlisting">
-<a href="../commands/BusyCursor.html">BusyCursor</a> <a href="../commands/Read.html">Read</a> off
+<a href="../commands/BusyCursor.html">BusyCursor</a> <a href="../commands/BusyCursor.html#BusyCursor_Read">Read</a> off
 </pre><p>The
 <span class="emphasis"><em>PipeRead</em></span>
 command executes synchronously.  If you want to

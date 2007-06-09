@@ -11,14 +11,12 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="DestroyMenu"></a>DestroyMenu</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> DestroyMenu  [recreate]  menu </p></div>
-</strong></span><p>Deletes a menu, so that subsequent references to it are no longer
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="DestroyMenu"></a>DestroyMenu</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">DestroyMenu</code>  [recreate]  <em class="replaceable"><code>menu</code></em> </p></div><p>Deletes a menu, so that subsequent references to it are no longer
 valid.  You can use this to change the contents of a menu during
 an fvwm session.  The menu can be rebuilt using
 <a href="../commands/AddToMenu.html">AddToMenu</a>.
 The optional parameter
-<span class="emphasis"><em>recreate</em></span>
+<a name="DestroyMenu_recreate"></a><font class="fvwmopt">recreate</font>
 tells fvwm not to throw away the menu completely but to throw away
 all the menu items (including the title).</p><pre class="programlisting">DestroyMenu Utilities</pre></div>
 <HR>

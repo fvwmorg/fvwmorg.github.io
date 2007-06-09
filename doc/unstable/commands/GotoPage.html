@@ -11,10 +11,11 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="GotoPage"></a>GotoPage</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> GotoPage <span class="emphasis"><em>prev</em></span> | [<span class="emphasis"><em>options</em></span>] <span class="emphasis"><em>x</em></span> [<span class="emphasis"><em>p</em></span>] <span class="emphasis"><em>y</em></span> [<span class="emphasis"><em>p</em></span>]
-	 </p></div>
-</strong></span><p>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="GotoPage"></a>GotoPage</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">GotoPage</code>    prev  |   
+			[<em class="replaceable"><code>options</code></em>]
+			  <em class="replaceable"><code>x</code></em>[<span class="optional">p</span>] 
+			  <em class="replaceable"><code>y</code></em>[<span class="optional">p</span>] 
+		  </p></div><p>
 Moves the desktop viewport to page (x,y).  The upper left page is
 (0,0), the upper right is (M,0), where M is one less than the
 current number of horizontal pages specified in the
@@ -24,14 +25,14 @@ is (M,N), where N is the desktop's vertical size as specified in the
 <a href="../commands/DeskTopSize.html">DeskTopSize</a>
 command.  To switch to a page relative to the current one add a
 trailing
-'<span class="emphasis"><em>p</em></span>'
+'<a name="GotoPage_p"></a><font class="fvwmopt">p</font>'
 after any or both numerical arguments.</p><p>Possible
-<span class="emphasis"><em>options</em></span>
+<em class="replaceable"><code>options</code></em>
 are
-<span class="emphasis"><em>wrapx</em></span> and <span class="emphasis"><em>wrapy</em></span>
+<a name="GotoPage_wrapx"></a><font class="fvwmopt">wrapx</font> and <a name="GotoPage_wrapy"></a><font class="fvwmopt">wrapy</font>
 to wrap around the x or y coordinate when the viewport is moved
 beyond the border of the desktop.</p><p>To go to the last visited page use
-<span class="emphasis"><em>prev</em></span>
+<a name="GotoPage_prev"></a><font class="fvwmopt">prev</font>
 as the first argument.  The
 <span class="emphasis"><em>GotoPage</em></span>
 function should not be used in a pop-up menu.</p><p>Examples:</p><pre class="programlisting">

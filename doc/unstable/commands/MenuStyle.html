@@ -11,8 +11,8 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="MenuStyle"></a>MenuStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p> MenuStyle   stylename  [options]</p></div><p>Sets a new menu style or changes a previously defined style.  The
-<span class="emphasis"><em>stylename</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="MenuStyle"></a>MenuStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">MenuStyle</code>   <em class="replaceable"><code>stylename</code></em>  [<em class="replaceable"><code>options</code></em>]</p></div><p>Sets a new menu style or changes a previously defined style.  The
+<em class="replaceable"><code>stylename</code></em>
 is the style name; if it contains spaces or tabs it has to be
 quoted.  The name "*" is reserved for the default menu style. The
 default menu style is used for every menu-like object (e.g. the
@@ -22,7 +22,7 @@ command) that had not be assigned a style using the
 <a href="../commands/ChangeMenuStyle.html">ChangeMenuStyle</a>.
 See also
 <a href="../commands/DestroyMenuStyle.html">DestroyMenuStyle</a>.
-When using monochrome color options are ignored.</p><p><span class="emphasis"><em>options</em></span>
+When using monochrome color options are ignored.</p><p><em class="replaceable"><code>options</code></em>
 is a comma separated list containing some of the keywords
 Fvwm / Mwm / Win,
 BorderWidth,
@@ -398,7 +398,7 @@ affects menu navigation with the keyboard.</p><p>
 takes an optional key name as an argument.  If the given key is
 released in a menu using this style, the current menu item is
 selected.  This is intended for
-<span class="emphasis"><em>Alt-Tab</em></span>
+<span class="keysym">Alt-Tab</span>
 <a href="../commands/WindowList.html">WindowList</a>
 navigation.
 The key name is a standard X11 key name as defined in
@@ -418,7 +418,7 @@ menu item. All you have to do is tell fvwm where to place the
 different parts of the menu item (i.e. the labels, the triangle
 denoting a sub menu, the mini icons and the side pic) in the blank
 area.  The string consists of spaces,
-<span class="emphasis"><em>Tab</em></span>
+<span class="keysym">Tab</span>
 characters and formatting directives beginning with '%'. Any
 illegal characters and formatting directives are silently ignored:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th align="center">Formatting Directive</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%c</em></span> &amp; <span class="emphasis"><em>%r</em></span></td><td align="left">Insert the next item label. Up to three labels can be used. The item column is left-aligned (<span class="emphasis"><em>%l</em></span>), centered (<span class="emphasis"><em>%c</em></span>) or right-aligned (<span class="emphasis"><em>%r</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%i</em></span></td><td align="left">Inserts the mini icon.</td></tr><tr><td align="left"><span class="emphasis"><em>%&gt;</em></span> &amp; <span class="emphasis"><em>%&lt;</em></span></td><td align="left">Insert the sub menu triangle pointing either to the right (<span class="emphasis"><em>%&gt;</em></span>) or to the left (<span class="emphasis"><em>%&lt;</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%|</em></span></td><td align="left">The first %| denotes the beginning of the area that is highlighted either with a background color or a relief (or both). The second <span class="emphasis"><em>%|</em></span> marks the end of this area.  <span class="emphasis"><em>%|</em></span> can be used up to twice in the string.  If you do not add one or both of them, fvwm sets the margins to the margins of the whole item (not counting the side picture).</td></tr><tr><td align="left"><span class="emphasis"><em>%s</em></span></td><td align="left">Places the side picture either at the beginning or the end of the menu. This directive may be used only once and only as the first or last in the format string. If the <span class="emphasis"><em>%s</em></span> is not at the beginning of the string, menus are not drawn properly.</td></tr><tr><td align="left"><span class="emphasis"><em>Space</em></span>, <span class="emphasis"><em>Tab</em></span>, <span class="emphasis"><em>%Space</em></span> &amp; <span class="emphasis"><em>%Tab</em></span></td><td align="left">Add gap of one space, or a tab, using the width of the menu font. When using a tab, the size of the gap can be one to 8 spaces since the tab position is a multiple of 8 from the edge of the menu. The whole string must be quoted if spaces or tabs are used.</td></tr><tr><td align="left"><span class="emphasis"><em>%p</em></span></td><td align="left">Like Space and Tab <span class="emphasis"><em>%p</em></span> inserts an empty area into the item, but with better control of its size (see below).</td></tr></tbody></table></div><p>You can define an additional space before and after each of the
 objects like this:</p><pre class="programlisting">

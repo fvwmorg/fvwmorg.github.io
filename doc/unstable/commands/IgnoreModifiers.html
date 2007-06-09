@@ -11,56 +11,54 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="IgnoreModifiers"></a>IgnoreModifiers</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> IgnoreModifiers [Modifiers] </p></div>
-</strong></span><p>Tells fvwm which modifiers to ignore when matching Mouse or Key
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="IgnoreModifiers"></a>IgnoreModifiers</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">IgnoreModifiers</code>  [<em class="replaceable"><code>Modifiers</code></em>]</p></div><p>Tells fvwm which modifiers to ignore when matching Mouse or Key
 bindings.
 <span class="emphasis"><em>IgnoreModifiers</em></span>
 affects the
 <a href="../commands/Style.html#Style_ClickToFocus">ClickToFocus</a>
 style too.  This command belongs into your
-<span class="emphasis"><em>config</em></span>.
+<code class="filename">config</code>.
 If you issue it when your fvwm session is already up and running
 the results are unpredictable.  The should appear before any
 applications or modules are started in your
-<span class="emphasis"><em>config</em></span>
+<code class="filename">config</code>
 file (e.g. with the
 <a href="../commands/Exec.html">Exec</a>
-command).</p><p><span class="emphasis"><em>Modifiers</em></span>
+command).</p><p><em class="replaceable"><code>Modifiers</code></em>
 has the same syntax as in the
-<a href="../commands/Mouse.html">Mouse</a> or <span class="emphasis"><em>Key</em></span>
+<a href="../commands/Mouse.html">Mouse</a> or <a href="../commands/Key.html">Key</a>
 bindings, with the addition of 'L' meaning the
-<span class="emphasis"><em>caps lock</em></span>
+<span class="keysym">caps lock</span>
 key.  The default is "L".
-<span class="emphasis"><em>Modifiers</em></span>
+<em class="replaceable"><code>Modifiers</code></em>
 can be omitted, meaning no modifiers are ignored.  This command
 comes in handy if the
-<span class="emphasis"><em>num-lock</em></span>
+<span class="keysym">num-lock</span>
 and
-<span class="emphasis"><em>scroll-lock</em></span>
+<span class="keysym">scroll-lock</span>
 keys interfere with your shortcuts.  With XFree86 '2' usually is
 the
-<span class="emphasis"><em>num-lock</em></span>
+<span class="keysym">num-lock</span>
 modifier and '5' refers to the
-<span class="emphasis"><em>scroll-lock</em></span>
+<span class="keysym">scroll-lock</span>
 key. To turn all these pesky modifiers off you can use this
 command:</p><pre class="programlisting">
 IgnoreModifiers L25
 </pre><p>If the
-<span class="emphasis"><em>Modifiers</em></span>
-argument is the string "default", fvwm reverts back to the
-default value "L".</p><p><span class="emphasis"><em>Important Note:</em></span>
+<em class="replaceable"><code>Modifiers</code></em>
+argument is the string "<a name="IgnoreModifiers_default"></a><font class="fvwmopt">default</font>", fvwm reverts back to the
+default value "L".</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3>
 This command creates a lot of extra network traffic, depending on
 your CPU, network connection, the number of
-<a href="../commands/Key.html">Key</a> or <span class="emphasis"><em>Mouse</em></span>
+<a href="../commands/Key.html">Key</a> or <a href="../commands/Mouse.html">Mouse</a>
 commands in your configuration file and the number of modifiers
 you want to ignore.  If you do not have a lightning fast machine
 or very few bindings you should not ignore more than two
 modifiers. I.e. do not ignore
-<span class="emphasis"><em>scroll-lock</em></span>
+<span class="keysym">scroll-lock</span>
 if you have no problem with it.  In the
 <span class="emphasis"><em>FAQ</em></span>
-you can find a better solution of this problem.</p></div>
+you can find a better solution of this problem.</div></div>
 <HR>
 <P>FVWM 2.5.22 (from cvs)</P>
 </body></html>

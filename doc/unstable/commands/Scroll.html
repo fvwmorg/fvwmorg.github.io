@@ -11,17 +11,17 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Scroll"></a>Scroll</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Scroll [<span class="emphasis"><em>horizonal</em></span> [<span class="emphasis"><em>p</em></span>] <span class="emphasis"><em>vertical</em></span> [<span class="emphasis"><em>p</em></span>] | [<span class="emphasis"><em>reverse</em></span>]
-	 </p></div>
-</strong></span><p>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Scroll"></a>Scroll</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Scroll</code>  [ 
+			<em class="replaceable"><code>horizonal</code></em>[<span class="optional">p</span>]
+			<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
+		  |   reverse ]</p></div><p>
 Scrolls the virtual desktop's viewport by
 <a name="MenuStyle_horizontal"></a><font class="fvwmopt">horizontal</font>
 pages in the x-direction and
 <a name="MenuStyle_vertical"></a><font class="fvwmopt">vertical</font>
 pages in the y-direction or starts interactive scrolling of the viewport.  Either or both entries may be negative.
 Both
-<span class="emphasis"><em>horizontal</em></span> and <span class="emphasis"><em>vertical</em></span>
+<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
 values are expressed in percent of pages, so</p><pre class="programlisting">
 Scroll 100 100
 </pre><p>means to scroll down and right by one full page.</p><pre class="programlisting">
@@ -31,19 +31,19 @@ The
 <span class="emphasis"><em>Scroll</em></span>
 function should not be called from pop-up menus.  Normally,
 scrolling stops at the edge of the desktop.</p><p>If the
-<span class="emphasis"><em>horizontal</em></span> and <span class="emphasis"><em>vertical</em></span>
+<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
 percentages are 100 or more and are multiplied by 1000 then
 scrolling wraps around at the edge of the desktop.  If</p><pre class="programlisting">
 Scroll 100000 0
 </pre><p>is executed over and over fvwm moves to the next desktop page on
 each execution and wraps around at the edge of the desktop, so
 that every page is hit in turn.</p><p>If the letter
-'<span class="emphasis"><em>p</em></span>'
+'<a name="Scroll_p"></a><font class="fvwmopt">p</font>'
 is appended to each coordinate
-(<span class="emphasis"><em>horizontal</em></span> and/or <span class="emphasis"><em>vertical</em></span>),
-then the scroll amount is measured in pixels.</p><p>Without arguments or the option
+(<em class="replaceable"><code>horizontal</code></em> and/or <em class="replaceable"><code>vertical</code></em>),
+then the scroll amount is measured in pixels.</p><p>Without arguments or if the option
 <span class="emphasis"><em>reverse</em></span>
-is given interactive scrolling takes place.  The viewporst
+is given interactive scrolling takes place.  The viewport
 scrolls as the mouse is moved. With the
 <a name="Scroll_reverse"></a><font class="fvwmopt">reverse</font>
 option scrolling is done in opposite direction of the mouse
@@ -52,9 +52,9 @@ mouse.</p><p>The binding</p><pre class="programlisting">
 <a href="../commands/Mouse.html">Mouse</a> 1 A CM Scroll reverse
 </pre><p>gives an effect of grabbing and dragging the viewport with button 1
 if
-<span class="emphasis"><em>Control</em></span>
+<span class="keysym">Control</span>
 and
-<span class="emphasis"><em>Meta</em></span>
+<span class="keysym">Meta</span>
 is pressed.</p></div>
 <HR>
 <P>FVWM 2.5.22 (from cvs)</P>

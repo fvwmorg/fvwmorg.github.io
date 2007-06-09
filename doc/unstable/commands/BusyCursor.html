@@ -11,11 +11,12 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BusyCursor"></a>BusyCursor</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> BusyCursor  [Option bool]  , ... </p></div>
-</strong></span><p>This command controls the cursor during the execution of certain
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BusyCursor"></a>BusyCursor</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   
+      [<em class="replaceable"><code>Option</code></em>
+	<em class="replaceable"><code>bool</code></em>],
+    ... </p></div><p>This command controls the cursor during the execution of certain
 commands.
-<span class="emphasis"><em>Option</em></span>
+<em class="replaceable"><code>Option</code></em>
 can be
 <span class="emphasis"><em>DynamicMenu</em></span>,
 <a name="BusyCursor_ModuleSynchronous"></a><font class="fvwmopt">ModuleSynchronous</font>,
@@ -23,11 +24,11 @@ can be
 <span class="emphasis"><em>Wait</em></span> or
 <span class="emphasis"><em>*</em></span>.
 An option must be followed by a boolean argument
-<span class="emphasis"><em>bool</em></span>.
+<em class="replaceable"><code>bool</code></em>.
 You can use commas to separate individual options.  If you set an
 option to "True", then when the corresponding command is run, fvwm
 displays the cursor of the
-<span class="emphasis"><em>WAIT</em></span>
+<a href="../commands/CursorStyle.html#CursorStyle_WAIT">WAIT</a>
 context of the
 <a href="../commands/CursorStyle.html">CursorStyle</a>
 command.  "False" forces to not display the cursor.  The default is:</p><pre class="programlisting">

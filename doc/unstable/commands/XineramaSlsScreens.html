@@ -11,21 +11,19 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="XineramaSlsScreens"></a>XineramaSlsScreens</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> XineramaSlsScreens number-of-screens screen-spec ... </p></div>
-</strong></span><p>This command configures the layout of the Single Logical screen
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="XineramaSlsScreens"></a>XineramaSlsScreens</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">XineramaSlsScreens</code>   number-of-screens  [<em class="replaceable"><code>screen-spec</code></em>...]</p></div><p>This command configures the layout of the Single Logical screen
 feature.  Its first argument is the number of screens to use.  It
 must be followed by exactly this number of
-<span class="emphasis"><em>screen-spec</em></span>
+<em class="replaceable"><code>screen-spec</code></em>
 arguments.  Each of these can be written either in standard X
 geometry format: "&lt;width&gt;x&lt;height&gt;+&lt;x&gt;+&lt;y&gt;" or as a space separated
 list of numbers: "x y width height". Both ways of describing
 screens can be mixed in a single command.  All four numbers must
 be supplied.  The
-<span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span>
+<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
 values specify the origin of the screen in relation to the global
 screen's origin while
-<span class="emphasis"><em>width</em></span> and <span class="emphasis"><em>height</em></span>
+<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
 specify the size of the screen in pixels.  No checks are done if
 the geometries make sense, so it is possible to define overlapping
 screens (with random results) or screens that are not visible at

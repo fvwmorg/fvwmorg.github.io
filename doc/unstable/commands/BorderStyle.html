@@ -11,31 +11,30 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BorderStyle"></a>BorderStyle</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> BorderStyle   state  [style] [-- [!] flag ...]</p></div>
-</strong></span><p>Defines a border style for windows.
-<span class="emphasis"><em>state</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BorderStyle"></a>BorderStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">BorderStyle</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>style</code></em>] [--
+			 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
+		]</p></div><p>Defines a border style for windows.
+<em class="replaceable"><code>state</code></em>
 can be either "<a name="BorderStyle_Active"></a><font class="fvwmopt">Active</font>" or "<a name="BorderStyle_Inactive"></a><font class="fvwmopt">Inactive</font>".  If
-<span class="emphasis"><em>state</em></span>
+<em class="replaceable"><code>state</code></em>
 is omitted, then the style is set for both states.  If the
-<span class="emphasis"><em>style</em></span> and <span class="emphasis"><em>flags</em></span>
+<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
 are enclosed in parentheses, then multiple
-<span class="emphasis"><em>state</em></span>
-definitions can be specified per line.</p><p><span class="emphasis"><em>style</em></span>
+<em class="replaceable"><code>state</code></em>
+definitions can be specified per line.</p><p><em class="replaceable"><code>style</code></em>
 is a subset of the available button styles, and can only be
 <a name="BorderStyle_TiledPixmap"></a><font class="fvwmopt">TiledPixmap</font>
 (uniform pixmaps which match the bevel colors work best this
 way) or <a name="BorderStyle_Colorset"></a><font class="fvwmopt">Colorset</font>. If a
-'<span class="emphasis"><em>!</em></span>'
-is prefixed to any
-<span class="emphasis"><em>flag</em></span>,
+'!' is prefixed to any
+<em class="replaceable"><code>flag</code></em>,
 the behavior is negated.  If
-<span class="emphasis"><em>style</em></span>
+<em class="replaceable"><code>style</code></em>
 is not specified, then one can change flags without resetting the
 style.</p><p>The
 <a name="BorderStyle_HiddenHandles"></a><font class="fvwmopt">HiddenHandles</font>
 flag hides the corner handle dividing lines on windows with
-handles (this option has no effect for NoHandle windows).  By
+handles (this option has no effect for !<a href="../commands/Style.html#Style_Handles">Handles</a> windows).  By
 default,
 <span class="emphasis"><em>HiddenHandles</em></span>
 is disabled.</p><p>The

@@ -11,11 +11,22 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="MoveToPage"></a>MoveToPage</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> MoveToPage   [options] [x[p|w] y[p|w]] | [prev] </p></div>
-</strong></span><p>Moves the selected window to another page (x,y).  The upper left
-page is (0,0), the upper right is (M,0), where M is one less than
-the current number of horizontal pages specified in the
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="MoveToPage"></a>MoveToPage</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">MoveToPage</code>    
+			[<em class="replaceable"><code>options</code></em>]
+			 [
+				 
+					<em class="replaceable"><code>x</code></em>[<span class="optional">p|w</span>]
+				 
+				  
+					<em class="replaceable"><code>y</code></em>[<span class="optional">p|w</span>]
+				 
+			]
+      |  [
+			prev
+    ] </p></div><p>Moves the selected window to another page
+(<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>). The
+upper left page is (0,0), the upper right is (M,0), where M is one
+less than the current number of horizontal pages specified in the
 <a href="../commands/DesktopSize.html">DesktopSize</a>
 command.  Similarly the lower left page is (0,N), and the lower
 right page is (M,N).  Negative page numbers refer to pages from
@@ -33,7 +44,7 @@ relative to its current location, add a trailing
 To move a window to the previous page use
 <a name="MoveToPage_prev"></a><font class="fvwmopt">prev</font>
 as the single argument.</p><p>Windows are usually not moved beyond desk boundaries.</p><p>Possible
-<span class="emphasis"><em>options</em></span>
+<em class="replaceable"><code>options</code></em>
 are
 <a name="MoveToPage_wrapx"></a><font class="fvwmopt">wrapx</font> and
 <a name="MoveToPage_wrapy"></a><font class="fvwmopt">wrapy</font>

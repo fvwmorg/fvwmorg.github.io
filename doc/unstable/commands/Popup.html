@@ -11,16 +11,14 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Popup"></a>Popup</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Popup   PopupName  [position] [default-action]</p></div>
-</strong></span><p>This command has two purposes: to bind a menu to a key or mouse
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Popup"></a>Popup</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Popup</code>   <em class="replaceable"><code>PopupName</code></em>  [<em class="replaceable"><code>position</code></em>] [<em class="replaceable"><code>default-action</code></em>]</p></div><p>This command has two purposes: to bind a menu to a key or mouse
 button, and to bind a sub menu into a menu.  The formats for the
 two purposes differ slightly.  The
-<span class="emphasis"><em>position</em></span>
+<em class="replaceable"><code>position</code></em>
 arguments are the same as for
 <a href="../commands/Menu.html">Menu</a>.
 The command
-<span class="emphasis"><em>default-action</em></span>
+<em class="replaceable"><code>default-action</code></em>
 is invoked if the user clicks a button to invoke the menu and
 releases it immediately again (or hits the key rapidly twice if
 the menu is bound to a key).  If the default action is not
@@ -42,7 +40,7 @@ enter keys.</p><p>To bind a previously defined pop-up menu to another menu, for 
 as a sub menu:</p><p>The following example defines a sub menu "Quit-Verify" and binds
 it into a main menu, called "RootMenu":</p><pre class="programlisting">
 <a href="../commands/AddToMenu.html">AddToMenu</a> Quit-Verify
- + "Really <a href="../commands/Quit.html">Quit</a> Fvwm?" <a href="../commands/Title.html">Title</a>
+ + "Really Quit Fvwm?" <a href="../commands/Title.html">Title</a>
  + "Yes, Really Quit"  <a href="../commands/Quit.html">Quit</a>
  + "Restart Fvwm"      <a href="../commands/Restart.html">Restart</a>
  + "Restart Fvwm 1.xx" <a href="../commands/Restart.html">Restart</a> fvwm1 -s

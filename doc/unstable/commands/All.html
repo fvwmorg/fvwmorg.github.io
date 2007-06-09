@@ -11,20 +11,18 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="All"></a>All</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> All  [options] [(conditions)]  command </p></div>
-</strong></span><p>Execute
-<span class="emphasis"><em>command</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="All"></a>All</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">All</code>  [<em class="replaceable"><code>options</code></em>] [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Execute
+<em class="replaceable"><code>command</code></em>
 on all windows meeting the conditions.  It returns 1 if any window
 matches the condition and 0 otherwise. The execution starts at the top of the
 window ring and continues towards the bottom. The
-<span class="emphasis"><em>options</em></span>
+<em class="replaceable"><code>options</code></em>
 can be any combination of
 <span class="emphasis"><em>Reverse</em></span> and <span class="emphasis"><em>UseStack</em></span>.
 If the option
-<span class="emphasis"><em>Reverse</em></span>
+<a name="All_Reverse"></a><font class="fvwmopt">Reverse</font>
 is given the execution order is reversed. The option
-<span class="emphasis"><em>UseStack</em></span>
+<a name="All_UseStack"></a><font class="fvwmopt">UseStack</font>
 makes All use the stacking order instead of the window ring when walking
 through windows.
 See the <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions

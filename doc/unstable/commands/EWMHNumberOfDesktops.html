@@ -11,38 +11,36 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EWMHNumberOfDesktops"></a>EWMHNumberOfDesktops</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> EWMHNumberOfDesktops num [max] </p></div>
-</strong></span><p>This command is useful only for an ewmh compliant pager or taskbar
-(as kpager or kicker taskbar) and not for fvwm modules (FvwmPager
-or FvwmIconMan). It causes a compliant application to consider at
-least
-<span class="emphasis"><em>num</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EWMHNumberOfDesktops"></a>EWMHNumberOfDesktops</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">EWMHNumberOfDesktops</code>   <em class="replaceable"><code>num</code></em>  [<em class="replaceable"><code>max</code></em>]</p></div><p>This command is useful only for an ewmh compliant pager or taskbar
+(as kpager or kicker taskbar) and not for fvwm modules (
+<a href="../modules/FvwmPager.html">FvwmPager</a> or <a href="../modules/FvwmIconMan.html">FvwmIconMan</a>). It causes a
+compliant application to consider at least
+<em class="replaceable"><code>num</code></em>
 desktops (desktop 0 to desktop
-<span class="emphasis"><em>num</em></span>-1).
+<em class="replaceable"><code>num</code></em>-1).
 The optional argument
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 causes a compliant application to never consider more than
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 desktops. If
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 is 0 (the default) there is no limitation.  The actual number of
 desktops is determined dynamically.  It is at least
-<span class="emphasis"><em>num</em></span>,
+<em class="replaceable"><code>num</code></em>,
 but it can be d if there is a window on desktop d-1 (or if the
 current desktop is desktop d-1) and d is less or equal to
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 or
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 is null.
 Moreover, a compliant pager can ask to change
-<span class="emphasis"><em>num</em></span>
+<em class="replaceable"><code>num</code></em>
 itself.
 This is accepted by fvwm only if this number is
 less than or equal to
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 or if
-<span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>max</code></em>
 is null.  Note that negative desktops are not supported by the
 ewmh specification.  The default is 4 0.</p></div>
 <HR>

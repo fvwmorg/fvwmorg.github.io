@@ -11,16 +11,17 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BugOpts"></a>BugOpts</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> BugOpts  [option [bool]]  , ... </p></div>
-</strong></span><p>This command controls several workarounds for bugs in third party
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="BugOpts"></a>BugOpts</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">BugOpts</code>   
+      [<em class="replaceable"><code>option</code></em>
+	 [<em class="replaceable"><code>bool</code></em>]],
+    ... </p></div><p>This command controls several workarounds for bugs in third party
 programs.  The individual options are separated by commas.  The
 optional argument
-<span class="emphasis"><em>bool</em></span>
+<em class="replaceable"><code>bool</code></em>
 is a boolean argument and controls if the bug workaround is
 enabled or not.  It can either be "True" or "False" to turn the
 option on or off, or "toggle" to switch is back and forth.  If
-<span class="emphasis"><em>bool</em></span>
+<em class="replaceable"><code>bool</code></em>
 is omitted, the default setting is restored.</p><p><a name="BugOpts_FlickeringMoveWorkaround"></a><font class="fvwmopt">FlickeringMoveWorkaround</font>
 disables ConfigureNotify events that are usually sent to an
 application while it is moved.  If some windows flicker annoyingly
@@ -43,7 +44,7 @@ care. Once this option is turned on, you have to restart fvwm to
 turn it off.</p><p><a name="BugOpts_RaiseOverNativeWindows"></a><font class="fvwmopt">RaiseOverNativeWindows</font>
 makes fvwm try to raise the windows it manages over native windows
 of the X server's host system.  This is needed for some X servers
-running under Windows or Windows NT.  Fvwm tries to detect if it
+running under Windows, Windows NT or Mac OS X.  Fvwm tries to detect if it
 is running under such an X server and initializes the flag
 accordingly.</p><p><a name="BugOpts_RaiseOverUnmanaged"></a><font class="fvwmopt">RaiseOverUnmanaged</font>
 makes fvwm try to raise the windows it manages over
@@ -51,7 +52,7 @@ override_redirect windows.  This is used to cope with ill-mannered
 applications that use long-lived windows of this sort, contrary to
 <acronym class="acronym">ICCCM</acronym>
 conventions.  It is useful with the
-<span class="emphasis"><em>Unmanaged</em></span>
+<a href="../commands/Style.html#Style_Unmanaged">Unmanaged</a>
 style option too.</p><p><a name="BugOpts_FlickeringQtDialogsWorkaround"></a><font class="fvwmopt">FlickeringQtDialogsWorkaround</font>
 suppresses flickering of the focused window in some modules when
 using <acronym class="acronym">KDE</acronym> or <acronym class="acronym">QT</acronym> applications with application modal dialog

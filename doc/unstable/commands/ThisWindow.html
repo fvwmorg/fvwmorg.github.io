@@ -11,17 +11,15 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ThisWindow"></a>ThisWindow</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> ThisWindow [(conditions)] command </p></div>
-</strong></span><p><span class="emphasis"><em>ThisWindow</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ThisWindow"></a>ThisWindow</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ThisWindow</code>  [(<em class="replaceable"><code>conditions</code></em>)]  command </p></div><p><span class="emphasis"><em>ThisWindow</em></span>
 executes the specified
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 in the context of the current operand window.  If there is no
 operand window (it is invoked in the root window), the command is
 ignored.
 <span class="emphasis"><em>ThisWindow</em></span>
 is never interactive.  The command is executed only if the given
-<span class="emphasis"><em>conditions</em></span>
+<em class="replaceable"><code>conditions</code></em>
 are met.  It returns -1 if used outside a window context.
 See <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
 <span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.

@@ -11,13 +11,11 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="StrokeFunc"></a>StrokeFunc</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> StrokeFunc [Options] </p></div>
-</strong></span><p>Causes fvwm to record a mouse stroke sequence and to execute the
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="StrokeFunc"></a>StrokeFunc</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">StrokeFunc</code>  [<em class="replaceable"><code>Options</code></em>]</p></div><p>Causes fvwm to record a mouse stroke sequence and to execute the
 corresponding action as defined in a
 <a href="../commands/Stroke.html">Stroke</a>
 command.  The cursor is modified to the
-<span class="emphasis"><em>STROKE</em></span>
+<a href="../commands/CursorStyle.html#CursorStyle_STROKE">STROKE</a>
 context of the
 <a href="../commands/CursorStyle.html">CursorStyle</a>
 command during recording.  When the stroke is finished
@@ -32,25 +30,25 @@ command.  Examples:</p><pre class="programlisting">
 <a href="../commands/Mouse.html">Mouse</a> 3 A M StrokeFunc
 <a href="../commands/Key.html">Key</a> x R N StrokeFunc
 </pre><p>If you press mouse button 3 and
-<span class="emphasis"><em>Alt</em></span>
+<span class="keysym">Alt</span>
 anywhere (respectively, press the key x when the cursor is on the
 root window), then fvwm records the mouse motions until the mouse
 button 3 (respectively, the x key) is released and then check if
 the recorded
 <span class="emphasis"><em>sequence</em></span>
 corresponds to a stroke binding of the form</p><pre class="programlisting">
-"Stroke <span class="emphasis"><em>sequence</em></span> 0 A M <span class="emphasis"><em>action</em></span>"
-"Stroke <span class="emphasis"><em>sequence</em></span> 0 R N <span class="emphasis"><em>action</em></span>"
+"Stroke <em class="replaceable"><code>sequence</code></em> 0 A M <em class="replaceable"><code>action</code></em>"
+"Stroke <em class="replaceable"><code>sequence</code></em> 0 R N <em class="replaceable"><code>action</code></em>"
 </pre><p>Note that the
-<span class="emphasis"><em>Context</em></span> and <span class="emphasis"><em>Modifiers</em></span>
+<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
 are taken at the beginning of the execution of the
 <span class="emphasis"><em>StrokeFunc</em></span>
 command (so you can release the modifiers before the end of the
 stroke recording in the case of a mouse binding and if you used,
 say, a title-bar context the mouse motion can go through an
 application window).  The keys
-<span class="emphasis"><em>Escape</em></span> and
-<span class="emphasis"><em>Delete</em></span>
+<span class="keysym">Escape</span> and
+<span class="keysym">Delete</span>
 allow you to abort the command.</p><p>The
 <span class="emphasis"><em>StrokeFunc</em></span>
 command has five options:
@@ -64,7 +62,7 @@ causes fvwm to draw the mouse motion on the screen.
 <a name="StrokeFunc_FeedBack"></a><font class="fvwmopt">FeedBack</font>
 causes fvwm to display during a fraction of second the cursor of
 the
-<span class="emphasis"><em>WAIT</em></span>
+<a href="../commands/CursorStyle.html#CursorStyle_WAIT">WAIT</a>
 context of the
 <a href="../commands/CursorStyle.html">CursorStyle</a>
 command if the recorded stroke sequence corresponds to a stroke
@@ -84,9 +82,9 @@ or a
 command.  This option removes the need to have a button or the key
 pressed during the stroke, but you have to do a mouse click or
 press the
-<span class="emphasis"><em>Return</em></span>
+<span class="keysym">Return</span>
 or
-<span class="emphasis"><em>Space</em></span>
+<span class="keysym">Space</span>
 key to finish the mouse motion recording (these keys also work
 without the
 <span class="emphasis"><em>NotStayPressed</em></span>
@@ -95,10 +93,10 @@ option).</p><p>You can use the
 "alone".  In this case it works as above with the
 <span class="emphasis"><em>NotStayPressed</em></span>
 option enabled.  However,
-<span class="emphasis"><em>Modifiers,</em></span>
+<em class="replaceable"><code>Modifiers</code></em>,
 in general, may not work as expected (i.e., in this case use 'A'
 or 'N' as
-<span class="emphasis"><em>Modifiers</em></span>
+<em class="replaceable"><code>Modifiers</code></em>
 in the stroke bindings).</p><p>Note that some computers do not support key release events. If
 that is the case the
 <span class="emphasis"><em>StrokeFunc</em></span>

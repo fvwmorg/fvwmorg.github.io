@@ -11,18 +11,16 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Schedule"></a>Schedule</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Schedule [Periodic] delay_ms [command_id] command </p></div>
-</strong></span><p>The
-<span class="emphasis"><em>command</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Schedule"></a>Schedule</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Schedule</code>  [Periodic]  <em class="replaceable"><code>delay_ms</code></em>  [<em class="replaceable"><code>command_id</code></em>]  <em class="replaceable"><code>command</code></em> </p></div><p>The
+<em class="replaceable"><code>command</code></em>
 is executed after about
-<span class="emphasis"><em>delay_ms</em></span>
+<em class="replaceable"><code>delay_ms</code></em>
 milliseconds.  This may be useful in some tricky setups.  The
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 is executed in the same context window as the
 <span class="emphasis"><em>Schedule</em></span>
 command.  An optional integer argument
-<span class="emphasis"><em>command_id</em></span>
+<em class="replaceable"><code>command_id</code></em>
 may be given in decimal, hexadecimal or octal format.  This id can
 be used with the
 <a href="../commands/Deschedule.html">Deschedule</a>
@@ -35,12 +33,12 @@ Note that the
 <span class="emphasis"><em>Schedule</em></span>
 command and its arguments undergo the usual command line
 expansion, and, when
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 is finally executed, it is expanded again.  It may therefore be
 necessary to quote the parts of the command that must not be
 expanded twice.</p><p>Note:  A window's id as it is returned with $[w.id] can be used as
 the
-<span class="emphasis"><em>command_id</em></span>.
+<em class="replaceable"><code>command_id</code></em>.
 Example:</p><pre class="programlisting">
 <a href="../commands/Current.html">Current</a> Schedule 1000 $[w.id] <a href="../commands/WindowShade.html">WindowShade</a>
 </pre><p>The
@@ -48,9 +46,9 @@ Example:</p><pre class="programlisting">
 command also supports the optional keyword
 <a name="Schedule_Periodic"></a><font class="fvwmopt">Periodic</font>
 which indicates that the
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 should be executed every
-<span class="emphasis"><em>delay_ms</em></span>.
+<em class="replaceable"><code>delay_ms</code></em>.
 Example:</p><pre class="programlisting">
 Schedule Periodic 10000 <a href="../commands/PipeRead.html">PipeRead</a> '[ -N "$MAIL" ] &amp;&amp; echo \
      Echo You have mail'

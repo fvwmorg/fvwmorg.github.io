@@ -11,19 +11,17 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Pick"></a>Pick</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Pick [(conditions)] command </p></div>
-</strong></span><p><span class="emphasis"><em>Pick</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Pick"></a>Pick</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Pick</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p><span class="emphasis"><em>Pick</em></span>
 works like
 <a href="../commands/Function.html">Function</a>
 if invoked in the context of a window.  If invoked in the root
 window, it first asks the user to pick a window and then executes
 the
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 in the context of that window.  This avoids annoying multiple
 selections with complex functions.  The command is executed only
 if the given
-<span class="emphasis"><em>conditions</em></span>
+<em class="replaceable"><code>conditions</code></em>
 are met.  Returns -1 if no window was selected.
 See <a href="../fvwm/conditionals.html#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
 <span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.

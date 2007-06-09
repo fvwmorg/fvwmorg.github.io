@@ -11,21 +11,19 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="State"></a>State</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> State state [bool] </p></div>
-</strong></span><p>Sets, clears or toggles one of the 32 user defined states which
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="State"></a>State</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">State</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Sets, clears or toggles one of the 32 user defined states which
 are associated with each window.  The
-<span class="emphasis"><em>state</em></span>
+<em class="replaceable"><code>state</code></em>
 is a number ranging from 0 to 31.  The states have no meaning in
 fvwm, but they can be checked in conditional commands like
 <a href="../commands/Next.html">Next</a>
 with the
 <span class="emphasis"><em>State</em></span>
 condition.  The optional argument
-<span class="emphasis"><em>bool</em></span>
+<em class="replaceable"><code>bool</code></em>
 is a boolean argument.  "True" sets the given state, while "False"
 clears it.  Using "toggle" switches to the opposite state.  If the
-<span class="emphasis"><em>bool</em></span>
+<em class="replaceable"><code>bool</code></em>
 argument is not given, the state is toggled.</p></div>
 <HR>
 <P>FVWM 2.5.22 (from cvs)</P>

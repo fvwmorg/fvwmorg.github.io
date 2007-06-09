@@ -11,21 +11,19 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Mouse"></a>Mouse</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Mouse [(window)] Button Context Modifiers Function </p></div>
-</strong></span><p>Defines a mouse binding, or removes the binding if
-<a href="../commands/Function.html">Function</a>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Mouse"></a>Mouse</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Mouse</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Button</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Defines a mouse binding, or removes the binding if
+<em class="replaceable"><code>Function</code></em>
 is '-'.
-<span class="emphasis"><em>Button</em></span>
+<em class="replaceable"><code>Button</code></em>
 is the mouse button number.  If
-<span class="emphasis"><em>Button</em></span>
+<em class="replaceable"><code>Button</code></em>
 is zero then any button performs the specified function.  Note
 that only mouse buttons 1 to 5 are fully supported by X11.  Any
 number above this works only partially.  Complex functions can not
 be used with these buttons and neither any operation that requires
 dragging the pointer with the button held.  This is due to
 limitations of X11.  By default, the highest allowed button number
-is 9.</p><p><span class="emphasis"><em>Context</em></span>
+is 9.</p><p><em class="replaceable"><code>Context</code></em>
 describes where the binding applies.  Valid contexts are
 '<a name="Mouse_R"></a><font class="fvwmopt">R</font>' for the root window,
 '<a name="Mouse_W"></a><font class="fvwmopt">W</font>' for an application window,
@@ -47,16 +45,15 @@ left, top right, bottom right or bottom left corner,
 instance, a context of "FST" applies when the mouse is anywhere in
 a window's border except the title-bar buttons.  Only 'S' and 'W'
 are valid for an undecorated window.</p><p>The special context '<a name="Mouse_M"></a><font class="fvwmopt">M</font>' for menus can be used to (re)define the menu
-controls. It can only be used alone or together with 'T' for the menu
-title bar.  See the
+controls. It can be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the
 <a href="../fvwm/menus.html#menu_bindings">Menu Bindings</a>
 section for details.</p><p>The special context '<a name="Mouse_P"></a><font class="fvwmopt">P</font>' controls what buttons that can be used to
 place a window. When using this context no modifiers are allowed
-(<span class="emphasis"><em>Modifiers</em></span>
+(<em class="replaceable"><code>Modifiers</code></em>
 must be N), no
-<span class="emphasis"><em>window</em></span>
+<em class="replaceable"><code>window</code></em>
 is allowed, and the
-<a href="../commands/Function.html">Function</a>
+<em class="replaceable"><code>Function</code></em>
 must be one of
 <span class="emphasis"><em>PlaceWindow</em></span>,
 <span class="emphasis"><em>PlaceWindowDrag</em></span>,
@@ -67,11 +64,11 @@ must be one of
 <span class="emphasis"><em>-</em></span>.</p><p>
 <a name="Mouse_PlaceWindow"></a><font class="fvwmopt">PlaceWindow</font>
 makes
-<span class="emphasis"><em>Button</em></span>
+<em class="replaceable"><code>Button</code></em>
 usable for window placement, both for interactive and drag move.
 <a name="Mouse_CancelPlacement"></a><font class="fvwmopt">CancelPlacement</font>
 does the inverse. That is makes
-<span class="emphasis"><em>Button</em></span>
+<em class="replaceable"><code>Button</code></em>
 to cancel move for both interactive and drag move. It may however
 not override how new windows are resized after being placed. This
 is controlled by the
@@ -117,9 +114,9 @@ bindings) sends a synthetic copy of the event to the window. This
 should be transparent to most applications, however (for security
 reasons) some programs ignore these synthetic events by default -
 xterm is one of them. To enable handling of these events, add the
-following line to your ~/.Xdefaults file:</p><pre class="programlisting">
+following line to your <code class="filename">~/.Xdefaults</code> file:</p><pre class="programlisting">
 XTerm*allowSendEvents:  true
-</pre><p><span class="emphasis"><em>Modifiers</em></span>
+</pre><p><em class="replaceable"><code>Modifiers</code></em>
 is any combination of
 '<a name="Mouse_N"></a><font class="fvwmopt">N</font>' for no modifiers,
 '<a name="Mouse_C"></a><font class="fvwmopt">C</font>' for control,
@@ -128,14 +125,14 @@ is any combination of
 '<a name="Mouse_L"></a><font class="fvwmopt">L</font>' for Caps-Lock or
 '<a name="Mouse_A"></a><font class="fvwmopt">A</font>' for any
 modifier. For example, a modifier of "SM" applies when both the
-<span class="emphasis"><em>Meta</em></span>
+<span class="keysym">Meta</span>
 and
-<span class="emphasis"><em>Shift</em></span>
+<span class="keysym">Shift</span>
 keys are down.  X11 modifiers mod1 through mod5 are represented as
 the digits '1' through '5'.  The modifier 'L' is ignored by
 default.  To turn it on, use the
 <a href="../commands/IgnoreModifiers.html">IgnoreModifiers</a>
-command.</p><p><a href="../commands/Function.html">Function</a>
+command.</p><p><em class="replaceable"><code>Function</code></em>
 is one of fvwm's commands.</p><p>The title-bar buttons are numbered with odd numbered buttons on
 the left side of the title-bar and even numbers on the
 right. Smaller-numbered buttons are displayed toward the outside

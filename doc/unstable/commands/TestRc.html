@@ -11,24 +11,22 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TestRc"></a>TestRc</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> TestRc [([!]returncode)] command </p></div>
-</strong></span><p>Performs
-<span class="emphasis"><em>command</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TestRc"></a>TestRc</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">TestRc</code>  [([<span class="optional">!</span>]<em class="replaceable"><code>returncode</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
+<em class="replaceable"><code>command</code></em>
 if the last conditional command returned the value
-<span class="emphasis"><em>returncode</em></span>.
+<em class="replaceable"><code>returncode</code></em>.
 Instead of the numeric values 0 (no match), 1 (match), -1 (error),
-and -2 (break) the symbolic names "<a name="Style_NoMatch"></a><font class="fvwmopt">NoMatch</font>",
-"<a name="Style_Match"></a><font class="fvwmopt">Match</font>", "<a name="Style_Error"></a><font class="fvwmopt">Error</font>" and
-"<a name="Style_Break"></a><font class="fvwmopt">Break</font>" can be used.  If no
-<span class="emphasis"><em>returncode</em></span>
+and -2 (break) the symbolic names "<a name="TestRc_NoMatch"></a><font class="fvwmopt">NoMatch</font>",
+"<a name="TestRc_Match"></a><font class="fvwmopt">Match</font>", "<a name="TestRc_Error"></a><font class="fvwmopt">Error</font>" and
+"<a name="TestRc_Break"></a><font class="fvwmopt">Break</font>" can be used.  If no
+<em class="replaceable"><code>returncode</code></em>
 is given, the default 0 is assumed.  If the return code is
 prefixed with '!', the command is executed if
-<span class="emphasis"><em>returncode</em></span>
+<em class="replaceable"><code>returncode</code></em>
 does not match the value returned by the conditional command.
 <span class="emphasis"><em>TestRc</em></span>
 command can only be used inside functions.  If the
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 is another conditional command, the previous return code is
 replaced by the new one.  Example:</p><pre class="programlisting">
 <a href="../commands/AddToFunc.html">AddToFunc</a> ToggleXterm

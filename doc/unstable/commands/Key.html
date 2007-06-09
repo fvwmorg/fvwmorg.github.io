@@ -11,17 +11,15 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Key"></a>Key</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Key [(window)] Keyname Context Modifiers Function </p></div>
-</strong></span><p>Binds a keyboard key to a specified fvwm command, or
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Key"></a>Key</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Key</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Keyname</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Binds a keyboard key to a specified fvwm command, or
 removes the binding if
-<a href="../commands/Function.html">Function</a>
+<em class="replaceable"><code>Function</code></em>
 is '-'.  The syntax is the same as for a
 <a href="../commands/Mouse.html">Mouse</a>
 binding except that the mouse button number is replaced with a
-<span class="emphasis"><em>Keyname</em></span>.
+<em class="replaceable"><code>Keyname</code></em>.
 Normally, the key binding is activated when the key is pressed.
-<span class="emphasis"><em>Keyname</em></span>
+<em class="replaceable"><code>Keyname</code></em>
 is a standard X11 key name as defined in
 <code class="filename">/usr/include/X11/keysymdef.h</code>,
 (without the
@@ -30,9 +28,9 @@ prefix), or the keysym database
 <code class="filename">/usr/X11R6/lib/X11/XKeysymDB</code>.
 Only key names that are
 generated with no modifier keys or with just the
-<span class="emphasis"><em>Shift</em></span>
+<span class="keysym">Shift</span>
 key held are guaranteed to work.  The
-<span class="emphasis"><em>Context</em></span> and <span class="emphasis"><em>Modifiers</em></span>
+<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
 fields are defined as in the
 <a href="../commands/Mouse.html">Mouse</a>
 binding.  However, when you press a key the context window is the
@@ -52,12 +50,10 @@ command instead.  If you want to bind keys to a window with
 that are supposed to work when the pointer is not over the window,
 fvwm assumes the pointer is over the client window (i.e. you have
 to use the 'W' context).</p><p>The special context '<a name="Key_M"></a><font class="fvwmopt">M</font>' for menus can be used to (re)define the menu
-controls. It can only be used alone or together with 'T' for the menu
-title bar.  See the
-<a href="../fvwm/menus.html#menu_bindings">Menu Bindings</a>
+controls. It be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the <a href="../fvwm/menus.html#menu_bindings">Menu Bindings</a>
 section for details.</p><p>The following example binds the built-in window list to pop up
 when
-<span class="emphasis"><em>Alt-Ctrl-Shift-F11</em></span>
+<span class="keysym">Alt-Ctrl-Shift-F11</span>
 is hit, no matter where the mouse pointer is:</p><pre class="programlisting">
 Key F11 A SCM <a href="../commands/WindowList.html">WindowList</a>
 </pre><p>Binding a key to a title-bar button causes that button to appear.

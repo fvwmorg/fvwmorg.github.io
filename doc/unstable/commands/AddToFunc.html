@@ -11,9 +11,9 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToFunc"></a>AddToFunc</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> AddToFunc  [name [I | M | C | H | D action]]</p></div>
-</strong></span><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToFunc"></a>AddToFunc</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em>
+		 [  I  |   M  |   C  |   H  |   D  
+			  <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
 AddToFunc Move-or-Raise I <a href="../commands/Raise.html">Raise</a>
  + M <a href="../commands/Move.html">Move</a>
  + D <a href="../commands/Lower.html">Lower</a>
@@ -21,27 +21,27 @@ AddToFunc Move-or-Raise I <a href="../commands/Raise.html">Raise</a>
 menu or a mouse binding or key binding:</p><pre class="programlisting">
 <a href="../commands/Mouse.html">Mouse</a> 1 TS A Move-or-Raise
 </pre><p>The
-<span class="emphasis"><em>name</em></span>
+<em class="replaceable"><code>name</code></em>
 must not contain embedded whitespace.  No guarantees are made
 whether function names with embedded whitespace work or not.  This
 behavior may also change in the future without further notice.
 The letter before the
-<span class="emphasis"><em>action</em></span>
+<em class="replaceable"><code>action</code></em>
 tells what kind of action triggers the command which follows it.
-'<span class="emphasis"><em>I</em></span>'
+'<a name="AddToFunc_I"></a><font class="fvwmopt">I</font>'
 stands for "Immediate", and is executed as soon as the function is
 invoked.
-'<span class="emphasis"><em>M</em></span>'
+'<a name="AddToFunc_M"></a><font class="fvwmopt">M</font>'
 stands for "Motion", i.e. if the user starts moving the mouse.
-'<span class="emphasis"><em>C</em></span>'
+'<a name="AddToFunc_C"></a><font class="fvwmopt">C</font>'
 stands for "Click", i.e., if the user presses and releases the
 mouse button.
-'<span class="emphasis"><em>H</em></span>'
+'<a name="AddToFunc_H"></a><font class="fvwmopt">H</font>'
 stands for "Hold", i.e. if the user presses a mouse button and
 holds it down for more than
-<span class="emphasis"><em>ClickTime</em></span>
+<a href="../commands/ClickTime.html">ClickTime</a>
 milliseconds.
-'<span class="emphasis"><em>D</em></span>'
+'<a name="AddToFunc_D"></a><font class="fvwmopt">D</font>'
 stands for "Double-click". The action
 '<span class="emphasis"><em>I</em></span>'
 causes an action to be performed on the button-press, if the
@@ -67,7 +67,7 @@ use the same function with all sorts of different arguments.  You
 could use</p><pre class="programlisting">
 <a href="../commands/Key.html">Key</a> F11 R A <a href="../commands/Function.html">Function</a> MailFunction zmail "-bg pink"
 </pre><p>in the same
-<span class="emphasis"><em>config</em></span>,
+<code class="filename">config</code>,
 if you wanted.  An example of using "$[w.id]" is:</p><pre class="programlisting">
 AddToFunc PrintFunction
  + I <a href="../commands/Raise.html">Raise</a>

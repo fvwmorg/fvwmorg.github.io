@@ -11,17 +11,18 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FakeClick"></a>FakeClick</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> FakeClick [command value] ... </p></div>
-</strong></span><p>This command is mainly intended for debugging fvwm and no
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="FakeClick"></a>FakeClick</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">FakeClick</code>   
+		[<span class="optional"> <em class="replaceable"><code>command</code></em> 
+		  <em class="replaceable"><code>value</code></em> </span>]
+	... </p></div><p>This command is mainly intended for debugging fvwm and no
 guarantees are made that it works for you.
 <span class="emphasis"><em>FakeClick</em></span>
 can simulate mouse button press and release events and pass them
 to fvwm or the applications.  The parameters are a list of
 commands which consist of pairs of
-<span class="emphasis"><em>command</em></span>
+<em class="replaceable"><code>command</code></em>
 tokens and integer
-<span class="emphasis"><em>values</em></span>,
+<em class="replaceable"><code>values</code></em>,
 The
 <a name="FakeClick_press"></a><font class="fvwmopt">press</font> and <a name="FakeClick_release"></a><font class="fvwmopt">release</font>
 commands are followed by the appropriate mouse button number and
@@ -32,14 +33,14 @@ commands pauses fvwm for the given number of milliseconds.  The
 <a name="FakeClick_modifiers"></a><font class="fvwmopt">modifiers</font>
 command simulates pressing or releasing modifier keys.  The values
 1 to 5 are mapped to
-<span class="emphasis"><em>Mod1</em></span>
+<span class="keysym">Mod1</span>
 to
-<span class="emphasis"><em>Mod5</em></span>
+<span class="keysym">Mod5</span>
 while 6, 7 and 8 are mapped to
-<span class="emphasis"><em>Shift,</em></span>
-<span class="emphasis"><em>Lock</em></span>
+<span class="keysym">Shift</span>,
+<span class="keysym">Lock</span>
 and
-<span class="emphasis"><em>Control.</em></span>
+<span class="keysym">Control</span>.
 The modifier is set for any further button events.  To release a
 modifier key, use the corresponding negative number.  The
 <a name="FakeClick_depth"></a><font class="fvwmopt">depth</font>

@@ -11,9 +11,10 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="WindowShade"></a>WindowShade</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> WindowShade [bool] | [[ShadeAgain] direction] </p></div>
-</strong></span><p>Toggles the window shade feature for titled windows.  Windows in
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="WindowShade"></a>WindowShade</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">WindowShade</code>   [bool] |  [
+			[ShadeAgain]
+			  <em class="replaceable"><code>direction</code></em> 
+		] </p></div><p>Toggles the window shade feature for titled windows.  Windows in
 the shaded state only display a title-bar.  If
 <span class="emphasis"><em>bool</em></span>
 is not given or "<a name="WindowShade_toggle"></a><font class="fvwmopt">toggle</font>",
@@ -23,7 +24,7 @@ is "True", the window is forced to the shaded state.  If
 <span class="emphasis"><em>bool</em></span>
 is "False", then the window is forced to the non-shaded
 state.  To force shading in a certain direction, the
-<span class="emphasis"><em>direction</em></span>
+<em class="replaceable"><code>direction</code></em>
 argument can be used.  Any of the strings
 "<a name="WindowShade_North"></a><font class="fvwmopt">North</font>",
 "<a name="WindowShade_South"></a><font class="fvwmopt">South</font>",
@@ -54,19 +55,20 @@ Please refer also to the options
 options of the
 <a href="../commands/Style.html">Style</a>
 command.  Examples:</p><pre class="programlisting">
-<a href="../commands/Style.html">Style</a> * <a href="../commands/Style.html#Style_WindowShadeShrinks">WindowShadeShrinks</a>, <a href="../commands/Style.html#Style_WindowShadeSteps">WindowShadeSteps</a> 20, <a href="../commands/Style.html#Style_WindowShadeLazy">WindowShadeLazy</a>
+<a href="../commands/Style.html">Style</a> * <a href="../commands/Style.html#Style_WindowShadeShrinks">WindowShadeShrinks</a>, <a href="../commands/Style.html#Style_WindowShadeSteps">WindowShadeSteps</a> 20, \
+        <a href="../commands/Style.html#Style_WindowShadeLazy">WindowShadeLazy</a>
 <a href="../commands/Mouse.html">Mouse</a> 1 - S WindowShade North
 <a href="../commands/Mouse.html">Mouse</a> 1 [ S WindowShade West
 <a href="../commands/Mouse.html">Mouse</a> 1 ] S WindowShade E
 <a href="../commands/Mouse.html">Mouse</a> 1 _ S WindowShade S
 </pre><p>Note: When a window that has been shaded with a
-<span class="emphasis"><em>direction</em></span>
+<em class="replaceable"><code>direction</code></em>
 argument changes the direction of the window title (see
 <a href="../commands/Style.html#Style_TitleAtTop">TitleAtTop</a>
 <a href="../commands/Style.html">Style</a>
 option), the shading direction does not change.  This may look
 very strange.  Windows that were shaded without a
-<span class="emphasis"><em>direction</em></span>
+<em class="replaceable"><code>direction</code></em>
 argument stay shaded in the direction of the title bar.</p><p>For backward compatibility, the optional argument may also be 1 to
 signify "on", and 2 to signify "off". Note that this syntax is
 obsolete, and will be removed in the future.</p></div>

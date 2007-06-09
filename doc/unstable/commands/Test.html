@@ -11,11 +11,9 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Test"></a>Test</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Test [(test-conditions)] command </p></div>
-</strong></span><p>Performs <span class="emphasis"><em>command</em></span> if all
-<span class="emphasis"><em>test-conditions</em></span> are satisfied.  The
-<span class="emphasis"><em>test-conditions</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Test"></a>Test</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Test</code>  [(<em class="replaceable"><code>test-conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs <em class="replaceable"><code>command</code></em> if all
+<em class="replaceable"><code>test-conditions</code></em> are satisfied.  The
+<em class="replaceable"><code>test-conditions</code></em>
 are keywords with possible arguments from the list below
 and are separated by commas or whitespace.  They include:
 <span class="emphasis"><em>Version operator x.y.z</em></span>,
@@ -57,11 +55,13 @@ test-condition is true if
 <span class="emphasis"><em>pattern</em></span>
 matches the given environment variable value.
 The pattern may contain special "*" and "?" chars.</p><p>The
-<a name="Test_EdgeHasPointer"></a><font class="fvwmopt">EdgeHasPointer</font> <span class="emphasis"><em>[</em></span><span class="emphasis"><em>direction</em></span><span class="emphasis"><em>]</em></span>
+<a name="Test_EdgeHasPointer"></a><font class="fvwmopt">EdgeHasPointer</font>
+[<span class="optional"><em class="replaceable"><code>direction</code></em></span>]
 test-condition is true if the edge in the given direction currently
 contains the pointer.
 The
-<a name="Test_EdgeIsActive"></a><font class="fvwmopt">EdgeIsActive</font> <span class="emphasis"><em>[</em></span><span class="emphasis"><em>direction</em></span><span class="emphasis"><em>]</em></span>
+<a name="Test_EdgeIsActive"></a><font class="fvwmopt">EdgeIsActive</font>
+[<span class="optional"><em class="replaceable"><code>direction</code></em></span>]
 test-condition is true if the edge in the given direction currently is
 active. An edge is active, and can contain a pointer if either a
 command is bound to it or edge scroll is available in that
@@ -69,7 +69,7 @@ direction. The direction may be one of
 <span class="emphasis"><em> Any</em></span>,<span class="emphasis"><em> North</em></span>,<span class="emphasis"><em> Top</em></span>,<span class="emphasis"><em> Up</em></span>,<span class="emphasis"><em> West</em></span>,<span class="emphasis"><em> Left</em></span>,<span class="emphasis"><em> South</em></span>,<span class="emphasis"><em> Bottom</em></span>,
 <span class="emphasis"><em> Down</em></span>,<span class="emphasis"><em> Right</em></span> and <span class="emphasis"><em> East</em></span>.
 If no direction is specified <span class="emphasis"><em>Any</em></span> is assumed.</p><p>The
-<span class="emphasis"><em><a name="Test_Start"></a><font class="fvwmopt">Start</font></em></span>
+<a name="Test_Start"></a><font class="fvwmopt">Start</font>
 test-condition is the same as either
 <a name="Test_Init"></a><font class="fvwmopt">Init</font> or <a name="Test_Restart"></a><font class="fvwmopt">Restart</font>.
 It is only true on startup or restart prior and during
@@ -84,11 +84,11 @@ It is only valid on shutdown during
 function execution.</p><p>The <a name="Test_True"></a><font class="fvwmopt">True</font> and <a name="Test_False"></a><font class="fvwmopt">False</font>
 test-conditions are unconditionally true and false.</p><p>Additionally, if a test-condition name is not recognized, the Error
 return code is set and the command is not executed.</p><p>The
-<a name="Test_F"></a><font class="fvwmopt">F</font> <span class="emphasis"><em>file</em></span>,
-<a name="Test_R"></a><font class="fvwmopt">R</font> <span class="emphasis"><em>file</em></span>,
-<a name="Test_W"></a><font class="fvwmopt">W</font> <span class="emphasis"><em>file</em></span>,
-<a name="Test_X"></a><font class="fvwmopt">X</font> <span class="emphasis"><em>file</em></span> and
-<a name="Test_I"></a><font class="fvwmopt">I</font> <span class="emphasis"><em>file</em></span>
+<a name="Test_F"></a><font class="fvwmopt">F</font> <em class="replaceable"><code>file</code></em>,
+<a name="Test_R"></a><font class="fvwmopt">R</font> <em class="replaceable"><code>file</code></em>,
+<a name="Test_W"></a><font class="fvwmopt">W</font> <em class="replaceable"><code>file</code></em>,
+<a name="Test_X"></a><font class="fvwmopt">X</font> <em class="replaceable"><code>file</code></em> and
+<a name="Test_I"></a><font class="fvwmopt">I</font> <em class="replaceable"><code>file</code></em>
 test-conditions test for existence of the given [F]ile (possibly
 with [R]ead/[W]rite permissions), e[X]ecutable (in <code class="envar">$PATH</code>),
 or the [I]mage (in ImagePath).</p><p>Example:</p><pre class="programlisting">

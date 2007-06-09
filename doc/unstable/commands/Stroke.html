@@ -11,24 +11,22 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Stroke"></a>Stroke</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Stroke [(window)] Sequence Button Context Modifiers Function </p></div>
-</strong></span><p>Binds a mouse stroke sequence to a specified fvwm command,
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Stroke"></a>Stroke</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Stroke</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Sequence</code></em>   <em class="replaceable"><code>Button</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Binds a mouse stroke sequence to a specified fvwm command,
 or removes the binding if
-<a href="../commands/Function.html">Function</a>
+<em class="replaceable"><code>Function</code></em>
 is '-'.  The syntax is the same as for a
 <a href="../commands/Mouse.html">Mouse</a>
 binding except that
-<span class="emphasis"><em>Sequence</em></span>
+<em class="replaceable"><code>Sequence</code></em>
 is inserted in front of the button number and a value of 0 for
-<span class="emphasis"><em>Button</em></span>
+<em class="replaceable"><code>Button</code></em>
 concerns the
 <a href="../commands/StrokeFunc.html">StrokeFunc</a>
 command.  The
-<span class="emphasis"><em>Context</em></span> and <span class="emphasis"><em>Modifiers</em></span>
+<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
 fields are defined as in the
 <a href="../commands/Mouse.html">Mouse</a>
-binding.  However, only the '<a name="Stroke_R"></a><font class="fvwmopt">R</font>' Context really works (if you want
+binding.  However, only the '<a href="../commands/Mouse.html#Mouse_R">R</a>' Context really works (if you want
 to use other contexts you need to use the
 <a href="../commands/StrokeFunc.html">StrokeFunc</a>
 below).</p><p>Strokes sequences are defined in a telephone grid like this:</p><pre class="programlisting">
@@ -44,8 +42,9 @@ below).</p><p>Strokes sequences are defined in a telephone grid like this:</p><p
 
  1  2  3
 </pre><p>The telephone grid is used by default, to use the numeric pad grid
-you should begin the sequence with a 'N'.  Note that a complex
-motion may produce several different sequences (see the "netscape"
+you should begin the sequence with a '<a name="Stroke_N"></a><font class="fvwmopt">N</font>'.
+Note that a complex motion may produce several different sequences
+(see the "netscape"
 example below to handle such motion).  Moreover, sequences are
 limited to 20 elements (with the present version of
 <span class="emphasis"><em>libstroke</em></span>),
@@ -68,12 +67,13 @@ Stroke 7418963    3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscap
 Stroke 415963     3  R  N  <a href="../commands/Exec.html">Exec</a> exec netscape
 </pre><p>You may prefer to use the numeric pad grid since you have such a
 grid on your machine. Here an example:</p><pre class="programlisting">
-Stroke N78963214   3  R  N  FvwmForm FvwmForm-QuitVerify
-Stroke N789632147  3  R  N  FvwmForm FvwmForm-QuitVerify
+Stroke N78963214   3  R  N <a href="../modules/FvwmForm.html">FvwmForm</a> FvwmForm-QuitVerify
+Stroke N789632147  3  R  N <a href="../modules/FvwmForm.html">FvwmForm</a> FvwmForm-QuitVerify
 </pre><p>This example starts the "QuitVerify" form if you draw a box that
 begins in the top left corner.</p><p>Note: You need
 <span class="emphasis"><em>libstroke</em></span>
 installed and fvwm compiled with stroke support.
+
 <span class="emphasis"><em>libstroke</em></span>
 can be obtained at
 <a class="ulink" href="http://www.etla.net/~willey/projects/libstroke/" target="_top">http://www.etla.net/~willey/projects/libstroke/</a>

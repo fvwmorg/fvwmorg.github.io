@@ -11,9 +11,7 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ImagePath"></a>ImagePath</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> ImagePath path </p></div>
-</strong></span><p>Specifies a colon separated list of directories in which to search
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ImagePath"></a>ImagePath</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ImagePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of directories in which to search
 for images (both monochrome and pixmap).  To find an image given
 by a relative pathname, fvwm looks into each directory listed in
 turn, and uses the first file found.</p><p>If a directory is given in the form "/some/dir;.ext", this means
@@ -24,18 +22,18 @@ added or replaces the original extension.  This is useful, for
 example, if a user has some image directories with ".xpm" images
 and other image directories with the same names, but ".png"
 images.</p><p>The
-<span class="emphasis"><em>path</em></span>
+<em class="replaceable"><code>path</code></em>
 may contain environment variables such as
 <code class="envar">$HOME</code> (or <code class="envar">${HOME}</code>).
 Further, a '+' in the
-<span class="emphasis"><em>path</em></span>
+<em class="replaceable"><code>path</code></em>
 is expanded to the previous value of the path, allowing appending
 or prepending to the path easily.</p><p>For example:</p><pre class="programlisting">
 ImagePath $HOME/icons:+:/usr/include/X11/bitmaps
 </pre><p>Note: if the
 <a href="../modules/FvwmM4.html">FvwmM4</a>
 module is used to parse your
-<span class="emphasis"><em>config</em></span>
+<code class="filename">config</code>
 files, then m4 may want to mangle the word "include" which
 frequently shows up in the
 <span class="emphasis"><em>ImagePath</em></span>

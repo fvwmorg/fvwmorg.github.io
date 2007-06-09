@@ -11,22 +11,20 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToDecor"></a>AddToDecor</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> AddToDecor   decor </p></div>
-</strong></span><p>This command is deprecated and will be removed in the future.  There
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToDecor"></a>AddToDecor</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">AddToDecor</code>   <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
 are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Add or divert commands to the decor named
-<span class="emphasis"><em>decor</em></span>.
+<em class="replaceable"><code>decor</code></em>.
 A decor is a name given to the set of commands which affect button
 styles, title-bar styles and border styles.  If
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>
 does not exist it is created; otherwise the existing
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>
 is modified.  Note: Earlier versions allowed to use the
 <a href="../commands/HilightColor.html">HilightColor</a>, <a href="../commands/HilightColorset.html">HilightColorset</a> and <a href="../commands/WindowFont.html">WindowFont</a>
 commands in decors.  This is no longer possible.  Please use the
 <a href="../commands/Style.html">Style</a>
 command with the
-<span class="emphasis"><em>Hilight...</em></span> and <span class="emphasis"><em>Font</em></span>
+<span class="emphasis"><em>Hilight...</em></span> and <a href="../commands/Style.html#Style_Font">Font</a>
 options.</p><p>New decors start out exactly like the "default" decor without any
 style definitions.  A given decor may be applied to a set of
 windows with the

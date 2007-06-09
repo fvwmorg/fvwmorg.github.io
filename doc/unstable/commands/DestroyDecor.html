@@ -11,22 +11,20 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="DestroyDecor"></a>DestroyDecor</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> DestroyDecor  [recreate]  decor </p></div>
-</strong></span><p>This command is deprecated and will be removed in the future.  There
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="DestroyDecor"></a>DestroyDecor</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">DestroyDecor</code>  [recreate]  <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
 are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Deletes the
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>
 defined with
 <span class="emphasis"><em>AddToDecor</em></span>,
 so that subsequent references to it are no longer valid.  Windows
 using this
-<span class="emphasis"><em>decor</em></span>
+<em class="replaceable"><code>decor</code></em>
 revert to the "Default" decor. The optional parameter
-<span class="emphasis"><em>recreate</em></span>
+<a name="DestroyDecor_recreate"></a><font class="fvwmopt">recreate</font>
 tells fvwm not to throw away the decor completely but to throw
 away only its contents. If the decor is created again later,
 windows do not use it before the
-<span class="emphasis"><em>UseDecor</em></span>
+<a href="../commands/Style.html#Style_UseDecor">UseDecor</a>
 style is applied again unless the decor was destroyed with the
 <span class="emphasis"><em>recreate</em></span>
 option.  The decor named "Default" cannot be destroyed.</p><pre class="programlisting">

@@ -11,10 +11,12 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="GotoDesk"></a>GotoDesk</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> GotoDesk <span class="emphasis"><em>prev</em></span> | <span class="emphasis"><em>arg1</em></span> [<span class="emphasis"><em>arg2</em></span>] [<span class="emphasis"><em>min max</em></span>]
-	 </p></div>
-</strong></span><p>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="GotoDesk"></a>GotoDesk</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">GotoDesk</code>  [ prev  |   
+			 <em class="replaceable"><code>arg1</code></em> 
+			 [<em class="replaceable"><code>arg2</code></em>]
+			 [<em class="replaceable"><code>min</code></em>
+				<em class="replaceable"><code>max</code></em>]
+		 ]</p></div><p>
 Switches the current viewport to another desktop (workspace, room).
 </p><p>The command takes 1, 2, 3, or 4 arguments.  A single argument is
 interpreted as a relative desk number.  Two arguments are
@@ -23,24 +25,24 @@ arguments specify a relative desk and the minimum and maximum of
 the allowable range. Four arguments specify the relative,
 absolute, minimum and maximum values.  (Desktop numbers can be
 negative).  If a literal
-<span class="emphasis"><em>prev</em></span>
+<a name="GotoDesk_prev"></a><font class="fvwmopt">prev</font>
 is given as the single argument, the last visited desk number is
 used.</p><p>If
-<span class="emphasis"><em>arg1</em></span>
+<em class="replaceable"><code>arg1</code></em>
 is non zero then the next desktop number is the current desktop
 number plus
-<span class="emphasis"><em>arg1</em></span>.</p><p>If
-<span class="emphasis"><em>arg1</em></span>
+<em class="replaceable"><code>arg1</code></em>.</p><p>If
+<em class="replaceable"><code>arg1</code></em>
 is zero then the new desktop number is
-<span class="emphasis"><em>arg2</em></span>.
+<em class="replaceable"><code>arg2</code></em>.
 (If
-<span class="emphasis"><em>arg2</em></span>
+<em class="replaceable"><code>arg2</code></em>
 is not present, then the command has no effect.)</p><p>If
-<span class="emphasis"><em>min</em></span> and <span class="emphasis"><em>max</em></span>
+<em class="replaceable"><code>min</code></em> and <em class="replaceable"><code>max</code></em>
 are given, the new desktop number is no smaller than
-<span class="emphasis"><em>min</em></span>
+<em class="replaceable"><code>min</code></em>
 and no bigger than
-<span class="emphasis"><em>max</em></span>.
+<em class="replaceable"><code>max</code></em>.
 Values out of this range are truncated (if you gave an absolute
 desk number) or wrapped around (if you gave a relative desk
 number).</p><p>The syntax is the same as for

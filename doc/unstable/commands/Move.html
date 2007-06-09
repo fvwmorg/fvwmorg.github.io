@@ -11,17 +11,26 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Move"></a>Move</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Move   [[<span class="emphasis"><em>screen</em></span> screen] [w|m]x[p|w] [w|m]...y[p|w]... [Warp]] | [pointer] </p></div>
-</strong></span><p>Allows the user to move a window.  If called from somewhere in a
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Move"></a>Move</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [
+			[
+				screen <em class="replaceable"><code>screen</code></em>
+			]
+			  
+				[<span class="optional">w|m</span>]<em class="replaceable"><code>x</code></em>[<span class="optional">p|w</span>]
+			... 
+			  
+				[<span class="optional">w|m</span>]<em class="replaceable"><code>y</code></em>[<span class="optional">p|w</span>]
+			... 
+			 [Warp]
+    ] |  [pointer] </p></div><p>Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
 window.</p><p>If the literal option <a name="Move_screen"></a><font class="fvwmopt">screen</font> followed by a
-<span class="emphasis"><em>screen</em></span>
+<em class="replaceable"><code>screen</code></em>
 argument is specified, the coordinates are interpreted as relative
 to the given screen.  The width and height of the screen are used
 for the calculations instead of the display dimensions.  The
-<span class="emphasis"><em>screen</em></span>
+<em class="replaceable"><code>screen</code></em>
 as interpreted as in the
 <a href="../commands/MoveToScreen.html">MoveToScreen</a>
 command.
@@ -33,9 +42,9 @@ argument
 is given, the top left corner of the window is moved to the
 pointer position before starting the operation; this is mainly
 intended for internal use by modules like
-<a href="../modules/FvwmPager.html">FvwmPager</a>.</p><p>The operation can be aborted with Escape or any mouse button not set
-to place the window. By default mouse button 2 is set to cancel the move
-operation. To change this you may use the
+<a href="../modules/FvwmPager.html">FvwmPager</a>.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or any mouse
+button not set to place the window. By default mouse button 2 is set to cancel
+the move operation. To change this you may use the
 <a href="../commands/Mouse.html">Mouse</a>
 command with special context 'P' for Placement.</p><p>The window condition
 <a href="../commands/Style.html#Style_PlacedByButton">PlacedByButton</a>
@@ -58,18 +67,18 @@ To move the window
 relative to its current position, add the
 '<a name="Move_w"></a><font class="fvwmopt">w</font>'
 (for "window") prefix before the
-<span class="emphasis"><em>x</em></span> and/or <span class="emphasis"><em>y</em></span>
+<em class="replaceable"><code>x</code></em> and/or <em class="replaceable"><code>y</code></em>
 value.  To move the window to a position relative to the current
 location of the pointer, add the
 '<a name="Move_m"></a><font class="fvwmopt">m</font>'
 (for "mouse") prefix.  To leave either coordinate unchanged,
 "<a name="Move_keep"></a><font class="fvwmopt">keep</font>" can be specified in place of
-<span class="emphasis"><em>x</em></span> or <span class="emphasis"><em>y</em></span>.</p>
+<em class="replaceable"><code>x</code></em> or <em class="replaceable"><code>y</code></em>.</p>
 
 For advanced uses, the arguments
-<span class="emphasis"><em>x</em></span> and <span class="emphasis"><em>y</em></span>
+<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
 can be used multiple times, but without the prefix
-'<span class="emphasis"><em>m</em></span>' or '<span class="emphasis"><em>w</em></span>'.
+'<em class="replaceable"><code>m</code></em>' or '<em class="replaceable"><code>w</code></em>'.
 (See complex examples below).
 
 <p>Simple Examples:</p><pre class="programlisting">

@@ -11,36 +11,35 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Maximize"></a>Maximize</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Maximize [flags] [bool] [horizontal[p]] [vertical [p]] </p></div>
-</strong></span><p>Without its optional arguments (or if the
-<span class="emphasis"><em>bool</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Maximize"></a>Maximize</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Maximize</code>  [<em class="replaceable"><code>flags</code></em>] [<em class="replaceable"><code>bool</code></em>] [<em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]] [<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]]</p></div><p>Without its optional arguments (or if the
+<em class="replaceable"><code>bool</code></em>
 bit has the value "<a name="Maximize_toggle"></a><font class="fvwmopt">toggle</font>")
 <span class="emphasis"><em>Maximize</em></span>
 causes the window to alternately switch from a full-screen size to
 its normal size.  To force a window into maximized (normal) state
 you can use a "<a name="Maximize_True"></a><font class="fvwmopt">True</font>" or "<a name="Maximize_False"></a><font class="fvwmopt">False</font>" value for the
-<span class="emphasis"><em>bool</em></span>
+<em class="replaceable"><code>bool</code></em>
 argument.</p><p>With the optional arguments
-<span class="emphasis"><em>horizontal</em></span> and <span class="emphasis"><em>vertical</em></span>,
+<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>,
 which are expressed as percentage of a full screen, the user can
 control the new size of the window.  An optional suffix
 '<a name="Maximize_p"></a><font class="fvwmopt">p</font>'
 can be used to indicate pixels instead of percents of the screen
 size.  If horizontal is greater than 0 then the horizontal
 dimension of the window is set to
-<span class="emphasis"><em>horizontal</em></span>*screen_width/100.
+<em class="replaceable"><code>horizontal</code></em>*screen_width/100.
 If the value is smaller than 0 the size is subtracted from the
 screen width, i.e. -25 is the same as 75.  If
-<span class="emphasis"><em>horizontal</em></span>
-is "grow", it is maximized to current available space until
+<em class="replaceable"><code>horizontal</code></em>
+is "<a name="Maximize_grow"></a><font class="fvwmopt">grow</font>", it is maximized to curren
+available space until
 finding any obstacle.  The vertical resizing is similar.  If both
 horizontal and vertical values are "grow", it expands vertically
 first, then horizontally to find space.  Instead of the horizontal
-"grow" argument, "growleft" or "growright" can be used
-respectively "growup" and "growdown".
+"grow" argument, "<a name="Maximize_growleft"></a><font class="fvwmopt">growleft</font>" or "<a name="Maximize_growright"></a><font class="fvwmopt">growright</font>" can be used
+respectively "<a name="Maximize_growup"></a><font class="fvwmopt">growup</font>" and "<a name="Maximize_growdown"></a><font class="fvwmopt">growdown</font>".
 The optional
-<span class="emphasis"><em>flags</em></span>
+<em class="replaceable"><code>flags</code></em>
 argument is a space separated list containing the following
 key words:
 <span class="emphasis"><em>ewmhiwa</em></span>, <span class="emphasis"><em>growonwindowlayer</em></span>, <span class="emphasis"><em>growonlayers</em></span> and <span class="emphasis"><em>screen</em></span>.

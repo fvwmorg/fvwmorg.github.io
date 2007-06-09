@@ -11,16 +11,16 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddButtonStyle"></a>AddButtonStyle</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> AddButtonStyle   button  [state] [style] [-- [!] flag ...]</p></div>
-</strong></span><p>Adds a button style to
-<span class="emphasis"><em>button</em></span>.
-<span class="emphasis"><em>button</em></span>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddButtonStyle"></a>AddButtonStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">AddButtonStyle</code>   button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
+		 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
+	]</p></div><p>Adds a button style to
+<em class="replaceable"><code>button</code></em>.
+<em class="replaceable"><code>button</code></em>
 can be a button number, or one of
 "<a name="AddButtonStyle_All"></a><font class="fvwmopt">All</font>",
 "<a name="AddButtonStyle_Left"></a><font class="fvwmopt">Left</font>" or
 "<a name="AddButtonStyle_Right"></a><font class="fvwmopt">Right</font>".
-<span class="emphasis"><em>state</em></span>
+<em class="replaceable"><code>state</code></em>
 can be
 "<a name="AddButtonStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>",
 "<a name="AddButtonStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>",
@@ -50,13 +50,13 @@ They are actually different masks for 4 individual states from
 "<a name="AddButtonStyle_AllActiveDown"></a><font class="fvwmopt">AllActiveDown</font>",
 "<a name="AddButtonStyle_AllInactiveUp"></a><font class="fvwmopt">AllInactiveUp</font>",
 "<a name="AddButtonStyle_AllInactiveDown"></a><font class="fvwmopt">AllInactiveDown</font>".</p><p>If
-<span class="emphasis"><em>state</em></span>
+<em class="replaceable"><code>state</code></em>
 is omitted, then the style is added to every state.  If the
-<span class="emphasis"><em>style</em></span> and <span class="emphasis"><em>flags</em></span>
+<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
 are enclosed in parentheses, then multiple
-<span class="emphasis"><em>state</em></span>
+<em class="replaceable"><code>state</code></em>
 definitions can be placed on a single line.
-<span class="emphasis"><em>Flags</em></span>
+<em class="replaceable"><code>Flags</code></em>
 for additional button styles cannot be changed after definition.</p><p>Buttons are drawn in the order of definition, beginning with the
 most recent button style, followed by those added with
 <span class="emphasis"><em>AddButtonStyle</em></span>.

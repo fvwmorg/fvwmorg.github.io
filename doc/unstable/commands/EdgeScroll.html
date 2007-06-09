@@ -11,28 +11,31 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeScroll"></a>EdgeScroll</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> EdgeScroll horizontal[p] vertical[p] [wrap|wrapx|wrapy] </p></div>
-</strong></span><p>Specifies the percentage of a page to scroll when the cursor hits
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeScroll"></a>EdgeScroll</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">EdgeScroll</code>   
+		<em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]
+	   
+		<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
+	  [ wrap  |   wrapx  |   wrapy ]</p></div><p>Specifies the percentage of a page to scroll when the cursor hits
 the edge of a page.  A trailing
-'<span class="emphasis"><em>p</em></span>'
+'<a name="EdgeScroll_p"></a><font class="fvwmopt">p</font>'
 changes the interpretation to mean pixels.  If you do not want any
 paging or scrolling when you hit the edge of a page include</p><pre class="programlisting">
 EdgeScroll 0 0
 </pre><p>in your
-<span class="emphasis"><em>config</em></span>
+<code class="filename">config</code>
 file, or possibly better, set the
-<span class="emphasis"><em>EdgeThickness</em></span>
+<a href="../commands/EdgeThickness.html">EdgeThickness</a>
 to zero.  See the
-<span class="emphasis"><em>EdgeThickness</em></span>
+<a href="../commands/EdgeThickness.html">EdgeThickness</a>
 command. If you want whole pages, use</p><pre class="programlisting">
 EdgeScroll 100 100
 </pre><p>Both
-<span class="emphasis"><em>horizontal</em></span> and <span class="emphasis"><em>vertical</em></span>
+<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
 should be positive numbers.</p><p>If the
-<span class="emphasis"><em>horizontal</em></span> and <span class="emphasis"><em>vertical</em></span>
+<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
 percentages are multiplied by 1000 or one of the keywords
-<span class="emphasis"><em>wrap</em></span>, <span class="emphasis"><em>wrapx</em></span> and <span class="emphasis"><em>wrapy</em></span>
+<a name="EdgeScroll_wrap"></a><font class="fvwmopt">wrap</font>, <a name="EdgeScroll_wrapx"></a><font class="fvwmopt">wrapx</font>
+and <a name="EdgeScroll_wrapy"></a><font class="fvwmopt">wrapy</font>
 is given then scrolling wraps around at the edge of the desktop.
 If</p><pre class="programlisting">
 EdgeScroll 100000 100000

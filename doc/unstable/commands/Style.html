@@ -11,12 +11,10 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Style"></a>Style</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> Style stylename options ... </p></div>
-</strong></span><p>The
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Style"></a>Style</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">Style</code>   <em class="replaceable"><code>stylename</code></em>   <em class="replaceable"><code>options</code></em>... </p></div><p>The
 <span class="emphasis"><em>Style</em></span>
 command is used to set attributes of a window to values other than
-the default or to set the window manager default styles.</p><p><span class="emphasis"><em>stylename</em></span>
+the default or to set the window manager default styles.</p><p><em class="replaceable"><code>stylename</code></em>
 can be a window's name, class, or resource string.  It may contain
 the wildcards '*' and '?', which are matched in the usual Unix
 filename manner.  Multiple style options in a single
@@ -29,7 +27,7 @@ further left on the same style line).</p><p>Note: windows that have no name (WM_
 res_class) are given class "NoClass" and those that do not have a
 resource (WM_CLASS, res_name) are given resource "NoResource".</p><p>If a window has the resource "fvwmstyle" set, the value of that
 resource is used in addition to any window names when
-selecting the style.</p><p><span class="emphasis"><em>options</em></span>
+selecting the style.</p><p><em class="replaceable"><code>options</code></em>
 is a comma separated list containing one or more of the
 following keywords.  Each group of style names is separated by
 slashes ('/').  The last style in these groups is the default.
@@ -88,8 +86,8 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>StickyIcon</em></span> / <span class="emphasis"><em>SlipperyIcon</em></span>,
 <span class="emphasis"><em>StickyAcrossPagesIcon</em></span> / <span class="emphasis"><em>!StickyAcrossPagesIcon</em></span>,
 <span class="emphasis"><em>StickyAcrossDesksIcon</em></span> / <span class="emphasis"><em>!StickyAcrossDesksIcon</em></span>,
-<span class="emphasis"><em>ManualPlacement</em></span> / <span class="emphasis"><em>CascadePlacement</em></span> / <span class="emphasis"><em>MinOverlapPlacement</em></span> / 
-<span class="emphasis"><em>MinOverlapPercentPlacement</em></span> / <span class="emphasis"><em>TileManualPlacement</em></span> / 
+<span class="emphasis"><em>ManualPlacement</em></span> / <span class="emphasis"><em>CascadePlacement</em></span> / <span class="emphasis"><em>MinOverlapPlacement</em></span> /
+<span class="emphasis"><em>MinOverlapPercentPlacement</em></span> / <span class="emphasis"><em>TileManualPlacement</em></span> /
 <span class="emphasis"><em>TileCascadePlacement</em></span> / <span class="emphasis"><em>PositionPlacement</em></span>,
 <span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>,
 <span class="emphasis"><em>MinOverlapPercentPlacementPenalties</em></span>,
@@ -158,6 +156,7 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>!AllowMaximizeFixedSize</em></span> / <span class="emphasis"><em>AllowMaximizeFixedSize</em></span>,
 <span class="emphasis"><em>IconOverride</em></span> / <span class="emphasis"><em>NoIconOverride</em></span> / <span class="emphasis"><em>NoActiveIconOverride</em></span>,
 <span class="emphasis"><em>DepressableBorder</em></span> / <span class="emphasis"><em>FirmBorder</em></span>,
+<span class="emphasis"><em>MinWindowSize</em></span>,
 <span class="emphasis"><em>MaxWindowSize</em></span>,
 <span class="emphasis"><em>IconifyWindowGroups</em></span> / <span class="emphasis"><em>IconifyWindowGroupsOff</em></span>,
 <span class="emphasis"><em>ResizeOpaque</em></span> / <span class="emphasis"><em>ResizeOutline</em></span>,
@@ -174,9 +173,9 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>EWMHIgnoreStateHints</em></span> / <span class="emphasis"><em>EWMHUseStateHints</em></span>,
 <span class="emphasis"><em>EWMHIgnoreStrutHints</em></span> / <span class="emphasis"><em>EWMHUseStrutHints</em></span>,
 <span class="emphasis"><em>EWMHIgnoreWindowType</em></span> / <span class="emphasis"><em>!EWMHIgnoreWindowType</em></span>,
-<span class="emphasis"><em>EWMHMaximizeIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHMaximizeUseWorkingArea</em></span> / 
+<span class="emphasis"><em>EWMHMaximizeIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHMaximizeUseWorkingArea</em></span> /
 <span class="emphasis"><em>EWMHMaximizeUseDynamicWorkingArea</em></span>,
-<span class="emphasis"><em>EWMHPlacementIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHPlacementUseWorkingArea</em></span> / 
+<span class="emphasis"><em>EWMHPlacementIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHPlacementUseWorkingArea</em></span> /
 <span class="emphasis"><em>EWMHPlacementUseDynamicWorkingArea</em></span>,
 <span class="emphasis"><em>MoveByProgramMethod</em></span>,
 <span class="emphasis"><em>Unmanaged</em></span>,
@@ -271,12 +270,12 @@ styles control whether the internal window list is sorted in the
 order the windows were focused or in the order they were created.
 The latter is the default for
 <span class="emphasis"><em>ClickToFocus</em></span> and <span class="emphasis"><em>SloppyFocus</em></span>.</p><p><span class="emphasis"><em>Clicking the window to raise</em></span></p><p>The styles
-<a name="Style_FPClickRaisesFocused"></a><font class="fvwmopt">FPClickRaisesFocused</font>, <a name="Style_FPClickDecorRaisesFocused"></a><font class="fvwmopt">FPClickDecorRaisesFocused</font> and 
+<a name="Style_FPClickRaisesFocused"></a><font class="fvwmopt">FPClickRaisesFocused</font>, <a name="Style_FPClickDecorRaisesFocused"></a><font class="fvwmopt">FPClickDecorRaisesFocused</font> and
 <a name="Style_FPClickIconRaisesFocused"></a><font class="fvwmopt">FPClickIconRaisesFocused</font>
 allow to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is already
 focused.</p><p>The styles
-<a name="Style_FPClickRaisesUnfocused"></a><font class="fvwmopt">FPClickRaisesUnfocused</font>, <a name="Style_FPClickDecorRaisesUnfocused"></a><font class="fvwmopt">FPClickDecorRaisesUnfocused</font> and 
+<a name="Style_FPClickRaisesUnfocused"></a><font class="fvwmopt">FPClickRaisesUnfocused</font>, <a name="Style_FPClickDecorRaisesUnfocused"></a><font class="fvwmopt">FPClickDecorRaisesUnfocused</font> and
 <a name="Style_FPClickIconRaisesUnfocused"></a><font class="fvwmopt">FPClickIconRaisesUnfocused</font>
 allow to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is not yet
@@ -317,7 +316,7 @@ styles.  This can be useful if you like to have transient windows
 receive the focus immediately, for example in a web browser, but
 not while you are working in a terminal window or a text
 processor.</p><p>The above three styles are accompanied by
-<a name="Style_FPReleaseFocus"></a><font class="fvwmopt">FPReleaseFocus</font>, <a name="Style_FPReleaseFocusTransient"></a><font class="fvwmopt">FPReleaseFocusTransient</font> and 
+<a name="Style_FPReleaseFocus"></a><font class="fvwmopt">FPReleaseFocus</font>, <a name="Style_FPReleaseFocusTransient"></a><font class="fvwmopt">FPReleaseFocusTransient</font> and
 <a name="Style_FPOverrideReleaseFocus"></a><font class="fvwmopt">FPOverrideReleaseFocus</font>.
 These control if the focus is returned to another window when the
 window is closed.  Otherwise no window or the window under the
@@ -792,16 +791,16 @@ work like
 but stick the window only across pages, not desks while
 <span class="emphasis"><em>StickyAcrossDesks  and  StickyAcrossDesksIcon</em></span>
 works the other way round.</p><p>Windows that have been marked as
-<span class="emphasis"><em>Sticky</em></span> or 
-<a name="Style_StickyAcrossDesks"></a><font class="fvwmopt">StickyAcrossDesks</font> or 
-<span class="emphasis"><em>StickyAcrossPages</em></span> will have stipples drawn 
+<span class="emphasis"><em>Sticky</em></span> or
+<a name="Style_StickyAcrossDesks"></a><font class="fvwmopt">StickyAcrossDesks</font> or
+<span class="emphasis"><em>StickyAcrossPages</em></span> will have stipples drawn
 on the titlebar.  This can be negated with the
 !<a name="Style_StickyStippledTitle"></a><font class="fvwmopt">StickyStippledTitle</font>
 style.  The style
 <span class="emphasis"><em>StickyStippledTitle</em></span>
 puts back the stipples where that window has also been marked as
-<span class="emphasis"><em>Sticky</em></span>.  Note that this is the default style for 
-<span class="emphasis"><em>Sticky</em></span> windows.  Sticky icons will have stipples drawn 
+<span class="emphasis"><em>Sticky</em></span>.  Note that this is the default style for
+<span class="emphasis"><em>Sticky</em></span> windows.  Sticky icons will have stipples drawn
 on the icon title. This can be disabled in the same way with the
 !<a name="Style_StickyStippledIconTitle"></a><font class="fvwmopt">StickyStippledIconTitle</font>
 style.</p><p>Windows with the
@@ -908,7 +907,15 @@ applications).
 This can be handy for broken applications that refuse to be
 resized.  Do not use it if you do not need it.  The default
 (opposite) style is
-<a name="Style_NoResizeOverride"></a><font class="fvwmopt">NoResizeOverride</font>.</p><p><span class="emphasis"><em>MaxWindowSize  [ width [ p ]  height [ p ] ]</em></span>
+<a name="Style_NoResizeOverride"></a><font class="fvwmopt">NoResizeOverride</font>.</p><p><span class="emphasis"><em>MinWindowSize  [ width [ p ]  height [ p ] ]</em></span>
+Tells fvwm the minimum width and height of a window.  The values
+are the percentage of the total screen area.  If the letter
+'<span class="emphasis"><em>p</em></span>'
+is appended to either of the values, the numbers are interpreted
+as pixels. This command is useful for certain versions of xemacs
+which freak out if their windows become too small.  If you omit
+he parameters or their values are invalid, both limits are set to
+0 pixels (which is the default value).</p><p><span class="emphasis"><em>MaxWindowSize  [ width [ p ]  height [ p ] ]</em></span>
 Tells fvwm the maximum width and height of a window.  The values
 are the percentage of the total screen area.  If the letter
 '<span class="emphasis"><em>p</em></span>'
@@ -1223,7 +1230,7 @@ allows this to happen anyway.  The option has no effect if
 <span class="emphasis"><em>SkipMapping</em></span>
 is not in effect, because fvwm switches to the proper desk/page to
 perform interactive placement.  The default is
-<span class="emphasis"><em>ManualPlacementIgnoresStartsOnPage</em></span>; 
+<span class="emphasis"><em>ManualPlacementIgnoresStartsOnPage</em></span>;
 <span class="emphasis"><em>ManualPlacementHonorsStartsOnPage</em></span>
 matches the way the old
 <span class="emphasis"><em>StartsOnDesk</em></span>

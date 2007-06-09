@@ -11,25 +11,23 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ModulePath"></a>ModulePath</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> ModulePath path </p></div>
-</strong></span><p>Specifies a colon separated list of directories in which to search
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ModulePath"></a>ModulePath</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ModulePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of directories in which to search
 for modules.  To find a module, fvwm searches each directory in
 turn and uses the first file found.  Directory names on the list
 do not need trailing slashes.</p><p>The
 <span class="emphasis"><em>ModulePath</em></span>
 may contain environment variables such as
-<span class="emphasis"><em>$HOME</em></span> (or <span class="emphasis"><em>${HOME}</em></span>).
+<code class="envar">$HOME</code> (or <code class="envar">${HOME}</code>).
 Further, a '+' in the
-<span class="emphasis"><em>path</em></span>
+<em class="replaceable"><code>path</code></em>
 is expanded to the previous value of the
-<span class="emphasis"><em>path</em></span>,
+<em class="replaceable"><code>path</code></em>,
 allowing easy appending or prepending to the
-<span class="emphasis"><em>path</em></span>.</p><p>For example:</p><pre class="programlisting">
+<em class="replaceable"><code>path</code></em>.</p><p>For example:</p><pre class="programlisting">
 ModulePath ${HOME}/lib/fvwm/modules:+
 </pre><p>The directory containing the standard modules is available via the
 environment variable
-<span class="emphasis"><em>$FVWM_MODULEDIR</em></span>.</p></div>
+<code class="envar">$FVWM_MODULEDIR</code>.</p></div>
 <HR>
 <P>FVWM 2.5.22 (from cvs)</P>
 </body></html>

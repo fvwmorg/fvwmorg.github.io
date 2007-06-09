@@ -11,9 +11,7 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeResistance"></a>EdgeResistance</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> EdgeResistance scrolling moving [xinerama-moving] </p></div>
-</strong></span><p>Tells how hard it should be to change the desktop viewport by
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeResistance"></a>EdgeResistance</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">EdgeResistance</code>   <em class="replaceable"><code>scrolling</code></em>   <em class="replaceable"><code>moving</code></em>  [<em class="replaceable"><code>xinerama-scrolling</code></em>]</p></div><p>Tells how hard it should be to change the desktop viewport by
 moving the mouse over the edge of the screen and how hard it
 should be to move a window over the edge of the screen.</p><p>The first parameter tells how many milliseconds the pointer must
 spend on the screen edge before fvwm moves the viewport.  This is
@@ -36,11 +34,11 @@ less than 10000 but greater than 0 moving over pages becomes
 difficult but not impossible.  See also
 <a href="../commands/EdgeThickness.html">EdgeThickness</a>.</p><p>The optional third parameter does the same as the second, but for
 individual Xinerama screens.  If omitted,
-<span class="emphasis"><em>xinerama-moving</em></span>
+<em class="replaceable"><code>xinerama-moving</code></em>
 is set to the value of
-<span class="emphasis"><em>moving</em></span>.
+<em class="replaceable"><code>moving</code></em>.
 Set
-<span class="emphasis"><em>xinerama-moving</em></span>
+<em class="replaceable"><code>xinerama-moving</code></em>
 to zero to ignore individual screen edges.  Note that the center of
 the window being moved determines the xinerama screen on which the
 window should be kept.</p></div>

@@ -11,27 +11,25 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ResizeMove"></a>ResizeMove</h2></div></div><hr></div><span><strong class="command">
-<div class="cmdsynopsis"><p> ResizeMove   resize-arguments    move-arguments </p></div>
-</strong></span><p>This command does the same as the
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ResizeMove"></a>ResizeMove</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ResizeMove</code>   <em class="replaceable"><code>resize-arguments</code></em>   <em class="replaceable"><code>move-arguments</code></em> </p></div><p>This command does the same as the
 <a href="../commands/Resize.html">Resize</a>
 and
 <a href="../commands/Move.html">Move</a>
 commands, but in a single call which is less visually
 disturbing. The
-<span class="emphasis"><em>resize-arguments</em></span>
+<em class="replaceable"><code>resize-arguments</code></em>
 are exactly the same arguments as for the
 <a href="../commands/Resize.html">Resize</a>
 command and the
-<span class="emphasis"><em>move-arguments</em></span>
+<em class="replaceable"><code>move-arguments</code></em>
 are exactly the same arguments as for the
 <a href="../commands/Move.html">Move</a>
 command except the
-<span class="emphasis"><em>pointer</em></span>
+<a href="../commands/Move.html#Move_pointer">pointer</a>
 option which is not supported by the
 <span class="emphasis"><em>ResizeMove</em></span>
 command.</p><p>Examples:</p><pre class="programlisting">
-# <a href="../commands/Move.html">Move</a> window to top left corner and cover
+# Move window to top left corner and cover
 # most of the screen
 ResizeMove -10p -20p 0 0
 
@@ -39,7 +37,7 @@ ResizeMove -10p -20p 0 0
 <a href="../commands/Current.html">Current</a> <a href="../commands/Resize.html">Resize</a> keep w+$[w.y]p keep 0
 </pre><p>Note: Fvwm may not be able to parse the command properly if the
 option
-<span class="emphasis"><em>bottomright</em></span>
+<a href="../commands/Reize.html#Reize_bottomright">bottomright</a>
 of the
 <a href="../commands/Resize.html">Resize</a>
 command is used.</p></div>
