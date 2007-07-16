@@ -5,13 +5,13 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="id2442664"></a>FVWM 2.5.22 (from cvs)</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">25. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">26. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">26.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">26.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">27. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">28. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">29. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">30. List of FVWM Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">30.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">30.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">30.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">30.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">30.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">30.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">30.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">30.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">30.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">30.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">30.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">30.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">30.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">30.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">31. Environment</a></span></dt><dt><span class="section"><a href="#authors">32. Authors</a></span></dt><dt><span class="section"><a href="#copyright">33. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">34. Bugs</a></span></dt></dl></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
+<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="id2441795"></a>FVWM 2.5.22 (from cvs)</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><hr></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">25. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">26. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">26.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">26.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">27. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">28. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">29. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">30. List of FVWM Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">30.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">30.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">30.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">30.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">30.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">30.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">30.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">30.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">30.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">30.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">30.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">30.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">30.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">30.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">31. Environment</a></span></dt><dt><span class="section"><a href="#authors">32. Authors</a></span></dt><dt><span class="section"><a href="#copyright">33. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">34. Bugs</a></span></dt></dl></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
 memory consumption, provide a 3D look to window frames, and a
 virtual desktop.</p><p>Note that there are several window managers around that have
 "fvwm" in their name.  In the past, version 2.x of fvwm was
@@ -547,80 +547,108 @@ Compile-time options determine whether fvwm can display
 <span class="emphasis"><em>SVG</em></span>
 icons and images. See the <span class="emphasis"><em>INSTALL.fvwm</em></span>
 file for more information.</p><p>The related <span class="emphasis"><em>SHAPE</em></span>
-compile-time option can make fvwm display spiffy shaped icons.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="svg_rendering_options"></a>11.1. SVG rendering options</h3></div></div></div><p>By default SVG images are rendered as the image creator intended
+compile-time option can make fvwm display spiffy shaped icons.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="svg_rendering_options"></a>11.1. SVG rendering options</h3></div></div></div><p>
+SVG images are generated from (XML) text files.  A really simple SVG file
+might look something like this:</p><pre class="programlisting">
+&lt;svg width="120" height="80"&gt;
+	&lt;rect fill="red"     width="40" height="40"  x="0"   y="0"  /&gt;
+	&lt;rect fill="lime"    width="40" height="40"  x="40"  y="0"  /&gt;
+	&lt;rect fill="blue"    width="40" height="40"  x="80"  y="0"  /&gt;
+	&lt;rect fill="cyan"    width="40" height="40"  x="0"   y="40" /&gt;
+	&lt;rect fill="magenta" width="40" height="40"  x="40"  y="40" /&gt;
+	&lt;rect fill="yellow"  width="40" height="40"  x="80"  y="40" /&gt;
+&lt;/svg&gt;
+</pre><div class="mediaobject"><img src="../images/svg_rendering/plain.png"><div class="caption"><code class="code">image.svg</code><p></p></div></div><p>
+By default, SVG images are rendered as the image creator intended
 them to. But since SVG is a vector graphics format, the images can
 be rendered at any choosen size and rotation, e.g. making it possible
 to use the same icon file rendered at diffrent sizes for the
-<a href="#Style_Icon">Icon</a>
-and
-<a href="#Style_MiniIcon">MiniIcon</a>
+<a href="#Style_Icon">Icon</a> and <a href="#Style_MiniIcon">MiniIcon</a>
 styles.</p><p>The rendering options are specified as a string appended to the SVG
-filename as follows:</p><p>
-</p><div class="caution" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">FIXME</h3></div><p> 
-</p><p><em class="replaceable"><code><code class="filename">image.svg</code></code></em><span class="emphasis"><em>:</em></span>[<span class="optional">[<span class="optional"><span class="emphasis"><em>-</em></span></span>]<em class="replaceable"><code>width</code></em><span class="emphasis"><em>x</em></span>[<span class="optional"><span class="emphasis"><em>-</em></span></span>]<em class="replaceable"><code>height</code></em></span>][<span class="optional">[<span class="optional"><span class="emphasis"><em>+</em></span>|<span class="emphasis"><em>-</em></span></span>]<em class="replaceable"><code>xpos</code></em>[<span class="optional"><span class="emphasis"><em>+</em></span>|<span class="emphasis"><em>-</em></span></span>]<em class="replaceable"><code>ypos</code></em></span>][<span class="optional"><span class="emphasis"><em>@</em></span><em class="replaceable"><code>angle</code></em></span>][<span class="optional">[<span class="optional"><span class="emphasis"><em>*</em></span>|<span class="emphasis"><em>/</em></span></span>]<em class="replaceable"><code>scale</code></em></span>]</p><p>The option string always starts with a colon (':') to separate it
-from the filename. An empty option string can skip this colon, but
-it might still be a good idea to include it to prevent ambiguity
-if the filename contains any colon.</p><pre class="programlisting">
+filename as follows:</p><div class="cmdsynopsis"><p><code class="filename"><em class="replaceable"><code>image.svg</code></em></code><code class="literal">:</code><code class="literal">[!]</code> [<i><a href="#svg_rendering_size">(1)</a> size</i>]  [<i><a href="#svg_rendering_position">(2)</a> position</i>] [<i><a href="#svg_rendering_rotation">(3)</a> rotation</i>] [<i><a href="#svg_rendering_scale">(4)</a> scale</i>] ... <p><a name="svg_rendering_size">(1)</a> <code class="literal">[-]</code><em class="replaceable"><code>width</code></em><code class="literal">{x}</code><code class="literal">[-]</code><em class="replaceable"><code>height</code></em></p><p><a name="svg_rendering_position">(2)</a> <code class="literal">{ -  |   + }</code><em class="replaceable"><code>xpos</code></em><code class="literal">{ -  |   + }</code><em class="replaceable"><code>ypos</code></em></p><p><a name="svg_rendering_rotation">(3)</a> <code class="literal">@</code><code class="literal">[-]</code><em class="replaceable"><code>angle</code></em></p><p><a name="svg_rendering_scale">(4)</a> <code class="literal">{ *  |   / }</code><code class="literal">[-]</code><em class="replaceable"><code>factor</code></em><code class="literal">[ x  |   y ]</code></p></p></div><p>
+The option string always starts with a colon ('<code class="literal">:</code>')
+to separate it from the filename.  An empty option string can skip this
+colon, but it might still be a good idea to include it to prevent
+ambiguity if the filename contains any colon.</p><pre class="programlisting">
 filename_without_colon.svg
 filename:with:colon.svg:
-</pre><p><em class="replaceable"><code>width</code></em>
-and
-<em class="replaceable"><code>height</code></em>
+</pre><p>
+An exclamation point ('<code class="literal">!</code>') transposes the entire final
+image (including the rendering area), i.e. all the horizontal and all the
+vertical coordinates are swapped with each other.</p><pre class="programlisting">
+image.svg:!
+</pre><div class="mediaobject"><img src="../images/svg_rendering/transpose.png"><div class="caption"><code class="code">image.svg:!</code><p></p></div></div><p>
+<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
 specifies the dimensions of the rendering area in pixels, i.e. the
-dimensions of the resulting image.</p><pre class="programlisting">
-image.svg:22x22
-</pre><p>Use a
-<em class="replaceable"><code>width</code></em>
-or
-<em class="replaceable"><code>height</code></em>
+dimensions of the resulting image.  The actual image is fitted to fill
+the entire rendering area.</p><pre class="programlisting">
+image.svg:60x60
+</pre><div class="mediaobject"><img src="../images/svg_rendering/size.png"><div class="caption"><code class="code">image.svg:60x60</code><p></p></div></div><p>
+Use a <em class="replaceable"><code>width</code></em> or <em class="replaceable"><code>height</code></em>
 value of 0 to keep the aspect ratio.</p><pre class="programlisting">
-image.svg:0x64
-image.svg:32x0
-</pre><p>A '-' before
-<em class="replaceable"><code>width</code></em>
-mirrors the original image horizontally.</p><pre class="programlisting">
+image.svg:0x60
+image.svg:60x0
+</pre><div class="mediaobject"><img src="../images/svg_rendering/size_keep_ratio_x.png"><div class="caption"><code class="code">image.svg:0x60</code><p></p></div></div><div class="mediaobject"><img src="../images/svg_rendering/size_keep_ratio_y.png"><div class="caption"><code class="code">image.svg:60x0</code><p></p></div></div><p>A '<code class="literal">-</code>' before <em class="replaceable"><code>width</code></em>
+mirrors the rendering area horizontally.</p><pre class="programlisting">
 image.svg:-0x0
-</pre><p>A '-' before
-<em class="replaceable"><code>height</code></em>
-mirrors the original image vertically.</p><pre class="programlisting">
+</pre><p>A '<code class="literal">-</code>' before <em class="replaceable"><code>height</code></em>
+mirrors the rendering area vertically.</p><pre class="programlisting">
 image.svg:0x-0
-</pre><p><em class="replaceable"><code>xpos</code></em>
-and
-<em class="replaceable"><code>ypos</code></em>
-specifies a translation of the image in pixels. A positive
-<em class="replaceable"><code>xpos</code></em>
-value moves the image to the right. A positive
-<em class="replaceable"><code>ypos</code></em>
-value moves it down. Moving it partially outside of the rendering
-area results in a cropped image.</p><pre class="programlisting">
-image.svg:-10+0
-image.svg:+0+10
-image.svg:-7-7
-</pre><p><em class="replaceable"><code>angle</code></em>
-specifies a rotation around the original image center in degrees.
-A positive value rotates the image clockwise. Floating point values
-are recognized.</p><pre class="programlisting">
-image.svg:@90
-image.svg:@-90
+</pre><div class="mediaobject"><img src="../images/svg_rendering/size_mirroring_y.png"><div class="caption"><code class="code">image.svg:0x-0</code><p></p></div></div><p>
+<em class="replaceable"><code>xpos</code></em> and <em class="replaceable"><code>ypos</code></em>
+specifies a translation of the image in pixels.  A positive
+<em class="replaceable"><code>xpos</code></em> value moves the image to the right.  A
+positive <em class="replaceable"><code>ypos</code></em> value moves it down.  Moving
+it partially outside of the rendering area results in a cropped
+image.</p><pre class="programlisting">
+image.svg:-30-0
+image.svg:-0+10
+image.svg:-30+10
+</pre><div class="mediaobject"><img src="../images/svg_rendering/position.png"><div class="caption"><code class="code">image.svg:-30+10</code><p></p></div></div><p>
+<em class="replaceable"><code>angle</code></em> specifies a rotation around the actual
+image center in degrees. This might result in a cropped image.  A
+positive value rotates the image clockwise.  Floating point values are
+recognized.</p><pre class="programlisting">
 image.svg:@180
+image.svg:@-90
+image.svg:@30
 image.svg:@57.3
-</pre><p><em class="replaceable"><code>scale</code></em>
-specifes a scaling of the whole image. Scaling it up results in
-a cropped image. Floting point values are recognized. Division by
-zero is ignored.</p><pre class="programlisting">
-image.svg:*0.5
+</pre><div class="mediaobject"><img src="../images/svg_rendering/rotation.png"><div class="caption"><code class="code">image.svg:@30</code><p></p></div></div><p>
+<em class="replaceable"><code>factor</code></em> specifes a scaling of the actual
+image (not the rendering area). Scaling it up results in a cropped
+image.  Floting point values are recognized.  Division by zero is
+ignored.  If <em class="replaceable"><code>factor</code></em> is directly followed
+by a '<code class="literal">x</code>' or a '<code class="literal">y</code>', the scaling
+is horizontal or vertical respectively.  Otherwise the scaling is
+uniform.</p><pre class="programlisting">
+image.svg:*2
 image.svg:/2
-</pre><p>Scaling down a translated or rotated image can prevent cropping.</p><pre class="programlisting">
-image.svg:@45*0.7
-</pre><p>Repeated usage of translation, rotation, and scaling is allowed.
-Translation and rotation are additive. Scaling is multiplicative.</p><pre class="programlisting">
+image.svg:/3x
+image.svg:/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/scale_up_uniform.png"><div class="caption"><code class="code">image.svg:*2</code><p></p></div></div><div class="mediaobject"><img src="../images/svg_rendering/scale_down_uniform.png"><div class="caption"><code class="code">image.svg:/2</code><p></p></div></div><div class="mediaobject"><img src="../images/svg_rendering/scale_down_y.png"><div class="caption"><code class="code">image.svg:/2y</code><p></p></div></div><p>
+Scaling down a translated or rotated image can prevent cropping.</p><pre class="programlisting">
+image.svg:@30*0.6
+</pre><div class="mediaobject"><img src="../images/svg_rendering/prevent_cropping.png"><div class="caption"><code class="code">image.svg:@30*0.6</code><p></p></div></div><p>
+Repeated usage of translation, rotation, and scaling is allowed.
+ Translation and rotation are additive.  Scaling is multiplicative.</p><pre class="programlisting">
 image.svg:*2/3
-</pre><p>All of this can be combined. The following renders a horizontally
-mirrored 30 pixels wide and 40 pixels high image rotated 60 degrees
-counterclockwise in the lower left corner of a 75 pixels wide and
-100 pixels high rendering area.</p><pre class="programlisting">
-image.svg:-75x100-10+20@-60*2/5
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="modules"></a>12. Modules</h2></div></div></div><p>A module is a separate program which runs as a separate Unix
+image.svg:/3x/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/scale_down.png"><div class="caption"><code class="code">image.svg:/3x/2y</code><p></p></div></div><p>
+When combining affine transformations, the scaling is always done first,
+then the rotation, and finally the translation.</p><pre class="programlisting">
+image.svg:-30+10@30/3x/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/affine_combined.png"><div class="caption"><code class="code">image.svg:-30+10@30/3x/2y</code><p></p></div></div><p>
+Use a negative scale <em class="replaceable"><code>factor</code></em> to mirror the
+actual image.</p><pre class="programlisting">
+image.svg:-30+10@30/-3x/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/scale_mirroring.png"><div class="caption"><code class="code">image.svg:-30+10@30/-3x/2y</code><p></p></div></div><p>
+Mirroring of the rendering area is done after any scaling, rotation or
+translation of the image.</p><pre class="programlisting">
+image.svg:-0x0-30+10@30/3x/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/size_mirroring.png"><div class="caption"><code class="code">image.svg:-0x0-30+10@30/3x/2y</code><p></p></div></div><p>
+Transposing is done last of all, after everything else.</p><pre class="programlisting">
+image.svg:!-0x0-30+10@30/3x/2y
+</pre><div class="mediaobject"><img src="../images/svg_rendering/all_combined.png"><div class="caption"><code class="code">image.svg:!-0x0-30+10@30/3x/2y</code><p></p></div></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="modules"></a>12. Modules</h2></div></div></div><p>A module is a separate program which runs as a separate Unix
 process but transmits commands to fvwm to execute.  Users can
 write their own modules to do any weird or bizarre manipulations
 without bloating or affecting the integrity of fvwm itself.</p><p>Modules must be spawned by fvwm so that it can set up two pipes
@@ -879,8 +907,7 @@ specifications in between ":", as "foundry=foundry_name",
 "spacing=type" where type can be monospace, proportional or
 charcell, "charwidth=integer", "charheight=integer" or
 "antialias=bool" where bool is True or False. It seems that these
-parameters are not always taken in account.
-To determine which Xft fonts are really loaded you can export
+parameters are not always taken in account.</p><p>To determine which Xft fonts are really loaded you can export
 XFT_DEBUG=1 before starting fvwm and take a look to the error
 log. With Xft2 you may use fc-list to list the available
 fonts. Anyway, Xft support is experimental (from the X and the
@@ -985,7 +1012,7 @@ offset is zero.
 is an optional set of directions the shadow emanates from the
 character.  The
 <em class="replaceable"><code>directions</code></em>
-are a space separated list of fvwm directions:</p><p><span class="emphasis"><em>N</em></span>, <span class="emphasis"><em>North</em></span>, <span class="emphasis"><em>Top</em></span>, <span class="emphasis"><em>t</em></span>, <span class="emphasis"><em>Up</em></span>, <span class="emphasis"><em>u</em></span>, <span class="emphasis"><em>-</em></span></p><p><span class="emphasis"><em>E</em></span>, <span class="emphasis"><em>East</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>]</em></span></p><p><span class="emphasis"><em>S</em></span>, <span class="emphasis"><em>South</em></span>, <span class="emphasis"><em>Bottom</em></span>, <span class="emphasis"><em>b</em></span>, <span class="emphasis"><em>Down</em></span>, <span class="emphasis"><em>d</em></span>, <span class="emphasis"><em>_</em></span></p><p><span class="emphasis"><em>W</em></span>, <span class="emphasis"><em>West</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>[</em></span></p><p><span class="emphasis"><em>NE</em></span>, <span class="emphasis"><em>NorthEast</em></span>, <span class="emphasis"><em>TopRight</em></span>, <span class="emphasis"><em>tr</em></span>, <span class="emphasis"><em>UpRight</em></span>, <span class="emphasis"><em>ur</em></span>, <span class="emphasis"><em>^</em></span></p><p><span class="emphasis"><em>SE</em></span>, <span class="emphasis"><em>SouthEast</em></span>, <span class="emphasis"><em>BottomRight</em></span>, <span class="emphasis"><em>br</em></span>, <span class="emphasis"><em>DownRight</em></span>, <span class="emphasis"><em>dr</em></span>, <span class="emphasis"><em>&gt;</em></span></p><p><span class="emphasis"><em>SW</em></span>, <span class="emphasis"><em>SouthWest</em></span>, <span class="emphasis"><em>BottomLeft</em></span>, <span class="emphasis"><em>bl</em></span>, <span class="emphasis"><em>DownLeft</em></span>, <span class="emphasis"><em>dl</em></span>, <span class="emphasis"><em>v</em></span></p><p><span class="emphasis"><em>NW</em></span>, <span class="emphasis"><em>NorthWest</em></span>, <span class="emphasis"><em>TopLeft</em></span>, <span class="emphasis"><em>tl</em></span>, <span class="emphasis"><em>UpLeft</em></span>, <span class="emphasis"><em>ul</em></span>, <span class="emphasis"><em>&lt;</em></span></p><p><span class="emphasis"><em>C</em></span>, <span class="emphasis"><em>Center</em></span>, <span class="emphasis"><em>Centre</em></span>, <code class="literal">.</code></p><p>A shadow is displayed in each given direction.
+are a space separated list of fvwm directions:</p><p><span class="emphasis"><em>N</em></span>, <span class="emphasis"><em>North</em></span>, <span class="emphasis"><em>Top</em></span>, <span class="emphasis"><em>t</em></span>, <span class="emphasis"><em>Up</em></span>, <span class="emphasis"><em>u</em></span>, <span class="emphasis"><em>-</em></span></p><p><span class="emphasis"><em>E</em></span>, <span class="emphasis"><em>East</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>]</em></span></p><p><span class="emphasis"><em>S</em></span>, <span class="emphasis"><em>South</em></span>, <span class="emphasis"><em>Bottom</em></span>, <span class="emphasis"><em>b</em></span>, <span class="emphasis"><em>Down</em></span>, <span class="emphasis"><em>d</em></span>, <span class="emphasis"><em>_</em></span></p><p><span class="emphasis"><em>W</em></span>, <span class="emphasis"><em>West</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>[</em></span></p><p><span class="emphasis"><em>NE</em></span>, <span class="emphasis"><em>NorthEast</em></span>, <span class="emphasis"><em>TopRight</em></span>, <span class="emphasis"><em>tr</em></span>, <span class="emphasis"><em>UpRight</em></span>, <span class="emphasis"><em>ur</em></span>, <span class="emphasis"><em>^</em></span></p><p><span class="emphasis"><em>SE</em></span>, <span class="emphasis"><em>SouthEast</em></span>, <span class="emphasis"><em>BottomRight</em></span>, <span class="emphasis"><em>br</em></span>, <span class="emphasis"><em>DownRight</em></span>, <span class="emphasis"><em>dr</em></span>, <span class="emphasis"><em>&gt;</em></span></p><p><span class="emphasis"><em>SW</em></span>, <span class="emphasis"><em>SouthWest</em></span>, <span class="emphasis"><em>BottomLeft</em></span>, <span class="emphasis"><em>bl</em></span>, <span class="emphasis"><em>DownLeft</em></span>, <span class="emphasis"><em>dl</em></span>, <span class="emphasis"><em>v</em></span></p><p><span class="emphasis"><em>NW</em></span>, <span class="emphasis"><em>NorthWest</em></span>, <span class="emphasis"><em>TopLeft</em></span>, <span class="emphasis"><em>tl</em></span>, <span class="emphasis"><em>UpLeft</em></span>, <span class="emphasis"><em>ul</em></span>, <span class="emphasis"><em>&lt;</em></span></p><p><span class="emphasis"><em>C</em></span>, <span class="emphasis"><em>Center</em></span>, <span class="emphasis"><em>Centre</em></span>, <span class="emphasis"><em>.</em></span></p><p>A shadow is displayed in each given direction.
 <span class="emphasis"><em>All</em></span>
 is equivalent to all the directions.  The default
 <em class="replaceable"><code>direction</code></em>
@@ -1745,9 +1772,9 @@ literal '%', insert "%%". For example</p><pre class="programlisting">+ Calculato
 calculator to the left.  The following:</p><pre class="programlisting">+ %xcalc.xpm%           <a href="#Exec">Exec</a> exec xcalc</pre><p>Omits the "Calculator" label, but leaves the picture.  The
 pictures used with this feature should be small (perhaps 16x16).</p><p>If the menu-name (not the label) contains a sub-string which is
 set off by at signs ('@'), then the text between them is expected
-to be the name of an xpm or bitmap file to draw along the left
+to be the name of an image file to draw along the left
 side of the menu (a side pixmap).  You may want to use the
-<span class="emphasis"><em>SidePic</em></span>
+<a href="#MenuStyle_SidePic">SidePic</a>
 option of the
 <a href="#MenuStyle">MenuStyle</a>
 command instead.  To get a literal '@', insert "@@".  For example</p><pre class="programlisting">AddToMenu StartMenu@linux-menu.xpm@</pre><p>creates a menu with a picture in its bottom left corner.</p><p>If the menu-name also contains a sub-string surrounded by '^'s, then
@@ -1832,7 +1859,7 @@ top/left borders of the menu and the rectangle overlap, with
 centered upon each other (try it and you will see it is much
 simpler than this description).  The default is "o0".  The prefix
 "o&lt;number&gt;" is an abbreviation for "+&lt;number&gt;-&lt;number&gt;m".</p><p>A prefix of
-''<a name="Menu_c"></a><font class="fvwmopt">c</font>'
+'<a name="Menu_c"></a><font class="fvwmopt">c</font>'
 is equivalent to "o50".  Examples:</p><pre class="programlisting">
 # window list in the middle of the screen
 <a href="#WindowList">WindowList</a> Root c c
@@ -2416,12 +2443,12 @@ MenuStyle red !HilightBack, Hilight3DOff
 MenuStyle red Font lucidasanstypewriter-12
 MenuStyle red MenuFace DGradient 64 Red Black
 </pre><p>Note that all style options could be placed on a single line for
-each style name.</p><div class="cmdsynopsis"><p> MenuStyle   forecolor   backcolor   shadecolor   font   style  [anim]</p></div><p>This is the old syntax of the
+each style name.</p><div class="cmdsynopsis"><p><code class="command">MenuStyle</code>   <em class="replaceable"><code>forecolor</code></em>   <em class="replaceable"><code>backcolor</code></em>   <em class="replaceable"><code>shadecolor</code></em>   <em class="replaceable"><code>font</code></em>   <em class="replaceable"><code>style</code></em>  [<em class="replaceable"><code>anim</code></em>]</p></div><p>This is the old syntax of the
 <span class="emphasis"><em>MenuStyle</em></span>
 command.  It is obsolete and may be removed in the future.  Please
 use the new syntax as described above.</p><p>Sets the menu style.  When using monochrome the colors are
 ignored.  The
-<span class="emphasis"><em>shadecolor</em></span>
+<em class="replaceable"><code>shadecolor</code></em>
 is the one used to draw a menu-selection which is prohibited (or
 not recommended) by the Mwm hints which an application has
 specified.  The style option is either
@@ -2435,7 +2462,7 @@ black.
 sub menus overlap the parent menu,
 <span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
 style menus never overlap the parent menu.</p><p>When the
-<span class="emphasis"><em>anim</em></span>
+<em class="replaceable"><code>anim</code></em>
 option is given, sub menus that do not fit on the screen cause the
 parent menu to be shifted to the left so the sub menu can be
 seen. See also
@@ -2478,7 +2505,7 @@ it into a main menu, called "RootMenu":</p><pre class="programlisting">
 
 <a href="#AddToMenu">AddToMenu</a> RootMenu "Root Menu" <a href="#Title">Title</a>
  + "Open XTerm Window" Popup NewWindowMenu
- + "Login as Root"     <a href="#Exec">Exec</a> exec xterm -fg green -T Root -n Root -e su -
+ + "Login as Root"     <a href="#Exec">Exec</a> exec xterm -T Root -n Root -e su -
  + "Login as Anyone"   <a href="#Popup">Popup</a> AnyoneMenu
  + "Remote Hosts"      <a href="#Popup">Popup</a> HostMenu
  + ""                  <a href="#Nop">Nop</a>
@@ -2516,10 +2543,7 @@ nothing.  Examples:</p><pre class="programlisting">
 
 <a href="#AddToMenu">AddToMenu</a> RootMenu
 + I "click here to tear me off" TearMenuOff
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Title"></a>30.1.17. Title</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Title</code> </p></div><p>Does nothing This is used to insert a title line in a popup or menu.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="miscellaneous_commands"></a>30.2. Miscellaneous Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BugOpts"></a>30.2.1. BugOpts</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BugOpts</code>   
-      [<em class="replaceable"><code>option</code></em>
-	 [<em class="replaceable"><code>bool</code></em>]],
-    ... </p></div><p>This command controls several workarounds for bugs in third party
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Title"></a>30.1.17. Title</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Title</code> </p></div><p>Does nothing This is used to insert a title line in a popup or menu.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="miscellaneous_commands"></a>30.2. Miscellaneous Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BugOpts"></a>30.2.1. BugOpts</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BugOpts</code>   [<em class="replaceable"><code>option</code></em> [<em class="replaceable"><code>bool</code></em>]],... </p></div><p>This command controls several workarounds for bugs in third party
 programs.  The individual options are separated by commas.  The
 optional argument
 <em class="replaceable"><code>bool</code></em>
@@ -2599,10 +2623,7 @@ think it should.</p><p>The
 option enables some debugging code in the ConfigureRequest
 handling routines of fvwm.  It is not helpful for the user, but if
 you report a bug to the fvwm team we may ask you to enable this
-option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BusyCursor"></a>30.2.2. BusyCursor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   
-      [<em class="replaceable"><code>Option</code></em>
-	<em class="replaceable"><code>bool</code></em>],
-    ... </p></div><p>This command controls the cursor during the execution of certain
+option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BusyCursor"></a>30.2.2. BusyCursor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   [<em class="replaceable"><code>Option</code></em> <em class="replaceable"><code>bool</code></em>],... </p></div><p>This command controls the cursor during the execution of certain
 commands.
 <em class="replaceable"><code>Option</code></em>
 can be
@@ -2655,63 +2676,47 @@ This command is obsolete. See the <code class="option">--color-limit</code> opti
 cursor is in.  If you use</p><pre class="programlisting">
 ColormapFocus <a name="ColormapFocus_FollowsFocus"></a><font class="fvwmopt">FollowsFocus</font>
 </pre><p>then the installed colormap is the one for the window that
-currently has the keyboard focus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorStyle"></a>30.2.6. CursorStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorStyle</code>   <em class="replaceable"><code>context</code></em>  [
-      <em class="replaceable"><code>number</code></em>  |   <em class="replaceable"><code>name</code></em>  |   <em class="replaceable"><code>xpm</code></em>  |   None  |   Tiny  
-     [ <em class="replaceable"><code>fore</code></em> 
-			  <em class="replaceable"><code>back</code></em> ]
-  ]</p></div><p>Defines a new cursor for the specified context.  Note that this
+currently has the keyboard focus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorStyle"></a>30.2.6. CursorStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorStyle</code>   <em class="replaceable"><code>context</code></em>  [  <em class="replaceable"><code>num</code></em>  |   <em class="replaceable"><code>name</code></em>  |   None  |   Tiny  |   <em class="replaceable"><code>file</code></em> [ <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em> ]   [ <em class="replaceable"><code>fg</code></em> 
+			  <em class="replaceable"><code>bg</code></em> ]]</p></div><p>Defines a new cursor for the specified context.  Note that this
 command can not control the shapes an applications uses, for
-example, to indicate that it is busy.  The various contexts are:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><tbody><tr><td align="left" valign="top"><a name="CursorStyle_POSITION"></a><font class="fvwmopt">POSITION</font> (top_left_corner)</td><td align="left" valign="top">used when initially placing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TITLE"></a><font class="fvwmopt">TITLE</font> (top_left_arrow)</td><td align="left" valign="top">used in a window title-bar</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_DEFAULT"></a><font class="fvwmopt">DEFAULT</font> (top_left_arrow)</td><td align="left" valign="top">used in windows that do not set their cursor</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_SYS"></a><font class="fvwmopt">SYS</font> (hand2)</td><td align="left" valign="top">used in one of the title-bar buttons</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_MOVE"></a><font class="fvwmopt">MOVE</font> (fleur)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RESIZE"></a><font class="fvwmopt">RESIZE</font> (sizing)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_WAIT"></a><font class="fvwmopt">WAIT</font> (watch)</td><td align="left" valign="top">used during certain fvwm commands (see <a href="#BusyCursor">BusyCursor</a> for details)</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_MENU"></a><font class="fvwmopt">MENU</font> (top_left_arrow)</td><td align="left" valign="top">used in menus</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_SELECT"></a><font class="fvwmopt">SELECT</font> (crosshair)</td><td align="left" valign="top">used when the user is required to select a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_DESTROY"></a><font class="fvwmopt">DESTROY</font> (pirate)</td><td align="left" valign="top">used for <a href="#Destroy">Destroy</a>, <a href="#Close">Close</a>, and <a href="#Delete">Delete</a> commands</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP"></a><font class="fvwmopt">TOP</font> (top_side)</td><td align="left" valign="top">used in the top side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RIGHT"></a><font class="fvwmopt">RIGHT</font> (right_side)</td><td align="left" valign="top">used in the right side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM"></a><font class="fvwmopt">BOTTOM</font> (bottom_side)</td><td align="left" valign="top">used in the bottom side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_LEFT"></a><font class="fvwmopt">LEFT</font> (left_side)</td><td align="left" valign="top">used in the left side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_LEFT"></a><font class="fvwmopt">TOP_LEFT</font> (top_left_corner)</td><td align="left" valign="top">used in the top left corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_RIGHT"></a><font class="fvwmopt">TOP_RIGHT</font> (top_right_corner)</td><td align="left" valign="top">used in the top right corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_LEFT"></a><font class="fvwmopt">BOTTOM_LEFT</font> (bottom_left_corner)</td><td align="left" valign="top">used in the bottom left corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_RIGHT"></a><font class="fvwmopt">BOTTOM_RIGHT</font> (bottom_right_corner)</td><td align="left" valign="top">used in the bottom right corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_EDGE"></a><font class="fvwmopt">TOP_EDGE</font> (top_side)</td><td align="left" valign="top">used at the top edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RIGHT_EDGE"></a><font class="fvwmopt">RIGHT_EDGE</font> (right_side)</td><td align="left" valign="top">used at the right edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_EDGE"></a><font class="fvwmopt">BOTTOM_EDGE</font> (bottom_side)</td><td align="left" valign="top">used at the bottom edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_LEFT_EDGE"></a><font class="fvwmopt">LEFT_EDGE</font> (left_side)</td><td align="left" valign="top">used at the left edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_ROOT"></a><font class="fvwmopt">ROOT</font> (left_ptr)</td><td align="left" valign="top">used as the root cursor</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_STROKE"></a><font class="fvwmopt">STROKE</font> (plus)</td><td align="left" valign="top">used during a <a href="#StrokeFunc">StrokeFunc</a> command.</td></tr></tbody></table></div><p>The defaults are shown in parentheses above.  If you ever want to
+example, to indicate that it is busy.  The various contexts are:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><tbody><tr><td align="left" valign="top"><a name="CursorStyle_POSITION"></a><font class="fvwmopt">POSITION</font> (top_left_corner)</td><td align="left" valign="top">used when initially placing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TITLE"></a><font class="fvwmopt">TITLE</font> (top_left_arrow)</td><td align="left" valign="top">used in a window title-bar</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_DEFAULT"></a><font class="fvwmopt">DEFAULT</font> (top_left_arrow)</td><td align="left" valign="top">used in windows that do not set their cursor</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_SYS"></a><font class="fvwmopt">SYS</font> (hand2)</td><td align="left" valign="top">used in one of the title-bar buttons</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_MOVE"></a><font class="fvwmopt">MOVE</font> (fleur)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RESIZE"></a><font class="fvwmopt">RESIZE</font> (sizing)</td><td align="left" valign="top">used when moving or resizing windows</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_WAIT"></a><font class="fvwmopt">WAIT</font> (watch)</td><td align="left" valign="top">used during certain fvwm commands (see <a href="#BusyCursor">BusyCursor</a> for details)</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_MENU"></a><font class="fvwmopt">MENU</font> (top_left_arrow)</td><td align="left" valign="top">used in menus</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_SELECT"></a><font class="fvwmopt">SELECT</font> (crosshair)</td><td align="left" valign="top">used when the user is required to select a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_DESTROY"></a><font class="fvwmopt">DESTROY</font> (pirate)</td><td align="left" valign="top">used for <a href="#Destroy">Destroy</a>, <a href="#Close">Close</a>, and <a href="#Delete">Delete</a> commands</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP"></a><font class="fvwmopt">TOP</font> (top_side)</td><td align="left" valign="top">used in the top side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RIGHT"></a><font class="fvwmopt">RIGHT</font> (right_side)</td><td align="left" valign="top">used in the right side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM"></a><font class="fvwmopt">BOTTOM</font> (bottom_side)</td><td align="left" valign="top">used in the bottom side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_LEFT"></a><font class="fvwmopt">LEFT</font> (left_side)</td><td align="left" valign="top">used in the left side-bar of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_LEFT"></a><font class="fvwmopt">TOP_LEFT</font> (top_left_corner)</td><td align="left" valign="top">used in the top left corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_RIGHT"></a><font class="fvwmopt">TOP_RIGHT</font> (top_right_corner)</td><td align="left" valign="top">used in the top right corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_LEFT"></a><font class="fvwmopt">BOTTOM_LEFT</font> (bottom_left_corner)</td><td align="left" valign="top">used in the bottom left corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_RIGHT"></a><font class="fvwmopt">BOTTOM_RIGHT</font> (bottom_right_corner)</td><td align="left" valign="top">used in the bottom right corner of a window</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_TOP_EDGE"></a><font class="fvwmopt">TOP_EDGE</font> (top_side)</td><td align="left" valign="top">used at the top edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_RIGHT_EDGE"></a><font class="fvwmopt">RIGHT_EDGE</font> (right_side)</td><td align="left" valign="top">used at the right edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_BOTTOM_EDGE"></a><font class="fvwmopt">BOTTOM_EDGE</font> (bottom_side)</td><td align="left" valign="top">used at the bottom edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_LEFT_EDGE"></a><font class="fvwmopt">LEFT_EDGE</font> (left_side)</td><td align="left" valign="top">used at the left edge of the screen</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_ROOT"></a><font class="fvwmopt">ROOT</font> (left_ptr)</td><td align="left" valign="top">used as the root cursor</td></tr><tr><td align="left" valign="top"><a name="CursorStyle_STROKE"></a><font class="fvwmopt">STROKE</font> (plus)</td><td align="left" valign="top">used during a <a href="#StrokeFunc">StrokeFunc</a> command.</td></tr></tbody></table></div><p>
+The defaults are shown in parentheses above.  If you ever want to
 restore the default cursor for a specific context you can omit the
-second argument.</p><p>The second is either the numeric value of the cursor as defined in
-the include file
-<code class="filename">X11/cursorfont.h</code>
+second argument.
+</p><p>
+The second argument is either the numeric value of the cursor as
+defined in the include file <code class="filename">X11/cursorfont.h</code>
 or its name (without the XC_ prefix). Alternatively, the xpm file
-name may be specified.  This xpm file should contain a pixmap
-using 3 colors (None, black, white) and an optional hot-spot.  If
-no hot-spot is defined, the hot-spot is placed in the center of
-the image.  Furthermore the name can be
+name may be specified.  The name can also be
 <a name="CursorStyle_None"></a><font class="fvwmopt">None</font>
 (no cursor) or
 <a name="CursorStyle_Tiny"></a><font class="fvwmopt">Tiny</font>
-(a single pixel as the cursor).  For example:</p><pre class="programlisting">
+(a single pixel as the cursor).</p><pre class="programlisting">
 # make the kill cursor be XC_gumby (both forms work):
 CursorStyle DESTROY 56
 CursorStyle DESTROY gumby
-
-CursorStyle TOP_LEFT topl.xpm
-CursorStyle ROOT nice_arrow.xpm yellow black
+</pre><p>
+Alternatively, the cursor can be loaded from an (XPM, PNG or SVG) image
+<em class="replaceable"><code>file</code></em>.  If fvwm is compiled with Xcursor support,
+full ARGB is used, and (possibly animated) cursor files made with the
+<span><strong class="command">xcursorgen</strong></span> program can be loaded.  Otherwise the cursor
+is converted to monochrome.
+</p><p>
+The optional <em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
+arguments (following a <em class="replaceable"><code>file</code></em> argument) specifies
+the hot-spot coordinate with 0 0 as the top left corner of the image.
+Coordinates within the image boundary are valid and overrides any hot-spot
+defined in the (XPM/Xcursor) image file.  An invalid or undefined hot-spot
+is placed in the center of the image.</p><pre class="programlisting">
+CursorStyle ROOT cursor_image.png 0 0
 </pre><p>The optional
-<em class="replaceable"><code>fore</code></em> and <em class="replaceable"><code>back</code></em>
+<em class="replaceable"><code>fg</code></em> and <em class="replaceable"><code>bg</code></em>
 arguments specify the foreground and background colors for the
-cursor, defaulting to black and white.</p><p>Here is an example pixmap file
-<code class="filename">nice_arrow.xpm</code>:</p><pre class="programlisting">
-/* XPM */
-static char *nice_arrow_xpm[] = {
-/* width height num_colors chars_per_pixel hot-spot */
-"    14    14        3            1          1 1",
-/* colors */
-"  c None",
-". c black",
-"# c white",
-/* pixels */
-"...           ",
-".##..         ",
-".####..       ",
-" .#####..     ",
-" .#######..   ",
-"  .########.. ",
-"  .##########.",
-"   .#######.. ",
-"   .######.   ",
-"    .######.  ",
-"    .###.###. ",
-"     .#. .###.",
-"     .#.  .#. ",
-"      .    .  ",
-};
-</pre><p>The hot-spot coordinates are relative to zero, in the above
-example, the hot-spot is in the second row, and second column.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultColors"></a>30.2.7. DefaultColors</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultColors</code>  [<em class="replaceable"><code>foreground</code></em>] [<em class="replaceable"><code>background</code></em>]</p></div><p><span class="emphasis"><em>DefaultColors</em></span>
+cursor, defaulting to black and white (reverse video compared
+to the actual bitmap).  These colors are only used with monochrome
+cursors.  Otherwise they are silently ignored.</p><pre class="programlisting">
+CursorStyle ROOT nice_arrow.xpm yellow black
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultColors"></a>30.2.7. DefaultColors</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultColors</code>  [<em class="replaceable"><code>foreground</code></em>] [<em class="replaceable"><code>background</code></em>]</p></div><p><span class="emphasis"><em>DefaultColors</em></span>
 sets the default foreground and background colors used in
 miscellaneous windows created by fvwm, for example in the geometry
 feedback windows during a move or resize operation. If you do not
@@ -2739,12 +2744,14 @@ in a specific context, use the
 <a href="#Style">Style</a> * <a href="#Style_Font">Font</a>,
 <a href="#Style">Style</a> * <a href="#Style_IconFont">IconFont</a>, or
 <a href="#MenuStyle">MenuStyle</a>
-commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultIcon"></a>30.2.10. DefaultIcon</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultIcon</code>   <em class="replaceable"><code>filename</code></em> </p></div><p>sets the default icon which is used if a window has neither an
+commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultIcon"></a>30.2.10. DefaultIcon</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultIcon</code>   <em class="replaceable"><code>filename</code></em> </p></div><p>
+Sets the default icon which is used if a window has neither an
 client-supplied icon nor an icon supplied via the
 <a href="#Style_Icon">Icon</a>
 option of the
 <a href="#Style">Style</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultLayers"></a>30.2.11. DefaultLayers</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultLayers</code>   <em class="replaceable"><code>bottom</code></em>   <em class="replaceable"><code>put</code></em>   <em class="replaceable"><code>top</code></em> </p></div><p>changes the layers that are used for the
+command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultLayers"></a>30.2.11. DefaultLayers</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultLayers</code>   <em class="replaceable"><code>bottom</code></em>   <em class="replaceable"><code>put</code></em>   <em class="replaceable"><code>top</code></em> </p></div><p>
+Changes the layers that are used for the
 <a href="#Style_StaysOnBottom">StaysOnBottom</a>,
 <a href="#Style_StaysPut">StaysPut</a>,
 <a href="#Style_StaysOnTop">StaysOnTop</a>
@@ -2795,10 +2802,7 @@ command.
 <span class="emphasis"><em>EscapeFunc</em></span>
 used outside the
 <a href="#Key">Key</a>
-command does nothing.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeClick"></a>30.2.15. FakeClick</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeClick</code>   
-		[<span class="optional"> <em class="replaceable"><code>command</code></em> 
-		  <em class="replaceable"><code>value</code></em> </span>]
-	... </p></div><p>This command is mainly intended for debugging fvwm and no
+command does nothing.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeClick"></a>30.2.15. FakeClick</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeClick</code>   [<span class="optional"> <em class="replaceable"><code>command</code></em>   <em class="replaceable"><code>value</code></em> </span>]... </p></div><p>This command is mainly intended for debugging fvwm and no
 guarantees are made that it works for you.
 <span class="emphasis"><em>FakeClick</em></span>
 can simulate mouse button press and release events and pass them
@@ -2840,10 +2844,7 @@ FakeClick depth 2 press 1 wait 250 release 1
 </pre><p>This simulates a click with button 1 in the parent window (depth
 2) with a delay of 250 milliseconds between the press and the
 release.
-Note: all command names can be abbreviated with their first letter.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeKeypress"></a>30.2.16. FakeKeypress</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeKeypress</code>   
-		[<span class="optional"> <em class="replaceable"><code>command</code></em> 
-		  <em class="replaceable"><code>value</code></em> </span>]
-	... </p></div><p>This command is mainly intended for debugging fvwm and no
+Note: all command names can be abbreviated with their first letter.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeKeypress"></a>30.2.16. FakeKeypress</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeKeypress</code>   [<span class="optional"> <em class="replaceable"><code>command</code></em>   <em class="replaceable"><code>value</code></em> </span>]... </p></div><p>This command is mainly intended for debugging fvwm and no
 guarantees are made that it works for you.
 <span class="emphasis"><em>FakeKeypress</em></span>
 can simulate key press and release events and pass them
@@ -3080,7 +3081,11 @@ If
 <em class="replaceable"><code>verbose</code></em>
 is one or greater the palette used by fvwm is printed.
 If you have a limited color palette, and you run out of colors,
-this command might be helpful.</p><p><a name="PrintInfo_Locale"></a><font class="fvwmopt">Locale</font>
+this command might be helpful.</p><p><a name="PrintInfo_ImageCache"></a><font class="fvwmopt">ImageCache</font>
+which prints information about the images loaded by fvwm. If
+<em class="replaceable"><code>verbose</code></em>
+is one or greater all images in the cache will be listed together
+with their respective reuse.</p><p><a name="PrintInfo_Locale"></a><font class="fvwmopt">Locale</font>
 which prints information on your locale and the fonts that fvwm
 used.
 <em class="replaceable"><code>verbose</code></em>
@@ -3387,8 +3392,7 @@ for move or resize operations the optional parameters
 <a name="HideGeometryWindow_Resize"></a><font class="fvwmopt">Resize</font>
 can be used respectively.  To switch both on again use the
 <a name="HideGeometryWindow_Never"></a><font class="fvwmopt">Never</font>
-option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Layer"></a>30.3.3. Layer</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Layer</code>   [<em class="replaceable"><code>arg1</code></em>
-	<em class="replaceable"><code>arg2</code></em>] |  [default] </p></div><p>Puts the current window in a new layer.  If
+option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Layer"></a>30.3.3. Layer</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Layer</code>   [<em class="replaceable"><code>arg1</code></em> <em class="replaceable"><code>arg2</code></em>] |  [default] </p></div><p>Puts the current window in a new layer.  If
 <em class="replaceable"><code>arg1</code></em>
 is non zero then the next layer is the current layer number plus
 <em class="replaceable"><code>arg1</code></em>.
@@ -3404,18 +3408,7 @@ only in its layer.  To bring a window to the absolute bottom, use</p><pre class=
 <a href="#AddToFunc">AddToFunc</a> lower-to-bottom
  + I <a href="#Layer">Layer</a> 0 0
  + I Lower
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Move"></a>30.3.5. Move</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [
-			[
-				screen <em class="replaceable"><code>screen</code></em>
-			]
-			  
-				[<span class="optional">w|m</span>]<em class="replaceable"><code>x</code></em>[<span class="optional">p|w</span>]
-			... 
-			  
-				[<span class="optional">w|m</span>]<em class="replaceable"><code>y</code></em>[<span class="optional">p|w</span>]
-			... 
-			 [Warp]
-    ] |  [pointer] </p></div><p>Allows the user to move a window.  If called from somewhere in a
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Move"></a>30.3.5. Move</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [[screen <em class="replaceable"><code>screen</code></em>]  [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]...   [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>]...  [Warp]] |  [pointer] </p></div><p>Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
 window.</p><p>If the literal option <a name="Move_screen"></a><font class="fvwmopt">screen</font> followed by a
@@ -3507,12 +3500,8 @@ Move m+0 m+0
 Move 50-50w 50-50w
 </pre><p>See also the
 <a href="#AnimatedMove">AnimatedMove</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToDesk"></a>30.3.6. MoveToDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToDesk</code>  [ prev  |   
-			 <em class="replaceable"><code>arg1</code></em> 
-			 [<em class="replaceable"><code>arg2</code></em>]
-			 [<em class="replaceable"><code>min</code></em>
-				<em class="replaceable"><code>max</code></em>]
-		 ]</p></div><p>Moves the selected window to another desktop.  The arguments are
+command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToDesk"></a>30.3.6. MoveToDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToDesk</code>  [ prev  |    <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>]
+			 [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>] ]</p></div><p>Moves the selected window to another desktop.  The arguments are
 the same as for the
 <a href="#GotoDesk">GotoDesk</a>
 command.  Without any arguments, the window is moved to the
@@ -3529,19 +3518,7 @@ pixels it is assumed to be a drag.</p><p>Previous versions of fvwm hardwired
 to 3, which is now the default value.  If
 <em class="replaceable"><code>pixels</code></em>
 is negative or omitted the default value (which might be increased
-when 16000x9000 pixel displays become affordable) is restored.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToPage"></a>30.3.8. MoveToPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToPage</code>    
-			[<em class="replaceable"><code>options</code></em>]
-			 [
-				 
-					<em class="replaceable"><code>x</code></em>[<span class="optional">p|w</span>]
-				 
-				  
-					<em class="replaceable"><code>y</code></em>[<span class="optional">p|w</span>]
-				 
-			]
-      |  [
-			prev
-    ] </p></div><p>Moves the selected window to another page
+when 16000x9000 pixel displays become affordable) is restored.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToPage"></a>30.3.8. MoveToPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToPage</code>    [<em class="replaceable"><code>options</code></em>] [ <em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]   <em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>] ]  |  [prev] </p></div><p>Moves the selected window to another page
 (<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>). The
 upper left page is (0,0), the upper right is (M,0), where M is one
 less than the current number of horizontal pages specified in the
@@ -3629,20 +3606,7 @@ it is obscured by any window (except for its own transients when
 <a href="#Style_RaiseTransient">RaiseTransient</a>
 style is used; see the
 <a href="#Style">Style</a>
-command) otherwise it is lowered.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Resize"></a>30.3.14. Resize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Resize</code>   [
-	[frame]
-	 [direction
-	  <em class="replaceable"><code>dir</code></em>
-	  [<span class="optional">warptoborder</span>]
-	]
-	 [fixeddirection]
-	  [<span class="optional">w</span>]<em class="replaceable"><code>width</code></em> [ p  |   c ] 
-	  [<span class="optional">w</span>]<em class="replaceable"><code>height</code></em> [ p  |   c ] 
-      ] |  [
-	  bottomright  |   br  
-	  <em class="replaceable"><code>x</code></em> 
-	  <em class="replaceable"><code>y</code></em> 
-      ] </p></div><p>Allows for resizing a window.  If called from somewhere in a window
+command) otherwise it is lowered.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Resize"></a>30.3.14. Resize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Resize</code>    [<span class="optional">[frame] [direction <em class="replaceable"><code>dir</code></em> [warptoborder]] [fixeddirection]  [<span class="optional">w</span>]<em class="replaceable"><code>width</code></em>[<span class="optional">  p  |   c  </span>]   [<span class="optional">w</span>]<em class="replaceable"><code>height</code></em>[<span class="optional">  p  |   c  </span>] </span>]</p></div><p>Allows for resizing a window.  If called from somewhere in a window
 or its border, then that window is resized.  If called from the
 root window then the user is allowed to select the target window.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or by pressing
 any mouse button (except button 1 which confirms it).</p><p>If the optional arguments
@@ -3696,7 +3660,7 @@ resizing is started by clicking on the window border, the pointer
 is warped to the outer edge of the border.</p><pre class="programlisting">
 <a href="#AddToFunc">AddToFunc</a> ResizeSE I Resize <a href="#Direction">Direction</a> SE
 <a href="#Mouse">Mouse</a> 3 A M ResizeSE
-</pre><p>An alternate syntax is used if the keyword
+</pre><div class="cmdsynopsis"><p><code class="command">Resize</code>  [  bottomright  |   br    <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em> ]</p></div><p>An alternate syntax is used if the keyword
 <a name="Resize_bottomright"></a><font class="fvwmopt">bottomright</font> or in short
 <a name="Resize_br"></a><font class="fvwmopt">br</font>
 follows the command name.  In this case, the arguments
@@ -3793,9 +3757,7 @@ positions of the 16 frames of the animation motion.  Negative
 values are allowed, and in particular can be used to make the
 motion appear more cartoonish, by briefly moving slightly in the
 opposite direction of the main motion.  The above settings are the
-default.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapAttraction"></a>30.3.20. SnapAttraction</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapAttraction</code>  [<em class="replaceable"><code>proximity</code></em>
-       [<em class="replaceable"><code>behaviour</code></em>]
-       [Screen]]</p></div><p>If during an interactive move the window or icon comes within
+default.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapAttraction"></a>30.3.20. SnapAttraction</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapAttraction</code>  [<em class="replaceable"><code>proximity</code></em> [<em class="replaceable"><code>behaviour</code></em>] [Screen]]</p></div><p>If during an interactive move the window or icon comes within
 <em class="replaceable"><code>proximity</code></em>
 pixels of another the window or icon, it is moved to make the
 borders adjoin.  The default of 0 means that no snapping happens.
@@ -3822,8 +3784,7 @@ default behavior is
 <span class="emphasis"><em>All</em></span>.</p><p>If the
 <a name="SnapAttraction_Screen"></a><font class="fvwmopt">Screen</font>
 option is present windows and or icons are snapped to the screen
-edges too.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapGrid"></a>30.3.21. SnapGrid</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapGrid</code>  [<em class="replaceable"><code>x-grid-size</code></em>
-      <em class="replaceable"><code>y-grid-size</code></em>]</p></div><p>During an interactive move a window or icon is positioned such
+edges too.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapGrid"></a>30.3.21. SnapGrid</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapGrid</code>  [<em class="replaceable"><code>x-grid-size</code></em> <em class="replaceable"><code>y-grid-size</code></em>]</p></div><p>During an interactive move a window or icon is positioned such
 that its location (top left corner) is coincident with the nearest
 grid point. The default
 <em class="replaceable"><code>x-grid-size</code></em> and <em class="replaceable"><code>y-grid-size</code></em>
@@ -3871,11 +3832,7 @@ The default value 0 tries to find a
 value that gives a good contrast to black and white.
 The default value is used if the given
 <em class="replaceable"><code>number</code></em>
-is omitted or invalid.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="focus_and_mouse_movement"></a>30.4. Focus &amp; Mouse Movement</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorMove"></a>30.4.1. CursorMove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorMove</code>   
-		<em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]
-	   
-		<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
-	 </p></div><p>Moves the mouse pointer by
+is omitted or invalid.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="focus_and_mouse_movement"></a>30.4. Focus &amp; Mouse Movement</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorMove"></a>30.4.1. CursorMove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorMove</code>   <em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>] </p></div><p>Moves the mouse pointer by
 <em class="replaceable"><code>horizontal</code></em>
 pages in the X direction and
 <em class="replaceable"><code>vertical</code></em>
@@ -4061,10 +4018,7 @@ argument must be "True".  To make it non-sticky use "False".</p></div><div class
 <a href="#Stick">Stick</a>
 but only sticks a window across pages, not across desks.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="StickAcrossDesks"></a>30.5.12. StickAcrossDesks</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">StickAcrossDesks</code>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Works like
 <a href="#Stick">Stick</a>
-but only sticks a window across desks, not across pages.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowShade"></a>30.5.13. WindowShade</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowShade</code>   [bool] |  [
-			[ShadeAgain]
-			  <em class="replaceable"><code>direction</code></em> 
-		] </p></div><p>Toggles the window shade feature for titled windows.  Windows in
+but only sticks a window across desks, not across pages.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowShade"></a>30.5.13. WindowShade</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowShade</code>   [bool] |  [[ShadeAgain]  <em class="replaceable"><code>direction</code></em> ] </p></div><p>Toggles the window shade feature for titled windows.  Windows in
 the shaded state only display a title-bar.  If
 <span class="emphasis"><em>bool</em></span>
 is not given or "<a name="WindowShade_toggle"></a><font class="fvwmopt">toggle</font>",
@@ -4172,10 +4126,7 @@ modifiers. I.e. do not ignore
 <span class="keysym">scroll-lock</span>
 if you have no problem with it.  In the
 <span class="emphasis"><em>FAQ</em></span>
-you can find a better solution of this problem.</div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeCommand"></a>30.6.2. EdgeCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeCommand</code>  [
-		 <em class="replaceable"><code>direction</code></em> 
-		 [<em class="replaceable"><code>Function</code></em>]
-	]</p></div><p>Binds a specified fvwm command
+you can find a better solution of this problem.</div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeCommand"></a>30.6.2. EdgeCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeCommand</code>  [ <em class="replaceable"><code>direction</code></em>  [<em class="replaceable"><code>Function</code></em>]]</p></div><p>Binds a specified fvwm command
 <em class="replaceable"><code>Function</code></em>
 to an edge of the screen. Direction may be one of
 "<a name="EdgeCommand_North"></a><font class="fvwmopt">North</font>",
@@ -4236,10 +4187,8 @@ EdgeCommand Top <a href="#Next">Next</a> (FvwmButtons) <a href="#Focus">Focus</a
 + I <a href="#Current">Current</a> (FvwmButtons) <a href="#Raise">Raise</a>
 </pre><p>Normally, the invisible pan frames are only on the screen edges
 that border virtual pages.  If a screen edge has a command bound
-to it, the pan frame is always created on that edge.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeLeaveCommand"></a>30.6.3. EdgeLeaveCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeLeaveCommand</code>  [
-		 <em class="replaceable"><code>direction</code></em> 
-		 [<em class="replaceable"><code>Function</code></em>]
-	]</p></div><p>Binds a specified fvwm command
+to it, the pan frame is always created on that edge.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeLeaveCommand"></a>30.6.3. EdgeLeaveCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeLeaveCommand</code>  [ <em class="replaceable"><code>direction</code></em> 
+		 [<em class="replaceable"><code>Function</code></em>]]</p></div><p>Binds a specified fvwm command
 <em class="replaceable"><code>Function</code></em>
 to an edge of the screen. Direction may be one of
 "<a name="EdgeLeaveCommand_North"></a><font class="fvwmopt">North</font>",
@@ -6251,9 +6200,7 @@ for a window, then the last style specified is used.</p></div></div><div class="
 <em class="replaceable"><code>options</code></em>
 are exactly the same as for the
 <a href="#Style">Style</a>
-command.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_styles"></a>30.8. Window Styles</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddButtonStyle"></a>30.8.1. AddButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddButtonStyle</code>   button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-		 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
-	]</p></div><p>Adds a button style to
+command.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_styles"></a>30.8. Window Styles</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddButtonStyle"></a>30.8.1. AddButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddButtonStyle</code>   button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Adds a button style to
 <em class="replaceable"><code>button</code></em>.
 <em class="replaceable"><code>button</code></em>
 can be a button number, or one of
@@ -6307,7 +6254,9 @@ command.  Examples:</p><pre class="programlisting">
 <a href="#ButtonStyle">ButtonStyle</a> 1 Pixmap led.xpm -- Top Left
 <a href="#ButtonStyle">ButtonStyle</a> 1 ActiveDown HGradient 8 grey black
 <a href="#ButtonStyle">ButtonStyle</a> <a href="#All">All</a> --  UseTitleStyle
-AddButtonStyle 1 ActiveUp (Pixmap a.xpm) ActiveDown (Pixmap b.xpm -- Top)
+AddButtonStyle 1 \
+	ActiveUp (Pixmap a.xpm) \
+	ActiveDown (Pixmap b.xpm -- Top)
 AddButtonStyle 1 Vector 4 50x30@1 70x70@0 30x70@0 50x30@1
 </pre><p>Initially for this example all button states are set to a pixmap.
 The second line replaces the "ActiveDown" state with a gradient
@@ -6321,11 +6270,7 @@ before drawing the buttons.  Finally,
 <span class="emphasis"><em>AddButtonStyle</em></span>
 is used to place additional pixmaps for both "ActiveUp" and
 "ActiveDown" states and a vector button style is drawn on top of
-all states.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddTitleStyle"></a>30.8.2. AddTitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddTitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-	   
-	    [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>
-	  ... 
-	]</p></div><p>Adds a title style to the title-bar.
+all states.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddTitleStyle"></a>30.8.2. AddTitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddTitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Adds a title style to the title-bar.
 <em class="replaceable"><code>state</code></em> can be
 "<a name="AddTitleStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>",
 "<a name="AddTitleStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>",
@@ -6391,7 +6336,9 @@ AddToDecor FlatDecor
 + <a href="#TitleStyle">TitleStyle</a>  -- flat
 + <a href="#BorderStyle">BorderStyle</a> -- HiddenHandles NoInset
 
-<a href="#Style">Style</a> FlatStyle UseDecor FlatDecor, HandleWidth 4, ForeColor white, BackColor grey40, HilightFore black, HilightBack grey70
+<a href="#Style">Style</a> FlatStyle \
+	UseDecor FlatDecor, HandleWidth 4, ForeColor white, \
+	BackColor grey40, HilightFore black, HilightBack grey70
 
 <a href="#Style">Style</a> xterm UseStyle FlatStyle
 </pre><p>An existing window's decor may be reassigned with
@@ -6404,9 +6351,7 @@ AddToDecor FlatDecor ...
 <a href="#Style">Style</a> FlatStyle UseDecor FlatDecor
 </pre><p>and now apply the style again:</p><pre class="programlisting">
 <a href="#Style">Style</a> xterm UseStyle FlatStyle
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BorderStyle"></a>30.8.4. BorderStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BorderStyle</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>style</code></em>] [--
-			 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
-		]</p></div><p>Defines a border style for windows.
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BorderStyle"></a>30.8.4. BorderStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BorderStyle</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Defines a border style for windows.
 <em class="replaceable"><code>state</code></em>
 can be either "<a name="BorderStyle_Active"></a><font class="fvwmopt">Active</font>" or "<a name="BorderStyle_Inactive"></a><font class="fvwmopt">Inactive</font>".  If
 <em class="replaceable"><code>state</code></em>
@@ -6486,9 +6431,8 @@ argument is "False" (only applied when
 <span class="emphasis"><em>Inactive</em></span>
 is "True"), the pressed titles and title buttons in non-focused
 windows are drawn using "InactiveUp" or "ActiveUp" states
-depending on the values of the other key words.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ButtonStyle"></a>30.8.6. ButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-		 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
-	]</p></div><p>Sets the button style for a title-bar button.
+depending on the values of the other key words.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ButtonStyle"></a>30.8.6. ButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code> 
+	&gt;  button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the button style for a title-bar button.
 <em class="replaceable"><code>button</code></em>
 is the title-bar button number between 0 and 9, or one of
 "<a name="ButtonStyle_All"></a><font class="fvwmopt">All</font>",
@@ -6709,8 +6653,12 @@ argument.  For example, the following would give button number 2
 the same pixmap for all 4 states (2 active and 2 inactive), and
 button number 4 all different pixmaps.</p><pre class="programlisting">
 ButtonStyle 2 Pixmap my_pixmap.xpm
-ButtonStyle 4 ActiveUp (Pixmap activeup.xpm) ActiveDown (Pixmap activedown.xpm) Inactive (Pixmap inactiveup.xpm)
-ButtonStyle 4 InactiveDown Pixmap inactivedown.xpm
+ButtonStyle 4 \
+	ActiveUp (Pixmap activeup.xpm) \
+	ActiveDown (Pixmap activedown.xpm) \
+	Inactive (Pixmap inactiveup.xpm)
+ButtonStyle 4 \
+	InactiveDown Pixmap inactivedown.xpm
 </pre><p>The pixmap specification can be given as an absolute or relative
 pathname (see
 <a href="#ImagePath">ImagePath</a>).
@@ -6754,9 +6702,7 @@ command.  This button style accepts no arguments.  Example:</p><pre class="progr
 <a href="#Style">Style</a> Emacs MiniIcon mini-doc.xpm
 
 ButtonStyle 1 MiniIcon
-</pre><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>   -   
-		[<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>
-	... </p></div><p>Sets state-independent flags for the specified
+</pre><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>   -   [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... </p></div><p>Sets state-independent flags for the specified
 <em class="replaceable"><code>button</code></em>.
 State-independent flags affect button behavior.  Each
 <em class="replaceable"><code>flag</code></em>
@@ -6843,11 +6789,7 @@ style is applied again unless the decor was destroyed with the
 <span class="emphasis"><em>recreate</em></span>
 option.  The decor named "Default" cannot be destroyed.</p><pre class="programlisting">
 DestroyDecor CustomDecor1
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TitleStyle"></a>30.8.9. TitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>justification</code></em>] [Height
-		[<span class="optional"><em class="replaceable"><code>num</code></em></span>]
-	] [MinHeight
-		[<span class="optional"><em class="replaceable"><code>num</code></em></span>]
-	]</p></div><p>Sets attributes for the title-bar.  Justifications can be
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TitleStyle"></a>30.8.9. TitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>justification</code></em>] [Height [<span class="optional"><em class="replaceable"><code>num</code></em></span>]] [MinHeight [<span class="optional"><em class="replaceable"><code>num</code></em></span>]]</p></div><p>Sets attributes for the title-bar.  Justifications can be
 <a name="TitleStyle_Centered"></a><font class="fvwmopt">Centered</font>,
 <a name="TitleStyle_RightJustified"></a><font class="fvwmopt">RightJustified</font> or
 <a name="TitleStyle_LeftJustified"></a><font class="fvwmopt">LeftJustified</font>.
@@ -6870,11 +6812,7 @@ height is reseted by
 or if given with no argument.
 Example:</p><pre class="programlisting">
 TitleStyle LeftJustified Height 24
-</pre><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-		 
-			[<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>
-		... 
-	]</p></div><p>Sets the style for the title-bar.
+</pre><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the style for the title-bar.
 See also
 <a href="#AddTitleStyle">AddTitleStyle</a> and <a href="#ButtonStyle">ButtonStyle</a>
 <em class="replaceable"><code>state</code></em>
@@ -6912,11 +6850,14 @@ See the note in
 <a href="#ButtonStyle">ButtonStyle</a>
 regarding the "<a href="#ButtonStyle_ActiveDown">ActiveDown</a>" state.  Examples:</p><pre class="programlisting">
 TitleStyle ActiveUp HGradient 16 navy black
-TitleStyle ActiveDown (Solid red -- flat) \
-    Inactive (TiledPixmap wood.xpm)
-TitleStyle ActiveUp (-- Flat) ActiveDown  \
-    (-- Raised) InactiveUp (-- Flat) \
-    InactiveDown (-- Sunk)
+TitleStyle \
+	ActiveDown (Solid red -- flat) \
+	Inactive (TiledPixmap wood.xpm)
+TitleStyle \
+	ActiveUp (-- Flat) \
+	ActiveDown (-- Raised) \
+	InactiveUp (-- Flat) \
+	InactiveDown (-- Sunk)
 </pre><p>This sets the "ActiveUp" state to a horizontal gradient, the
 "ActiveDown" state to solid red, and the "Inactive" states to a
 tiled wood pixmap. Finally, "ActiveUp" and "InactiveUp" are set
@@ -7018,8 +6959,7 @@ updated.  This command is less disturbing than
 <a href="#Recapture">Recapture</a>,
 but does not affect window style options as
 <a href="#Recapture">Recapture</a>
-does.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="virtual_desktop_commands"></a>30.9. Controlling the Virtual Desktop</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Desk"></a>30.9.1. Desk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Desk</code>   <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>] [<em class="replaceable"><code>min</code></em>
-        <em class="replaceable"><code>max</code></em>]</p></div><p>This command has been renamed.  Please see
+does.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="virtual_desktop_commands"></a>30.9. Controlling the Virtual Desktop</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Desk"></a>30.9.1. Desk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Desk</code>   <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>] [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>]</p></div><p>This command has been renamed.  Please see
 <a href="#GotoDesk">GotoDesk</a>
 command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DesktopName"></a>30.9.2. DesktopName</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DesktopName</code>   <em class="replaceable"><code>desk</code></em>   <em class="replaceable"><code>name</code></em> </p></div><p>Defines the name of the desktop number
 <em class="replaceable"><code>desk</code></em>
@@ -7064,10 +7004,7 @@ Set
 <em class="replaceable"><code>xinerama-moving</code></em>
 to zero to ignore individual screen edges.  Note that the center of
 the window being moved determines the xinerama screen on which the
-window should be kept.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeScroll"></a>30.9.5. EdgeScroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeScroll</code>   
-		<em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]
-	   
-		<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
+window should be kept.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeScroll"></a>30.9.5. EdgeScroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeScroll</code>   <em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
 	  [ wrap  |   wrapx  |   wrapy ]</p></div><p>Specifies the percentage of a page to scroll when the cursor hits
 the edge of a page.  A trailing
 '<a name="EdgeScroll_p"></a><font class="fvwmopt">p</font>'
@@ -7166,12 +7103,7 @@ less than or equal to
 or if
 <em class="replaceable"><code>max</code></em>
 is null.  Note that negative desktops are not supported by the
-ewmh specification.  The default is 4 0.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDesk"></a>30.9.9. GotoDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDesk</code>  [ prev  |   
-			 <em class="replaceable"><code>arg1</code></em> 
-			 [<em class="replaceable"><code>arg2</code></em>]
-			 [<em class="replaceable"><code>min</code></em>
-				<em class="replaceable"><code>max</code></em>]
-		 ]</p></div><p>
+ewmh specification.  The default is 4 0.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDesk"></a>30.9.9. GotoDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDesk</code>  [ prev  |    <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>] [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>] ]</p></div><p>
 Switches the current viewport to another desktop (workspace, room).
 </p><p>The command takes 1, 2, 3, or 4 arguments.  A single argument is
 interpreted as a relative desk number.  Two arguments are
@@ -7205,21 +7137,13 @@ number).</p><p>The syntax is the same as for
 which moves a window to a different desktop.</p><p>The number of active desktops is determined dynamically.  Only
 desktops which contain windows or are currently being displayed
 are active.  Desktop numbers must be between 2147483647 and
--2147483648 (is that enough?).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDeskAndPage"></a>30.9.10. GotoDeskAndPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDeskAndPage</code>    prev  |   
-			 <em class="replaceable"><code>desk</code></em> 
-			  <em class="replaceable"><code>xpage</code></em> 
-			  <em class="replaceable"><code>ypage</code></em> 
-		  </p></div><p>Switches the current viewport to another desktop and page, similar
+-2147483648 (is that enough?).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDeskAndPage"></a>30.9.10. GotoDeskAndPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDeskAndPage</code>    prev  |    <em class="replaceable"><code>desk</code></em>   <em class="replaceable"><code>xpage</code></em>   <em class="replaceable"><code>ypage</code></em>   </p></div><p>Switches the current viewport to another desktop and page, similar
 to the
 <a href="#GotoDesk">GotoDesk</a> and <a href="#GotoPage">GotoPage</a>
 commands.  The new desk is
 <em class="replaceable"><code>desk</code></em>
 and the new page is
-(<em class="replaceable"><code>xpage</code></em>,<em class="replaceable"><code>ypage</code></em>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoPage"></a>30.9.11. GotoPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoPage</code>    prev  |   
-			[<em class="replaceable"><code>options</code></em>]
-			  <em class="replaceable"><code>x</code></em>[<span class="optional">p</span>] 
-			  <em class="replaceable"><code>y</code></em>[<span class="optional">p</span>] 
-		  </p></div><p>
+(<em class="replaceable"><code>xpage</code></em>,<em class="replaceable"><code>ypage</code></em>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoPage"></a>30.9.11. GotoPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoPage</code>    prev  |   [<em class="replaceable"><code>options</code></em>]  <em class="replaceable"><code>x</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>y</code></em>[<span class="optional">p</span>]   </p></div><p>
 Moves the desktop viewport to page (x,y).  The upper left page is
 (0,0), the upper right is (M,0), where M is one less than the
 current number of horizontal pages specified in the
@@ -7251,10 +7175,7 @@ GotoPage prev
 
 # Go two pages to the right and one page up
 GotoPage +2p -1p
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Scroll"></a>30.9.12. Scroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Scroll</code>  [ 
-			<em class="replaceable"><code>horizonal</code></em>[<span class="optional">p</span>]
-			<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
-		  |   reverse ]</p></div><p>
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Scroll"></a>30.9.12. Scroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Scroll</code>  [ <em class="replaceable"><code>horizonal</code></em>[<span class="optional">p</span>] <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]  |   reverse ]</p></div><p>
 Scrolls the virtual desktop's viewport by
 <a name="MenuStyle_horizontal"></a><font class="fvwmopt">horizontal</font>
 pages in the x-direction and
@@ -7362,9 +7283,7 @@ XineramaSlsScreens 3 \
 <a href="#XineramaSls">XineramaSls</a> On
 <a href="#XineramaPrimaryScreen">XineramaPrimaryScreen</a> 1
 <a href="#Xinerama">Xinerama</a> On
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="user_functions_and_shell_commands"></a>30.10. User Functions and Shell Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddToFunc"></a>30.10.1. AddToFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em>
-		 [  I  |   M  |   C  |   H  |   D  
-			  <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
+</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="user_functions_and_shell_commands"></a>30.10. User Functions and Shell Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddToFunc"></a>30.10.1. AddToFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em> [  I  |   M  |   C  |   H  |   D    <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
 AddToFunc Move-or-Raise I <a href="#Raise">Raise</a>
  + M <a href="#Move">Move</a>
  + D <a href="#Lower">Lower</a>
@@ -7438,7 +7357,17 @@ DestroyFunc PrintFunction
 Potentially useful for debugging things in your
 <code class="filename">config</code>.</p><pre class="programlisting">
 Echo Beginning style definitions...
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Exec"></a>30.10.5. Exec</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Exec</code>   <em class="replaceable"><code>command</code></em> </p></div><p>Executes
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EchoFuncDefinition"></a>30.10.5. EchoFuncDefinition</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EchoFuncDefinition</code>   <em class="replaceable"><code>function</code></em> </p></div><p>The
+<span class="emphasis"><em>EchoFuncDefinition</em></span>
+is similar to the
+<a href="#Echo">Echo</a>
+command but prints the definition for the given
+<em class="replaceable"><code>function</code></em>
+to
+<code class="filename">stderr</code>.
+It is useful to find out how fvwm handles quoting and for
+debugging functions
+.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Exec"></a>30.10.6. Exec</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Exec</code>   <em class="replaceable"><code>command</code></em> </p></div><p>Executes
 <em class="replaceable"><code>command</code></em>.
 You should not use an ampersand '&amp;' at the end of the command. You
 probably want to use an additional "exec" at the beginning of
@@ -7461,7 +7390,7 @@ Exec "echo <a href="#AddToMenu">AddToMenu</a> ... &gt; /tmp/file"
 </pre><p>do not work reliably
 (see the
 <a href="#PipeRead">PipeRead</a>
-command).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ExecUseShell"></a>30.10.6. ExecUseShell</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ExecUseShell</code>  [<em class="replaceable"><code>shell</code></em>]</p></div><p>Makes the
+command).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ExecUseShell"></a>30.10.7. ExecUseShell</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ExecUseShell</code>  [<em class="replaceable"><code>shell</code></em>]</p></div><p>Makes the
 <a href="#Exec">Exec</a>
 command use the specified shell, or the value of the
 <code class="envar">$SHELL</code>
@@ -7470,7 +7399,7 @@ default Bourne shell
 (<code class="filename">/bin/sh</code>).</p><pre class="programlisting">
 ExecUseShell
 ExecUseShell /usr/local/bin/tcsh
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Function"></a>30.10.7. Function</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Function</code>   <em class="replaceable"><code>FunctionName</code></em> </p></div><p>Used to bind a previously defined function to a key or mouse
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Function"></a>30.10.8. Function</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Function</code>   <em class="replaceable"><code>FunctionName</code></em> </p></div><p>Used to bind a previously defined function to a key or mouse
 button. The following example binds mouse button 1 to a function
 called "Move-or-Raise", whose definition was provided as an
 example earlier in this man page.  After performing this binding
@@ -7482,14 +7411,14 @@ pressed in a window's title-bar.</p><pre class="programlisting">
 may be omitted if
 <em class="replaceable"><code>FunctionName</code></em>
 does not coincide with an fvwm command.</p><p>Warning:  Please read the comments on executing complex functions
-in the section <a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Nop"></a>30.10.8. Nop</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Nop</code> </p></div><p>Does nothing.  This is used to insert a blank line or separator in
+in the section <a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Nop"></a>30.10.9. Nop</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Nop</code> </p></div><p>Does nothing.  This is used to insert a blank line or separator in
 a menu.  If the menu item specification is</p><pre class="programlisting">
 <a href="#AddToMenu">AddToMenu</a> MyMenu " " Nop
 </pre><p>then a blank line is inserted.  If it looks like</p><pre class="programlisting">
 + "" Nop
 </pre><p>then a separator line is inserted.  Can also be used as the
 double-click action for
-<a href="#Menu">Menu</a> or <span class="emphasis"><em>Popup</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PipeRead"></a>30.10.9. PipeRead</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
+<a href="#Menu">Menu</a> or <span class="emphasis"><em>Popup</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PipeRead"></a>30.10.10. PipeRead</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
 <em class="replaceable"><code>command</code></em>.
 This
 <em class="replaceable"><code>command</code></em>
@@ -7527,7 +7456,7 @@ instead of being read as a sequence of commands by fvwm.
 returns 1 if the given command could be executed or -1 if not
 (see the section
 <a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Read"></a>30.10.10. Read</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Read</code>   <em class="replaceable"><code>filename</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the file named
+for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Read"></a>30.10.11. Read</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Read</code>   <em class="replaceable"><code>filename</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the file named
 <em class="replaceable"><code>filename</code></em>.
 If the keyword
 <a name="Read_Quiet"></a><font class="fvwmopt">Quiet</font>
@@ -7543,7 +7472,7 @@ set to any other directory.  The
 command returns 1 if the given file could be read or -1 if not
 (see the section
 <a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetEnv"></a>30.10.11. SetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetEnv</code>   <em class="replaceable"><code>variable</code></em>   <em class="replaceable"><code>value</code></em> </p></div><p>Set an environment variable to a new value, similar to the shell's
+for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetEnv"></a>30.10.12. SetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetEnv</code>   <em class="replaceable"><code>variable</code></em>   <em class="replaceable"><code>value</code></em> </p></div><p>Set an environment variable to a new value, similar to the shell's
 export or setenv command.  The
 <em class="replaceable"><code>variable</code></em>
 and its
@@ -7561,7 +7490,7 @@ If
 <em class="replaceable"><code>value</code></em>
 includes whitespace, you should enclose it in quotes.  If no
 <em class="replaceable"><code>value</code></em>
-is given, the variable is deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Silent"></a>30.10.12. Silent</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Silent</code>   <em class="replaceable"><code>command</code></em> </p></div><p>A number of commands require a window to operate on.  If
+is given, the variable is deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Silent"></a>30.10.13. Silent</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Silent</code>   <em class="replaceable"><code>command</code></em> </p></div><p>A number of commands require a window to operate on.  If
 no window was selected when such a function is invoked the user is
 asked to select a window.  Sometimes this behavior is unwanted,
 for example if the function was called by a module and the window
@@ -7591,11 +7520,11 @@ Silent <a href="#Move">Move</a> 0 0
 Silent User_defined_function
 # do not complain on keyboards without "Help" key
 Silent <a href="#Key">Key</a> Help R A <a href="#Popup">Popup</a> HelpMenu
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UnsetEnv"></a>30.10.13. UnsetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UnsetEnv</code>  [<em class="replaceable"><code>variable</code></em>]</p></div><p>Unset an environment variable, similar to shell's export or
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UnsetEnv"></a>30.10.14. UnsetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UnsetEnv</code>  [<em class="replaceable"><code>variable</code></em>]</p></div><p>Unset an environment variable, similar to shell's export or
 unsetenv command. The
 <em class="replaceable"><code>variable</code></em>
 then is removed from the environment array inherited by processes
-started directly by fvwm.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Wait"></a>30.10.14. Wait</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Wait</code>   <em class="replaceable"><code>window</code></em> </p></div><p>This command is intended to be used in fvwm functions only.  It
+started directly by fvwm.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Wait"></a>30.10.15. Wait</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Wait</code>   <em class="replaceable"><code>window</code></em> </p></div><p>This command is intended to be used in fvwm functions only.  It
 causes execution of a function to pause until a new window matching
 <em class="replaceable"><code>window</code></em>
 appears.  This can be a window's name, class, or resource string.
@@ -7796,7 +7725,7 @@ on the previous window which satisfies all
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
 focused window.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="ScanForWindow"></a>30.11.3.13. ScanForWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">ScanForWindow</code>  [FromPointer]  <em class="replaceable"><code>direction</code></em>   <em class="replaceable"><code>direction2</code></em>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs <em class="replaceable"><code>command</code></em>
+See <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="ScanForWindow"></a>30.11.3.13. ScanForWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">ScanForWindow</code>  [FromPointer]  <em class="replaceable"><code>dir1</code></em>   <em class="replaceable"><code>dir2</code></em>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs <em class="replaceable"><code>command</code></em>
 (typically <a href="#Focus">Focus</a>)
 on a window in the given direction which satisfies all
 <em class="replaceable"><code>conditions</code></em>.
@@ -7805,23 +7734,22 @@ context window in which the command was invoked is taken as the
 starting point.  Lacking such a window, or when the
 <a name="ScanForWindow_FromPointer"></a><font class="fvwmopt">FromPointer</font>
 option is given, the current position of the pointer is taken as
-the starting point.  The
-<em class="replaceable"><code>direction</code></em>
+the starting point.  The direction
+<em class="replaceable"><code>dir1</code></em>
 may be one of "North", "NorthEast", "East", "SouthEast", "South",
 "SouthWest", "West", and "NorthWest".  Which window
 <span class="emphasis"><em>ScanForWindow</em></span>
 selects depends first on the position along the primary axis given
 by
-<em class="replaceable"><code>direction</code></em>.
+<em class="replaceable"><code>dir1</code></em>.
 If any windows have the exact same coordinate along the primary
 axis, the secondary direction is used to order the windows.  The
-<em class="replaceable"><code>direction2</code></em>
+direction <em class="replaceable"><code>dir2</code></em>
 may be one of the same set of values as
-<em class="replaceable"><code>direction</code></em>.
-If
-<em class="replaceable"><code>direction2</code></em>
+<em class="replaceable"><code>dir1</code></em>.
+If <em class="replaceable"><code>dir2</code></em>
 is not perfectly perpendicular to
-<em class="replaceable"><code>direction</code></em>,
+<em class="replaceable"><code>dir1</code></em>,
 ScanForWindow returns a failure.  When using ScanForWindow
 repeatedly with the same arguments, it is guaranteed that all
 windows matching the conditions will eventually be found.  If the
@@ -7913,8 +7841,10 @@ or the [I]mage (in ImagePath).</p><p>Example:</p><pre class="programlisting">
 
 <a href="#AddToFunc">AddToFunc</a> VerifyVersion
 + I Test (Version 2.5.*) <a href="#Echo">Echo</a> 2.5.x detected
-+ I <a href="#TestRc">TestRc</a> (NoMatch) Test (!Version 2.6.*) <a href="#Echo">Echo</a> Future version
-+ I <a href="#TestRc">TestRc</a> (NoMatch) <a href="#Echo">Echo</a> 2.6.x is detected
++ I <a href="#TestRc">TestRc</a> (NoMatch) \
+	Test (!Version 2.6.*) <a href="#Echo">Echo</a> Future version
++ I <a href="#TestRc">TestRc</a> (NoMatch) \
+	<a href="#Echo">Echo</a> 2.6.x is detected
 
 Test (F $[FVWM_USERDIR]/local-config) <a href="#Read">Read</a> local-config
 Test (X xterm-utf16) <a href="#Exec">Exec</a> exec xterm-utf16
@@ -7952,15 +7882,7 @@ are met.  It returns -1 if used outside a window context.
 See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
 <span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
 They can be turned off by specifying "!CirculateHit"
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="WindowId"></a>30.11.3.17. WindowId</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowId</code>    
-			[<em class="replaceable"><code>id</code></em>]
-			 [(<em class="replaceable"><code>conditions</code></em>)]
-		  |  [
-			root
-			[
-				<em class="replaceable"><code>screen</code></em>
-			]
-		]   <em class="replaceable"><code>command</code></em> </p></div><p>The
+etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="WindowId"></a>30.11.3.17. WindowId</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowId</code>    [<em class="replaceable"><code>id</code></em>] [(<em class="replaceable"><code>conditions</code></em>)]  |  [root [<em class="replaceable"><code>screen</code></em>]]   <em class="replaceable"><code>command</code></em> </p></div><p>The
 <span class="emphasis"><em>WindowId</em></span>
 command looks for a specific window
 <em class="replaceable"><code>id</code></em>
@@ -8002,11 +7924,12 @@ WindowId $[BOOKMARKED_WINDOW] <a href="#WarpToWindow">WarpToWindow</a>
 </pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="conditions"></a>30.11.4. Conditions</h4></div></div></div><p>The
 <span class="emphasis"><em>conditions</em></span>
 that may be given as an argument to any conditional command are a
-list of keywords separated by commas or whitespace, enclosed in
+list of keywords separated by commas, enclosed in
 parentheses.  Unless stated otherwise, conditional commands accept
 all the conditions listed below.  Note that earlier versions of
-fvwm required the conditions to be enclosed in brackets instead of
-parentheses (this is still supported for backward compatibility).</p><p>In addition, the
+fvwm required the conditions to be separated by whitespace instead
+of commas and enclosed in brackets instead of parentheses
+(this is still supported for backward compatibility).</p><p>In addition, the
 <span class="emphasis"><em>conditions</em></span>
 may include one or more window names to match to.  If more than
 one window name is given, all of them must match.  The window
@@ -8156,7 +8079,8 @@ option
 Example:</p><pre class="programlisting">
 <a href="#DestroyFunc">DestroyFunc</a> ToggleFixedGeometry
 <a href="#AddToFunc">AddToFunc</a>   ToggleFixedGeometry
-+ I <a href="#Pick">Pick</a> (FixedPosition) <a href="#WindowStyle">WindowStyle</a> VariablePosition, VariableSize
++ I <a href="#Pick">Pick</a> (FixedPosition) \
+	<a href="#WindowStyle">WindowStyle</a> VariablePosition, VariableSize
 + I <a href="#TestRc">TestRc</a> (NoMatch) <a href="#WindowStyle">WindowStyle</a> FixedPosition, FixedSize
 </pre><p>The
 <span class="emphasis"><em>FixedSize</em></span>
@@ -8322,7 +8246,7 @@ Module FvwmForm MyForm
 <a href="../modules/FvwmAnimate.html">FvwmAnimate</a> (produces animation effects when a window is iconified or de-iconified),
 <a href="../modules/FvwmAuto.html">FvwmAuto</a> (an auto raise module),
 <a href="../modules/FvwmBacker.html">FvwmBacker</a> (to change the background when you change desktops),
-<a href="../modules/FvwmBanner.html">FvwmBanner</a> (to display a spiffy XPM, XBM or PNG),
+<a href="../modules/FvwmBanner.html">FvwmBanner</a> (to display a spiffy XBM, XPM, PNG or SVG),
 <a href="../modules/FvwmButtons.html">FvwmButtons</a> (brings up a customizable tool bar),
 <a href="../modules/FvwmCommandS.html">FvwmCommandS</a> (a command server to use with shell's FvwmCommand client),
 <a href="../modules/FvwmConsole.html">FvwmConsole</a> (to execute fvwm commands directly),
@@ -8426,8 +8350,7 @@ which may contain wildcards.  This only makes sense if the module
 is set up to understand and deal with these strings though. Can be
 used for module to module communication, or implementation of more
 complex commands in modules.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="session_management_commands"></a>30.13. Session Management Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Quit"></a>30.13.1. Quit</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Quit</code> </p></div><p>Exits fvwm, generally causing X to exit too.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="QuitScreen"></a>30.13.2. QuitScreen</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">QuitScreen</code> </p></div><p>Causes fvwm to stop managing the screen on which the command was
-issued.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Restart"></a>30.13.3. Restart</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Restart</code>  [<em class="replaceable"><code>window_manager</code></em>
-		 [<em class="replaceable"><code>params</code></em>]
+issued.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Restart"></a>30.13.3. Restart</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Restart</code>  [<em class="replaceable"><code>window_manager</code></em> [<em class="replaceable"><code>params</code></em>]
 	]</p></div><p>Causes fvwm to restart itself if
 <em class="replaceable"><code>window_manager</code></em>
 is left blank, or to switch to an alternate window manager (or
@@ -8745,7 +8668,9 @@ causes the bitmap to be stretched to fit whatever object the
 colorset is applied to and
 <span class="emphasis"><em>AspectShape</em></span>
 stretches to fit but retains the bitmap aspect ratio.  If the file
-is a pixmap in xpm format, the shape mask of the pixmap is used.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Due to the way X11 implements shapes you cannot take back
+is a pixmap in xpm format the shape mask (all opaque pixels) of the
+pixmap is used.  For png and svg images, the shape mask is equivalent
+to all not completely transparent pixels (alpha &gt; 0).</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Due to the way X11 implements shapes you cannot take back
 making windows shaped. You may have to restart fvwm or the shaped
 application.</div><p>
 <span class="emphasis"><em>?Gradient ...</em></span>
@@ -8914,25 +8839,17 @@ is concentric circles,
 <span class="emphasis"><em>RGradient</em></span>
 is a radar like pattern and
 <span class="emphasis"><em>YGradient</em></span>
-is a Yin Yang style (but without the dots).</p><p>The color gradient syntax has two forms:</p><span><strong class="command">
-<div class="cmdsynopsis"><p> ?Gradient   colors   start-color   end-color </p></div>
-</strong></span><p>This form specifies a linear gradient.  The arguments denote the
-total number of
-<span class="emphasis"><em>colors</em></span>
+is a Yin Yang style (but without the dots).</p><p>The color gradient syntax has two forms:</p><div class="cmdsynopsis"><p><code class="option">?Gradient</code>  <em class="replaceable"><code>colors</code></em>   <em class="replaceable"><code>start-color</code></em>   <em class="replaceable"><code>end-color</code></em> </p></div><p>This form specifies a linear gradient.  The arguments denote the
+total number of <em class="replaceable"><code>colors</code></em>
 to allocate (between 2 and 1000), the initial color and the final
 color.</p><p>Example:</p><pre class="programlisting">
 <a href="#TitleStyle">TitleStyle</a> VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0
-</pre><span><strong class="command">
-<div class="cmdsynopsis"><p> ?Gradient   colors   segments   color   length   color  [length color]   ... </p></div>
-</strong></span><p>The second form specifies a nonlinear gradient.  The arguments are:
-the total number of
-<span class="emphasis"><em>colors</em></span>
+</pre><div class="cmdsynopsis"><p><code class="option">?Gradient</code>  <em class="replaceable"><code>colors</code></em>   <em class="replaceable"><code>segments</code></em>   <em class="replaceable"><code>color</code></em>   <em class="replaceable"><code>length</code></em>   <em class="replaceable"><code>color</code></em>   [ <em class="replaceable"><code>length</code></em>   <em class="replaceable"><code>color</code></em> ]... </p></div><p>The second form specifies a nonlinear gradient.  The arguments are:
+the total number of <em class="replaceable"><code>colors</code></em>
 to allocate (between 2 and 1000), then the number of
-<span class="emphasis"><em>segments</em></span>.
-For each segment, specify the starting
-<span class="emphasis"><em>color</em></span>,
-a relative
-<span class="emphasis"><em>length</em></span>,
+<em class="replaceable"><code>segments</code></em>.
+For each segment, specify the starting <em class="replaceable"><code>color</code></em>,
+a relative <em class="replaceable"><code>length</code></em>,
 then the ending color.  Each subsequent segment begins with the
 second color of the last segment.  The lengths may be any
 non-negative integers.  The length of one segment divided by the

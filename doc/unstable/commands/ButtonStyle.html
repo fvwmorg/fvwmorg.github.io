@@ -5,15 +5,14 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ButtonStyle"></a>ButtonStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-		 [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... 
-	]</p></div><p>Sets the button style for a title-bar button.
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="ButtonStyle"></a>ButtonStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code> 
+	&gt;  button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the button style for a title-bar button.
 <em class="replaceable"><code>button</code></em>
 is the title-bar button number between 0 and 9, or one of
 "<a name="ButtonStyle_All"></a><font class="fvwmopt">All</font>",
@@ -225,7 +224,7 @@ ButtonStyle 0 Vector 10 45x65@2 45x75@0 \
 <a name="ButtonStyle_?Gradient"></a><font class="fvwmopt">?Gradient</font>
 styles denote color gradients.  Fill in the question mark with any
 one of the defined gradient types.  Please refer to the
-<a href="../fvwm/colorGradients.html#color_gradients">Color Gradients</a>
+<a href="../fvwm/fvwm.man.html#color_gradients">Color Gradients</a>
 section for a description of the gradient syntax.  The gradient
 styles are fully destructive.</p><p>The
 <a name="ButtonStyle_Pixmap"></a><font class="fvwmopt">Pixmap</font>
@@ -234,8 +233,12 @@ argument.  For example, the following would give button number 2
 the same pixmap for all 4 states (2 active and 2 inactive), and
 button number 4 all different pixmaps.</p><pre class="programlisting">
 ButtonStyle 2 Pixmap my_pixmap.xpm
-ButtonStyle 4 ActiveUp (Pixmap activeup.xpm) ActiveDown (Pixmap activedown.xpm) Inactive (Pixmap inactiveup.xpm)
-ButtonStyle 4 InactiveDown Pixmap inactivedown.xpm
+ButtonStyle 4 \
+	ActiveUp (Pixmap activeup.xpm) \
+	ActiveDown (Pixmap activedown.xpm) \
+	Inactive (Pixmap inactiveup.xpm)
+ButtonStyle 4 \
+	InactiveDown Pixmap inactivedown.xpm
 </pre><p>The pixmap specification can be given as an absolute or relative
 pathname (see
 <a href="../commands/ImagePath.html">ImagePath</a>).
@@ -279,9 +282,7 @@ command.  This button style accepts no arguments.  Example:</p><pre class="progr
 <a href="../commands/Style.html">Style</a> Emacs MiniIcon mini-doc.xpm
 
 ButtonStyle 1 MiniIcon
-</pre><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>   -   
-		[<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>
-	... </p></div><p>Sets state-independent flags for the specified
+</pre><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>   -   [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... </p></div><p>Sets state-independent flags for the specified
 <em class="replaceable"><code>button</code></em>.
 State-independent flags affect button behavior.  Each
 <em class="replaceable"><code>flag</code></em>

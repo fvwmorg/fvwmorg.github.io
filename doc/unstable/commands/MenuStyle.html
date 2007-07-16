@@ -5,7 +5,7 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
@@ -174,7 +174,7 @@ background of the menu.  Note that the
 menu style has been optimized for memory consumption and may use
 less memory than the background from a colorset.  The shape mask
 from the colorset is used to shape the menu.  Please refer to the
-<a href="../fvwm/colorsets.html#colorsets">Colorsets</a>
+<a href="../fvwm/fvwm.man.html#colorsets">Colorsets</a>
 section for details about colorsets.</p><p>
 <a name="MenuStyle_ActiveColorset"></a><font class="fvwmopt">ActiveColorset</font>
 works exactly like
@@ -237,7 +237,7 @@ See description of
 <a href="../commands/ButtonStyle.html">ButtonStyle</a>
 command and the
 
-<a href="../fvwm/colorGradients.html#color_gradients">Color Gradients</a>
+<a href="../fvwm/fvwm.man.html#color_gradients">Color Gradients</a>
 sections for more information.  If you use
 <span class="emphasis"><em>MenuFace</em></span>
 without arguments the style is reverted back to normal.</p><p>Some examples of MenuFaces are:</p><pre class="programlisting">
@@ -532,12 +532,12 @@ MenuStyle red !HilightBack, Hilight3DOff
 MenuStyle red Font lucidasanstypewriter-12
 MenuStyle red MenuFace DGradient 64 Red Black
 </pre><p>Note that all style options could be placed on a single line for
-each style name.</p><div class="cmdsynopsis"><p> MenuStyle   forecolor   backcolor   shadecolor   font   style  [anim]</p></div><p>This is the old syntax of the
+each style name.</p><div class="cmdsynopsis"><p><code class="command">MenuStyle</code>   <em class="replaceable"><code>forecolor</code></em>   <em class="replaceable"><code>backcolor</code></em>   <em class="replaceable"><code>shadecolor</code></em>   <em class="replaceable"><code>font</code></em>   <em class="replaceable"><code>style</code></em>  [<em class="replaceable"><code>anim</code></em>]</p></div><p>This is the old syntax of the
 <span class="emphasis"><em>MenuStyle</em></span>
 command.  It is obsolete and may be removed in the future.  Please
 use the new syntax as described above.</p><p>Sets the menu style.  When using monochrome the colors are
 ignored.  The
-<span class="emphasis"><em>shadecolor</em></span>
+<em class="replaceable"><code>shadecolor</code></em>
 is the one used to draw a menu-selection which is prohibited (or
 not recommended) by the Mwm hints which an application has
 specified.  The style option is either
@@ -551,7 +551,7 @@ black.
 sub menus overlap the parent menu,
 <span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
 style menus never overlap the parent menu.</p><p>When the
-<span class="emphasis"><em>anim</em></span>
+<em class="replaceable"><code>anim</code></em>
 option is given, sub menus that do not fit on the screen cause the
 parent menu to be shifted to the left so the sub menu can be
 seen. See also

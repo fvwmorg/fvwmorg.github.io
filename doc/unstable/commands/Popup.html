@@ -5,7 +5,7 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
@@ -49,7 +49,7 @@ it into a main menu, called "RootMenu":</p><pre class="programlisting">
 
 <a href="../commands/AddToMenu.html">AddToMenu</a> RootMenu "Root Menu" <a href="../commands/Title.html">Title</a>
  + "Open XTerm Window" Popup NewWindowMenu
- + "Login as Root"     <a href="../commands/Exec.html">Exec</a> exec xterm -fg green -T Root -n Root -e su -
+ + "Login as Root"     <a href="../commands/Exec.html">Exec</a> exec xterm -T Root -n Root -e su -
  + "Login as Anyone"   <a href="../commands/Popup.html">Popup</a> AnyoneMenu
  + "Remote Hosts"      <a href="../commands/Popup.html">Popup</a> HostMenu
  + ""                  <a href="../commands/Nop.html">Nop</a>

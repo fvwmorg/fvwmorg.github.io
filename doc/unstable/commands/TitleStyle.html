@@ -5,17 +5,13 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TitleStyle"></a>TitleStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>justification</code></em>] [Height
-		[<span class="optional"><em class="replaceable"><code>num</code></em></span>]
-	] [MinHeight
-		[<span class="optional"><em class="replaceable"><code>num</code></em></span>]
-	]</p></div><p>Sets attributes for the title-bar.  Justifications can be
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="TitleStyle"></a>TitleStyle</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>justification</code></em>] [Height [<span class="optional"><em class="replaceable"><code>num</code></em></span>]] [MinHeight [<span class="optional"><em class="replaceable"><code>num</code></em></span>]]</p></div><p>Sets attributes for the title-bar.  Justifications can be
 <a name="TitleStyle_Centered"></a><font class="fvwmopt">Centered</font>,
 <a name="TitleStyle_RightJustified"></a><font class="fvwmopt">RightJustified</font> or
 <a name="TitleStyle_LeftJustified"></a><font class="fvwmopt">LeftJustified</font>.
@@ -38,11 +34,7 @@ height is reseted by
 or if given with no argument.
 Example:</p><pre class="programlisting">
 TitleStyle LeftJustified Height 24
-</pre><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--
-		 
-			[<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>
-		... 
-	]</p></div><p>Sets the style for the title-bar.
+</pre><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the style for the title-bar.
 See also
 <a href="../commands/AddTitleStyle.html">AddTitleStyle</a> and <a href="../commands/ButtonStyle.html">ButtonStyle</a>
 <em class="replaceable"><code>state</code></em>
@@ -80,11 +72,14 @@ See the note in
 <a href="../commands/ButtonStyle.html">ButtonStyle</a>
 regarding the "<a href="../commands/ButtonStyle.html#ButtonStyle_ActiveDown">ActiveDown</a>" state.  Examples:</p><pre class="programlisting">
 TitleStyle ActiveUp HGradient 16 navy black
-TitleStyle ActiveDown (Solid red -- flat) \
-    Inactive (TiledPixmap wood.xpm)
-TitleStyle ActiveUp (-- Flat) ActiveDown  \
-    (-- Raised) InactiveUp (-- Flat) \
-    InactiveDown (-- Sunk)
+TitleStyle \
+	ActiveDown (Solid red -- flat) \
+	Inactive (TiledPixmap wood.xpm)
+TitleStyle \
+	ActiveUp (-- Flat) \
+	ActiveDown (-- Raised) \
+	InactiveUp (-- Flat) \
+	InactiveDown (-- Sunk)
 </pre><p>This sets the "ActiveUp" state to a horizontal gradient, the
 "ActiveDown" state to solid red, and the "Inactive" states to a
 tiled wood pixmap. Finally, "ActiveUp" and "InactiveUp" are set

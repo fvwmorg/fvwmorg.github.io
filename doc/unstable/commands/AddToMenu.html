@@ -5,7 +5,7 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
@@ -143,9 +143,9 @@ literal '%', insert "%%". For example</p><pre class="programlisting">+ Calculato
 calculator to the left.  The following:</p><pre class="programlisting">+ %xcalc.xpm%           <a href="../commands/Exec.html">Exec</a> exec xcalc</pre><p>Omits the "Calculator" label, but leaves the picture.  The
 pictures used with this feature should be small (perhaps 16x16).</p><p>If the menu-name (not the label) contains a sub-string which is
 set off by at signs ('@'), then the text between them is expected
-to be the name of an xpm or bitmap file to draw along the left
+to be the name of an image file to draw along the left
 side of the menu (a side pixmap).  You may want to use the
-<span class="emphasis"><em>SidePic</em></span>
+<a href="../commands/MenuStyle.html#MenuStyle_SidePic">SidePic</a>
 option of the
 <a href="../commands/MenuStyle.html">MenuStyle</a>
 command instead.  To get a literal '@', insert "@@".  For example</p><pre class="programlisting">AddToMenu StartMenu@linux-menu.xpm@</pre><p>creates a menu with a picture in its bottom left corner.</p><p>If the menu-name also contains a sub-string surrounded by '^'s, then

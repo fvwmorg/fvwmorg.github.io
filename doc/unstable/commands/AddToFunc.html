@@ -5,15 +5,13 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToFunc"></a>AddToFunc</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em>
-		 [  I  |   M  |   C  |   H  |   D  
-			  <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="AddToFunc"></a>AddToFunc</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em> [  I  |   M  |   C  |   H  |   D    <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
 AddToFunc Move-or-Raise I <a href="../commands/Raise.html">Raise</a>
  + M <a href="../commands/Move.html">Move</a>
  + D <a href="../commands/Lower.html">Lower</a>
@@ -49,10 +47,10 @@ function is invoked with prior knowledge of which window to act
 on.</p><p>There is a number of predefined symbols that are replaced by
 certain values if they appear on the command line.  Please refer
 to the
-<a href="../fvwm/expansion.html#command_expansion">Command Expansion</a>
+<a href="../fvwm/fvwm.man.html#command_expansion">Command Expansion</a>
 section for details.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Please read the comments on executing complex functions
 in the section
-<a href="../fvwm/scripting.html#scripting_and_complex_functions">Scripting and Complex Functions</a>.
+<a href="../fvwm/fvwm.man.html#scripting_and_complex_functions">Scripting and Complex Functions</a>.
 </div><p>Examples:</p><p>If you call</p><pre class="programlisting">
 <a href="../commands/Key.html">Key</a> F10 R A <a href="../commands/Function.html">Function</a> MailFunction xmh "-font fixed"
 </pre><p>and "MailFunction" is</p><pre class="programlisting">

@@ -5,7 +5,7 @@
 	<a href="../index.html"><font class="header">Home</font></a> &#8901;
 	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
 	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules/modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
@@ -96,8 +96,10 @@ or the [I]mage (in ImagePath).</p><p>Example:</p><pre class="programlisting">
 
 <a href="../commands/AddToFunc.html">AddToFunc</a> VerifyVersion
 + I Test (Version 2.5.*) <a href="../commands/Echo.html">Echo</a> 2.5.x detected
-+ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) Test (!Version 2.6.*) <a href="../commands/Echo.html">Echo</a> Future version
-+ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) <a href="../commands/Echo.html">Echo</a> 2.6.x is detected
++ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) \
+	Test (!Version 2.6.*) <a href="../commands/Echo.html">Echo</a> Future version
++ I <a href="../commands/TestRc.html">TestRc</a> (NoMatch) \
+	<a href="../commands/Echo.html">Echo</a> 2.6.x is detected
 
 Test (F $[FVWM_USERDIR]/local-config) <a href="../commands/Read.html">Read</a> local-config
 Test (X xterm-utf16) <a href="../commands/Exec.html">Exec</a> exec xterm-utf16
