@@ -44,6 +44,16 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Julio José Teca Nemesio</h4>
+<p class="author">
+ChangeWindowTitle and ChangeWindowTitleFromArg FvwmScript instructions. ChangeWindowTitle FvwmScript command.
+</p>
+
+<h4 class="author">Simon Griph</h4>
+<p class="author">
+SVG image loader.  ARGB/animated mouse cursor loading.
+</p>
+
 <h4 class="author">Thomas Adam</h4>
 <p class="author">
 Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle.
@@ -66,7 +76,7 @@ Menu styles TitleColorset, HilightTitle and TitleFont.
 
 <h4 class="author">Renato Caldas</h4>
 <p class="author">
-Cleaned up module initialization.
+Some cleanups. Module linked list mechanism.
 </p>
 
 <h4 class="author">Malcolm Still</h4>
@@ -146,7 +156,7 @@ Use font for selected buttons in Start button.
 
 <h4 class="author">Scott Smedley</h4>
 <p class="author">
-Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: ActiveIcon, ActiveTitle, ActiveColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker; Version test condition. Added &quot;Periodic&quot; option to Schedule command.
+Wrote FvwmTabs module. Improved Perl module support. FakeKeyPress command. Window-specific key/mouse bindings. FvwmButtons: ActiveIcon, ActiveTitle, ActiveColorset, PressIcon, PressTitle &amp; PressColorset options. FvwmWindowMenu: rewrote to use WindowList tracker. Version test condition. Added &quot;Periodic&quot; option to Schedule command. Converted manpage into XML source to generate HTML documentation &amp; (auto-generated) manpage.
 </p>
 
 <h4 class="author">Francis Litterio</h4>

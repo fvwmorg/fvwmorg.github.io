@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
 <td><a href="#2.5.21" style="font-weight:normal;">&nbsp;2.5.21&nbsp;</a></td>
 <td><a href="#2.5.20" style="font-weight:normal;">&nbsp;2.5.20&nbsp;</a></td>
 <td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 <td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
-<td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
 <td><a href="#2.5.12" style="font-weight:normal;">&nbsp;2.5.12&nbsp;</a></td>
 <td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
-<td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
 <td><a href="#2.5.3" style="font-weight:normal;">&nbsp;2.5.3&nbsp;</a></td>
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
-<td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
-<td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
@@ -100,8 +101,66 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
+<a name="2.5.23"></a>
+<h4>Changes in beta release 2.5.23 (unreleased) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> Bug Fixes:</li>
+</ul>
+
+
 <a name="2.5.22"></a>
-<h4>Changes in beta release 2.5.22 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.22 (29-Aug-2007) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> New Style command options:       UnderMousePlacementHonorsStartsOnPage
+    <ul>
+        <li>       UnderMousePlacementIgnoresStartsOnPage</li>
+        <li>       !MinOverlapPlacementPenalties</li>
+        <li>       !MinOverlapPercentPlacementPenalties</li>
+        <li>       MinWindowSize</li>
+    </ul>
+  </li>
+  <li> SVG (scalable vector graphics) image loading support.</li>
+  <li> New extended variables       $[w.iconfile.svgopts]
+    <ul>
+        <li>       $[w.miniiconfile.svgopts].</li>
+    </ul>
+  </li>
+  <li> Added suffix 'w' to the arguments of the Move command and     similar.  It is now possible to add multiple shifts to a     window position, e.g. &quot;50-50w 50-50w&quot; for the center of the     screen.</li>
+  <li> Removed UnderMousePlacement and CenterPlacement. Use     &quot;PositionPlacement Center&quot; and &quot;PositionPlacement UnderMouse&quot;     instead.</li>
+  <li> Documentation in HTML format.</li>
+  <li> Replaced &quot;UseListSkip&quot; with &quot;UseSkipList&quot; &amp; &quot;OnlyListSkip&quot; with     &quot;OnlySkipList&quot; in WindowList command. (Old options deprecated.)</li>
+  <li> New subject ImageCache for PrintInfo command.</li>
+  <li> The new commad EchoFuncDefinition prints a function's     definition to the console for debugging purposes.</li>
+  <li> The CursorStyle command can now load PNG and SVG images as     mouse cursors.  New x and y arguments to specify the     hot spot.  Also, it is now possible to load non-monochrome     cursors and cursors with partial transparency.</li>
+  <li> New module features:</li>
+  <li> FvwmScript: New instructions: ChangeWindowTitle and     ChangeWindowTitleFromArg.</li>
+  <li> Bug Fixes:</li>
+  <li> Windows with aspect ratio no longer maximize past the screen     edges.</li>
+  <li> Fixed CenterPlacement with Xinerama screens.</li>
+  <li> Fixed CascadePlacement with title direction west and east</li>
+  <li> Windows no longer unstick when going to fullscreen mode.</li>
+  <li> Fixed crash when raising/lowering a destroyed window.</li>
+  <li> Fixed expansion of $[n-] and $[*], broken in 2.5.20.</li>
+  <li> Fixes for resizing shaded windows and windows with a gravity     other than northwest.</li>
+  <li> Fixed CursorStyle POSITION, broken since 2.3.24.</li>
+  <li> The hi, sh and fgsh colors in colorsets are no longer replaced     by computed values if not explicit set on the same line as the     bg, or for fgsh fg, changes. (bug #3359)</li>
+  <li> FvwmButtons now redraws stretched button backgrounds correctly     on partial expose.</li>
+  <li> Windows with circular transient for hints may no longer crash     fvwm with StackTransientParent style.</li>
+  <li> FvwmPager now displays windows that are StickyAcrossPages     correctly.</li>
+  <li> Fixed a possible crash with modules closing down.</li>
+  <li> Fixed broken demo script fvwm_make_browse_menu.sh.</li>
+  <li> The conditon following a comma separator without whitespace     padding was previously ignored if the presiding condition was     multi-worded.</li>
+  <li> Various FvwmButtons drawing problems.</li>
+  <li> Window movement or resizing triggered by an EWMH message now     honours the FixedSize and FixedPosition window styles.</li>
+  <li> Properly generate leave_window and enter_window events for     the root window in FvwmEvent.</li>
+  <li> Fixed crash in UTF8 code.</li>
+  <li> Fixed parsing of the PropertyChange command.</li>
+  <li> Fixed windowlist crash when combining CurrentAtEnd with     IconifiedAtEnd and all windows are iconified.</li>
+</ul>
+
+
 <a name="2.5.21"></a>
 <h4>Changes in beta release 2.5.21 (20-Jan-2007) <a href="#top">[top]</a></h4>
 <ul>
@@ -531,7 +590,7 @@ decoration_window_start("Latest News");
   <li> Fonts can have shadow effects, see the FONT SHADOW EFFECTS  section of fvwm manual page.</li>
   <li> New Colorset options: fgsh for shadow text and fg_alpha for  merging text with the background.</li>
   <li> New module FvwmPerl adds perl scripting ability to fvwm  commands.</li>
-  <li> Provided powerful perl library for creating FVWM modules in  perl.</li>
+  <li> Provided powerful perl library for creating fvwm modules in  perl.</li>
   <li> New WindowList option IconifiedtAtEnd.</li>
   <li> Always display the current desk number in the FvwmPager window  title.</li>
   <li> Allow to bind a function to the focus click and pass it to the  application at the same time.</li>

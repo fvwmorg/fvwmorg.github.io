@@ -42,26 +42,26 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmTabs in unstable branch (2.5.21)"); ?>
+<?php decoration_window_start("Manual page for FvwmTabs in unstable branch (2.5.22)"); ?>
 
-<H1>FVWMTABS</H1>
-Section: FVWM Modules (1)<BR>Updated: 2006-10-23<BR><A HREF="#index">This page contents</A>
+<H1>FvwmTabs</H1>
+Section: Fvwm Modules (1)<BR>Updated: 2006-10-23<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-<B><u>FvwmTabs</u></B> - a generic tabbing module for the FVWM window manager.
+<B><u>FvwmTabs</u></B> - a generic tabbing module for the fvwm window manager.
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
-<B><u>FvwmTabs</u></B> is spawned by <FONT>FVWM</FONT>, so no command line invocation is possible.
+<B><u>FvwmTabs</u></B> is spawned by <FONT>fvwm</FONT>, so no command line invocation is possible.
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-The <B><u>FvwmTabs</u></B> module is capable of swallowing any <FONT>FVWM</FONT> window &amp; treating it as a tab in a <I>tab-manager</I> window. A tab-manager is sometimes called a <I>tabber</I>.
+The <B><u>FvwmTabs</u></B> module is capable of swallowing any <FONT>fvwm</FONT> window &amp; treating it as a tab in a <I>tab-manager</I> window. A tab-manager is sometimes called a <I>tabber</I>.
 <P>
 
 Each tab-manager can store any number of windows, each in its own <I>tab</I>. The number of tab-managers is limited only by system resources. Tab-managers can even be nested/swallowed within other tab-managers. (ie. a tab-manager can be added as an individual tab to another tab-manager.)
@@ -69,12 +69,12 @@ Each tab-manager can store any number of windows, each in its own <I>tab</I>. Th
 <H2>INVOCATION</H2>
 
 <A NAME="ixAAE"></A>
-<B><u>FvwmTabs</u></B> can be invoked by inserting the line <TT>&quot;Module FvwmTabs&quot;</TT> in your .fvwmrc file. This can be placed on a line by itself, if <B><u>FvwmTabs</u></B> is to be spawned during <FONT>FVWM</FONT>'s initialization, or can be bound to a menu or mouse button or keystroke to invoke it later.
+<B><u>FvwmTabs</u></B> can be invoked by inserting the line <TT>&quot;Module FvwmTabs&quot;</TT> in your .fvwmrc file. This can be placed on a line by itself, if <B><u>FvwmTabs</u></B> is to be spawned during <FONT>fvwm</FONT>'s initialization, or can be bound to a menu or mouse button or keystroke to invoke it later.
 <A NAME="lbAF">&nbsp;</A>
 <H2>INSTALLING DEPENDENCIES</H2>
 
 <A NAME="ixAAF"></A>
-<B><u>FvwmTabs</u></B> requires 2 <FONT>CPAN</FONT> modules (that are <FONT>NOT</FONT> distributed with <FONT>FVWM</FONT>) to be installed on your system. They are <I>Tk</I> and <I>X11::Protocol</I>.
+<B><u>FvwmTabs</u></B> requires 2 <FONT>CPAN</FONT> modules (that are <FONT>NOT</FONT> distributed with <FONT>fvwm</FONT>) to be installed on your system. They are <I>Tk</I> and <I>X11::Protocol</I>.
 <P>
 
 They are available at: &lt;<A HREF="http://search.cpan.org/CPAN/authors/id/N/NI/NI-S/Tk-804.027.tar.gz">http://search.cpan.org/CPAN/authors/id/N/NI/NI-S/Tk-804.027.tar.gz</A>&gt; and &lt;<A HREF="http://search.cpan.org/~smccam/X11-Protocol-0.56/">http://search.cpan.org/~smccam/X11-Protocol-0.56/</A>&gt;.
@@ -91,7 +91,7 @@ tar zxvf <TT>$name</TT>.tar.gz ; cd <TT>$name</TT> ; perl Makefile.PL ; make ins
 <H2>CONFIGURATION OPTIONS</H2>
 
 <A NAME="ixAAG"></A>
-<B><u>FvwmTabs</u></B> reads the same config file as <FONT>FVWM</FONT> when it starts up.
+<B><u>FvwmTabs</u></B> reads the same config file as <FONT>fvwm</FONT> when it starts up.
 <P>
 
 The following options are recognised by <B><u>FvwmTabs</u></B>:
@@ -155,7 +155,7 @@ The backgound color of the balloon popups that appear over the tab buttons. The 
 The font to use on the balloon popups. The default font is <I>Helvetica -12</I>.
 <DT>*FvwmTabs: balloonWait <I>ms</I><DD>
 <A NAME="ixABA"></A>
-How long the mouse cursor must pause (in milliseconds) over a tab button before the balloon pops up. The default value is <I>250</I>. 
+How long the mouse cursor must pause (in milliseconds) over a tab button before the balloon pops up. The default value is <I>250</I>.
 <DT>*FvwmTabs: balloonMsg <I>msg</I><DD>
 <A NAME="ixABB"></A>
 Message to display in balloon popups. The default value is <I>%tabNo:\n%iconText\n%title</I>.
@@ -164,7 +164,7 @@ Message to display in balloon popups. The default value is <I>%tabNo:\n%iconText
 <I>bool</I> can be either <I>true</I> or <I>false</I>. If true, windows in the tab-manager automatically resize to the dimensions of the largest window in the tab-manager. The default value is <I>false</I>. If the user performs an explicit resize of a tab-manager window, all windows in the tab-manager are resized to the new window size.
 <DT>*FvwmTabs: stateFile <I>file</I><DD>
 <A NAME="ixABD"></A>
-<B><u>FvwmTabs</u></B> has the ability to preserve its state (ie. remember the windows it has swallowed as tabs) b/w <FONT>FVWM</FONT> restarts. <I>file</I> specifies the name of a temporary file to record the state in, so it can be reconstructed when <B><u>FvwmTabs</u></B> restarts. The default file is <TT>&quot;$FVWM_USERDIR/.fvwmtabs.state&quot;</TT>.
+<B><u>FvwmTabs</u></B> has the ability to preserve its state (ie. remember the windows it has swallowed as tabs) b/w <FONT>fvwm</FONT> restarts. <I>file</I> specifies the name of a temporary file to record the state in, so it can be reconstructed when <B><u>FvwmTabs</u></B> restarts. The default file is <TT>&quot;$FVWM_USERDIR/.fvwmtabs.state&quot;</TT>.
 <DT>*FvwmTabs: fixedSizeTabs <I>bool</I><DD>
 <A NAME="ixABE"></A>
 <I>bool</I> can be either <I>true</I> or <I>false</I>. If true, the tab-manager will ensure each tab-button has the same dimensions. If false, the selected tab is expanded so that it is fully visible. The default value is <I>false</I>.
@@ -220,7 +220,7 @@ Image to use on menu toolbar button. Default is <I>none</I>.
 <H2>FVWM FUNCTIONS FOR KEY BINDINGS</H2>
 
 <A NAME="ixABR"></A>
-A number of <FONT>FVWM</FONT> functions are available once the <B><u>FvwmTabs</u></B> module is started.
+A number of <FONT>fvwm</FONT> functions are available once the <B><u>FvwmTabs</u></B> module is started.
 <DL COMPACT>
 <DT>NewTabber<DD>
 <A NAME="ixABS"></A>
@@ -245,19 +245,19 @@ Show/select the previous tab.
 Show/select the last selected tab (if there was one).
 <DT>ReleaseTab<DD>
 <A NAME="ixABX"></A>
-Release a tabbed window back to <FONT>FVWM</FONT>.
+Release a tabbed window back to <FONT>fvwm</FONT>.
 <DT>ReleaseIconifyTab<DD>
 <A NAME="ixABY"></A>
-Release a tabbed window back to <FONT>FVWM</FONT> &amp; iconify it.
+Release a tabbed window back to <FONT>fvwm</FONT> &amp; iconify it.
 <DT>ReleaseAllTabs<DD>
 <A NAME="ixABZ"></A>
-Release all windows in a tab-manager back to <FONT>FVWM</FONT>.
+Release all windows in a tab-manager back to <FONT>fvwm</FONT>.
 <DT>ReleaseIconifyAllTabs<DD>
 <A NAME="ixACA"></A>
-Release all windows in a tab-manager back to <FONT>FVWM</FONT> &amp; iconify them.
+Release all windows in a tab-manager back to <FONT>fvwm</FONT> &amp; iconify them.
 <DT>CloseTabber<DD>
 <A NAME="ixACB"></A>
-Destroy a tab-manager. All windows in the tab-manager are released back to <FONT>FVWM</FONT>.
+Destroy a tab-manager. All windows in the tab-manager are released back to <FONT>fvwm</FONT>.
 <DT>AddTab<DD>
 <A NAME="ixACC"></A>
 Pick a new window to add to a tab-manager. Selecting this option &amp; clicking on a window will add the selected window to the tab-manager.
@@ -290,7 +290,7 @@ Swallow windows that (are moved to) overlap a tabber.
 By default, <B><u>FvwmTabs</u></B> reads a default user configuration file <I>FvwmTabs-DefaultSetup</I> which defines several useful key-bindings for <B><u>FvwmTabs</u></B>. You can tell <B><u>FvwmTabs</u></B> <FONT>NOT</FONT> to read this file with <TT>&quot;SetEnv FvwmTabs_NoDefaultSetup&quot;</TT> - this environment variable must be set <I>before</I> starting the module.
 <P>
 
-All of the key bindings can be changed using the standard <FONT>FVWM</FONT> <I>Key</I> command &amp; making use of the aforementioned <FONT>FVWM</FONT> functions. ie.
+All of the key bindings can be changed using the standard <FONT>fvwm</FONT> <I>Key</I> command &amp; making use of the aforementioned <FONT>fvwm</FONT> functions. ie.
 <P>
 
 Key (FvwmTabs*) A A <FONT>CM</FONT> Function AddTab
@@ -454,7 +454,7 @@ The menu options between the separators will display the window/tab associated w
 </DL>
 <P>
 
-Please send bug reports, feature requests &amp; queries about <B><u>FvwmTabs</u></B> to the <FONT>FVWM</FONT> Mailing list: <I><A HREF="mailto:fvwm@fvwm.org">fvwm@fvwm.org</A></I>. Be sure to include the word ``FvwmTabs'' somewhere in the subject line.
+Please send bug reports, feature requests &amp; queries about <B><u>FvwmTabs</u></B> to the <FONT>fvwm</FONT> Mailing list: <I><A HREF="mailto:fvwm@fvwm.org">fvwm@fvwm.org</A></I>. Be sure to include the word ``FvwmTabs'' somewhere in the subject line.
 <A NAME="lbAO">&nbsp;</A>
 <H2>TODO</H2>
 
@@ -519,11 +519,11 @@ Scott Smedley
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 11:51:36 GMT, January 20, 2007
+Time: 12:36:11 GMT, August 29, 2007
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 20-Jan-2007 -->
+<!-- Automatically generated by manpages2php on 29-Aug-2007 -->

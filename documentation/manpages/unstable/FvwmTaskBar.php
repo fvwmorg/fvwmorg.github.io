@@ -42,29 +42,29 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmTaskBar in unstable branch (2.5.21)"); ?>
+<?php decoration_window_start("Manual page for FvwmTaskBar in unstable branch (2.5.22)"); ?>
 
 <H1>FvwmTaskBar</H1>
-Section: FVWM Modules (1)<BR>Updated: 20 January 2006 (2.5.21)<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: 29 August 2007 (2.5.22)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmTaskBar - the FVWM taskbar module
+FvwmTaskBar - the fvwm taskbar module
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <B><u>FvwmTaskBar</u></B> [<I>name</I>]
 <P>
-FvwmTaskBar is spawned by FVWM, so no command line invocation will work.
+FvwmTaskBar is spawned by fvwm, so no command line invocation will work.
 <P>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 The FvwmTaskBar module provides a taskbar made up of buttons arranged by
-rows, each corresponding to a window that FVWM is managing.
+rows, each corresponding to a window that fvwm is managing.
 Clicking on first button gives focus to the corresponding top level window;
 clicking on the middle button will hide a top level window; third mouse button
 is reserved for a future extension (context menu).
@@ -78,7 +78,7 @@ will auto position itself at the top or bottom of the screen, and can be
 dragged from one position to another with a normal move operation.
 <P>
 The first button of the taskbar, labelled &quot;Start&quot; sends a &quot;Popup
-StartMenu&quot; command to the FVWM, which can be used to pop-up a
+StartMenu&quot; command to the fvwm, which can be used to pop-up a
 general-purpose menu when the button is pressed.
 <P>
 The FvwmTaskBar also displays at the right side a window showing the
@@ -98,7 +98,7 @@ as the copyright is kept intact.
 <H2>INITIALIZATION</H2>
 
 During initialization, <I>FvwmTaskBar</I> gets configuration information
-from FVWM to find the options that pertain to it.
+from fvwm to find the options that pertain to it.
 These options are discussed in a later section.
 <P>
 <A NAME="lbAG">&nbsp;</A>
@@ -108,7 +108,7 @@ FvwmTaskBar can be invoked by fvwm during initialization by inserting the
 line 'Module FvwmTaskBar' in the .fvwm2rc file.
 <P>
 FvwmTaskBar must reside in a directory that is listed in the ModulePath
-option of FVWM for it to be executed by FVWM.
+option of fvwm for it to be executed by fvwm.
 <P>
 <A NAME="lbAH">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS</H2>
@@ -274,7 +274,7 @@ any quoting characters. To get a literal '$' use the string '$$'.
 Tells FvwmTaskBar to put a shortcut minibutton in the taskbar that does
 <I>action</I> when clicked.  The icon can have a caption denoted by <I>title</I>,
 an icon denoted by <I>icon</I>, or a combination of the two.  The icons will
-appear to the immediate right of the start button, and will appear in the 
+appear to the immediate right of the start button, and will appear in the
 order that they are declared in the .fvwm2rc file.
 <P>
 To invoke different commands for different mouse clicks, use this syntax:
@@ -297,17 +297,17 @@ not specified, the default space is 3.
 <P>
 <DT>*FvwmTaskBar: WindowButtonsLeftMargin <I>margin</I><DD>
 Specifies the space (in pixels) between the left side of the left-most window
-button and the right side of the start button or right-most shortcut 
+button and the right side of the start button or right-most shortcut
 minibutton.  If this option is not specified, the default margin is 4.
 <P>
 <DT>*FvwmTaskBar: WindowButtonsRightMargin <I>margin</I><DD>
-Specifies the space (in pixels) between the right side of the right-most 
-window button and the left side of the clock and tip window.  If this option 
+Specifies the space (in pixels) between the right side of the right-most
+window button and the left side of the clock and tip window.  If this option
 is not specified, the default margin is 2.
 <P>
 <DT>*FvwmTaskBar: StartButtonRightMargin <I>margin</I><DD>
-Specifies the space (in pixels) between the right side of the start button 
-and the left side of the left-most shortcut minibutton.  If this option is 
+Specifies the space (in pixels) between the right side of the start button
+and the left side of the left-most shortcut minibutton.  If this option is
 not specified, the default margin is 0.
 <P>
 <DT>*FvwmTaskBar: 3DFvwm<DD>
@@ -341,13 +341,13 @@ displayed at the right of the taskbar.
 <DL COMPACT>
 <DT>*FvwmTaskBar: ClockFormat <I>format-string</I><DD>
 This option specifies the time format for the digital clock.
-It is a <I><A HREF="/cgi-bin/man/man2html/3+strftime">strftime</A>(3)</I> compatible format string.
+It is a <I><A HREF="http://localhost/cgi-bin/man/man2html/3+strftime">strftime</A>(3)</I> compatible format string.
 By default it is &quot;%R&quot;. There is a 24 character limit for string
 expansion. The string depends of locale settings.
 <P>
 <DT>*FvwmTaskBar: DateFormat <I>format-string</I><DD>
 This option specifies the date and/or time format for clock tip.
-It is a <I><A HREF="/cgi-bin/man/man2html/3+strftime">strftime</A>(3)</I> compatible format string.
+It is a <I><A HREF="http://localhost/cgi-bin/man/man2html/3+strftime">strftime</A>(3)</I> compatible format string.
 By default it is &quot;%A, %B %d, %Y&quot;. There is 40 characters limit for
 string expansion. The string depends of locale settings now.
 <P>
@@ -567,11 +567,11 @@ These people have contributed to <B><u>FvwmTaskBar</u></B>:
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 11:51:36 GMT, January 20, 2007
+Time: 12:36:11 GMT, August 29, 2007
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 20-Jan-2007 -->
+<!-- Automatically generated by manpages2php on 29-Aug-2007 -->

@@ -52,11 +52,11 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <a name="toc_1."></a><a href="#1.">1.</a> About Fvwm
 
-<a name="toc_1.1"></a>     <a href="#1.1">1.1</a>  What does FVWM stand for?
+<a name="toc_1.1"></a>     <a href="#1.1">1.1</a>  What does fvwm stand for?
 <a name="toc_1.2"></a>     <a href="#1.2">1.2</a>  Where do I find the current versions of fvwm?
-<a name="toc_1.3"></a>     <a href="#1.3">1.3</a>  Any WWW Sites about FVWM?
-<a name="toc_1.4"></a>     <a href="#1.4">1.4</a>  Where do I ask questions about FVWM?
-<a name="toc_1.5"></a>     <a href="#1.5">1.5</a>  What are the differences between FVWM 1.xx and 2.xx?
+<a name="toc_1.3"></a>     <a href="#1.3">1.3</a>  Any WWW Sites about fvwm?
+<a name="toc_1.4"></a>     <a href="#1.4">1.4</a>  Where do I ask questions about fvwm?
+<a name="toc_1.5"></a>     <a href="#1.5">1.5</a>  What are the differences between fvwm 1.xx and 2.xx?
 <a name="toc_1.6"></a>     <a href="#1.6">1.6</a>  What's the relative memory usage for the various window
           managers out there?
 <a name="toc_1.7"></a>     <a href="#1.7">1.7</a>  Why the rename of the various files (fvwm2, .fvwm2rc,
@@ -65,11 +65,11 @@ if (strlen($site_has_been_loaded) == 0) {
 
 <a name="toc_2."></a><a href="#2.">2.</a> Installation
 
-<a name="toc_2.1"></a>     <a href="#2.1">2.1</a>  I want to use FVWM, but I don't have root access on my
+<a name="toc_2.1"></a>     <a href="#2.1">2.1</a>  I want to use fvwm, but I don't have root access on my
           machine.  Can I still install and run it?
 <a name="toc_2.2"></a>     <a href="#2.2">2.2</a>  I'm trying to use fvwm under CDE/COSE, but encountering
           difficulties.  Any suggestions?
-<a name="toc_2.3"></a>     <a href="#2.3">2.3</a>  I'm trying to compile FVWM under SunOS using cc, but the
+<a name="toc_2.3"></a>     <a href="#2.3">2.3</a>  I'm trying to compile fvwm under SunOS using cc, but the
           compiler is having lots of problems.  What gives?
 <a name="toc_2.4"></a>     <a href="#2.4">2.4</a>  I want colored icons, but they won't work.  Why not?
           When I run configure, it reports &quot;no&quot; to &quot;Have XPM
@@ -80,14 +80,14 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_2.6"></a>     <a href="#2.6">2.6</a>  I'm a sysadmin, and if I wanted fvwm to look for all of
           its rc files in a hidden directory, say ~/.fvwm, much
           like CDE does, how could I do that?
-<a name="toc_2.7"></a>     <a href="#2.7">2.7</a>  How can I use FVWM with GNOME version &lt;= 1?
-<a name="toc_2.8"></a>     <a href="#2.8">2.8</a>  How can I use FVWM with GNOME version &gt;= 2 or KDE
+<a name="toc_2.7"></a>     <a href="#2.7">2.7</a>  How can I use fvwm with GNOME version &lt;= 1?
+<a name="toc_2.8"></a>     <a href="#2.8">2.8</a>  How can I use fvwm with GNOME version &gt;= 2 or KDE
           version &gt;= 2?
 
 <a name="toc_3."></a><a href="#3.">3.</a> Features, Configuration, Functions &amp; Commands
 
-<a name="toc_3.1"></a>     <a href="#3.1">3.1</a>  I use FVWM on a RedHat Linux system and can't figure out
-          how to change my FVWM configuration.  I've read the FVWM
+<a name="toc_3.1"></a>     <a href="#3.1">3.1</a>  I use fvwm on a RedHat Linux system and can't figure out
+          how to change my fvwm configuration.  I've read the fvwm
           man page but when I edit my .fvwm2rc nothing seems to
           happen.  What's going on?
 <a name="toc_3.2"></a>     <a href="#3.2">3.2</a>  Is it possible to raise a window when I click into the
@@ -99,17 +99,17 @@ if (strlen($site_has_been_loaded) == 0) {
           mouse presses?
 <a name="toc_3.6"></a>     <a href="#3.6">3.6</a>  I'd like to bind a key to paste/use the current
           selection, how can I do that?
-<a name="toc_3.7"></a>     <a href="#3.7">3.7</a>  Will FVWM ever support a separate colormap for each
+<a name="toc_3.7"></a>     <a href="#3.7">3.7</a>  Will fvwm ever support a separate colormap for each
           desktop?
 <a name="toc_3.8"></a>     <a href="#3.8">3.8</a>  I really like the horizontal bars that appear on the
           title bars of sticky windows.  Can I get those on other
           windows as well?
-<a name="toc_3.9"></a>     <a href="#3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an FVWM
+<a name="toc_3.9"></a>     <a href="#3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an fvwm
           command? Or more generally, I'm having problems defining
-          key bindings for FVWM - what can I do?
+          key bindings for fvwm - what can I do?
 <a name="toc_3.10"></a>    <a href="#3.10">3.10</a>  My .fvwmrc from version 1.xx no longer works.  What do I
           do?
-<a name="toc_3.11"></a>    <a href="#3.11">3.11</a>  What happened to the FVWM 1.xx 'include' command?
+<a name="toc_3.11"></a>    <a href="#3.11">3.11</a>  What happened to the fvwm 1.xx 'include' command?
 <a name="toc_3.12"></a>    <a href="#3.12">3.12</a>  How do I get window titles on sub windows of ...
 <a name="toc_3.13"></a>    <a href="#3.13">3.13</a>  I just upgraded to version &gt;= 2.3.2, and my
           configuration settings disappeared!  How do I get them
@@ -155,7 +155,7 @@ if (strlen($site_has_been_loaded) == 0) {
           with the FvwmM4/Cpp module...
 <a name="toc_4.4"></a>     <a href="#4.4">4.4</a>  I heard about this FvwmFileMgr module.  Where can I find
           it?
-<a name="toc_4.5"></a>     <a href="#4.5">4.5</a>  I used to use GoodStuff in FVWM 1.xx, but it's not in
+<a name="toc_4.5"></a>     <a href="#4.5">4.5</a>  I used to use GoodStuff in fvwm 1.xx, but it's not in
           the 2.xx distribution.  What do I use now?
 <a name="toc_4.6"></a>     <a href="#4.6">4.6</a>  I want to have the sub panels in FvwmButtons not at
           their default position near the button but somewhere
@@ -166,12 +166,12 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_5."></a><a href="#5.">5.</a> Development, Known Problems &amp; Bug Reports
 
 <a name="toc_5.1"></a>     <a href="#5.1">5.1</a>  I'd really like to see neat feature XYZ in
-          FVWM. Wouldn't that be cool?  I even have a patch.  When
+          fvwm. Wouldn't that be cool?  I even have a patch.  When
           can it be added?
 <a name="toc_5.2"></a>     <a href="#5.2">5.2</a>  How do I create/submit/apply patches?
 <a name="toc_5.3"></a>     <a href="#5.3">5.3</a>  How do I submit a bug report?
 <a name="toc_5.4"></a>     <a href="#5.4">5.4</a>  I have a window that is behaving unexpectedly under
-          FVWM, but just fine under (whatever other window
+          fvwm, but just fine under (whatever other window
           manager), or I have just some random bug.  What do I do?
 <a name="toc_5.5"></a>     <a href="#5.5">5.5</a>  Why do NumLock, CapsLock and ScrollLock interfere with
           ClickToFocus and/or my mouse bindings?
@@ -180,7 +180,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_5.7"></a>     <a href="#5.7">5.7</a>  Why won't the StartIconic style work with {Netscape,
           etc.}?
 <a name="toc_5.8"></a>     <a href="#5.8">5.8</a>  How do I capture the output (e.g. errors) of fvwm?
-<a name="toc_5.9"></a>     <a href="#5.9">5.9</a>  I try to run some program under FVWM, but it dies with
+<a name="toc_5.9"></a>     <a href="#5.9">5.9</a>  I try to run some program under fvwm, but it dies with
           an X11 error like BadAccess.  The same program works
           just fine under MWM or OLWM.  What's going on?
 <a name="toc_5.10"></a>    <a href="#5.10">5.10</a>  Every time I update my install, my currently running
@@ -206,7 +206,7 @@ if (strlen($site_has_been_loaded) == 0) {
           you going to support that?
 <a name="toc_6.3"></a>     <a href="#6.3">6.3</a>  Where can I get more XPMs for icons?
 <a name="toc_6.4"></a>     <a href="#6.4">6.4</a>  Linux XF86 virtual screen size &amp; fvwm interaction...
-<a name="toc_6.5"></a>     <a href="#6.5">6.5</a>  I know this question doesn't have to do with FVWM, but
+<a name="toc_6.5"></a>     <a href="#6.5">6.5</a>  I know this question doesn't have to do with fvwm, but
           what happened to to rxvt and rclock which Rob Nation
           used to support?  Where can I find them now?
 <a name="toc_6.6"></a>     <a href="#6.6">6.6</a>  How do I set the background with fvwm?
@@ -291,15 +291,15 @@ A: See questions 3.23, 3.24, 3.25, 3.26 that deal with transparency.
 <a name="1."></a>                            <a href="#toc_1.">1</a> - About Fvwm
 ======================================================================
 
-<a name="1.1"></a><a href="#toc_1.1">1.1</a>  What does FVWM stand for?
+<a name="1.1"></a><a href="#toc_1.1">1.1</a>  What does fvwm stand for?
 
 A: &quot;Fill_in_the_blank_with_whatever_f_word_you_like_at_the_time
-   Virtual Window Manager&quot;.  Rob Nation (the original Author of FVWM)
+   Virtual Window Manager&quot;.  Rob Nation (the original Author of fvwm)
    doesn't really remember what the F stood for originally, so we
    have several potential answers:
 
      Feeble, Fabulous, Famous, Fast, Foobar, Fantastic, Flexible,
-     F!@#$%, Flashy, FVWM (the GNU recursive approach), Free, Final,
+     F!@#$%, Flashy, fvwm (the GNU recursive approach), Free, Final,
      Funky, Fred's (who the heck is Fred?), Freakin', Flawed,
      Father-of-all, Feivel (the mouse from &quot;An American Tail&quot;),
      Frungy (hey, where does that come from?), Floppy, Foxy,
@@ -345,7 +345,7 @@ A: New main distribution site (official + beta code):
 
 ----------------------------------------------------------------------
 
-<a name="1.3"></a><a href="#toc_1.3">1.3</a>  Any WWW Sites about FVWM?
+<a name="1.3"></a><a href="#toc_1.3">1.3</a>  Any WWW Sites about fvwm?
 
 A: Yup.  The official site is:
 
@@ -355,11 +355,11 @@ A: Yup.  The official site is:
 
 ----------------------------------------------------------------------
 
-<a name="1.4"></a><a href="#toc_1.4">1.4</a>  Where do I ask questions about FVWM?
+<a name="1.4"></a><a href="#toc_1.4">1.4</a>  Where do I ask questions about fvwm?
 
-A: If your local FVWM maintainer can't help you, then the newsgroup
+A: If your local fvwm maintainer can't help you, then the newsgroup
    comp.windows.x.apps is a good place, but the fvwm mailing list is
-   usually better.  The new FVWM discussion mailing list address is:
+   usually better.  The new fvwm discussion mailing list address is:
 
                            <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>
 
@@ -385,7 +385,7 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    Description
    -----------
 
-   This list is for discussion relating to the FVWM window manager,
+   This list is for discussion relating to the fvwm window manager,
    which is intended to have a small memory footprint and a rich
    feature set, be extremely customizable and extendable and have a
    high degree of Motif MWM compatibility.  All relevant discussion
@@ -405,7 +405,7 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
    <a href="mailto:fvwm-request@fvwm.org">fvwm-request@fvwm.org</a>.  If you have problems with the mailing list
    itself and need to talk to a human, send mail to
    <a href="mailto:fvwm-owner@fvwm.org">fvwm-owner@fvwm.org</a>. This address is for mailing list issues only;
-   reports on the FVWM software will be sent to /dev/null.
+   reports on the fvwm software will be sent to /dev/null.
 
    Archives of previous messages are available; to get them send the
    above mentioned help message and investigate the &quot;index&quot; and &quot;get&quot;
@@ -415,21 +415,21 @@ A: If your local FVWM maintainer can't help you, then the newsgroup
 
    (fvwm-announce)
 
-   This list is for announcements relating to the FVWM window manager,
+   This list is for announcements relating to the fvwm window manager,
    which is intended to have a small memory footprint and a rich
    feature set, be extremely customizable and extendable and have a
    high degree of Motif MWM compatibility.
 
    Replies to messages from this list are set by default to go the
-   FVWM discussion list, <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.
+   fvwm discussion list, <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>.
 
-   The current FVWM distribution is available for ftp at
+   The current fvwm distribution is available for ftp at
    <a href="ftp://ftp.fvwm.org/pub/fvwm/">ftp://ftp.fvwm.org/pub/fvwm/</a>
    ------------------------------------------------------------------
 
 ----------------------------------------------------------------------
 
-<a name="1.5"></a><a href="#toc_1.5">1.5</a>  What are the differences between FVWM 1.xx and 2.xx?
+<a name="1.5"></a><a href="#toc_1.5">1.5</a>  What are the differences between fvwm 1.xx and 2.xx?
 
 A: A lot.  To name a few general ones:
         - Bug fixes.  1.xx is not worked on at all any more.
@@ -499,7 +499,7 @@ A: This is always a difficult question to answer.  We work on fvwm on
 <a name="2."></a>                           <a href="#toc_2.">2</a> - Installation
 ======================================================================
 
-<a name="2.1"></a><a href="#toc_2.1">2.1</a>  I want to use FVWM, but I don't have root access on my machine.
+<a name="2.1"></a><a href="#toc_2.1">2.1</a>  I want to use fvwm, but I don't have root access on my machine.
      Can I still install and run it?
 
 A: Very easily, using the '--prefix' flag at configure time.
@@ -552,7 +552,7 @@ A: Sure - here's one from Graeme McCaffery:
 
 ----------------------------------------------------------------------
 
-<a name="2.3"></a><a href="#toc_2.3">2.3</a>  I'm trying to compile FVWM under SunOS using cc, but the compiler
+<a name="2.3"></a><a href="#toc_2.3">2.3</a>  I'm trying to compile fvwm under SunOS using cc, but the compiler
      is having lots of problems.  What gives?
 
 A: cc under SunOS is not an ANSI C compiler.  Try using acc or gcc
@@ -564,7 +564,7 @@ A: cc under SunOS is not an ANSI C compiler.  Try using acc or gcc
      When I run configure, it reports &quot;no&quot; to &quot;Have XPM support?&quot;  How
      can I get XPM support?
 
-A: FVWM uses the XPM (X PixMap) library to provide support for colored
+A: Fvwm uses the XPM (X PixMap) library to provide support for colored
    and shaped icons.  XPM doesn't ship with the basic X distribution
    as provided by The Open Group or XFree86.  However, many vendors
    will bundle it as a standard component anyway.  If not, you can get
@@ -581,7 +581,7 @@ A: FVWM uses the XPM (X PixMap) library to provide support for colored
    INSTALL.fvwm).  Typically configure will say &quot;Xpm library or header
    not found&quot; if this is the problem.
 
-   Second, your version of XPM may be too old.  FVWM requires XPM 3.4g
+   Second, your version of XPM may be too old.  Fvwm requires XPM 3.4g
    or better.  Typically configure will say &quot;Xpm library version is
    too old!&quot; if this is the problem.  In that case, you'll need to
    install a newer version.
@@ -598,7 +598,7 @@ A: FVWM uses the XPM (X PixMap) library to provide support for colored
    some notes about building using shared libraries in the
    INSTALL.fvwm file.
 
-   If you can't figure it out, contact the FVWM mailing list.  Please
+   If you can't figure it out, contact the fvwm mailing list.  Please
    be sure to provide the type of hardware and operating system you're
    using, how you invoked configure, and extract the lines dealing
    with XPM from the config.log file and include that.
@@ -619,7 +619,7 @@ A: Well, you could probably do something like this.  Have the first
      files in a hidden directory, say ~/.fvwm, much like CDE does, how
      could I do that?
 
-A: FVWM now supports ~/.fvwm search directory by default.
+A: Fvwm now supports ~/.fvwm search directory by default.
 
    This could be probably done similarly to Q2.5 above.  The system rc
    &quot;$datadir&quot;/fvwm/config (or system.fvwm2rc) could do something like:
@@ -639,28 +639,28 @@ A: FVWM now supports ~/.fvwm search directory by default.
 
 ----------------------------------------------------------------------
 
-<a name="2.7"></a><a href="#toc_2.7">2.7</a>  How can I use FVWM with GNOME (version &lt;= 1)?
+<a name="2.7"></a><a href="#toc_2.7">2.7</a>  How can I use fvwm with GNOME (version &lt;= 1)?
 
 A: Since the latest fvwm versions are mostly GNOME compliant, you may
    simply run GNOME applications, like panel, gmc, gnome-terminal and
-   all others with FVWM.
+   all others with fvwm.
 
    The included fvwm-menu-desktop script (with a massive man page)
    will help you build fvwm menus for gnome applications.
 
-   To ensure you run FVWM and not gnome-session, create .Xclients file
+   To ensure you run fvwm and not gnome-session, create .Xclients file
    in your home directory and put a call to fvwm in it. The file
    ~/.xinitrc can be used for the same purpose if you want to bypass
    any system-wide logic installed by your distributor or sysadmin.
 
-   An alternative solution is to run FVWM inside of
+   An alternative solution is to run fvwm inside of
    /usr/bin/gnome-session. After you start gnome-session (don't start
-   FVWM yourself), go to the foot menu in the GNOME panel, then choose
+   fvwm yourself), go to the foot menu in the GNOME panel, then choose
 
 
      System menus / Settings / Desktop / Window Manager
 
-   and create an entry for FVWM.  FVWM supports session management.
+   and create an entry for fvwm.  Fvwm supports session management.
 
    If you run gnome-session, SessionInitFunction and
    SessionRestartFunction are called instead of InitFunction and
@@ -670,7 +670,7 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
 
 
    Here are examples of the GNOME Window Manager hints support in
-   FVWM:
+   fvwm:
 
    o If you run gnome panel inside fvwm without GNOME support, you
      can't fully use GNOME pager applets (if at all); with GNOME
@@ -684,14 +684,14 @@ A: Since the latest fvwm versions are mostly GNOME compliant, you may
 
 ----------------------------------------------------------------------
 
-<a name="2.8"></a><a href="#toc_2.8">2.8</a> How can I use FVWM with GNOME version &gt;= 2 or KDE version &gt;= 2?
+<a name="2.8"></a><a href="#toc_2.8">2.8</a> How can I use fvwm with GNOME version &gt;= 2 or KDE version &gt;= 2?
 
 A: Most standard applications work as any other application with
-   FVWM. However, some features and special applications such as
+   fvwm. However, some features and special applications such as
    panels, pagers, taskbars and desktops need a special
    support. Interaction between the window manager, the desktop
    environment and applications is standardized in the Extended Window
-   Manager Hints specification. FVWM supports this specification since
+   Manager Hints specification. fvwm supports this specification since
    the 2.5.x series (GNOME, GTK, KDE and QT since their version
    2). See the &quot;Extended Window Manager Hints&quot; section of the fvwm
    manual page and the commands and styles which start with &quot;EWMH&quot; for
@@ -731,8 +731,8 @@ A: Most standard applications work as any other application with
 <a name="3."></a>          <a href="#toc_3.">3</a> - Features, Configuration, Functions &amp; Commands
 ======================================================================
 
-<a name="3.1"></a><a href="#toc_3.1">3.1</a>  I use FVWM on a RedHat Linux system and can't figure out how to
-     change my FVWM configuration.  I've read the FVWM man page but
+<a name="3.1"></a><a href="#toc_3.1">3.1</a>  I use fvwm on a RedHat Linux system and can't figure out how to
+     change my fvwm configuration.  I've read the fvwm man page but
      when I edit my .fvwm2rc nothing seems to happen.  What's going
      on?
 
@@ -940,7 +940,7 @@ A: You can't directly with fvwm, but there may be a solution that is
 
 ----------------------------------------------------------------------
 
-<a name="3.7"></a><a href="#toc_3.7">3.7</a>  Will FVWM ever support a separate colormap for each desktop?
+<a name="3.7"></a><a href="#toc_3.7">3.7</a>  Will fvwm ever support a separate colormap for each desktop?
 
 A: Doubtful, although I'd like to see it too.  I believe that it'd be
    possible to change the default colormap whenever you switch desks,
@@ -975,11 +975,11 @@ A: Yes.  For release 2.3.14 and after, put the line
 
 ----------------------------------------------------------------------
 
-<a name="3.9"></a><a href="#toc_3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an FVWM command?  Or
+<a name="3.9"></a><a href="#toc_3.9">3.9</a>  How do I set the Sun keyboard key xxxx to an fvwm command?  Or
      more generally, I'm having problems defining key bindings for
-     FVWM - what can I do?
+     fvwm - what can I do?
 
-A: From Jon Mountjoy, one of FVWM's users:
+A: From Jon Mountjoy, one of fvwm's users:
      - Function keys on Sun Keyboard on Top Row are F1 - F8
      - Keys on the function keypad on the Left of the Sun Keyboard
        are F11 == Stop, F12 == Again, ..., F20 == Cut
@@ -1182,7 +1182,7 @@ A: Start with a new one or convert your old one.  This can be done by
 
 ----------------------------------------------------------------------
 
-<a name="3.11"></a><a href="#toc_3.11">3.11</a>  What happened to the FVWM 1.xx 'include' command?
+<a name="3.11"></a><a href="#toc_3.11">3.11</a>  What happened to the fvwm 1.xx 'include' command?
 
 A: It was actually part of the M4 preprocessing.  You can use the
    'Read' builtin to get the same effect, or use the FvwmM4 module.
@@ -1210,9 +1210,9 @@ A: These windows are known as 'transient' windows because of their
 A: The directory for system-wide configuration files changed from
    ${sysconfdir} (/usr/local/etc, unless set otherwise at configure
    time) to a subdirectory, ${sysconfdir}/fvwm.  Move your config
-   files by hand and restart FVWM.
+   files by hand and restart fvwm.
 
-   This change was made because FVWM now installs several files into
+   This change was made because fvwm now installs several files into
    this directory.
 
 ----------------------------------------------------------------------
@@ -1289,7 +1289,7 @@ A: Write a little shell script to run the shutdown command.
    Set up the sudoers config file to allow you, your wife, etc. to run
    that script with root permissions.
 
-   Add a menu item to your FVWM root menu (or wherever) that invokes
+   Add a menu item to your fvwm root menu (or wherever) that invokes
    &quot;sudo /my/script/name&quot;.
 
 ----------------------------------------------------------------------
@@ -1331,7 +1331,7 @@ A: The following discusses a general solution, you should substitute
    This approach has 3 problems:
      1) You need to use StartKedit function to start your application,
         this will not work if you start it from the command line.
-     2) If for some reason the application is not started, FVWM waits
+     2) If for some reason the application is not started, fvwm waits
         for it in Wait, you will need to press Ctrl-Alt-Esc.
      3) If you have more than one kedit window, it is not guaranteed
         that the right one is resized.
@@ -1440,7 +1440,7 @@ A: Please read the answer to the previous question to understand
 <a name="3.20"></a><a href="#toc_3.20">3.20</a>  I have a multi head setup (multiple screens used under X).  How
       can I tell fvwm to use different configurations for the screens?
 
-A: FVWM spawns itself into all found screens unless -s command line
+A: Fvwm spawns itself into all found screens unless -s command line
    parameter is specified, as explained in the man page.  All spawned
    fvwm processes by default use the same configuration on each
    screen. There are several ways to change the default behavior.
@@ -1652,7 +1652,7 @@ A: See question 3.23 to learn how to define a transparent colorset.
 
 <a name="3.26"></a><a href="#toc_3.26">3.26</a>  How about transparent applications too?
 
-A: This is not really an FVWM related question, you should find X
+A: This is not really an fvwm related question, you should find X
    applications supporting transparency and read their documentation.
 
    Depending on the application you should set the root image in one
@@ -1769,7 +1769,7 @@ A: Yes, with the alpha release 2.5.0 or any later release.  For older
      FvwmM4/Cpp module...
 
 A: Yup, I imagine that you might be.  Things like the InitFunction not
-   being called or windows that were running before FVWM started not
+   being called or windows that were running before fvwm started not
    getting their Borders &amp; Style options set, etc.
 
    The reason for all this is because of the fact that FvwmM4 is a
@@ -1795,7 +1795,7 @@ A: The FvwmFileMgr module disappeared because a file manager doesn't
 
 ----------------------------------------------------------------------
 
-<a name="4.5"></a><a href="#toc_4.5">4.5</a>  I used to use GoodStuff in FVWM 1.xx, but it's not in the 2.xx
+<a name="4.5"></a><a href="#toc_4.5">4.5</a>  I used to use GoodStuff in fvwm 1.xx, but it's not in the 2.xx
      distribution.  What do I use now?
 
 A: GoodStuff was renamed to FvwmButtons.  Same module, new name (that
@@ -1862,7 +1862,7 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
 <a name="5."></a>            <a href="#toc_5.">5</a> - Development, Known Problems &amp; Bug Reports
 ======================================================================
 
-<a name="5.1"></a><a href="#toc_5.1">5.1</a>  I'd really like to see neat feature XYZ in FVWM.  Wouldn't
+<a name="5.1"></a><a href="#toc_5.1">5.1</a>  I'd really like to see neat feature XYZ in fvwm.  Wouldn't
      that be cool?  I even have a patch.  When can it be added?
 
 A: If you plan to write a patch, <u>please</u>, first of all fetch the
@@ -1882,7 +1882,7 @@ A: If you plan to write a patch, <u>please</u>, first of all fetch the
    feature has actually been indirectly implemented via several
    appearance-affecting features).
 
-   I'd like to make a statement about this.  FVWM is supposed to be
+   I'd like to make a statement about this.  fvwm is supposed to be
    small, fast, powerful, and flexible, and sometimes tradeoffs have
    to be made here.  The module interface helps here, as a lot of
    features that not everyone wants or needs don't have to be in the
@@ -2005,18 +2005,18 @@ A: Please do not report any 'bugs' related to XMMS in the fvwm bug
                 xprop
                 FvwmIdent
                 xdpyinfo (maybe)
-        - What exact version of FVWM you are running.
+        - What exact version of fvwm you are running.
         - What OS &amp; version you are running under
         - What version of X11 are you running under, and is it an MIT
           server or a vendor specific server (e.g. the OpenWindow X
           server under SunOS)
-        - How was FVWM compiled (compiler &amp; version, options, etc)
+        - How was fvwm compiled (compiler &amp; version, options, etc)
         - What settings do you have in your config file that may be
           pertinent.
 
 ----------------------------------------------------------------------
 
-<a name="5.4"></a><a href="#toc_5.4">5.4</a>  I have a window that is behaving unexpectedly under FVWM, but
+<a name="5.4"></a><a href="#toc_5.4">5.4</a>  I have a window that is behaving unexpectedly under fvwm, but
      just fine under (whatever other window manager), or I have just
      some random bug.  What do I do?
 
@@ -2125,7 +2125,7 @@ A: The flickering is caused by fvwm constantly redrawing the menus
 <a name="5.7"></a><a href="#toc_5.7">5.7</a>  Why won't the StartIconic style work with {Netscape, etc.}?
 
 A: The application won't allow it.  This has only been observed with
-   Netscape.  When Netscape starts up, FVWM starts the main window in
+   Netscape.  When Netscape starts up, fvwm starts the main window in
    the iconic state.  Netscape immediately issues another MapRequest,
    to which the window manager must respond by de-iconifying the
    window, according to the ICCCM rules.  (Netscape can be persuaded
@@ -2146,7 +2146,7 @@ A: Errors are reported to the standard error file.  You can redirect
 
 ----------------------------------------------------------------------
 
-<a name="5.9"></a><a href="#toc_5.9">5.9</a>  I try to run some program under FVWM, but it dies with an X11
+<a name="5.9"></a><a href="#toc_5.9">5.9</a>  I try to run some program under fvwm, but it dies with an X11
      error like BadAccess.  The same program works just fine under MWM
      or OLWM.  What's going on?
 
@@ -2161,10 +2161,10 @@ A: The error message usually looks something like this:
    Well, this is telling you that there is a conflict in key/button
    assignments.  In your config you have bound some key/button that
    this program really wants to bind to an action, but it can't since
-   FVWM has already done so (but you weren't doing it in the rc file
+   fvwm has already done so (but you weren't doing it in the rc file
    for your previous window manager).  Figure out what the offending
    key binding is and remove it from your fvwm/config, or temporarily
-   via &quot;FvwmForm FvwmForm-Talk&quot; by removing the FVWM binding (see the
+   via &quot;FvwmForm FvwmForm-Talk&quot; by removing the fvwm binding (see the
    man page for the Key &amp; Mouse commands).
 
 ----------------------------------------------------------------------
@@ -2224,7 +2224,7 @@ A: Many applications request a specific position where they want to
 
 A: You may see the following error message on the console:
 
-     [FVWM][PositiveWrite]: &lt;&lt;ERROR&gt;&gt; Failed to read descriptor:
+     [fvwm][PositiveWrite]: &lt;&lt;ERROR&gt;&gt; Failed to read descriptor:
      - data available=N
      - terminate signal=N
 
@@ -2250,18 +2250,18 @@ A: This problem might occur on other applications besides the one
 
    The symptoms as reported by Raymond Toy are:
 
-     I've been using FVWM for ages and it's always worked for me just
-     fine.  However, I've started using Rational Rose for Solaris.  FVWM
+     I've been using fvwm for ages and it's always worked for me just
+     fine.  However, I've started using Rational Rose for Solaris.  fvwm
      seems to get completely confused.
 
-     o FVWM doesn't draw any frames around the Rose window like it
+     o Fvwm doesn't draw any frames around the Rose window like it
        does for all other windows (except for those I explicit said
        not to).
 
      o The Rose window is always on top.  Nothing I do can bring
        another window above the Rose window.
 
-     o Using FVWM's identify window module shows nothing.  No identify
+     o Using fvwm's identify window module shows nothing.  No identify
        window pops up showing the window info.
 
      o Focus sometimes seems to be lost.  (I have focus follows
@@ -2271,7 +2271,7 @@ A: This problem might occur on other applications besides the one
 
      The annoying thing is that this all seems to work with CDE and
      dtwm. I don't want to have to switch to dtwm so any hints or
-     pointers on where to look to get FVWM to understand this window
+     pointers on where to look to get fvwm to understand this window
      would help me a lot.
 
 
@@ -2448,7 +2448,7 @@ A: Turn off the Linux Virtual Screen stuff in your XF86Config file if
 
 ----------------------------------------------------------------------
 
-<a name="6.5"></a><a href="#toc_6.5">6.5</a>  I know this question doesn't have to do with FVWM, but what
+<a name="6.5"></a><a href="#toc_6.5">6.5</a>  I know this question doesn't have to do with fvwm, but what
      happened to to rxvt and rclock which Rob Nation used to support?
      Where can I find them now?
 
@@ -2983,8 +2983,8 @@ your applications request.
 
    Also, GNOME and KDE have desktop icon applications gmc and kfm,
    which enable this functionality.  These applications may be run
-   under FVWM. Nautilus (version &gt;= 2) and kdesktop may be run under
-   FVWM version 2.5.1 or better.
+   under fvwm. Nautilus (version &gt;= 2) and kdesktop may be run under
+   fvwm version 2.5.1 or better.
 
 ----------------------------------------------------------------------
 

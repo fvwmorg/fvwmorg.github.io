@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.21)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.22)"); ?>
 
-<H1>FVWM</H1>
-Section: FVWM 2.5.21 (1)<BR>Updated: 20 January 2006<BR><A HREF="#index">This page contents</A>
+<H1>Fvwm</H1>
+Section: Fvwm 2.5.22 (1)<BR>Updated: 29 August 2007<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -313,7 +313,7 @@ Prints the version of fvwm to
 <I>stderr</I>.
 
 Also prints an information about the compiled in support for
-readline, rplay, stroke, xpm, png,
+readline, rplay, stroke, xpm, png, svg,
 <FONT>GNOME</FONT>
 hints,
 <FONT>EWMH</FONT>
@@ -1096,8 +1096,10 @@ Fvwm can load
 
 <B>.xpm,</B>
 
+<B>.png,</B>
+
 and
-<B>.png</B>
+<B>.svg</B>
 
 images.
 <B>XBM</B>
@@ -1112,12 +1114,17 @@ and
 <B>PNG</B>
 
 formats are color images.
+<B>SVG</B>
+
+is a vector graphics image format.
 Compile-time
 options determine whether fvwm can display
-<B>XPM</B>
+<B>XPM,</B>
+
+<B>PNG</B>
 
 or
-<B>PNG</B>
+<B>SVG</B>
 
 icons and images.
 See the
@@ -1132,6 +1139,198 @@ compile-time option can make fvwm display spiffy
 shaped icons.
 <P>
 <A NAME="lbAM">&nbsp;</A>
+<H3>SVG rendering options</H3>
+
+By default SVG images are rendered as the image creator intended
+them to. But since SVG is a vector graphics format, the images can
+be rendered at any choosen size and rotation, e.g. making it possible
+to use the same icon file rendered at diffrent sizes for the
+<I>Icon</I> and <I>MiniIcon</I>
+
+styles.
+<P>
+The rendering options are specified as a string appended to the SVG
+filename as follows:
+<P>
+<B></B><I>image.svg</I>:[[-]<I>width</I>x[-]<I>height</I>][[+|-]<I>xpos</I>[+|-]<I>ypos</I>][@<I>angle</I>][[*|/]<I>scale</I>]
+
+<P>
+The option string always starts with a colon (':') to separate it
+from the filename. An empty option string can skip this colon, but
+it might still be a good idea to include it to prevent ambiguousness
+if the filename contains any colon.
+
+
+<P>
+
+
+<blockquote><PRE>filename_without_colon.svg
+filename:with:colon.svg:</PRE></blockquote>
+<P>
+
+
+
+<I>width</I>
+
+and
+<I>height</I>
+
+specifies the dimensions of the rendering area in pixels, i.e. the
+dimensions of the resulting image.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:22x22</PRE></blockquote>
+<P>
+
+
+
+Use a
+<I>width</I>
+
+or
+<I>height</I>
+
+value of 0 to keep the aspect ratio.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:0x64
+image.svg:32x0</PRE></blockquote>
+<P>
+
+
+
+A '-' before
+<I>width</I>
+
+mirrors the original image horizontally.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:-0x0</PRE></blockquote>
+<P>
+
+
+
+A '-' before
+<I>height</I>
+
+mirrors the original image vertically.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:0x-0</PRE></blockquote>
+<P>
+
+
+
+<I>xpos</I>
+
+and
+<I>ypos</I>
+
+specifies a translation of the image in pixels. A positive
+<I>xpos</I>
+
+value moves the image to the right. A positive
+<I>ypos</I>
+
+value moves it down. Moving it partially outside of the rendering
+area results in a cropped image.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:-10+0
+image.svg:+0+10
+image.svg:-7-7</PRE></blockquote>
+<P>
+
+
+
+<I>angle</I>
+
+specifies a rotation around the original image center in degrees.
+A positive value rotates the image clockwise. Floating point values
+are recognized.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:@90
+image.svg:@-90
+image.svg:@180
+image.svg:@57.3</PRE></blockquote>
+<P>
+
+
+
+<I>scale</I>
+
+specifes a scaling of the whole image. Scaling it up results in
+a cropped image. Floting point values are recognized. Division by
+zero is ignored.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:*0.5
+image.svg:/2</PRE></blockquote>
+<P>
+
+
+
+Scaling down a translated or rotated image can prevent cropping.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:@45*0.7</PRE></blockquote>
+<P>
+
+
+
+Repeated usage of translation, rotation, and scaling is allowed.
+Translation and rotation are additive. Scaling is multiplicative.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:*2/3</PRE></blockquote>
+<P>
+
+
+
+All of this can be combined. The following renders a horizontally
+mirrored 30 pixels wide and 40 pixels high image rotated 60 degrees
+counterclockwise in the lower left corner of a 75 pixels wide and
+100 pixels high rendering area.
+
+
+<P>
+
+
+<blockquote><PRE>image.svg:-75x100-10+20@-60*2/5</PRE></blockquote>
+<P>
+
+
+
+<P>
+<A NAME="lbAN">&nbsp;</A>
 <H2>MODULES</H2>
 
 <P>
@@ -1179,7 +1378,7 @@ Please refer to the
 
 section for details.
 <P>
-<A NAME="lbAN">&nbsp;</A>
+<A NAME="lbAO">&nbsp;</A>
 <H2>ICCCM COMPLIANCE</H2>
 
 <P>
@@ -1274,7 +1473,7 @@ AddToFunc UrgencyDoneFunc
 
 
 <P>
-<A NAME="lbAO">&nbsp;</A>
+<A NAME="lbAP">&nbsp;</A>
 <H2>GNOME COMPLIANCE</H2>
 
 <P>
@@ -1290,7 +1489,7 @@ hints for some or all windows, the
 
 style can be used.
 <P>
-<A NAME="lbAP">&nbsp;</A>
+<A NAME="lbAQ">&nbsp;</A>
 <H2>EXTENDED WINDOW MANAGER HINTS</H2>
 
 <P>
@@ -1366,7 +1565,7 @@ reserved space as explained in the
 
 command.
 <P>
-<A NAME="lbAQ">&nbsp;</A>
+<A NAME="lbAR">&nbsp;</A>
 <H2>MWM COMPATIBILITY</H2>
 
 <P>
@@ -1379,7 +1578,7 @@ command as well as to the Mwm specific options of the
 
 commands for details.
 <P>
-<A NAME="lbAR">&nbsp;</A>
+<A NAME="lbAS">&nbsp;</A>
 <H2>OPEN LOOK and XVIEW COMPATIBILITY</H2>
 
 Fvwm supports all the Open Look decoration hints (except
@@ -1426,7 +1625,7 @@ Style &lt;application name&gt; ClickToFocus, Lenience</PRE></blockquote>
 
 
 <P>
-<A NAME="lbAS">&nbsp;</A>
+<A NAME="lbAT">&nbsp;</A>
 <H2>M4 PREPROCESSING</H2>
 
 <P>
@@ -1458,7 +1657,7 @@ file (if it appears at all), and start fvwm with the command
 
 
 <P>
-<A NAME="lbAT">&nbsp;</A>
+<A NAME="lbAU">&nbsp;</A>
 <H2>CPP PREPROCESSING</H2>
 
 <P>
@@ -1468,7 +1667,7 @@ Cpp is the C-language pre-processor.  fvwm offers cpp processing
 which mirrors the m4 pre-processing.  To find out about it,
 re-read the M4 section above, but replace &quot;m4&quot; with &quot;cpp&quot;.
 <P>
-<A NAME="lbAU">&nbsp;</A>
+<A NAME="lbAV">&nbsp;</A>
 <H2>AUTO-RAISE</H2>
 
 <P>
@@ -1480,7 +1679,7 @@ auto-raise module,
 <B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>.
 
 <P>
-<A NAME="lbAV">&nbsp;</A>
+<A NAME="lbAW">&nbsp;</A>
 <H2>CONFIGURATION FILES</H2>
 
 <P>
@@ -1511,7 +1710,7 @@ keyboard key.  It is left as an exercise for the user to decide
 which function make sense for initialization and which ones make
 sense for run-time.
 <P>
-<A NAME="lbAW">&nbsp;</A>
+<A NAME="lbAX">&nbsp;</A>
 <H2>SUPPLIED CONFIGURATION</H2>
 
 <P>
@@ -1542,7 +1741,7 @@ package demonstrating the powerful fvwm functionality.
 
 
 <P>
-<A NAME="lbAX">&nbsp;</A>
+<A NAME="lbAY">&nbsp;</A>
 <H2>FONT NAMES AND FONT LOADING</H2>
 
 <P>
@@ -1700,7 +1899,7 @@ support, fvwm loads the font
 &quot;-adobe-courier-bold-r-normal--14-*&quot;. This allows for writing
 portable configuration files.
 <P>
-<A NAME="lbAY">&nbsp;</A>
+<A NAME="lbAZ">&nbsp;</A>
 <H2>FONT AND STRING ENCODING</H2>
 
 <P>
@@ -1941,7 +2140,7 @@ as the encoding (this is useful for bi-directionality) and to use
 <FONT>local_iso8859_6_iconv</FONT>
 for defining the converters.
 <P>
-<A NAME="lbAZ">&nbsp;</A>
+<A NAME="lbBA">&nbsp;</A>
 <H2>FONT SHADOW EFFECTS</H2>
 
 <P>
@@ -2033,7 +2232,7 @@ Note: It can be difficult to find the font,
 
 colors to make this effect look good, but it can look quite good.
 <P>
-<A NAME="lbBA">&nbsp;</A>
+<A NAME="lbBB">&nbsp;</A>
 <H2>BI-DIRECTIONAL TEXT</H2>
 
 <P>
@@ -2062,7 +2261,7 @@ library compile time option, see
 <I>INSTALL.fvwm</I>.
 
 <P>
-<A NAME="lbBB">&nbsp;</A>
+<A NAME="lbBC">&nbsp;</A>
 <H2>KEYBOARD SHORTCUTS</H2>
 
 <P>
@@ -2095,7 +2294,7 @@ and
 <FONT>l</FONT>
 ) can be used instead of the arrow keys.
 <P>
-<A NAME="lbBC">&nbsp;</A>
+<A NAME="lbBD">&nbsp;</A>
 <H2>SESSION MANAGEMENT</H2>
 
 <P>
@@ -2146,7 +2345,7 @@ still kills all copies of fvwm.  Your system must have the
 
 command though.
 <P>
-<A NAME="lbBD">&nbsp;</A>
+<A NAME="lbBE">&nbsp;</A>
 <H2>BOOLEAN ARGUMENTS</H2>
 
 <P>
@@ -2156,7 +2355,7 @@ evaluate to true while &quot;no&quot;, &quot;off&quot;, &quot;false&quot;, &quot
 to false.  Some commands allow &quot;toggle&quot; too which means that the
 feature is disabled if it is currently enabled and vice versa.
 <P>
-<A NAME="lbBE">&nbsp;</A>
+<A NAME="lbBF">&nbsp;</A>
 <H2>CONDITIONAL COMMANDS AND RETURN CODES</H2>
 
 <P>
@@ -2167,7 +2366,7 @@ refer to the section
 
 below.
 <P>
-<A NAME="lbBF">&nbsp;</A>
+<A NAME="lbBG">&nbsp;</A>
 <H2>BUILT-IN KEY AND MOUSE BINDINGS</H2>
 
 <P>
@@ -2229,7 +2428,7 @@ list binding, use this:
 
 
 <P>
-<A NAME="lbBG">&nbsp;</A>
+<A NAME="lbBH">&nbsp;</A>
 <H2>MODULE AND FUNCTION COMMANDS</H2>
 
 <P>
@@ -2279,7 +2478,7 @@ Next it looks for a user-defined complex function called &quot;HelpMe&quot;.
 If no such function exists, fvwm tries to execute a
 module called &quot;HelpMe&quot;.
 <P>
-<A NAME="lbBH">&nbsp;</A>
+<A NAME="lbBI">&nbsp;</A>
 <H2>DELAYED EXECUTION OF COMMANDS</H2>
 
 <P>
@@ -2301,7 +2500,7 @@ To force that all pending changes are applied immediately, use the
 
 commands.
 <P>
-<A NAME="lbBI">&nbsp;</A>
+<A NAME="lbBJ">&nbsp;</A>
 <H2>QUOTING</H2>
 
 <P>
@@ -2339,7 +2538,7 @@ in the same way.  Single characters can be quoted with a preceding
 backslash.  Quoting single characters works even inside other
 kinds of quotes.
 <P>
-<A NAME="lbBJ">&nbsp;</A>
+<A NAME="lbBK">&nbsp;</A>
 <H2>COMMAND EXPANSION</H2>
 
 <P>
@@ -2350,6 +2549,25 @@ encounters an unquoted parameter on the command line it expands it
 to a string indicated by the parameter name.  Unknown parameters
 are left untouched.  Parameter expansion is performed before
 quoting.  To get a literal '$' use &quot;$$&quot;.
+<P>
+If a command is prefixed with a '-' parameter expansion isn't
+performed.  This applies to the command immediately following the '-',
+in which the expansion normally would have taken place. When uesed
+together with other prefix commands it must be added before the other
+prefix.
+<P>
+Example:
+
+
+<P>
+
+
+<blockquote><PRE>Pick -Exec exec xmessage '$[w.name]'</PRE></blockquote>
+<P>
+
+
+
+opens an xmessage dialog with &quot;$[w.name]&quot; unexpanded.
 <P>
 The longer variables may contain additional variables inside the
 name, which are expanded before the outer variable.
@@ -2585,14 +2803,17 @@ $[w.class]
 $[w.resource]
 $[w.iconfile]
 $[w.miniiconfile]
+$[w.iconfile.svgopts]
+$[w.miniiconfile.svgopts]
 <blockquote>
 The window's name, icon name, resource class and resource name,
 file name of its icon or mini icon defined with the
 <I>Icon</I> or <I>MiniIcon</I>
 
 style (including the full path if the file was found on disk),
-or unexpanded &quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated
-with the command.
+and (if fvwm is compiled with SVG support) the icon or mini icon
+svg rendering options (including the leading colon), or unexpanded
+&quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated with the command.
 <P>
 Note, the first 4 variables may include any kind of characters, so
 these variables are quoted.  It means that the value is surrounded
@@ -2804,7 +3025,7 @@ Some examples can be found in the description of the
 
 command.
 <P>
-<A NAME="lbBK">&nbsp;</A>
+<A NAME="lbBL">&nbsp;</A>
 <H2>SCRIPTING AND COMPLEX FUNCTIONS</H2>
 
 <P>
@@ -2837,7 +3058,7 @@ achieve the same functionality you can use the
 
 command instead.
 <P>
-<A NAME="lbBL">&nbsp;</A>
+<A NAME="lbBM">&nbsp;</A>
 <H2>THE LIST OF FVWM COMMANDS</H2>
 
 <P>
@@ -2869,7 +3090,7 @@ usefulness to the newcomer.
 
 
 <P>
-<A NAME="lbBM">&nbsp;</A>
+<A NAME="lbBN">&nbsp;</A>
 <H3>MENUS</H3>
 
 <P>
@@ -2951,9 +3172,13 @@ optional.
 <P>
 Additionally, if the menu is too long to fit on the screen, the
 excess menu items are put in a continuation menu and a sub menu
-with the string &quot;More...&quot; is placed at the bottom of the menu.
+with the string &quot;More...&quot; is placed at the bottom of the menu. The
+&quot;More...&quot; string honors the locale settings.
+<P>
 Finally, there may be a picture running up either side of the menu
 (a &quot;side bar&quot;).
+<P>
+<P>
 <P>
 <DT><B>Menu Navigation</B>
 
@@ -5077,7 +5302,7 @@ Does nothing.  This is used to insert a title line in a popup or
 menu.
 <P>
 </DL>
-<A NAME="lbBN">&nbsp;</A>
+<A NAME="lbBO">&nbsp;</A>
 <H3>MISCELLANEOUS COMMANDS</H3>
 
 <P>
@@ -6636,7 +6861,7 @@ passed to WindowList are separated by commas and can be
 
 <I>Layer m [n]</I>,
 
-<I>UseListSkip</I> / <I>OnlyListSkip</I>,
+<I>UseSkipList</I> / <I>OnlySkipList</I>,
 
 <I>NoDeskSort</I>,
 
@@ -6853,7 +7078,7 @@ menu. See the discussion for
 <P>
 <P>
 </DL>
-<A NAME="lbBO">&nbsp;</A>
+<A NAME="lbBP">&nbsp;</A>
 <H3>COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</H3>
 
 <P>
@@ -6925,7 +7150,7 @@ only in its layer.  To bring a window to the absolute bottom, use
 
 
 <P>
-<DT><B>Move [[screen </B><I>screen</I>]<BR>&nbsp;[<I>w</I>|<I>m</I>]<I>x</I>[<I>p</I>]&nbsp;[<I>w</I>|<I>m</I>]<I>y</I>[<I>p</I>]&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]
+<DT><B>Move [[screen </B><I>screen</I>]<BR>&nbsp;[<I>w</I>|<I>m</I>]<I>x</I>[<I>p</I>|<I>w</I>]&nbsp;[<I>w</I>|<I>m</I>]...<I>y</I>[<I>p</I>|<I>w</I>]...&nbsp;[<I>Warp</I>]]&nbsp;|&nbsp;[<I>pointer</I>]
 
 <DD>
 Allows the user to move a window.  If called from somewhere in a
@@ -6987,7 +7212,10 @@ By default, the numeric value given is interpreted as a percentage
 of the screen width/height, but a trailing
 '<I>p</I>'
 
-changes the interpretation to mean pixels.  To move the window
+changes the interpretation to mean pixels, while a trailing
+'<I>w</I>'
+
+means precent of the window width/height.  To move the window
 relative to its current position, add the
 '<I>w</I>'
 
@@ -7002,6 +7230,14 @@ location of the pointer, add the
 &quot;keep&quot; can be specified in place of
 <I>x</I> or <I>y</I>.
 
+<P>
+For advanced uses, the arguments
+<I>x</I> and <I>y</I>
+
+can be used multiple times, but without the prefix
+'<I>m</I>' or'<I>w</I>'.
+
+(See complex examples below).
 <P>
 Simple Examples:
 
@@ -7040,10 +7276,14 @@ Move w+5 50
 
 # Move window up 10 pixels, and so left edge
 # is at x=40 pixels
-Move 40p w-10p
+Move 40p w+-10p
 
 # Move window to the mouse pointer location
-Move m+0 m+0</PRE></blockquote>
+Move m+0 m+0
+
+# Move window to center of screen (50% of screen
+# poition minus 50% of widow size).
+Move 50-50w 50-50w</PRE></blockquote>
 <P>
 
 
@@ -7701,7 +7941,7 @@ is omitted or invalid.
 <P>
 <P>
 </DL>
-<A NAME="lbBP">&nbsp;</A>
+<A NAME="lbBQ">&nbsp;</A>
 <H3>COMMANDS FOR FOCUS AND MOUSE MOVEMENT</H3>
 
 <P>
@@ -7853,7 +8093,7 @@ root window on screen 1:
 <P>
 <P>
 </DL>
-<A NAME="lbBQ">&nbsp;</A>
+<A NAME="lbBR">&nbsp;</A>
 <H3>COMMANDS CONTROLLING WINDOW STATE</H3>
 
 <P>
@@ -8227,7 +8467,7 @@ command instead.
 <P>
 <P>
 </DL>
-<A NAME="lbBR">&nbsp;</A>
+<A NAME="lbBS">&nbsp;</A>
 <H3>COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</H3>
 
 <P>
@@ -9105,7 +9345,7 @@ option is enabled.
 <P>
 <P>
 </DL>
-<A NAME="lbBS">&nbsp;</A>
+<A NAME="lbBT">&nbsp;</A>
 <H3>THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</H3>
 
 <P>
@@ -9346,7 +9586,7 @@ slashes ('/').  The last style in these groups is the default.
 
 <I>MinOverlapPercentPlacement</I> / <I>TileManualPlacement</I> / 
 
-<I>TileCascadePlacement</I> / <I>CenterPlacement</I> / <I>UnderMousePlacement</I>,
+<I>TileCascadePlacement</I> / <I>PositionPlacement</I>,
 
 <I>MinOverlapPlacementPenalties</I>,
 
@@ -10157,7 +10397,10 @@ but is deprecated.
 <I>HandleWidth</I>
 
 takes a numeric argument which is the width of the border to place
-the window if it does have resize-handles.
+the window if it does have resize-handles.  Using
+<I>HandleWidth</I>
+
+without an argument restores the default.
 <P>
 <I>BorderWidth</I>
 
@@ -10166,7 +10409,10 @@ the window if it does not have resize-handles.  It is used only if
 the
 <I>!Handles</I>
 
-style is specified too.
+style is specified too.  Using
+<I>BorderWidth</I>
+
+without an argument restores the default.
 <P>
 <I>DepressableBorder</I>
 
@@ -10917,9 +11163,40 @@ situation. The default is
 <I>TileCascadePlacement</I>.
 
 <P>
-<I>CenterPlacement</I>
+<I>PositionPlacement</I> [<I>Center</I>|<I>UnderMouse</I>|<I>move-arguments</I>]
 
-automatically places new windows in the center of the display.
+When used without an argument, new windows are placed in the
+top left corner of the display.  With the argument
+<I>Center</I>,
+
+all new window appear at the center of the screen, and with
+<I>UnderMouse</I>,
+
+windows are centered under the mouse pointer.  If any other
+<I>move-arguments</I>
+
+are given, they are interpreted exactly as the
+<B>Move</B>
+
+command does (with the exception that references to the current
+window position do not work as the window has not been placed
+yet).
+<P>
+Examples:
+
+
+<P>
+
+
+<blockquote><PRE># place new windows under pointer
+Style * PositionPlacement UnderMouse
+
+# place center of window at position 500 300
+Style * PositionPlacement 500p-50w 300p-50w</PRE></blockquote>
+<P>
+
+
+
 <P>
 <I>CascadePlacement</I>
 
@@ -10943,10 +11220,6 @@ but uses
 <I>ManualPlacement</I>
 
 as the fall-back method.
-<P>
-<I>UnderMousePlacement</I>
-
-automatically places new windows centered at the current cursor position.
 <P>
 <I>MinOverlapPlacement</I>
 
@@ -10989,8 +11262,7 @@ takes at most 6 positive or null decimal arguments:
 
 
 
-if trailing arguments are missing
-the default is used which is:
+if trailing arguments are missing the default is used which is:
 
 
 <P>
@@ -11001,6 +11273,7 @@ the default is used which is:
 
 
 
+To reset this style to the default values, prefix it with a '!'.
 This style configures the
 <I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
 
@@ -11081,6 +11354,7 @@ which are:
 
 
 
+To reset this style to the default values, prefix it with a '!'.
 This style affects the
 <I>MinOverlapPercentPlacement</I>
 
@@ -12035,7 +12309,7 @@ are exactly the same as for the
 command.
 <P>
 </DL>
-<A NAME="lbBT">&nbsp;</A>
+<A NAME="lbBU">&nbsp;</A>
 <H3>OTHER COMMANDS CONTROLLING WINDOW STYLES</H3>
 
 <P>
@@ -13387,7 +13661,7 @@ does.
 <P>
 <P>
 </DL>
-<A NAME="lbBU">&nbsp;</A>
+<A NAME="lbBV">&nbsp;</A>
 <H3>COMMANDS CONTROLLING THE VIRTUAL DESKTOP</H3>
 
 <P>
@@ -14046,7 +14320,7 @@ Xinerama On</PRE></blockquote>
 <P>
 <P>
 </DL>
-<A NAME="lbBV">&nbsp;</A>
+<A NAME="lbBW">&nbsp;</A>
 <H3>COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</H3>
 
 <P>
@@ -14672,7 +14946,7 @@ command.
 <P>
 <P>
 </DL>
-<A NAME="lbBW">&nbsp;</A>
+<A NAME="lbBX">&nbsp;</A>
 <H3>CONDITIONAL COMMANDS</H3>
 
 <P>
@@ -14688,7 +14962,7 @@ that works on global conditions unrelated to windows.  The syntax
 of the conditions is described below.  For readability, the list
 of conditions is located at the end of this section.
 <P>
-<A NAME="lbBX">&nbsp;</A>
+<A NAME="lbBY">&nbsp;</A>
 <H3>Return Codes</H3>
 
 <P>
@@ -14719,7 +14993,7 @@ without altering the return code, the
 
 command can be used.
 <P>
-<A NAME="lbBY">&nbsp;</A>
+<A NAME="lbBZ">&nbsp;</A>
 <H3>The Ring of Windows</H3>
 
 <P>
@@ -14740,7 +15014,7 @@ respectively
 
 styles are used) or by the last time they had the focus.
 <P>
-<A NAME="lbBZ">&nbsp;</A>
+<A NAME="lbCA">&nbsp;</A>
 <H3>List of Conditional Commands</H3>
 
 <P>
@@ -15394,7 +15668,7 @@ WindowId $[BOOKMARKED_WINDOW] WarpToWindow</PRE></blockquote>
 
 <P>
 </DL>
-<A NAME="lbCA">&nbsp;</A>
+<A NAME="lbCB">&nbsp;</A>
 <H3>Conditions</H3>
 
 <P>
@@ -15909,7 +16183,7 @@ condition matches only windows that are at least partially
 visible on the current viewport and not completely overlapped by
 other windows.
 <P>
-<A NAME="lbCB">&nbsp;</A>
+<A NAME="lbCC">&nbsp;</A>
 <H3>MODULE COMMANDS</H3>
 
 <P>
@@ -16296,7 +16570,7 @@ complex commands in modules.
 <P>
 <P>
 </DL>
-<A NAME="lbCC">&nbsp;</A>
+<A NAME="lbCD">&nbsp;</A>
 <H3>QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</H3>
 
 <P>
@@ -16459,7 +16733,7 @@ xsm remotely.
 <P>
 <P>
 </DL>
-<A NAME="lbCD">&nbsp;</A>
+<A NAME="lbCE">&nbsp;</A>
 <H3>COLORSETS</H3>
 
 <P>
@@ -17013,7 +17287,7 @@ removes the shape mask from the colorset while
 removes the background pixmap or gradient.
 <P>
 </DL>
-<A NAME="lbCE">&nbsp;</A>
+<A NAME="lbCF">&nbsp;</A>
 <H2>EXAMPLES</H2>
 
 <P>
@@ -17133,7 +17407,7 @@ Resets a definition of all colorsets.
 <P>
 <P>
 </DL>
-<A NAME="lbCF">&nbsp;</A>
+<A NAME="lbCG">&nbsp;</A>
 <H3>COLOR GRADIENTS</H3>
 
 <P>
@@ -17240,7 +17514,7 @@ Colorset 0 HGradient \
 
 <P>
 </DL>
-<A NAME="lbCG">&nbsp;</A>
+<A NAME="lbCH">&nbsp;</A>
 <H2>ENVIRONMENT</H2>
 
 <P>
@@ -17288,7 +17562,7 @@ Note, the state files are named
 and normally are removed automatically when not used anymore.
 <P>
 </DL>
-<A NAME="lbCH">&nbsp;</A>
+<A NAME="lbCI">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -17297,7 +17571,7 @@ was written by Tom LaStrange.  After Robert Nation came Charles
 Hines, followed by Brady Montz. Currently fvwm is developed by a
 number of people on the fvwm-workers mailing list.
 <P>
-<A NAME="lbCI">&nbsp;</A>
+<A NAME="lbCJ">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 <P>
@@ -17309,7 +17583,7 @@ General Public License (GPL). Please refer to the
 
 file that came with fvwm for details.
 <P>
-<A NAME="lbCJ">&nbsp;</A>
+<A NAME="lbCK">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -17354,68 +17628,71 @@ The official fvwm homepage is
 <DT><A HREF="#lbAJ">INITIALIZATION</A><DD>
 <DT><A HREF="#lbAK">COMPILATION OPTIONS</A><DD>
 <DT><A HREF="#lbAL">ICONS AND IMAGES</A><DD>
-<DT><A HREF="#lbAM">MODULES</A><DD>
-<DT><A HREF="#lbAN">ICCCM COMPLIANCE</A><DD>
-<DT><A HREF="#lbAO">GNOME COMPLIANCE</A><DD>
-<DT><A HREF="#lbAP">EXTENDED WINDOW MANAGER HINTS</A><DD>
-<DT><A HREF="#lbAQ">MWM COMPATIBILITY</A><DD>
-<DT><A HREF="#lbAR">OPEN LOOK and XVIEW COMPATIBILITY</A><DD>
-<DT><A HREF="#lbAS">M4 PREPROCESSING</A><DD>
-<DT><A HREF="#lbAT">CPP PREPROCESSING</A><DD>
-<DT><A HREF="#lbAU">AUTO-RAISE</A><DD>
-<DT><A HREF="#lbAV">CONFIGURATION FILES</A><DD>
-<DT><A HREF="#lbAW">SUPPLIED CONFIGURATION</A><DD>
-<DT><A HREF="#lbAX">FONT NAMES AND FONT LOADING</A><DD>
-<DT><A HREF="#lbAY">FONT AND STRING ENCODING</A><DD>
-<DT><A HREF="#lbAZ">FONT SHADOW EFFECTS</A><DD>
-<DT><A HREF="#lbBA">BI-DIRECTIONAL TEXT</A><DD>
-<DT><A HREF="#lbBB">KEYBOARD SHORTCUTS</A><DD>
-<DT><A HREF="#lbBC">SESSION MANAGEMENT</A><DD>
-<DT><A HREF="#lbBD">BOOLEAN ARGUMENTS</A><DD>
-<DT><A HREF="#lbBE">CONDITIONAL COMMANDS AND RETURN CODES</A><DD>
-<DT><A HREF="#lbBF">BUILT-IN KEY AND MOUSE BINDINGS</A><DD>
-<DT><A HREF="#lbBG">MODULE AND FUNCTION COMMANDS</A><DD>
-<DT><A HREF="#lbBH">DELAYED EXECUTION OF COMMANDS</A><DD>
-<DT><A HREF="#lbBI">QUOTING</A><DD>
-<DT><A HREF="#lbBJ">COMMAND EXPANSION</A><DD>
-<DT><A HREF="#lbBK">SCRIPTING AND COMPLEX FUNCTIONS</A><DD>
-<DT><A HREF="#lbBL">THE LIST OF FVWM COMMANDS</A><DD>
 <DL>
-<DT><A HREF="#lbBM">MENUS</A><DD>
-<DT><A HREF="#lbBN">MISCELLANEOUS COMMANDS</A><DD>
-<DT><A HREF="#lbBO">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
-<DT><A HREF="#lbBP">COMMANDS FOR FOCUS AND MOUSE MOVEMENT</A><DD>
-<DT><A HREF="#lbBQ">COMMANDS CONTROLLING WINDOW STATE</A><DD>
-<DT><A HREF="#lbBR">COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</A><DD>
-<DT><A HREF="#lbBS">THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</A><DD>
-<DT><A HREF="#lbBT">OTHER COMMANDS CONTROLLING WINDOW STYLES</A><DD>
-<DT><A HREF="#lbBU">COMMANDS CONTROLLING THE VIRTUAL DESKTOP</A><DD>
-<DT><A HREF="#lbBV">COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</A><DD>
-<DT><A HREF="#lbBW">CONDITIONAL COMMANDS</A><DD>
-<DT><A HREF="#lbBX">Return Codes</A><DD>
-<DT><A HREF="#lbBY">The Ring of Windows</A><DD>
-<DT><A HREF="#lbBZ">List of Conditional Commands</A><DD>
-<DT><A HREF="#lbCA">Conditions</A><DD>
-<DT><A HREF="#lbCB">MODULE COMMANDS</A><DD>
-<DT><A HREF="#lbCC">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
-<DT><A HREF="#lbCD">COLORSETS</A><DD>
+<DT><A HREF="#lbAM">SVG rendering options</A><DD>
 </DL>
-<DT><A HREF="#lbCE">EXAMPLES</A><DD>
+<DT><A HREF="#lbAN">MODULES</A><DD>
+<DT><A HREF="#lbAO">ICCCM COMPLIANCE</A><DD>
+<DT><A HREF="#lbAP">GNOME COMPLIANCE</A><DD>
+<DT><A HREF="#lbAQ">EXTENDED WINDOW MANAGER HINTS</A><DD>
+<DT><A HREF="#lbAR">MWM COMPATIBILITY</A><DD>
+<DT><A HREF="#lbAS">OPEN LOOK and XVIEW COMPATIBILITY</A><DD>
+<DT><A HREF="#lbAT">M4 PREPROCESSING</A><DD>
+<DT><A HREF="#lbAU">CPP PREPROCESSING</A><DD>
+<DT><A HREF="#lbAV">AUTO-RAISE</A><DD>
+<DT><A HREF="#lbAW">CONFIGURATION FILES</A><DD>
+<DT><A HREF="#lbAX">SUPPLIED CONFIGURATION</A><DD>
+<DT><A HREF="#lbAY">FONT NAMES AND FONT LOADING</A><DD>
+<DT><A HREF="#lbAZ">FONT AND STRING ENCODING</A><DD>
+<DT><A HREF="#lbBA">FONT SHADOW EFFECTS</A><DD>
+<DT><A HREF="#lbBB">BI-DIRECTIONAL TEXT</A><DD>
+<DT><A HREF="#lbBC">KEYBOARD SHORTCUTS</A><DD>
+<DT><A HREF="#lbBD">SESSION MANAGEMENT</A><DD>
+<DT><A HREF="#lbBE">BOOLEAN ARGUMENTS</A><DD>
+<DT><A HREF="#lbBF">CONDITIONAL COMMANDS AND RETURN CODES</A><DD>
+<DT><A HREF="#lbBG">BUILT-IN KEY AND MOUSE BINDINGS</A><DD>
+<DT><A HREF="#lbBH">MODULE AND FUNCTION COMMANDS</A><DD>
+<DT><A HREF="#lbBI">DELAYED EXECUTION OF COMMANDS</A><DD>
+<DT><A HREF="#lbBJ">QUOTING</A><DD>
+<DT><A HREF="#lbBK">COMMAND EXPANSION</A><DD>
+<DT><A HREF="#lbBL">SCRIPTING AND COMPLEX FUNCTIONS</A><DD>
+<DT><A HREF="#lbBM">THE LIST OF FVWM COMMANDS</A><DD>
 <DL>
-<DT><A HREF="#lbCF">COLOR GRADIENTS</A><DD>
+<DT><A HREF="#lbBN">MENUS</A><DD>
+<DT><A HREF="#lbBO">MISCELLANEOUS COMMANDS</A><DD>
+<DT><A HREF="#lbBP">COMMANDS AFFECTING WINDOW MOVEMENT AND PLACEMENT</A><DD>
+<DT><A HREF="#lbBQ">COMMANDS FOR FOCUS AND MOUSE MOVEMENT</A><DD>
+<DT><A HREF="#lbBR">COMMANDS CONTROLLING WINDOW STATE</A><DD>
+<DT><A HREF="#lbBS">COMMANDS FOR MOUSE, KEY AND STROKE BINDINGS</A><DD>
+<DT><A HREF="#lbBT">THE STYLE COMMAND (CONTROLLING WINDOW STYLES)</A><DD>
+<DT><A HREF="#lbBU">OTHER COMMANDS CONTROLLING WINDOW STYLES</A><DD>
+<DT><A HREF="#lbBV">COMMANDS CONTROLLING THE VIRTUAL DESKTOP</A><DD>
+<DT><A HREF="#lbBW">COMMANDS FOR USER FUNCTIONS AND SHELL COMMANDS</A><DD>
+<DT><A HREF="#lbBX">CONDITIONAL COMMANDS</A><DD>
+<DT><A HREF="#lbBY">Return Codes</A><DD>
+<DT><A HREF="#lbBZ">The Ring of Windows</A><DD>
+<DT><A HREF="#lbCA">List of Conditional Commands</A><DD>
+<DT><A HREF="#lbCB">Conditions</A><DD>
+<DT><A HREF="#lbCC">MODULE COMMANDS</A><DD>
+<DT><A HREF="#lbCD">QUIT, RESTART AND SESSION MANAGEMENT COMMANDS</A><DD>
+<DT><A HREF="#lbCE">COLORSETS</A><DD>
 </DL>
-<DT><A HREF="#lbCG">ENVIRONMENT</A><DD>
-<DT><A HREF="#lbCH">AUTHORS</A><DD>
-<DT><A HREF="#lbCI">COPYRIGHT</A><DD>
-<DT><A HREF="#lbCJ">BUGS</A><DD>
+<DT><A HREF="#lbCF">EXAMPLES</A><DD>
+<DL>
+<DT><A HREF="#lbCG">COLOR GRADIENTS</A><DD>
+</DL>
+<DT><A HREF="#lbCH">ENVIRONMENT</A><DD>
+<DT><A HREF="#lbCI">AUTHORS</A><DD>
+<DT><A HREF="#lbCJ">COPYRIGHT</A><DD>
+<DT><A HREF="#lbCK">BUGS</A><DD>
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 11:51:35 GMT, January 20, 2007
+Time: 12:36:10 GMT, August 29, 2007
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 20-Jan-2007 -->
+<!-- Automatically generated by manpages2php on 29-Aug-2007 -->
