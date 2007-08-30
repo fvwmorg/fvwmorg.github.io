@@ -1,3 +1,8 @@
+2007-08-30  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
+
+	* documentation/manpages:
+	regenerated manpages without old manpage
+
 2007-08-29  Renato Caldas  <seventhguardian@gmail.com>
 
 	* definitions.inc:
