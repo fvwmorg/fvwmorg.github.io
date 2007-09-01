@@ -1,3 +1,16 @@
+2007-09-01  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
+
+	* definitions.inc:
+	updated for 2.5.23 release
+
+	* doc/manpages:
+	regenerated man pages
+
+	* authors/index.php:
+	* news/index.php:
+	* documentation/faq/index.php:
+	regenerated for 2.5.23
+
 2007-08-30  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
 
 	* documentation/manpages:

@@ -56,7 +56,7 @@ SVG image loader.  ARGB/animated mouse cursor loading.
 
 <h4 class="author">Thomas Adam</h4>
 <p class="author">
-Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle.
+Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle. StartShaded style option.
 </p>
 
 <h4 class="author">Serge (gentoosiast) Koksharov</h4>
