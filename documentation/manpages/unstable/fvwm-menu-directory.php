@@ -42,7 +42,7 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm-menu-directory in unstable branch (2.5.23)"); ?>
+<?php decoration_window_start("Manual page for fvwm-menu-directory in unstable branch (2.5.24)"); ?>
 
 <H1>fvwm-menu-directory</H1>
 Section: Fvwm Utilities (1)<BR>Updated: 2005-07-08<BR><A HREF="#index">This page contents</A>
@@ -414,9 +414,9 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 10:58:04 GMT, September 01, 2007
+Time: 20:58:03 GMT, September 01, 2007
 
 
 <?php decoration_window_end(); ?>

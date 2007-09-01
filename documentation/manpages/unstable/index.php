@@ -42,17 +42,16 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for index in unstable branch (2.5.23)"); ?>
+<?php decoration_window_start("Manual page for index in unstable branch (2.5.24)"); ?>
 
 	<h1>Index</h1>
 	<hr>
-	These pages were last generated on 01-Sep-2007 by luthien,
-	from the 2.5.x man pages.<!-- in directory ../../../fvwm. -->
+	These pages were last generated on 01-Sep-2007 by griph,
+	from the 2.5.x man pages.<!-- in directory /local/griph/fvwm/unstable. -->
 
 	<hr>
 	Start of man pages in section 1.
 	<ul>
-			<li><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a>
 			<li><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a>
 			<li><a href="<?php echo conv_link_target('./FvwmAnimate.php');?>">FvwmAnimate</a>
 			<li><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a>

@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmConsoleC.pl in unstable branch (2.5.23)"); ?>
+<?php decoration_window_start("Manual page for FvwmConsoleC.pl in unstable branch (2.5.24)"); ?>
 
 <H1>FvwmConsoleC.pl</H1>
-Section: Fvwm Modules (1)<BR>Updated: 1 September 2007 (2.5.23)<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.5.24)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -286,7 +286,7 @@ FvwmConsoleC.pl should be invoked by FvwmConsole.
 <A NAME="lbAI">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A HREF="/cgi-bin/man/man2html/1x+FvwmConsole">FvwmConsole</A>(1x), <A HREF="/cgi-bin/man/man2html/1+perlre">perlre</A>(1)
+<A HREF="http://localhost/cgi-bin/man/man2html/1x+FvwmConsole">FvwmConsole</A>(1x), <A HREF="http://localhost/cgi-bin/man/man2html/1+perlre">perlre</A>(1)
 <P>
 <A NAME="lbAJ">&nbsp;</A>
 <H2>AUTHOR</H2>
@@ -309,9 +309,9 @@ Toshi Isogai
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 10:58:04 GMT, September 01, 2007
+Time: 20:58:02 GMT, September 01, 2007
 
 
 <?php decoration_window_end(); ?>

@@ -1,5 +1,8 @@
 2007-09-01  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
 
+	* documentation/manpages:
+	regenerated manpages without old manpage left in tree
+
 	* doc/unstable:
 	updated html documentation
 

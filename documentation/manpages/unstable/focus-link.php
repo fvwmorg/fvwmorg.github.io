@@ -42,7 +42,7 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for focus-link in unstable branch (2.5.23)"); ?>
+<?php decoration_window_start("Manual page for focus-link in unstable branch (2.5.24)"); ?>
 
 <H1>focus-link.pl</H1>
 Section: User Commands  (1)<BR><A HREF="#index">This page contents</A>
@@ -296,9 +296,9 @@ Toshi Isogai  <A HREF="mailto:isogai@ucsub.colorado.edu">isogai@ucsub.colorado.e
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 10:58:04 GMT, September 01, 2007
+Time: 20:58:03 GMT, September 01, 2007
 
 
 <?php decoration_window_end(); ?>

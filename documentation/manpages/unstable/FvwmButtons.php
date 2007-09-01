@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmButtons in unstable branch (2.5.23)"); ?>
+<?php decoration_window_start("Manual page for FvwmButtons in unstable branch (2.5.24)"); ?>
 
 <H1>FvwmButtons</H1>
-Section: Fvwm Modules (1)<BR>Updated: 1 September 2007 (2.5.23)<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.5.24)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -1403,9 +1403,9 @@ Joshua Feng, Scott Smedley.
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 10:58:04 GMT, September 01, 2007
+Time: 20:58:02 GMT, September 01, 2007
 
 
 <?php decoration_window_end(); ?>
