@@ -1,11 +1,11 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"><title>MenuStyle</title><link rel="stylesheet" href="../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>MenuStyle</title><link rel="stylesheet" href="./../style.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets Vsnapshot_6661"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr>
 <td align="left" valign="top"><a href="http://www.fvwm.org"><img src="../images/m.logo.png" align="left" border="0"></a></td>
 <td class="postheader" valign="top">
-	<a href="../index.html"><font class="header">Home</font></a> &#8901;
-	<a href="../allCommands.html"><font class="header">All Commands</font></a> &#8901;
-	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> &#8901;
-	<a href="../modules.html"><font class="header">Modules</font></a> &#8901;
+	<a href="../index.html"><font class="header">Home</font></a> ⋅
+	<a href="../allCommands.html"><font class="header">All Commands</font></a> ⋅
+	<a href="../groupedCommands.html"><font class="header">Grouped Commands</font></a> ⋅
+	<a href="../modules.html"><font class="header">Modules</font></a> ⋅
 	<a href="http://www.fvwm.org/documentation/faq.html"><font class="header">FAQ</font></a>
 </td>
 
@@ -420,20 +420,51 @@ denoting a sub menu, the mini icons and the side pic) in the blank
 area.  The string consists of spaces,
 <span class="keysym">Tab</span>
 characters and formatting directives beginning with '%'. Any
-illegal characters and formatting directives are silently ignored:</p><div class="informaltable"><table border="1"><colgroup><col><col></colgroup><thead><tr><th align="center">Formatting Directive</th><th align="left">Description</th></tr></thead><tbody><tr><td align="left"><span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%c</em></span> &amp; <span class="emphasis"><em>%r</em></span></td><td align="left">Insert the next item label. Up to three labels can be used. The item column is left-aligned (<span class="emphasis"><em>%l</em></span>), centered (<span class="emphasis"><em>%c</em></span>) or right-aligned (<span class="emphasis"><em>%r</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%i</em></span></td><td align="left">Inserts the mini icon.</td></tr><tr><td align="left"><span class="emphasis"><em>%&gt;</em></span> &amp; <span class="emphasis"><em>%&lt;</em></span></td><td align="left">Insert the sub menu triangle pointing either to the right (<span class="emphasis"><em>%&gt;</em></span>) or to the left (<span class="emphasis"><em>%&lt;</em></span>).</td></tr><tr><td align="left"><span class="emphasis"><em>%|</em></span></td><td align="left">The first %| denotes the beginning of the area that is highlighted either with a background color or a relief (or both). The second <span class="emphasis"><em>%|</em></span> marks the end of this area.  <span class="emphasis"><em>%|</em></span> can be used up to twice in the string.  If you do not add one or both of them, fvwm sets the margins to the margins of the whole item (not counting the side picture).</td></tr><tr><td align="left"><span class="emphasis"><em>%s</em></span></td><td align="left">Places the side picture either at the beginning or the end of the menu. This directive may be used only once and only as the first or last in the format string. If the <span class="emphasis"><em>%s</em></span> is not at the beginning of the string, menus are not drawn properly.</td></tr><tr><td align="left"><span class="emphasis"><em>Space</em></span>, <span class="emphasis"><em>Tab</em></span>, <span class="emphasis"><em>%Space</em></span> &amp; <span class="emphasis"><em>%Tab</em></span></td><td align="left">Add gap of one space, or a tab, using the width of the menu font. When using a tab, the size of the gap can be one to 8 spaces since the tab position is a multiple of 8 from the edge of the menu. The whole string must be quoted if spaces or tabs are used.</td></tr><tr><td align="left"><span class="emphasis"><em>%p</em></span></td><td align="left">Like Space and Tab <span class="emphasis"><em>%p</em></span> inserts an empty area into the item, but with better control of its size (see below).</td></tr></tbody></table></div><p>You can define an additional space before and after each of the
+illegal characters and formatting directives are silently ignored:</p><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>%l</em></span>,
+	  <span class="emphasis"><em>%c</em></span>
+	  and <span class="emphasis"><em>%r</em></span></span></dt><dd><p>Insert the next item label. Up to three labels
+	can be used. The item column is left-aligned
+	(<span class="emphasis"><em>%l</em></span>), centered
+	(<span class="emphasis"><em>%c</em></span>) or right-aligned
+	(<span class="emphasis"><em>%r</em></span>).</p></dd><dt><span class="term"><span class="emphasis"><em>%i</em></span></span></dt><dd><p>Inserts the mini icon.</p></dd><dt><span class="term"><span class="emphasis"><em>%&gt;</em></span>
+	and <span class="emphasis"><em>%&lt;</em></span></span></dt><dd><p>Insert the sub menu triangle pointing either
+	to the right (<span class="emphasis"><em>%&gt;</em></span>) or to the
+	left (<span class="emphasis"><em>%&lt;</em></span>).</p></dd><dt><span class="term"><span class="emphasis"><em>%|</em></span></span></dt><dd><p>The first <span class="emphasis"><em>%|</em></span> denotes
+	    the beginning of the area that is highlighted either with
+	    a background color or a relief (or both). The
+	    second <span class="emphasis"><em>%|</em></span> marks the end of
+	    this area.  <span class="emphasis"><em>%|</em></span> can be used
+	    up to twice in the string.  If you do not add one or both
+	    of them, fvwm sets the margins to the margins of the whole
+	    item (not counting the side picture).</p></dd><dt><span class="term"><span class="emphasis"><em>%s</em></span></span></dt><dd><p>Places the side picture either at the
+	beginning or the end of the menu. This directive may be used
+	only once and only as the first or last in the format
+	string. If the <span class="emphasis"><em>%s</em></span> is not at the
+	beginning of the string, menus are not drawn
+	properly.</p></dd><dt><span class="term"><span class="emphasis"><em>Space</em></span>,
+	  <span class="emphasis"><em>Tab</em></span>,
+	  <span class="emphasis"><em>%Space</em></span>
+	  and <span class="emphasis"><em>%Tab</em></span></span></dt><dd><p>Add gap of one space, or a tab, using the
+	width of the menu font. When using a tab, the size of the gap
+	can be one to 8 spaces since the tab position is a multiple of
+	8 from the edge of the menu. The whole string must be quoted
+	if spaces or tabs are used.</p></dd><dt><span class="term"><span class="emphasis"><em>%p</em></span></span></dt><dd><p>Like Space and
+	Tab <span class="emphasis"><em>%p</em></span> inserts an empty area
+	into the item, but with better control of its size (see
+	below).</p></dd></dl></div><p>You can define an additional space before and after each of the
 objects like this:</p><pre class="programlisting">
-<span class="emphasis"><em>%</em></span>left<span class="emphasis"><em>.</em></span>right<span class="emphasis"><em>p</em></span>
+<span class="emphasis"><em>%</em></span><em class="replaceable"><code>left</code></em><span class="emphasis"><em>.</em></span><em class="replaceable"><code>right</code></em><span class="emphasis"><em>p</em></span>
 </pre><p>This means: if the object is defined in the menu (e.g. if it is
 <span class="emphasis"><em>%s</em></span>
 and you use a side picture, or it is
 <span class="emphasis"><em>%l</em></span>
 for the third column and there are items defined that actually
 have a third column), then add
-<span class="emphasis"><em>left</em></span>
+<em class="replaceable"><code>left</code></em>
 pixels before the object and
-<span class="emphasis"><em>right</em></span>
+<em class="replaceable"><code>right</code></em>
 pixels after it.  You may leave out the
-<span class="emphasis"><em>left</em></span>
+<em class="replaceable"><code>left</code></em>
 or the <span class="emphasis"><em>.right</em></span>
 parts if you do not need them.  All values up to the screen width
 are allowed.  Even negative values can be used with care.  The
@@ -450,10 +481,12 @@ string, but if it was set manually it is not modified.</p><p>Note: If any unform
 widest menu item, the spaces between the different parts of the
 menu items are enlarged to match the width of the title.  Leading
 left aligned objects in the format string
-(<span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%i</em></span>, <span class="emphasis"><em>%&lt;</em></span>, first <span class="emphasis"><em>%|</em></span>)
+(<span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%i</em></span>,
+<span class="emphasis"><em>%&lt;</em></span>, first <span class="emphasis"><em>%|</em></span>)
 stick to the left edge of the menu and trailing right aligned
 objects
-(<span class="emphasis"><em>%r</em></span>, <span class="emphasis"><em>%i</em></span>, <span class="emphasis"><em>%&gt;</em></span>, second <span class="emphasis"><em>%|</em></span>)
+(<span class="emphasis"><em>%r</em></span>, <span class="emphasis"><em>%i</em></span>,
+<span class="emphasis"><em>%&gt;</em></span>, second <span class="emphasis"><em>%|</em></span>)
 stick to the right edge.  The gaps between the remaining items are
 enlarged equally.</p><p>Examples:</p><pre class="programlisting">
 MenuStyle * ItemFormat "%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|"
@@ -558,5 +591,5 @@ seen. See also
 <a href="../commands/SetAnimation.html">SetAnimation</a>
 command.</p></div>
 <HR>
-<P>FVWM 2.5.22 (from cvs)</P>
+<P>fvwm 2.5.24 (from cvs)</P>
 </body></html>
