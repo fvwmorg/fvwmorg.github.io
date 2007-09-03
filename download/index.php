@@ -44,13 +44,13 @@ if(!isset($site_has_been_loaded)) {
   <h4>Current packages:</h4>
   <ul>
     <li>
-      Latest Stable Release (<b><?php echo $latest_stable_release; ?></b>):
+      Latest Stable Release (<b><a href="/news/#<?php echo $latest_stable_release; ?>"><?php echo $latest_stable_release; ?></a></b>):
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.gz">tar.gz</a>,
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
   
     <li>
-      Latest Unstable Release (<b><?php echo $latest_unstable_release; ?></b>):
+      Latest Unstable Release (<b><a href="/news/#<?php echo $latest_unstable_release; ?>"><?php echo $latest_unstable_release; ?></a></b>):
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
