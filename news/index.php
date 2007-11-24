@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.24" style="font-weight:normal;">&nbsp;2.5.24&nbsp;</a></td>
 <td><a href="#2.5.23" style="font-weight:normal;">&nbsp;2.5.23&nbsp;</a></td>
 <td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
 <td><a href="#2.5.21" style="font-weight:normal;">&nbsp;2.5.21&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
 <td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
-<td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
 <td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
 <td><a href="#2.5.12" style="font-weight:normal;">&nbsp;2.5.12&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
 <td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
-<td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
 <td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
 <td><a href="#2.5.3" style="font-weight:normal;">&nbsp;2.5.3&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
 <td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
-<td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
-<td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
@@ -98,14 +99,40 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
 <td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
-<td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 </tr>
 </table>
 </center>
+<a name="2.5.25"></a>
+<h4>Changes in beta release 2.5.25 (not released yet) <a href="#top">[top]</a></h4>
 <a name="2.5.24"></a>
-<h4>Changes in beta release 2.5.24 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.24 (24-Nov-2007) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> Disabled paging during interactive resize operations by     default (see 2.5.20) as it is annoying to many people.</li>
+  <li> New style command options:       EdgeMoveResistance
+    <ul>
+        <li>       EdgeMoveDelay</li>
+        <li>       EdgeResizeDelay</li>
+        <li>       SnapGrid</li>
+        <li>       SnapAttraction</li>
+    </ul>
+       that replace the now obsolete commands EdgeResistance,     SnapGrid and SnapAttraction.  The EdgeResistance command has     a new syntax with only one argument.</li>
+  <li> New command MenuCloseAndExec for menu bindinngs that can be     used to trigger certain commands from a menu without an     associated item.  For example, with
+    <ul>
+        <li>       Key F1 MTI[]-_ A MenuCloseAndExec Menu RootMenu</li>
+    </ul>
+       the RootMenu can be opened from any other menu by pressing     F1.</li>
+  <li> Bug Fixes:</li>
+  <li> Sometimes a window jumped by half the screen's size when     moving with the mouse and hitting the border of the desktop.</li>
+  <li> Fixed the &quot;screen w&quot; argument of the Move and other commands.</li>
+  <li> Clicking on a menu title did not close the menu by default.</li>
+  <li> Temporary files in FvwmPerl overwrote each other.</li>
+</ul>
+
+
 <a name="2.5.23"></a>
 <h4>Changes in beta release 2.5.23 (1-Sep-2007) <a href="#top">[top]</a></h4>
 <ul>
