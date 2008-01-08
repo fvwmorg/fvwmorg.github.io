@@ -1,5 +1,12 @@
 2008-01-08  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
 
+	* documentation/manpages/unstable:
+	regenerated without duplicates
+
+	* documentation/manpages/manpages2php:
+	fix conv_link_target calls for all links
+	don't include hidden files
+
 	* doc/unstable:
 	* documentation/manpages/unstable:
 	regenerated

@@ -139,7 +139,8 @@ sub loadFile ($) {
 
 # currently only support .1 manpages, but it is possible to extend this
 my @files = map { chomp($_); $_ } 
-	`find $sourceDir -name '*.[1]' -and -not -path "*/autom4te.cache/*"`;
+	`find $sourceDir -name '*.[1]' -and -not -path "*/autom4te.cache/*" \\
+		-and -not -name '.*'`;
 @files = grep !/FvwmOld/, @files;
 my @topics = map { m!/([^/]+)\.\d$!; $1 || "internal error" } @files;
 my %topic2file = ();
@@ -159,12 +160,12 @@ foreach my $topic ("index", @topics) {
 	$namespace->{topic} = $topic;
 
 	my $docbookFile = "";
-	my $moduleBase = "";
+	my $moduleBase = "(?:../modules/)?";
 	if ($topic eq "fvwm") {
 		# check for fvwm.man.html
 		if (-r $sourceDir . "/doc/fvwm/fvwm.man.html") {
 			$docbookFile = $sourceDir . "/doc/fvwm/fvwm.man.html";
-			$moduleBase = "../modules/"
+			$moduleBase = "../modules/";
 		}
 	} elsif ($topic ne "index") {
 		# check for module documentation
@@ -181,10 +182,10 @@ foreach my $topic ("index", @topics) {
 
 		s!(href|src)="${moduleBase}images!$1="../../../doc/$subdir/modules/images!g;
 		s!(href|src)="$moduleBase!$1="!g;
-		s!(href="?)([^/]*?)\.html!$1<?php echo conv_link_target('$2.php');?>!g;
 		s!\.\./images!../../../doc/$subdir/images!g;
 		s!\.\./commands/([^"]*).html!fvwm.php#$1!g;
 		s!(fvwm\.php#)[^"]*#!$1!g;
+		s!(href="?)([^/]*?)\.(?:html|php)!$1<?php echo conv_link_target('$2.php');?>!g;
 		s!</body>.*$!!;
 		s!(<hr>.*)(<div class="toc">.*?</div>)(.*)<HR>!<a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a>$1$3<hr /><a name="toc"></a>$2<hr />!s;
 

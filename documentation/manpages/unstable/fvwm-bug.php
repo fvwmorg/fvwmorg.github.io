@@ -127,7 +127,7 @@ Directory in which the failed bug report is saved if the mail fails.
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 10:24:38 GMT, January 08, 2008
+Time: 13:00:18 GMT, January 08, 2008
 
 
 <?php decoration_window_end(); ?>

@@ -416,7 +416,7 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 This document was created by
 man2html,
 using the manual pages.<BR>
-Time: 10:24:39 GMT, January 08, 2008
+Time: 13:00:18 GMT, January 08, 2008
 
 
 <?php decoration_window_end(); ?>
