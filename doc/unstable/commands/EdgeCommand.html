@@ -44,7 +44,9 @@ The following example raises
 if the mouse pointer enters the top edge of the screen.</p><pre class="programlisting">
 # Disable EdgeScrolling but make it possible
 # to move windows over the screen edge
-<a href="../commands/EdgeResistance.html">EdgeResistance</a> 10000 20
+<a href="../commands/EdgeResistance.html">EdgeResistance</a> -1
+<a href="../commands/Style.html">Style</a> * EdgeMoveDelay 250
+<a href="../commands/Style.html">Style</a> * EdgeMoveResistance 20
 
 # Set thickness of the edge of the screen to 1
 <a href="../commands/EdgeThickness.html">EdgeThickness</a> 1
@@ -74,5 +76,5 @@ EdgeCommand Top <a href="../commands/Next.html">Next</a> (FvwmButtons) <a href="
 that border virtual pages.  If a screen edge has a command bound
 to it, the pan frame is always created on that edge.</p></div>
 <HR>
-<P>fvwm 2.5.24 (from cvs)</P>
+<P>fvwm 2.5.25 (from cvs)</P>
 </body></html>

@@ -11,37 +11,25 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeResistance"></a>EdgeResistance</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">EdgeResistance</code>   <em class="replaceable"><code>scrolling</code></em>   <em class="replaceable"><code>moving</code></em>  [<em class="replaceable"><code>xinerama-scrolling</code></em>]</p></div><p>Tells how hard it should be to change the desktop viewport by
-moving the mouse over the edge of the screen and how hard it
-should be to move a window over the edge of the screen.</p><p>The first parameter tells how many milliseconds the pointer must
-spend on the screen edge before fvwm moves the viewport.  This is
-intended for people who use</p><pre class="programlisting">
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="EdgeResistance"></a>EdgeResistance</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">EdgeResistance</code>   
+		<em class="replaceable"><code>delay</code></em>
+         <br><code class="command">EdgeResistance</code>   <em class="replaceable"><code>scrolling</code></em>   <em class="replaceable"><code>moving</code></em>  [<em class="replaceable"><code>xinerama-scrolling</code></em>]</p></div><p>Tells how hard it should be to change the desktop viewport by
+moving the mouse over the edge of the screen. The parameter tells
+how many milliseconds the pointer must spend on the screen edge
+before fvwm moves the viewport.  This is intended for people who
+use</p><pre class="programlisting">
 <a href="../commands/EdgeScroll.html">EdgeScroll</a> 100 100
-</pre><p>but find themselves accidentally flipping pages when they do not
-want to.</p><p>The second parameter tells how many pixels over the edge of the
-screen a window's edge must move before it actually moves
-partially off the screen.  By default the viewport is moved a full
-page in the requested direction, but if you used
-<a href="../commands/EdgeScroll.html">EdgeScroll</a>
-and set any values other than zero they are used instead.</p><p>Note that, with</p><pre class="programlisting">
-<a href="../commands/EdgeScroll.html">EdgeScroll</a> 0 0
-</pre><p>it is still possible to move or resize windows across the edge of
-the current screen.  By making the first parameter to
-<span class="emphasis"><em>EdgeResistance</em></span>
-10000 this type of motion is impossible.  With
-<span class="emphasis"><em>EdgeResistance</em></span>
-less than 10000 but greater than 0 moving over pages becomes
-difficult but not impossible.  See also
-<a href="../commands/EdgeThickness.html">EdgeThickness</a>.</p><p>The optional third parameter does the same as the second, but for
-individual Xinerama screens.  If omitted,
-<em class="replaceable"><code>xinerama-moving</code></em>
-is set to the value of
-<em class="replaceable"><code>moving</code></em>.
-Set
-<em class="replaceable"><code>xinerama-moving</code></em>
-to zero to ignore individual screen edges.  Note that the center of
-the window being moved determines the xinerama screen on which the
-window should be kept.</p></div>
+</pre><p>but find themselves accidentally flipping pages when they do
+not want to.  If -1 is given as the delay, scrolling is disabled
+completely.</p><p>The second form of invocation with two or three arguments is
+obsolete and should be replaced with the following three commands
+as needed:</p><pre class="programlisting">
+<a href="../commands/EdgeResistance.html">EdgeResistance</a> <em class="replaceable"><code>scrolling</code></em>
+<a href="../commands/Style.html">Style</a> * EdgeMoveDelay <em class="replaceable"><code>scrolling</code></em>
+<a href="../commands/Style.html">Style</a> * EdgeMoveResistance <em class="replaceable"><code>moving</code></em>
+or
+<a href="../commands/Style.html">Style</a> * EdgeMoveResistance <em class="replaceable"><code>moving</code></em> <em class="replaceable"><code>xinerama-scrolling</code></em>
+</pre><p>Fvwm does this substitution automatically and prints a warning.</p></div>
 <HR>
-<P>fvwm 2.5.24 (from cvs)</P>
+<P>fvwm 2.5.25 (from cvs)</P>
 </body></html>

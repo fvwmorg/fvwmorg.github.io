@@ -1,0 +1,141 @@
+#!/bin/sh
+# Html documentation update script
+
+# Usage: updatedoc unstable ../../fvwm-2.5.x
+
+BRANCH=${1-unstable}
+SOURCE=${2-../../fvwm}
+
+DOC_DIR=$SOURCE/doc
+
+mkdir -p $BRANCH
+
+# Gather configure info:
+# DOC_.*_HTML needed
+
+## copied from configure.ac
+
+DOC_COMMANDS=`
+                sed -n '
+                :findhead
+                        /#.*define.*CMD_ENT/bfindcmd
+                        n
+                        bfindhead
+                :findcmd
+                        n
+                        /CMD_ENT/bfound
+                        bfindcmd
+                :found
+                        /"#"/bfindcmd
+                        /"propertychange"/bfindcmd
+                        /"readwritecolors"/bfindcmd
+                        /"send_.*"/bfindcmd
+                        /"set_.*"/bfindcmd
+                        s/.*CMD_ENT.*CMD_//
+                        s/,.*//
+                        p
+                        n
+                        bfindcmd
+        ' < $SOURCE/fvwm/functable.c`
+DOC_COMMANDS_HTML=`for i in $DOC_COMMANDS; do echo ${i}.html; done`
+DOC_COMMANDS_HTML=`echo $DOC_COMMANDS_HTML`
+
+# extract module names
+DOC_MODULES=""
+DOC_MODULES=`
+        for i in modules/*; do echo "$i"; done |
+        sed -n '
+                :search
+                /^modules.Fvwm/bfound
+                bnext
+        :found
+                s/modules.//
+                /FvwmTabs/bnext
+                p
+        :next
+                n
+                bsearch
+        '
+`
+DOC_MODULES=`echo $DOC_MODULES`
+DOC_MODULES_HTML=`for i in $DOC_MODULES; do echo ${i}.html; done`
+DOC_MODULES_HTML=`echo $DOC_MODULES_HTML`
+
+## End copy from configure.ac
+
+
+## Scan Makefiles
+SUBDIRS=.
+
+while [ ! "x$SUBDIRS" = "x" ]
+do
+    SUBSUBDIRS=''
+    for dir in $SUBDIRS
+    do mkdir -p $BRANCH/$dir
+
+	# Gather doc_DATA list
+	doc_DATA=`sed -n '
+	:start
+	/\\\\$/{
+		N
+		s/\\\\\n//
+		bstart
+	}
+	/^[ \\t]*doc_DATA[ \\t]*=[\\t ]*/{
+		s///
+		s/docbook[^ \\t]*//g
+		p
+	}' < $DOC_DIR/$dir/Makefile.am`
+	# expand Makefile variables
+	while echo $doc_DATA | grep -q '\$([^)]*)'
+	do
+	    var=`echo $doc_DATA | sed 's/^.*\$(\([^)]*\)).*$/\1/'`
+	    val=`sed -n '
+			:start
+			/\\\\$/{
+				N
+				s/\\\\\n//
+				bstart
+			}
+			/^[ \\t]*'$var'[ \\t]*=[\\t ]*/{
+				s///
+				s/docbook[^ \\t]*//g
+				p
+			}' < $DOC_DIR/$dir/Makefile.am`
+	    doc_DATA=`echo $doc_DATA | sed 's/\$('$var')/'"$val"'/'`
+	done
+
+	# replace configure variables -- Possible just copy *,html instead
+	# where these are found
+	doc_DATA=`echo $doc_DATA | \
+		sed 's,@DOC_COMMANDS_HTML@,'"$DOC_COMMANDS_HTML"',g'`
+	doc_DATA=`echo $doc_DATA | \
+		sed 's,@DOC_MODULES_HTML@,'"$DOC_MODULES_HTML"',g'`
+
+	# Copy the files, try to make them if they are missing
+	for file in $doc_DATA
+	do
+	    if [ ! -f $DOC_DIR/$dir/$file ]
+	    then (cd $DOC_DIR/$dir && make $file)
+	    fi
+	    cp -f $DOC_DIR/$dir/$file $BRANCH/$dir
+	done
+
+	_SUBSUBDIRS=`sed -n '
+	:start
+	/\\\\$/{
+		N
+		s/\\\\\n//
+		bstart
+	}
+	/^[ \\t]*SUBDIRS[ \\t]*=[\\t ]*/{
+		s///
+		s/docbook[^ \\t]*//g
+		p
+	}' < $DOC_DIR/$dir/Makefile.am`
+	for subdir in $_SUBSUBDIRS
+	do SUBSUBDIRS="$SUBSUBDIRS $dir/$subdir"
+	done
+    done
+    SUBDIRS=$SUBSUBDIRS
+done

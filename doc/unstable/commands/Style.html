@@ -180,7 +180,13 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>EWMHPlacementUseDynamicWorkingArea</em></span>,
 <span class="emphasis"><em>MoveByProgramMethod</em></span>,
 <span class="emphasis"><em>Unmanaged</em></span>,
-<span class="emphasis"><em>State</em></span>.</p><p>In the above list some options are listed as
+<span class="emphasis"><em>State</em></span>,
+<span class="emphasis"><em>SnapGrid</em></span>,
+<span class="emphasis"><em>SnapAttraction</em></span>,
+<span class="emphasis"><em>EdgeMoveDelay</em></span>,
+<span class="emphasis"><em>EdgeResizeDelay</em></span>.
+<span class="emphasis"><em>EdgeMoveResistance</em></span>,
+</p><p>In the above list some options are listed as
 style-option/opposite-style-option.  The opposite-style-option for
 entries that have them describes the fvwm default behavior and can
 be used if you want to change the fvwm default behavior.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="focus_policy"></a>Focus policy</h3></div></div></div><p><a name="Style_ClickToFocus"></a><font class="fvwmopt">ClickToFocus</font>
@@ -936,7 +942,67 @@ which disables this behavior.  Although a number of applications
 use the window group hint, it is rarely used in a proper way, so
 it is probably best to use
 <span class="emphasis"><em>IconifyWindowGroups</em></span>
-only for selected applications.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
+only for selected applications.</p><p>The option <a name="Style_SnapAttraction"></a><font class="fvwmopt">SnapAttraction</font>
+affects interactive window movement:  If during an interactive
+move the window or icon comes within
+<em class="replaceable"><code>proximity</code></em> pixels of another the window
+or icon, it is moved to make the borders adjoin.  The default of 0
+means that no snapping happens.  Calling this command without
+arguments turns off snap attraction and restores the default
+behavior.  Please refer also to the <a href="../commands/SnapGrid.html">SnapGrid</a>
+command.</p><p>The <em class="replaceable"><code>behavior</code></em> argument is optional
+and may be set to one of the four following values:  With
+<em class="replaceable"><code>All</code></em> both icons and windows snap to
+other windows and other icons. <em class="replaceable"><code>SameType</code></em>
+lets snap windows only to other windows and icons only to other
+icons. With <em class="replaceable"><code>Windows</code></em> windows snap only
+to other windows.  Icons do not snap. Similarly with
+<em class="replaceable"><code>Icons</code></em> icons snap to only other icons
+and windows do not snap.</p><p>If the <em class="replaceable"><code>behavior</code></em> option is not
+given, the snapping behavior is not changed.  The default behavior
+is <span class="emphasis"><em>All</em></span>.</p><p>If the <em class="replaceable"><code>Screen</code></em> option is present
+windows and or icons are snapped to the screen edges too.</p><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
+invisible grid on the screen.  During an interactive move a window
+or icon is positioned such that its location (top left corner) is
+coincident with the nearest grid point. The default
+<em class="replaceable"><code>x-grid-size</code></em> and
+<em class="replaceable"><code>y-grid-size</code></em> setting are both 1, which
+is effectively no grid all.</p><p>An interactive move with both <a href="../commands/SnapGrid.html">SnapGrid</a> and
+<a href="../commands/Style.html#Style_SnapAttraction">SnapAttraction</a> results in the window
+being moved to be adjacent to the nearest window border (if within
+snap proximity) or grid position. The window moves the shortest
+distance possible to satisfy both <a href="../commands/SnapGrid.html">SnapGrid</a> and
+<a href="../commands/Style.html#Style_SnapAttraction">SnapAttraction</a>.  Note that the x and y
+coordinates are not coupled.  For example, a window may snap to
+another window on the x axis while snapping to a grid point on the
+y axis.  Using this style without arguments reinstates the default
+settings.</p><p>The styles <a name="Style_EdgeMoveDelay"></a><font class="fvwmopt">EdgeMoveDelay</font> and
+<a name="Style_EdgeResizeDelay"></a><font class="fvwmopt">EdgeResizeDelay</font> tells how hard it
+should be to change the desktop viewport by moving or resizing a
+window over the edge of the screen. The parameter tells how many
+milliseconds the pointer must spend on the screen edge before fvwm
+moves the viewport.  The command <a href="../commands/EdgeScroll.html">EdgeScroll</a>
+determines how far the viewport is scrolled.  If -1 is given as
+the delay, page flipping is disabled completely.  The defaults are
+no delay for moving (0) and no flipping for resizing (-1).  Using
+these styles without any argument restores the default
+settings.  Note that, with</p><pre class="programlisting">
+<a href="../commands/EdgeScroll.html">EdgeScroll</a> 0 0
+</pre><p>it is still possible to move or resize windows across the
+edge of the current screen.  See also <a href="../commands/EdgeThickness.html">EdgeThickness</a>.</p><p>The option <a name="Style_EdgeMoveResistance"></a><font class="fvwmopt">EdgeMoveResistance</font>
+makes it easier to place a window directly adjacent to the
+screen's or xinerama screen's border.  It takes one or two
+parameters.  The first parameter tells how many pixels over the
+edge of the screen a window's edge must move before it actually
+moves partially off the screen.  The optional second parameter
+does the same as the first, but for individual Xinerama screens.
+If omitted, the value of the first parameter is assumed for this
+type of movement.  Set the second parameter to 0 to zero to ignore
+individual xinerama screen edges.  Note that the center of the
+window being moved determines the xinerama screen on which the
+window should be kept.  Both values are 0 by default.  To restore
+the defaults, the option <a name="Style_EdgeMoveResistance"></a><font class="fvwmopt">EdgeMoveResistance</font> can be used without any
+parameters.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
 for the window.  Fvwm knows several ways to deal with this
@@ -1605,5 +1671,5 @@ by a match to "Fvwm*".  It gets
 by virtue of a match to "*".  If conflicting styles are specified
 for a window, then the last style specified is used.</p></div></div>
 <HR>
-<P>fvwm 2.5.24 (from cvs)</P>
+<P>fvwm 2.5.25 (from cvs)</P>
 </body></html>

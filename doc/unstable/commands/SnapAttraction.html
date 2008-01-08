@@ -11,34 +11,9 @@
 
 <td align="right" valign="top"><a href="http://www.fvwm.org/"><img src="../images/fvwm.logo2.png" align="right" border="0"></a></td>
 </tr></tbody></table>
-<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="SnapAttraction"></a>SnapAttraction</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">SnapAttraction</code>  [<em class="replaceable"><code>proximity</code></em> [<em class="replaceable"><code>behaviour</code></em>] [Screen]]</p></div><p>If during an interactive move the window or icon comes within
-<em class="replaceable"><code>proximity</code></em>
-pixels of another the window or icon, it is moved to make the
-borders adjoin.  The default of 0 means that no snapping happens.
-Calling this command without arguments turns off snap attraction
-and restores the default behavior.  Please refer also to the
-<a href="../commands/SnapGrid.html">SnapGrid</a>
-command.</p><p>The
-<em class="replaceable"><code>behavior</code></em>
-argument is optional and may be set to one of the four following
-values:  With
-<a name="SnapAttraction_All"></a><font class="fvwmopt">All</font>
-both icons and windows snap to other windows and other icons.
-<a name="SnapAttraction_SameType"></a><font class="fvwmopt">SameType</font>
-lets snap windows only to other windows and icons only to other
-icons. With
-<a name="SnapAttraction_Windows"></a><font class="fvwmopt">Windows</font>
-windows snap only to other windows.  Icons do not snap. Similarly
-with
-<a name="SnapAttraction_Icons"></a><font class="fvwmopt">Icons</font>
-icons snap to only other icons and windows do not snap.</p><p>If the
-<em class="replaceable"><code>behavior</code></em>
-option is not given, the snapping behavior is not changed.  The
-default behavior is
-<span class="emphasis"><em>All</em></span>.</p><p>If the
-<a name="SnapAttraction_Screen"></a><font class="fvwmopt">Screen</font>
-option is present windows and or icons are snapped to the screen
-edges too.</p></div>
+<div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="SnapAttraction"></a>SnapAttraction</h2></div></div><hr></div><div class="cmdsynopsis"><p><code class="command">SnapAttraction</code>  [<em class="replaceable"><code>proximity</code></em> [<em class="replaceable"><code>behaviour</code></em>] [Screen]]</p></div><p>The <a href="../commands/SnapAttraction.html">SnapAttraction</a> command is obsolete.  It has
+been replaced by the <a href="../commands/Style.html">Style</a> command option
+<a href="../commands/Style.html#Style_SnapAttraction">SnapAttraction</a>.</p></div>
 <HR>
-<P>fvwm 2.5.24 (from cvs)</P>
+<P>fvwm 2.5.25 (from cvs)</P>
 </body></html>
