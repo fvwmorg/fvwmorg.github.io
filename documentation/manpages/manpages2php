@@ -158,44 +158,77 @@ foreach my $topic ("index", @topics) {
 	print "Creating $phpFile\n";
 	$namespace->{topic} = $topic;
 
-	# some fixes
-	my $fixCmd = q{perl -pe ' \
-	s!^(\.in \+.*)!%blockquote%!i; s!^(\.in -.*)!%/blockquote%!i; \
-	s!^(\.Vb.*)!%pre% %blockquote%!i; s!^(\.Ve.*)!%/pre% %/blockquote%!i; \
-	s!\\\\fB\\\\\\*\\(--!\\\\fB\\-\\-!; '};
+	my $docbookFile = "";
+	my $moduleBase = "";
+	if ($topic eq "fvwm") {
+		# check for fvwm.man.html
+		if (-r $sourceDir . "/doc/fvwm/fvwm.man.html") {
+			$docbookFile = $sourceDir . "/doc/fvwm/fvwm.man.html";
+			$moduleBase = "../modules/"
+		}
+	} elsif ($topic ne "index") {
+		# check for module documentation
+		if (
+			-f $sourceDir . "/doc/modules/".$topic.".xml" &&
+			-r $sourceDir . "/doc/modules/".$topic.".html") {
+			$docbookFile = $sourceDir . "/doc/modules/$topic.html";
+		}
+	}
 
-	local $_ = $topic eq "index"?
-		$INDEX_BODY:
-		`cat $manFile | $fixCmd | man2html -p`;
+	if ($docbookFile ne "") {
+		local $_ = `sed -n '/<div class="article"/,/<\\/body>/p' $docbookFile \\
+				| iconv -f utf8 -t latin1`;
 
-	# skip cgi header and footer
-	s!^.*?<body>(.*)</body>.*$!$1!si;
+		s!(href|src)="${moduleBase}images!$1="../../../doc/$subdir/modules/images!g;
+		s!(href|src)="$moduleBase!$1="!g;
+		s!(href="?)([^/]*?)\.html!$1<?php echo conv_link_target('$2.php');?>!g;
+		s!\.\./images!../../../doc/$subdir/images!g;
+		s!\.\./commands/([^"]*).html!fvwm.php#$1!g;
+		s!(fvwm\.php#)[^"]*#!$1!g;
+		s!</body>.*$!!;
+		s!(<hr>.*)(<div class="toc">.*?</div>)(.*)<HR>!<a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a>$1$3<hr /><a name="toc"></a>$2<hr />!s;
 
-	# replace some output
-	s!\07!!g;
-	s!<FONT SIZE="-1">!<FONT>!ig;
-	s!<FONT><B>([^<]*?)</B></FONT><B>!<B>$1!ig;
-	s!(<A HREF=".*?">)Index!$1This page contents!;
-	s!<A HREF=".*?">Return to Main Contents! - <a href="<?php echo conv_link_target('./');?>">Return to main index!;
-	s!<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>!man2html!g;
-	s!<A HREF="mailto:StartMenu@!<a name="local-fix:!g;
-	s!<A HREF="[^<]*/1\+($topicRegExp)">[^<]*</A>!\@link($1)\@!g;
+		$namespace->{body} = processTemplate($_);
+	} else {
 
-	# correct example blocks
-	s!%(/?pre)%!<$1>!g;
-	s!%(/?blockquote)%!<$1>!g;
-	s!(<pre>)\s+(<blockquote>)\n*!$2$1!sig;
-	s!\n*(</pre>)\s+(</blockquote>)!$1$2!sig;
-	s!</pre></blockquote>\n<blockquote><pre>!\n\n!sg;
-
-	# add links
-	s!^((?:<blockquote><pre>)?\s*)($topicRegExp)((?:</pre></blockquote>)?)$!$1\@link($2)\@$3!mg;
-	s!(the )($topicRegExp)( manpage)!$1\@link($2)\@$3!g;
-	s!(<[Bb]>)($topicRegExp)(</[Bb]>)!$1\@link($2)\@$3!g;
-	s!(<[BbIi]>)((?:FVWM|General)::[\w\d:]+)(</[BbIi]>)!$1\@link(../perllib/$2)\@$3!g;
-
-	$namespace->{body} = processTemplate($_);
-
+		# some fixes
+		my $fixCmd = q{perl -pe ' \
+		s!^(\.in \+.*)!%blockquote%!i; s!^(\.in -.*)!%/blockquote%!i; \
+		s!^(\.Vb.*)!%pre% %blockquote%!i; s!^(\.Ve.*)!%/pre% %/blockquote%!i; \
+		s!\\\\fB\\\\\\*\\(--!\\\\fB\\-\\-!; '};
+	
+		local $_ = $topic eq "index"?
+			$INDEX_BODY:
+			`cat $manFile | $fixCmd | man2html -p`;
+	
+		# skip cgi header and footer
+		s!^.*?<body>(.*)</body>.*$!$1!si;
+	
+		# replace some output
+		s!\07!!g;
+		s!<FONT SIZE="-1">!<FONT>!ig;
+		s!<FONT><B>([^<]*?)</B></FONT><B>!<B>$1!ig;
+		s!(<A HREF=".*?">)Index!$1This page contents!;
+		s!<A HREF=".*?">Return to Main Contents! - <a href="<?php echo conv_link_target('./');?>">Return to main index!;
+		s!<A HREF="http://localhost/cgi-bin/man/man2html">man2html</A>!man2html!g;
+		s!<A HREF="mailto:StartMenu@!<a name="local-fix:!g;
+		s!<A HREF="[^<]*/1\+($topicRegExp)">[^<]*</A>!\@link($1)\@!g;
+	
+		# correct example blocks
+		s!%(/?pre)%!<$1>!g;
+		s!%(/?blockquote)%!<$1>!g;
+		s!(<pre>)\s+(<blockquote>)\n*!$2$1!sig;
+		s!\n*(</pre>)\s+(</blockquote>)!$1$2!sig;
+		s!</pre></blockquote>\n<blockquote><pre>!\n\n!sg;
+	
+		# add links
+		s!^((?:<blockquote><pre>)?\s*)($topicRegExp)((?:</pre></blockquote>)?)$!$1\@link($2)\@$3!mg;
+		s!(the )($topicRegExp)( manpage)!$1\@link($2)\@$3!g;
+		s!(<[Bb]>)($topicRegExp)(</[Bb]>)!$1\@link($2)\@$3!g;
+		s!(<[BbIi]>)((?:FVWM|General)::[\w\d:]+)(</[BbIi]>)!$1\@link(../perllib/$2)\@$3!g;
+	
+		$namespace->{body} = processTemplate($_);
+	}
 	saveFile(
 		$phpFile,
 		processTemplate(loadFile("template.php_"))
