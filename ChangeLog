@@ -1,3 +1,11 @@
+2008-03-03  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
+
+	* definitions.inc:
+	updated to point to 2.5.25
+
+	* news/index.php:
+	regenerated
+
 2008-01-08  Viktor Griph  <griph(at)dd(dot)chalmers(dot)se>
 
 	* documentation/manpages/unstable:

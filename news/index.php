@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.25" style="font-weight:normal;">&nbsp;2.5.25&nbsp;</a></td>
 <td><a href="#2.5.24" style="font-weight:normal;">&nbsp;2.5.24&nbsp;</a></td>
 <td><a href="#2.5.23" style="font-weight:normal;">&nbsp;2.5.23&nbsp;</a></td>
 <td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
 <td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
-<td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 <td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
 <td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
-<td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
 <td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
-<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
-<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
@@ -98,15 +99,46 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
-<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 <td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 </tr>
 </table>
 </center>
+<a name="2.5.26"></a>
+<h4>Changes in beta release 2.5.26 (not released yet) <a href="#top">[top]</a></h4>
+<ul>
+  <li> Bug fixes:</li>
+  <li> Fix crash in ARGB visual detection code</li>
+  <li> Fix compilation without XRender support</li>
+</ul>
+
+
 <a name="2.5.25"></a>
-<h4>Changes in beta release 2.5.25 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.25 (26-Feb-2008) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> Handle the STATE_ADD command of the EWMH _NET_WM_STATE     message from version 1.3 of the EWMH spec.</li>
+  <li> Support transparency in ARGB windows</li>
+  <li> Bug Fixes:</li>
+  <li> Fixed problem with windows disappearing when created     unless the style Unmanaged was used.</li>
+  <li> Edge move delay was used as resistance for the top edge.</li>
+  <li> Fixed a parsing problem of the screen argument of the     SnapAttraction style.</li>
+  <li> Some html documentation files were not installed.</li>
+  <li> Fixed a memory leak in internationalized font handling.</li>
+  <li> Fixed a bug in MinOverlap placement.</li>
+  <li> Fixed the StickyAcrossPages style in the FvwmPager.</li>
+  <li> Fixed the determination of the X charset on UTF-8 systems.</li>
+  <li> Fixed a crash when certain EWMH messages were sent to     unmanaged windows.</li>
+  <li> Fixed a memory leak in multibyte codepage code.</li>
+  <li> Ignore the EWMH staysontop and staysonbottom hints if the     EWMHIgnoreStackingOrderHints style is used.</li>
+  <li> Fixed a sporadic crash when the root background set by gnome,     fvwm-root, esetroot etc. changes and a root transparent     colour set is used.</li>
+  <li> Fixed spradic crash in modules with root transparent     background from colour sets.</li>
+  <li> Fixed a possible crash if the last active module fails.</li>
+</ul>
+
+
 <a name="2.5.24"></a>
 <h4>Changes in beta release 2.5.24 (24-Nov-2007) <a href="#top">[top]</a></h4>
 <ul>
