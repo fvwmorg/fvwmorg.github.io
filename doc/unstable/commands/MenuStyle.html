@@ -60,6 +60,7 @@ SubmenusRight / SubmenusLeft,
 SelectOnRelease,
 ItemFormat,
 VerticalItemSpacing,
+VerticalMargins,
 VerticalTitleSpacing,
 AutomaticHotkeys / !AutomaticHotkeys,
 MouseWheel,
@@ -79,7 +80,7 @@ reset all options to the style with the same name in former
 versions of fvwm.  The default for new menu styles is
 <span class="emphasis"><em>Fvwm</em></span>
 style.  These options override all others except
-<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span>, <span class="emphasis"><em>Greyed</em></span>, <span class="emphasis"><em>HilightBack</em></span>, 
+<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span>, <span class="emphasis"><em>Greyed</em></span>, <span class="emphasis"><em>HilightBack</em></span>,
 <span class="emphasis"><em>ActiveFore</em></span> and <span class="emphasis"><em>PopupDelay</em></span>,
 so they should be used only as the first option specified for a
 menu style or to reset the style to defined behavior.  The same
@@ -510,6 +511,13 @@ in pixels below it.  Negative numbers do not make much sense and
 may screw up the menu completely.  If no arguments are given or
 the given arguments are invalid, the built-in defaults are used:
 one pixel above the item or title and two below.</p><p>
+<a name="MenuStyle_VerticalMargins"></a><font class="fvwmopt">VerticalMargins</font>
+can be used to add some padding at the top and bottom of menus.
+It takes two numeric arguments that must be positive integers (or
+zero).  If the number of arguments or its values are incorrect,
+fvwm defaults both to 0, which means no padding at all.  If the
+values are correct, the first one is used for the top margin, and
+the second one is used for the bottom margin.</p><p>
 <a name="MenuStyle_SubmenusLeft"></a><font class="fvwmopt">SubmenusLeft</font>
 mirrors the menu layout and behavior.  Sub menus pop up to the
 left, the sub menu triangle is drawn left and the mini icon and
@@ -591,5 +599,5 @@ seen. See also
 <a href="../commands/SetAnimation.html">SetAnimation</a>
 command.</p></div>
 <HR>
-<P>fvwm 2.5.25 (from cvs)</P>
+<P>fvwm 2.5.26</P>
 </body></html>
