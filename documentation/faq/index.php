@@ -359,7 +359,7 @@ A: Yup.  The official site is:
 
 A: If your local fvwm maintainer can't help you, then the newsgroup
    comp.windows.x.apps is a good place, but the fvwm mailing list is
-   usually better.  The new fvwm discussion mailing list address is:
+   usually better.  The fvwm discussion mailing list address is:
 
                            <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>
 
