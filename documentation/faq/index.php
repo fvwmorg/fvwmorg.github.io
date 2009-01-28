@@ -357,9 +357,8 @@ A: Yup.  The official site is:
 
 <a name="1.4"></a><a href="#toc_1.4">1.4</a>  Where do I ask questions about fvwm?
 
-A: If your local fvwm maintainer can't help you, then the newsgroup
-   comp.windows.x.apps is a good place, but the fvwm mailing list is
-   usually better.  The fvwm discussion mailing list address is:
+A: If your local fvwm maintainer can't help you, then try the fvwm 
+   mailing list.  The fvwm discussion mailing list address is:
 
                            <a href="mailto:fvwm@fvwm.org">fvwm@fvwm.org</a>
 
@@ -387,7 +386,7 @@ A: If your local fvwm maintainer can't help you, then the newsgroup
 
    This list is for discussion relating to the fvwm window manager,
    which is intended to have a small memory footprint and a rich
-   feature set, be extremely customizable and extendable and have a
+   feature set, be extremely customizable and extendible and have a
    high degree of Motif MWM compatibility.  All relevant discussion
    is encouraged.  Posting of binaries or irrelevant discussion is
    strongly frowned upon.  Posting of short patches (less than 200
@@ -417,7 +416,7 @@ A: If your local fvwm maintainer can't help you, then the newsgroup
 
    This list is for announcements relating to the fvwm window manager,
    which is intended to have a small memory footprint and a rich
-   feature set, be extremely customizable and extendable and have a
+   feature set, be extremely customizable and extendible and have a
    high degree of Motif MWM compatibility.
 
    Replies to messages from this list are set by default to go the
@@ -468,8 +467,7 @@ A: Here's a little table comparing some of them.  It was done on an
 
 <a name="1.7"></a><a href="#toc_1.7">1.7</a>  Why the rename of the various files (fvwm2, .fvwm2rc, fvwm2.man)?
 
-A: Some people find this annoying, but let me say that I did that for
-   several reasons:
+A: Some people find this annoying, but it was done for several reasons:
 
         - so both 1.xx and 2.xx can be installed for use, in case some
           people at the same site would rather stay at 1.xx
@@ -848,8 +846,8 @@ A: Both of these commands change the keyboard focus to the target
    The Focus command is very useful in conjunction with the Next and
    Prev commands.  e.g.
 
-      Key KP_Add A M Next (AcceptsFocus CurrentDesk !Iconic) Focus
-      Key KP_Subtract A M Prev (AcceptsFocus CurrentDesk !Iconic) Focus
+      Key KP_Add A M Next (AcceptsFocus, CurrentDesk, !Iconic) Focus
+      Key KP_Subtract A M Prev (AcceptsFocus, CurrentDesk, !Iconic) Focus
 
    Or for fvwm versions earlier than 2.4.1:
 
@@ -996,8 +994,8 @@ A: From Jon Mountjoy, one of fvwm's users:
 
      # Keys on the function keypad on the Left of the Sun Keyboard:
      # F11 = Stop, F12 = Again, ..., F20 = Cut
-     Key F11    AWF   N       Next (!iconic CurrentPage) Focus
-     Key F12    AWF   N       Prev (!iconic CurrentPage) Focus
+     Key F11    AWF   N       Next (!iconic, CurrentPage) Focus
+     Key F12    AWF   N       Prev (!iconic, CurrentPage) Focus
      Key F13    WF    N       Maximize     100 100
      Key F15    WF    N       RaiseLower &quot;&quot;
      Key F17    WIF   N       Iconify &quot;&quot;
@@ -1236,16 +1234,18 @@ A: Assuming you are using the IconBox option of the Style command
    this can be done with a tricky fvwm function.  Put the
    DeiconifyAndRearrange function below in your configuration file:
 
+     DestroyFunc DeiconifyAndRearrange
      AddToFunc DeiconifyAndRearrange
       + C Iconify off
-      + C All (CurrentPage Iconic) PlaceAgain Icon
+      + C All (CurrentPage, Iconic) PlaceAgain Icon
 
    This works with fvwm-2.5.3 and later.  Older fvwm releases can
-   achieve the same effect with
+   achieve the same effect with:
 
+     DestroyFunc DeiconifyAndRearrange
      AddToFunc DeiconifyAndRearrange
       + C Iconify off
-      + C All (CurrentPage Iconic) RecaptureWindow
+      + C All (CurrentPage, Iconic) RecaptureWindow
 
    However, as the Recapture and RecaptureWindow commands may be
    removed in the future, please use PlaceAgain instead of
@@ -1255,25 +1255,27 @@ A: Assuming you are using the IconBox option of the Style command
    function to de-iconify an icon with a call to the new function.
    For example, replace
 
+     DestroyFunc IconFunc
      AddToFunc IconFunc
       + C Iconify off
       + M Raise
       + M Move
       + D Iconify off
 
-   with
-
+   with:
+     
+     DestroyFunc IconFunc
      AddToFunc IconFunc
       + C DeiconifyAndRearrange
       + M Raise
       + M Move
       + D DeiconifyAndRearrange
 
-   and
+   and:
 
      Mouse 1 I A Iconify off
 
-   with
+   with:
 
      Mouse 1 I A DeiconifyAndRearrange
 
@@ -1300,14 +1302,14 @@ A: Write a little shell script to run the shutdown command.
 A: Excerpt from the man page:
 
    There are many commands that affect look and feel of specific,
-   some or all windows, like Style, Mouse, the FvwmTheme module and
-   many others.  For performance reasons such changes are not applied
-   immediately but only when fvwm is idle, i.e. no user interaction
-   or module input is pending.  Specifically, new Style options that
-   are set in a function are not applied until after the function has
-   completed.  This can sometimes lead to unwanted effects.  To force
-   that all pending changes are applied immediately, use the
-   UpdateStyles, Refresh or RefreshWindow commands.
+   some or all windows, like Style, Mouse, the FvwmTheme module (for
+   fvwm 2.4.x), Colorsets and many others.  For performance reasons
+   such changes are not applied immediately but only when fvwm is idle,
+   i.e. no user interaction or module input is pending.  Specifically,
+   new Style options that are set in a function are not applied until
+   after the function has completed.  This can sometimes lead to
+   unwanted effects.  To force that all pending changes are applied
+   immediately, use the UpdateStyles, Refresh or RefreshWindow commands.
 
 ----------------------------------------------------------------------
 
@@ -1324,7 +1326,7 @@ A: The following discusses a general solution, you should substitute
 
      DestroyFunc StartKedit
      AddToFunc   StartKedit
-     + I Exec kedit
+     + I Exec exec kedit
      + I Wait kedit
      + I Next (kedit) Resize 100p 200p
 
@@ -1347,6 +1349,7 @@ A: The following discusses a general solution, you should substitute
      + I Exec exec $0 $1
      + I Wait $0
      + I Style $0 StartNormal
+     + I UpdateStyles
 
      StartAppIconic kedit /tmp/my.txt
 
@@ -1707,6 +1710,19 @@ A: In emacs, keys can be set up as prefix keys, so that once
    binding for the second key is removed.
 
 
+   With fvwm-2.5.24 or later (using SendToModule) a much better
+   solution is:
+
+      SendToModule buttons-alias PressButton A 1
+   
+   This would send the FvwmButtons instance &quot;button-alias&quot; a command
+   to invoke the action that button &quot;A&quot; has as though the button were
+   clicked with mouse button 1.  For instance:
+
+      *button-alias: (Id A, Title &quot;My Button&quot;, Action (Mouse 1) \
+         `Exec exec xcalc`)
+
+   
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules
 ======================================================================
@@ -1780,7 +1796,7 @@ A: Yup, I imagine that you might be.  Things like the InitFunction not
 
    To force synchronous execution of FvwmM4/Cpp use:
 
-     ModuleSunchronous FvwmM4/Cpp -lock filename
+     ModuleSynchronous FvwmM4/Cpp -lock filename
 
    See the man page for more details.
 
@@ -1829,6 +1845,7 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
    fvwm-2.5.1 or later (moves the pointer back to the original
    position):
 
+     DestroyFunc press_fvwmbuttons
      AddToFunc press_fvwmbuttons
      + I SetEnv pointer_x $[pointer.x]
      + I SetEnv pointer_y $[pointer.y]
@@ -1858,6 +1875,19 @@ A: FvwmButtons does not support keyboard shortcuts itself.  Since
    Note that this solution does not work well if the mouse is moved at
    the same time.
 
+   With fvwm-2.5.24 or later (using SendToModule) a much better
+   solution is:
+
+      SendToModule buttons-alias PressButton A 1
+   
+   This would send the FvwmButtons instance &quot;button-alias&quot; a command
+   to invoke the action that button &quot;A&quot; has as though the button were
+   clicked with mouse button 1.  For instance:
+
+      *button-alias: (Id A, Title &quot;My Button&quot;, Action (Mouse 1) \
+         `Exec exec xcalc`)
+
+   
 ======================================================================
 <a name="5."></a>            <a href="#toc_5.">5</a> - Development, Known Problems &amp; Bug Reports
 ======================================================================
@@ -2469,13 +2499,13 @@ A: Setting the background image is not really part of the window
 
    There is a program shipped with fvwm (fvwm-root, previously known
    as xpmroot) that you can use to set the background to an XPM or PNG
-   image.  Other programs like &quot;xv&quot;, &quot;xli&quot;, &quot;xloadimage&quot;, &quot;display&quot;
-   and &quot;Esetroot&quot;, may be used too, they support some image formats
-   that fvwm-root does not.
+   image.  Other programs like &quot;xv&quot;, &quot;xli&quot;, &quot;xloadimage&quot;, &quot;display&quot;,
+   &quot;feh&quot; and &quot;Esetroot&quot;, may be used too, they support some image
+   formats that fvwm-root does not.
 
    If you just want a static image on your background, you might
    invoke one of these programs from your .xsession or .xinitrc file.
-   You can also invoke one of these programs from the InitFunction in
+   You can also invoke one of these programs from the StartFunction in
    your config.
 
    The fvwm module FvwmBacker can be used to change the background
@@ -2492,6 +2522,10 @@ A: Setting the background image is not really part of the window
 
    However, fvwm can handle only xpm, xbm and png images.  Other
    formats must be converted before they can be used in fvwm.
+
+   If you want to set a different background per screen (i.e., you're
+   using Xinerama), then the program &quot;Nitrogen&quot; can be used to do
+   that.  See:  <a href="http://projects.l3ib.org/nitrogen/">http://projects.l3ib.org/nitrogen/</a>
 
 ----------------------------------------------------------------------
 
@@ -2640,27 +2674,30 @@ your applications request.
    Example from my config:
 
      # make the background menu
-     AddToFunc MakeBackgroundMenu
-      + &quot;I&quot; DestroyMenu BackgroundMenu
-      + &quot;I&quot; AddToMenu BackgroundMenu Backgrounds Title
-      + &quot;I&quot; PipeRead 'for i in `/bin/ls $HOME/.fvwm/backgrounds/*.bg.*`; \
+      DestroyFunc MakeBackgroundMenu
+      AddToFunc MakeBackgroundMenu
+      + I DestroyMenu BackgroundMenu
+      + I AddToMenu BackgroundMenu Backgrounds Title
+      + I PipeRead 'for i in `/bin/ls $HOME/.fvwm/backgrounds/*.bg.*`; \
             do echo -e AddToMenu BackgroundMenu `basename $i | sed -e \
             &quot;s/\.bg\..*$//&quot;` Function SetDefaultBackground $i; done'
 
      # set the default background
+     DestroyFunc SetDefaultBackground
      AddToFunc SetDefaultBackground
-      + &quot;I&quot; Exec echo -e $0 &gt; $HOME/.fvwm/background
-      + &quot;I&quot; Function SetBackground
+      + I Exec echo -e $0 &gt; $HOME/.fvwm/background
+      + I SetBackground
 
      # set a new background
+     DestroyFunc SetBackground
      AddToFunc SetBackground
-      + &quot;I&quot; Exec test -r $HOME/.fvwm/background &amp;&amp; xv -root -quit -viewonly \
+      + I Exec test -r $HOME/.fvwm/background &amp;&amp; xv -root -quit -viewonly \
             `cat $HOME/.fvwm/background|tr -d &quot;\n&quot;`
 
      # activate setting from last session and build the menu
-     AddToFunc InitFunction
-      + &quot;I&quot; Function SetBackground
-      + &quot;I&quot; Function MakeBackgroundMenu
+     AddToFunc StartFunction
+      + I SetBackground
+      + I MakeBackgroundMenu
 
 
    The MakeBackgroundMenu function builds a menu that contains an item
@@ -2832,14 +2869,14 @@ your applications request.
    or to change the focus to a window in a specific direction:
 
      # number keys on keypad to move the focus
-     Key KP_1 A C Direction SouthWest Focus
-     Key KP_2 A C Direction South Focus
-     Key KP_3 A C Direction SouthEast Focus
-     Key KP_4 A C Direction West Focus
-     Key KP_6 A C Direction East Focus
-     Key KP_7 A C Direction NorthWest Focus
-     Key KP_8 A C Direction North Focus
-     Key KP_9 A C Direction NorthEast Focus
+     Key KP_1 A C Direction SouthWest (AcceptsFocus) Focus
+     Key KP_2 A C Direction South (AcceptsFocus) Focus
+     Key KP_3 A C Direction SouthEast (AcceptsFocus) Focus
+     Key KP_4 A C Direction West (AcceptsFocus) Focus
+     Key KP_6 A C Direction East (AcceptsFocus) Focus
+     Key KP_7 A C Direction NorthWest (AcceptsFocus) Focus
+     Key KP_8 A C Direction North (AcceptsFocus) Focus
+     Key KP_9 A C Direction NorthEast (AcceptsFocus) Focus
 
 ----------------------------------------------------------------------
 
@@ -2867,11 +2904,12 @@ your applications request.
 
      Mouse  2 T A  Function MoveOrLower
 
+     DestroyFunc MoveOrLower
      AddToFunc MoveOrLower
-      + &quot;Click&quot;         Lower
-      + &quot;Motion&quot;        Lower
-      + &quot;Motion&quot;        Move
-      + &quot;DoubleClick&quot;   Lower
+      + C   Lower
+      + M   Lower
+      + M   Move
+      + D   Lower
 
 ----------------------------------------------------------------------
 
@@ -2886,12 +2924,14 @@ your applications request.
    Then put the following lines in your config (for fvwm-2.5.11 or
    later):
 
+     DestroyFync ToggleFvwmConsole
      AddToFunc ToggleFvwmConsole
      + I ToggleWindow FvwmConsole &quot;Module FvwmConsole&quot;
 
      # Application toggling function
      # First argument is the window name, second argument is the
      # command to start the application.
+     DestroyFunc ToggleWindow
      AddToFunc ToggleWindow
      + I None ($$0, CirculateHit) $$1
      + I TestRc (Match) Break
@@ -2900,6 +2940,7 @@ your applications request.
      + I Next ($$0, CirculateHit) Function MakeVisible
 
      # Helper function
+     DestroyFunc MakeVisible
      AddToFunc MakeVisible
      + I MoveToDesk
      + I MoveToPage
@@ -2926,13 +2967,14 @@ your applications request.
    still want to have other xterms that are not toggled, you must
    give the window an unique name:
 
-
+     DestroyFunc RunXMessages
      AddToFunc RunXMessages
      + I Exec exec xterm -T XMessages -n XMessages \
          -e tail -f /var/adm/?* ~/.X.err
 
+     DestroyFunc ToggleXMessages
      AddToFunc ToggleXMessages
-     + I ToggleWindow XMessages &quot;Function RunXMessages&quot;
+     + I ToggleWindow XMessages RunXMessages
 
    Keep in mind that these functions simply check if a window with
    the specified name exists.  They will happily close manually
@@ -2941,13 +2983,15 @@ your applications request.
 
    For fvwm-2.5.10 or earlier, these functions should work too:
 
+     DestroyFunc ToggleFvwmConsole
      AddToFunc ToggleFvwmConsole
-     + I None (FvwmConsole, CirculateHit) Module FvwmConsole
+     + I None (FvwmConsole, CirculateHit) FvwmConsole
      + I Next (FvwmConsole, CirculateHit, CurrentPage, Visible) Close
      + I Next (FvwmConsole, CirculateHit) MoveToDesk
      + I Next (FvwmConsole, CirculateHit) MoveToPage
      + I Next (FvwmConsole, CirculateHit) Raise
 
+     DestroyFunc ToggleXMessages
      AddToFunc ToggleXMessages
      + I None (XMessages, CirculateHit) Exec exec \
        xterm -T XMessages -n XMessages -e tail -f /var/adm/?* ~/.X.err
@@ -3006,10 +3050,19 @@ your applications request.
    Next (MyWindow) CenterWindow
 
    ThisWindow may be removed, it is only needed to avoid errors when
-   CenterWindow is called without a window context.
+   CenterWindow is called without a window context.  (In which case
+   see the Pick command.)
 
    With fvwm release 2.5.11, you can place windows in the center of
    the screen using &quot;Style X CenterPlacement&quot;.
+
+   But with fvwm release 2.5.22 and greater CenterPlacement is
+   deprecated over the use of PositionPlacement style which allows for
+   not only centering windows, but positioning windows anywhere on the
+   screen using the same arguments as the Move command.  But in terms of
+   centering windows:
+
+      Style MyWindow PositionPlacement Center
 
 ----------------------------------------------------------------------
 
@@ -3047,11 +3100,13 @@ your applications request.
    fvwm-2.5.11 or later:
 
      # The autohiding functions
+     DestroyFunc autohide
      AddToFunc autohide
      + I ThisWindow ($0) Deschedule $[w.id]
      + I ThisWindow ($0) KeepRc ThisWindow (shaded) WindowShade off
      + I TestRc (!Match) All ($0, !shaded) autohide_hide $1 $2
 
+     DestroyFunc autohide_hide
      AddToFunc autohide_hide
      + I Schedule $0 $[w.id] WindowShade $1
      + I Schedule $0 $[w.id] Deschedule $[w.id]
@@ -3061,6 +3116,7 @@ your applications request.
      + I Module FvwmAuto 1 -menter enter_handler
 
      # Add the windows you want to autohide
+     DestroyFunc enter_handler
      AddToFunc enter_handler
      + I autohide FvwmButtons 500 S
      #            ^           ^   ^
@@ -3082,6 +3138,7 @@ your applications request.
 
    fvwm-2.5.11 or later:
 
+     DestroyFunc autohide
      AddToFunc autohide
      + I ThisWindow ($0) Deschedule $[w.id]
      + I TestRc (!Match) Deschedule -$[w.id]
@@ -3089,11 +3146,13 @@ your applications request.
          autohide_show $1 $3
      + I TestRc (!Match) All ($0, !shaded) autohide_hide $2 $3
 
+     DestroyFunc autohide_show
      AddToFunc autohide_show
      + I Schedule $0 -$[w.id] WindowShade $1 off
      + I Schedule $0 -$[w.id] Deschedule $[w.id]
      + I Schedule $0 -$[w.id] Deschedule -$[w.id]
 
+     DestroyFunc autohide_hide
      AddToFunc autohide_hide
      + I Schedule $0 $[w.id] WindowShade $1 on
      + I Schedule $0 $[w.id] Deschedule $[w.id]
@@ -3102,6 +3161,7 @@ your applications request.
      AddToFunc StartFunction
      + I Module FvwmAuto 1 -menter enter_handler
 
+     DestroyFunc enter_handler
      AddToFunc enter_handler
      + I autohide FvwmButtons 250 500 S
      #            ^           ^   ^   ^
@@ -3225,6 +3285,7 @@ your applications request.
    You can also check for any remaining icons left behind and remove
    them in your ExitFunction:
 
+     DestroyFunc ExitFunction
      AddToFunc ExitFunction I Test (!ToRestart) \
        Exec rm -f $[FVWM_USERDIR]/icon.tmp.*
 
