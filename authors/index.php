@@ -44,7 +44,7 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
-<h4 class="author">Julio José Teca Nemesio</h4>
+<h4 class="author">Julio JosÃ© Teca Nemesio</h4>
 <p class="author">
 ChangeWindowTitle and ChangeWindowTitleFromArg FvwmScript instructions. ChangeWindowTitle FvwmScript command.
 </p>
@@ -56,7 +56,7 @@ SVG image loader.  ARGB/animated mouse cursor loading.
 
 <h4 class="author">Thomas Adam</h4>
 <p class="author">
-Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle. StartShaded style option.
+Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle. StartShaded style option. Introduce the command expansion placeholder:  $[w.visiblename] Make style matching honour a window's visible name (c.f. $[w.visiblename]) Added &quot;bindings&quot; option to PrintInfo command useful for debugging. Force windows on-screen where applicable when using &quot;PositionPlacement UnderMouse&quot;.
 </p>
 
 <h4 class="author">Serge (gentoosiast) Koksharov</h4>

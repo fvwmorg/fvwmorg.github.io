@@ -15,7 +15,7 @@
 <span class="emphasis"><em>Style</em></span>
 command is used to set attributes of a window to values other than
 the default or to set the window manager default styles.</p><p><em class="replaceable"><code>stylename</code></em>
-can be a window's name, class, or resource string.  It may contain
+can be a window's name, class, visible name, or resource string.  It may contain
 the wildcards '*' and '?', which are matched in the usual Unix
 filename manner.  Multiple style options in a single
 <span class="emphasis"><em>Style</em></span>
@@ -186,6 +186,7 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>EdgeMoveDelay</em></span>,
 <span class="emphasis"><em>EdgeResizeDelay</em></span>.
 <span class="emphasis"><em>EdgeMoveResistance</em></span>,
+<span class="emphasis"><em>InitialMapCommand</em></span>
 </p><p>In the above list some options are listed as
 style-option/opposite-style-option.  The opposite-style-option for
 entries that have them describes the fvwm default behavior and can
@@ -1002,7 +1003,13 @@ individual xinerama screen edges.  Note that the center of the
 window being moved determines the xinerama screen on which the
 window should be kept.  Both values are 0 by default.  To restore
 the defaults, the option <a name="Style_EdgeMoveResistance"></a><font class="fvwmopt">EdgeMoveResistance</font> can be used without any
-parameters.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
+parameters.</p><p>The option <a name="Style_InitialMapCommand"></a><font class="fvwmopt">InitialMapCommand</font> allows
+for any valid fvwm command or function to run when the window is 
+initially mapped by fvwm.  Example:</p><pre class="programlisting">
+<a href="../commands/Style.html">Style</a> MyWindow StartsOnPage 0 0, InitialMapCommand Iconify
+</pre></div><p>This would hence place the window called <span class="emphasis"><em>MyWindow</em></span>
+on page 0 0 for the current desk, and immediately run the <a href="../commands/Iconify.html">Iconify</a>
+command on that window.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
 for the window.  Fvwm knows several ways to deal with this
@@ -1015,7 +1022,9 @@ top left corner of the display.  With the argument
 <span class="emphasis"><em>Center</em></span>,
 all new window appear at the center of the screen, and with
 <span class="emphasis"><em>UnderMouse</em></span>,
-windows are centered under the mouse pointer.  If any other
+windows are centered under the mouse pointer where possible.  If the window
+is unable to fit on the screen because the pointer is at the edge of the
+screen, then the window is forced on-screen using this option.  If any other
 <span class="emphasis"><em>move-arguments</em></span>
 are given, they are interpreted exactly as the
 <span class="emphasis"><em>Move</em></span>
@@ -1671,5 +1680,5 @@ by a match to "Fvwm*".  It gets
 by virtue of a match to "*".  If conflicting styles are specified
 for a window, then the last style specified is used.</p></div></div>
 <HR>
-<P>fvwm 2.5.26</P>
+<P>fvwm 2.5.27</P>
 </body></html>

@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.27" style="font-weight:normal;">&nbsp;2.5.27&nbsp;</a></td>
 <td><a href="#2.5.26" style="font-weight:normal;">&nbsp;2.5.26&nbsp;</a></td>
 <td><a href="#2.5.25" style="font-weight:normal;">&nbsp;2.5.25&nbsp;</a></td>
 <td><a href="#2.5.24" style="font-weight:normal;">&nbsp;2.5.24&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.21" style="font-weight:normal;">&nbsp;2.5.21&nbsp;</a></td>
 <td><a href="#2.5.20" style="font-weight:normal;">&nbsp;2.5.20&nbsp;</a></td>
 <td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
-<td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
 <td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 <td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.12" style="font-weight:normal;">&nbsp;2.5.12&nbsp;</a></td>
 <td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
-<td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
 <td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.3" style="font-weight:normal;">&nbsp;2.5.3&nbsp;</a></td>
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
-<td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
 <td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
-<td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
@@ -98,17 +99,45 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
-<td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
 <td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 <td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 </tr>
 </table>
 </center>
+<a name="2.5.28"></a>
+<h4>Changes in beta release 2.5.28 (not released yet) <a href="#top">[top]</a></h4>
 <a name="2.5.27"></a>
-<h4>Changes in beta release 2.5.27 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.27 (23-Feb-2009) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> New extended variable       $[w.visiblename]</li>
+  <li> Style matching now honours the window's visible name which     means it can be matched before the real name, hence:
+    <ul>
+        <li>        Style $[w.visiblename] Colorset 5</li>
+        <li>        is now honoured.  Useful with IndexedWindowName as a style</li>
+        <li>        option.</li>
+    </ul>
+  </li>
+  <li> New style InitialMapCommand allows to execute any command     when a window is mapped first.</li>
+  <li> New option to PrintInfo, &quot;bindings&quot; which prints out all of     the Key, PointerKey, Mouse and Stroke bindings which fvwm     knows about.</li>
+  <li> Bug fixes:</li>
+  <li> Fixed compilation without XRender support.</li>
+  <li> Fixed handling of _NET_MOVERESIZE_WINDOWS requests.</li>
+  <li> Fixed a bug in automatic detection mode of the style     MoveByProgramMethod.</li>
+  <li> Fixed png detection when cross compiling.</li>
+  <li> Fixed keeping fullscreen window mode over a restart.</li>
+  <li> The style PositionPlacement now honours StartsOnPage.</li>
+  <li> Reset signal handlers for executed modules and programs.</li>
+  <li> Try to handle a bug an old version of the EWMH spec by     honouring both, the _NET_WM_STATE_MAXIMIZED_HORIZ hint and     the _NET_WM_STATE_MAXIMIZED_HORZ hitn.</li>
+  <li> Fix the GNOME location prefix to application .desktop files.</li>
+  <li> 'PositionPlacement UnderMouse' now forces the window     on-screen, just like the old UnderMousePlacement style option     used to.</li>
+</ul>
+
+
 <a name="2.5.26"></a>
 <h4>Changes in beta release 2.5.26 (7-May-2008) <a href="#top">[top]</a></h4>
 <ul>
