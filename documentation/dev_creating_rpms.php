@@ -42,9 +42,9 @@ decoration_window_start("Creating RPM Packages");
 ?>
 
   <h2>Preface</h2>
-  <p>If you use an rpm based distribution, you may sometimes want to create
+  <p>If you use an rpm based distribution, you may sometimes prefer to create
     a binary rpm package and install it on all your machines instead of
-    individual installation using "make install" to a local place.</p>
+    individual installations using "make install" to a local place.</p>
 
   <p>Creating rpm packages from any given released tarball or a cvs tree is
     automated in FVWM. The same instructions may be applied to 3 projects
@@ -54,9 +54,12 @@ decoration_window_start("Creating RPM Packages");
 
   <h2>Before you begin</h2>
   <p>You should install
-    <a href="http://rpmfind.net/linux/RPM/rpm-build.html">rpm-build</a>.</p>
+    <a href="http://rpmfind.net/linux/RPM/rpm-build.html">rpm-build</a>
+    package.</p>
 
   <p>You should install all <i>-devel</i> packages needed for building.
+    The exact list depends on the features you want to build in (running
+    ./configure should help to get an idea about all optional features).
     If you are going to install your newly built rpm on other machines, you
     should have both <i>somelib</i> and <i>somelib-devel</i> rpm packages
     installed on your system and only <i>somelib</i> installed on these other
@@ -65,18 +68,23 @@ decoration_window_start("Creating RPM Packages");
 
   <ul>
     <li><a href="http://rpmfind.net/linux/RPM/glibc-devel.html">glibc-devel</a></li>
-    <li><a href="http://rpmfind.net/linux/RPM/XFree86-devel.html">XFree86-devel</a></li>
-    <li><a href="http://rpmfind.net/linux/RPM/xpm-devel.html">xpm-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/xorg-x11-proto-devel.html">xorg-x11-proto-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libXpm-devel.html">libXpm-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/libstroke-devel.html">libstroke-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/readline-devel.html">readline-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/ncurses-devel.html">ncurses-devel</a></li>
-    <li><a href="http://rpmfind.net/linux/RPM/libtermcap-devel.html">libtermcap-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/perl.html">perl</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/gtk+-devel.html">gtk+-devel</a></li>
-    <li><a href="http://rpmfind.net/linux/RPM/glib-devel.html">glib-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/imlib-devel.html">imlib-devel</a></li>
-    <li><a href="http://rpmfind.net/linux/RPM/fontconfig-devel.html">fontconfig-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libXft-devel.html">libXft-devel</a></li>
     <li><a href="http://rpmfind.net/linux/RPM/fribidi-devel.html">fribidi-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libpng-devel.html">libpng-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/librsvg2-devel.html">librsvg2-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libSM-devel.html">libSM-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libXrender-devel.html">libXrender-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libXinerama-devel.html">libXinerama-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libXcursor-devel.html">libXcursor-devel</a></li>
+    <li><a href="http://rpmfind.net/linux/RPM/libxslt.html">libxslt</a></li>
   </ul>
   
   <p>It is suggested that you create rpm packages on a stock or almost a stock
@@ -94,10 +102,10 @@ decoration_window_start("Creating RPM Packages");
     just move this tarball to some working cvs tree or another unpacked tree.</p>
     
   <p>If you use cvs and want to create the rpm of the current cvs snapshot,
-    you should not do anything special on this step.</p>
+    you should skip this step.</p>
     
   <p>If you use cvs and want to create the rpm of some specific version
-    <b>x.y.z</b> in the past (or in the future if you are a prophet), first
+    <b>x.y.z</b> in the past or the future, first
     update the cvs tree to this version by executing:</p>
 
 <pre class="doc">
@@ -129,7 +137,7 @@ cvs update -r version-x_y_z
   <p>Hopefully you are in the top directory after the previous steps.
     If you don't have <i>Makefile</i>, run <tt>./configure</tt>. If you don't
     have <i>configure</i>, produce it as described on the
-    <a href="./cvs.html">cvs</a> page.</p>
+    <a href="./dev_cvs.php">cvs information</a> page.</p>
 
   <p>Creating binary and source rpm packages is as simple as executing:</p>
 
@@ -166,7 +174,7 @@ make rpm-dist <b>release</b>=test1
     be used when rpm is created like shown here:</p>
 
 <pre class="doc">
-make rpm-dist <b>cparams</b>='--enable-gnome --quiet' <b>mparams</b>='CFLAGS="-O2 -g"'
+make rpm-dist <b>cparams</b>='--disable-xrender --quiet' <b>mparams</b>='CFLAGS="-O2 -g"'
 </pre>
 
   <p>Finally, if you want to create rpm packages for a tarball with a version

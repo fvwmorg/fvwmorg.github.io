@@ -1,3 +1,8 @@
+2009-03-14  Mikhael Goikhman  <migo@homemail.com>
+
+	* documentation/dev_creating_rpms.php:
+	update the list of optional packages, fix some links and wording
+
 2009-02-23  Dominik Vogt  <dominik(dot)vogt(at)gmx(dot)de>
 
 	* definitions.inc:
