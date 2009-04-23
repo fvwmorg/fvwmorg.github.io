@@ -50,7 +50,7 @@ if(!isset($site_has_been_loaded)) {
   </p>
 
   <ul>
-      <li><?php mylink('http://www.fvwmwiki.org', 'The FVWM Wiki Pages'); ?> are
+      <li><?php mylink('http://fvwmwiki.bu-web.de/', 'The FVWM Wiki Pages'); ?> are
 	a shared collection of FVWM related stuff.</li>
   <li><?php mylink('http://fvwm.lair.be', 'The FVWM Forum'); ?> is
   going to be a sorted collection of user questions and answers.</li>
