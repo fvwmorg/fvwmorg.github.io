@@ -42,11 +42,16 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmWindowMenu in unstable branch (2.5.27)"); ?>
+<?php decoration_window_start("Manual page for FvwmWindowMenu in unstable branch (2.5.28)"); ?>
 
 <H1>FvwmWindowMenu</H1>
-Section: Fvwm Modules (1)<BR>Updated: 2004-06-29<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
+
+
+
+
+
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
@@ -68,23 +73,16 @@ Run this module from your StartFunction:
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-A substitute for <I>fvwm</I> builtin <B>WindowList</B>, but written in Perl
-and easy to customize. Unlike <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> the
-module does not draw its own window, but instead creates an
-<I>fvwm</I> menu and asks <I>fvwm</I> to pop it up.
+A substitute for <I>fvwm</I> builtin <B>WindowList</B>, but written in Perl and easy to customize. Unlike <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> the module does not draw its own window, but instead creates an <I>fvwm</I> menu and asks <I>fvwm</I> to pop it up.
 <P>
 
-By defining a set of regular expressions, windows may
-be sorted into sections based on a regexp matching the window
-name, class or resource and included in the menu.
+By defining a set of regular expressions, windows may be sorted into sections based on a regexp matching the window name, class or resource and included in the menu.
 <P>
 
-Similarly, another set of regular expressions can be used to exclude
-items from the menu.
+Similarly, another set of regular expressions can be used to exclude items from the menu.
 <P>
 
-Any windows not matching an instance of the include or exclude list will
-be placed in the last section of the menu.
+Any windows not matching an instance of the include or exclude list will be placed in the last section of the menu.
 <A NAME="lbAE">&nbsp;</A>
 <H2>USAGE</H2>
 
@@ -108,18 +106,13 @@ or:
 <blockquote><pre>    Mouse 2 A N SendToModule FvwmWindowMenu Popup</pre></blockquote>
 <P>
 
-The additional parameters are any valid <B>Menu</B> command parameters without a
-menu name, see fvwm.
+The additional parameters are any valid <B>Menu</B> command parameters without a menu name, see fvwm.
 <P>
 
-Recognized actions are <B>Post</B> (or its alias <B>Menu</B>) and <B>Popup</B>, they
-create <I>fvwm</I> menus and invoke them using the corresponding commands
-<B>Menu</B> and <B>Popup</B>. If the module was started with ``-g'' switch, it
-additionally supports <B>PostBar</B> (not implemented yet).
+Recognized actions are <B>Post</B> (or its alias <B>Menu</B>) and <B>Popup</B>, they create <I>fvwm</I> menus and invoke them using the corresponding commands <B>Menu</B> and <B>Popup</B>. If the module was started with ``-g'' switch, it additionally supports <B>PostBar</B> (not implemented yet).
 <P>
 
-Set module options for windows to include (Show) or exclude (DontShow).
-The syntax is:
+Set module options for windows to include (Show) or exclude (DontShow). The syntax is:
 <P>
 
 <blockquote><pre>    *FvwmWindowMenu: ShowName pattern
@@ -130,8 +123,7 @@ The syntax is:
     *FvwmWindowMenu: DontShowResource pattern</pre></blockquote>
 <P>
 
-Pattern is a perl regular expression that will be evaluated in m// context.
-See <I><A HREF="/cgi-bin/man/man2html/1+perlre">perlre</A></I>(1).
+Pattern is a perl regular expression that will be evaluated in m// context. See <I><A HREF="http://localhost/cgi-bin/man/man2html/1+perlre">perlre</A></I>(1).
 <P>
 
 For example:
@@ -141,8 +133,7 @@ For example:
     *FvwmWindowMenu: ShowName Galeon|Navigator|mozilla-bin|Firefox</pre></blockquote>
 <P>
 
-will define two sections containing respectively browsers, and GVim. A third
-section will contain all other windows.
+will define two sections containing respectively browsers, and GVim. A third section will contain all other windows.
 <P>
 
 To only include matching windows, add:
@@ -158,8 +149,7 @@ Similarly:
     *FvwmWindowMenu: DontShowClass Gkrellm</pre></blockquote>
 <P>
 
-will cause the menu to ignore windows with name beginning with Fvwm
-or class gkrellm.
+will cause the menu to ignore windows with name beginning with Fvwm or class gkrellm.
 <P>
 
 Other options:
@@ -193,31 +183,39 @@ function to invoke on menu entries; defaults to WindowListFunc
 how to format menu entries; substitutions are made as follows:
 <DL COMPACT><DT><DD>
 <DL COMPACT>
-<DT>%n, %i, <TT>%c</TT>, <TT>%r<DD>
+<DT>%n, <TT>%i</TT>, <TT>%c</TT>, <TT>%r<DD>
 
 
 <A NAME="ixAAO"></A>
 the window name, icon name, class or resource
-<DT>%x, %y<DD>
+<DT>%x</TT>, <TT>%y<DD>
 
 
 <A NAME="ixAAP"></A>
 the window x or y coordinates w.r.t. the page the window is on.
-<DT>%X, %Y<DD>
+<DT>%X</TT>, <TT>%Y<DD>
 
 
 <A NAME="ixAAQ"></A>
 the window x or y coordinates w.r.t. the desk the window is on.
 <DT>%d<DD>
+
+
 <A NAME="ixAAR"></A>
 the window desk number
 <DT>%m<DD>
+
+
 <A NAME="ixAAS"></A>
 the window's mini-icon
 <DT>%M<DD>
+
+
 <A NAME="ixAAT"></A>
 the window's mini-icon only for iconified windows, otherwise empty
 <DT>%t<DD>
+
+
 <A NAME="ixAAU"></A>
 a tab
 <DT>%%<DD>
@@ -231,8 +229,7 @@ a literal %
 <P>
 
 
-The format string must be quoted. The default string is
-``%m%n%t%t(+%x+%y) - Desk %d</TT>''.
+The format string must be quoted. The default string is ``%m%n%t%t(+%x+%y) - Desk %d</TT>''.
 </DL>
 
 </DL>
@@ -240,36 +237,28 @@ The format string must be quoted. The default string is
 <H2>MORE EXAMPLES</H2>
 
 <A NAME="ixAAV"></A>
-Fancy binding of the window menu to the right windows key on some keyboards.
-Hold this button while navigating using cursor keys, then release it.
+Fancy binding of the window menu to the right windows key on some keyboards. Hold this button while navigating using cursor keys, then release it.
 <P>
 
 <blockquote><pre>    CopyMenuStyle * WindowMenu
     MenuStyle WindowMenu SelectOnRelease Super_R
-    *FvwmWindowMenu: MenuStyle WindowMenu</pre></blockquote>
-<P>
+    *FvwmWindowMenu: MenuStyle WindowMenu
 
-<blockquote><pre>    AddToFunc StartFunction I Module FvwmWindowMenu</pre></blockquote>
-<P>
+    AddToFunc StartFunction I Module FvwmWindowMenu
 
-<blockquote><pre>    Key Super_R A A SendToModule FvwmWindowMenu Post Root c c WarpTitle</pre></blockquote>
+    Key Super_R A A SendToModule FvwmWindowMenu Post Root c c WarpTitle</pre></blockquote>
 <A NAME="lbAG">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <A NAME="ixAAW"></A>
-
-<DL COMPACT>
-<DT>Ric Lister &lt;<A HREF="http://cns.georgetown.edu/~ric/">http://cns.georgetown.edu/~ric/</A>&gt;<DD>
-<A NAME="ixAAX"></A>
-
-
-<DT>Scott Smedley<DD>
-<A NAME="ixAAY"></A>
-
-<DT>Mikhael Goikhman<DD>
-<A NAME="ixAAZ"></A>
+Richard Lister &lt;<A HREF="mailto:ric+lister@cns.georgetown.edu">ric+lister@cns.georgetown.edu</A>&gt;.
 <P>
-</DL>
+
+Scott Smedley &lt;<A HREF="mailto:ss@aao.gov.au">ss@aao.gov.au</A>&gt;.
+<P>
+
+Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
+<P>
 
 <HR>
 <A NAME="index">&nbsp;</A><H2>Index</H2>
@@ -283,11 +272,11 @@ Hold this button while navigating using cursor keys, then release it.
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 22:35:21 GMT, February 23, 2009
+Time: 08:08:35 GMT, September 20, 2009
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 23-Feb-2009 -->
+<!-- Automatically generated by manpages2php on 20-Sep-2009 -->

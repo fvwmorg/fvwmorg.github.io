@@ -42,11 +42,16 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm-menu-directory in unstable branch (2.5.27)"); ?>
+<?php decoration_window_start("Manual page for fvwm-menu-directory in unstable branch (2.5.28)"); ?>
 
 <H1>fvwm-menu-directory</H1>
-Section: Fvwm Utilities (1)<BR>Updated: 2005-07-08<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Utilities (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
+
+
+
+
+
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
@@ -56,49 +61,17 @@ fvwm-menu-directory - builds a directory browsing menu for fvwm
 <H2>SYNOPSIS</H2>
 
 <A NAME="ixAAC"></A>
-<B><u>fvwm-menu-directory</u></B>
-[ <B>--help</B>|<B>-h</B>|<B>-?</B> ]
-[ <B>--version</B>|<B>-V</B> ]
-[ <B>--name</B>|<B>-na</B> <FONT>NAME</FONT> ]
-[ <B>--title</B>|<B>-t</B> <FONT>NAME</FONT> ]
-[ <B>--item</B>|<B>-it</B> <FONT>NAME</FONT> ]
-[ <B>--icon-title</B>|<B>-icon-t</B> <FONT>XPM</FONT> ]
-[ <B>--icon-dir</B>|<B>-icon-d</B> <FONT>XPM</FONT> ]
-[ <B>--icon-file</B>|<B>-icon-f</B> <FONT>XPM</FONT> ]
-[ <B>--icon-app</B>|<B>-icon-a</B> <FONT>XPM</FONT> ]
-[ <B>--wm-icons</B> ]
-[ <B>--dir</B>|<B>-d</B> <FONT>NAME</FONT> ]
-[ <B>--order</B>|<B>-o</B> <FONT>NUM</FONT> ]
-[ <B>--[no]all</B>|<B>-a</B> ]
-[ <B>--[no]links</B>|<B>-l</B> ]
-[ <B>--xterm</B>|<B>-x</B> <FONT>CMD</FONT> ]
-[ <B>--exec-title</B>|<B>-exec-t</B> <FONT>CMD</FONT> ]
-[ <B>--exec-file</B>|<B>-exec-f</B> <FONT>CMD</FONT> ]
-[ <B>--exec-app</B>|<B>-exec-a</B> [<FONT>CMD</FONT>] ]
-[ <B>--command-title</B>|<B>-command-t</B> <FONT>CMD</FONT> ]
-[ <B>--command-file</B>|<B>-command-f</B> <FONT>CMD</FONT> ]
-[ <B>--command-app</B>|<B>-command-a</B> <FONT>CMD</FONT> ]
-[ <B>--[no]reuse</B>|<B>-r</B> ]
-[ <B>--[no]check-subdirs</B>|<B>-ch</B> ]
-[ <B>--special-dirs</B>|<B>-s</B> [<FONT>VALUE</FONT>] ]
-[ <B>--[no]memory-for-speed</B>|<B>-mem</B> ]
-[ <B>--menu-style</B>|<B>-men</B> <FONT>NAME</FONT> ]
-[ <B>--func-name</B>|<B>-f</B> <FONT>NAME</FONT> ]
+<B><u>fvwm-menu-directory</u></B> [ <B>--help</B>|<B>-h</B>|<B>-?</B> ] [ <B>--version</B>|<B>-V</B> ] [ <B>--name</B>|<B>-na</B> <FONT>NAME</FONT> ] [ <B>--title</B>|<B>-t</B> <FONT>NAME</FONT> ] [ <B>--item</B>|<B>-it</B> <FONT>NAME</FONT> ] [ <B>--icon-title</B>|<B>-icon-t</B> <FONT>XPM</FONT> ] [ <B>--icon-dir</B>|<B>-icon-d</B> <FONT>XPM</FONT> ] [ <B>--icon-file</B>|<B>-icon-f</B> <FONT>XPM</FONT> ] [ <B>--icon-app</B>|<B>-icon-a</B> <FONT>XPM</FONT> ] [ <B>--wm-icons</B> ] [ <B>--dir</B>|<B>-d</B> <FONT>NAME</FONT> ] [ <B>--order</B>|<B>-o</B> <FONT>NUM</FONT> ] [ <B>--[no]all</B>|<B>-a</B> ] [ <B>--[no]links</B>|<B>-l</B> ] [ <B>--xterm</B>|<B>-x</B> <FONT>CMD</FONT> ] [ <B>--exec-title</B>|<B>-exec-t</B> <FONT>CMD</FONT> ] [ <B>--exec-file</B>|<B>-exec-f</B> <FONT>CMD</FONT> ] [ <B>--exec-app</B>|<B>-exec-a</B> [<FONT>CMD</FONT>] ] [ <B>--command-title</B>|<B>-command-t</B> <FONT>CMD</FONT> ] [ <B>--command-file</B>|<B>-command-f</B> <FONT>CMD</FONT> ] [ <B>--command-app</B>|<B>-command-a</B> <FONT>CMD</FONT> ] [ <B>--[no]reuse</B>|<B>-r</B> ] [ <B>--[no]check-subdirs</B>|<B>-ch</B> ] [ <B>--special-dirs</B>|<B>-s</B> [<FONT>VALUE</FONT>] ] [ <B>--[no]memory-for-speed</B>|<B>-mem</B> ] [ <B>--menu-style</B>|<B>-men</B> <FONT>NAME</FONT> ] [ <B>--func-name</B>|<B>-f</B> <FONT>NAME</FONT> ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
 <A NAME="ixAAD"></A>
-A perl script which provides an output to read in with PipeRead to build an
-fvwm menu containing a directory listing. Almost everything can be configured.
+A perl script which provides an output to read in with PipeRead to build an fvwm menu containing a directory listing. Almost everything can be configured.
 <A NAME="lbAE">&nbsp;</A>
 <H2>HINTS</H2>
 
 <A NAME="ixAAE"></A>
-The title item with its own attached action is usually added to the menu.
-This may be used to define an action for the directory for which the menu is
-built, such as starting a terminal in this directory (the default).
-However, this may annoy some users. To disable the title action use
-<B>--command-title</B> &quot;&quot;, to remove the title completely use <B>--title</B> &quot;&quot;.
+The title item with its own attached action is usually added to the menu. This may be used to define an action for the directory for which the menu is built, such as starting a terminal in this directory (the default). However, this may annoy some users. To disable the title action use <B>--command-title</B> &quot;&quot;, to remove the title completely use <B>--title</B> &quot;&quot;.
 <A NAME="lbAF">&nbsp;</A>
 <H2>OPTIONS</H2>
 
@@ -115,35 +88,22 @@ show version and exit
 menu name, used only with --reuse, default is MenuBrowser
 <DT><B>--title</B> title<DD>
 <A NAME="ixAAJ"></A>
-menu title format, default is '%*-40p' - last 40 characters
-of the current full path.
-<FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double
-backslash or a real <FONT>TAB</FONT>.
+menu title format, default is '%*-40p' - last 40 characters of the current full path. <FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double backslash or a real <FONT>TAB</FONT>.
 
 
 <P>
 
 
-Format specifiers:
-<BR>&nbsp;&nbsp;<TT>%d</TT>&nbsp;-&nbsp;the&nbsp;current&nbsp;directory&nbsp;name
-<BR>&nbsp;&nbsp;<TT>%p</TT>&nbsp;-&nbsp;the&nbsp;current&nbsp;directory&nbsp;full&nbsp;path
+Format specifiers: <TT>%d</TT> - the current directory name <TT>%p</TT> - the current directory full path
 
 
 <P>
 
 
-These specifiers can receive an optional integer size, positive for right
-adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional
-*num or *-num, which means to leave only the first or last (if minus) num of
-chars, the num must be greater than 3, since the striped part is replaced
-with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to
-get only the 20 last characters, but if the length is less then 10 - to fill
-with up to 10 spaces on the right.
+These specifiers can receive an optional integer size, positive for right adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional *num or *-num, which means to leave only the first or last (if minus) num of chars, the num must be greater than 3, since the striped part is replaced with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to get only the 20 last characters, but if the length is less then 10 - to fill with up to 10 spaces on the right.
 <DT><B>--item</B> format<DD>
 <A NAME="ixAAK"></A>
-menu item format, default is '%n'. <FONT>TAB</FONT> and width modifiers
-for <TT>%n</TT>, <TT>%N</TT> and <TT>%s</TT> can be specified as described in <B>--title</B> above.
-Note, specifying a non default format slows the script.
+menu item format, default is '%n'. <FONT>TAB</FONT> and width modifiers for <TT>%n</TT>, <TT>%N</TT> and <TT>%s</TT> can be specified as described in <B>--title</B> above. Note, specifying a non default format slows the script.
 
 
 <P>
@@ -182,9 +142,7 @@ menu file icon, default is none
 menu application icon, default is none
 <DT><B>--wm-icons</B><DD>
 <A NAME="ixAAP"></A>
-define icon names suitable for use with wm-icons package.
-Currently this is equivalent to: --icon-title menu/folder-open.xpm --icon-item
-menu/file.xpm --icon-dir menu/folder.xpm --icon-app menu/utility.xpm.
+define icon names suitable for use with wm-icons package. Currently this is equivalent to: --icon-title menu/folder-open.xpm --icon-item menu/file.xpm --icon-dir menu/folder.xpm --icon-app menu/utility.xpm.
 <DT><B>--dir</B> dir<DD>
 <A NAME="ixAAQ"></A>
 starting dir, default is ${<FONT>HOME-</FONT>.}
@@ -210,38 +168,22 @@ follow linked directories, default is --nolinks
 X terminal call, default is 'xterm -e'
 <DT><B>--exec-title</B> command<DD>
 <A NAME="ixAAV"></A>
-an fvwm Exec command on directory title (usually the
-shell), default is ${SHELL-/bin/sh}.
-'-' means no Exec command, i.e. Nop.
-If the command is not started with '^' X terminal call is prepended.
-The command is started in the currently browsed directory.
+an fvwm Exec command on directory title (usually the shell), default is ${SHELL-/bin/sh}. '-' means no Exec command, i.e. Nop. If the command is not started with '^' X terminal call is prepended. The command is started in the currently browsed directory.
 <DT><B>--exec-file</B> command<DD>
 <A NAME="ixAAW"></A>
-an fvwm Exec command on regular files,
-default is ${EDITOR-vi}.
-'-' means no Exec command, i.e. Nop.
-If the command is not started with '^' X terminal call is prepended.
-The actual file name is appended to the command.
+an fvwm Exec command on regular files, default is ${EDITOR-vi}. '-' means no Exec command, i.e. Nop. If the command is not started with '^' X terminal call is prepended. The actual file name is appended to the command.
 <DT><B>--exec-app</B> [command]<DD>
 <A NAME="ixAAX"></A>
-an fvwm Exec command on +x files, default is '-',
-which means the same command as on regular files. If no command is given,
-it is assumed to be empty - simply run the +x file.
-If the command is not started with '^' X terminal call is prepended.
-The actual file name is appended to the command.
+an fvwm Exec command on +x files, default is '-', which means the same command as on regular files. If no command is given, it is assumed to be empty - simply run the +x file. If the command is not started with '^' X terminal call is prepended. The actual file name is appended to the command.
 <DT><B>--command-title</B> command<DD>
 <A NAME="ixAAY"></A>
-an fvwm command to execute on title.
-If this option is not given (or command is '-'), the <TT>&quot;--exec-title&quot;</TT>
-is used instead.
-In the command, <TT>%d</TT> is substituted with the full directory path.
+an fvwm command to execute on title. If this option is not given (or command is '-'), the <TT>&quot;--exec-title&quot;</TT> is used instead. In the command, <TT>%d</TT> is substituted with the full directory path.
 
 
 <P>
 
 
-In fact, <I>--exec-title=tcsh</I> is equivalent
-to <I>--command-title='Exec cd ``%d''; xterm -e tcsh'</I>
+In fact, <I>--exec-title=tcsh</I> is equivalent to <I>--command-title='Exec cd ``%d''; xterm -e tcsh'</I>
 
 
 <P>
@@ -250,60 +192,34 @@ to <I>--command-title='Exec cd ``%d''; xterm -e tcsh'</I>
 The empty value disables the title action.
 <DT><B>--command-file</B> command<DD>
 <A NAME="ixAAZ"></A>
-an fvwm command to execute on regular files.
-If this option is not given (or command is '-'), the <TT>&quot;--exec-file&quot;</TT>
-is used instead.
-In the command, <TT>%f</TT> is substituted with the full file path.
+an fvwm command to execute on regular files. If this option is not given (or command is '-'), the <TT>&quot;--exec-file&quot;</TT> is used instead. In the command, <TT>%f</TT> is substituted with the full file path.
 
 
 <P>
 
 
-In fact, --exec-file=vi is equivalent
-to --command-file='Exec xterm -e vi ``%f'''
+In fact, --exec-file=vi is equivalent to --command-file='Exec xterm -e vi ``%f'''
 <DT><B>--command-app</B> command<DD>
 <A NAME="ixABA"></A>
-an fvwm command to execute on +x files.
-If this option is not given (or command is '-'), the <TT>&quot;--command-app&quot;</TT>
-is used instead.
-In the command, <TT>%f</TT> is substituted with the full file path.
+an fvwm command to execute on +x files. If this option is not given (or command is '-'), the <TT>&quot;--command-app&quot;</TT> is used instead. In the command, <TT>%f</TT> is substituted with the full file path.
 
 
 <P>
 
 
-In fact, --exec-app=^exec is equivalent
-to --command-app='Exec exec ``%f'''
+In fact, --exec-app=^exec is equivalent to --command-app='Exec exec ``%f'''
 <DT><B>--[no]reuse</B><DD>
 <A NAME="ixABB"></A>
-no pop-up menus, reuse the same menu, default is --noreuse.
-When you specify this option the Menu action is used, not Popup. Also,
-the --name parameter is not ignored, and --dir parameter is ignored
-if there is ~/.fvwm/.fvwm-menu-directory.dir file. This file is only created
-or used with this option specified, it is the only solution for the current
-fvwm menu state.
+no pop-up menus, reuse the same menu, default is --noreuse. When you specify this option the Menu action is used, not Popup. Also, the --name parameter is not ignored, and --dir parameter is ignored if there is ~/.fvwm/.fvwm-menu-directory.dir file. This file is only created or used with this option specified, it is the only solution for the current fvwm menu state.
 <DT><B>--[no]check-subdirs</B><DD>
 <A NAME="ixABC"></A>
-check all subdirs for having execute (+x) permission
-and replace ``Popup''/``Menu'' command with ``Nop'' for these without permissions.
-This has a visual effect of disabling popup triangle in the subdirectory item.
-The default is --nocheck-subdirs, because: 1) enabling this slows a bit the
-script, 2) with this option enabled, if no icons used and no dir/file separate
-sorting used there is no way to know that the item is directory and not file.
+check all subdirs for having execute (+x) permission and replace ``Popup''/``Menu'' command with ``Nop'' for these without permissions. This has a visual effect of disabling popup triangle in the subdirectory item. The default is --nocheck-subdirs, because: 1) enabling this slows a bit the script, 2) with this option enabled, if no icons used and no dir/file separate sorting used there is no way to know that the item is directory and not file.
 <DT><B>--special-dirs</B> value<DD>
 <A NAME="ixABD"></A>
-add .. or ~ or / special directories according to
-given optional value. Without with option these directories are not added.
-Default value if not specified is ``1,2''. The value is comma separated ordered
-special directory indexes, where 1 is parent directory, 2 is home directory,
-3 is root directory. If minus is prepended to the value, special directories
-are added at the bottom of menu instead of top. Value ``0'' or any bad value
-is equivalent to non-specifying this option at all.
+add .. or ~ or / special directories according to given optional value. Without with option these directories are not added. Default value if not specified is ``1,2''. The value is comma separated ordered special directory indexes, where 1 is parent directory, 2 is home directory, 3 is root directory. If minus is prepended to the value, special directories are added at the bottom of menu instead of top. Value ``0'' or any bad value is equivalent to non-specifying this option at all.
 <DT><B>--[no]memory-for-speed</B><DD>
 <A NAME="ixABE"></A>
-use speed optimization, i.e. use previously
-created directory menus without destroying it when closed, default is
---nomemory-for-speed
+use speed optimization, i.e. use previously created directory menus without destroying it when closed, default is --nomemory-for-speed
 
 
 <P>
@@ -316,15 +232,11 @@ created directory menus without destroying it when closed, default is
 assign MenuStyle name to the menus
 <DT><B>--func-name</B> name<DD>
 <A NAME="ixABG"></A>
-overwrite the default MissingSubmenuFunction name that is
-``FuncFvwmMenuDirectory''
+overwrite the default MissingSubmenuFunction name that is ``FuncFvwmMenuDirectory''
 </DL>
 <P>
 
-Option parameters can be specified either using '=' or in the next argument.
-Short options are ok if not ambiguous: <TT>&quot;-a&quot;</TT>, <TT>&quot;-x&quot;</TT>, <TT>&quot;-icon-f&quot;</TT>; but be
-careful with short options, what is now unambiguous, can become ambiguous
-in the next versions.
+Option parameters can be specified either using '=' or in the next argument. Short options are ok if not ambiguous: <TT>&quot;-a&quot;</TT>, <TT>&quot;-x&quot;</TT>, <TT>&quot;-icon-f&quot;</TT>; but be careful with short options, what is now unambiguous, can become ambiguous in the next versions.
 <A NAME="lbAG">&nbsp;</A>
 <H2>USAGE</H2>
 
@@ -356,8 +268,7 @@ And put this in the menu from which you want to pop-up the directory menus:
 Note: please use absolute path names.
 <P>
 
-It is a good idea to set the menu pop-up delay to something positive
-and enable busy cursor
+It is a good idea to set the menu pop-up delay to something positive and enable busy cursor
 <P>
 
 <blockquote><pre>  MenuStyle * PopupDelayed, PopupDelay 200
@@ -376,13 +287,12 @@ Another interesting usage (<TT>&quot;--reuse&quot;</TT> or <TT>&quot;-r&quot;</T
   AddToMenu SomeMenu &quot;My Browser&quot; Menu Browser</pre></blockquote>
 <P>
 
-Here the <TT>&quot;--dir&quot;</TT> parameter (starting directory) is ignored if there is
-~/.fvwm/.fvwm-menu-directory.dir file, which you can delete.
+Here the <TT>&quot;--dir&quot;</TT> parameter (starting directory) is ignored if there is ~/.fvwm/.fvwm-menu-directory.dir file, which you can delete.
 <A NAME="lbAH">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <A NAME="ixABI"></A>
-Inspired  on 1999-06-07 by Dominik Vogt     &lt;<A HREF="mailto:domivogt@fvwm.org">domivogt@fvwm.org</A>&gt;.
+Inspired on 1999-06-07 by Dominik Vogt &lt;<A HREF="mailto:domivogt@fvwm.org">domivogt@fvwm.org</A>&gt;.
 <P>
 
 Rewritten on 1999-08-05 by Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
@@ -390,8 +300,7 @@ Rewritten on 1999-08-05 by Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.co
 <H2>COPYING</H2>
 
 <A NAME="ixABJ"></A>
-The script is distributed by the same terms as fvwm itself.
-See <FONT>GNU</FONT> General Public License for details.
+The script is distributed by the same terms as fvwm itself. See <FONT>GNU</FONT> General Public License for details.
 <A NAME="lbAJ">&nbsp;</A>
 <H2>BUGS</H2>
 
@@ -414,11 +323,11 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 22:35:21 GMT, February 23, 2009
+Time: 08:08:35 GMT, September 20, 2009
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 23-Feb-2009 -->
+<!-- Automatically generated by manpages2php on 20-Sep-2009 -->

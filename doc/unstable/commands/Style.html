@@ -951,18 +951,23 @@ or icon, it is moved to make the borders adjoin.  The default of 0
 means that no snapping happens.  Calling this command without
 arguments turns off snap attraction and restores the default
 behavior.  Please refer also to the <a href="../commands/SnapGrid.html">SnapGrid</a>
-command.</p><p>The second argument determines is optional
-and may be set to one of the four following values:  With
-<em class="replaceable"><code>All</code></em> both icons and windows snap to
-other windows and other icons. <em class="replaceable"><code>SameType</code></em>
-lets snap windows only to other windows and icons only to other
-icons. With <em class="replaceable"><code>Windows</code></em> windows snap only
-to other windows.  Icons do not snap.  Similarly with
-<em class="replaceable"><code>Icons</code></em> icons snap to only other icons
-and windows do not snap.  The default behavior is
-<span class="emphasis"><em>All</em></span>.</p><p>If the option "Screen" option is added to at the last
-argument, windows and or icons snapp to the screen edges
-too.</p><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
+command.</p><p>The second argument determined is optional and may be set to one of the
+five following values: With <em class="replaceable"><code>All</code></em> both icons and
+windows snap to other windows and other icons.
+<em class="replaceable"><code>SameType</code></em> lets windows snap only to windows, and
+icons snap only to icons. With <em class="replaceable"><code>Windows</code></em> windows snap
+only to other windows. Similarly with <em class="replaceable"><code>Icons</code></em> icons
+snap only to other icons. With <em class="replaceable"><code>None</code></em> no snapping
+takes place. This option can be useful in conjunction with the following
+argument if you only want to snap against the screen edges. The default
+behavior is <span class="emphasis"><em>All</em></span>.</p><p>The third and last optional argument may be set to one of the
+four following values: 
+</p><div class="itemizedlist"><ul type="disc"><li><p>With <em class="replaceable"><code>Screen</code></em> the
+already snapping icons or windows, which is controlled by the second
+argument, will snap now also to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenWindows</code></em> snaps
+only windows to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenIcons</code></em> snaps
+only icons to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenAll</code></em> snaps
+windows and icons to the screen edges.</p></li></ul></div><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
 invisible grid on the screen.  During an interactive move a window
 or icon is positioned such that its location (top left corner) is
 coincident with the nearest grid point. The default
@@ -1680,5 +1685,5 @@ by a match to "Fvwm*".  It gets
 by virtue of a match to "*".  If conflicting styles are specified
 for a window, then the last style specified is used.</p></div></div>
 <HR>
-<P>fvwm 2.5.27</P>
+<P>fvwm 2.5.28</P>
 </body></html>

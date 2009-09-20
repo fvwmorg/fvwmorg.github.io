@@ -42,9 +42,9 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.27)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.28)"); ?>
 
-<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="id2808016"></a>Fvwm 2.5.27</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
+<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="id2568587"></a>Fvwm 2.5.28</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
 memory consumption, provide a 3D look to window frames, and a
 virtual desktop.</p><p>Note that there are several window managers around that have
 "fvwm" in their name.  In the past, version 2.x of fvwm was
@@ -2702,7 +2702,13 @@ think it should.</p><p>The
 option enables some debugging code in the ConfigureRequest
 handling routines of fvwm.  It is not helpful for the user, but if
 you report a bug to the fvwm team we may ask you to enable this
-option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BusyCursor"></a>31.2.2. BusyCursor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   [<em class="replaceable"><code>Option</code></em> <em class="replaceable"><code>bool</code></em>],... </p></div><p>This command controls the cursor during the execution of certain
+option.</p><p>The <a name="BugOpts_TransliterateUtf8"></a><font class="fvwmopt">TransliterateUtf8</font> option
+enables transliteration during conversions from utf-8 strings.  By
+default fvwm will not transliterate during conversion, but will fall
+back to alternate strings provided by the clients if conversion from
+utf-8 fails due to characters which have no direct correspondance in
+the target charecter set. Some clients however neglect to set non utf-8
+properties correctly in which case this option may help.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BusyCursor"></a>31.2.2. BusyCursor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   [<em class="replaceable"><code>Option</code></em> <em class="replaceable"><code>bool</code></em>],... </p></div><p>This command controls the cursor during the execution of certain
 commands.
 <em class="replaceable"><code>Option</code></em>
 can be
@@ -3800,7 +3806,7 @@ ResizeMove -10p -20p 0 0
 <a href="#Current">Current</a> <a href="#Resize">Resize</a> keep w+$[w.y]p keep 0
 </pre><p>Note: Fvwm may not be able to parse the command properly if the
 option
-<a href="#Reize_bottomright">bottomright</a>
+<a href="#Resize_bottomright">bottomright</a>
 of the
 <a href="#Resize">Resize</a>
 command is used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ResizeMoveMaximize"></a>31.3.17. ResizeMoveMaximize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ResizeMoveMaximize</code>   <em class="replaceable"><code>resize-arguments</code></em>   <em class="replaceable"><code>move-arguments</code></em> </p></div><p>Combines the effects of
@@ -5609,18 +5615,23 @@ or icon, it is moved to make the borders adjoin.  The default of 0
 means that no snapping happens.  Calling this command without
 arguments turns off snap attraction and restores the default
 behavior.  Please refer also to the <a href="#SnapGrid">SnapGrid</a>
-command.</p><p>The second argument determines is optional
-and may be set to one of the four following values:  With
-<em class="replaceable"><code>All</code></em> both icons and windows snap to
-other windows and other icons. <em class="replaceable"><code>SameType</code></em>
-lets snap windows only to other windows and icons only to other
-icons. With <em class="replaceable"><code>Windows</code></em> windows snap only
-to other windows.  Icons do not snap.  Similarly with
-<em class="replaceable"><code>Icons</code></em> icons snap to only other icons
-and windows do not snap.  The default behavior is
-<span class="emphasis"><em>All</em></span>.</p><p>If the option "Screen" option is added to at the last
-argument, windows and or icons snapp to the screen edges
-too.</p><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
+command.</p><p>The second argument determined is optional and may be set to one of the
+five following values: With <em class="replaceable"><code>All</code></em> both icons and
+windows snap to other windows and other icons.
+<em class="replaceable"><code>SameType</code></em> lets windows snap only to windows, and
+icons snap only to icons. With <em class="replaceable"><code>Windows</code></em> windows snap
+only to other windows. Similarly with <em class="replaceable"><code>Icons</code></em> icons
+snap only to other icons. With <em class="replaceable"><code>None</code></em> no snapping
+takes place. This option can be useful in conjunction with the following
+argument if you only want to snap against the screen edges. The default
+behavior is <span class="emphasis"><em>All</em></span>.</p><p>The third and last optional argument may be set to one of the
+four following values: 
+</p><div class="itemizedlist"><ul type="disc"><li><p>With <em class="replaceable"><code>Screen</code></em> the
+already snapping icons or windows, which is controlled by the second
+argument, will snap now also to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenWindows</code></em> snaps
+only windows to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenIcons</code></em> snaps
+only icons to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenAll</code></em> snaps
+windows and icons to the screen edges.</p></li></ul></div><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
 invisible grid on the screen.  During an interactive move a window
 or icon is positioned such that its location (top left corner) is
 coincident with the nearest grid point. The default
@@ -7110,7 +7121,7 @@ This name is used in the
 command and in the
 <a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>
 where it override the
-<a href="<?php echo conv_link_target('FvmwPager.php');?>#FvmwPager_Label">Label</a>
+<a href="<?php echo conv_link_target('FvwmPager.php');?>#FvwmPager_Label">Label</a>
 configuration option. Moreover, if consecutive names starting from
 desktop 0 are defined, then these names can be used by any <acronym class="acronym">EWMH</acronym>
 compliant application (as a pager).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DesktopSize"></a>31.9.3. DesktopSize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DesktopSize</code>   <em class="replaceable"><code>Horizontal</code></em>x<em class="replaceable"><code>Vertical</code></em> </p></div><p>Defines the virtual desktop size in units of the physical screen
@@ -7275,10 +7286,10 @@ and the new page is
 Moves the desktop viewport to page (x,y).  The upper left page is
 (0,0), the upper right is (M,0), where M is one less than the
 current number of horizontal pages specified in the
-<a href="#DeskTopSize">DeskTopSize</a>
+<a href="#DesktopSize">DesktopSize</a>
 command.  The lower left page is (0,N), and the lower right page
 is (M,N), where N is the desktop's vertical size as specified in the
-<a href="#DeskTopSize">DeskTopSize</a>
+<a href="#DesktopSize">DesktopSize</a>
 command.  To switch to a page relative to the current one add a
 trailing
 '<a name="GotoPage_p"></a><font class="fvwmopt">p</font>'
@@ -9015,10 +9026,10 @@ and normally are removed automatically when not used anymore.</p></dd></dl></div
 or reported through the bug tracking system.</p><p>The official fvwm homepage is
 <a class="ulink" href="http://fvwm.org/" target="_top">http://fvwm.org/</a>.</p></div></div>
 <hr /><a name="toc"></a><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#boolean_args">25. Boolean Arguments</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">26. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">27. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">27.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">27.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">28. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">29. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">30. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">31. List of Fvwm Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">31.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">31.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">31.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">31.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">31.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">31.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">31.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">31.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">31.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">31.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">31.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">31.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">31.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">31.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">32. Environment</a></span></dt><dt><span class="section"><a href="#authors">33. Authors</a></span></dt><dt><span class="section"><a href="#copyright">34. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">35. Bugs</a></span></dt></dl></div><hr />
-<P>fvwm 2.5.27</P>
+<P>fvwm 2.5.28</P>
 
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 23-Feb-2009 -->
+<!-- Automatically generated by manpages2php on 20-Sep-2009 -->

@@ -44,6 +44,11 @@ if( strlen("$site_has_been_loaded") == 0 ) {
 <h3>Here you can see <a href="<?php echo conv_link_target('pictures/index.php'); ?>">pictures</a> of some FVWM authors</h3>
 
 
+<h4 class="author">Christoph Fritz</h4>
+<p class="author">
+SnapAttraction bugfix &quot;SameType&quot; and &quot;Screen&quot; behaviour. Implement options None/ScreenWindows/ScreenIcons/ScreenAll for differentiated screen edge snapping.
+</p>
+
 <h4 class="author">Julio José Teca Nemesio</h4>
 <p class="author">
 ChangeWindowTitle and ChangeWindowTitleFromArg FvwmScript instructions. ChangeWindowTitle FvwmScript command.

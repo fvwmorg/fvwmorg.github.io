@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.28" style="font-weight:normal;">&nbsp;2.5.28&nbsp;</a></td>
 <td><a href="#2.5.27" style="font-weight:normal;">&nbsp;2.5.27&nbsp;</a></td>
 <td><a href="#2.5.26" style="font-weight:normal;">&nbsp;2.5.26&nbsp;</a></td>
 <td><a href="#2.5.25" style="font-weight:normal;">&nbsp;2.5.25&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
 <td><a href="#2.5.21" style="font-weight:normal;">&nbsp;2.5.21&nbsp;</a></td>
 <td><a href="#2.5.20" style="font-weight:normal;">&nbsp;2.5.20&nbsp;</a></td>
-<td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
 <td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
 <td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
 <td><a href="#2.5.12" style="font-weight:normal;">&nbsp;2.5.12&nbsp;</a></td>
 <td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
-<td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
 <td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
 <td><a href="#2.5.3" style="font-weight:normal;">&nbsp;2.5.3&nbsp;</a></td>
 <td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
-<td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
 <td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
 <td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
-<td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
 <td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
 <td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
-<td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
 <td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
@@ -108,8 +109,32 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
+<a name="2.5.29"></a>
+<h4>Changes in beta release 2.5.29 (not released yet) <a href="#top">[top]</a></h4>
 <a name="2.5.28"></a>
-<h4>Changes in beta release 2.5.28 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.28 (20-Sep-2009) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> New differentiated options for SnapAttraction when snapping     against screen edges:
+    <ul>
+        <li>       &quot;None&quot;, &quot;ScreenWindows&quot;, &quot;ScreenIcons&quot;, &quot;ScreenAll&quot;</li>
+    </ul>
+  </li>
+  <li> New option to the BugOpts command: TransliterateUtf8.</li>
+  <li> Bug fixes:</li>
+  <li> Fixed non-visible Qt windows after a Qt deferred map (e.g.     Skype profile windows).</li>
+  <li> Fixed the use of the X-resource &quot;fvwmstyle&quot;.</li>
+  <li> Fixed segmentation fault in FvwmEvent when parsing an     undefined event name, or an undefined environment variable     to the RPlayHost option.</li>
+  <li> Fixed the events startup, shutdown and unknown in FvwmEvent.</li>
+  <li> Fvwm now retains utf8 window names when the WM_NAME changes,     and the utf8 name converted to the default charset match     the old WM_NAME.</li>
+  <li> Fixed the options RPlayVolume and RPlayPriority in FvwmEvent.</li>
+  <li> Fixed SnapAttraction: Option SameType/Icons/Windows did     falsely not affect conditions of option &quot;Screen&quot; and option     &quot;SameType&quot; snapped falsely icons and windows together.</li>
+  <li> Fixed a problem where modules would get incorrect stacking     information if many windows were restacked at the same time.</li>
+  <li> Fixed BugOpts parsing of more than one option at a time and     restoring of default value for the last option     in the command line when omitted.</li>
+  <li> 64 bit fix for setting EWMH _NET_WM_ICON property on windows.</li>
+</ul>
+
+
 <a name="2.5.27"></a>
 <h4>Changes in beta release 2.5.27 (23-Feb-2009) <a href="#top">[top]</a></h4>
 <ul>
@@ -149,7 +174,7 @@ decoration_window_start("Latest News");
   <li> Fixed crash in ARGB visual detection code.</li>
   <li> Fixed compilation without XRender support.</li>
   <li> Fixed drawing of background pictures in menu items and titles.</li>
-  <li> Fixed hadling of shaped windows.</li>
+  <li> Fixed handling of shaped windows.</li>
   <li> Fixed a 64-bit bug in the EWMH code.</li>
 </ul>
 

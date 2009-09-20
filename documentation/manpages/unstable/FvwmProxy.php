@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmProxy in unstable branch (2.5.27)"); ?>
+<?php decoration_window_start("Manual page for FvwmProxy in unstable branch (2.5.28)"); ?>
 
 <H1>FvwmProxy</H1>
-Section: Fvwm Modules (1)<BR>Updated: 23 Feb 2009 (2.5.27)<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: 20 September 2009 (2.5.28)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -154,9 +154,24 @@ Currently, the proxied window doesn't recognize snap effects during
 this operation. The default is false.
 <P>
 <DT>*FvwmProxy: ProxyIconified <I>bool</I><DD>
-If true, continue to proxy windows when they are iconified.
+If true, continue to show proxy windows when they are iconified.
 In addition, consider adding click actions that Iconify on and off,
 such as on the middlemouse button. The default is false.
+<P>
+<DT>*FvwmProxy: ShowOnly <I>mode</I><DD>
+Limits the appearance of proxy windows during the Show action.
+The supported modes are Selected, Covered, Grouped, and All.
+The default is All which shows every proxy window on the current desk.
+Select mode will only show the proxy window for the selected window.
+If no window is selected, the currently focused window is treated
+as the select window for ShowOnly filtering.
+Covered mode extends Select mode to add proxy windows
+that overlap the select real window.
+Just using Selected mode can result in untouchable proxy windows
+that disappear before you can reach them.
+Grouped mode extends Covered mode to show proxy windows in the
+same window group as the selected window.
+In all cases, iconified proxy windows never appear if ProxyIconified is false.
 <P>
 <DT>*FvwmProxy: Action <I>mouseaction</I> <I>response</I><DD>
 Tells FvwmProxy to do the specified <I>response</I> when the given
@@ -207,8 +222,9 @@ For the given named group, adjust inclusion of the windows matching
 the pattern.
 The groupname is a string identifier used to associate windows.
 The window pattern uses the same format as the Style command.
-The supported commands are Include, SoftInclude, and Exclude.
-Include and SoftInclude identifies a pattern to add windows
+The supported commands are Include, SoftInclude, WeakInclude,
+WeakSoftInclude, and Exclude.
+The commands ending in Include identify a pattern to add windows
 to the group.
 Exclude identifies pattern to counteract inclusion pattern
 or auto-inclusion (see flags below).
@@ -217,6 +233,13 @@ Soft inclusion limits the windows in that pattern to only move
 when an non-soft window in the group moves.
 Moving or resizing these windows does not affect any other windows.
 They are also immune to edge effects.
+Soft inclusion also affects provocation effects (see below).
+Weak inclusion prevents inclusion purely on name,
+instead relying on X11 leader or process id matching.
+Weakly included names will not start a group,
+but will join a group in the same known process or with the same leader.
+Once the window has joined,
+the name is just used to determine if the inclusion is soft.
 <P>
 <DT>*FvwmProxy: Group <I>groupname</I> <I>flag</I><DD>
 For the given named group, activate the given flag.
@@ -227,6 +250,26 @@ IgnoreIDs deactivates this mechanism.
 AutoInclude automatically includes any window that matches
 the same process or client leader, without having to name them specifically.
 AutoSoft makes all AutoInclusions soft (see inclusion description above).
+<P>
+<DT>*FvwmProxy: Group <I>groupname</I> <I>provocation</I> <I>pattern</I><DD>
+The provocation flags allow you to customize whether grouped windows
+provoke each other in response to a raise/lower, desk move, drag,
+or iconification change.
+The compound provocation flag is of the form
+(No|Inherit)(Hard|Soft)(Raise|Desk|Drag|Icon|All).
+The pattern is optional and should already have been included.
+The pattern limits the change to only affect that part of the group.
+The first element of the flag is optional and can turn off the effect,
+or, with a pattern, can dynamically inherit the setting for the group.
+The default is to turn the effect on.
+The second element can be used to only apply the change to windows
+with the soft state either on or off.
+The default is to change both.
+The third element specifies what provoking effect is being changed:
+window raise/lower, moving to another desk, dragging windows together,
+toggling iconification, or all of these.
+If either the provoking window or a potentially provoked window has
+an effect turned off, the provocation does not occur.
 <P>
 <DT>*FvwmProxy: SlotWidth <I>w</I><DD>
 This specifies the width of the icons used in slots.
@@ -528,11 +571,11 @@ Jason Weber
 </DL>
 <HR>
 This document was created by
-<A HREF="/cgi-bin/man/man2html">man2html</A>,
+man2html,
 using the manual pages.<BR>
-Time: 22:35:21 GMT, February 23, 2009
+Time: 08:08:34 GMT, September 20, 2009
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 23-Feb-2009 -->
+<!-- Automatically generated by manpages2php on 20-Sep-2009 -->

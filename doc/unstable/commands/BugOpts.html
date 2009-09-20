@@ -91,7 +91,13 @@ think it should.</p><p>The
 option enables some debugging code in the ConfigureRequest
 handling routines of fvwm.  It is not helpful for the user, but if
 you report a bug to the fvwm team we may ask you to enable this
-option.</p></div>
+option.</p><p>The <a name="BugOpts_TransliterateUtf8"></a><font class="fvwmopt">TransliterateUtf8</font> option
+enables transliteration during conversions from utf-8 strings.  By
+default fvwm will not transliterate during conversion, but will fall
+back to alternate strings provided by the clients if conversion from
+utf-8 fails due to characters which have no direct correspondance in
+the target charecter set. Some clients however neglect to set non utf-8
+properties correctly in which case this option may help.</p></div>
 <HR>
-<P>fvwm 2.5.27</P>
+<P>fvwm 2.5.28</P>
 </body></html>
