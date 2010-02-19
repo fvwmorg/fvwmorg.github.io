@@ -119,10 +119,10 @@ and support is excellent.  Check it out!
                       "donations",
 
                       array("FVWM Wiki Pages",
-                            "http://www.fvwmwiki.org",
+                            "http://fvwmwiki.xteddy.org",
                             "fvwm_wiki"),
                       array("FVWM Forum",
-                            "http://fvwm.lair.be",
+                            "http://fvwmforums.org",
                             "fvwm_forum"),
                       ), 2);
 ?>
