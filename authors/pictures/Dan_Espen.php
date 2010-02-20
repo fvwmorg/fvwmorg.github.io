@@ -52,7 +52,7 @@ decoration_window_start("Dan Espen");
 <a href="<?php echo conv_link_target('./index.php'); ?>">Back to image overview.</a><br>
 <img src="Dan_Espen.jpg" border="0" hspace="10" vspace="10"><br>
 
-<a href="http://mywebpages.comcast.net/despen/">Personal Website</a>
+<a href="http://mysite.verizon.net/despen/">Personal Website</a>
 
 <?php 
 decoration_window_end(); 
