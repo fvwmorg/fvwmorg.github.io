@@ -1,5 +1,10 @@
 2010-02-20  Thomas Adam  <thomas@xteddy.org>
 	* authors/pictures/create_php.sh:
+	* authors/pictures/Thomas_Adam.pgp:
+	Fix typo from autogeneration.
+
+2010-02-20  Thomas Adam  <thomas@xteddy.org>
+	* authors/pictures/create_php.sh:
 	* authors/pictures/index.php:
 	* authors/pictures/Thomas_Adam.php:
 	* authors/pictures/Thomas_Adam.jpg:

@@ -52,7 +52,7 @@ decoration_window_start("Thomas Adam");
 <a href="<?php echo conv_link_target('./index.php'); ?>">Back to image overview.</a><br>
 <img src="Thomas_Adam.jpg" border="0" hspace="10" vspace="10"><br>
 
-<a href="http://www.xteddy,org">Personal Website</a>
+<a href="http://www.xteddy.org">Personal Website</a>
 
 <?php 
 decoration_window_end(); 
