@@ -22,6 +22,8 @@ Uwe_Pross='http://www-user.tu-chemnitz.de/~uwp/'
 
 Mikhael_Goikhman='http://migo.sixbit.org/'
 
+Thomas_Adam='http://www.xteddy,org'
+
 files=`ls *.jpg | grep -v small | sed 's+.jpg++'` 
 
 for name in $files; do

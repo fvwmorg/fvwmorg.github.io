@@ -76,6 +76,7 @@ decoration_window_start("FVWM Developers");
 <tr>
 <td align="center" valign="middle"><a href="<?php echo conv_link_target('Suzanne_Britton.php'); ?>"><img src="Suzanne_Britton_small.jpg" width="117" height="150" border="1"></a><br>Suzanne Britton</td>
 <td align="center" valign="middle"><a href="<?php echo conv_link_target('Uwe_Pross.php'); ?>"><img src="Uwe_Pross_small.jpg" width="150" height="113" border="1"></a><br>Uwe Pro&szlig;</td>
+<td align="center" valign="middle"><a href="<?php echo conv_link_target('Thomas_Adam.php'); ?>"><img src="Thomas_Adam_small.jpg" width="150" height="113" border="1"></a><br>Thomas Adam</td>
 </tr>
 </table>
 </center>
