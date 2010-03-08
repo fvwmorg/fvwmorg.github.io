@@ -214,6 +214,29 @@ if(!isset($site_has_been_loaded)) {
     and does all sorts of tricks like "beg" and "roll over".
   </p>
 
+  <h2 class="cats">Thomas's cat:</h2>
+  <h4 class="cats">Mildred</h4>
+  <p class="cats">
+    <a href="<?php echo conv_link_target('mildred.php');?>"><img src="small_mildred.jpg" border="1" alt=""></a>
+    Mildred (DOB unknown - 2008) was originally a feral cat who we acquired 
+    from a re-homing scheme, along with her brother George (anyone who's
+    seen the sitcom George and Mildred will know the reference there),
+    originally to keep the rat population down on the dairy farm.  But as with
+    most feral cats, if they soon realise there's a source of food from other
+    domestic cats, they tend not to go hunting too much.  So it was that Mildred
+    in particular was soon domesticated.</p>
+  <p>
+    We had her ever since, even though we moved farms several times since we
+    initially got her.  One of her amusing traits was that she was 
+    <strong>always</strong>
+    meowing, to the extent that she'd talk to you all the time.  Say something
+    -- anything to her -- and she'd meow back.  It was rather cute.
+  </p>
+  <p>She particularly took a liking to me and my step-father, and I won't ever
+     know why -- I guess animals sometimes see something in a person that we
+     do not.  But I miss her, and her overly sharp claws that she'd dig in to
+     me from time to time.  Hmm, well, maybe I can try and forget the claws.  :)
+  </p>
   <h3 class="cats">What we love about our cats:</h3>
 
   <ul class="cats">
