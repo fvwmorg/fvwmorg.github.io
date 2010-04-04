@@ -42,7 +42,7 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmPerl in unstable branch (2.5.28)"); ?>
+<?php decoration_window_start("Manual page for FvwmPerl in unstable branch (2.5.29)"); ?>
 
 <H1>FvwmPerl</H1>
 Section: Fvwm Modules (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">This page contents</A>
@@ -60,7 +60,8 @@ FvwmPerl - the fvwm perl manipulator and preprocessor
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-<A NAME="ixAAC"></A>
+
+
 FvwmPerl should be spawned by <I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1) for normal functionality.
 <P>
 
@@ -80,12 +81,14 @@ if you want to immediately start to send commands to FvwmPerl.
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
-<A NAME="ixAAD"></A>
+
+
 This module is intended to extend fvwm commands with the perl scripting power.&nbsp; It enables to embed perl expressions in the fvwm config files and construct fvwm commands.
 <A NAME="lbAE">&nbsp;</A>
 <H2>INVOCATION</H2>
 
-<A NAME="ixAAE"></A>
+
+
 If you want to invoke the unique and persistent instanse of FvwmPerl, it is suggested to do this from the <I>StartFunction</I>.&nbsp; Calling it from the top is also possible, but involves some issues not discussed here.
 <P>
 
@@ -144,7 +147,8 @@ If <B>--nolock</B> is added here, <B>ModuleSynchronous</B> returns immediately. 
 <A NAME="lbAF">&nbsp;</A>
 <H2>USING ALIAS</H2>
 
-<A NAME="ixAAF"></A>
+
+
 Aliases allow to have several module invocations and work separately with all invocations, here is an example:
 <P>
 
@@ -155,7 +159,8 @@ Aliases allow to have several module invocations and work separately with all in
 <A NAME="lbAG">&nbsp;</A>
 <H2>PREPROCESSING EXAMPLE</H2>
 
-<A NAME="ixAAG"></A>
+
+
 One of the effective proprocessing solutions is to pass the whole fvwm configuration with embeded perl code to ``FvwmPerl --preprocess''. An alternative approach is to write a perl script that produces fvwm commands and sends them for execution, this script may be loaded using ``FvwmPerl --load''. There are hovewer intermediate solutions that preprocess only separate configuration lines (or alternatively, execute separate perl commands that produce fvwm commands).
 <P>
 
@@ -183,11 +188,13 @@ The following code snippet adds ability of arithmetics and string scripting to c
 <A NAME="lbAH">&nbsp;</A>
 <H2>ACTIONS</H2>
 
-<A NAME="ixAAH"></A>
+
+
 There are several actions that FvwmPerl may perform:
 <DL COMPACT>
 <DT><B>eval</B> perl-code<DD>
-<A NAME="ixAAI"></A>
+
+
 Evaluate a line of perl code.
 
 
@@ -202,7 +209,8 @@ A special function <B>cmd(</B>``command''<B>)</B> may be used in perl code to se
 
 If perl code contains an error, it is printed to the standard error stream with the <I>[FvwmPerl][eval]:</I> header prepended.
 <DT><B>load</B> file-name<DD>
-<A NAME="ixAAJ"></A>
+
+
 Load a file of perl code. If the file is not fully qualified, it is searched in the user directory <TT>$FVWM_USERDIR</TT> (usually ~/.fvwm) and the system wide data directory <TT>$FVWM_DATADIR</TT>.
 
 
@@ -217,7 +225,8 @@ A special function <B>cmd(</B>``command''<B>)</B> may be used in perl code to se
 
 If perl code contains an error, it is printed to the standard error stream with the <I>[FvwmPerl][load]:</I> header prepended.
 <DT><B>preprocess</B> [-q|--quote char] [-c|--cmd] [<I>line</I> | <I>file</I>]<DD>
-<A NAME="ixAAK"></A>
+
+
 Preprocess fvwm config <I>file</I> or (if --cmd is given) <I>line</I>. This file contains lines that are not touched (usually fvwm commands) and specially preformatted perl code that is processed and replaced. Text enclosed in <B>%{</B> ... <B>}%</B> delimiters, that may start anywhere on the line and end anywhere on the same or an other line, is perl code.
 
 
@@ -270,16 +279,20 @@ The following line based directives are recognized when preprocessing. They are 
 <DL COMPACT><DT><DD>
 <DL COMPACT>
 <DT>%<B>Repeat</B> <I>count</I><DD>
-<A NAME="ixAAL"></A>
+
+
 Causes the following lines to be repeated <I>count</I> times.
 <DT>%<B>ModuleConfig</B> <I>module-name</I> [ destroy ]<DD>
-<A NAME="ixAAM"></A>
+
+
 Causes the following lines to be interpreted as the given module configuration. If ``destroy'' is specified the previous module configuration is destroyed first.
 <DT>%<B>Prefix</B> <I>prefix</I><DD>
-<A NAME="ixAAN"></A>
+
+
 Prefixes the following lines with the quoted <I>prefix</I>.
 <DT>%<B>End</B> any-optional-comment<DD>
-<A NAME="ixAAO"></A>
+
+
 Ends any of the directives described above, may be nested.
 </DL>
 </DL>
@@ -328,7 +341,8 @@ Additional preprocess parameters --nosend and --noremove may be given too. See t
 </DL>
 
 <DT><B>export</B> [<I>func-names</I>]<DD>
-<A NAME="ixAAP"></A>
+
+
 Send to <I>fvwm</I> the definition of shortcut functions that help to activate different actions of the module (i.e. <B>eval</B>, <B>load</B> and <B>preprocess</B>).
 
 
@@ -377,33 +391,39 @@ These 4 actions may be requested in one of 3 ways: 1) in the command line when F
 <A NAME="lbAI">&nbsp;</A>
 <H2>FUNCTIONS</H2>
 
-<A NAME="ixAAQ"></A>
+
+
 There are several functions that perl code may call:
 <DL COMPACT>
 <DT><B>cmd(</B><I>$fvwm_command</I><B>)</B><DD>
 
 
-<A NAME="ixAAR"></A>
+
+
 In case of <B>eval</B> or <B>load</B> - send back to fvwm a string <I></I>$fvwm_command<I></I>. In case of <B>preprocess</B> - append a string <I></I>$fvwm_command<I></I> to the output of the embedded perl code.
 <DT><B>do_eval(</B><I>$perl_code</I><B>)</B><DD>
 
 
-<A NAME="ixAAS"></A>
+
+
 This function is equivalent to the <B>eval</B> functionality on the string <I></I>$perl_code<I></I>, described above.
 <DT><B>load(</B><I>$filename</I><B>)</B><DD>
 
 
-<A NAME="ixAAT"></A>
+
+
 This function is equivalent to the <B>load</B> functionality on the file <TT>$filename</TT>, described above.
-<DT><B>preprocess(</B><I>@params, [-c </I>$command<I>] [$filename]</I><B>)</B><DD>
+<DT><B>preprocess(</B><I>@params, [&quot;-c </I>$command<I>&quot;] [$filename]</I><B>)</B><DD>
 
 
-<A NAME="ixAAU"></A>
+
+
 This function is equivalent to the <B>preprocess</B> functionality with the given parameters and the file <TT>$filename</TT> described above.
 <DT><B>export(</B><I>$func_names, [$do_unexport]</I><B>)</B><DD>
 
 
-<A NAME="ixAAV"></A>
+
+
 This function is equivalent to the <B>export</B> functionality with the given <TT>$func_names</TT>, described above. May also <B>unexport</B> the function names if the second parameter is true.
 
 
@@ -412,13 +432,16 @@ This function is equivalent to the <B>export</B> functionality with the given <T
 
 Function names should be separated by commas or/and whitespace. If <I></I>$func_names<I></I> is empty then functions ``Eval'' and ``.'' are assumed.
 <DT><B></B>stop()<B></B><DD>
-<A NAME="ixAAW"></A>
+
+
 Terminates the module.
 <DT><B></B>skip()<B></B><DD>
-<A NAME="ixAAX"></A>
+
+
 Skips the rest of the event callback code, i.e. the module returns to listen to new module events.
 <DT><B></B>unlock()<B></B><DD>
-<A NAME="ixAAY"></A>
+
+
 Unsynchronizes the event callback from fvwm. This may be useful to prevent deadlocks, i.e. usually fvwm kills the non-responding module if the event callback is not finished in <I>ModuleTimeout</I> seconds. This prevents it.
 
 
@@ -439,7 +462,8 @@ This example causes FvwmPerl to suspend its execution for one minute:
 
 However, verify that there is no way a new message is sent by fvwm while the module is busy, and fvwm stays locked on this new message for too long. See also the <B>detach</B> solution if you need long lasting operations.
 <DT><B></B>detach()<B></B><DD>
-<A NAME="ixAAZ"></A>
+
+
 Forks and detaches the rest of the event callback code from the main process. This may be useful to prevent killing the module if its event callback should take a long time to complete and it may be done in the detached child. The detached child may still send commands to fvwm (don't rely on this), but not receive the events of course, it exits immediately after the callback execution is finished.
 
 
@@ -450,7 +474,8 @@ If you use <I>detach()</I>, better only send commands to fvwm in one process (th
 <DT><B>show_message(</B>$msg, <TT>$title</TT>[, <TT>$use_stderr_too</TT>=1]<B>)<DD>
 
 
-<A NAME="ixABA"></A>
+
+
 Shows a dialog window with the given message, using whichever X tool is found in the system.
 
 
@@ -462,7 +487,8 @@ See FVWM::Module::Toolkit</B>::<B>show_message</B> for more information.
 <A NAME="lbAJ">&nbsp;</A>
 <H2>VARIABLES</H2>
 
-<A NAME="ixABB"></A>
+
+
 There are several global variables in the <I>main</I> namespace that may be used in the perl code:
 <P>
 
@@ -491,7 +517,8 @@ There may be a configuration option to turn strictness on and off.
 <A NAME="lbAK">&nbsp;</A>
 <H2>MESSAGES</H2>
 
-<A NAME="ixABC"></A>
+
+
 FvwmPerl may receive messages using the fvwm command SendToModule. The names, meanings and parameters of the messages are the same as the corresponding actions, described above.
 <P>
 
@@ -505,7 +532,8 @@ A message <B>dump</B> dumps the contents of the changed variables (not yet).
 <A NAME="lbAL">&nbsp;</A>
 <H2>EXAMPLES</H2>
 
-<A NAME="ixABD"></A>
+
+
 A simple test:
 <P>
 
@@ -538,7 +566,8 @@ The following example handles root backgrounds in fvwmrc. All these commands may
 <A NAME="lbAM">&nbsp;</A>
 <H2>ESCAPING</H2>
 
-<A NAME="ixABE"></A>
+
+
 <B>SendToModule</B> just like any other fvwm commands expands several dollar prefixed variables.&nbsp; This may clash with the dollars perl uses. You may avoid this by prefixing SendToModule with a leading dash. The following 2 lines in each pair are equivalent:
 <P>
 
@@ -574,7 +603,8 @@ Again, it is suggested to put your command(s) into file and preprocess the file 
 <A NAME="lbAN">&nbsp;</A>
 <H2>CAVEATS</H2>
 
-<A NAME="ixABF"></A>
+
+
 FvwmPerl being written in perl and dealing with perl, follows the famous perl motto: ``There's more than one way to do it'', so the choice is yours.
 <P>
 
@@ -592,7 +622,8 @@ Warning, you may affect the way FvwmPerl works by evaluating appropriate perl co
 <A NAME="lbAO">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A NAME="ixABG"></A>
+
+
 The <I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1) man page describes all available commands.
 <P>
 
@@ -600,7 +631,8 @@ Basically, in your perl code you may use any function or class method from the p
 <A NAME="lbAP">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-<A NAME="ixABH"></A>
+
+
 Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <P>
 
@@ -625,11 +657,11 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 08:08:34 GMT, September 20, 2009
+Time: 00:02:20 GMT, April 04, 2010
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 20-Sep-2009 -->
+<!-- Automatically generated by manpages2php on 04-Apr-2010 -->

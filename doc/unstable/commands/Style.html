@@ -789,7 +789,7 @@ and each desk.  The opposite style,
 <a name="Style_Slippery"></a><font class="fvwmopt">Slippery</font>
 reverts back to the default.</p><p>
 <a name="Style_StickyIcon"></a><font class="fvwmopt">StickyIcon</font>
-makes the window sticky when its iconified.  It de-iconifies on
+makes the window sticky when it's iconified.  It de-iconifies on
 top the active desktop.
 <a name="Style_SlipperyIcon"></a><font class="fvwmopt">SlipperyIcon</font>
 reverts back to the default.
@@ -818,7 +818,7 @@ counteract that by deiconifying themselves.  The default is to not
 iconify windows and can be set with the
 <a name="Style_StartNormal"></a><font class="fvwmopt">StartNormal</font>
 style.</p><p><a name="Style_StickyIcon"></a><font class="fvwmopt">StickyIcon</font>
-makes the window sticky when its iconified.  It de-iconifies on
+makes the window sticky when it's iconified.  It de-iconifies on
 top the active desktop.
 <a name="Style_SlipperyIcon"></a><font class="fvwmopt">SlipperyIcon</font>
 reverts back to the default.</p><p><a name="Style_StickyIconPage"></a><font class="fvwmopt">StickyIconPage</font>
@@ -1012,9 +1012,9 @@ parameters.</p><p>The option <a name="Style_InitialMapCommand"></a><font class="
 for any valid fvwm command or function to run when the window is 
 initially mapped by fvwm.  Example:</p><pre class="programlisting">
 <a href="../commands/Style.html">Style</a> MyWindow StartsOnPage 0 0, InitialMapCommand Iconify
-</pre></div><p>This would hence place the window called <span class="emphasis"><em>MyWindow</em></span>
+</pre><p>This would hence place the window called <span class="emphasis"><em>MyWindow</em></span>
 on page 0 0 for the current desk, and immediately run the <a href="../commands/Iconify.html">Iconify</a>
-command on that window.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
+command on that window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
 for the window.  Fvwm knows several ways to deal with this
@@ -1221,7 +1221,7 @@ Style * ManualPlacementsHonorsStartsOnPageOff
 </pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="placement_policy_and_window_stacking"></a>Placement policy options and window stacking</h3></div></div></div><p><a name="Style_NoUsePPosition"></a><font class="fvwmopt">NoUsePPosition</font>
 instructs fvwm to ignore the program specified position (PPosition
 hint) when adding new windows.  Using PPosition is required for
-some applications, but if you do not have one of those its a real
+some applications, but if you do not have one of those it's a real
 headache.  Many programs set PPosition to something obnoxious like
 0,0 (upper left corner).
 Note: <span class="emphasis"><em>!UsePPosition</em></span>
@@ -1685,5 +1685,5 @@ by a match to "Fvwm*".  It gets
 by virtue of a match to "*".  If conflicting styles are specified
 for a window, then the last style specified is used.</p></div></div>
 <HR>
-<P>fvwm 2.5.28</P>
+<P>fvwm 2.5.29</P>
 </body></html>

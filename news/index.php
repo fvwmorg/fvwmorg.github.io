@@ -46,6 +46,7 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
+<td><a href="#2.5.29" style="font-weight:normal;">&nbsp;2.5.29&nbsp;</a></td>
 <td><a href="#2.5.28" style="font-weight:normal;">&nbsp;2.5.28&nbsp;</a></td>
 <td><a href="#2.5.27" style="font-weight:normal;">&nbsp;2.5.27&nbsp;</a></td>
 <td><a href="#2.5.26" style="font-weight:normal;">&nbsp;2.5.26&nbsp;</a></td>
@@ -54,9 +55,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.23" style="font-weight:normal;">&nbsp;2.5.23&nbsp;</a></td>
 <td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
 <td><a href="#2.5.21" style="font-weight:normal;">&nbsp;2.5.21&nbsp;</a></td>
-<td><a href="#2.5.20" style="font-weight:normal;">&nbsp;2.5.20&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.20" style="font-weight:normal;">&nbsp;2.5.20&nbsp;</a></td>
 <td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
 <td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
@@ -65,9 +66,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
 <td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
 <td><a href="#2.5.12" style="font-weight:normal;">&nbsp;2.5.12&nbsp;</a></td>
-<td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.11" style="font-weight:normal;">&nbsp;2.5.11&nbsp;</a></td>
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
@@ -76,9 +77,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
 <td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
 <td><a href="#2.5.3" style="font-weight:normal;">&nbsp;2.5.3&nbsp;</a></td>
-<td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.5.2" style="font-weight:normal;">&nbsp;2.5.2&nbsp;</a></td>
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
@@ -87,9 +88,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
 <td><a href="#2.4.15" style="font-weight:normal;">&nbsp;2.4.15&nbsp;</a></td>
-<td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.14" style="font-weight:normal;">&nbsp;2.4.14&nbsp;</a></td>
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
@@ -98,9 +99,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
 <td><a href="#2.4.6" style="font-weight:normal;">&nbsp;2.4.6&nbsp;</a></td>
-<td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 </tr>
 <tr>
+<td><a href="#2.4.5" style="font-weight:normal;">&nbsp;2.4.5&nbsp;</a></td>
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
@@ -109,8 +110,32 @@ decoration_window_start("Latest News");
 </tr>
 </table>
 </center>
+<a name="2.5.30"></a>
+<h4>Changes in beta release 2.5.30 (not released yet) <a href="#top">[top]</a></h4>
 <a name="2.5.29"></a>
-<h4>Changes in beta release 2.5.29 (not released yet) <a href="#top">[top]</a></h4>
+<h4>Changes in beta release 2.5.29 (03-Apr-2010) <a href="#top">[top]</a></h4>
+<ul>
+  <li> New features:</li>
+  <li> Added new fvwm-convert-2.6 script to convert older fvwm 2.4.x     config files.</li>
+  <li> New BugOpts option QtDragnDropWorkaround to work around an     oddity in handling drag-n-drop events to Qt applications.</li>
+  <li> Bug fixes:</li>
+  <li> Fixed the InitialMapCommand style from running when FVWM is     restarting.</li>
+  <li> Fix rendering of FvwmForm windows when initially mapped.</li>
+  <li> Fix placement of windows when using MinoverlapPlacement and     friends.</li>
+  <li> Fix segfault when tearing off menus using a Pixmap     background.</li>
+  <li> Fix &quot;window jump&quot; bug when moving a window across page     boundaries.</li>
+  <li> Flush property events for same type in applications which     repeatedly set the same XAtom.  (Gnucash, Openoffice, etc.)</li>
+  <li> Fix opening of files using Read/PipeRead to accept paths in     the form &quot;./&quot; to indicate CWD.  Fixes
+    <ul>
+        <li>       $ fvwm -f ./some-fvwm2rc</li>
+    </ul>
+  </li>
+  <li> Fix further crash when copying menustyles with MenuFace     involving pixmaps.</li>
+  <li> Make layer changes apply immediately via Style commands for     any currently mapped windows.</li>
+  <li> Fix flickering/incorrect location of the GeometryWindow with     Xinerama/TwinView when resizing windows. </li>
+</ul>
+
+
 <a name="2.5.28"></a>
 <h4>Changes in beta release 2.5.28 (20-Sep-2009) <a href="#top">[top]</a></h4>
 <ul>

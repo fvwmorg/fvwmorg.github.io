@@ -56,7 +56,11 @@ using <acronym class="acronym">KDE</acronym> or <acronym class="acronym">QT</acr
 windows.  By default this option is turned on.  This option may be
 visually disturbing for other applications using windows not
 managed by fvwm.  Since these applications are rare it is most
-likely safe to leave this option at its default.</p><p><a name="BugOpts_EWMHIconicStateWorkaround"></a><font class="fvwmopt">EWMHIconicStateWorkaround</font>
+likely safe to leave this option at its default.</p><p><a name="BugOpts_QtDragnDropWorkaround"></a><font class="fvwmopt">QtDragnDropWorkaround</font>
+surpresses the forwarding of unknown ClientEvent messages to windows --
+usually this is harmless, but Qt has problems handling unrecognised
+ClientEvent messages.  Enabling this option might therefore help for Qt
+applications using DragnDrop.  This option is off by default.</p><p><a name="BugOpts_EWMHIconicStateWorkaround"></a><font class="fvwmopt">EWMHIconicStateWorkaround</font>
 is needed by <acronym class="acronym">EWMH</acronym> compliant pagers or taskbars which represent
 windows which are on a different desktops as iconified. These
 pagers and taskbars use a version of the <acronym class="acronym">EWMH</acronym> specification before
@@ -99,5 +103,5 @@ utf-8 fails due to characters which have no direct correspondance in
 the target charecter set. Some clients however neglect to set non utf-8
 properties correctly in which case this option may help.</p></div>
 <HR>
-<P>fvwm 2.5.28</P>
+<P>fvwm 2.5.29</P>
 </body></html>

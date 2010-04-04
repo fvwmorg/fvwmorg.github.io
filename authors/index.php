@@ -61,7 +61,7 @@ SVG image loader.  ARGB/animated mouse cursor loading.
 
 <h4 class="author">Thomas Adam</h4>
 <p class="author">
-Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle. StartShaded style option. Introduce the command expansion placeholder:  $[w.visiblename] Make style matching honour a window's visible name (c.f. $[w.visiblename]) Added &quot;bindings&quot; option to PrintInfo command useful for debugging. Force windows on-screen where applicable when using &quot;PositionPlacement UnderMouse&quot;.
+Window style !StickyStippledTitle (and hence StickyStippledTitle). Icon style StippledIconTitle and !StickyStippledIconTitle. StartShaded style option. Introduce the command expansion placeholder:  $[w.visiblename] Make style matching honour a window's visible name (c.f. $[w.visiblename]) Added &quot;bindings&quot; option to PrintInfo command useful for debugging. Force windows on-screen where applicable when using &quot;PositionPlacement UnderMouse&quot;. Wrote initial version of the fvwm-convert-2.6 script. Bug fixes.
 </p>
 
 <h4 class="author">Serge (gentoosiast) Koksharov</h4>

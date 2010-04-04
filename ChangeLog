@@ -1,3 +1,13 @@
+2010-04-03  Thomas Adam <thomas@xteddy.org>
+	* authors/index.php:
+	* news/index.php:
+	* doc/unstable:
+	* documentation/manpages/unstable:
+	Regenerated for 2.5.29 releae.
+
+	* definitions.inc:
+	Updated for 2.5.29 release.
+
 2010-03-08  Thomas Adam <thomas@xteddy.org>
 	
 	* fvwm-cats/index.php:
