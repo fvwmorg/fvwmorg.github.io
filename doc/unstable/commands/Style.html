@@ -1014,7 +1014,14 @@ initially mapped by fvwm.  Example:</p><pre class="programlisting">
 <a href="../commands/Style.html">Style</a> MyWindow StartsOnPage 0 0, InitialMapCommand Iconify
 </pre><p>This would hence place the window called <span class="emphasis"><em>MyWindow</em></span>
 on page 0 0 for the current desk, and immediately run the <a href="../commands/Iconify.html">Iconify</a>
-command on that window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
+command on that window.</p><p>Note that should <a href="../commands/Style.html#Style_InitialMapCommand">InitialMapCommand</a> be
+used as a global option for all windows, but there is a need that some
+windows should not have this command applied, then an action of 
+<a href="../commands/Nop.html">Nop</a> can be used on those windows, as in the following
+example:</p><pre class="programlisting">
+<a href="../commands/Style.html">Style</a> * InitialMapCommand Iconify
+<a href="../commands/Style.html">Style</a> XTeddy InitialMapCommand Nop
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_manager_placement"></a>Window Manager placement</h3></div></div></div><p>Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
 for the window.  Fvwm knows several ways to deal with this
@@ -1685,5 +1692,5 @@ by a match to "Fvwm*".  It gets
 by virtue of a match to "*".  If conflicting styles are specified
 for a window, then the last style specified is used.</p></div></div>
 <HR>
-<P>fvwm 2.5.30 (from cvs)</P>
+<P>fvwm 2.5.32 (from cvs)</P>
 </body></html>
