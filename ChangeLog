@@ -1,3 +1,7 @@
+2010-08-27  Thomas Adam <thomas@xteddy.org>
+	* links.php:
+	Update links to point to fvwmwiki and fvwmforums correctly.
+
 2010-08-09  Thomas Adam <thomas@xteddy.org>
 	* authors/index.php:
 	* news/index.php:
