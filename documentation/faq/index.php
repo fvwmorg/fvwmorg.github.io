@@ -140,6 +140,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_3.25"></a>    <a href="#3.25">3.25</a>  How to define transparent decorations?
 <a name="toc_3.26"></a>    <a href="#3.26">3.26</a>  How about transparent applications too?
 <a name="toc_3.27"></a>    <a href="#3.27">3.27</a>  How can I define emacs type multi-keystroke fvwm bindings?
+<a name="toc_3.28"></a>    <a href="#3.28">3.28</a>  How do I remove all decorations from a window?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -1722,6 +1723,27 @@ A: In emacs, keys can be set up as prefix keys, so that once
       *button-alias: (Id A, Title &quot;My Button&quot;, Action (Mouse 1) \
          `Exec exec xcalc`)
 
+----------------------------------------------------------------------
+
+3.2.28  How do I remove all decorations from a window?
+
+
+A:  I see this a lot on IRC.  Most people try and do this:
+
+    Style * !Title, BorderWidth 0
+
+This doesn't always work because many forget about a window having
+having handles -- which sit on the border.  If a window has defined
+handles, then these effectively override any of border settings --
+especially the &quot;BorderWidth&quot; option.  But there are Handle
+equivalents, hence the correct way to remove decorations from a window
+would be:
+
+    Style * !Title, !Borders, !Handles
+
+To set the BorderWidth of a window which has handles:
+
+    Style * HandleWidth 5
    
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules

@@ -1,3 +1,7 @@
+2010-08-31  Thomas Adam <thomas@xteddy.org>
+	* documentation/faq/index.php:
+	Updated -- with reference to window decorations question.
+
 2010-08-27  Thomas Adam <thomas@xteddy.org>
 	* links.php:
 	Update links to point to fvwmwiki and fvwmforums correctly.
