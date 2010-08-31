@@ -8,4 +8,4 @@ FvwmPager.  The whole this is panelised so that it is retractable.  I also
 have a root menu which has acccess to some common programs I like to use. 
 There are some keybindings to toggle features as well.<br>
 Further information can be found at the
-<a href="http://www.fvwmwiki.org/cgi/moin.cgi/FvwmMWM">fvwmwiki</a>.
+<a href="http://fvwmwiki.xteddy.org/fvwmwiki/Configs/fvwmmwm/">fvwmwiki</a>.

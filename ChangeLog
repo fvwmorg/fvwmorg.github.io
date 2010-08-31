@@ -1,4 +1,15 @@
 2010-08-31  Thomas Adam <thomas@xteddy.org>
+	* links.php:
+	* screenshots/desktops/screenshot_db.inc:
+	* screenshots/desktops/Andrew_Dolgov-1152x864/description.inc:
+	* screenshots/desktops/Nuno_Alexandre-1600x1200/description.inc:
+	* screenshots/desktops/Piotr_Zielinski-1024x768/description.inc:
+	* screenshots/desktops/Remko_Troncon-desk-1024x768/description.inc:
+	* screenshots/desktops/Thomas_Adam-desk-1280x960/description.inc:
+	* screenshots/desktops/j_g_a_van_riswick-desk-1152x864/description.inc:
+	Updated to remove dead links and/or to update to newer ones.
+
+2010-08-31  Thomas Adam <thomas@xteddy.org>
 	* documentation/faq/index.php:
 	Updated -- with reference to window decorations question.
 

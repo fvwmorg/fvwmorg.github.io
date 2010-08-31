@@ -61,10 +61,13 @@ if(!isset($site_has_been_loaded)) {
   <h2>Window Decors and Other Configuration Tips</h2>
 
     <ul>
-      <li><a href="http://research.cmis.csiro.au/gjw/xwindows/">Glen Lee Edward's Screen
+<!--
+        TA -  2010-08-31 -  Link dead.
+       <li><a href="http://research.cmis.csiro.au/gjw/xwindows/">Glen Lee Edward's Screen
         shots and config files page</a> ("FVWM - Do it your way!") - 
         illustrates FVWM's flexibility with configuration information and, of course,
         the obligatory screenshots.</li>
+-->
 
 <!--  
         RBW - Dead.  www.oneway.com/jay is still there, but no mention of
@@ -87,10 +90,12 @@ if(!isset($site_has_been_loaded)) {
         also a collection of <a href="http://www.twobarleycorns.net/fvwm24-decors.html">
         decors that can be used with 2.4</a>.
       </li>
+<!--
+    TA:  Link dead:  2010-08-31.
 
       <li><a href="http://ayukawa.spb.ru/~fox/fvwm/">FVWM site from Andrew Dolgov</a> - 
         Nice screenshots, window decorations, configuration files and shell scripts.</li>
-
+-->
       <li><a href="http://www.zensites.net/fvwm/guide/">FVWM Beginners Guide</a> - 
         Good to read when you start with FVWM</li>
     </ul>
@@ -125,7 +130,7 @@ if(!isset($site_has_been_loaded)) {
       <li><a href="http://www.vis.colostate.edu/~scriven/fvwm.php3">Scott
       Scriven's theme page</a>.</li>
 -->
-      <li><a href="http://www.plig.org/~xwinman/fvwm.html">FVWM
+      <li><a href="http://www.xwinman.org/fvwm.php">FVWM
       Decorations</a> - Some screenshots and config files</li>
 
     </ul>

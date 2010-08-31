@@ -12,5 +12,5 @@ Left to be done to fully get the cde look are window decorations
 for icons. 
 You can dowload
 CDEmu which includes config files and scripts
-<a href="http://themes.freshmeat.net/projects/cdemu">
+<a href="http://www.xs4all.nl/~josvanr/fvwm.html">
 here</a>.
