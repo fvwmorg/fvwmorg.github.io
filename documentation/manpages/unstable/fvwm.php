@@ -42,12 +42,41 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.30)"); ?>
+<?php decoration_window_start("Manual page for fvwm in unstable branch (2.5.32)"); ?>
 
-<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="id2620400"></a>Fvwm 2.5.30 (from cvs)</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
+<H1>FVWM</H1>
+Section: Fvwm 2.5.32 (from cvs) (1)<BR>Updated: (not released yet)<BR><A HREF="#index">This page contents</A>
+ - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
+
+
+
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+Fvwm - F? Virtual Window Manager for X11
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<DL COMPACT>
+<DT>
+<B><u>fvwm</u></B> [<B>-c</B>&nbsp;<I>config-command</I>] [<B>-d</B>&nbsp;<I>displayname</I>] [<B>-f</B>&nbsp;<I>config-file</I>] [<B>-r</B>] [<B>-s</B>&nbsp;[<I>screen_num</I>]] [<B>-V</B>] [<B>-C</B>&nbsp;<I>visual-class</I> | <B>-I</B>&nbsp;<I>visual-id</I>] [<B>-l</B>&nbsp;<I>colors</I>&nbsp;[<B>-L</B>]&nbsp;[<B>-A</B>]&nbsp;[<B>-S</B>]&nbsp;[<B>-P</B>]] [<B>-D</B>] [<B>-h</B>] [<B>-i</B>&nbsp;<I>client-id</I>] [<B>-F</B>&nbsp;<I>state-file</I>] [<B>--debug-stack-ring</B>] [<B>-blackout</B>]
+</DL>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+<DD>Fvwm is a window manager for X11.  It is designed to minimize
 memory consumption, provide a 3D look to window frames, and a
-virtual desktop.</p><p>Note that there are several window managers around that have
-"fvwm" in their name.  In the past, version 2.x of fvwm was
+virtual desktop.
+<P>
+
+Note that there are several window managers around that have
+&quot;fvwm&quot; in their name.  In the past, version 2.x of fvwm was
 commonly called fvwm2 to distinguish it from the former version
 1.x (fvwm or even fvwm1).  Since version 1.x has been replaced by
 version 2.x a long time ago we simply call version 2.x and all
@@ -55,362 +84,588 @@ versions to come, fvwm, throughout this document, and the
 executable program is named fvwm.  There is an fvwm offspring
 called fvwm95, it is mostly a patched version of fvwm-2.0.43.  The
 main goal of fvwm95 was to supply a Windows 95 like look and
-feel. Since then, fvwm has been greatly enhanced and practically
-all fvwm95 features can be achieved by fvwm.</p><p>Fvwm provides both, a large
-<span class="emphasis"><em>virtual desktop</em></span>
+feel.  Since then, fvwm has been greatly enhanced and practically
+all fvwm95 features can be achieved by fvwm.
+<P>
+
+Fvwm provides both, a large
+<I>virtual desktop</I>
 and
-<span class="emphasis"><em>multiple disjoint desktops</em></span>
+<I>multiple disjoint desktops</I>
 which can be used separately or together.  The virtual desktop
 allows you to pretend that your video screen is really quite
 large, and you can scroll around within the desktop.  The multiple
 disjoint desktops allow you to pretend that you really have
 several screens to work at, but each screen is completely
-unrelated to the others.</p><p>Fvwm provides
-<span class="emphasis"><em>keyboard accelerators</em></span>
+unrelated to the others.
+<P>
+
+Fvwm provides
+<I>keyboard accelerators</I>
 which allow you to perform most window manager functions,
 including moving and resizing windows, and operating the menus,
-using keyboard shortcuts.</p><p>Fvwm has also overcome the distinction between configuration
+using keyboard shortcuts.
+<P>
+
+Fvwm has also overcome the distinction between configuration
 commands and action commands that most window managers
-make. Configuration commands typically set fonts, colors, menu
+make.  Configuration commands typically set fonts, colors, menu
 contents, key and mouse function bindings, while action commands
 do things like raise and lower windows.  Fvwm makes no such
-distinction, and allows anything to be changed at any time.</p><p>Other noteworthy differences between fvwm and other X11 window
-managers are the introduction of the <a href="#Style_SloppyFocus">SloppyFocus</a> and <a href="#Style_NeverFocus">NeverFocus</a>
+distinction, and allows anything to be changed at any time.
+<P>
+
+Other noteworthy differences between fvwm and other X11 window
+managers are the introduction of the <I>SloppyFocus</I> and <I>NeverFocus</I>
 focus methods.  Focus policy can be separately specified for
-different window groups.  Windows using <a href="#Style_SloppyFocus">SloppyFocus</a> acquire focus when the pointer moves into them and retain focus
+different window groups.  Windows using <I>SloppyFocus</I> acquire focus when the pointer moves into them and retain focus
 until some other window acquires it.  Such windows do not lose
 focus when the pointer moves into the root window.  The
-<a href="#Style_NeverFocus">NeverFocus</a>
+<I>NeverFocus</I>
 policy is provided for use with windows into which one never types
 (e.g. xclock, oclock, xbiff, xeyes, tuxeyes) - for example, if a
 SloppyFocus terminal window has focus, moving the pointer over a
 NeverFocus
-decoration window does not deprive the terminal of focus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="Options"></a>4. Options</h2></div></div></div><p>These are the command line options that are recognized by fvwm:</p><div class="variablelist"><dl><dt><span class="term">
-    <code class="option">-i</code> | <code class="option">--clientid</code>
-    <em class="replaceable"><code>id</code></em>
-  </span></dt><dd><p>
-This option is used when fvwm is started by a session
-manager. Should not be used by a user.</p></dd><dt><span class="term">
-    <code class="option">-c</code> | <code class="option">--cmd</code>
-    <em class="replaceable"><code>config-command</code></em>
-  </span></dt><dd><p>
+decoration window does not deprive the terminal of focus.
+<A NAME="lbAE">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<P>
+
+These are the command line options that are recognized by fvwm:
+<P>
+
+<B>-i</B> | <B>--clientid</B> <I>id</I>
+<DL COMPACT><DT><DD>
+This option is used when fvwm is started by a session manager.  Should not be used by a user.
+</DL>
+
+<P>
+
+<B>-c</B> | <B>--cmd</B> <I>config-command</I>
+<DL COMPACT><DT><DD>
 Causes fvwm to use
-<em class="replaceable"><code>config-command</code></em>
-instead of
-'<a href="#Read">Read</a>
-<span class="emphasis"><em>config</em></span>'
-(or '<a href="#Read">Read</a>
-<span class="emphasis"><em>.fvwm2rc</em></span>')
-as its initialization command.  (Note that up to 10
-<code class="option">-f</code> and <code class="option">-c</code>
-parameters can be given, and they are executed in the order
-specified.)</p><p>Any module started by command line arguments is assumed to be a
-module that sends back config commands.  All command line modules
-have to quit before fvwm proceeds on to the StartFunction and
-setting border decorations and styles.  There is a potential
-deadlock if you start a module other than <a href="<?php echo conv_link_target('FvwmCpp.php');?>">FvwmCpp</a>/<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>/<a href="<?php echo conv_link_target('FvwmPerl.php');?>">FvwmPerl</a>
-but there is a timeout so fvwm eventually gets going.</p><p>As an example, starting the pager this way hangs fvwm until
-the timeout, but the following should work well:</p><pre class="programlisting">
-fvwm -c "<a href="#AddToFunc">AddToFunc</a> StartFunction I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>"
-</pre></dd><dt><span class="term">
-    <code class="option">-d</code> | <code class="option">--display</code>
-    <em class="replaceable"><code>displayname</code></em>
-  </span></dt><dd><p>
+<I>config-command</I>
+instead of '<B>Read</B>
+<I>config</I>' (or '<B>Read</B>
+<I>.fvwm2rc</I>') as its initialization command.  (Note that up to 10
+<B>-f</B>
+and
+<B>-c</B>
+parameters can be given, and they are executed in the order specified.)
+<P>
+Any module started by command line arguments is assumed to be a module that sends back config commands.  All command line modules have to quit before fvwm proceeds on to the StartFunction and setting border decorations and styles.  There is a potential deadlock if you start a module other than
+<B><a href="<?php echo conv_link_target('./FvwmCpp.php');?>">FvwmCpp</a></B>/<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>/<B><a href="<?php echo conv_link_target('./FvwmPerl.php');?>">FvwmPerl</a></B>
+but there is a timeout so fvwm eventually gets going.
+<P>
+As an example, starting the pager this way hangs fvwm until the timeout, but the following should work well:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+fvwm -c &quot;<B>AddToFunc</B> StartFunction I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>&quot;
+</PRE>
+
+</DL>
+
+</DL>
+
+<P>
+
+<B>-d</B> | <B>--display</B> <I>displayname</I>
+<DL COMPACT><DT><DD>
 Manage the display called
-<em class="replaceable"><code>displayname</code></em>
+<I>displayname</I>
 instead of the name obtained from the environment variable
-<code class="envar">$DISPLAY</code>.</p></dd><dt><span class="term">
-    <code class="option">-D</code> | <code class="option">--debug</code>
-  </span></dt><dd><p>Puts X transactions in synchronous mode, which dramatically slows
-things down, but guarantees that fvwm's internal error messages
-are correct. Also causes fvwm to output debug messages while
-running.</p></dd><dt><span class="term">
-    <code class="option">-f</code>
-    <em class="replaceable"><code>config-file</code></em>
-  </span></dt><dd><p>Causes fvwm to read
-<em class="replaceable"><code>config-file</code></em>
+<I>$DISPLAY</I>.
+</DL>
+
+<P>
+
+<B>-D</B> | <B>--debug</B>
+<DL COMPACT><DT><DD>
+Puts X transactions in synchronous mode, which dramatically slows things down, but guarantees that fvwm's internal error messages are correct.  Also causes fvwm to output debug messages while running.
+</DL>
+
+<P>
+
+<B>-f</B> <I>config-file</I>
+<DL COMPACT><DT><DD>
+Causes fvwm to read
+<I>config-file</I>
 instead of
-<code class="filename">~/.fvwm/config</code>
-as its initialization file.  This is equivalent to
--c '<a href="#Read">Read</a>
-<em class="replaceable"><code>config-file</code></em>'.</p></dd><dt><span class="term"><code class="option">-h</code> | <code class="option">--help</code></span></dt><dd><p>A short usage description is printed.</p></dd><dt><span class="term"><code class="option">-r</code> | <code class="option">--replace</code></span></dt><dd><p>Try to take over from a previously running wm.  This does not work
-unless the other wm is
-<acronym class="acronym">ICCCM2</acronym>
-2.0 compliant.</p></dd><dt><span class="term">
-    <code class="option">-F</code> | <code class="option">--restore</code>
-    <em class="replaceable"><code>state-file</code></em>
-  </span></dt><dd><p>
-This option is used when fvwm is started by a session manager.
-Should not be used by a user.</p></dd><dt><span class="term">
-    <code class="option">-s</code> | <code class="option">--single-screen</code>
-    [<span class="optional"><em class="replaceable"><code>screen_num</code></em></span>]
-  </span></dt><dd><p>
-On a multi-screen display, run fvwm only on the screen named in
-the
-<code class="envar">$DISPLAY</code>
+<I>~/.fvwm/config</I>
+as its initialization file.  This is equivalent to -c '<B>Read</B>
+<I>config-file</I>'.
+</DL>
+
+<P>
+
+<B>-h</B> | <B>--help</B>
+<DL COMPACT><DT><DD>
+A short usage description is printed.
+</DL>
+
+<P>
+
+<B>-r</B> | <B>--replace</B>
+<DL COMPACT><DT><DD>
+Try to take over from a previously running wm.  This does not work unless the other wm is
+ICCCM2
+2.0 compliant.
+</DL>
+
+<P>
+
+<B>-F</B> | <B>--restore</B> <I>state-file</I>
+<DL COMPACT><DT><DD>
+This option is used when fvwm is started by a session manager.  Should not be used by a user.
+</DL>
+
+<P>
+
+<B>-s</B> | <B>--single-screen</B> [<I>screen_num</I>]
+<DL COMPACT><DT><DD>
+On a multi-screen display, run fvwm only on the screen named in the
+<I>$DISPLAY</I>
 environment variable or provided through the
-<code class="option">-d</code>
-option. The optional argument
-<em class="replaceable"><code>screen_num</code></em>
-should be positive or null and override the screen number.
-Normally, fvwm attempts to start up on all screens of a
-multi-screen display.</p></dd><dt><span class="term"><code class="option">-V</code> | <code class="option">--version</code></span></dt><dd><p>Prints the version of fvwm to
-<code class="filename">stderr</code>.
-Also prints an information about the compiled in support for
-readline, rplay, stroke, xpm, png, svg, <acronym class="acronym">GNOME</acronym> hints, <acronym class="acronym">EWMH</acronym> hints,
-session management, bidirectional text, multibyte characters,
-xinerama and Xft aa font rendering.</p></dd><dt><span class="term">
-    <code class="option">-C</code> | <code class="option">--visual</code>
-    <em class="replaceable"><code>visual-class</code></em>
-  </span></dt><dd><p>
+<B>-d</B>
+option.  The optional argument
+<I>screen_num</I>
+should be positive or null and override the screen number.  Normally, fvwm attempts to start up on all screens of a multi-screen display.
+</DL>
+
+<P>
+
+<B>-V</B> | <B>--version</B>
+<DL COMPACT><DT><DD>
+Prints the version of fvwm to
+<I>stderr</I>.  Also prints an information about the compiled in support for readline, rplay, stroke, xpm, png, svg,
+GNOME
+hints,
+EWMH
+hints, session management, bidirectional text, multibyte characters, xinerama and Xft aa font rendering.
+</DL>
+
+<P>
+
+<B>-C</B> | <B>--visual</B> <I>visual-class</I>
+<DL COMPACT><DT><DD>
 Causes fvwm to use
-<em class="replaceable"><code>visual-class</code></em>
+<I>visual-class</I>
 for the window borders and menus.
-<em class="replaceable"><code>visual-class</code></em>
-can be "StaticGray", "GrayScale", "StaticColor", "PseudoColor",
-"TrueColor" or "DirectColor".</p></dd><dt><span class="term">
-    <code class="option">-I</code> | <code class="option">--visualid</code>
-    <em class="replaceable"><code>id</code></em>
-  </span></dt><dd><p>
+<I>visual-class</I>
+can be &quot;StaticGray&quot;, &quot;GrayScale&quot;, &quot;StaticColor&quot;, &quot;PseudoColor&quot;, &quot;TrueColor&quot; or &quot;DirectColor&quot;.
+</DL>
+
+<P>
+
+<B>-I</B> | <B>--visualid</B> <I>id</I>
+<DL COMPACT><DT><DD>
 Causes fvwm to use
-<em class="replaceable"><code>id</code></em>
+<I>id</I>
 as the visual id for the window borders and menus.
-<em class="replaceable"><code>id</code></em>
-can be specified as N for decimal or 0xN for hexadecimal. See man
-page of xdpyinfo for a list of supported visuals.</p></dd><dt><span class="term">
-    <code class="option">-l</code> | <code class="option">--color-limit</code>
-    <em class="replaceable"><code>limit</code></em>
-  </span></dt><dd><p>Specifies a <em class="replaceable"><code>limit</code></em> on the colors
-used in image, gradient and possibly simple colors used by
-fvwm. In fact, fvwm (and all the modules) uses a palette with at
-most <em class="replaceable"><code>limit</code></em> colors. This option is only
-useful with screens that display 256 colors (or less) with a
-dynamic visual (PseudoColor, GrayScale or DirectColor). The
-default depends on your X server and how you run fvwm. In most
-case this default is reasonable. The <code class="option">-l</code> option
-should be used only if you encounter problems with colors.  By
-default, fvwm tries to detect large pre-allocated palettes. If
-such a palette is detected fvwm uses it and a priori the
-<code class="option">-l</code> must not be used. Moreover, in this case the
-<code class="option">-A</code> and <code class="option">-S</code> options are
-forced. Note that XFree-4.2 pre-allocates 244 colors (if you use a
-driver with Render support) leaving only a few free colors. This
-may lead to some color problems (and nothing can be
-done). XFree-4.3 or better pre-allocate only 85 colors.  If no
-pre-allocated palette is auto detected the defaults are as
-follow:</p><div class="variablelist"><dl><dt><span class="term">Display depth 8 (256 colors)</span></dt><dd><table class="simplelist" border="0" summary="Simple list"><tr><td>PseudoColor: 68 (4x4x4 color cube + 4 grey)</td></tr><tr><td>GrayScale: 64 regular grey</td></tr><tr><td>DirectColor: 32 (3x3x3 color cube + 5 grey)</td></tr></table></dd><dt><span class="term">Display depth 4 (16 colors)</span></dt><dd><table class="simplelist" border="0" summary="Simple list"><tr><td>PseudoColor: 10 (2x2x2 color cube + 2 grey)</td></tr><tr><td>GrayScale: 8 regular grey</td></tr><tr><td>DirectColor: 10 (2x2x2 color cube + 2 grey)</td></tr></table></dd></dl></div><p>These defaults may change before version 2.6. Note that if
-you use a private color map (i.e., fvwm is started with the
-<code class="option">-C</code> or the <code class="option">-I</code> options), then
-other defaults are used.</p><p>Now what to do if you encounter problems with colors? The first
-thing to do is to check if you really cannot run your X server
-with depth 15, 16 or better.  Check your X server
-documentation. Note that some hardware can support two different
-depths on the same screen (typically depth 8 and depth 24). If
-depth 8 is the default, you can force fvwm to use the best depth
-by using the
-<code class="option">-C</code>
+<I>id</I>
+can be specified as N for decimal or 0xN for hexadecimal.  See man page of xdpyinfo for a list of supported visuals.
+</DL>
+
+<P>
+
+<B>-l</B> | <B>--color-limit</B> <I>limit</I>
+<DL COMPACT><DT><DD>
+Specifies a
+<I>limit</I>
+on the colors used in image, gradient and possibly simple colors used by fvwm.  In fact, fvwm (and all the modules) uses a palette with at most
+<I>limit</I>
+colors.  This option is only useful with screens that display 256 colors (or less) with a dynamic visual (PseudoColor, GrayScale or DirectColor).  The default depends on your X server and how you run fvwm.  In most case this default is reasonable.  The
+<B>-l</B>
+option should be used only if you encounter problems with colors.  By default, fvwm tries to detect large pre-allocated palettes.  If such a palette is detected fvwm uses it and a priori the
+<B>-l</B>
+must not be used.  Moreover, in this case the
+<B>-A</B>
+and
+<B>-S</B>
+options are forced.  Note that XFree-4.2 pre-allocates 244 colors (if you use a driver with Render support) leaving only a few free colors.  This may lead to some color problems (and nothing can be done).  XFree-4.3 or better pre-allocate only 85 colors.  If no pre-allocated palette is auto detected the defaults are as follow:
+<P>
+
+Display depth 8 (256 colors)
+<DL COMPACT><DT><DD>
+<PRE>
+<DL COMPACT>
+<DT><DD>PseudoColor: 68 (4x4x4 color cube + 4 grey)
+GrayScale: 64 regular grey
+DirectColor: 32 (3x3x3 color cube + 5 grey)
+</PRE>
+
+</DL>
+</DL>
+
+<P>
+
+Display depth 4 (16 colors)
+<DL COMPACT><DT><DD>
+<PRE>
+<DL COMPACT>
+<DT><DD>PseudoColor: 10 (2x2x2 color cube + 2 grey)
+GrayScale: 8 regular grey
+DirectColor: 10 (2x2x2 color cube + 2 grey)
+</PRE>
+
+</DL>
+</DL>
+
+<P>
+These defaults may change before version 2.6.  Note that if you use a private color map (i.e., fvwm is started with the
+<B>-C</B>
+or the
+<B>-I</B>
+options), then other defaults are used.
+<P>
+Now what to do if you encounter problems with colors? The first thing to do is to check if you really cannot run your X server with depth 15, 16 or better.  Check your X server documentation.  Note that some hardware can support two different depths on the same screen (typically depth 8 and depth 24).  If depth 8 is the default, you can force fvwm to use the best depth by using the
+<B>-C</B>
 option with
-<span class="emphasis"><em>TrueColor</em></span>
-as argument.  So now we assume that you are forced to run in depth
-8 with a dynamic visual because your hardware/driver cannot do
-better or because you need to use an application which needs to
-run under this mode (e.g., because this application needs
-read-write colors). What it should be understand is that you have
-only 256 colors and that all the applications which use the
-default color map must share these colors. The main problem is
-that there are applications which use a lot or even all the
-colors.  If you use such application you may have no more free
-colors and some applications (which used only a few colors) may
-fail to start or are unusable. There are three things that can be
-done (and fvwm does not really play a particular role, all
-applications are concerned). The first is to run the applications
-which waste your (default) color map with a private color map. For
-example, run netscape with the -install option, run <acronym class="acronym">KDE</acronym>
-or <acronym class="acronym">QT</acronym>
+<I>TrueColor</I>
+as argument.  So now we assume that you are forced to run in depth 8 with a dynamic visual because your hardware/driver cannot do better or because you need to use an application which needs to run under this mode (e.g., because this application needs read-write colors).  What it should be understand is that you have only 256 colors and that all the applications which use the default color map must share these colors.  The main problem is that there are applications which use a lot or even all the colors.  If you use such application you may have no more free colors and some applications (which used only a few colors) may fail to start or are unusable.  There are three things that can be done (and fvwm does not really play a particular role, all applications are concerned).  The first is to run the applications which waste your (default) color map with a private color map.  For example, run netscape with the -install option, run
+KDE
+or
+QT
 applications with the --cmap option, use the
-<code class="option">-C</code>
-option for fvwm. The disadvantage of this method is that it is
-visually disturbing (see the
-<a href="#ColormapFocus">ColormapFocus</a>
-command for a better control of the color maps switching). The
-second method is to limit the number of colors that the
-applications use. Again, some applications have options to
-specify a given color limit. With fvwm you may try various values,
-61 (a special "visual" palette), 56 (a 4x4x3 color cube plus 6
-grey), 29 (a 3x3x3 color cube plus 2 grey), 10 or 9. Also, you may
-use the
-<code class="option">-L</code>
-option.  However, limiting the number of colors is not the
-definitive solution. The definitive solution is to try cause
-applications which use a lot of colors use the same colors. This
-is a difficult task as there are no formal standards for this
-goal. However, some toolkits as <acronym class="acronym">QT</acronym> and
-<acronym class="acronym">GTK</acronym> use color cubes as
-palettes. So, the idea is to configure your applications/toolkits
-to all use the same color cube. Moreover, you can use the colors
-in this color cube in your X resources configuration files and/or
-as arguments to colors options.
-Fvwm can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R
-= G, R-1 =&lt; B &lt;= R and B &gt;= 2. To get an RxGxB color cube give an
-argument to
-<code class="option">-l</code>
-an integer c &gt;= R*G*B and &lt; (R+1)*(G+1)*B if B=R and &lt; R*G*(B+1)
-if B &lt; R (and different from 61). If c &gt; R*G*B, then some grey may
-be added to the color cube. You can use the
-<a href="#PrintInfo">PrintInfo</a>
-<span class="emphasis"><em>Colors</em></span>
-[<span class="optional"><span class="emphasis"><em>1</em></span></span>]
-command to get information on your fvwm colors setting. In
-particular, this command prints the palette used by fvwm in rgb
-format (the last integer gives the number of times fvwm has
-allocated the colors).</p></dd><dt><span class="term"><code class="option">-L</code> | <code class="option">--strict-color-limit</code></span></dt><dd><p>If the screen displays 256 colors (or less) and has a dynamic visual,
-causes fvwm to use its palette for all the colors. By default, the
-palette is used only for images and gradients.</p></dd><dt><span class="term"><code class="option">-P</code> | <code class="option">--visual-palette</code></span></dt><dd><p>If the screen displays 256 colors (or less) and has a dynamic
-visual, this option causes fvwm to use a palette designed for
-limiting the "visual" color distance between the points of the
-palette. Moreover, for better color sharing, if possible colors
-with a name in the X rgb data base are used for defining the
-colors (with the hope that applications and images prefer to
-use named colors). If the
-<code class="option">-l</code>
-option is not used this palette has 61 colors. This palette is
-also automatically selected if  61 or 9 is used as argument to the
-<code class="option">-l</code>
-option.</p></dd><dt><span class="term"><code class="option">-A</code> | <code class="option">--allocate-palette</code></span></dt><dd><p>If the screen displays 256 colors (or less) and has a dynamic
-visual this option causes fvwm to allocate all the colors of its
-palette at start up for reserving these colors for future
-use. This option forces the
-<code class="option">-static-palette</code>
-option. By default, fvwm allocates (reserves) a color in its palette
-only if it needs this color.</p></dd><dt><span class="term"><code class="option">-S</code> | <code class="option">--static-palette</code></span></dt><dd><p>If the screen displays 256 colors (or less) and has a dynamic
-visual this option causes fvwm to never free the colors in its
-palette. By default, when fvwm does not need a color any more it
-frees this color so that a new color can be used. This option may
-speed up image loading and save a few bits of memory.</p></dd><dt><span class="term"><code class="option">-blackout</code></span></dt><dd><p>This option is provided for backward compatibility only.  Blacking
-out the screen during startup is not necessary (and doesn't work)
-anymore. This option will be removed in the future.</p></dd><dt><span class="term"><code class="option">--debug-stack-ring</code></span></dt><dd><p>Enables stack ring debugging.  This option is only intended for
-internal debugging and should only be used by developers.</p></dd></dl></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="anatomy_of_a_window"></a>5. Anatomy of a Window</h2></div></div></div><p>Fvwm puts a decorative border around most windows.  This border
+<B>-C</B>
+option for fvwm.  The disadvantage of this method is that it is visually disturbing (see the
+<B>ColormapFocus</B>
+command for a better control of the color maps switching).  The second method is to limit the number of colors that the applications use.  Again, some applications have options to specify a given color limit.  With fvwm you may try various values, 61 (a special &quot;visual&quot; palette), 56 (a 4x4x3 color cube plus 6 grey), 29 (a 3x3x3 color cube plus 2 grey), 10 or 9.  Also, you may use the
+<B>-L</B>
+option.  However, limiting the number of colors is not the definitive solution.  The definitive solution is to try cause applications which use a lot of colors use the same colors.  This is a difficult task as there are no formal standards for this goal.  However, some toolkits as
+QT
+and
+GTK
+use color cubes as palettes.  So, the idea is to configure your applications/toolkits to all use the same color cube.  Moreover, you can use the colors in this color cube in your X resources configuration files and/or as arguments to colors options.  Fvwm can use any color cube of the form RxGxB with 2 &lt;= R &lt;= 6, R = G, R-1 =&lt; B &lt;= R and B &gt;= 2.  To get an RxGxB color cube give an argument to
+<B>-l</B>
+an integer c &gt;= R*G*B and &lt; (R+1)*(G+1)*B if B=R and &lt; R*G*(B+1) if B &lt; R (and different from 61).  If c &gt; R*G*B, then some grey may be added to the color cube.  You can use the
+<B>PrintInfo</B>
+<I>Colors</I>
+[<I>1</I>]
+command to get information on your fvwm colors setting.  In particular, this command prints the palette used by fvwm in rgb format (the last integer gives the number of times fvwm has allocated the colors).
+</DL>
+
+<P>
+
+<B>-L</B> | <B>--strict-color-limit</B>
+<DL COMPACT><DT><DD>
+If the screen displays 256 colors (or less) and has a dynamic visual, causes fvwm to use its palette for all the colors.  By default, the palette is used only for images and gradients.
+</DL>
+
+<P>
+
+<B>-P</B> | <B>--visual-palette</B>
+<DL COMPACT><DT><DD>
+If the screen displays 256 colors (or less) and has a dynamic visual, this option causes fvwm to use a palette designed for limiting the &quot;visual&quot; color distance between the points of the palette.  Moreover, for better color sharing, if possible colors with a name in the X rgb data base are used for defining the colors (with the hope that applications and images prefer to use named colors).  If the
+<B>-l</B>
+option is not used this palette has 61 colors.  This palette is also automatically selected if 61 or 9 is used as argument to the
+<B>-l</B>
+option.
+</DL>
+
+<P>
+
+<B>-A</B> | <B>--allocate-palette</B>
+<DL COMPACT><DT><DD>
+If the screen displays 256 colors (or less) and has a dynamic visual this option causes fvwm to allocate all the colors of its palette at start up for reserving these colors for future use.  This option forces the
+<B>-static-palette</B>
+option.  By default, fvwm allocates (reserves) a color in its palette only if it needs this color.
+</DL>
+
+<P>
+
+<B>-S</B> | <B>--static-palette</B>
+<DL COMPACT><DT><DD>
+If the screen displays 256 colors (or less) and has a dynamic visual this option causes fvwm to never free the colors in its palette.  By default, when fvwm does not need a color any more it frees this color so that a new color can be used.  This option may speed up image loading and save a few bits of memory.
+</DL>
+
+<P>
+
+<B>-blackout</B>
+<DL COMPACT><DT><DD>
+This option is provided for backward compatibility only.  Blacking out the screen during startup is not necessary (and doesn't work) anymore.  This option will be removed in the future.
+</DL>
+
+<P>
+
+<B>--debug-stack-ring</B>
+<DL COMPACT><DT><DD>
+Enables stack ring debugging.  This option is only intended for internal debugging and should only be used by developers.
+</DL>
+
+<A NAME="lbAF">&nbsp;</A>
+<H2>ANATOMY OF A WINDOW</H2>
+
+<P>
+
+Fvwm puts a decorative border around most windows.  This border
 consists of a bar on each side and a small L-shaped section on
 each corner.  There is an additional top bar called the title-bar
 which is used to display the name of the window.  In addition,
 there are up to 10 title-bar buttons.  The top, side, and bottom
 bars are collectively known as the side-bars.  The corner pieces
-are called the frame.</p><p>With the built-in minimal configuration, dragging mouse button 1
+are called the frame.
+<P>
+
+With the built-in minimal configuration, dragging mouse button 1
 in the frame or side-bars begins a resize operation on the window.
 Dragging mouse button 2 in the frame or side-bars begins a move
 operation.  There are raise/lower operations bound to a single
-clicking on borders.  Similarly for the window title.</p><p>Up to ten title-bar buttons may exist.  Their use is completely
+clicking on borders.  Similarly for the window title.
+<P>
+
+Up to ten title-bar buttons may exist.  Their use is completely
 user definable.  One popular configuration uses one button on the
 left that is used to bring up a list of window options and two
 buttons on the right used to iconify and maximize the window.
 Another popular configuration adds a close button to the right.
 The number of title-bar buttons used depends on which ones have
 mouse actions bound to them.  See the
-<a href="#Mouse">Mouse</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="virtual_desktop"></a>6. The Virtual Desktop</h2></div></div></div><p>Fvwm provides multiple virtual desktops for users who wish to use
+<B>Mouse</B>
+command.
+<A NAME="lbAG">&nbsp;</A>
+<H2>THE VIRTUAL DESKTOP</H2>
+
+<P>
+
+Fvwm provides multiple virtual desktops for users who wish to use
 them.  The screen is a viewport onto a
-<span class="emphasis"><em>desktop</em></span>
+<I>desktop</I>
 which may be larger than the screen.  Several distinct desktops
 can be accessed (concept: one desktop for each project, or one
 desktop for each application, when view applications are
 distinct).  Since each desktop can be larger than the physical
 screen, divided into m by n
-<span class="emphasis"><em>pages</em></span>
+<I>pages</I>
 which are each the size of the physical screen, windows which are
 larger than the screen or large groups of related windows can
-easily be viewed.</p><p>The (m by n) size (i.e. number of pages) of the virtual desktops
+easily be viewed.
+<P>
+
+The (m by n) size (i.e. number of pages) of the virtual desktops
 can be changed any time, by using the
-<a href="#DesktopSize">DesktopSize</a>
+<B>DesktopSize</B>
 command.  All virtual desktops must be (are) the same
 size.  The total number of distinct desktops does not need to be
-specified, but is limited to approximately 4 billion total. All
+specified, but is limited to approximately 4 billion total.  All
 windows on a range of desktops can be viewed in the
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>,
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>,
 a miniature view of the desktops.  The pager is an accessory
 program, called a module, which is not essential for the window
 manager to operate.  Windows may also be listed, along with their
 geometries, in a window list, accessible as a pop-up menu, or as a
 separate window, called the
-<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a>
-(another module).</p><p>Fvwm keeps the windows on the desktop in a layered stacking order;
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
+(another module).
+<P>
+
+Fvwm keeps the windows on the desktop in a layered stacking order;
 a window in a lower layer never obscures a window in a higher
-layer. The layer of a window can be changed by using the
-<a href="#Layer">Layer</a>
+layer.  The layer of a window can be changed by using the
+<B>Layer</B>
 command.  The concept of layers is a generalization of the
-<a href="#Style_StaysOnTop">StaysOnTop</a>
-flag of older fvwm versions. The
-<a href="#Style_StaysOnTop">StaysOnTop</a> and
-<a href="#Style_StaysPut">StaysPut</a>
-<a href="#Style">Style</a>
+<I>StaysOnTop</I>
+flag of older fvwm versions.  The
+<I>StaysOnTop</I> and
+<I>StaysPut</I>
+<B>Style</B>
 options are now implemented by putting the windows in suitable
 layers and the previously missing
-<a href="#Style_StaysOnBottom">StaysOnBottom</a>
-<a href="#Style">Style</a>
-option has been added.</p><p>
-<a href="#Style_Sticky">Sticky</a>
+<I>StaysOnBottom</I>
+<B>Style</B>
+option has been added.
+<P>
+
+<I>Sticky</I>
 windows are windows which transcend the virtual desktop by
-"Sticking to the screen's glass".  They always stay put on the
-screen. This is convenient for things like clocks and xbiffs, so
+&quot;Sticking to the screen's glass&quot;.  They always stay put on the
+screen.  This is convenient for things like clocks and xbiffs, so
 you only need to run one such gadget and it always stays with you.
-Icons can also be made to stick to the glass, if desired.</p><p>Window geometries are specified relative to the current viewport.
-That is:</p><span><strong class="command">xterm -geometry +0+0</strong></span><p>creates a window in the upper left hand corner of the visible
+Icons can also be made to stick to the glass, if desired.
+<P>
+
+Window geometries are specified relative to the current viewport.
+That is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+xterm -geometry +0+0
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+creates a window in the upper left hand corner of the visible
 portion of the screen.  It is permissible to specify geometries
 which place windows on the virtual desktop, but off the screen.
 For example, if the visible screen is 1000 by 1000 pixels, and the
 desktop size is 3x3, and the current viewport is at the upper left
-hand corner of the desktop, invoking:</p><span><strong class="command">xterm -geometry +1000+1000</strong></span><p>places a window just off of the lower right hand corner of the
+hand corner of the desktop, invoking:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+xterm -geometry +1000+1000
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+places a window just off of the lower right hand corner of the
 screen.  It can be found by moving the mouse to the lower right
 hand corner of the screen and waiting for it to scroll into view.
-A geometry specified as something like:</p><span><strong class="command">xterm -geometry -5-5</strong></span><p>places the window's lower right hand corner 5 pixels from the
+A geometry specified as something like:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+xterm -geometry -5-5
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+places the window's lower right hand corner 5 pixels from the
 lower right corner of the visible portion of the screen.  Not all
 applications support window geometries with negative offsets.
 Some applications place the window's upper right hand corner 5
 pixels above and to the left of the upper left hand corner of the
-screen; others may do just plain bizarre things.</p><p>There are several ways to cause a window to map onto a desktop or
-page other than the currently active one. The geometry technique
+screen; others may do just plain bizarre things.
+<P>
+
+There are several ways to cause a window to map onto a desktop or
+page other than the currently active one.  The geometry technique
 mentioned above (specifying x,y coordinates larger than the
 physical screen size), however, suffers from the limitation of
 being interpreted relative to the current viewport: the window may
 not consistently appear on a specific page, unless you always
-invoke the application from the same page.</p><p>A better way to place windows on a different page, screen or desk
+invoke the application from the same page.
+<P>
+
+A better way to place windows on a different page, screen or desk
 from the currently mapped viewport is to use the
-<a href="#Style_StartsOnPage">StartsOnPage</a> or
-<a href="#Style_StartsOnScreen">StartsOnScreen</a>
+<I>StartsOnPage</I> or
+<I>StartsOnScreen</I>
 style specification (the successors to the older
-<a href="#Style_StartsOnDesk">StartsOnDesk</a>
+<I>StartsOnDesk</I>
 style) in your
-<code class="filename">config</code>
+<I>config</I>
 file.  The placement is consistent: it does
-not depend on your current location on the virtual desktop.</p><p>Some applications that understand standard Xt command line
+not depend on your current location on the virtual desktop.
+<P>
+
+Some applications that understand standard Xt command line
 arguments and X resources, like xterm and xfontsel, allow the user
-to specify the start-up desk or page on the command line:</p><span><strong class="command">xterm -xrm "*Desk:1"</strong></span><p>starts an xterm on desk number 1;</p><span><strong class="command">xterm -xrm "*Page:3 2 1"</strong></span><p>starts an xterm two pages to the right and one down from the upper
+to specify the start-up desk or page on the command line:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+xterm -xrm &quot;*Desk:1&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+starts an xterm on desk number 1;
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+xterm -xrm &quot;*Page:3 2 1&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+starts an xterm two pages to the right and one down from the upper
 left hand page of desk number 3.  Not all applications understand
 the use of these options, however.  You could achieve the same
 results with the following lines in your
-<code class="filename">.Xdefaults</code>
-file:</p><span><strong class="command">XTerm*Desk: 1</strong></span><p>or</p><span><strong class="command">XTerm*Page: 3 2 1</strong></span></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="use_on_multiscreen_displays"></a>7. Use on Multi-Screen Displays</h2></div></div></div><p>If the
-<code class="option">-s</code>
+<I>.Xdefaults</I>
+file:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+XTerm*Desk: 1
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+XTerm*Page: 3 2 1
+</PRE>
+
+</DL>
+
+<P>
+
+<A NAME="lbAH">&nbsp;</A>
+<H2>USE ON MULTI-SCREEN DISPLAYS</H2>
+
+<P>
+
+If the
+<B>-s</B>
 command line argument is not given, fvwm automatically starts up
 on every screen on the specified display.  After fvwm starts each
 screen is treated independently.  Restarts of fvwm need to be
-performed separately on each screen.  The use of</p><pre class="programlisting">
-<a href="#EdgeScroll">EdgeScroll</a> 0 0
-</pre><p>is strongly recommended for multi-screen displays.  You may need
+performed separately on each screen.  The use of
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>EdgeScroll</B> 0 0
+</PRE>
+
+</DL>
+
+<P>
+
+is strongly recommended for multi-screen displays.  You may need
 to quit on each screen to quit from the X session completely.
-This is not to be confused with Xinerama support.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="xinerama_support"></a>8. Xinerama Support</h2></div></div></div><p>Fvwm supports the Xinerama extension of newer X servers
+This is not to be confused with Xinerama support.
+<A NAME="lbAI">&nbsp;</A>
+<H2>XINERAMA SUPPORT</H2>
+
+<P>
+
+Fvwm supports the Xinerama extension of newer X servers
 which is similar to multi head support (multiple screens) but
 allows to move windows between screens.  If Xinerama support has
 been compiled into fvwm, it is used whenever fvwm runs on an X
 server that supports and uses multiple screens via Xinerama.
 Without this option, the whole desktop is treated as one big
 screen.  For example, menus might pop up right between two
-screens.  The <a href="#Style_EdgeResistance">EdgeResistance</a> option
-of the <a href="#Style">Style</a> command command allows for specifying
+screens.  The <I>EdgeResistance</I> option
+of the <B>Style</B> command command allows for specifying
 an explicit resistance value for moving windows over the screen
-edge between two Xinerama screens. Xinerama support can be enabled
+edge between two Xinerama screens.  Xinerama support can be enabled
 or disabled on the fly or from the configuration file with the
-<a href="#Xinerama">Xinerama</a> command.  Many modules and commands work
-nicely with Xinerama displays.</p><p>Whenever a geometry in the usual X format can be supplied,
+<B>Xinerama</B> command.  Many modules and commands work
+nicely with Xinerama displays.
+<P>
+
+Whenever a geometry in the usual X format can be supplied,
 fvwm's Xinerama extension allows for specifying a screen in addition
 to the geometry (or even the screen alone).  To do this, a '@' is
 added to the end of the geometry string followed by either the
@@ -420,270 +675,561 @@ letter can be one of 'g' for the global screen (the rectangle that
 encloses all Xinerama screens), 'p' for the primary screen (see
 below), 'c' for the current screen (the one that currently
 contains the pointer).  If the X server does not support Xinerama
-or only one screen is used, the screen bit is ignored.</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_IconBox">IconBox</a> 64x300-0-0@p
-</pre><p>Xinerama support can be configured to use a primary screen.  Fvwm
+or only one screen is used, the screen bit is ignored.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>IconBox</I> 64x300-0-0@p
+</PRE>
+
+</DL>
+
+<P>
+
+Xinerama support can be configured to use a primary screen.  Fvwm
 can be configured to place new windows and icons on this screen.
 The primary screen is screen 0 by default but can be changed with
 the
-<a href="#XineramaPrimaryScreen">XineramaPrimaryScreen</a>
-command.</p><p>Xinerama support was designed to work out of the box with the same
+<B>XineramaPrimaryScreen</B>
+command.
+<P>
+
+Xinerama support was designed to work out of the box with the same
 configuration file that would work on a single screen.  It may
 not perform very well if the involved screens use different screen
 resolutions.  In this situation, windows may get stuck in the
 portion of the whole desktop that belongs to neither screen.  When
 this happens, the windows or icons can be retrieved with the
-command</p><pre class="programlisting">
-<a href="#All">All</a> <a href="#MoveToScreen">MoveToScreen</a>
-</pre><p>that can be entered in an <a href="<?php echo conv_link_target('FvwmConsole.php');?>">FvwmConsole</a> window or
-with <a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a>.</p><p>For multi-screen implementations other than Xinerama, such as
+command
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>All</B> <B>MoveToScreen</B>
+</PRE>
+
+</DL>
+
+<P>
+
+that can be entered in an <B><a href="<?php echo conv_link_target('./FvwmConsole.php');?>">FvwmConsole</a></B> window or
+with <B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B>.
+<P>
+
+For multi-screen implementations other than Xinerama, such as
 Single Logical Screen, it is possible to simulate a Xinerama
 configuration if the total screen seen by fvwm is made up of
 equal sized monitors in a rectangular grid.  The commands
-<a href="#XineramaSls">XineramaSls</a>, <a href="#XineramaSlsSize">XineramaSlsSize</a> and <a href="#XineramaSlsScreens">XineramaSlsScreens</a>
-are used to configure this feature.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="initialization"></a>9. Initialization</h2></div></div></div><p>During initialization, fvwm searches for a configuration file
+<B>XineramaSls</B>, <B>XineramaSlsSize</B> and <B>XineramaSlsScreens</B>
+are used to configure this feature.
+<A NAME="lbAJ">&nbsp;</A>
+<H2>INITIALIZATION</H2>
+
+<P>
+
+During initialization, fvwm searches for a configuration file
 which describes key and button bindings, and many other
-things. The format of these files is described later.  Fvwm first
-searches for configuration files using the command</p><pre class="programlisting">
-<a href="#Read">Read</a> <code class="filename">config</code>
-</pre><p>This looks for file
-<code class="filename">config</code> in <code class="envar">$FVWM_USERDIR</code> and <code class="envar">$FVWM_DATADIR</code>
+things.  The format of these files is described later.  Fvwm first
+searches for configuration files using the command
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Read</B> <I>config</I>
+</PRE>
+
+</DL>
+
+<P>
+
+This looks for file
+<I>config</I> in <I>$FVWM_USERDIR</I> and <I>$FVWM_DATADIR</I>
 directories, as described in
-<a href="#Read">Read</a>.  If this fails more files are queried for backward
+<B>Read</B>.  If this fails more files are queried for backward
 compatibility.  Here is the complete list of all file locations
 queried in the default installation (only the first found file
-is used):</p><table class="simplelist" border="0" summary="Simple list"><tr><td><code class="envar">$HOME</code>/.fvwm/config</td></tr><tr><td>/usr/local/share/fvwm/config</td></tr></table><p></p><table class="simplelist" border="0" summary="Simple list"><tr><td><code class="envar">$HOME</code>/.fvwm/.fvwm2rc</td></tr><tr><td><code class="envar">$HOME</code>/.fvwm2rc</td></tr><tr><td>/usr/local/share/fvwm/.fvwm2rc</td></tr><tr><td>/usr/local/share/fvwm/system.fvwm2rc</td></tr><tr><td>/etc/system.fvwm2rc</td></tr></table><p>Please note, the last 5 locations are not guaranteed to be
-supported in the future.</p><p>If a configuration file is not found, the left mouse button, or
-<span class="keysym">Help</span>
+is used):
+<PRE>
+<DL COMPACT>
+<DT><DD><I>$HOME</I>/.fvwm/config
+/usr/local/share/fvwm/config
+</PRE>
+
+<PRE>
+<DT><DD><I>$HOME</I>/.fvwm/.fvwm2rc
+<I>$HOME</I>/.fvwm2rc
+/usr/local/share/fvwm/.fvwm2rc
+/usr/local/share/fvwm/system.fvwm2rc
+/etc/system.fvwm2rc
+</PRE>
+
+</DL>
+<P>
+
+Please note, the last 5 locations are not guaranteed to be
+supported in the future.
+<P>
+
+If a configuration file is not found, the left mouse button, or
+<FONT>Help</FONT>
 or
-<span class="keysym">F1</span>
+<FONT>F1</FONT>
 keys on the root window bring up menus and forms that can create
-a starting configuration file.</p><p>Fvwm sets two environment variables which are inherited by its
+a starting configuration file.
+<P>
+
+Fvwm sets two environment variables which are inherited by its
 children.  These are
-<code class="envar">$DISPLAY</code>
+<I>$DISPLAY</I>
 which describes the display on which fvwm is running.
-<code class="envar">$DISPLAY</code>
+<I>$DISPLAY</I>
 may be
-<span class="emphasis"><em>unix:0.0</em></span>
+<I>unix:0.0</I>
 or
-<span class="emphasis"><em>:0.0</em></span>,
+<I>:0.0</I>,
 which doesn't work too well when passed through ssh to another
 machine, so
-<code class="envar">$HOSTDISPLAY</code>
+<I>$HOSTDISPLAY</I>
 is set to a network-ready description of the display.
-<code class="envar">$HOSTDISPLAY</code>
+<I>$HOSTDISPLAY</I>
 always uses the TCP/IP transport protocol (even for a local
 connection) so
-<code class="envar">$DISPLAY</code>
+<I>$DISPLAY</I>
 should be used for local connections, as it may use Unix-domain
-sockets, which are faster.</p><p>If you want to start some applications or modules with fvwm, you
-can simply put</p><pre class="programlisting">
-<a href="#Exec">Exec</a> app
-</pre><p>or</p><pre class="programlisting">
-<a href="#Module">Module</a> FvwmXxx
-</pre><p>into your
-<code class="filename">config</code>,
+sockets, which are faster.
+<P>
+
+If you want to start some applications or modules with fvwm, you
+can simply put
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Exec</B> app
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Module</B> FvwmXxx
+</PRE>
+
+</DL>
+
+<P>
+
+into your
+<I>config</I>,
 but it is not recommended; do this only if you know what you are
-doing. It is usually important to start applications or modules
+doing.  It is usually important to start applications or modules
 after the entire config is read, because it contains styles or
 module configurations which can affect window appearance and
-functionality.</p><p>The standard way to start applications or modules on fvwm's start
+functionality.
+<P>
+
+The standard way to start applications or modules on fvwm's start
 up is to add them to an initialization function (usually
-<span class="emphasis"><em>StartFunction</em></span> or <span class="emphasis"><em>InitFunction</em></span>).
+<B>StartFunction</B> or <B>InitFunction</B>).
 This way they are only started after fvwm finishes to read and
 execute
-<code class="filename">config</code>
-file.</p><p>Fvwm has three special functions for initialization:
-<span class="emphasis"><em>StartFunction</em></span>,
+<I>config</I>
+file.
+<P>
+
+Fvwm has three special functions for initialization:
+<B>StartFunction</B>,
 which is executed on startups and restarts;
-<span class="emphasis"><em>InitFunction</em></span> and <span class="emphasis"><em>RestartFunction</em></span>,
+<B>InitFunction</B> and <B>RestartFunction</B>,
 which are executed during initialization and restarts
 (respectively) just after StartFunction.  These functions may be
 customized in a user's
-<code class="filename">config</code>
+<I>config</I>
 file using the
-<a href="#AddToFunc">AddToFunc</a>
+<B>AddToFunc</B>
 command (described later) to start up modules, xterms, or whatever
-you'd like to have started by fvwm.</p><p>Fvwm has also a special exit function:
-<span class="emphasis"><em>ExitFunction</em></span>,
+you'd like to have started by fvwm.
+<P>
+
+Fvwm has also a special exit function:
+<B>ExitFunction</B>,
 executed when exiting or restarting before actually quitting.
-It could be used to explicitly kill modules, etc.</p><p>If fvwm is run under a session manager, functions
-<span class="emphasis"><em>SessionInitFunction</em></span> and <span class="emphasis"><em>SessionRestartFunction</em></span>
+It could be used to explicitly kill modules, etc.
+<P>
+
+If fvwm is run under a session manager, functions
+<B>SessionInitFunction</B> and <B>SessionRestartFunction</B>
 are executed instead of InitFunction and RestartFunction.
 This helps to define the user's
-<code class="filename">config</code>
+<I>config</I>
 file to be good for both running under a session manager and
 without it.  Generally it is a bad idea to start xterms or other
-applications in "Session*" functions.  Also someone can decide to
+applications in &quot;Session*&quot; functions.  Also someone can decide to
 start different modules while running under a session manager or
 not.  For the similar purposes
-<span class="emphasis"><em>SessionExitFunction</em></span>
-is used instead of ExitFunction.</p><pre class="programlisting">
-<a href="#DestroyFunc">DestroyFunc</a> StartFunction
-<a href="#AddToFunc">AddToFunc</a> StartFunction
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a> * *
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
+<B>SessionExitFunction</B>
+is used instead of ExitFunction.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyFunc</B> StartFunction
+<B>AddToFunc</B> StartFunction
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B> * *
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
 
-<a href="#DestroyFunc">DestroyFunc</a> InitFunction
-<a href="#AddToFunc">AddToFunc</a> InitFunction
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmBanner.php');?>">FvwmBanner</a>
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a>
- + I <a href="#Exec">Exec</a> xsetroot -solid cyan
- + I <a href="#Exec">Exec</a> xterm
- + I <a href="#Exec">Exec</a> netscape
+<B>DestroyFunc</B> InitFunction
+<B>AddToFunc</B> InitFunction
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmBanner.php');?>">FvwmBanner</a></B>
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
+ + I <B>Exec</B> xsetroot -solid cyan
+ + I <B>Exec</B> xterm
+ + I <B>Exec</B> netscape
 
-<a href="#DestroyFunc">DestroyFunc</a> RestartFunction
-<a href="#AddToFunc">AddToFunc</a> RestartFunction
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a>
+<B>DestroyFunc</B> RestartFunction
+<B>AddToFunc</B> RestartFunction
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
 
-<a href="#DestroyFunc">DestroyFunc</a> SessionInitFunction
-<a href="#AddToFunc">AddToFunc</a> SessionInitFunction
- + I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmBanner.php');?>">FvwmBanner</a>
+<B>DestroyFunc</B> SessionInitFunction
+<B>AddToFunc</B> SessionInitFunction
+ + I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmBanner.php');?>">FvwmBanner</a></B>
 
-<a href="#DestroyFunc">DestroyFunc</a> SessionRestartFunction
-<a href="#AddToFunc">AddToFunc</a> SessionRestartFunction
- + I <a href="#Nop">Nop</a>
-</pre><p>You do not need to define all special functions if some are empty.
+<B>DestroyFunc</B> SessionRestartFunction
+<B>AddToFunc</B> SessionRestartFunction
+ + I <B>Nop</B>
+</PRE>
+
+</DL>
+
+<P>
+
+You do not need to define all special functions if some are empty.
 Also note, all these special functions may be emulated now using
-<span class="emphasis"><em>StartFunction</em></span> and <span class="emphasis"><em>ExitFunction,</em></span>
-like this:</p><pre class="programlisting">
-<a href="#DestroyFunc">DestroyFunc</a> StartFunction
-<a href="#AddToFunc">AddToFunc</a> StartFunction
-+ I <a href="#Test">Test</a> (Init) <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmBanner.php');?>">FvwmBanner</a>
-+ I <a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a> * *
-+ I <a href="#Test">Test</a> (Restart) <a href="#Beep">Beep</a>
+<B>StartFunction</B> and <B>ExitFunction,</B>
+like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyFunc</B> StartFunction
+<B>AddToFunc</B> StartFunction
++ I <B>Test</B> (Init) <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmBanner.php');?>">FvwmBanner</a></B>
++ I <B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B> * *
++ I <B>Test</B> (Restart) <B>Beep</B>
 
-<a href="#DestroyFunc">DestroyFunc</a> ExitFunction
-<a href="#AddToFunc">AddToFunc</a> ExitFunction
-+ I <a href="#Test">Test</a> (Quit) <a href="#Echo">Echo</a> Bye-bye
-+ I <a href="#KillModule">KillModule</a> MyBuggyModule
-+ I <a href="#Test">Test</a> (ToRestart) <a href="#Beep">Beep</a>
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="compilation"></a>10. Compilation Options</h2></div></div></div><p>Fvwm has a number of compile-time options.  If you have trouble
+<B>DestroyFunc</B> ExitFunction
+<B>AddToFunc</B> ExitFunction
++ I <B>Test</B> (Quit) <B>Echo</B> Bye-bye
++ I <B>KillModule</B> MyBuggyModule
++ I <B>Test</B> (ToRestart) <B>Beep</B>
+</PRE>
+
+</DL>
+
+<A NAME="lbAK">&nbsp;</A>
+<H2>COMPILATION OPTIONS</H2>
+
+<P>
+
+Fvwm has a number of compile-time options.  If you have trouble
 using a certain command or feature, check to see if support for it
 was included at compile time.  Optional features are described in
-the <code class="filename">config.h</code> file that is generated
-during compilation.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="icons_and_images"></a>11. Icons and Images</h2></div></div></div><p>Fvwm can load <span class="markup">.xbm,</span> <span class="markup">.xpm,</span>
-<span class="markup">.png</span> and
-<span class="markup">.svg</span> images. <span class="emphasis"><em>XBM</em></span>
+the <I>config.h</I> file that is generated
+during compilation.
+<A NAME="lbAL">&nbsp;</A>
+<H2>ICONS AND IMAGES</H2>
+
+<P>
+
+Fvwm can load <B>.xbm,</B> <B>.xpm,</B>
+<B>.png</B> and
+<B>.svg</B> images.  <B>XBM</B>
 images are monochrome.  Fvwm can always display
-<span class="emphasis"><em>XBM</em></span> files. <span class="emphasis"><em>XPM</em></span>
-and <span class="emphasis"><em>PNG</em></span> formats are color images.
+<B>XBM</B> files.  <B>XPM</B>
+and <B>PNG</B> formats are color images.
 SVG is a vector graphics image format.
 Compile-time options determine whether fvwm can display
-<span class="emphasis"><em>XPM</em></span>, <span class="emphasis"><em>PNG</em></span> or
-<span class="emphasis"><em>SVG</em></span>
-icons and images. See the <span class="emphasis"><em>INSTALL.fvwm</em></span>
-file for more information.</p><p>The related <span class="emphasis"><em>SHAPE</em></span>
-compile-time option can make fvwm display spiffy shaped icons.</p><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="svg_rendering_options"></a>11.1. SVG rendering options</h3></div></div></div><p>
+<B>XPM</B>, <B>PNG</B> or
+<B>SVG</B>
+icons and images.  See the <I>INSTALL.fvwm</I>
+file for more information.
+<P>
+
+The related <B>SHAPE</B>
+compile-time option can make fvwm display spiffy shaped icons.
+<A NAME="lbAM">&nbsp;</A>
+<H3>SVG rendering options</H3>
+
+<P>
+
 SVG images are generated from (XML) text files.  A really simple SVG file
-might look something like this:</p><pre class="programlisting">
-&lt;svg width="120" height="80"&gt;
-	&lt;rect fill="red"     width="40" height="40"  x="0"   y="0"  /&gt;
-	&lt;rect fill="lime"    width="40" height="40"  x="40"  y="0"  /&gt;
-	&lt;rect fill="blue"    width="40" height="40"  x="80"  y="0"  /&gt;
-	&lt;rect fill="cyan"    width="40" height="40"  x="0"   y="40" /&gt;
-	&lt;rect fill="magenta" width="40" height="40"  x="40"  y="40" /&gt;
-	&lt;rect fill="yellow"  width="40" height="40"  x="80"  y="40" /&gt;
+might look something like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&lt;svg width=&quot;120&quot; height=&quot;80&quot;&gt;
+        &lt;rect fill=&quot;red&quot;     width=&quot;40&quot; height=&quot;40&quot;  x=&quot;0&quot;   y=&quot;0&quot;  /&gt;
+        &lt;rect fill=&quot;lime&quot;    width=&quot;40&quot; height=&quot;40&quot;  x=&quot;40&quot;  y=&quot;0&quot;  /&gt;
+        &lt;rect fill=&quot;blue&quot;    width=&quot;40&quot; height=&quot;40&quot;  x=&quot;80&quot;  y=&quot;0&quot;  /&gt;
+        &lt;rect fill=&quot;cyan&quot;    width=&quot;40&quot; height=&quot;40&quot;  x=&quot;0&quot;   y=&quot;40&quot; /&gt;
+        &lt;rect fill=&quot;magenta&quot; width=&quot;40&quot; height=&quot;40&quot;  x=&quot;40&quot;  y=&quot;40&quot; /&gt;
+        &lt;rect fill=&quot;yellow&quot;  width=&quot;40&quot; height=&quot;40&quot;  x=&quot;80&quot;  y=&quot;40&quot; /&gt;
 &lt;/svg&gt;
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/plain.png"><div class="caption"><code class="code">image.svg</code><p></p></div></div><p>
+</PRE>
+
+</DL>
+
+<P>
+
 By default, SVG images are rendered as the image creator intended
-them to. But since SVG is a vector graphics format, the images can
+them to.  But since SVG is a vector graphics format, the images can
 be rendered at any choosen size and rotation, e.g. making it possible
 to use the same icon file rendered at diffrent sizes for the
-<a href="#Style_Icon">Icon</a> and <a href="#Style_MiniIcon">MiniIcon</a>
-styles.</p><p>The rendering options are specified as a string appended to the SVG
-filename as follows:</p><div class="cmdsynopsis"><p><code class="filename"><em class="replaceable"><code>image.svg</code></em></code><code class="literal">:</code><code class="literal">[!]</code> [<i><a href="#svg_rendering_size">(1)</a> size</i>]  [<i><a href="#svg_rendering_position">(2)</a> position</i>] [<i><a href="#svg_rendering_rotation">(3)</a> rotation</i>] [<i><a href="#svg_rendering_scale">(4)</a> scale</i>] ... <p><a name="svg_rendering_size">(1)</a> <code class="literal">[-]</code><em class="replaceable"><code>width</code></em><code class="literal">{x}</code><code class="literal">[-]</code><em class="replaceable"><code>height</code></em></p><p><a name="svg_rendering_position">(2)</a> <code class="literal">{ -  |   + }</code><em class="replaceable"><code>xpos</code></em><code class="literal">{ -  |   + }</code><em class="replaceable"><code>ypos</code></em></p><p><a name="svg_rendering_rotation">(3)</a> <code class="literal">@</code><code class="literal">[-]</code><em class="replaceable"><code>angle</code></em></p><p><a name="svg_rendering_scale">(4)</a> <code class="literal">{ *  |   / }</code><code class="literal">[-]</code><em class="replaceable"><code>factor</code></em><code class="literal">[ x  |   y ]</code></p></p></div><p>
-The option string always starts with a colon ('<code class="literal">:</code>')
+<I>Icon</I> and <I>MiniIcon</I>
+styles.
+<P>
+
+The rendering options are specified as a string appended to the SVG
+filename as follows:
+<DL COMPACT>
+<DT>
+<I>image.svg</I>:[!] [(1)&nbsp;<I>size</I>] [(2)&nbsp;<I>position</I>]&nbsp;[(3)&nbsp;<I>rotation</I>]&nbsp;[(4)&nbsp;<I>scale</I>] ...
+<DT>
+(1) [-]<I>width</I>{x}[-]<I>height</I>
+<P>
+<DT>
+(2) {- | +}<I>xpos</I>{- | +}<I>ypos</I>
+<P>
+<DT>
+(3) @[-]<I>angle</I>
+<P>
+<DT>
+(4) {* | /}[-]<I>factor</I>[x | y]
+</DL>
+<P>
+
+<DD>The option string always starts with a colon (':')
 to separate it from the filename.  An empty option string can skip this
 colon, but it might still be a good idea to include it to prevent
-ambiguity if the filename contains any colon.</p><pre class="programlisting">
+ambiguity if the filename contains any colon.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 filename_without_colon.svg
 filename:with:colon.svg:
-</pre><p>
-An exclamation point ('<code class="literal">!</code>') transposes the entire final
+</PRE>
+
+</DL>
+
+<P>
+
+An exclamation point ('!') transposes the entire final
 image (including the rendering area), i.e. all the horizontal and all the
-vertical coordinates are swapped with each other.</p><pre class="programlisting">
+vertical coordinates are swapped with each other.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:!
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/transpose.png"><div class="caption"><code class="code">image.svg:!</code><p></p></div></div><p>
-<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>width</I> and <I>height</I>
 specifies the dimensions of the rendering area in pixels, i.e. the
 dimensions of the resulting image.  The actual image is fitted to fill
-the entire rendering area.</p><pre class="programlisting">
+the entire rendering area.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:60x60
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/size.png"><div class="caption"><code class="code">image.svg:60x60</code><p></p></div></div><p>
-Use a <em class="replaceable"><code>width</code></em> or <em class="replaceable"><code>height</code></em>
-value of 0 to keep the aspect ratio.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Use a <I>width</I> or <I>height</I>
+value of 0 to keep the aspect ratio.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:0x60
 image.svg:60x0
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/size_keep_ratio_x.png"><div class="caption"><code class="code">image.svg:0x60</code><p></p></div></div><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/size_keep_ratio_y.png"><div class="caption"><code class="code">image.svg:60x0</code><p></p></div></div><p>A '<code class="literal">-</code>' before <em class="replaceable"><code>width</code></em>
-mirrors the rendering area horizontally.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+A '-' before <I>width</I>
+mirrors the rendering area horizontally.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:-0x0
-</pre><p>A '<code class="literal">-</code>' before <em class="replaceable"><code>height</code></em>
-mirrors the rendering area vertically.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+A '-' before <I>height</I>
+mirrors the rendering area vertically.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:0x-0
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/size_mirroring_y.png"><div class="caption"><code class="code">image.svg:0x-0</code><p></p></div></div><p>
-<em class="replaceable"><code>xpos</code></em> and <em class="replaceable"><code>ypos</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>xpos</I> and <I>ypos</I>
 specifies a translation of the image in pixels.  A positive
-<em class="replaceable"><code>xpos</code></em> value moves the image to the right.  A
-positive <em class="replaceable"><code>ypos</code></em> value moves it down.  Moving
+<I>xpos</I> value moves the image to the right.  A
+positive <I>ypos</I> value moves it down.  Moving
 it partially outside of the rendering area results in a cropped
-image.</p><pre class="programlisting">
+image.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:-30-0
 image.svg:-0+10
 image.svg:-30+10
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/position.png"><div class="caption"><code class="code">image.svg:-30+10</code><p></p></div></div><p>
-<em class="replaceable"><code>angle</code></em> specifies a rotation around the actual
-image center in degrees. This might result in a cropped image.  A
+</PRE>
+
+</DL>
+
+<P>
+
+<I>angle</I> specifies a rotation around the actual
+image center in degrees.  This might result in a cropped image.  A
 positive value rotates the image clockwise.  Floating point values are
-recognized.</p><pre class="programlisting">
+recognized.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:@180
 image.svg:@-90
 image.svg:@30
 image.svg:@57.3
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/rotation.png"><div class="caption"><code class="code">image.svg:@30</code><p></p></div></div><p>
-<em class="replaceable"><code>factor</code></em> specifes a scaling of the actual
-image (not the rendering area). Scaling it up results in a cropped
+</PRE>
+
+</DL>
+
+<P>
+
+<I>factor</I> specifes a scaling of the actual
+image (not the rendering area).  Scaling it up results in a cropped
 image.  Floting point values are recognized.  Division by zero is
-ignored.  If <em class="replaceable"><code>factor</code></em> is directly followed
-by a '<code class="literal">x</code>' or a '<code class="literal">y</code>', the scaling
+ignored.  If <I>factor</I> is directly followed
+by a 'x' or a 'y', the scaling
 is horizontal or vertical respectively.  Otherwise the scaling is
-uniform.</p><pre class="programlisting">
+uniform.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:*2
 image.svg:/2
 image.svg:/3x
 image.svg:/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/scale_up_uniform.png"><div class="caption"><code class="code">image.svg:*2</code><p></p></div></div><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/scale_down_uniform.png"><div class="caption"><code class="code">image.svg:/2</code><p></p></div></div><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/scale_down_y.png"><div class="caption"><code class="code">image.svg:/2y</code><p></p></div></div><p>
-Scaling down a translated or rotated image can prevent cropping.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Scaling down a translated or rotated image can prevent cropping.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:@30*0.6
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/prevent_cropping.png"><div class="caption"><code class="code">image.svg:@30*0.6</code><p></p></div></div><p>
+</PRE>
+
+</DL>
+
+<P>
+
 Repeated usage of translation, rotation, and scaling is allowed.
- Translation and rotation are additive.  Scaling is multiplicative.</p><pre class="programlisting">
+Translation and rotation are additive.  Scaling is multiplicative.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:*2/3
 image.svg:/3x/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/scale_down.png"><div class="caption"><code class="code">image.svg:/3x/2y</code><p></p></div></div><p>
+</PRE>
+
+</DL>
+
+<P>
+
 When combining affine transformations, the scaling is always done first,
-then the rotation, and finally the translation.</p><pre class="programlisting">
+then the rotation, and finally the translation.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:-30+10@30/3x/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/affine_combined.png"><div class="caption"><code class="code">image.svg:-30+10@30/3x/2y</code><p></p></div></div><p>
-Use a negative scale <em class="replaceable"><code>factor</code></em> to mirror the
-actual image.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Use a negative scale <I>factor</I> to mirror the
+actual image.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:-30+10@30/-3x/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/scale_mirroring.png"><div class="caption"><code class="code">image.svg:-30+10@30/-3x/2y</code><p></p></div></div><p>
+</PRE>
+
+</DL>
+
+<P>
+
 Mirroring of the rendering area is done after any scaling, rotation or
-translation of the image.</p><pre class="programlisting">
+translation of the image.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:-0x0-30+10@30/3x/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/size_mirroring.png"><div class="caption"><code class="code">image.svg:-0x0-30+10@30/3x/2y</code><p></p></div></div><p>
-Transposing is done last of all, after everything else.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Transposing is done last of all, after everything else.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 image.svg:!-0x0-30+10@30/3x/2y
-</pre><div class="mediaobject"><img src="../../../doc/unstable/images/svg_rendering/all_combined.png"><div class="caption"><code class="code">image.svg:!-0x0-30+10@30/3x/2y</code><p></p></div></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="modules"></a>12. Modules</h2></div></div></div><p>A module is a separate program which runs as a separate Unix
+</PRE>
+
+</DL>
+
+<A NAME="lbAN">&nbsp;</A>
+<H2>MODULES</H2>
+
+<P>
+
+A module is a separate program which runs as a separate Unix
 process but transmits commands to fvwm to execute.  Users can
 write their own modules to do any weird or bizarre manipulations
-without bloating or affecting the integrity of fvwm itself.</p><p>Modules must be spawned by fvwm so that it can set up two pipes
+without bloating or affecting the integrity of fvwm itself.
+<P>
+
+Modules must be spawned by fvwm so that it can set up two pipes
 for fvwm and the module to communicate with.  The pipes are
 already open for the module when it starts and the file
-descriptors for the pipes are provided as command line arguments.</p><p>Modules can be spawned by fvwm at any time during the X session by
+descriptors for the pipes are provided as command line arguments.
+<P>
+
+Modules can be spawned by fvwm at any time during the X session by
 use of the
-<a href="#Module">Module</a>
+<B>Module</B>
 command.  Modules can exist for the duration of the X
 session, or can perform a single task and exit.  If the module is
 still active when fvwm is told to quit, then fvwm closes the
@@ -693,261 +1239,518 @@ exited.  If modules fail to detect the pipe closure fvwm exits
 after approximately 30 seconds anyway.  The number of
 simultaneously executing modules is limited by the operating
 system's maximum number of simultaneously open files, usually
-between 60 and 256.</p><p>Modules simply transmit commands to the fvwm command
+between 60 and 256.
+<P>
+
+Modules simply transmit commands to the fvwm command
 engine.  Commands are formatted just as in the case of a
 mouse binding in the
-<code class="filename">config</code>
+<I>config</I>
 setup file.  Certain auxiliary information is also transmitted, as
 in the sample module
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>.
-</p><p>Please refer to the
-<a href="#module_commands">Module Commands</a>
-section for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="icccm_compliance"></a>13. ICCCM Compliance</h2></div></div></div><p>Fvwm attempts to be
-<acronym class="acronym">ICCCM</acronym>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>.
+<P>
+
+Please refer to the
+<B>Module Commands</B>
+section for details.
+<A NAME="lbAO">&nbsp;</A>
+<H2>ICCCM COMPLIANCE</H2>
+
+<P>
+
+Fvwm attempts to be
+ICCCM
 2.0 compliant.  Check
-<a class="ulink" href="http://tronche.com/gui/x/icccm/" target="_top">http://tronche.com/gui/x/icccm/</a> for more info. In addition,
-<acronym class="acronym">ICCCM</acronym>
+<I><A HREF="http://tronche.com/gui/x/icccm/">http://tronche.com/gui/x/icccm/</A></I> for more info.  In addition,
+ICCCM
 states that it should be possible for applications to receive any
 keystroke, which is not consistent with the keyboard shortcut
 approach used in fvwm and most other window managers.  In
 particular you cannot have the same keyboard shortcuts working
 with your fvwm and another fvwm running within Xnest (a nested X
 server running in a window).  The same problem exists with mouse
-bindings.</p><p>The
-<acronym class="acronym">ICCCM</acronym>
-states that windows possessing the property</p><div class="literallayout"><p><br>
-WM_HINTS(WM_HINTS):<br>
-    Client accepts input or input focus: False<br>
-</p></div><p>should not be given the keyboard input focus by the window
-manager. These windows can take the input focus by themselves,
+bindings.
+<P>
+
+The
+ICCCM
+states that windows possessing the property
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+WM_HINTS(WM_HINTS):
+    Client accepts input or input focus: False
+</PRE>
+
+</DL>
+
+<P>
+
+should not be given the keyboard input focus by the window
+manager.  These windows can take the input focus by themselves,
 however.  A number of applications set this property, and yet
 expect the window manager to give them the keyboard focus anyway,
 so fvwm provides a window style,
-<a href="#Style_Lenience">Lenience</a>, 
+<I>Lenience</I>, 
 which allows fvwm to overlook this
-<acronym class="acronym">ICCCM</acronym>
+ICCCM
 rule.  Even with this window style it is not guaranteed that the
-application accepts focus.</p><p>The differences between
-<acronym class="acronym">ICCCM</acronym>
+application accepts focus.
+<P>
+
+The differences between
+ICCCM
 1.1 and 2.0 include the ability to take over from a running
-<acronym class="acronym">ICCCM</acronym>
-2.0 compliant window manager; thus</p><span><strong class="command">fvwm; vi ~/.fvwm/config; fvwm -replace</strong></span><p>resembles the
-<a href="#Restart">Restart</a>
+ICCCM
+2.0 compliant window manager; thus
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+fvwm; vi ~/.fvwm/config; fvwm -replace
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+resembles the
+<B>Restart</B>
 command.  It is not exactly the same, since killing the previously
 running wm may terminate your X session, if the wm was started as
 the last client in your
-<code class="filename">.Xclients</code> or <code class="filename">.Xsession</code>
-file.</p><p>Further additions are support for client-side colormap
+<I>.Xclients</I> or <I>.Xsession</I>
+file.
+<P>
+
+Further additions are support for client-side colormap
 installation (see the
-<acronym class="acronym">ICCCM</acronym>
-for details) and the urgency hint. Clients can set this hint in
+ICCCM
+for details) and the urgency hint.  Clients can set this hint in
 the WM_HINTS property of their window and expect the window manager
 to attract the user's attention to the window.  Fvwm has two re-definable
-functions for this purpose, "UrgencyFunc" and "UrgencyDoneFunc", which
-are executed when the flag is set/cleared.  Their default definitions are:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> UrgencyFunc
- + I <a href="#Iconify">Iconify</a> off
- + I <a href="#FlipFocus">FlipFocus</a>
- + I <a href="#Raise">Raise</a>
- + I <a href="#WarpToWindow">WarpToWindow</a> 5p 5p
-<a href="#AddToFunc">AddToFunc</a> UrgencyDoneFunc
- + I <a href="#Nop">Nop</a>
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="gnome"></a>14. Gnome Compliance</h2></div></div></div><p>Fvwm attempts to be <acronym class="acronym">GNOME</acronym> (version 1) compliant.
-Check <a class="ulink" href="http://www.gnome.org" target="_top">http://www.gnome.org</a>
-for what that may mean. To disable <acronym class="acronym">GNOME</acronym> hints for some
+functions for this purpose, &quot;UrgencyFunc&quot; and &quot;UrgencyDoneFunc&quot;, which
+are executed when the flag is set/cleared.  Their default definitions are:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> UrgencyFunc
+ + I <B>Iconify</B> off
+ + I <B>FlipFocus</B>
+ + I <B>Raise</B>
+ + I <B>WarpToWindow</B> 5p 5p
+<B>AddToFunc</B> UrgencyDoneFunc
+ + I <B>Nop</B>
+</PRE>
+
+</DL>
+
+<A NAME="lbAP">&nbsp;</A>
+<H2>GNOME COMPLIANCE</H2>
+
+<P>
+
+Fvwm attempts to be GNOME (version 1) compliant.
+Check <I><A HREF="http://www.gnome.org">http://www.gnome.org</A></I>
+for what that may mean.  To disable GNOME hints for some
 or all windows, the
-<a href="#Style_GNOMEIgnoreHints">GNOMEIgnoreHints</a>
-style can be used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="extended_window_manager_hints"></a>15. Extended Window Manager Hints</h2></div></div></div><p>Fvwm attempts to respect the extended window manager hints (ewmh
-or <acronym class="acronym">EWMH</acronym> for short) specification:
-<a class="ulink" href="http://www.freedesktop.org/wiki/Standards_2fwm_2dspec" target="_top">http://www.freedesktop.org/wiki/Standards_2fwm_2dspec</a>
+<I>GNOMEIgnoreHints</I>
+style can be used.
+<A NAME="lbAQ">&nbsp;</A>
+<H2>EXTENDED WINDOW MANAGER HINTS</H2>
+
+<P>
+
+Fvwm attempts to respect the extended window manager hints (ewmh
+or EWMH for short) specification:
+<I><A HREF="http://www.freedesktop.org/wiki/Standards_2fwm_2dspec">http://www.freedesktop.org/wiki/Standards_2fwm_2dspec</A></I>
 and some extensions of this specification.  This allows fvwm to
 work with
-<acronym class="acronym">KDE</acronym>
+KDE
 version &gt;= 2,
-<acronym class="acronym">GNOME</acronym>
+GNOME
 version 2 and other applications which respect this specification
 (any application based on
-<span class="emphasis"><em>GTK+</em></span>
-version 2). Applications which respect this specification are
-called ewmh compliant applications.</p><p>This support is configurable with styles and commands.
+<I>GTK+</I>
+version 2).  Applications which respect this specification are
+called ewmh compliant applications.
+<P>
+
+This support is configurable with styles and commands.
 These styles and commands have
-<acronym class="acronym">EWMH</acronym>
-as the prefix (so you can find them easily in this man page).</p><p>There is a new Context 'D' for the
-<a href="#Key">Key</a>,
-<a href="#PointerKey">PointerKey</a>,
-<a href="#Mouse">Mouse</a> and
-<a href="#Stroke">Stroke</a>
-commands. This context is for desktop applications (such as
-kdesktop and Nautilus desktop).</p><p>When a compliant taskbar asks fvwm to activate a window (typically
+EWMH
+as the prefix (so you can find them easily in this man page).
+<P>
+
+There is a new Context 'D' for the
+<B>Key</B>,
+<B>PointerKey</B>,
+<B>Mouse</B> and
+<B>Stroke</B>
+commands.  This context is for desktop applications (such as
+kdesktop and Nautilus desktop).
+<P>
+
+When a compliant taskbar asks fvwm to activate a window (typically
 when you click on a button which represents a window in such a
 taskbar), then fvwm calls the complex function
-<span class="emphasis"><em>EWMHActivateWindowFunc</em></span>
-which by default is Iconify Off, Focus and Raise. You can redefine
-this function.  For example:</p><pre class="programlisting">
-<a href="#DestroyFunc">DestroyFunc</a> EWMHActivateWindowFunc
-<a href="#AddToFunc">AddToFunc</a> EWMHActivateWindowFunc I <a href="#Iconify">Iconify</a> Off
-+ I <a href="#Focus">Focus</a>
-+ I <a href="#Raise">Raise</a>
-+ I <a href="#WarpToWindow">WarpToWindow</a> 50 50
-</pre><p>additionally warps the pointer to the center of the window.</p><p>The
-<acronym class="acronym">EWMH</acronym>
+<B>EWMHActivateWindowFunc</B>
+which by default is Iconify Off, Focus and Raise.  You can redefine
+this function.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyFunc</B> EWMHActivateWindowFunc
+<B>AddToFunc</B> EWMHActivateWindowFunc I <B>Iconify</B> Off
++ I <B>Focus</B>
++ I <B>Raise</B>
++ I <B>WarpToWindow</B> 50 50
+</PRE>
+
+</DL>
+
+<P>
+
+additionally warps the pointer to the center of the window.
+<P>
+
+The
+EWMH
 specification introduces the notion of Working Area.  Without ewmh
 support the Working Area is the full visible screen (or all your
 screens if you have a multi head setup and you use Xinerama).
 However, compliant applications (such as a panel) can ask to
 reserve space at the edge of the screen.  If this is the case, the
 Working Area is your full visible screen minus these reserved
-spaces. If a panel can be hidden by clicking on a button the
+spaces.  If a panel can be hidden by clicking on a button the
 Working Area does not change (as you can unhide the panel at any
 time), but the Dynamic Working Area is updated: the space reserved
 by the panel is removed (and added again if you pop up the
-panel). The Dynamic Working Area may be used when fvwm places or
+panel).  The Dynamic Working Area may be used when fvwm places or
 maximizes a window.  To know if an application reserves space you
-can type "xprop | grep _NET_WM_STRUT" in a terminal and select the
+can type &quot;xprop | grep _NET_WM_STRUT&quot; in a terminal and select the
 application.  If four numbers appear then these numbers define the
 reserved space as explained in the
-<a href="#EwmhBaseStruts">EwmhBaseStruts</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="mwm_compatibility"></a>16. MWM Compatibility</h2></div></div></div><p>Fvwm provides options to emulate Motif Window Manager (Mwm) as
+<B>EwmhBaseStruts</B>
+command.
+<A NAME="lbAR">&nbsp;</A>
+<H2>MWM COMPATIBILITY</H2>
+
+<P>
+
+Fvwm provides options to emulate Motif Window Manager (Mwm) as
 well as possible.  Please refer to the
-<a href="#Emulate">Emulate</a>
+<B>Emulate</B>
 command as well as to the Mwm specific options of the
-<a href="#Style">Style</a> and
-<a href="#MenuStyle">MenuStyle</a>
-commands for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="open_look_and_xview_compatibility"></a>17. Open Look and XView Compatibility</h2></div></div></div><p>Fvwm supports all the Open Look decoration hints (except
+<B>Style</B> and
+<B>MenuStyle</B>
+commands for details.
+<A NAME="lbAS">&nbsp;</A>
+<H2>OPEN LOOK AND XVIEW COMPATIBILITY</H2>
+
+<P>
+
+Fvwm supports all the Open Look decoration hints (except
 pushpins).  Should you use any such application, please add the
-following line to your config:</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_OLDecor">OLDecor</a>
-</pre><p>Most (perhaps all) Open Look applications have a strange notion of
+following line to your config:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>OLDecor</I>
+</PRE>
+
+</DL>
+
+<P>
+
+Most (perhaps all) Open Look applications have a strange notion of
 keyboard focus handling.  Although a lot of work went into fvwm to
 work well with these, you may still encounter problems.  It is
-recommended to use the <a href="#Style_NeverFocus">NeverFocus</a>
-focus policy and the <a href="#Style_Lenience">Lenience</a>
+recommended to use the <I>NeverFocus</I>
+focus policy and the <I>Lenience</I>
 style for all such applications (the windows still get the
-focus):</p><pre class="programlisting">
-<a href="#Style">Style</a> &lt;application name&gt; <a href="#Style_NeverFocus">NeverFocus</a>, <a href="#Style_Lenience">Lenience</a>
-</pre><p>But in case you can not live with that focus policy, you can try
+focus):
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> &lt;application name&gt; <I>NeverFocus</I>, <I>Lenience</I>
+</PRE>
+
+</DL>
+
+<P>
+
+But in case you can not live with that focus policy, you can try
 using one of the other focus policies in combination with the
-<a href="#Style_Lenience">Lenience</a> style:</p><pre class="programlisting">
-<a href="#Style">Style</a> &lt;application name&gt; <a href="#Style_MouseFocus">MouseFocus</a>, <a href="#Style_Lenience">Lenience</a>
-<a href="#Style">Style</a> &lt;application name&gt; <a href="#Style_SloppyFocus">SloppyFocus</a>, <a href="#Style_Lenience">Lenience</a>
-<a href="#Style">Style</a> &lt;application name&gt; <a href="#Style_ClickToFocus">ClickToFocus</a>, <a href="#Style_Lenience">Lenience</a>
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="m4_preprocessing"></a>18. M4 Preprocessing</h2></div></div></div><p>M4 pre-processing is handled by a module in fvwm.  To get more
+<I>Lenience</I> style:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> &lt;application name&gt; <I>MouseFocus</I>, <I>Lenience</I>
+<B>Style</B> &lt;application name&gt; <I>SloppyFocus</I>, <I>Lenience</I>
+<B>Style</B> &lt;application name&gt; <I>ClickToFocus</I>, <I>Lenience</I>
+</PRE>
+
+</DL>
+
+<A NAME="lbAT">&nbsp;</A>
+<H2>M4 PREPROCESSING</H2>
+
+<P>
+
+M4 pre-processing is handled by a module in fvwm.  To get more
 details, try man
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>.
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>.
 In short, if you want fvwm to parse your files with m4, then
 replace the command
-<a href="#Read">Read</a>
+<B>Read</B>
 with
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 in your
-<code class="filename">~/.fvwm/config</code>
-file (if it appears at all), and start fvwm with the command</p><span><strong class="command">
-fvwm -cmd "<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a> config"
-</strong></span></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="cpp_preprocessing"></a>19. CPP Preprocessing</h2></div></div></div><p>Cpp is the C-language pre-processor.  fvwm offers cpp processing
+<I>~/.fvwm/config</I>
+file (if it appears at all), and start fvwm with the command
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+fvwm -cmd &quot;<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B> config&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+<A NAME="lbAU">&nbsp;</A>
+<H2>CPP PREPROCESSING</H2>
+
+<P>
+
+Cpp is the C-language pre-processor.  fvwm offers cpp processing
 which mirrors the m4 pre-processing.  To find out about it,
 re-read the
-<a href="#m4_preprocessing">M4</a>
-section, but replace "m4" with "cpp".</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="configuration"></a>20. Configuration</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="configuration_files"></a>20.1. Configuration Files</h3></div></div></div><p>The configuration file is used to describe mouse and button
+<B>M4</B>
+section, but replace &quot;m4&quot; with &quot;cpp&quot;.
+<A NAME="lbAV">&nbsp;</A>
+<H2>CONFIGURATION</H2>
+
+<A NAME="lbAW">&nbsp;</A>
+<H3>Configuration Files</H3>
+
+<P>
+
+The configuration file is used to describe mouse and button
 bindings, colors, the virtual display size, and related items.
 The initialization configuration file is typically called
-<code class="filename">config</code> (or <code class="filename">.fvwm2rc</code>).
+<I>config</I> (or <I>.fvwm2rc</I>).
 By using the
-<a href="#Read">Read</a>
-command, it is easy to read in new configuration files as you go.</p><p>Lines beginning with '#' are ignored by fvwm.  Lines starting with '*'
+<B>Read</B>
+command, it is easy to read in new configuration files as you go.
+<P>
+
+Lines beginning with '#' are ignored by fvwm.  Lines starting with '*'
 are expected to contain module configuration commands (rather
-than configuration commands for fvwm itself). Like in shell
+than configuration commands for fvwm itself).  Like in shell
 scripts embedded newlines in a configuration file line can be
 quoted by preceding them with a backslash.  All lines linked in
 this fashion are treated as a single line.  The newline itself is
-ignored.</p><p>Fvwm makes no distinction between configuration commands and
+ignored.
+<P>
+
+Fvwm makes no distinction between configuration commands and
 action commands, so anything mentioned in the fvwm commands
 section can be placed on a line by itself for fvwm to execute as
 it reads the configuration file, or it can be placed as an
 executable command in a menu or bound to a mouse button or a
 keyboard key.  It is left as an exercise for the user to decide
 which function make sense for initialization and which ones make
-sense for run-time.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="supplied_configuration"></a>20.2. Supplied Configuration</h3></div></div></div><p>A sample configuration file,
-<code class="filename">system.fvwm2rc</code>,
+sense for run-time.
+<A NAME="lbAX">&nbsp;</A>
+<H3>Supplied Configuration</H3>
+
+<P>
+
+A sample configuration file,
+<I>system.fvwm2rc</I>,
 is supplied with the fvwm distribution.  It is well commented and
 can be used as a source of examples for fvwm configuration.
-It may be copied to <code class="filename">/usr/local/share/fvwm/config</code> file.</p><p>Alternatively, the built-in menu (accessible when no
+It may be copied to <I>/usr/local/share/fvwm/config</I> file.
+<P>
+
+Alternatively, the built-in menu (accessible when no
 configuration file is found) has options to create an initial
-config file for the user.</p><p>If you are new to fvwm, try
-<a class="ulink" href="http://fvwm-themes.sourceforge.net/" target="_top">fvwm-themes</a>
-package demonstrating the powerful fvwm functionality.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="fonts"></a>21. Fonts</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="font_names_and_font_loading"></a>21.1. Font names and font loading</h3></div></div></div><p>The fonts used for the text of a window title, icon titles, menus
+config file for the user.
+<P>
+
+If you are new to fvwm, try
+<I>fvwm-themes</I>[]
+package demonstrating the powerful fvwm functionality.
+<A NAME="lbAY">&nbsp;</A>
+<H2>FONTS</H2>
+
+<A NAME="lbAZ">&nbsp;</A>
+<H3>Font names and font loading</H3>
+
+<P>
+
+The fonts used for the text of a window title, icon titles, menus
 and geometry window can be specified by using the Font and
-IconFont <a href="#Style">Style</a>, the Font <a href="#MenuStyle">MenuStyle</a> and the <a href="#DefaultFont">DefaultFont</a>
-commands. Also, all the Modules which use text have configuration
-command(s) to specify font(s). All these styles and commands take
-a font name as an argument. This section explains what is a font
-name for fvwm and which fonts fvwm loads.</p><p>First, you can use what we can call a usual font name, for
-example,</p><pre class="programlisting">
+IconFont <B>Style</B>, the Font <B>MenuStyle</B> and the <B>DefaultFont</B>
+commands.  Also, all the Modules which use text have configuration
+command(s) to specify font(s).  All these styles and commands take
+a font name as an argument.  This section explains what is a font
+name for fvwm and which fonts fvwm loads.
+<P>
+
+First, you can use what we can call a usual font name, for
+example,
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -adobe-courier-bold-r-normal--10-100-75-75-m-60-ISO8859-1
 -adobe-courier-bold-r-normal--10-*
 -*-fixed-medium-o-normal--14-*-ISO8859-15
-</pre><p>That is, you can use an X Logical Font Description (XLFD for
-short).  Then the "first" font which matches the description is
-loaded and used. This "first" font depends of your font path and
-also of your locale. Fonts which match the locale charset are
-loaded in priority order. For example with</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+That is, you can use an X Logical Font Description (XLFD for
+short).  Then the &quot;first&quot; font which matches the description is
+loaded and used.  This &quot;first&quot; font depends of your font path and
+also of your locale.  Fonts which match the locale charset are
+loaded in priority order.  For example with
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -adobe-courier-bold-r-normal--10-*
-</pre><p>if the locale charset is ISO8859-1, then fvwm tries to load a
-font which matches</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+if the locale charset is ISO8859-1, then fvwm tries to load a
+font which matches
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -adobe-courier-bold-r-normal--10-*-ISO8859-1
-</pre><p>with the locale charset ISO8859-15 fvwm tries to load</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+with the locale charset ISO8859-15 fvwm tries to load
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -adobe-courier-bold-r-normal--10-*-ISO8859-15.
-</pre><p>A font name can be given as an extended XLFD. This
-is a comma separated list of (simple) XLFD font names, for example:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+A font name can be given as an extended XLFD.  This
+is a comma separated list of (simple) XLFD font names, for example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -adobe-courier-bold-r-normal--14-*,-*-courier-medium-r-normal--14-*
-</pre><p>Each simple font name is tried until a matching font with the
+</PRE>
+
+</DL>
+
+<P>
+
+Each simple font name is tried until a matching font with the
 locale charset is found and if this fails each simple font name is
-tried without constraint on the charset.</p><p>More details on the XLFD can be found in the X manual page, the X
+tried without constraint on the charset.
+<P>
+
+More details on the XLFD can be found in the X manual page, the X
 Logical Font Description Conventions document (called xlfd) and
-the XLoadFont and XCreateFontSet manual pages. Some useful font
-utilities are: xlsfonts, xfontsel, xfd and xset.</p><p>If you have Xft support you can specify an Xft font name
-(description) of a true type (or Type1) font prefixed by "xft:",
-for example:</p><pre class="programlisting">
-"xft:Luxi Mono"
-"xft:Luxi Mono:Medium:Roman:size=14:encoding=iso8859-1"
-</pre><p>The "first" font which matches the description is loaded.  This
+the XLoadFont and XCreateFontSet manual pages.  Some useful font
+utilities are: xlsfonts, xfontsel, xfd and xset.
+<P>
+
+If you have Xft support you can specify an Xft font name
+(description) of a true type (or Type1) font prefixed by &quot;xft:&quot;,
+for example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&quot;xft:Luxi Mono&quot;
+&quot;xft:Luxi Mono:Medium:Roman:size=14:encoding=iso8859-1&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+The &quot;first&quot; font which matches the description is loaded.  This
 first font depends on the XftConfig configuration file with Xft1
 and on the /etc/fonts/fonts.conf file with Xft2.
 One may read the Xft manual page and the fontconfig man page with
-Xft2. The first string which follows "xft:" is always considered
-as the family. With the second example Luxi Mono is the Family
-(Other XFree TTF families: "Luxi Serif", "Luxi Sans"), Medium is
+Xft2.  The first string which follows &quot;xft:&quot; is always considered
+as the family.  With the second example Luxi Mono is the Family
+(Other XFree TTF families: &quot;Luxi Serif&quot;, &quot;Luxi Sans&quot;), Medium is
 the Weight (other possible weights: Light, DemiBold, Bold, Black),
 Roman is the slant or the style (other possibilities: Regular,
 Oblique, Italic) size specifies the point size (for a pixel size
 use pixelsize=), encoding allows for enforce a charset (iso8859-1
 or iso10646-1 only; if no encoding is given the locale charset is
 assumed).
-An important parameter is "minspace=bool" where bool is True or
-False. If bool is False (the default?) Xft gives a greater font
-height to fvwm than if bool is True. This may modify text
+An important parameter is &quot;minspace=bool&quot; where bool is True or
+False.  If bool is False (the default?) Xft gives a greater font
+height to fvwm than if bool is True.  This may modify text
 placement, icon and window title height, line spacing in menus and
-<a href="<?php echo conv_link_target('FvwmIdent.php');?>">FvwmIdent</a>, button height in some fvwm modules ...etc.  With a LCD
-monitor you may try to add "rgba=mode" where mode is either rgb,
-bgr, vrgb or vbgr to enable subpixel rendering. The best mode
-depends on the way your LCD cells are arranged. You can pass other
-specifications in between ":", as "foundry=foundry_name",
-"spacing=type" where type can be monospace, proportional or
-charcell, "charwidth=integer", "charheight=integer" or
-"antialias=bool" where bool is True or False. It seems that these
-parameters are not always taken in account.</p><p>To determine which Xft fonts are really loaded you can export
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>, button height in some fvwm modules ...etc.  With a LCD
+monitor you may try to add &quot;rgba=mode&quot; where mode is either rgb,
+bgr, vrgb or vbgr to enable subpixel rendering.  The best mode
+depends on the way your LCD cells are arranged.  You can pass other
+specifications in between &quot;:&quot;, as &quot;foundry=foundry_name&quot;,
+&quot;spacing=type&quot; where type can be monospace, proportional or
+charcell, &quot;charwidth=integer&quot;, &quot;charheight=integer&quot; or
+&quot;antialias=bool&quot; where bool is True or False.  It seems that these
+parameters are not always taken in account.
+<P>
+
+To determine which Xft fonts are really loaded you can export
 XFT_DEBUG=1 before starting fvwm and take a look to the error
-log. With Xft2 you may use fc-list to list the available
-fonts. Anyway, Xft support is experimental (from the X and the
+log.  With Xft2 you may use fc-list to list the available
+fonts.  Anyway, Xft support is experimental (from the X and the
 fvwm point of view) and the quality of the rendering depends on
 number of parameters (the XFree and the freetype versions and your
-video card(s)).</p><p>After an Xft font name you can add after a ";" an XLFD
-font name (simple or extended) as:</p><pre class="programlisting">
+video card(s)).
+<P>
+
+After an Xft font name you can add after a &quot;;&quot; an XLFD
+font name (simple or extended) as:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 xft:Verdana:pixelsize=14;-adobe-courier-bold-r-normal--14-*
-</pre><p>then, if either loading the Xft font fails or fvwm has no Xft
+</PRE>
+
+</DL>
+
+<P>
+
+then, if either loading the Xft font fails or fvwm has no Xft
 support, fvwm loads the font
-"-adobe-courier-bold-r-normal--14-*". This allows for writing
-portable configuration files.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="font_and_string_encoding"></a>21.2. Font and string encoding</h3></div></div></div><p>Once a font is loaded, fvwm finds its encoding (or charset) using
-its name (the last two fields of the name). fvwm assumes that the
+&quot;-adobe-courier-bold-r-normal--14-*&quot;.  This allows for writing
+portable configuration files.
+<A NAME="lbBA">&nbsp;</A>
+<H3>Font and string encoding</H3>
+
+<P>
+
+Once a font is loaded, fvwm finds its encoding (or charset) using
+its name (the last two fields of the name).  fvwm assumes that the
 strings which are displayed with this font use this encoding (an
 exception is that if an iso10646-1 font is loaded, then UTF-8 is
 assumed for string encoding).
@@ -957,528 +1760,1190 @@ encoding,
 (ii) the encoding of the loaded font is the locale encoding, and
 then
 (iii) the strings in the fvwm configuration files should use the
-locale encoding as well as the window and icon name. With Xft the
+locale encoding as well as the window and icon name.  With Xft the
 situation is bit different as Xft supports only iso10646-1 and
-iso8859-1. If you do not specify one of these encodings in the Xft
-font name, then fvwm does strings conversion using (iii). Note
-that with multibyte fonts (and in particular with "CJK" fonts) for
+iso8859-1.  If you do not specify one of these encodings in the Xft
+font name, then fvwm does strings conversion using (iii).  Note
+that with multibyte fonts (and in particular with &quot;CJK&quot; fonts) for
 good text rendering, the locale encoding should be the charset of
-the font.</p><p>To override the previous rules, it is possible to specify the
-string encoding in the beginning of a font description as follow:</p><pre class="programlisting">
-StringEncoding=<em class="replaceable"><code>enc</code></em>:_full_font_name_
-</pre><p>where
-<em class="replaceable"><code>enc</code></em>
+the font.
+<P>
+
+To override the previous rules, it is possible to specify the
+string encoding in the beginning of a font description as follow:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+StringEncoding=<I>enc</I>:_full_font_name_
+</PRE>
+
+</DL>
+
+<P>
+
+where
+<I>enc</I>
 is an encoding supported by fvwm (usually font name charset plus some
-unicode encodings: UTF-8, USC-2, USC-4 and UTF-16).</p><p>For example, you may use an iso8859-1 locale charset and have an
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> in Russian using koi8-r encoding. In this case, you just
-have to ask <a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> to load a koi8-r font by specifying the
-encoding in the font name. With a multibyte language, (as
+unicode encodings: UTF-8, USC-2, USC-4 and UTF-16).
+<P>
+
+For example, you may use an iso8859-1 locale charset and have an
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> in Russian using koi8-r encoding.  In this case, you just
+have to ask <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> to load a koi8-r font by specifying the
+encoding in the font name.  With a multibyte language, (as
 multibyte font works well only if the locale encoding is the
-charset of the font), you should use an iso10646-1 font:</p><pre class="programlisting">
+charset of the font), you should use an iso10646-1 font:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 StringEncoding=jisx0208.1983-0:-*-fixed-medium-r-*-ja-*-iso10646-1
-</pre><p>or</p><pre class="programlisting">
-"StringEncoding=jisx0208.1983-0:xft:Bitstream Cyberbit"
-</pre><p>if your
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>
-configuration uses jisx0208.1983-0 encoding. Another possibility
-is to use UTF-8 encoding for your <a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> configuration and use
-an iso10646-1 font:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&quot;StringEncoding=jisx0208.1983-0:xft:Bitstream Cyberbit&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+if your
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
+configuration uses jisx0208.1983-0 encoding.  Another possibility
+is to use UTF-8 encoding for your <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> configuration and use
+an iso10646-1 font:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -*-fixed-medium-r-*-ja-*-iso10646-1
-</pre><p>or</p><pre class="programlisting">
-"StringEncoding=UTF-8:xft:Bitstream Cyberbit"
-</pre><p>or equivalently</p><pre class="programlisting">
-"xft:Bitstream Cyberbit:encoding=iso10646-1"
-</pre><p>In general iso10646-1 fonts together with UTF-8 string encoding
-allows the display of any characters in a given menu, <a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>
-etc.</p><p>More and more, unicode is used and text files use UTF-8
-encoding. However, in practice the characters used range over your
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&quot;StringEncoding=UTF-8:xft:Bitstream Cyberbit&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+or equivalently
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&quot;xft:Bitstream Cyberbit:encoding=iso10646-1&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+In general iso10646-1 fonts together with UTF-8 string encoding
+allows the display of any characters in a given menu, <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
+etc.
+<P>
+
+More and more, unicode is used and text files use UTF-8
+encoding.  However, in practice the characters used range over your
 locale charset (this is the case when you generate a menu with
-fvwm-menu-desktop with recent versions of <acronym class="acronym">KDE</acronym> and
-<acronym class="acronym">GNOME</acronym>). For
+fvwm-menu-desktop with recent versions of KDE and
+GNOME).  For
 saving memory (an iso10646-1 font may have a very large number of
 characters) or because you have a pretty font without an
 iso10646-1 charset, you can specify the string encoding to be
-UTF-8 and use a font in the locale charset:</p><pre class="programlisting">
+UTF-8 and use a font in the locale charset:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 StringEncoding=UTF-8:-*-pretty_font-*-12-*
-</pre><p>In most cases, fvwm correctly determines the encoding of the
-font. However, some fonts do not end with valid encoding
-names. When the font name isn't normal, for example:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+In most cases, fvwm correctly determines the encoding of the
+font.  However, some fonts do not end with valid encoding
+names.  When the font name isn't normal, for example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -misc-fixed-*--20-*-my_utf8-36
-</pre><p>you need to add the encoding after the font name using a slash as
-a delimiter. For example:</p><pre class="programlisting">
-<a href="#MenuStyle">MenuStyle</a> * <a href="#MenuStyle_Font">Font</a> -misc-fixed-*--20-*-my_utf8-36/iso10646-1
-</pre><p>If fvwm finds an encoding, fvwm uses the iconv system functions to
-do conversion between encodings. Unfortunately, there are no
-standards. For conversion between iso8859-1 and UTF-8: a GNU
-system uses "ISO-8859-1" and other systems use "iso881" to define
-the converters (these two names are supported by fvwm). Moreover,
+</PRE>
+
+</DL>
+
+<P>
+
+you need to add the encoding after the font name using a slash as
+a delimiter.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>MenuStyle</B> * <I>Font</I> -misc-fixed-*--20-*-my_utf8-36/iso10646-1
+</PRE>
+
+</DL>
+
+<P>
+
+If fvwm finds an encoding, fvwm uses the iconv system functions to
+do conversion between encodings.  Unfortunately, there are no
+standards.  For conversion between iso8859-1 and UTF-8: a GNU
+system uses &quot;ISO-8859-1&quot; and other systems use &quot;iso881&quot; to define
+the converters (these two names are supported by fvwm).  Moreover,
 in some cases it may be necessary to use machine specific
-converters. So, if you experience problems you can try to get
-information on your iconv implementation ("man iconv" may help)
+converters.  So, if you experience problems you can try to get
+information on your iconv implementation (&quot;man iconv&quot; may help)
 and put the name which defines the converter between the font
 encoding and UTF-8 at the end of the font name after the encoding
 hint and a / (another possible solution is to use GNU
-libiconv). For example use:</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_Font">Font</a> -misc-fixed-*--14-*-iso8859-1/*/latin1
-</pre><p>to use latin1 for defining the converter for the iso8859-1 encoding.
-The "*" in between the "/" says to fvwm to determine the
-encoding from the end of the font name. Use:</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_Font">Font</a> -misc-fixed-*--14-*-local8859-6/iso8859-6/local_iso8859_6_iconv
-</pre><p>to force fvwm to use the font with iso8859-6 as the encoding
+libiconv).  For example use:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>Font</I> -misc-fixed-*--14-*-iso8859-1/*/latin1
+</PRE>
+
+</DL>
+
+<P>
+
+to use latin1 for defining the converter for the iso8859-1 encoding.
+The &quot;*&quot; in between the &quot;/&quot; says to fvwm to determine the
+encoding from the end of the font name.  Use:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>Font</I> \
+        -misc-fixed-*--14-*-local8859-6/iso8859-6/local_iso8859_6_iconv
+</PRE>
+
+</DL>
+
+<P>
+
+to force fvwm to use the font with iso8859-6 as the encoding
 (this is useful for bi-directionality)
-and to use local_iso8859_6_iconv for defining the converters.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="font_shadow_effects"></a>21.3. Font Shadow Effects</h3></div></div></div><p>Fonts can be given 3d effects. At the beginning of the font name
-(or just after a possible StringEncoding specification) add</p><pre class="programlisting">
-Shadow=<em class="replaceable"><code>size</code></em> [<span class="optional"><em class="replaceable"><code>offset</code></em></span>] [<span class="optional"><em class="replaceable"><code>directions]</code></em></span>]:
-</pre><p><em class="replaceable"><code>size</code></em>
+and to use local_iso8859_6_iconv for defining the converters.
+<A NAME="lbBB">&nbsp;</A>
+<H3>Font Shadow Effects</H3>
+
+<P>
+
+Fonts can be given 3d effects.  At the beginning of the font name
+(or just after a possible StringEncoding specification) add
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Shadow=<I>size</I> [<I>offset</I>] [<I>directions]</I>]:
+</PRE>
+
+</DL>
+
+<P>
+
+<I>size</I>
 is a positive integer which specifies the number of pixels of shadow.
-<em class="replaceable"><code>offset</code></em>
+<I>offset</I>
 is an optional positive integer which defines the number of pixels
 to offset the shadow from the edge of the character.  The default
 offset is zero.
-<em class="replaceable"><code>directions</code></em>
+<I>directions</I>
 is an optional set of directions the shadow emanates from the
 character.  The
-<em class="replaceable"><code>directions</code></em>
-are a space separated list of fvwm directions:</p><p><span class="emphasis"><em>N</em></span>, <span class="emphasis"><em>North</em></span>, <span class="emphasis"><em>Top</em></span>, <span class="emphasis"><em>t</em></span>, <span class="emphasis"><em>Up</em></span>, <span class="emphasis"><em>u</em></span>, <span class="emphasis"><em>-</em></span></p><p><span class="emphasis"><em>E</em></span>, <span class="emphasis"><em>East</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>Right</em></span>, <span class="emphasis"><em>r</em></span>, <span class="emphasis"><em>]</em></span></p><p><span class="emphasis"><em>S</em></span>, <span class="emphasis"><em>South</em></span>, <span class="emphasis"><em>Bottom</em></span>, <span class="emphasis"><em>b</em></span>, <span class="emphasis"><em>Down</em></span>, <span class="emphasis"><em>d</em></span>, <span class="emphasis"><em>_</em></span></p><p><span class="emphasis"><em>W</em></span>, <span class="emphasis"><em>West</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>l</em></span>, <span class="emphasis"><em>[</em></span></p><p><span class="emphasis"><em>NE</em></span>, <span class="emphasis"><em>NorthEast</em></span>, <span class="emphasis"><em>TopRight</em></span>, <span class="emphasis"><em>tr</em></span>, <span class="emphasis"><em>UpRight</em></span>, <span class="emphasis"><em>ur</em></span>, <span class="emphasis"><em>^</em></span></p><p><span class="emphasis"><em>SE</em></span>, <span class="emphasis"><em>SouthEast</em></span>, <span class="emphasis"><em>BottomRight</em></span>, <span class="emphasis"><em>br</em></span>, <span class="emphasis"><em>DownRight</em></span>, <span class="emphasis"><em>dr</em></span>, <span class="emphasis"><em>&gt;</em></span></p><p><span class="emphasis"><em>SW</em></span>, <span class="emphasis"><em>SouthWest</em></span>, <span class="emphasis"><em>BottomLeft</em></span>, <span class="emphasis"><em>bl</em></span>, <span class="emphasis"><em>DownLeft</em></span>, <span class="emphasis"><em>dl</em></span>, <span class="emphasis"><em>v</em></span></p><p><span class="emphasis"><em>NW</em></span>, <span class="emphasis"><em>NorthWest</em></span>, <span class="emphasis"><em>TopLeft</em></span>, <span class="emphasis"><em>tl</em></span>, <span class="emphasis"><em>UpLeft</em></span>, <span class="emphasis"><em>ul</em></span>, <span class="emphasis"><em>&lt;</em></span></p><p><span class="emphasis"><em>C</em></span>, <span class="emphasis"><em>Center</em></span>, <span class="emphasis"><em>Centre</em></span>, <span class="emphasis"><em>.</em></span></p><p>A shadow is displayed in each given direction.
-<span class="emphasis"><em>All</em></span>
+<I>directions</I>
+are a space separated list of fvwm directions:
+<P>
+
+<I>N</I>, <I>North</I>, <I>Top</I>, <I>t</I>, <I>Up</I>, <I>u</I>, <I>-</I>
+<P>
+
+<I>E</I>, <I>East</I>, <I>Right</I>, <I>r</I>, <I>Right</I>, <I>r</I>, <I>]</I>
+<P>
+
+<I>S</I>, <I>South</I>, <I>Bottom</I>, <I>b</I>, <I>Down</I>, <I>d</I>, <I>_</I>
+<P>
+
+<I>W</I>, <I>West</I>, <I>Left</I>, <I>l</I>, <I>Left</I>, <I>l</I>, <I>[</I>
+<P>
+
+<I>NE</I>, <I>NorthEast</I>, <I>TopRight</I>, <I>tr</I>, <I>UpRight</I>, <I>ur</I>, <I>^</I>
+<P>
+
+<I>SE</I>, <I>SouthEast</I>, <I>BottomRight</I>, <I>br</I>, <I>DownRight</I>, <I>dr</I>, <I>&gt;</I>
+<P>
+
+<I>SW</I>, <I>SouthWest</I>, <I>BottomLeft</I>, <I>bl</I>, <I>DownLeft</I>, <I>dl</I>, <I>v</I>
+<P>
+
+<I>NW</I>, <I>NorthWest</I>, <I>TopLeft</I>, <I>tl</I>, <I>UpLeft</I>, <I>ul</I>, <I>&lt;</I>
+<P>
+
+<I>C</I>, <I>Center</I>, <I>Centre</I>, <I>.</I>
+<P>
+
+A shadow is displayed in each given direction.
+<I>All</I>
 is equivalent to all the directions.  The default
-<em class="replaceable"><code>direction</code></em>
+<I>direction</I>
 is
-<span class="emphasis"><em>BottomRight</em></span>.
+<I>BottomRight</I>.
 With the
-<span class="emphasis"><em>Center</em></span>
+<I>Center</I>
 direction, the shadow surrounds the whole string.  Since this is a
 super set of all other directions, it is a waste of time to
-specify this along with any other directions.</p><p>The shadow effect only works with colorsets.  The color of the
+specify this along with any other directions.
+<P>
+
+The shadow effect only works with colorsets.  The color of the
 shadow is defined by using the
-<a href="#Colorset_fgsh">fgsh</a>
+<I>fgsh</I>
 option of the
-<a href="#Colorset">Colorset</a>
+<B>Colorset</B>
 command.  Please refer to the
-<a href="#colorsets">Colorsets</a>
-section for details about colorsets.</p><p>Note: It can be difficult to find the font,
-<a href="#Colorset_fg">fg</a>, <a href="#Colorset_fgsh">fgsh</a> and <a href="#Colorset_bg">bg</a>
-colors to make this effect look good, but it can look quite good.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bidirectional_text"></a>22. Bi-directional Text</h2></div></div></div><p>Arabic and Hebrew text require bi-directional text support to be
+<B>Colorsets</B>
+section for details about colorsets.
+<P>
+
+Note: It can be difficult to find the font,
+<I>fg</I>, <I>fgsh</I> and <I>bg</I>
+colors to make this effect look good, but it can look quite good.
+<A NAME="lbBC">&nbsp;</A>
+<H2>BI-DIRECTIONAL TEXT</H2>
+
+<P>
+
+Arabic and Hebrew text require bi-directional text support to be
 displayed correctly, this means that logical strings should be
 converted before their visual presentation, so left-to-right and
 right-to-left sub-strings are determined and reshuffled.
 In fvwm this is done automatically in window titles, menus,
 module labels and other places if the fonts used for displaying the
 text are of one of the charsets that require
-<span class="emphasis"><em>bidi</em></span>
+<I>bidi</I>
 (bi-directional) support.  For example, this includes iso8859-6,
-iso8859-8 and iso10646-1 (unicode), but not other iso8859-* fonts.</p><p>This bi-directional text support is done using the
-<span class="emphasis"><em>fribidi</em></span>
+iso8859-8 and iso10646-1 (unicode), but not other iso8859-* fonts.
+<P>
+
+This bi-directional text support is done using the
+<I>fribidi</I>
 library compile time option, see
-<code class="filename">INSTALL.fvwm</code>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="keyboard_shortcuts"></a>23. Keyboard Shortcuts</h2></div></div></div><p>Almost all window manager operations can be performed from the
+<I>INSTALL.fvwm</I>.
+<A NAME="lbBD">&nbsp;</A>
+<H2>KEYBOARD SHORTCUTS</H2>
+
+<P>
+
+Almost all window manager operations can be performed from the
 keyboard so mouse-less operation should be possible.  In addition
 to scrolling around the virtual desktop by binding the
-<a href="#Scroll">Scroll</a>
+<B>Scroll</B>
 command to appropriate keys,
-<a href="#Popup">Popup</a>,
-<a href="#Move">Move</a>,
-<a href="#Resize">Resize</a>, 
+<B>Popup</B>,
+<B>Move</B>,
+<B>Resize</B>, 
 and any other command can be bound to keys.  Once a command
 is started the pointer is moved by using the up, down,
 left, and right arrows, and the action is terminated by pressing
 return.  Holding down the
-<span class="keysym">Shift</span>
+<FONT>Shift</FONT>
 key causes the pointer movement to go in larger steps and holding
 down the
-<span class="keysym">control</span>
-key causes the pointer movement to go in smaller steps. Standard
+<FONT>control</FONT>
+key causes the pointer movement to go in smaller steps.  Standard
 emacs and vi cursor movement controls (
-<span class="keysym">n</span>,
-<span class="keysym">p</span>,
-<span class="keysym">f</span>,
-<span class="keysym">b</span>,
+<FONT>n</FONT>
+,
+<FONT>p</FONT>
+,
+<FONT>f</FONT>
+,
+<FONT>b</FONT>
+,
 and
-<span class="keysym">j</span>,
-<span class="keysym">k</span>,
-<span class="keysym">h</span>,
-<span class="keysym">l</span>
-) can be used instead of the arrow keys.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="session_management"></a>24. Session Management</h2></div></div></div><p>Fvwm supports session management according to the X Session
+<FONT>j</FONT>
+,
+<FONT>k</FONT>
+,
+<FONT>h</FONT>
+,
+<FONT>l</FONT>
+) can be used instead of the arrow keys.
+<A NAME="lbBE">&nbsp;</A>
+<H2>SESSION MANAGEMENT</H2>
+
+<P>
+
+Fvwm supports session management according to the X Session
 Management Protocol.  It saves and restores window position, size,
 stacking order, desk, stickiness, shadiness, maximizedness,
-iconifiedness for all windows. Furthermore, some global state is
-saved.</p><p>Fvwm doesn't save any information regarding styles, decors,
+iconifiedness for all windows.  Furthermore, some global state is
+saved.
+<P>
+
+Fvwm doesn't save any information regarding styles, decors,
 functions or menus.  If you change any of these resources during a
 session (e.g. by issuing
-<a href="#Style">Style</a>
+<B>Style</B>
 commands or by using various modules), these changes are lost
 after saving and restarting the session.  To become permanent,
-such changes have to be added to the configuration file.</p><p>Note further that the current implementation has the following
+such changes have to be added to the configuration file.
+<P>
+
+Note further that the current implementation has the following
 anomaly when used on a multi-screen display: Starting fvwm for the
 first time, fvwm manages all screens by forking a copy of itself
 for each screen.  Every copy knows its parent and issuing a
-<a href="#Quit">Quit</a>
+<B>Quit</B>
 command to any instance of fvwm kills the master and thus all
 copies of fvwm.  When you save and restart the session, the
 session manager brings up a copy of fvwm on each screen, but this
 time they are started as individual instances managing one screen
 only.  Thus a
-<a href="#Quit">Quit</a>
+<B>Quit</B>
 kills only the copy it was sent to.  This is probably not a very
 serious problem, since with session management, you are supposed
-to quit a session through the session manager anyway. If it is
-really needed,</p><pre class="programlisting">
-<a href="#Exec">Exec</a> exec killall fvwm
-</pre><p>still kills all copies of fvwm.  Your system must have the
-<span><strong class="command">killall</strong></span>
-command though.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="boolean_args"></a>25. Boolean Arguments</h2></div></div></div><p>A number of commands take one or several boolean arguments. These take a few equivalent inputs: "yes", "on", "true", "t" and "y" all evaluate to true while "no", "off", "false", "f" and "n" evaluate to false. Some commands allow "toggle" too which means that the feature is disabled if it is currently enabled and vice versa.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="builtin_key_and_mouse_bindings"></a>26. Builtin Key and Mouse Bindings</h2></div></div></div><p>The following commands are built-in to fvwm:</p><pre class="programlisting">
-<a href="#Key">Key</a> Help R A <a href="#Popup">Popup</a> MenuFvwmRoot
-<a href="#Key">Key</a> F1 R A <a href="#Popup">Popup</a> MenuFvwmRoot
-<a href="#Key">Key</a> Tab A M <a href="#WindowList">WindowList</a> Root c c NoDeskSort
-<a href="#Key">Key</a> Escape A MC <a href="#EscapeFunc">EscapeFunc</a>
-<a href="#Mouse">Mouse</a> 1 R A <a href="#Menu">Menu</a> MenuFvwmRoot
-<a href="#Mouse">Mouse</a> 1 T   A FuncFvwmRaiseLowerX <a href="#Move">Move</a>
-<a href="#Mouse">Mouse</a> 1 FS  A FuncFvwmRaiseLowerX <a href="#Resize">Resize</a>
-<a href="#Mouse">Mouse</a> 2 FST A FuncFvwmRaiseLowerX <a href="#Move">Move</a>
-<a href="#AddToFunc">AddToFunc</a> FuncFvwmRaiseLowerX
-+ I <a href="#Raise">Raise</a>
+to quit a session through the session manager anyway.  If it is
+really needed,
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Exec</B> exec killall fvwm
+</PRE>
+
+</DL>
+
+<P>
+
+still kills all copies of fvwm.  Your system must have the
+<B>killall</B>
+command though.
+<A NAME="lbBF">&nbsp;</A>
+<H2>BOOLEAN ARGUMENTS</H2>
+
+<P>
+
+A number of commands take one or several boolean arguments.  These take a few equivalent inputs: &quot;yes&quot;, &quot;on&quot;, &quot;true&quot;, &quot;t&quot; and &quot;y&quot; all evaluate to true while &quot;no&quot;, &quot;off&quot;, &quot;false&quot;, &quot;f&quot; and &quot;n&quot; evaluate to false.  Some commands allow &quot;toggle&quot; too which means that the feature is disabled if it is currently enabled and vice versa.
+<A NAME="lbBG">&nbsp;</A>
+<H2>BUILTIN KEY AND MOUSE BINDINGS</H2>
+
+<P>
+
+The following commands are built-in to fvwm:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> Help R A <B>Popup</B> MenuFvwmRoot
+<B>Key</B> F1 R A <B>Popup</B> MenuFvwmRoot
+<B>Key</B> Tab A M <B>WindowList</B> Root c c NoDeskSort
+<B>Key</B> Escape A MC <B>EscapeFunc</B>
+<B>Mouse</B> 1 R A <B>Menu</B> MenuFvwmRoot
+<B>Mouse</B> 1 T   A FuncFvwmRaiseLowerX <B>Move</B>
+<B>Mouse</B> 1 FS  A FuncFvwmRaiseLowerX <B>Resize</B>
+<B>Mouse</B> 2 FST A FuncFvwmRaiseLowerX <B>Move</B>
+<B>AddToFunc</B> FuncFvwmRaiseLowerX
++ I <B>Raise</B>
 + M $0
-+ D <a href="#Lower">Lower</a>
-</pre><p>The
-<span class="keysym">Help</span>
++ D <B>Lower</B>
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<FONT>Help</FONT>
 and
-<span class="keysym">F1</span>
+<FONT>F1</FONT>
 keys invoke a built-in menu that fvwm creates.  This is primarily
 for new users that have not created their own configuration
-file. Either key on the root (background) window pops up an menu
-to help you get started.</p><p>The
-<span class="keysym">Tab</span>
+file.  Either key on the root (background) window pops up an menu
+to help you get started.
+<P>
+
+The
+<FONT>Tab</FONT>
 key pressed anywhere with the
-<span class="keysym">Meta</span>
+<FONT>Meta</FONT>
 key (same as the
-<span class="keysym">Alt</span>
-key on PC keyboards) held down pop-ups a window list.</p><p>Mouse button 1 on the title-bar or side frame can move, raise or
-lower a window.</p><p>Mouse button 1 on the window corners can resize, raise or lower a
-window.</p><p>You can override or remove these bindings. To remove the window
-list binding, use this:</p><pre class="programlisting">
-<a href="#Key">Key</a> Tab A M -
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command_execution"></a>27. Command Execution</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="module_and_function_commands"></a>27.1. Module and Function Commands</h3></div></div></div><p>If fvwm encounters a command that it doesn't recognize,
+<FONT>Alt</FONT>
+key on PC keyboards) held down pop-ups a window list.
+<P>
+
+Mouse button 1 on the title-bar or side frame can move, raise or
+lower a window.
+<P>
+
+Mouse button 1 on the window corners can resize, raise or lower a
+window.
+<P>
+
+You can override or remove these bindings.  To remove the window
+list binding, use this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> Tab A M -
+</PRE>
+
+</DL>
+
+<A NAME="lbBH">&nbsp;</A>
+<H2>COMMAND EXECUTION</H2>
+
+<A NAME="lbBI">&nbsp;</A>
+<H3>Module and Function Commands</H3>
+
+<P>
+
+If fvwm encounters a command that it doesn't recognize,
 it checks to see if the
-specified command should have been</p><pre class="programlisting">
-<a href="#Function">Function</a> (rest of command)
-</pre><p>or</p><pre class="programlisting">
-<a href="#Module">Module</a> (rest of command)
-</pre><p>This allows complex functions or modules to be invoked in a manner
-which is fairly transparent to the configuration file.</p><p>Example: the
-<code class="filename">config</code>
-file contains the line</p><pre class="programlisting">
+specified command should have been
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Function</B> (rest of command)
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Module</B> (rest of command)
+</PRE>
+
+</DL>
+
+<P>
+
+This allows complex functions or modules to be invoked in a manner
+which is fairly transparent to the configuration file.
+<P>
+
+Example: the
+<I>config</I>
+file contains the line
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 HelpMe
-</pre><p>Fvwm looks for an fvwm command called "HelpMe", and fails.
-Next it looks for a user-defined complex function called "HelpMe".
+</PRE>
+
+</DL>
+
+<P>
+
+Fvwm looks for an fvwm command called &quot;HelpMe&quot;, and fails.
+Next it looks for a user-defined complex function called &quot;HelpMe&quot;.
 If no such function exists, fvwm tries to execute a
-module called "HelpMe".</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="delayed_execution_of_commands"></a>27.2. Delayed Execution of Commands</h3></div></div></div><p>Note: There are many commands that affect look and feel of
+module called &quot;HelpMe&quot;.
+<A NAME="lbBJ">&nbsp;</A>
+<H3>Delayed Execution of Commands</H3>
+
+<P>
+
+Note: There are many commands that affect look and feel of
 specific, some or all windows, like
-<a href="#Style">Style</a>, <a href="#Mouse">Mouse</a>, <a href="#Colorset">Colorset</a>, <a href="#TitleStyle">TitleStyle</a>
+<B>Style</B>, <B>Mouse</B>, <B>Colorset</B>, <B>TitleStyle</B>
 and many others.  For performance reasons such changes are
 not applied immediately but only when fvwm is idle, i.e. no user
 interaction or module input is pending.  Specifically, new
-<a href="#Style">Style</a>
+<B>Style</B>
 options that are set in a function are not applied until after the
 function has completed.  This can sometimes lead to unwanted
-effects.</p><p>To force that all pending changes are applied immediately, use the
-<a href="#UpdateStyles">UpdateStyles</a>, <a href="#Refresh">Refresh</a> or <a href="#RefreshWindow">RefreshWindow</a>
-commands.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="quoting"></a>28. Quoting</h2></div></div></div><p>Quotes are required only when needed to make fvwm consider two or
+effects.
+<P>
+
+To force that all pending changes are applied immediately, use the
+<B>UpdateStyles</B>, <B>Refresh</B> or <B>RefreshWindow</B>
+commands.
+<A NAME="lbBK">&nbsp;</A>
+<H2>QUOTING</H2>
+
+<P>
+
+Quotes are required only when needed to make fvwm consider two or
 more words to be a single argument.  Unnecessary quoting is
 allowed.  If you want a quote character in your text, you must
 escape it by using the backslash character.  For example, if you
-have a pop-up menu called "Window-Ops", then you do not need
-quotes:</p><pre class="programlisting">
-<a href="#Popup">Popup</a> Window-Ops
-</pre><p>but if you replace the dash with a space, then you need
-quotes:</p><pre class="programlisting">
-<a href="#Popup">Popup</a> "Window Ops"
-</pre><p>The supported quoting characters are double quotes, single quotes
+have a pop-up menu called &quot;Window-Ops&quot;, then you do not need
+quotes:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Popup</B> Window-Ops
+</PRE>
+
+</DL>
+
+<P>
+
+but if you replace the dash with a space, then you need
+quotes:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Popup</B> &quot;Window Ops&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+The supported quoting characters are double quotes, single quotes
 and reverse single quotes.  All three kinds of quotes are treated
 in the same way.  Single characters can be quoted with a preceding
 backslash.  Quoting single characters works even inside other
-kinds of quotes.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="command_expansion"></a>29. Command Expansion</h2></div></div></div><p>Whenever an fvwm command line is executed, fvwm performs parameter
+kinds of quotes.
+<A NAME="lbBL">&nbsp;</A>
+<H2>COMMAND EXPANSION</H2>
+
+<P>
+
+Whenever an fvwm command line is executed, fvwm performs parameter
 expansion.  A parameter is a '$' followed by a word enclosed in
 brackets ($[...]) or a single special character.  If fvwm
 encounters an unquoted parameter on the command line it expands it
 to a string indicated by the parameter name.  Unknown parameters
 are left untouched.  Parameter expansion is performed before
-quoting.  To get a literal '$' use "$$".</p><p>If a command is prefixed with a '-' parameter expansion isn't
+quoting.  To get a literal '$' use &quot;$$&quot;.
+<P>
+
+If a command is prefixed with a '-' parameter expansion isn't
 performed.  This applies to the command immediately following the '-',
-in which the expansion normally would have taken place. When uesed
+in which the expansion normally would have taken place.  When uesed
 together with other prefix commands it must be added before the other
-prefix.</p><p>Example:</p><pre class="programlisting">
-<a href="#Pick">Pick</a> -<a href="#Exec">Exec</a> exec xmessage '$[w.name]'
-</pre><p>opens an xmessage dialog with "$[w.name]" unexpanded.</p><p>The longer variables may contain additional variables inside the
-name, which are expanded before the outer variable.</p><p>In earlier versions of fvwm, some single letter variables were
+prefix.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Pick</B> -<B>Exec</B> exec xmessage '$[w.name]'
+</PRE>
+
+</DL>
+
+<P>
+
+opens an xmessage dialog with &quot;$[w.name]&quot; unexpanded.
+<P>
+
+The longer variables may contain additional variables inside the
+name, which are expanded before the outer variable.
+<P>
+
+In earlier versions of fvwm, some single letter variables were
 supported.  It is deprecated now, since they cause a number of
-problems.  You should use the longer substitutes instead.</p><p>Example:</p><pre class="programlisting">
+problems.  You should use the longer substitutes instead.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Print the current desk number, horizontal page number
 # and the window's class (unexpanded here, no window).
-<a href="#Echo">Echo</a> $[desk.n] $[page.nx] $[w.class]
-</pre><p>Note: If the command is called outside a window context, it
-prints "$[w.class]" instead of the class name.  It is usually not
+<B>Echo</B> $[desk.n] $[page.nx] $[w.class]
+</PRE>
+
+</DL>
+
+<P>
+
+Note: If the command is called outside a window context, it
+prints &quot;$[w.class]&quot; instead of the class name.  It is usually not
 enough to have the pointer over a window to have a context window.
 To force using the window with the focus, the
-<a href="#Current">Current</a>
-command can be used:</p><pre class="programlisting">
-<a href="#Current">Current</a> <a href="#Echo">Echo</a> $[desk.n] $[page.nx] $[w.class]
-</pre><p>The parameters known by fvwm are:</p><div class="variablelist"><dl><dt><span class="term">$$</span></dt><dd><p>A literal '$'.</p></dd><dt><span class="term">$.</span></dt><dd><p>
-	The absolute directory of the currently Read file.  Intended for
-	creating relative and relocatable configuration trees.  If used
-	outside of any read file, the returned value is '.'.
-      </p></dd><dt><span class="term">$0 to $9</span></dt><dd><p>
-	The positional parameters given to a complex function (a function
-	that has been defined with the
-	<a href="#AddToFunc">AddToFunc</a>
-	command).  "$0" is replaced with the first parameter, "$1" with
-	the second parameter and so on.  If the corresponding parameter is
-	undefined, the "$..." is deleted from the command line.
-      </p></dd><dt><span class="term">$*</span></dt><dd><p>
-	All positional parameters given to a complex function.  This
-	includes parameters that follow after "$9".
-      </p></dd><dt><span class="term">$[<em class="replaceable"><code>n</code></em>]</span></dt><dd><p>
-	The <em class="replaceable"><code>n</code></em>:th
-	positional parameter given to a complex function, counting from 0.
-	If the corresponding parameter is undefined, the
-	"$[<em class="replaceable"><code>n</code></em>]" is deleted
-	from the command line. The parameter is expanded unquoted.
-      </p></dd><dt><span class="term">$[<em class="replaceable"><code>n</code></em>-<em class="replaceable"><code>m</code></em>]</span></dt><dd><p>
-	 The positional parameters given to a complex function, starting
-	 with parameter <em class="replaceable"><code>n</code></em> and ending with parameter
-	 <em class="replaceable"><code>m</code></em>.
-	 If all the corresponding parameters are undefined, the "$[...]" is
-	 deleted from the command line. If only some of the parameters are
-	 defined, all defined parameters are expanded, and the remaining
-	 silently ignored. All parameters are expanded unquoted.
-       </p></dd><dt><span class="term">$[<em class="replaceable"><code>n</code></em>-]</span></dt><dd><p>
-	All the positional parameters given to a complex function,
-	starting with parameter <em class="replaceable"><code>n</code></em>.
-	If all the corresponding parameters are undefined, the "$[...]" is
-	deleted from the command line. All parameters are expanded
-	unquoted.
-      </p></dd><dt><span class="term">$[*]</span></dt><dd><p>
-	All the positional parameters given to a complex function. This is
-	equivalent of $[0-].
-      </p></dd><dt><span class="term">$[version.num]</span></dt><dd><p>The version number, like "2.6.0".</p></dd><dt><span class="term">$[version.info]</span></dt><dd><p>
-	The version info, like " (from cvs)", empty for the official releases.
-      </p></dd><dt><span class="term">$[version.line]</span></dt><dd><p>
-	The first line printed by the --version command line option.
-      </p></dd><dt><span class="term">$[vp.x] $[vp.y] $[vp.width] $[vp.height]</span></dt><dd><p>
-	Either coordinate or the width or height of the current viewport.
-      </p></dd><dt><span class="term">$[desk.n]</span></dt><dd><p>The current desk number.</p></dd><dt><span class="term">$[desk.name&lt;n&gt;]</span></dt><dd><p>
-	These parameters are replaced with the name of the desktop
-	number &lt;n&gt; that is defined with the
-	<a href="#DesktopName">DesktopName</a>
-	command. If no name is defined, then the default name is returned.
-      </p></dd><dt><span class="term">$[desk.width] $[desk.height]</span></dt><dd><p>
-	The width or height of the whole desktop, i.e. the width or height
-	multiplied by the number of pages in x or y direction.
-      </p></dd><dt><span class="term">$[desk.pagesx] $[desk.pagesy]</span></dt><dd><p>
-	The number of total pages in a desk in x or y direction.
-	This is the same as the values set by
-	<a href="#DesktopSize">DesktopSize</a>.
-      </p></dd><dt><span class="term">$[page.nx] $[page.ny]</span></dt><dd><p>
-	The current page numbers, by X and Y axes, starting from 0.
-	<span class="emphasis"><em>page</em></span> is equivalent to
-	<span class="emphasis"><em>area</em></span> in the
-	<acronym class="acronym">GNOME</acronym> terminology.
-      </p></dd><dt><span class="term">$[w.id]</span></dt><dd><p>
-	The window-id (expressed in hex, e.g. 0x10023c) of the window the
-	command was called for or "$[w.id]" if no window is associated
-	with the command.
-      </p></dd><dt><span class="term">
-      $[w.name] $[w.iconname] $[w.class] $[w.resource]
-      $[w.visiblename] $[w.iconfile] $[w.miniiconfile] 
-      $[w.iconfile.svgopts] $[w.miniiconfile.svgopts]
-    </span></dt><dd><p>
-	The window's name, icon name, resource class and resource name,
-	visible name, file name of its icon or mini icon defined with the
-	<a href="#Style_Icon">Icon</a> or
-	<a href="#Style_MiniIcon">MiniIcon</a>
-	style (including the full path if the file was found on disk),
-	and (if fvwm is compiled with <acronym class="acronym">SVG</acronym> support)
-	the icon or mini icon svg rendering options (including the
-	leading colon),	or unexpanded "$[w.&lt;attribute&gt;]" string
-	if no window is associated with the command.
-      </p><p>
-	Note, the first 5 variables may include any kind of characters, so
-	these variables are quoted.  It means that the value is surrounded
-	by single quote characters and any contained single quote is
-	prefixed with a backslash.  This guarantees that commands like:
+<B>Current</B>
+command can be used:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Current</B> <B>Echo</B> $[desk.n] $[page.nx] $[w.class]
+</PRE>
 
-	</p><pre class="programlisting"><a href="#Style">Style</a> $[w.resource] <a href="#Style_Icon">Icon</a> norm/network.png</pre><p>
+</DL>
 
-	work correctly, regardless of any special symbols the value may
-    contain, like spaces and different kinds of quotes.
-      </p><p>
-    In the case of the window's visible name, this is the value returned
-    from the literal title of the window shown in the titlebar.  Typically
-    this will be the same as $[w.name] once expanded, although
-    in the case of using <a href="#Style_IndexedWindowName">IndexedWindowName</a> then
-    this is more useful a distinction, and allows for referencing the
-    specific window by its visible name for inclusion in things like 
-    <a href="#Style">Style</a> commands.
-      </p></dd><dt><span class="term">$[w.x] $[w.y] $[w.width] $[w.height]</span></dt><dd><p>
-	Either coordinate or the width or height of the current window if
-	it is not iconified.  If no window is associated with the command
-	or the window is iconified, the string is left as is.
-      </p></dd><dt><span class="term">$[w.desk]</span></dt><dd><p>
-	The number of the desk on which the window is shown.  If the
-	window is sticky the current desk number is used.
-      </p></dd><dt><span class="term">$[w.layer]</span></dt><dd><p>The layer of the window.</p></dd><dt><span class="term">$[cw.x] $[cw.y] $[cw.width] $[cw.height]</span></dt><dd><p>
-	These work like $[w....] but return the geometry of the client
-	part of the window.  In other words: the border and title of the
-	window is not taken into account.
-      </p></dd><dt><span class="term">
-      $[i.x], $[it.x], $[ip.x]
-      $[i.y], $[it.y], $[ip.y]
-      $[i.width], $[it.width], $[ip.width]
-      $[i.height], $[it.height], $[ip.height]
-    </span></dt><dd><p>
-	These work like $[w....] but return the geometry of the icon
-	($[i....]), the icon title ($[it....]) or the icon picture
-	($[ip....]).
-      </p></dd><dt><span class="term">$[pointer.x] $[pointer.y]</span></dt><dd><p>
-	These return the position of the pointer on the screen.  If the
-	pointer is not on the screen, these variables are not expanded.
-      </p></dd><dt><span class="term">$[pointer.wx] $[pointer.wy]</span></dt><dd><p>
-	These return the position of the pointer in the selected window.  If
-	the pointer is not on the screen, the window is iconified 
-	or no window is selected, these variables are not expanded.
-      </p></dd><dt><span class="term">$[pointer.cx] $[pointer.cy]</span></dt><dd><p>
-	These return the position of the pointer in the client portion of
-	the selected window.  If the pointer is not on the screen, the
-	window is shaded or iconified or no window is selected, these
-	variables are not expanded.
-      </p></dd><dt><span class="term">$[screen]</span></dt><dd><p>
-	The screen number fvwm is running on.  Useful for setups with
-	multiple screens.
-      </p></dd><dt><span class="term">
-      $[fg.cs&lt;n&gt;]
-      $[bg.cs&lt;n&gt;]
-      $[hilight.cs&lt;n&gt;]
-      $[shadow.cs&lt;n&gt;]
-    </span></dt><dd><p>
-	These parameters are replaced with the name of the foreground
-	(fg), background (bg), hilight (hilight) or shadow (shadow) color
-	that is defined in colorset &lt;n&gt; (replace &lt;n&gt; with zero
-	or a positive integer).  For example "$[fg.cs3]" is expanded to the
-	name of the foreground color of colorset 3 (in rgb:rrrr/gggg/bbbb
-	form).  Please refer to the
-	<a href="#colorsets">Colorsets</a>
-	section for details about colorsets.
-      </p></dd><dt><span class="term">$[schedule.last]</span></dt><dd><p>
-	This is replaced by the id of the last command that was
-	scheduled with the <a href="#Schedule">Schedule</a> command, even if
-	this command was already executed.
-      </p></dd><dt><span class="term">$[schedule.next]</span></dt><dd><p>
-	This is replaced by the id the next command used with
-	<a href="#Schedule">Schedule</a> will get (unless a different id is
-	specified explicitly).
-      </p></dd><dt><span class="term">$[cond.rc]</span></dt><dd><p>
-	The return code of the last conditional command.  This
-	variable is only valid inside a function and can not be used
-	in a conditional command.  Please refer to the section
-	<a href="#conditional_commands">Conditional Commands</a> in the command list.
-      </p></dd><dt><span class="term">$[func.context]</span></dt><dd><p>
-	The context character of the running command as used in the
-	<a href="#Mouse">Mouse</a>,
-	<a href="#Key">Key</a> or
-	<a href="#PointerKey">PointerKey</a>
-	command.  This is useful for example with:
-	</p><pre class="programlisting"><a href="#Mouse">Mouse</a> 3 FS N <a href="#WindowShade">WindowShade</a> $$[func.context]</pre><p>
-      </p></dd><dt><span class="term">$[gt.<em class="replaceable"><code>str</code></em>]</span></dt><dd><p>
-	return the translation of
-	<em class="replaceable"><code>str</code></em> by looking in the current
-	locale catalogs. If no translation is found
-	<em class="replaceable"><code>str</code></em> is returned as is.  See the
-	<a href="#LocalePath">LocalePath</a> command.
-      </p></dd><dt><span class="term">$[...]</span></dt><dd><p>
-	If the string within the braces is neither of the above, fvwm
-	tries to find an environment variable with this name and replaces
-	its value if one is found (e.g. "$[PAGER]" could be replaced by
-	"more").  Otherwise the string is left as is.
-      </p></dd></dl></div><p>Some examples can be found in the description of the
-<a href="#AddToFunc">AddToFunc</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="scripting_and_complex_functions"></a>30. Scripting &amp; Complex Functions</h2></div></div></div><p>To achieve the more complex effects, fvwm has a number of
+<P>
+
+The parameters known by fvwm are:
+<P>
+
+$$
+<DL COMPACT><DT><DD>
+A literal '$'.
+</DL>
+
+<P>
+
+$.
+<DL COMPACT><DT><DD>
+The absolute directory of the currently Read file.  Intended for creating relative and relocatable configuration trees.  If used outside of any read file, the returned value is '.'.
+</DL>
+
+<P>
+
+$0 to $9
+<DL COMPACT><DT><DD>
+The positional parameters given to a complex function (a function that has been defined with the
+<B>AddToFunc</B>
+command).  &quot;$0&quot; is replaced with the first parameter, &quot;$1&quot; with the second parameter and so on.  If the corresponding parameter is undefined, the &quot;$...&quot; is deleted from the command line.
+</DL>
+
+<P>
+
+$*
+<DL COMPACT><DT><DD>
+All positional parameters given to a complex function.  This includes parameters that follow after &quot;$9&quot;.
+</DL>
+
+<P>
+
+$[<I>n</I>]
+<DL COMPACT><DT><DD>
+The
+<I>n</I>:th positional parameter given to a complex function, counting from 0.  If the corresponding parameter is undefined, the &quot;$[<I>n</I>]&quot; is deleted from the command line.  The parameter is expanded unquoted.
+</DL>
+
+<P>
+
+$[<I>n</I>-<I>m</I>]
+<DL COMPACT><DT><DD>
+The positional parameters given to a complex function, starting with parameter
+<I>n</I>
+and ending with parameter
+<I>m</I>.  If all the corresponding parameters are undefined, the &quot;$[...]&quot; is deleted from the command line.  If only some of the parameters are defined, all defined parameters are expanded, and the remaining silently ignored.  All parameters are expanded unquoted.
+</DL>
+
+<P>
+
+$[<I>n</I>-]
+<DL COMPACT><DT><DD>
+All the positional parameters given to a complex function, starting with parameter
+<I>n</I>.  If all the corresponding parameters are undefined, the &quot;$[...]&quot; is deleted from the command line.  All parameters are expanded unquoted.
+</DL>
+
+<P>
+
+$[*]
+<DL COMPACT><DT><DD>
+All the positional parameters given to a complex function.  This is equivalent of $[0-].
+</DL>
+
+<P>
+
+$[version.num]
+<DL COMPACT><DT><DD>
+The version number, like &quot;2.6.0&quot;.
+</DL>
+
+<P>
+
+$[version.info]
+<DL COMPACT><DT><DD>
+The version info, like &quot; (from cvs)&quot;, empty for the official releases.
+</DL>
+
+<P>
+
+$[version.line]
+<DL COMPACT><DT><DD>
+The first line printed by the --version command line option.
+</DL>
+
+<P>
+
+$[vp.x] $[vp.y] $[vp.width] $[vp.height]
+<DL COMPACT><DT><DD>
+Either coordinate or the width or height of the current viewport.
+</DL>
+
+<P>
+
+$[desk.n]
+<DL COMPACT><DT><DD>
+The current desk number.
+</DL>
+
+<P>
+
+$[desk.name&lt;n&gt;]
+<DL COMPACT><DT><DD>
+These parameters are replaced with the name of the desktop number &lt;n&gt; that is defined with the
+<B>DesktopName</B>
+command.  If no name is defined, then the default name is returned.
+</DL>
+
+<P>
+
+$[desk.width] $[desk.height]
+<DL COMPACT><DT><DD>
+The width or height of the whole desktop, i.e. the width or height multiplied by the number of pages in x or y direction.
+</DL>
+
+<P>
+
+$[desk.pagesx] $[desk.pagesy]
+<DL COMPACT><DT><DD>
+The number of total pages in a desk in x or y direction.  This is the same as the values set by
+<B>DesktopSize</B>.
+</DL>
+
+<P>
+
+$[page.nx] $[page.ny]
+<DL COMPACT><DT><DD>
+The current page numbers, by X and Y axes, starting from 0.
+<I>page</I>
+is equivalent to
+<I>area</I>
+in the
+GNOME
+terminology.
+</DL>
+
+<P>
+
+$[w.id]
+<DL COMPACT><DT><DD>
+The window-id (expressed in hex, e.g. 0x10023c) of the window the command was called for or &quot;$[w.id]&quot; if no window is associated with the command.
+</DL>
+
+<P>
+
+$[w.name] $[w.iconname] $[w.class] $[w.resource] $[w.visiblename] $[w.iconfile] $[w.miniiconfile] $[w.iconfile.svgopts] $[w.miniiconfile.svgopts]
+<DL COMPACT><DT><DD>
+The window's name, icon name, resource class and resource name, visible name, file name of its icon or mini icon defined with the
+<I>Icon</I>
+or
+<I>MiniIcon</I>
+style (including the full path if the file was found on disk), and (if fvwm is compiled with
+SVG
+support) the icon or mini icon svg rendering options (including the leading colon), or unexpanded &quot;$[w.&lt;attribute&gt;]&quot; string if no window is associated with the command.
+<P>
+Note, the first 5 variables may include any kind of characters, so these variables are quoted.  It means that the value is surrounded by single quote characters and any contained single quote is prefixed with a backslash.  This guarantees that commands like:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> $[w.resource] <I>Icon</I> norm/network.png
+</PRE>
+
+</DL>
+
+<P>
+work correctly, regardless of any special symbols the value may contain, like spaces and different kinds of quotes.
+<P>
+In the case of the window's visible name, this is the value returned from the literal title of the window shown in the titlebar.  Typically this will be the same as $[w.name] once expanded, although in the case of using
+<I>IndexedWindowName</I>
+then this is more useful a distinction, and allows for referencing the specific window by its visible name for inclusion in things like
+<B>Style</B>
+commands.
+</DL>
+
+<P>
+
+$[w.x] $[w.y] $[w.width] $[w.height]
+<DL COMPACT><DT><DD>
+Either coordinate or the width or height of the current window if it is not iconified.  If no window is associated with the command or the window is iconified, the string is left as is.
+</DL>
+
+<P>
+
+$[w.desk]
+<DL COMPACT><DT><DD>
+The number of the desk on which the window is shown.  If the window is sticky the current desk number is used.
+</DL>
+
+<P>
+
+$[w.layer]
+<DL COMPACT><DT><DD>
+The layer of the window.
+</DL>
+
+<P>
+
+$[cw.x] $[cw.y] $[cw.width] $[cw.height]
+<DL COMPACT><DT><DD>
+These work like $[w....] but return the geometry of the client part of the window.  In other words: the border and title of the window is not taken into account.
+</DL>
+
+<P>
+
+$[i.x], $[it.x], $[ip.x] $[i.y], $[it.y], $[ip.y] $[i.width], $[it.width], $[ip.width] $[i.height], $[it.height], $[ip.height]
+<DL COMPACT><DT><DD>
+These work like $[w....] but return the geometry of the icon ($[i....]), the icon title ($[it....]) or the icon picture ($[ip....]).
+</DL>
+
+<P>
+
+$[pointer.x] $[pointer.y]
+<DL COMPACT><DT><DD>
+These return the position of the pointer on the screen.  If the pointer is not on the screen, these variables are not expanded.
+</DL>
+
+<P>
+
+$[pointer.wx] $[pointer.wy]
+<DL COMPACT><DT><DD>
+These return the position of the pointer in the selected window.  If the pointer is not on the screen, the window is iconified or no window is selected, these variables are not expanded.
+</DL>
+
+<P>
+
+$[pointer.cx] $[pointer.cy]
+<DL COMPACT><DT><DD>
+These return the position of the pointer in the client portion of the selected window.  If the pointer is not on the screen, the window is shaded or iconified or no window is selected, these variables are not expanded.
+</DL>
+
+<P>
+
+$[screen]
+<DL COMPACT><DT><DD>
+The screen number fvwm is running on.  Useful for setups with multiple screens.
+</DL>
+
+<P>
+
+$[fg.cs&lt;n&gt;] $[bg.cs&lt;n&gt;] $[hilight.cs&lt;n&gt;] $[shadow.cs&lt;n&gt;]
+<DL COMPACT><DT><DD>
+These parameters are replaced with the name of the foreground (fg), background (bg), hilight (hilight) or shadow (shadow) color that is defined in colorset &lt;n&gt; (replace &lt;n&gt; with zero or a positive integer).  For example &quot;$[fg.cs3]&quot; is expanded to the name of the foreground color of colorset 3 (in rgb:rrrr/gggg/bbbb form).  Please refer to the
+<B>Colorsets</B>
+section for details about colorsets.
+</DL>
+
+<P>
+
+$[schedule.last]
+<DL COMPACT><DT><DD>
+This is replaced by the id of the last command that was scheduled with the
+<B>Schedule</B>
+command, even if this command was already executed.
+</DL>
+
+<P>
+
+$[schedule.next]
+<DL COMPACT><DT><DD>
+This is replaced by the id the next command used with
+<B>Schedule</B>
+will get (unless a different id is specified explicitly).
+</DL>
+
+<P>
+
+$[cond.rc]
+<DL COMPACT><DT><DD>
+The return code of the last conditional command.  This variable is only valid inside a function and can not be used in a conditional command.  Please refer to the section
+<B>Conditional Commands</B>
+in the command list.
+</DL>
+
+<P>
+
+$[func.context]
+<DL COMPACT><DT><DD>
+The context character of the running command as used in the
+<B>Mouse</B>,
+<B>Key</B>
+or
+<B>PointerKey</B>
+command.  This is useful for example with:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 3 FS N <B>WindowShade</B> $$[func.context]
+</PRE>
+
+</DL>
+
+<P>
+</DL>
+
+<P>
+
+$[gt.<I>str</I>]
+<DL COMPACT><DT><DD>
+return the translation of
+<I>str</I>
+by looking in the current locale catalogs.  If no translation is found
+<I>str</I>
+is returned as is.  See the
+<B>LocalePath</B>
+command.
+</DL>
+
+<P>
+
+$[...]
+<DL COMPACT><DT><DD>
+If the string within the braces is neither of the above, fvwm tries to find an environment variable with this name and replaces its value if one is found (e.g. &quot;$[PAGER]&quot; could be replaced by &quot;more&quot;).  Otherwise the string is left as is.
+</DL>
+
+<P>
+
+Some examples can be found in the description of the
+<B>AddToFunc</B>
+command.
+<A NAME="lbBM">&nbsp;</A>
+<H2>SCRIPTING &amp; COMPLEX FUNCTIONS</H2>
+
+<P>
+
+To achieve the more complex effects, fvwm has a number of
 commands that improve its scripting abilities.  Scripts can be
 read from a file with
-<a href="#Read">Read</a>,
+<B>Read</B>,
 from the output of a command with
-<a href="#PipeRead">PipeRead</a>
+<B>PipeRead</B>
 or written as a complex function with the
-<a href="#AddToFunc">AddToFunc</a>
+<B>AddToFunc</B>
 command.  For the curious, section 7 of the fvwm FAQ shows some
 real life applications of scripting.  Please refer to the sections
-<a href="#user_functions_and_shell_commands">User Functions and Shell Commands</a>
+<B>User Functions and Shell Commands</B>
 and
-<a href="#conditional_commands">Conditional Commands</a>
-for details.  A word of warning:  during execution of complex
+<B>Conditional Commands</B>
+for details.  A word of warning: during execution of complex
 functions, fvwm needs to take all input from the mouse pointer
-(the pointer is "grabbed" in the slang of X).  No other programs
+(the pointer is &quot;grabbed&quot; in the slang of X).  No other programs
 can receive any input from the pointer while a function is run.
 This can confuse some programs.  For example, the xwd program
 refuses to make screen shots when run from a complex function.  To
 achieve the same functionality you can use the
-<a href="#Read">Read</a>
+<B>Read</B>
 or
-<a href="#PipeRead">PipeRead</a>
-command instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="list_of_fvwm_commands"></a>31. List of Fvwm Commands</h2></div></div></div><p>The command descriptions below are grouped together in the
+<B>PipeRead</B>
+command instead.
+<A NAME="lbBN">&nbsp;</A>
+<H2>LIST OF FVWM COMMANDS</H2>
+
+<P>
+
+The command descriptions below are grouped together in the
 following sections.  The sections are hopefully sorted in order of
-usefulness to the newcomer.</p><div class="itemizedlist"><ul type="disc"><li><a href="#menus">Menu commands</a></li><li><a href="#miscellaneous_commands">Miscellaneous commands</a></li><li><a href="#window_movement_and_placement">Commands affecting window movement and placement</a></li><li><a href="#focus_and_mouse_movement">Commands for focus and mouse movement</a></li><li><a href="#window_state">Commands controlling window state</a></li><li><a href="#mouse_key_and_stroke_bindings">Commands for mouse, key and stroke bindings</a></li><li><a href="#controlling_window_styles">The Style command (controlling window styles)</a></li><li><a href="#window_styles">Other commands controlling window styles</a></li><li><a href="#virtual_desktop">Commands controlling the virtual desktop</a></li><li><a href="#user_functions_and_shell_commands">Commands for user functions and shell commands</a></li><li><a href="#conditional_commands">Conditional commands</a></li><li><a href="#module_commands">Module commands</a></li><li><a href="#session_management_commands">Quit, restart and session management commands</a></li><li><a href="#colorsets">Colorsets</a></li><li><a href="#color_gradients">Color gradients</a></li></ul></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="menus"></a>31.1. Menus</h3></div></div></div><p>Before a menu can be opened, it has to be populated with menu
+usefulness to the newcomer.
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Menu commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Miscellaneous commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands affecting window movement and placement</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands for focus and mouse movement</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands controlling window state</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands for mouse, key and stroke bindings</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>The Style command (controlling window styles)</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Other commands controlling window styles</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands controlling the virtual desktop</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Commands for user functions and shell commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Conditional commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Module commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Quit, restart and session management commands</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Colorsets</B>
+<P>
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<B>Color gradients</B>
+<P>
+</DL>
+
+<A NAME="lbBO">&nbsp;</A>
+<H3>Menus</H3>
+
+<P>
+
+Before a menu can be opened, it has to be populated with menu
 items using the
-<a href="#AddToMenu">AddToMenu</a>
+<B>AddToMenu</B>
 command and bound to a key or mouse button with the
-<a href="#Key">Key</a>,
-<a href="#PointerKey">PointerKey</a> or
-<a href="#Mouse">Mouse</a>
+<B>Key</B>,
+<B>PointerKey</B> or
+<B>Mouse</B>
 command (there are many other ways to invoke a menu too).  This is
-usually done in the configuration file.</p><p>Fvwm menus are extremely configurable in look and feel.  Even the
+usually done in the configuration file.
+<P>
+
+Fvwm menus are extremely configurable in look and feel.  Even the
 slightest nuances can be changed to the user's liking, including
 the menu item fonts, the background, delays before popping up sub
 menus, generating menus dynamically and many other features.
 Please refer to the
-<a href="#MenuStyle">MenuStyle</a>
-command to learn more.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="menu_types"></a>31.1.1. Types of Menus</h4></div></div></div><p>In fvwm there are four slightly different types of menus:</p><p><a href="#Popup">Popup</a> menus
+<B>MenuStyle</B>
+command to learn more.
+<DL COMPACT>
+<DT><B>Types of Menus</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+In fvwm there are four slightly different types of menus:
+<P>
+
+<B>Popup</B> menus
 can appear everywhere on the screen on their own or attached to a
 part of a window.  The
-<a href="#Popup">Popup</a>
+<B>Popup</B>
 command opens popup menus.  If the popup menu was invoked with a
 mouse button held down, it is closed when the button is released.
 The item under the pointer is then activated and the associated
-action is executed.</p><p><a href="#Menu">Menu</a>
+action is executed.
+<P>
+
+<B>Menu</B>
 is a very similar command, but the menus it opens are slightly less
 transient.  When invoked by clicking a mouse button, it stays open
 and can be navigated with no button held.  But if it is invoked by
 a button press followed by mouse motion, it behaves exactly like a
-popup menu.</p><p><span class="emphasis"><em>Tear off menus</em></span> or <span class="emphasis"><em>Pin up menus</em></span>
+popup menu.
+<P>
+
+<I>Tear off menus</I> or <I>Pin up menus</I>
 are menus from either of the above two commands that have been
-"torn off" their original context and pinned on the desktop like a
+&quot;torn off&quot; their original context and pinned on the desktop like a
 normal window.  They are created from other menus by certain key
 presses or mouse sequences or with the
-<a href="#TearMenuOff">TearMenuOff</a>
-command from inside a menu.</p><p><span class="emphasis"><em>Sub menus</em></span>
+<B>TearMenuOff</B>
+command from inside a menu.
+<P>
+
+<I>Sub menus</I>
 are menus inside menus.  When a menu item that has the
-<a href="#Popup">Popup</a>
+<B>Popup</B>
 command as its action is selected, the named menu is opened as an
-inferior menu to the parent.  Any type of menu can have sub menus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="menu_anatomy"></a>31.1.2. Menu Anatomy</h4></div></div></div><p>Menus consist of any number of titles which are inactive menu
+inferior menu to the parent.  Any type of menu can have sub menus.
+</DL>
+
+<DT><B>Menu Anatomy</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Menus consist of any number of titles which are inactive menu
 items that usually appear at the top of the menu, normal items
 triggering various actions when selected, separator lines between
 the items, tear off bars (a horizontal broken line) that tear off
 the menu when selected, and sub menu items indicated with a
 triangle pointing left or right, depending on the direction in
 which the sub menu appears.  All the above menu items are
-optional.</p><p>Additionally, if the menu is too long to fit on the screen, the
+optional.
+<P>
+
+Additionally, if the menu is too long to fit on the screen, the
 excess menu items are put in a continuation menu and a sub menu
-with the string "More..." is placed at the bottom of the menu. The
-"More..." string honors the locale settings.</p><p>Finally, there may be a picture running up either side of the menu
-(a "side bar").</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="menu_navigation"></a>31.1.3. Menu Navigation</h4></div></div></div><p>Menus can be navigated either with the keyboard or with the
+with the string &quot;More...&quot; is placed at the bottom of the menu.  The
+&quot;More...&quot; string honors the locale settings.
+<P>
+
+Finally, there may be a picture running up either side of the menu
+(a &quot;side bar&quot;).
+</DL>
+
+<DT><B>Menu Navigation</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Menus can be navigated either with the keyboard or with the
 mouse.  Many people prefer to use the mouse, but it can be rather
 tedious.  Once you get the hang of it, keyboard navigation can be
 much faster.  While fvwm displays a menu, it can do nothing else.
 For example, new windows do not appear before the menu is closed.
 However, this is not exactly true for tear off menus.  See the
-<a href="#tearoff_menus">Tear Off Menus</a>
-section for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="mouse_navigation"></a>31.1.4. Mouse Navigation</h4></div></div></div><p>Moving the pointer over a menu selects the item below it.
+<B>Tear Off Menus</B>
+section for details.
+</DL>
+
+<DT><B>Mouse Navigation</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Moving the pointer over a menu selects the item below it.
 Normally this is indicated by a 3d border around the item, but not
 all parts of a menu can be selected.  Pressing any mouse button
 while a menu is open by default activates the item below it.  Items of a
@@ -1486,369 +2951,781 @@ popup menu are also activated by releasing a held mouse button.
 In case of an item that hides a sub menu, the sub menu is
 displayed if the pointer hovers over the item long enough or moves
 close to the triangle indicating the sub menu.  This behaviour can
-be tuned with menu styles.</p><p>Scrolling a mouse wheel over a menu either wraps the pointer along the
+be tuned with menu styles.
+<P>
+
+Scrolling a mouse wheel over a menu either wraps the pointer along the
 menu (default), scrolls the menu under the pointer or act as if the
 menu was clicked depending on the
-<a href="#MenuStyle_MouseWheel">MouseWheel</a> menu style.</p><p>Clicking on a selected item activates it - what happens exactly
-depends on the type of the item.</p><p>Clicking on a title, a separator, the side bar, or outside the
-menu closes the menu (exception:  tear off menus can not be closed
+<I>MouseWheel</I> menu style.
+<P>
+
+Clicking on a selected item activates it - what happens exactly
+depends on the type of the item.
+<P>
+
+Clicking on a title, a separator, the side bar, or outside the
+menu closes the menu (exception: tear off menus can not be closed
 this way).  Pressing mouse button 2 over a menu title or
 activating a tear off bar creates a tear off menu from the current
 menu.  Clicking on a normal menu item invokes the command that is
 bound to it, and clicking on a sub menu item either closes all
 open menus and replaces them with the sub menu or posts the menu
-(default).</p><p>Posting menus is meant to ease mouse navigation.  Once a sub menu
+(default).
+<P>
+
+Posting menus is meant to ease mouse navigation.  Once a sub menu
 is posted, only items from that sub menu can be selected.  This
 can be very useful to navigate the menu if the pointer tends to
 stray off the menu.  To unpost the menu and revert back to normal
 operation, either click on the same sub menu item or press any
-key.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="keyboard_navigation"></a>31.1.5. Keyboard Navigation</h4></div></div></div><p>Just like with mouse navigation, the item below the pointer is
+key.
+</DL>
+
+<DT><B>Keyboard Navigation</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Just like with mouse navigation, the item below the pointer is
 selected.  This is achieved by warping the pointer to the menu
 items when necessary.  While a menu is open, all key presses are
 intercepted by the menu.  No other application can get keyboard
-input (although this is not the case for tear off menus).</p><p>Items can be selected directly by pressing a hotkey that can be
+input (although this is not the case for tear off menus).
+<P>
+
+Items can be selected directly by pressing a hotkey that can be
 configured individually for each menu item.  The hotkey is
 indicated by underlining it in the menu item label.  With the
-<a href="#MenuStyle_AutomaticHotkeys">AutomaticHotkeys</a>
-menu style fvwm automatically assigns hotkeys to all menu items.</p><p>The most basic keys to navigate through menus are the cursor keys
+<I>AutomaticHotkeys</I>
+menu style fvwm automatically assigns hotkeys to all menu items.
+<P>
+
+The most basic keys to navigate through menus are the cursor keys
 (move up or down one item, enter or leave a sub menu),
-<span class="keysym">Space</span>
+<FONT>Space</FONT>
 (activate item) and
-<span class="keysym">Escape</span>
+<FONT>Escape</FONT>
 (close menu).  Numerous other keys can be used to navigate through
-menus by default:</p><p><span class="emphasis"><em>Enter</em></span>,
-<span class="emphasis"><em>Return</em></span>,
-<span class="emphasis"><em>Space</em></span>
-activate the current item.</p><p><span class="emphasis"><em>Escape</em></span>,
-<span class="emphasis"><em>Delete</em></span>,
-<span class="emphasis"><em>Ctrl-G</em></span>
-exit the current sequence of menus or destroy a tear off menu.</p><p><span class="emphasis"><em>J</em></span>,
-<span class="emphasis"><em>N</em></span>,
-<span class="emphasis"><em>Cursor-Down</em></span>,
-<span class="emphasis"><em>Tab</em></span>,
-<span class="emphasis"><em>Meta-Tab</em></span>,
-<span class="emphasis"><em>Ctrl-F</em></span>,
-move to the next item.</p><p><span class="emphasis"><em>K</em></span>,
-<span class="emphasis"><em>P</em></span>,
-<span class="emphasis"><em>Cursor-Up</em></span>,
-<span class="emphasis"><em>Shift-Tab</em></span>,
-<span class="emphasis"><em>Shift-Meta-Tab</em></span>,
-<span class="emphasis"><em>Ctrl-B</em></span>,
-move to the prior item.</p><p><span class="emphasis"><em>L</em></span>,
-<span class="emphasis"><em>Cursor-Right</em></span>,
-<span class="emphasis"><em>F</em></span>
-enter a sub menu.</p><p><span class="emphasis"><em>H</em></span>,
-<span class="emphasis"><em>Cursor-Left</em></span>,
-<span class="emphasis"><em>B</em></span>
-return to the prior menu.</p><p><span class="emphasis"><em>Ctrl-Cursor-Up</em></span>,
-<span class="emphasis"><em>Ctrl-K</em></span>
-<span class="emphasis"><em>Ctrl-P</em></span>,
-<span class="emphasis"><em>Shift-Ctrl-Meta-Tab</em></span>,
-<span class="emphasis"><em>Page-Up</em></span>
-move up five items.</p><p><span class="emphasis"><em>Ctrl-Cursor-Down</em></span>,
-<span class="emphasis"><em>Ctrl-J</em></span>
-<span class="emphasis"><em>Ctrl-N</em></span>,
-<span class="emphasis"><em>Ctrl-Meta-Tab</em></span>
-<span class="emphasis"><em>Page-Down</em></span>
-move down five items.</p><p>
-<span class="emphasis"><em>Shift-P</em></span>,
-<span class="emphasis"><em>Home</em></span>,
-<span class="emphasis"><em>Shift-Cursor-Up</em></span>,
-<span class="emphasis"><em>Ctrl-A</em></span>
-move to the first item.</p><p>
-<span class="emphasis"><em>Shift-N</em></span>,
-<span class="emphasis"><em>End</em></span>,
-<span class="emphasis"><em>Shift-Cursor-Down</em></span>,
-<span class="emphasis"><em>Ctrl-E</em></span>
-move to the last item.</p><p>
-<span class="emphasis"><em>Meta-P</em></span>,
-<span class="emphasis"><em>Meta-Cursor-Up</em></span>,
-<span class="emphasis"><em>Ctrl-Cursor-Left</em></span>,
-<span class="emphasis"><em>Shift-Ctrl-Tab</em></span>,
-move up just below the next separator.</p><p>
-<span class="emphasis"><em>Meta-N</em></span>,
-<span class="emphasis"><em>Meta-Cursor-Down</em></span>,
-<span class="emphasis"><em>Ctrl-Cursor-Right</em></span>,
-<span class="emphasis"><em>Ctrl-Tab</em></span>,
-move down just below the next separator.</p><p><span class="emphasis"><em>Insert</em></span>
-opens the "More..." sub menu if any.</p><p><span class="emphasis"><em>Backspace</em></span>
-tears off the menu.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="menu_bindings"></a>31.1.6. Menu Bindings</h4></div></div></div><p>The keys and mouse buttons used to navigate the menu can be configured
+menus by default:
+<P>
+
+<I>Enter</I>,
+<I>Return</I>,
+<I>Space</I>
+activate the current item.
+<P>
+
+<I>Escape</I>,
+<I>Delete</I>,
+<I>Ctrl-G</I>
+exit the current sequence of menus or destroy a tear off menu.
+<P>
+
+<I>J</I>,
+<I>N</I>,
+<I>Cursor-Down</I>,
+<I>Tab</I>,
+<I>Meta-Tab</I>,
+<I>Ctrl-F</I>,
+move to the next item.
+<P>
+
+<I>K</I>,
+<I>P</I>,
+<I>Cursor-Up</I>,
+<I>Shift-Tab</I>,
+<I>Shift-Meta-Tab</I>,
+<I>Ctrl-B</I>,
+move to the prior item.
+<P>
+
+<I>L</I>,
+<I>Cursor-Right</I>,
+<I>F</I>
+enter a sub menu.
+<P>
+
+<I>H</I>,
+<I>Cursor-Left</I>,
+<I>B</I>
+return to the prior menu.
+<P>
+
+<I>Ctrl-Cursor-Up</I>,
+<I>Ctrl-K</I>
+<I>Ctrl-P</I>,
+<I>Shift-Ctrl-Meta-Tab</I>,
+<I>Page-Up</I>
+move up five items.
+<P>
+
+<I>Ctrl-Cursor-Down</I>,
+<I>Ctrl-J</I>
+<I>Ctrl-N</I>,
+<I>Ctrl-Meta-Tab</I>
+<I>Page-Down</I>
+move down five items.
+<P>
+
+<I>Shift-P</I>,
+<I>Home</I>,
+<I>Shift-Cursor-Up</I>,
+<I>Ctrl-A</I>
+move to the first item.
+<P>
+
+<I>Shift-N</I>,
+<I>End</I>,
+<I>Shift-Cursor-Down</I>,
+<I>Ctrl-E</I>
+move to the last item.
+<P>
+
+<I>Meta-P</I>,
+<I>Meta-Cursor-Up</I>,
+<I>Ctrl-Cursor-Left</I>,
+<I>Shift-Ctrl-Tab</I>,
+move up just below the next separator.
+<P>
+
+<I>Meta-N</I>,
+<I>Meta-Cursor-Down</I>,
+<I>Ctrl-Cursor-Right</I>,
+<I>Ctrl-Tab</I>,
+move down just below the next separator.
+<P>
+
+<I>Insert</I>
+opens the &quot;More...&quot; sub menu if any.
+<P>
+
+<I>Backspace</I>
+tears off the menu.
+</DL>
+
+<DT><B>Menu Bindings</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+The keys and mouse buttons used to navigate the menu can be configured
 using the
-<a href="#Key">Key</a>
+<B>Key</B>
 and
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 commands with the special context 'M', possible combined with 'T' for
 the menu title, 'I' for other menu items, 'S' for any border or
 sidepic, '[' for left border including a left sidepic, ']' for right
 border including a right sidepic, '-' for top border, '_' for bottom
 border.  The menu context uses its own set of actions that can be bound
 to keys and mouse buttons.  These are
-<span class="emphasis"><em>MenuClose</em></span>,
-<span class="emphasis"><em>MenuCloseAndExec</em></span>,
-<span class="emphasis"><em>MenuEnterContinuation</em></span>,
-<span class="emphasis"><em>MenuEnterSubmenu</em></span>,
-<span class="emphasis"><em>MenuLeaveSubmenu</em></span>,
-<span class="emphasis"><em>MenuMoveCursor</em></span>,
-<span class="emphasis"><em>MenuCursorLeft</em></span>,
-<span class="emphasis"><em>MenuCursorRight</em></span>,
-<span class="emphasis"><em>MenuSelectItem</em></span>,
-<span class="emphasis"><em>MenuScroll</em></span> and
-<span class="emphasis"><em>MenuTearOff</em></span>.</p><p>It is not possible to override the key Escape with no modifiers for
-closing the menu. Neither is it possible to undefine mouse button 1,
-the arrow keys or the enter key for minimal navigation.</p><p><span class="emphasis"><em>MenuClose</em></span>
-exits from the current sequence of menus or destroys a tear off menu.</p><p><span class="emphasis"><em>MenuCloseAndExec</em></span>
+<I>MenuClose</I>,
+<I>MenuCloseAndExec</I>,
+<I>MenuEnterContinuation</I>,
+<I>MenuEnterSubmenu</I>,
+<I>MenuLeaveSubmenu</I>,
+<I>MenuMoveCursor</I>,
+<I>MenuCursorLeft</I>,
+<I>MenuCursorRight</I>,
+<I>MenuSelectItem</I>,
+<I>MenuScroll</I> and
+<I>MenuTearOff</I>.
+<P>
+
+It is not possible to override the key Escape with no modifiers for
+closing the menu.  Neither is it possible to undefine mouse button 1,
+the arrow keys or the enter key for minimal navigation.
+<P>
+
+<B>MenuClose</B>
+exits from the current sequence of menus or destroys a tear off menu.
+<P>
+
+<B>MenuCloseAndExec</B>
 exits from the current sequence of menus or destroys a tear off menu and
-executes the rest of the line as a command.</p><p><span class="emphasis"><em>MenuEnterContinuation</em></span>
-opens the "More..." sub menu if any.</p><p><span class="emphasis"><em>MenuEnterSubmenu</em></span>
-enters a sub menu.</p><p><span class="emphasis"><em>MenuLeaveSubmenu</em></span>
-returns to the prior menu.</p><p><span class="emphasis"><em>MenuMoveCursor</em></span>
-<em class="replaceable"><code>n</code></em>
-[<span class="optional"><em class="replaceable"><code>m</code></em></span>]
+executes the rest of the line as a command.
+<P>
+
+<B>MenuEnterContinuation</B>
+opens the &quot;More...&quot; sub menu if any.
+<P>
+
+<B>MenuEnterSubmenu</B>
+enters a sub menu.
+<P>
+
+<B>MenuLeaveSubmenu</B>
+returns to the prior menu.
+<P>
+
+<B>MenuMoveCursor</B>
+<I>n</I>
+[<I>m</I>]
 moves the selection to another item.  If the first argument is zero
 the second argument specifies an absolute item in the menu to move
-the pointer to. Negative items are counted from the end of the menu.
+the pointer to.  Negative items are counted from the end of the menu.
 If the first argument is non-zero, the second argument must be omitted,
 and the first argument specifies a relative change in the selected item.
 The positions may be suffixed with a 's' to indicate that the items should
-refer only to the first items after separators.</p><p><span class="emphasis"><em>MenuCursorLeft</em></span>
+refer only to the first items after separators.
+<P>
+
+<B>MenuCursorLeft</B>
 enters a sub menu with the
-<a href="#MenuStyle_SubmenusLeft">SubmenusLeft</a>
+<I>SubmenusLeft</I>
 menu style, and returns to the prior menu with the
-<a href="#MenuStyle_SubmenusRight">SubmenusRight</a> menu style.</p><p><span class="emphasis"><em>MenuCursorRight</em></span>
+<I>SubmenusRight</I> menu style.
+<P>
+
+<B>MenuCursorRight</B>
 enters a sub menu with the
-<a href="#MenuStyle_SubmenusRight">SubmenusRight</a>
+<I>SubmenusRight</I>
 menu style, and returns to the prior menu with the
-<a href="#MenuStyle_SubmenusLeft">SubmenusLeft</a> menu style.</p><p><span class="emphasis"><em>MenuSelectItem</em></span>
-triggers the action for the menu item.</p><p><span class="emphasis"><em>MenuScroll </em></span><em class="replaceable"><code>n</code></em>
+<I>SubmenusLeft</I> menu style.
+<P>
+
+<B>MenuSelectItem</B>
+triggers the action for the menu item.
+<P>
+
+<B>MenuScroll </B><I>n</I>
 performs menu scrolling according to the
-<a href="#MenuStyle_MouseWheel">MouseWheel</a> menu style with
-<em class="replaceable"><code>n</code></em> items.  The distance can be
+<I>MouseWheel</I> menu style with
+<I>n</I> items.  The distance can be
 suffixed with an 's' to indicate the items should refer only to the
-first items after separators.</p><p><span class="emphasis"><em>MenuTearOff</em></span>
-turns a normal menu into a "torn off" menu. See
-<a href="#tearoff_menus">Tear Off Menus</a>
-for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="tearoff_menus"></a>31.1.7. Tear Off Menus</h4></div></div></div><p>A tear off menu is any menu that has been "torn off" the window it
+first items after separators.
+<P>
+
+<B>MenuTearOff</B>
+turns a normal menu into a &quot;torn off&quot; menu.  See
+<B>Tear Off Menus</B>
+for details.
+</DL>
+
+<DT><B>Tear Off Menus</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+A tear off menu is any menu that has been &quot;torn off&quot; the window it
 was attached to and pinned to the root window.  There are three
-ways to tear off a menu:  click on the menu title with mouse
+ways to tear off a menu: click on the menu title with mouse
 button 2, press
-<span class="keysym">Backspace</span>
+<FONT>Backspace</FONT>
 in the menu or activate its tear off bar (a horizontal bar with a
 broken line).  Tear off bars must be added to the menu as any
 other item by assigning them the command
-<a href="#TearMenuOff">TearMenuOff</a>.</p><p>The builtin tear off actions can be overridden by undefining the
-builtin menu actions bound to tear off. To remove the builtin mouse
-button 2 binding, use:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 2 MT A -
-</pre><p>and to remove the builtin backspace binding, use:</p><pre class="programlisting">
-<a href="#Key">Key</a> Backspace M A -
-</pre><p>See the section
-<a href="#menu_bindings">Menu Bindings</a>
-for details on how to assign other bindings for tear off.</p><p>Note that prior to fvwm 2.5.20 the tear off mouse bindings were
-redefined in different way, which no longer work.</p><p>The window containing the menu is placed as any other window would
+<B>TearMenuOff</B>.
+<P>
+
+The builtin tear off actions can be overridden by undefining the
+builtin menu actions bound to tear off.  To remove the builtin mouse
+button 2 binding, use:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 2 MT A -
+</PRE>
+
+</DL>
+
+<P>
+
+and to remove the builtin backspace binding, use:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> Backspace M A -
+</PRE>
+
+</DL>
+
+<P>
+
+See the section
+<B>Menu Bindings</B>
+for details on how to assign other bindings for tear off.
+<P>
+
+Note that prior to fvwm 2.5.20 the tear off mouse bindings were
+redefined in different way, which no longer work.
+<P>
+
+The window containing the menu is placed as any other window would
 be.  If you find it confusing to have your tear off menus appear
 at random positions on the screen, put this line in your
-configuration file:</p><pre class="programlisting">
-<a href="#Style">Style</a> fvwm_menu <a href="#Style_UsePPosition">UsePPosition</a>
-</pre><p>To remove borders and buttons from a tear-off menu but keep the
-menu title, you can use</p><pre class="programlisting">
-<a href="#Style">Style</a> fvwm_menu !<a href="#Style_Button">Button</a> 0, !<a href="#Style_Button">Button</a> 1
-<a href="#Style">Style</a> fvwm_menu !<a href="#Style_Button">Button</a> 2, !<a href="#Style_Button">Button</a> 3
-<a href="#Style">Style</a> fvwm_menu !<a href="#Style_Button">Button</a> 4, !<a href="#Style_Button">Button</a> 5
-<a href="#Style">Style</a> fvwm_menu !<a href="#Style_Button">Button</a> 6, !<a href="#Style_Button">Button</a> 7
-<a href="#Style">Style</a> fvwm_menu !<a href="#Style_Button">Button</a> 8, !<a href="#Style_Button">Button</a> 9
-<a href="#Style">Style</a> fvwm_menu <a href="#Style_Title">Title</a>, <a href="#Style_HandleWidth">HandleWidth</a> 0
-</pre><p>A tear off menu is a cross breeding between a window and a menu.
+configuration file:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> fvwm_menu <I>UsePPosition</I>
+</PRE>
+
+</DL>
+
+<P>
+
+To remove borders and buttons from a tear-off menu but keep the
+menu title, you can use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> fvwm_menu !<I>Button</I> 0, !<I>Button</I> 1
+<B>Style</B> fvwm_menu !<I>Button</I> 2, !<I>Button</I> 3
+<B>Style</B> fvwm_menu !<I>Button</I> 4, !<I>Button</I> 5
+<B>Style</B> fvwm_menu !<I>Button</I> 6, !<I>Button</I> 7
+<B>Style</B> fvwm_menu !<I>Button</I> 8, !<I>Button</I> 9
+<B>Style</B> fvwm_menu <I>Title</I>, <I>HandleWidth</I> 0
+</PRE>
+
+</DL>
+
+<P>
+
+A tear off menu is a cross breeding between a window and a menu.
 The menu is swallowed by a window and its title is stripped off
 and displayed in the window title.  The main advantage is that the
 menu becomes permanent - activating an item does not close the
 menu.  Therefore, it can be used multiple times without reopening
 it.  To destroy such a menu, close its window or press the
-<span class="keysym">Escape</span>
-key.</p><p>Tear off menus behave somewhat differently than normal menus and
+<FONT>Escape</FONT>
+key.
+<P>
+
+Tear off menus behave somewhat differently than normal menus and
 windows.  They do not take the keyboard focus, but while the
 pointer is over one of them, all key presses are sent to the
 menu.  Other fvwm key bindings are disabled as long as the pointer
 is inside the tear off menu or one of its sub menus.  When the
 pointer leaves this area, all sub menus are closed immediately.
 Note that the window containing a tear off menu is never hilighted
-as if it had the focus.</p><p>A tear off menu is an independent copy of the menu it originated
+as if it had the focus.
+<P>
+
+A tear off menu is an independent copy of the menu it originated
 from.  As such, it is not affected by adding items to that menu or
-changing its menu style.</p><p>To create a tear off menu without opening the normal menu first,
+changing its menu style.
+<P>
+
+To create a tear off menu without opening the normal menu first,
 the option
-<a href="#Menu_TearOffImmediately">TearOffImmediately</a>
+<I>TearOffImmediately</I>
 can be added to the
-<a href="#Menu">Menu</a> or <a href="#Popup">Popup</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="addtomenu"></a>31.1.8. AddToMenu</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddToMenu</code>   <em class="replaceable"><code>menu-name</code></em>  [<em class="replaceable"><code>menu-label</code></em> <em class="replaceable"><code>action</code></em>]</p></div><p>Begins or adds to a menu definition.  Typically a menu definition
-looks like this:</p><pre class="programlisting">
-AddToMenu Utilities Utilities <a href="#Title">Title</a>
- + Xterm           <a href="#Exec">Exec</a>  exec xterm -e tcsh
- + Rxvt            <a href="#Exec">Exec</a>  exec rxvt
- + "Remote Logins" <a href="#Popup">Popup</a> Remote-Logins
- + Top             <a href="#Exec">Exec</a>  exec rxvt -T Top -n Top -e top
- + Calculator      <a href="#Exec">Exec</a>  exec xcalc
- + Xman            <a href="#Exec">Exec</a>  exec xman
- + Xmag            <a href="#Exec">Exec</a>  exec xmag
- + emacs           <a href="#Exec">Exec</a>  exec xemacs
- + Mail            MailFunction xmh "-font fixed"
- + ""              <a href="#Nop">Nop</a>
- + Modules         <a href="#Popup">Popup</a> Module-Popup
- + ""              <a href="#Nop">Nop</a>
- + Exit Fvwm       <a href="#Popup">Popup</a> Quit-Verify
-</pre><p>The menu could be invoked via</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 R A <a href="#Menu">Menu</a> Utilities Nop
-</pre><p>or</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 R A <a href="#Popup">Popup</a> Utilities
-</pre><p>There is no end-of-menu symbol.  Menus do not have to be defined
+<B>Menu</B> or <B>Popup</B>
+command.
+</DL>
+
+<DT><B>AddToMenu</B> <I>menu-name</I> [<I>menu-label</I>&nbsp;<I>action</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Begins or adds to a menu definition.  Typically a menu definition
+looks like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToMenu Utilities Utilities <B>Title</B>
+ + Xterm           <B>Exec</B>  exec xterm -e tcsh
+ + Rxvt            <B>Exec</B>  exec rxvt
+ + &quot;Remote Logins&quot; <B>Popup</B> Remote-Logins
+ + Top             <B>Exec</B>  exec rxvt -T Top -n Top -e top
+ + Calculator      <B>Exec</B>  exec xcalc
+ + Xman            <B>Exec</B>  exec xman
+ + Xmag            <B>Exec</B>  exec xmag
+ + emacs           <B>Exec</B>  exec xemacs
+ + Mail            MailFunction xmh &quot;-font fixed&quot;
+ + &quot;&quot;              <B>Nop</B>
+ + Modules         <B>Popup</B> Module-Popup
+ + &quot;&quot;              <B>Nop</B>
+ + Exit Fvwm       <B>Popup</B> Quit-Verify
+</PRE>
+
+</DL>
+
+<P>
+
+The menu could be invoked via
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 R A <B>Menu</B> Utilities Nop
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 R A <B>Popup</B> Utilities
+</PRE>
+
+</DL>
+
+<P>
+
+There is no end-of-menu symbol.  Menus do not have to be defined
 in a contiguous region of the
-<code class="filename">config</code>
+<I>config</I>
 file.  The quoted (or first word)
 portion in the above examples is the menu label,
 which appears in the menu when the user pops it up.  The remaining
 portion is an fvwm command which is executed if the user
-selects that menu item.  An empty menu-label ("") and the
-<a href="#Nop">Nop</a>
-function are used to insert a separator into the menu.</p><p>The keywords
-<a name="AddToMenu_DynamicPopUpAction"></a><font class="fvwmopt">DynamicPopUpAction</font>
+selects that menu item.  An empty menu-label (&quot;&quot;) and the
+<B>Nop</B>
+function are used to insert a separator into the menu.
+<P>
+
+The keywords
+<I>DynamicPopUpAction</I>
 and
-<a name="AddToMenu_DynamicPopDownAction"></a><font class="fvwmopt">DynamicPopDownAction</font>
+<I>DynamicPopDownAction</I>
 have a special meaning when used as the name of a menu item.  The
 action following the keyword is executed whenever the menu is
 popped up or down.  This way you can implement dynamic menus.  It
 is even possible to destroy itself with
-<a href="#DestroyMenu">DestroyMenu</a>
+<B>DestroyMenu</B>
 and the rebuild from scratch.  When the menu has been destroyed
 (unless you used the
-<a href="#DestroyMenu_recreate">recreate</a>
+<I>recreate</I>
 option when destroying the menu), do not forget to add the dynamic
-action again.</p><p>Note: Do not trigger actions that require user interaction. They
+action again.
+<P>
+
+Note: Do not trigger actions that require user interaction.  They
 may fail and may screw up your menus.  See the
-<a href="#Silent">Silent</a>
-command.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Do not issue
-<a href="#MenuStyle">MenuStyle</a>
+<B>Silent</B>
+command.
+<P>
+
+
+
+<BR>
+
+<B>Warning</B>
+Do not issue
+<B>MenuStyle</B>
 commands as dynamic menu actions.  Chances are good that this
-crashes fvwm.</div><p>There are several configurable scripts installed together with fvwm
+crashes fvwm.
+<P>
+
+There are several configurable scripts installed together with fvwm
 for automatic menu generation.  They have their own man pages.
 Some of them, specifically
-<span><strong class="command">fvwm-menu-directory</strong></span> and
-<span><strong class="command">fvwm-menu-desktop</strong></span>, may be used with
-<a name="AddToMenu_DynamicPopupAction"></a><font class="fvwmopt">DynamicPopupAction</font>
-to create a directory listing or <acronym class="acronym">GNOME</acronym>/<acronym class="acronym">KDE</acronym>
-application listing.</p><p>Example (File browser):</p><pre class="programlisting">
+<B><a href="<?php echo conv_link_target('./fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B> and
+<B><a href="<?php echo conv_link_target('./fvwm-menu-desktop.php');?>">fvwm-menu-desktop</a></B>, may be used with
+<I>DynamicPopupAction</I>
+to create a directory listing or GNOME/KDE
+application listing.
+<P>
+
+Example (File browser):
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # You can find the shell script fvwm_make_browse_menu.sh
 # in the utils/ directory of the distribution.
 AddToMenu BrowseMenu
-+ DynamicPopupAction <a href="#PipeRead">PipeRead</a> \
++ DynamicPopupAction <B>PipeRead</B> \
   'fvwm_make_browse_menu.sh BrowseMenu'
-</pre><p>Example (Picture menu):</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Example (Picture menu):
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Build a menu of all .jpg files in
 # $HOME/Pictures
 AddToMenu JpgMenu foo title
-+ DynamicPopupAction <a href="#Function">Function</a> MakeJpgMenu
++ DynamicPopupAction <B>Function</B> MakeJpgMenu
 
-<a href="#AddToFunc">AddToFunc</a> MakeJpgMenu
-+ I <a href="#DestroyMenu">DestroyMenu</a> recreate JpgMenu
-+ I AddToMenu JpgMenu Pictures <a href="#Title">Title</a>
-+ I <a href="#PipeRead">PipeRead</a> 'for i in <code class="envar">$HOME</code>/Pictures/*.jpg; \
-  do echo AddToMenu JpgMenu "`basename $i`" <a href="#Exec">Exec</a> xv $i; done'
-</pre><p>The keyword
-<a name="AddToMenu_MissingSubmenuFunction"></a><font class="fvwmopt">MissingSubmenuFunction</font>
+<B>AddToFunc</B> MakeJpgMenu
++ I <B>DestroyMenu</B> recreate JpgMenu
++ I AddToMenu JpgMenu Pictures <B>Title</B>
++ I <B>PipeRead</B> 'for i in <I>$HOME</I>/Pictures/*.jpg; \
+  do echo AddToMenu JpgMenu &quot;`basename $i`&quot; <B>Exec</B> xv $i; done'
+</PRE>
+
+</DL>
+
+<P>
+
+The keyword
+<I>MissingSubmenuFunction</I>
 has a similar meaning.  It is executed whenever you try to pop up
 a sub menu that does not exist.  With this function you can define
 and destroy menus on the fly.  You can use any command after the
 keyword, but if the name of an item (that is a submenu) defined with
-<a href="#AddToFunc">AddToFunc</a>
-follows it, fvwm executes this command:</p><pre class="programlisting"><a href="#Function">Function</a> &lt;function-name&gt; &lt;submenu-name&gt;</pre><p>i.e. the name is passed to the function as its first argument and
-can be referred to with "$0".</p><p>The
-<span><strong class="command">fvwm-menu-directory</strong></span>
+<B>AddToFunc</B>
+follows it, fvwm executes this command:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Function</B> &lt;function-name&gt; &lt;submenu-name&gt;
+</PRE>
+
+</DL>
+
+<P>
+
+i.e. the name is passed to the function as its first argument and
+can be referred to with &quot;$0&quot;.
+<P>
+
+The
+<B><a href="<?php echo conv_link_target('./fvwm-menu-directory.php');?>">fvwm-menu-directory</a></B>
 script mentioned above may be used with
-<span class="emphasis"><em>MissingSubmenuFunction</em></span>
-to create an up to date recursive directory listing.</p><p>Example:</p><pre class="programlisting">
+<I>MissingSubmenuFunction</I>
+to create an up to date recursive directory listing.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # There is another shell script fvwm_make_directory_menu.sh
 # in the utils/ directory of the distribution. To use it,
 # define this function in your configuration file:
 
-<a href="#DestroyFunc">DestroyFunc</a> MakeMissingDirectoryMenu
-<a href="#AddToFunc">AddToFunc</a> MakeMissingDirectoryMenu
-+ I <a href="#PipeRead">PipeRead</a> fvwm_make_directory_menu.sh $0
+<B>DestroyFunc</B> MakeMissingDirectoryMenu
+<B>AddToFunc</B> MakeMissingDirectoryMenu
++ I <B>PipeRead</B> fvwm_make_directory_menu.sh $0
 
-<a href="#DestroyMenu">DestroyMenu</a> SomeMenu
+<B>DestroyMenu</B> SomeMenu
 AddToMenu SomeMenu
 + MissingSubmenuFunction MakeMissingDirectoryMenu
-+ "Root directory" <a href="#Popup">Popup</a> /
-</pre><p>This is another implementation of the file browser that uses
-sub menus for subdirectories.</p><p>Titles can be used within the menu. If you add the option
-<a name="AddToMenu_top"></a><font class="fvwmopt">top</font>
++ &quot;Root directory&quot; <B>Popup</B> /
+</PRE>
+
+</DL>
+
+<P>
+
+This is another implementation of the file browser that uses
+sub menus for subdirectories.
+<P>
+
+Titles can be used within the menu.  If you add the option
+<I>top</I>
 behind the keyword
-<a href="#Title">Title</a>,
+<B>Title</B>,
 the title is added to the top of the menu.  If there was a title
-already, it is overwritten.</p><pre class="programlisting">AddToMenu Utilities Tools Title top</pre><p>All text up to the first
-<span class="keysym">Tab</span>
+already, it is overwritten.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToMenu Utilities Tools Title top
+</PRE>
+
+</DL>
+
+<P>
+
+All text up to the first
+<FONT>Tab</FONT>
 in the menu label is aligned to the left side of the menu, all
 text right of the first
-<span class="keysym">Tab</span>
+<FONT>Tab</FONT>
 is aligned to the left in a second column and all text thereafter
 is placed right aligned in the third column.  All other
-<span class="keysym">Tab</span>s
+<FONT>Tab</FONT>
+s
 are replaced by spaces.  Note that you can change this format with
 the
-<a href="#MenuStyle_ItemFormat">ItemFormat</a>
+<I>ItemFormat</I>
 option of the
-<a href="#MenuStyle">MenuStyle</a>
-command.</p><p>If the menu-label contains an ampersand ('&amp;'), the next character
+<B>MenuStyle</B>
+command.
+<P>
+
+If the menu-label contains an ampersand ('&amp;'), the next character
 is taken as a hot-key for the menu item.  Hot-keys are underlined
-in the label.  To get a literal '&amp;', insert "&amp;&amp;".  Pressing the
+in the label.  To get a literal '&amp;', insert &quot;&amp;&amp;&quot;.  Pressing the
 hot-key moves through the list of menu items with this hot-key or
-selects an item that is the only one with this hot-key.</p><p>If the menu-label contains a sub-string which is set off by stars,
+selects an item that is the only one with this hot-key.
+<P>
+
+If the menu-label contains a sub-string which is set off by stars,
 then the text between the stars is expected to be the name of an
-image file to insert in the menu.  To get a literal '*', insert "**".  For example</p><pre class="programlisting">+ Calculator*xcalc.xpm* <a href="#Exec">Exec</a> exec xcalc</pre><p>inserts a menu item labeled "Calculator" with a picture of a
-calculator above it.  The following:</p><pre class="programlisting">+ *xcalc.xpm*           <a href="#Exec">Exec</a> exec xcalc</pre><p>Omits the "Calculator" label, but leaves the picture.</p><p>If the menu-label contains a sub-string which is set off by
+image file to insert in the menu.  To get a literal '*', insert &quot;**&quot;.  For example
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
++ Calculator*xcalc.xpm* <B>Exec</B> exec xcalc
+</PRE>
+
+</DL>
+
+<P>
+
+inserts a menu item labeled &quot;Calculator&quot; with a picture of a
+calculator above it.  The following:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
++ *xcalc.xpm*           <B>Exec</B> exec xcalc
+</PRE>
+
+</DL>
+
+<P>
+
+Omits the &quot;Calculator&quot; label, but leaves the picture.
+<P>
+
+If the menu-label contains a sub-string which is set off by
 percent signs, then the text between the percent signs is expected
 to be the name of image file (a so called mini icon to insert to
 the left of the menu label.  A second mini icon that is drawn at
 the right side of the menu can be given in the same way.  To get a
-literal '%', insert "%%". For example</p><pre class="programlisting">+ Calculator%xcalc.xpm% <a href="#Exec">Exec</a> exec xcalc</pre><p>inserts a menu item labeled "Calculator" with a picture of a
-calculator to the left.  The following:</p><pre class="programlisting">+ %xcalc.xpm%           <a href="#Exec">Exec</a> exec xcalc</pre><p>Omits the "Calculator" label, but leaves the picture.  The
-pictures used with this feature should be small (perhaps 16x16).</p><p>If the menu-name (not the label) contains a sub-string which is
+literal '%', insert &quot;%%&quot;.  For example
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
++ Calculator%xcalc.xpm% <B>Exec</B> exec xcalc
+</PRE>
+
+</DL>
+
+<P>
+
+inserts a menu item labeled &quot;Calculator&quot; with a picture of a
+calculator to the left.  The following:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
++ %xcalc.xpm%           <B>Exec</B> exec xcalc
+</PRE>
+
+</DL>
+
+<P>
+
+Omits the &quot;Calculator&quot; label, but leaves the picture.  The
+pictures used with this feature should be small (perhaps 16x16).
+<P>
+
+If the menu-name (not the label) contains a sub-string which is
 set off by at signs ('@'), then the text between them is expected
 to be the name of an image file to draw along the left
 side of the menu (a side pixmap).  You may want to use the
-<a href="#MenuStyle_SidePic">SidePic</a>
+<I>SidePic</I>
 option of the
-<a href="#MenuStyle">MenuStyle</a>
-command instead.  To get a literal '@', insert "@@".  For example</p><pre class="programlisting">AddToMenu StartMenu@linux-menu.xpm@</pre><p>creates a menu with a picture in its bottom left corner.</p><p>If the menu-name also contains a sub-string surrounded by '^'s, then
+<B>MenuStyle</B>
+command instead.  To get a literal '@', insert &quot;@@&quot;.  For example
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@
+</PRE>
+
+</DL>
+
+<P>
+
+creates a menu with a picture in its bottom left corner.
+<P>
+
+If the menu-name also contains a sub-string surrounded by '^'s, then
 the text between '^'s is expected to be the name of an X11 color
 and the column containing the side picture is colored with that
 color.  You can set this color for a menu style using the
-<a href="#MenuStyle_SideColor">SideColor</a>
+<I>SideColor</I>
 option of the
-<a href="#MenuStyle">MenuStyle</a>
-command.  To get a literal '^', insert "^^".  Example:</p><pre class="programlisting">AddToMenu StartMenu@linux-menu.xpm@^blue^</pre><p>creates a menu with a picture in its bottom left corner and
-colors with blue the region of the menu containing the picture.</p><p>In all the above cases, the name of the resulting menu is name
+<B>MenuStyle</B>
+command.  To get a literal '^', insert &quot;^^&quot;.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToMenu <a name="local-fix:linux-menu.xpm">StartMenu@linux-menu.xpm</A>@^blue^
+</PRE>
+
+</DL>
+
+<P>
+
+creates a menu with a picture in its bottom left corner and
+colors with blue the region of the menu containing the picture.
+<P>
+
+In all the above cases, the name of the resulting menu is name
 specified, stripped of the substrings between the various
-delimiters.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ChangeMenuStyle"></a>31.1.9. ChangeMenuStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ChangeMenuStyle</code>   <em class="replaceable"><code>menustyle</code></em>   <em class="replaceable"><code>menu</code></em>... </p></div><p>Changes the menu style of
-<em class="replaceable"><code>menu</code></em> to <em class="replaceable"><code>menustyle</code></em>.
+delimiters.
+</DL>
+
+<DT><B>ChangeMenuStyle</B> <I>menustyle</I> <I>menu</I> ...<DD>
+<DL COMPACT><DT><DD>
+
+Changes the menu style of
+<I>menu</I> to <I>menustyle</I>.
 You may specify more than one menu in each call of
-<span class="emphasis"><em>ChangeMenuStyle</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CopyMenuStyle"></a>31.1.10. CopyMenuStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CopyMenuStyle</code>   <em class="replaceable"><code>orig-menustyle</code></em>   <em class="replaceable"><code>dest-menustyle</code></em> </p></div><p>Copy
-<em class="replaceable"><code>orig-menustyle</code></em> to
-<em class="replaceable"><code>dest-menustyle</code></em>,
+<B>ChangeMenuStyle</B>.
+</DL>
+
+<DT><B>CopyMenuStyle</B> <I>orig-menustyle</I> <I>dest-menustyle</I><DD>
+<DL COMPACT><DT><DD>
+
+Copy
+<I>orig-menustyle</I> to
+<I>dest-menustyle</I>,
 where
-<em class="replaceable"><code>orig-menustyle</code></em>
+<I>orig-menustyle</I>
 is an existing menu style.  If the menu style
-<em class="replaceable"><code>dest_menustyle</code></em>
-does not exist, then it is created.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyMenu"></a>31.1.11. DestroyMenu</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyMenu</code>  [recreate]  <em class="replaceable"><code>menu</code></em> </p></div><p>Deletes a menu, so that subsequent references to it are no longer
+<I>dest_menustyle</I>
+does not exist, then it is created.
+</DL>
+
+<DT><B>DestroyMenu</B> [recreate] <I>menu</I><DD>
+<DL COMPACT><DT><DD>
+
+Deletes a menu, so that subsequent references to it are no longer
 valid.  You can use this to change the contents of a menu during
 an fvwm session.  The menu can be rebuilt using
-<a href="#AddToMenu">AddToMenu</a>.
+<B>AddToMenu</B>.
 The optional parameter
-<a name="DestroyMenu_recreate"></a><font class="fvwmopt">recreate</font>
+<I>recreate</I>
 tells fvwm not to throw away the menu completely but to throw away
-all the menu items (including the title).</p><pre class="programlisting">DestroyMenu Utilities</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyMenuStyle"></a>31.1.12. DestroyMenuStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyMenuStyle</code>   <em class="replaceable"><code>menustyle</code></em> </p></div><p>Deletes the menu style named
-<em class="replaceable"><code>menustyle</code></em>
+all the menu items (including the title).
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+DestroyMenu Utilities
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>DestroyMenuStyle</B> <I>menustyle</I><DD>
+<DL COMPACT><DT><DD>
+
+Deletes the menu style named
+<I>menustyle</I>
 and changes all menus using this style to the default style, you
-cannot destroy the default menu style.</p><pre class="programlisting">DestroyMenuStyle pixmap1</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Menu"></a>31.1.13. Menu</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Menu</code>   <em class="replaceable"><code>menu-name</code></em>  [<em class="replaceable"><code>position</code></em>] [<em class="replaceable"><code>double-click-action</code></em>]</p></div><p>Causes a previously defined menu to be popped up in a sticky
+cannot destroy the default menu style.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+DestroyMenuStyle pixmap1
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Menu</B> <I>menu-name</I> [<I>position</I>] [<I>double-click-action</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Causes a previously defined menu to be popped up in a sticky
 manner.  That is, if the user invokes the menu with a click action
 instead of a drag action, the menu stays up.  The command
-<em class="replaceable"><code>double-click-action</code></em>
+<I>double-click-action</I>
 is invoked if the user double-clicks a button (or hits the key
 rapidly twice if the menu is bound to a key) when bringing up the
 menu.  If the double click action is not specified, double
@@ -1856,122 +3733,280 @@ clicking on the menu does nothing.  However, if the menu begins
 with a menu item (i.e. not with a title or a separator) and the
 double click action is not given, double clicking invokes the
 first item of the menu (but only if the pointer really was over
-the item).</p><p>The pointer is warped to where it was when the menu was invoked if
-it was both invoked and closed with a keystroke.</p><p>The
-<em class="replaceable"><code>position</code></em>
+the item).
+<P>
+
+The pointer is warped to where it was when the menu was invoked if
+it was both invoked and closed with a keystroke.
+<P>
+
+The
+<I>position</I>
 arguments allow placement of the menu somewhere on the screen, for
 example centered on the visible screen or above a title bar.
 Basically it works like this: you specify a
-<em class="replaceable"><code>context-rectangle</code></em>
+<I>context-rectangle</I>
 and an offset to this rectangle by which the upper left corner of
 the menu is moved from the upper left corner of the rectangle.
 The
-<em class="replaceable"><code>position</code></em>
-arguments consist of several parts:</p><div class="cmdsynopsis"><p>[<em class="replaceable"><code>context-rectangle</code></em>]  <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em>  [<em class="replaceable"><code>special-options</code></em>]</p></div><p>The
-<em class="replaceable"><code>context-rectangle</code></em>
-can be one of:</p><div class="variablelist"><dl><dt><span class="term"><a name="Menu_Root"></a><font class="fvwmopt">Root</font></span></dt><dd><p>the root window of the current screen.</p></dd><dt><span class="term"><a name="Menu_XineramaRoot"></a><font class="fvwmopt">XineramaRoot</font></span></dt><dd><p>the root window of the whole Xinerama screen.  Equivalent to "root" when Xinerama is not used.</p></dd><dt><span class="term"><a name="Menu_Mouse"></a><font class="fvwmopt">Mouse</font></span></dt><dd><p>a 1x1 rectangle at the mouse position.</p></dd><dt><span class="term"><a name="Menu_Window"></a><font class="fvwmopt">Window</font></span></dt><dd><p>the frame of the context window.</p></dd><dt><span class="term"><a name="Menu_Interior"></a><font class="fvwmopt">Interior</font></span></dt><dd><p>the inside of the context window.</p></dd><dt><span class="term"><a name="Menu_Title"></a><font class="fvwmopt">Title</font></span></dt><dd><p>the title of the context window or icon.</p></dd><dt><span class="term"><a name="Menu_Button"></a><font class="fvwmopt">Button</font>&lt;n&gt;</span></dt><dd><p>button #n of the context window.</p></dd><dt><span class="term"><a name="Menu_Icon"></a><font class="fvwmopt">Icon</font></span></dt><dd><p>the icon of the context window.</p></dd><dt><span class="term"><a name="Menu_Menu"></a><font class="fvwmopt">Menu</font></span></dt><dd><p>the current menu.</p></dd><dt><span class="term"><a name="Menu_Item"></a><font class="fvwmopt">Item</font></span></dt><dd><p>the current menu item.</p></dd><dt><span class="term"><a name="Menu_Context"></a><font class="fvwmopt">Context</font></span></dt><dd><p>the current window, menu or icon.</p></dd><dt><span class="term"><a name="Menu_This"></a><font class="fvwmopt">This</font></span></dt><dd><p>whatever widget the pointer is on (e.g. a corner of a window or the root window).</p></dd><dt><span class="term"><a name="Menu_Rectangle"></a><font class="fvwmopt">Rectangle</font> &lt;<em class="replaceable"><code>geometry</code></em>&gt;</span></dt><dd><p>the rectangle defined by &lt;<em class="replaceable"><code>geometry</code></em>&gt; in X geometry format.  Width and height default to 1 if omitted.</p></dd></dl></div><p>If the context-rectangle is omitted or illegal (e.g. "item" on a
-window), "Mouse" is the default.  Note that not all of these make
-sense under all circumstances (e.g. "Icon" if the pointer is on a
-menu).</p><p>The offset values
-<em class="replaceable"><code>x</code></em>
+<I>position</I>
+arguments consist of several parts:
+<DL COMPACT>
+<DT>
+[<I>context-rectangle</I>] <I>x</I> <I>y</I> [<I>special-options</I>]
+</DL>
+<P>
+
+<DD>The
+<I>context-rectangle</I>
+can be one of:
+<P>
+
+<I>Root</I>
+<DL COMPACT><DT><DD>
+the root window of the current screen.
+</DL>
+
+<P>
+
+<I>XineramaRoot</I>
+<DL COMPACT><DT><DD>
+the root window of the whole Xinerama screen.  Equivalent to &quot;root&quot; when Xinerama is not used.
+</DL>
+
+<P>
+
+<I>Mouse</I>
+<DL COMPACT><DT><DD>
+a 1x1 rectangle at the mouse position.
+</DL>
+
+<P>
+
+<I>Window</I>
+<DL COMPACT><DT><DD>
+the frame of the context window.
+</DL>
+
+<P>
+
+<I>Interior</I>
+<DL COMPACT><DT><DD>
+the inside of the context window.
+</DL>
+
+<P>
+
+<I>Title</I>
+<DL COMPACT><DT><DD>
+the title of the context window or icon.
+</DL>
+
+<P>
+
+<I>Button</I>&lt;n&gt;
+<DL COMPACT><DT><DD>
+button #n of the context window.
+</DL>
+
+<P>
+
+<I>Icon</I>
+<DL COMPACT><DT><DD>
+the icon of the context window.
+</DL>
+
+<P>
+
+<I>Menu</I>
+<DL COMPACT><DT><DD>
+the current menu.
+</DL>
+
+<P>
+
+<I>Item</I>
+<DL COMPACT><DT><DD>
+the current menu item.
+</DL>
+
+<P>
+
+<I>Context</I>
+<DL COMPACT><DT><DD>
+the current window, menu or icon.
+</DL>
+
+<P>
+
+<I>This</I>
+<DL COMPACT><DT><DD>
+whatever widget the pointer is on (e.g. a corner of a window or the root window).
+</DL>
+
+<P>
+
+<I>Rectangle</I> &lt;<I>geometry</I>&gt;
+<DL COMPACT><DT><DD>
+the rectangle defined by &lt;<I>geometry</I>&gt; in X geometry format.  Width and height default to 1 if omitted.
+</DL>
+
+<P>
+
+If the context-rectangle is omitted or illegal (e.g. &quot;item&quot; on a
+window), &quot;Mouse&quot; is the default.  Note that not all of these make
+sense under all circumstances (e.g. &quot;Icon&quot; if the pointer is on a
+menu).
+<P>
+
+The offset values
+<I>x</I>
 and
-<em class="replaceable"><code>y</code></em>
+<I>y</I>
 specify how far the menu is moved from its default position.  By
 default, the numeric value given is interpreted as a percentage of
-the context rectangle's width (height), but with a trailing
-'<a name="Menu_m"></a><font class="fvwmopt">m</font>'
-the menu's width (height) is used instead.  Furthermore a trailing
-'<a name="Menu_p"></a><font class="fvwmopt">p</font>'
-changes the interpretation to mean pixels.</p><p>Instead of a single value you can use a list of values.  All
+the context rectangle's width (height), but with a trailing '<I>m</I>'
+the menu's width (height) is used instead.  Furthermore a trailing '<I>p</I>'
+changes the interpretation to mean pixels.
+<P>
+
+Instead of a single value you can use a list of values.  All
 additional numbers after the first one are separated from their
-predecessor by their sign.  Do not use any other separators.</p><p>If
-<em class="replaceable"><code>x</code></em> or <em class="replaceable"><code>y</code></em>
-are prefixed with "'<a name="Menu_o"></a><font class="fvwmopt">o</font>&lt;number&gt;" where &lt;number&gt; is an integer, the
+predecessor by their sign.  Do not use any other separators.
+<P>
+
+If
+<I>x</I> or <I>y</I>
+are prefixed with &quot;'<I>o</I>&lt;number&gt;&quot; where &lt;number&gt; is an integer, the
 menu and the rectangle are moved to overlap at the specified
 position before any other offsets are applied.  The menu and the
 rectangle are placed so that the pixel at &lt;number&gt; percent of the
 rectangle's width/height is right over the pixel at &lt;number&gt;
-percent of the menu's width/height. So "o0" means that the
+percent of the menu's width/height.  So &quot;o0&quot; means that the
 top/left borders of the menu and the rectangle overlap, with
-"o100" it's the bottom/right borders and if you use "o50" they are
+&quot;o100&quot; it's the bottom/right borders and if you use &quot;o50&quot; they are
 centered upon each other (try it and you will see it is much
-simpler than this description).  The default is "o0".  The prefix
-"o&lt;number&gt;" is an abbreviation for "+&lt;number&gt;-&lt;number&gt;m".</p><p>A prefix of
-'<a name="Menu_c"></a><font class="fvwmopt">c</font>'
-is equivalent to "o50".  Examples:</p><pre class="programlisting">
+simpler than this description).  The default is &quot;o0&quot;.  The prefix
+&quot;o&lt;number&gt;&quot; is an abbreviation for &quot;+&lt;number&gt;-&lt;number&gt;m&quot;.
+<P>
+
+A prefix of '<I>c</I>'
+is equivalent to &quot;o50&quot;.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # window list in the middle of the screen
-<a href="#WindowList">WindowList</a> Root c c
+<B>WindowList</B> Root c c
 
 # menu to the left of a window
 Menu name window -100m c+0
 
 # popup menu 8 pixels above the mouse pointer
-<a href="#Popup">Popup</a> name mouse c -100m-8p
+<B>Popup</B> name mouse c -100m-8p
 
 # somewhere on the screen
 Menu name rectangle 512x384+1+1 +0 +0
 
 # centered vertically around a menu item
-<a href="#AddToMenu">AddToMenu</a> foobar-menu
- + "first item" <a href="#Nop">Nop</a>
- + "special item" <a href="#Popup">Popup</a> "another menu" item +100 c
- + "last item" <a href="#Nop">Nop</a>
+<B>AddToMenu</B> foobar-menu
+ + &quot;first item&quot; <B>Nop</B>
+ + &quot;special item&quot; <B>Popup</B> &quot;another menu&quot; item +100 c
+ + &quot;last item&quot; <B>Nop</B>
 
 # above the first menu item
-<a href="#AddToMenu">AddToMenu</a> foobar-menu
- + "first item" <a href="#Popup">Popup</a> "another menu" item +0 -100m
-</pre><p>Note that you can put a sub menu far off the current menu so you
+<B>AddToMenu</B> foobar-menu
+ + &quot;first item&quot; <B>Popup</B> &quot;another menu&quot; item +0 -100m
+</PRE>
+
+</DL>
+
+<P>
+
+Note that you can put a sub menu far off the current menu so you
 could not reach it with the mouse without leaving the menu.  If
 the pointer leaves the current menu in the general direction of
-the sub menu the menu stays up.</p><p>The
-<em class="replaceable"><code>special-options</code></em>:</p><p>To create a tear off menu without opening the normal menu, add the
+the sub menu the menu stays up.
+<P>
+
+The
+<I>special-options</I>:
+<P>
+
+To create a tear off menu without opening the normal menu, add the
 option
-<a name="Menu_TearOffImmediately"></a><font class="fvwmopt">TearOffImmediately</font>.
+<I>TearOffImmediately</I>.
 Normally the menu opens in normal state for a split second before
 being torn off.  As tearing off places the menu like any other
-window, a position should be specified explicitly:</p><pre class="programlisting">
+window, a position should be specified explicitly:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Forbid fvwm to place the menu window
-<a href="#Style">Style</a> &lt;name of menu&gt; UsePPosition
+<B>Style</B> &lt;name of menu&gt; UsePPosition
 # Menu at top left corner of screen
 Menu Root 0p 0p TearOffImmediately
-</pre><p>The
-<a href="#MenuStyle_Animated">Animated</a> and
-<a href="#MenuStyle_Mwm">Mwm</a> or
-<a href="#MenuStyle_Win">Win</a>
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>Animated</I> and
+<I>Mwm</I> or
+<I>Win</I>
 menu styles may move a menu somewhere else on the screen.  If you
 do not want this you can add
-<a name="Menu_Fixed"></a><font class="fvwmopt">Fixed</font>
+<I>Fixed</I>
 as an option.  This might happen for example if you want the menu
-always in the top right corner of the screen.</p><p>Where do you want a menu to appear when you click on its menu
+always in the top right corner of the screen.
+<P>
+
+Where do you want a menu to appear when you click on its menu
 item? The default is to place the title under the cursor, but if
 you want it where the position arguments say, use the
-<a name="Menu_SelectInPlace"></a><font class="fvwmopt">SelectInPlace</font>
+<I>SelectInPlace</I>
 option.  If you want the pointer on the title of the menu, use
-<a name="Menu_SelectWarp"></a><font class="fvwmopt">SelectWarp</font>
+<I>SelectWarp</I>
 too.  Note that these options apply only if the
-<a href="#MenuStyle_PopupAsRootMenu">PopupAsRootMenu</a> <a href="#MenuStyle">MenuStyle</a>
-option is used.</p><p>The pointer is warped to the title of a sub menu whenever the
+<I>PopupAsRootMenu</I> <B>MenuStyle</B>
+option is used.
+<P>
+
+The pointer is warped to the title of a sub menu whenever the
 pointer would be on an item when the sub menu is popped up
-(<span class="emphasis"><em>fvwm</em></span>
+(<I>fvwm</I>
 menu style) or never warped to the title at all
-(<a href="#MenuStyle_Mwm">Mwm</a> or
-<a href="#MenuStyle_Win">Win</a>
+(<I>Mwm</I> or
+<I>Win</I>
 menu styles).  You can force (forbid) warping whenever the
 sub menu is opened with the
-<a name="Menu_WarpTitle"></a><font class="fvwmopt">WarpTitle</font> (<a name="Menu_NoWarp"></a><font class="fvwmopt">NoWarp</font>) option.</p><p>Note that the
-<em class="replaceable"><code>special-options</code></em>
-do work with a normal menu that has no other position arguments.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MenuStyle"></a>31.1.14. MenuStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MenuStyle</code>   <em class="replaceable"><code>stylename</code></em>  [<em class="replaceable"><code>options</code></em>]</p></div><p>Sets a new menu style or changes a previously defined style.  The
-<em class="replaceable"><code>stylename</code></em>
+<I>WarpTitle</I> (<I>NoWarp</I>) option.
+<P>
+
+Note that the
+<I>special-options</I>
+do work with a normal menu that has no other position arguments.
+</DL>
+
+<DT><B>MenuStyle</B> <I>stylename</I> [<I>options</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Sets a new menu style or changes a previously defined style.  The
+<I>stylename</I>
 is the style name; if it contains spaces or tabs it has to be
-quoted.  The name "*" is reserved for the default menu style. The
+quoted.  The name &quot;*&quot; is reserved for the default menu style.  The
 default menu style is used for every menu-like object (e.g. the
 window created by the
-<a href="#WindowList">WindowList</a>
+<B>WindowList</B>
 command) that had not be assigned a style using the
-<a href="#ChangeMenuStyle">ChangeMenuStyle</a>.
+<B>ChangeMenuStyle</B>.
 See also
-<a href="#DestroyMenuStyle">DestroyMenuStyle</a>.
-When using monochrome color options are ignored.</p><p><em class="replaceable"><code>options</code></em>
+<B>DestroyMenuStyle</B>.
+When using monochrome color options are ignored.
+<P>
+
+<I>options</I>
 is a comma separated list containing some of the keywords
 Fvwm / Mwm / Win,
 BorderWidth,
@@ -2014,34 +4049,51 @@ VerticalTitleSpacing,
 AutomaticHotkeys / !AutomaticHotkeys,
 MouseWheel,
 ScrollOffPage / !ScrollOffPage,
-TrianglesUseFore / !TrianglesUseFore.</p><p>In the above list some options are listed as option pairs or
+TrianglesUseFore / !TrianglesUseFore.
+<P>
+
+In the above list some options are listed as option pairs or
 triples with a '/' in between.  These options exclude each other.
 All paired options can be negated to have the effect of the
-counterpart option by prefixing ! to the option.</p><p>Some options are now negated by prefixing ! to the option. This
-is the preferred form for all such options. The other negative
-forms are now deprecated and will be removed in the future.</p><p>This is a list of MenuStyle deprecated negative options:
+counterpart option by prefixing ! to the option.
+<P>
+
+Some options are now negated by prefixing ! to the option.  This
+is the preferred form for all such options.  The other negative
+forms are now deprecated and will be removed in the future.
+<P>
+
+This is a list of MenuStyle deprecated negative options:
 ActiveForeOff, AnimationOff, AutomaticHotkeysOff, HilightBackOff,
-TitleWarpOff</p><p>
-<a name="MenuStyle_Fvwm"></a><font class="fvwmopt">Fvwm</font>,
-<a name="MenuStyle_Mwm"></a><font class="fvwmopt">Mwm</font>,
-<a name="MenuStyle_Win"></a><font class="fvwmopt">Win</font>
+TitleWarpOff
+<P>
+
+<I>Fvwm</I>,
+<I>Mwm</I>,
+<I>Win</I>
 reset all options to the style with the same name in former
 versions of fvwm.  The default for new menu styles is
-<span class="emphasis"><em>Fvwm</em></span>
+<I>Fvwm</I>
 style.  These options override all others except
-<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span>, <span class="emphasis"><em>Greyed</em></span>, <span class="emphasis"><em>HilightBack</em></span>,
-<span class="emphasis"><em>ActiveFore</em></span> and <span class="emphasis"><em>PopupDelay</em></span>,
+<I>Foreground</I>, <I>Background</I>, <I>Greyed</I>, <I>HilightBack</I>,
+<I>ActiveFore</I> and <I>PopupDelay</I>,
 so they should be used only as the first option specified for a
 menu style or to reset the style to defined behavior.  The same
-effect can be created by setting all the other options one by one.</p><p><span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+effect can be created by setting all the other options one by one.
+<P>
+
+<I>Mwm</I> and <I>Win</I>
 style menus popup sub menus automatically.
-<span class="emphasis"><em>Win</em></span>
+<I>Win</I>
 menus indicate the current menu item by changing the background to
 dark.
-<span class="emphasis"><em>Fvwm</em></span>
+<I>Fvwm</I>
 sub menus overlap the parent menu,
-<span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
-style menus never overlap the parent menu.</p><p><span class="emphasis"><em>Fvwm</em></span>
+<I>Mwm</I> and <I>Win</I>
+style menus never overlap the parent menu.
+<P>
+
+<I>Fvwm</I>
 style is equivalent to !HilightBack, Hilight3DThin,
 !ActiveFore,
 !Animation, Font, MenuFace, PopupOffset 0 67,
@@ -2049,464 +4101,672 @@ TitleWarp, TitleUnderlines1, SeparatorsShort, TrianglesRelief,
 PopupDelayed, PopdownDelayed, PopupDelay 150, PopdownDelay 150,
 PopupAsSubmenu, HoldSubmenus,
 SubmenusRight, BorderWidth 2, !AutomaticHotkeys,
-PopupActiveArea 75.</p><p><span class="emphasis"><em>Mwm</em></span>
+PopupActiveArea 75.
+<P>
+
+<I>Mwm</I>
 style is equivalent to !HilightBack, Hilight3DThick,
 !ActiveFore,
 !Animation, Font, MenuFace, PopupOffset -3 100,
 !TitleWarp, TitleUnderlines2, SeparatorsLong, TrianglesRelief,
 PopupImmediately, PopdownDelayed, PopdownDelay 150,
 PopupAsSubmenu, HoldSubmenus, SubmenusRight, BorderWidth 2,
-!AutomaticHotkeys, PopupActiveArea 75.</p><p><span class="emphasis"><em>Win</em></span>
+!AutomaticHotkeys, PopupActiveArea 75.
+<P>
+
+<I>Win</I>
 style is equivalent to HilightBack, Hilight3DOff, ActiveFore,
 !Animation, Font, MenuFace, PopupOffset -5 100, !TitleWarp,
 TitleUnderlines1, SeparatorsShort, TrianglesSolid,
 PopupImmediately, PopdownDelayed, PopdownDelay 150,
 PopupAsSubmenu, RemoveSubmenus, SubmenusRight, BorderWidth 2,
-!AutomaticHotkeys, PopupActiveArea 75.</p><p>
-<a name="MenuStyle_BorderWidth"></a><font class="fvwmopt">BorderWidth</font>
-takes the thickness of the border around the menus in pixels. It
+!AutomaticHotkeys, PopupActiveArea 75.
+<P>
+
+<I>BorderWidth</I>
+takes the thickness of the border around the menus in pixels.  It
 may be zero to 50 pixels.  The default is 2.  Using an illegal
-value reverts the border width to the default.</p><p>
-<a name="MenuStyle_Foreground"></a><font class="fvwmopt">Foreground</font> and
-<a name="MenuStyle_Background"></a><font class="fvwmopt">Background</font>
+value reverts the border width to the default.
+<P>
+
+<I>Foreground</I> and
+<I>Background</I>
 may have a color name as an argument.  This color is used for menu
 text or the menu's background.  You can omit the color name to
-reset these colors to the built-in default.</p><p>
-<a name="MenuStyle_Greyed"></a><font class="fvwmopt">Greyed</font>
+reset these colors to the built-in default.
+<P>
+
+<I>Greyed</I>
 may have a color name as an argument.  This color is the one used
 to draw a menu-selection which is prohibited (or not recommended)
-by the Mwm hints which an application has specified. If the color
+by the Mwm hints which an application has specified.  If the color
 is omitted the color of greyed menu entries is based on the
-background color of the menu.</p><p>
-<a name="MenuStyle_HilightBack"></a><font class="fvwmopt">HilightBack</font> and
-<span class="emphasis"><em>!HilightBack</em></span>
+background color of the menu.
+<P>
+
+<I>HilightBack</I> and
+<I>!HilightBack</I>
 switch hilighting the background of the selected menu item on and
 off.  A specific background color may be used by providing the
 color name as an argument to
-<span class="emphasis"><em>HilightBack</em></span>.
+<I>HilightBack</I>.
 If you use this option without an argument the color is based on
 the menu's background color.  The
-<span class="emphasis"><em>ActiveColorset</em></span>
-option overrides the specified color. If the colorset has a
-non solid background it is used for the hilighting.</p><p>
-<a name="MenuStyle_HilightTitleBack"></a><font class="fvwmopt">HilightTitleBack</font>
+<I>ActiveColorset</I>
+option overrides the specified color.  If the colorset has a
+non solid background it is used for the hilighting.
+<P>
+
+<I>HilightTitleBack</I>
 switches hilighting the background of menu titles on.  If a
-<span class="emphasis"><em>TitleColorset</em></span>
+<I>TitleColorset</I>
 was used, the background colour is taken from there.  Otherwise
-the color is based on the menu's background color. If the colorset
-has a non solid background it is used for the hilighting.</p><p>
-<a name="MenuStyle_ActiveFore"></a><font class="fvwmopt">ActiveFore</font> and
-<span class="emphasis"><em>!ActiveFore</em></span>
+the color is based on the menu's background color.  If the colorset
+has a non solid background it is used for the hilighting.
+<P>
+
+<I>ActiveFore</I> and
+<I>!ActiveFore</I>
 switch hilighting the foreground of the selected menu item on and
 off.  A specific foreground color may be used by providing the
 color name as an argument to
-<span class="emphasis"><em>ActiveFore</em></span>.
+<I>ActiveFore</I>.
 Omitting the color turns hilighting on when an
-<span class="emphasis"><em>ActiveColorset</em></span>
+<I>ActiveColorset</I>
 is used.
-<span class="emphasis"><em>ActiveFore</em></span>
+<I>ActiveFore</I>
 turns off hilighting the foreground completely.  The
-<span class="emphasis"><em>ActiveColorset</em></span>
-option overrides the specified color.</p><p>
-<a name="MenuStyle_MenuColorset"></a><font class="fvwmopt">MenuColorset</font>
+<I>ActiveColorset</I>
+option overrides the specified color.
+<P>
+
+<I>MenuColorset</I>
 controls if a colorset is used instead of the
-<span class="emphasis"><em>Foreground</em></span>, <span class="emphasis"><em>Background</em></span> and <span class="emphasis"><em>MenuFace</em></span>
+<I>Foreground</I>, <I>Background</I> and <I>MenuFace</I>
 menu styles.  If the
-<span class="emphasis"><em>MenuColorset</em></span>
+<I>MenuColorset</I>
 keyword is followed by a number equal to zero or greater, this
 number is taken as the number of the colorset to use.  If the
 number is omitted, the colorset is switched off and the regular
 menu styles are used again.  The foreground and background colors
-of the menu items are replaced by the colors from the colorset. If
+of the menu items are replaced by the colors from the colorset.  If
 the colorset has a pixmap defined, this pixmap is used as the
 background of the menu.  Note that the
-<span class="emphasis"><em>MenuFace</em></span>
+<I>MenuFace</I>
 menu style has been optimized for memory consumption and may use
 less memory than the background from a colorset.  The shape mask
 from the colorset is used to shape the menu.  Please refer to the
-<a href="#colorsets">Colorsets</a>
-section for details about colorsets.</p><p>
-<a name="MenuStyle_ActiveColorset"></a><font class="fvwmopt">ActiveColorset</font>
+<B>Colorsets</B>
+section for details about colorsets.
+<P>
+
+<I>ActiveColorset</I>
 works exactly like
-<span class="emphasis"><em>MenuColorset</em></span>,
+<I>MenuColorset</I>,
 but the foreground from the colorset replaces the color given with
 the
-<span class="emphasis"><em>ActiveFore</em></span>
+<I>ActiveFore</I>
 menu style and the colorset's background color replaces the color
 given with the
-<span class="emphasis"><em>HilightBack</em></span>
+<I>HilightBack</I>
 command (to turn on background hilighting you have to use the
-<span class="emphasis"><em>HilightBack</em></span>
+<I>HilightBack</I>
 menu style too).  If specified, the hilight and shadow colors
 from the colorset are used too.  The pixmap and shape mask from
 the colorset are not used.  Hilighting the background or
 foreground can be turned off individually with the
-<span class="emphasis"><em>!ActiveFore</em></span> or <span class="emphasis"><em>!HilightBack</em></span>
-menu styles.</p><p>
-<a name="MenuStyle_GreyedColorset"></a><font class="fvwmopt">GreyedColorset</font>
+<I>!ActiveFore</I> or <I>!HilightBack</I>
+menu styles.
+<P>
+
+<I>GreyedColorset</I>
 works exactly like
-<span class="emphasis"><em>MenuColorset</em></span>,
+<I>MenuColorset</I>,
 but the foreground from the colorset replaces the color given with
 the
-<span class="emphasis"><em>Greyed</em></span>
-menu style.  No other parts of the colorset are used.</p><p>
-<a name="MenuStyle_TitleColorset"></a><font class="fvwmopt">TitleColorset</font>
+<I>Greyed</I>
+menu style.  No other parts of the colorset are used.
+<P>
+
+<I>TitleColorset</I>
 works exactly like
-<span class="emphasis"><em>MenuColorset</em></span>,
-but is used only for menu titles.</p><p>
-<a name="MenuStyle_Hilight3DThick"></a><font class="fvwmopt">Hilight3DThick</font>,
-<a name="MenuStyle_Hilight3DThin"></a><font class="fvwmopt">Hilight3DThin</font> and
-<a name="MenuStyle_Hilight3DOff"></a><font class="fvwmopt">Hilight3DOff</font>
+<I>MenuColorset</I>,
+but is used only for menu titles.
+<P>
+
+<I>Hilight3DThick</I>,
+<I>Hilight3DThin</I> and
+<I>Hilight3DOff</I>
 determine if the selected menu item is hilighted with a 3D
-relief. Thick reliefs are two pixels wide, thin reliefs are one
-pixel wide.</p><p>
-<a name="MenuStyle_Hilight3DThickness"></a><font class="fvwmopt">Hilight3DThickness</font>
+relief.  Thick reliefs are two pixels wide, thin reliefs are one
+pixel wide.
+<P>
+
+<I>Hilight3DThickness</I>
 takes one numeric argument that may be between -50 and +50
-pixels. With negative values the menu item gets a pressed in look.
+pixels.  With negative values the menu item gets a pressed in look.
 The above three commands are equivalent to a thickness of 2, 1 and
-0.</p><p>
-<a name="MenuStyle_Animation"></a><font class="fvwmopt">Animation</font> and
-<span class="emphasis"><em>!Animation</em></span>
+0.
+<P>
+
+<I>Animation</I> and
+<I>!Animation</I>
 turn menu animation on or off.  When animation is on, sub menus
 that do not fit on the screen cause the parent menu to be shifted
-to the left so the sub menu can be seen.</p><p>
-<a name="MenuStyle_Font"></a><font class="fvwmopt">Font</font> and
-<a name="MenuStyle_TitleFont"></a><font class="fvwmopt">TitleFont</font>
+to the left so the sub menu can be seen.
+<P>
+
+<I>Font</I> and
+<I>TitleFont</I>
 take a font name as an argument.  If a font by this name exists
 it is used for the text of all menu items.  If it does not exist
 or if the name is left blank the built-in default is used.  If a
-<span class="emphasis"><em>TitleFont</em></span>
-is given, it is used for all menu titles instead of the normal font.</p><p>
-<a name="MenuStyle_MenuFace"></a><font class="fvwmopt">MenuFace</font>
+<I>TitleFont</I>
+is given, it is used for all menu titles instead of the normal font.
+<P>
+
+<I>MenuFace</I>
 enforces a fancy background upon the menus.  You can use the same
 options for
-<span class="emphasis"><em>MenuFace</em></span>
+<I>MenuFace</I>
 as for the
-<a href="#ButtonStyle">ButtonStyle</a>.
+<B>ButtonStyle</B>.
 See description of
-<a href="#ButtonStyle">ButtonStyle</a>
+<B>ButtonStyle</B>
 command and the
-
-<a href="#color_gradients">Color Gradients</a>
+<B>Color Gradients</B>
 sections for more information.  If you use
-<span class="emphasis"><em>MenuFace</em></span>
-without arguments the style is reverted back to normal.</p><p>Some examples of MenuFaces are:</p><pre class="programlisting">
+<I>MenuFace</I>
+without arguments the style is reverted back to normal.
+<P>
+
+Some examples of MenuFaces are:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 MenuFace DGradient 128 2 lightgrey 50 blue 50 white
 MenuFace TiledPixmap texture10.xpm
 MenuFace HGradient 128 2 Red 40 Maroon 60 White
 MenuFace Solid Maroon
-</pre><p>Note: The gradient styles H, V, B and D are optimized for high
+</PRE>
+
+</DL>
+
+<P>
+
+Note: The gradient styles H, V, B and D are optimized for high
 speed and low memory consumption in menus.  This is not the case
 for all the other gradient styles.  They may be slow and consume
 huge amounts of memory, so if you encounter performance problems
 with them you may be better off by not using them.  To improve
-performance you can try one or all of the following:</p><p>Turn hilighting of the active menu item other than foreground
-color off:</p><pre class="programlisting">
+performance you can try one or all of the following:
+<P>
+
+Turn hilighting of the active menu item other than foreground
+color off:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 MenuStyle &lt;style&gt; Hilight3DOff, !HilightBack
 MenuStyle &lt;style&gt; ActiveFore &lt;preferred color&gt;
-</pre><p>Make sure sub menus do not overlap the parent menu. This can
-prevent menus being redrawn every time a sub menu pops up or down.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Make sure sub menus do not overlap the parent menu.  This can
+prevent menus being redrawn every time a sub menu pops up or down.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 MenuStyle &lt;style&gt; PopupOffset 1 100
-</pre><p>Run your X server with backing storage.  If your X Server is
+</PRE>
+
+</DL>
+
+<P>
+
+Run your X server with backing storage.  If your X Server is
 started with the -bs option, turn it off.  If not try the -wm
-and +bs options:</p><span><strong class="command">startx -- -wm +bs</strong></span><p>You may have to adapt this example to your system (e.g. if you use
-xinit to start X).</p><p>
-<a name="MenuStyle_PopupDelay"></a><font class="fvwmopt">PopupDelay</font>
+and +bs options:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+startx -- -wm +bs
+</PRE>
+
+</DL>
+
+<P>
+
+<P>
+
+You may have to adapt this example to your system (e.g. if you use
+xinit to start X).
+<P>
+
+<I>PopupDelay</I>
 requires one numeric argument.  This value is the delay in
 milliseconds before a sub menu is popped up when the pointer moves
 over a menu item that has a sub menu.  If the value is zero no
 automatic pop up is done.  If the argument is omitted the built-in
-default is used. Note that the popup delay has no effect if the
-<span class="emphasis"><em>PopupImmediately</em></span>
-option is used since sub menus pop up immediately then.</p><p>
-<a name="MenuStyle_PopupImmediately"></a><font class="fvwmopt">PopupImmediately</font>
+default is used.  Note that the popup delay has no effect if the
+<I>PopupImmediately</I>
+option is used since sub menus pop up immediately then.
+<P>
+
+<I>PopupImmediately</I>
 makes menu items with sub menus pop up it up as soon as the
 pointer enters the item.  The
-<span class="emphasis"><em>PopupDelay option</em></span>
+<I>PopupDelay option</I>
 is ignored then.  If
-<span class="emphasis"><em>PopupDelayed</em></span>
+<I>PopupDelayed</I>
 is used fvwm looks at the
-<span class="emphasis"><em>PopupDelay</em></span>
-option if or when this automatic popup happens.</p><p>
-<a name="MenuStyle_PopdownDelay"></a><font class="fvwmopt">PopdownDelay</font>
+<I>PopupDelay</I>
+option if or when this automatic popup happens.
+<P>
+
+<I>PopdownDelay</I>
 works exactly like
-<span class="emphasis"><em>PopupDelay</em></span>
+<I>PopupDelay</I>
 but determines the timeout of the
-<span class="emphasis"><em>PopupDelayed</em></span>
-style.</p><p>
-<a name="MenuStyle_PopdownImmediately"></a><font class="fvwmopt">PopdownImmediately</font>
+<I>PopupDelayed</I>
+style.
+<P>
+
+<I>PopdownImmediately</I>
 makes sub menus vanish as soon as the pointer leaves the sub menu
 and the correspondent item in the parent menu.  With the opposite
 option
-<span class="emphasis"><em>PopdownDelayed</em></span>
+<I>PopdownDelayed</I>
 the sub menu only pops down after the time specified with the
-<span class="emphasis"><em>PopdownDelay</em></span>
+<I>PopdownDelay</I>
 option.  This comes handy when the pointer often strays off the
 menu item when trying to move into the sub menu.  Whenever there
 is a conflict between the
-<span class="emphasis"><em>PopupImmediately</em></span>, <span class="emphasis"><em>PopupDelayed</em></span>, <span class="emphasis"><em>PopupDelay</em></span>
+<I>PopupImmediately</I>, <I>PopupDelayed</I>, <I>PopupDelay</I>
 styles and the
-<span class="emphasis"><em>PopdownImmediately</em></span>, <span class="emphasis"><em>PopdownDelayed</em></span>, <span class="emphasis"><em>PopdownDelay</em></span>
+<I>PopdownImmediately</I>, <I>PopdownDelayed</I>, <I>PopdownDelay</I>
 styles, the
-<span class="emphasis"><em>Popup...</em></span>
+<I>Popup...</I>
 styles win when using mouse navigation and the
-<span class="emphasis"><em>Popdown...</em></span>
-styles win when navigating with the keyboard.</p><p>
-<a name="MenuStyle_PopupOffset"></a><font class="fvwmopt">PopupOffset</font>
+<I>Popdown...</I>
+styles win when navigating with the keyboard.
+<P>
+
+<I>PopupOffset</I>
 requires two integer arguments.  Both values affect where sub
 menus are placed relative to the parent menu.  If both values are
 zero, the left edge of the sub menu overlaps the left edge of the
 parent menu.  If the first value is non-zero the sub menu is
 shifted that many pixels to the right (or left if negative).  If
 the second value is non-zero the menu is moved by that many
-percent of the parent menu's width to the right or left.</p><p>
-<a name="MenuStyle_PopupActiveArea"></a><font class="fvwmopt">PopupActiveArea</font>
+percent of the parent menu's width to the right or left.
+<P>
+
+<I>PopupActiveArea</I>
 requires an integer value between 51 and 100.  Normally, when the
 pointer is over a menu item with a sub menu and the pointer enters
 the area that starts at 75% of the menu width, the sub menu is
 shown immediately.  This percentage can be changed with
-<span class="emphasis"><em>PopupActiveArea</em></span>.
+<I>PopupActiveArea</I>.
 Setting this value to 100 disables this kind of automatic popups
 altogether.  The default value is restored if no or an illegal
-value is given.</p><p>
-<a name="MenuStyle_TitleWarp"></a><font class="fvwmopt">TitleWarp</font> and <span class="emphasis"><em>!TitleWarp</em></span>
+value is given.
+<P>
+
+<I>TitleWarp</I> and <I>!TitleWarp</I>
 affect if the pointer warps to the menu title when a sub menu is
-opened or not. Note that regardless of this setting the pointer is
-not warped if the menu does not pop up under the pointer.</p><p>
-<a name="MenuStyle_TitleUnderlines0"></a><font class="fvwmopt">TitleUnderlines0</font>,
-<a name="MenuStyle_TitleUnderlines1"></a><font class="fvwmopt">TitleUnderlines1</font> and
-<a name="MenuStyle_TitleUnderlines2"></a><font class="fvwmopt">TitleUnderlines2</font>
-specify how many lines are drawn below a menu title.</p><p>
-<a name="MenuStyle_SeparatorsLong"></a><font class="fvwmopt">SeparatorsLong</font> and
-<a name="MenuStyle_SeparatorsShort"></a><font class="fvwmopt">SeparatorsShort</font>
+opened or not.  Note that regardless of this setting the pointer is
+not warped if the menu does not pop up under the pointer.
+<P>
+
+<I>TitleUnderlines0</I>,
+<I>TitleUnderlines1</I> and
+<I>TitleUnderlines2</I>
+specify how many lines are drawn below a menu title.
+<P>
+
+<I>SeparatorsLong</I> and
+<I>SeparatorsShort</I>
 set the length of menu separators.  Long separators run from the
 left edge all the way to the right edge.  Short separators leave a
-few pixels to the edges of the menu.</p><p>
-<a name="MenuStyle_TrianglesSolid"></a><font class="fvwmopt">TrianglesSolid</font> and
-<a name="MenuStyle_TrianglesRelief"></a><font class="fvwmopt">TrianglesRelief</font>
+few pixels to the edges of the menu.
+<P>
+
+<I>TrianglesSolid</I> and
+<I>TrianglesRelief</I>
 affect how the small triangles for sub menus is drawn.  Solid
 triangles are filled with a color while relief triangles are
-hollow.</p><p>
-<a name="MenuStyle_DoubleClickTime"></a><font class="fvwmopt">DoubleClickTime</font>
+hollow.
+<P>
+
+<I>DoubleClickTime</I>
 requires one numeric argument.  This value is the time in
 milliseconds between two mouse clicks in a menu to be considered
 as a double click.  The default is 450 milliseconds.  If the
 argument is omitted the double click time is reset to this
-default.</p><p>
-<a name="MenuStyle_SidePic"></a><font class="fvwmopt">SidePic</font>
-takes the name of an image file as an argument. The
+default.
+<P>
+
+<I>SidePic</I>
+takes the name of an image file as an argument.  The
 picture is drawn along the left side of the menu.  The
-<span class="emphasis"><em>SidePic</em></span>
+<I>SidePic</I>
 option can be overridden by a menu specific side pixmap (see
-<a href="#AddToMenu">AddToMenu</a>).
+<B>AddToMenu</B>).
 If the file name is omitted an existing side pixmap is removed from
-the menu style.</p><p>
-<a name="MenuStyle_SideColor"></a><font class="fvwmopt">SideColor</font>
-takes the name of an X11 color as an argument. This color is used
+the menu style.
+<P>
+
+<I>SideColor</I>
+takes the name of an X11 color as an argument.  This color is used
 to color the column containing the side picture (see
-above). The SideColor option can be overridden by a menu specific
+above).  The SideColor option can be overridden by a menu specific
 side color (see
-<a href="#AddToMenu">AddToMenu</a>).
-If the color name is omitted the side color option is switched off.</p><p>
-<a name="MenuStyle_PopupAsRootMenu"></a><font class="fvwmopt">PopupAsRootMenu</font>,
-<a name="MenuStyle_PopupAsSubmenu"></a><font class="fvwmopt">PopupAsSubmenu</font>,
-<a name="MenuStyle_PopupIgnore"></a><font class="fvwmopt">PopupIgnore</font> and
-<a name="MenuStyle_PopupClose"></a><font class="fvwmopt">PopupClose</font>
+<B>AddToMenu</B>).
+If the color name is omitted the side color option is switched off.
+<P>
+
+<I>PopupAsRootMenu</I>,
+<I>PopupAsSubmenu</I>,
+<I>PopupIgnore</I> and
+<I>PopupClose</I>
 change the behavior when you click on a menu item that opens a
-sub menu. With
-<span class="emphasis"><em>PopupAsRootMenu</em></span>
+sub menu.  With
+<I>PopupAsRootMenu</I>
 the original menu is closed before the sub menu appears, with
-<span class="emphasis"><em>PopupAsSubmenu</em></span>
+<I>PopupAsSubmenu</I>
 it is not, so you can navigate back into the
 parent menu.  Furthermore, with
-<span class="emphasis"><em>PopupAsSubmenu</em></span>
+<I>PopupAsSubmenu</I>
 the sub menu is held open (posted) regardless of where you move
 the mouse.  Depending on your menu style this may simplify
-navigating through the menu.  <a href="#Any">Any</a> keystroke while a menu is posted
+navigating through the menu.  <B>Any</B> keystroke while a menu is posted
 reverts the menu back to the normal behavior.  With
-<span class="emphasis"><em>PopupClose</em></span>
+<I>PopupClose</I>
 the menu is closed when a sub menu item is activated, and the menu
 stays open if
-<span class="emphasis"><em>PopupIgnore</em></span>
+<I>PopupIgnore</I>
 is used (even if the menu was invoked with the
-<a href="#Popup">Popup</a>
+<B>Popup</B>
 command).
-<span class="emphasis"><em>PopupAsSubmenu</em></span>
-is the default.</p><p>
-<a name="MenuStyle_RemoveSubmenus"></a><font class="fvwmopt">RemoveSubmenus</font>
+<I>PopupAsSubmenu</I>
+is the default.
+<P>
+
+<I>RemoveSubmenus</I>
 instructs fvwm to remove sub menu when you move back into the
 parent menu.  With
-<a name="MenuStyle_HoldSubmenus"></a><font class="fvwmopt">HoldSubmenus</font>
+<I>HoldSubmenus</I>
 the sub menu remains visible.  You probably want to use
-<span class="emphasis"><em>HoldSubmenus</em></span>
+<I>HoldSubmenus</I>
 if you are using the
-<span class="emphasis"><em>PopupDelayed</em></span>
+<I>PopupDelayed</I>
 style.
-<span class="emphasis"><em>RemoveSubmenus</em></span>
-affects menu navigation with the keyboard.</p><p>
-<a name="MenuStyle_SelectOnRelease"></a><font class="fvwmopt">SelectOnRelease</font>
+<I>RemoveSubmenus</I>
+affects menu navigation with the keyboard.
+<P>
+
+<I>SelectOnRelease</I>
 takes an optional key name as an argument.  If the given key is
 released in a menu using this style, the current menu item is
 selected.  This is intended for
-<span class="keysym">Alt-Tab</span>
-<a href="#WindowList">WindowList</a>
+<FONT>Alt-Tab</FONT>
+<B>WindowList</B>
 navigation.
 The key name is a standard X11 key name as defined in
-<code class="filename">/usr/include/X11/keysymdef.h</code>,
+<I>/usr/include/X11/keysymdef.h</I>,
 (without the
-<span class="emphasis"><em>XK_</em></span>
+<I>XK_</I>
 prefix), or the keysym database
-<code class="filename">/usr/X11R6/lib/X11/XKeysymDB</code>.
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
 To disable this behavior, omit
-the key name.</p><p>Note: Some X servers do not support KeyRelease events.
-<span class="emphasis"><em>SelectOnRelease</em></span>
-does not work on such a machine.</p><p>
-<a name="MenuStyle_ItemFormat"></a><font class="fvwmopt">ItemFormat</font>
+the key name.
+<P>
+
+Note: Some X servers do not support KeyRelease events.
+<I>SelectOnRelease</I>
+does not work on such a machine.
+<P>
+
+<I>ItemFormat</I>
 takes a special string as its argument that determines the layout
 of the menu items.  Think of the format string as if it were a
-menu item. All you have to do is tell fvwm where to place the
+menu item.  All you have to do is tell fvwm where to place the
 different parts of the menu item (i.e. the labels, the triangle
 denoting a sub menu, the mini icons and the side pic) in the blank
 area.  The string consists of spaces,
-<span class="keysym">Tab</span>
-characters and formatting directives beginning with '%'. Any
-illegal characters and formatting directives are silently ignored:</p><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>%l</em></span>,
-	  <span class="emphasis"><em>%c</em></span>
-	  and <span class="emphasis"><em>%r</em></span></span></dt><dd><p>Insert the next item label. Up to three labels
-	can be used. The item column is left-aligned
-	(<span class="emphasis"><em>%l</em></span>), centered
-	(<span class="emphasis"><em>%c</em></span>) or right-aligned
-	(<span class="emphasis"><em>%r</em></span>).</p></dd><dt><span class="term"><span class="emphasis"><em>%i</em></span></span></dt><dd><p>Inserts the mini icon.</p></dd><dt><span class="term"><span class="emphasis"><em>%&gt;</em></span>
-	and <span class="emphasis"><em>%&lt;</em></span></span></dt><dd><p>Insert the sub menu triangle pointing either
-	to the right (<span class="emphasis"><em>%&gt;</em></span>) or to the
-	left (<span class="emphasis"><em>%&lt;</em></span>).</p></dd><dt><span class="term"><span class="emphasis"><em>%|</em></span></span></dt><dd><p>The first <span class="emphasis"><em>%|</em></span> denotes
-	    the beginning of the area that is highlighted either with
-	    a background color or a relief (or both). The
-	    second <span class="emphasis"><em>%|</em></span> marks the end of
-	    this area.  <span class="emphasis"><em>%|</em></span> can be used
-	    up to twice in the string.  If you do not add one or both
-	    of them, fvwm sets the margins to the margins of the whole
-	    item (not counting the side picture).</p></dd><dt><span class="term"><span class="emphasis"><em>%s</em></span></span></dt><dd><p>Places the side picture either at the
-	beginning or the end of the menu. This directive may be used
-	only once and only as the first or last in the format
-	string. If the <span class="emphasis"><em>%s</em></span> is not at the
-	beginning of the string, menus are not drawn
-	properly.</p></dd><dt><span class="term"><span class="emphasis"><em>Space</em></span>,
-	  <span class="emphasis"><em>Tab</em></span>,
-	  <span class="emphasis"><em>%Space</em></span>
-	  and <span class="emphasis"><em>%Tab</em></span></span></dt><dd><p>Add gap of one space, or a tab, using the
-	width of the menu font. When using a tab, the size of the gap
-	can be one to 8 spaces since the tab position is a multiple of
-	8 from the edge of the menu. The whole string must be quoted
-	if spaces or tabs are used.</p></dd><dt><span class="term"><span class="emphasis"><em>%p</em></span></span></dt><dd><p>Like Space and
-	Tab <span class="emphasis"><em>%p</em></span> inserts an empty area
-	into the item, but with better control of its size (see
-	below).</p></dd></dl></div><p>You can define an additional space before and after each of the
-objects like this:</p><pre class="programlisting">
-<span class="emphasis"><em>%</em></span><em class="replaceable"><code>left</code></em><span class="emphasis"><em>.</em></span><em class="replaceable"><code>right</code></em><span class="emphasis"><em>p</em></span>
-</pre><p>This means: if the object is defined in the menu (e.g. if it is
-<span class="emphasis"><em>%s</em></span>
+<FONT>Tab</FONT>
+characters and formatting directives beginning with '%'.  Any
+illegal characters and formatting directives are silently ignored:
+<P>
+
+<B>%l</B>, <B>%c</B> and <B>%r</B>
+<DL COMPACT><DT><DD>
+Insert the next item label.  Up to three labels can be used.  The item column is left-aligned (<B>%l</B>), centered (<B>%c</B>) or right-aligned (<B>%r</B>).
+</DL>
+
+<P>
+
+<B>%i</B>
+<DL COMPACT><DT><DD>
+Inserts the mini icon.
+</DL>
+
+<P>
+
+<B>%&gt;</B> and <B>%&lt;</B>
+<DL COMPACT><DT><DD>
+Insert the sub menu triangle pointing either to the right (<B>%&gt;</B>) or to the left (<B>%&lt;</B>).
+</DL>
+
+<P>
+
+<B>%|</B>
+<DL COMPACT><DT><DD>
+The first
+<B>%|</B>
+denotes the beginning of the area that is highlighted either with a background color or a relief (or both).  The second
+<B>%|</B>
+marks the end of this area.
+<B>%|</B>
+can be used up to twice in the string.  If you do not add one or both of them, fvwm sets the margins to the margins of the whole item (not counting the side picture).
+</DL>
+
+<P>
+
+<B>%s</B>
+<DL COMPACT><DT><DD>
+Places the side picture either at the beginning or the end of the menu.  This directive may be used only once and only as the first or last in the format string.  If the
+<B>%s</B>
+is not at the beginning of the string, menus are not drawn properly.
+</DL>
+
+<P>
+
+<B>Space</B>, <B>Tab</B>, <B>%Space</B> and <B>%Tab</B>
+<DL COMPACT><DT><DD>
+Add gap of one space, or a tab, using the width of the menu font.  When using a tab, the size of the gap can be one to 8 spaces since the tab position is a multiple of 8 from the edge of the menu.  The whole string must be quoted if spaces or tabs are used.
+</DL>
+
+<P>
+
+<B>%p</B>
+<DL COMPACT><DT><DD>
+Like Space and Tab
+<B>%p</B>
+inserts an empty area into the item, but with better control of its size (see below).
+</DL>
+
+<P>
+
+You can define an additional space before and after each of the
+objects like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>%</B><I>left</I><B>.</B><I>right</I><B>p</B>
+</PRE>
+
+</DL>
+
+<P>
+
+This means: if the object is defined in the menu (e.g. if it is
+<B>%s</B>
 and you use a side picture, or it is
-<span class="emphasis"><em>%l</em></span>
+<B>%l</B>
 for the third column and there are items defined that actually
 have a third column), then add
-<em class="replaceable"><code>left</code></em>
+<I>left</I>
 pixels before the object and
-<em class="replaceable"><code>right</code></em>
+<I>right</I>
 pixels after it.  You may leave out the
-<em class="replaceable"><code>left</code></em>
-or the <span class="emphasis"><em>.right</em></span>
+<I>left</I>
+or the <I>.right</I>
 parts if you do not need them.  All values up to the screen width
 are allowed.  Even negative values can be used with care.  The
-<span class="emphasis"><em>p</em></span>
+<B>p</B>
 may be replaced with any other formatting directives described
-above.</p><p>Note: Only items defined in the format string are visible in the
-menus. So if you do not put a
-<span class="emphasis"><em>%s</em></span>
-in there you do not see a side picture, even if one is specified.</p><p>Note: The
-<span class="emphasis"><em>SubmenusLeft</em></span>
+above.
+<P>
+
+Note: Only items defined in the format string are visible in the
+menus.  So if you do not put a
+<B>%s</B>
+in there you do not see a side picture, even if one is specified.
+<P>
+
+Note: The
+<I>SubmenusLeft</I>
 style changes the default
-<span class="emphasis"><em>ItemFormat</em></span>
-string, but if it was set manually it is not modified.</p><p>Note: If any unformatted title of the menu is wider than the
+<I>ItemFormat</I>
+string, but if it was set manually it is not modified.
+<P>
+
+Note: If any unformatted title of the menu is wider than the
 widest menu item, the spaces between the different parts of the
 menu items are enlarged to match the width of the title.  Leading
 left aligned objects in the format string
-(<span class="emphasis"><em>%l</em></span>, <span class="emphasis"><em>%i</em></span>,
-<span class="emphasis"><em>%&lt;</em></span>, first <span class="emphasis"><em>%|</em></span>)
+(<B>%l</B>, <B>%i</B>,
+<B>%&lt;</B>, first <B>%|</B>)
 stick to the left edge of the menu and trailing right aligned
 objects
-(<span class="emphasis"><em>%r</em></span>, <span class="emphasis"><em>%i</em></span>,
-<span class="emphasis"><em>%&gt;</em></span>, second <span class="emphasis"><em>%|</em></span>)
+(<B>%r</B>, <B>%i</B>,
+<B>%&gt;</B>, second <B>%|</B>)
 stick to the right edge.  The gaps between the remaining items are
-enlarged equally.</p><p>Examples:</p><pre class="programlisting">
-MenuStyle * ItemFormat "%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|"
-</pre><p>Is the default string used by fvwm: (side picture + 4 pixels gap)
+enlarged equally.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+MenuStyle * ItemFormat &quot;%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+Is the default string used by fvwm: (side picture + 4 pixels gap)
 (beginning of the hilighted area + 1 pixel gap) (mini icon + 5p)
 (first column left aligned + 5p) (second column left aligned + 5p)
 (third column right aligned + 5p) (second mini icon + 5p) (2p +
-sub menu triangle + 3p) (1p + end of hilighted area).</p><pre class="programlisting">
-MenuStyle * ItemFormat "%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s"
-</pre><p>Is used by fvwm with the
-<span class="emphasis"><em>SubmenusLeft</em></span>
-option below.</p><p>
-<a name="MenuStyle_VerticalItemSpacing"></a><font class="fvwmopt">VerticalItemSpacing</font> and
-<a name="MenuStyle_VerticalTitleSpacing"></a><font class="fvwmopt">VerticalTitleSpacing</font>
+sub menu triangle + 3p) (1p + end of hilighted area).
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+MenuStyle * ItemFormat &quot;%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+Is used by fvwm with the
+<I>SubmenusLeft</I>
+option below.
+<P>
+
+<I>VerticalItemSpacing</I> and
+<I>VerticalTitleSpacing</I>
 control the vertical spacing of menu items and titles like
-<span class="emphasis"><em>ItemFormat</em></span>
+<I>ItemFormat</I>
 controls the horizontal spacing.  Both take two numeric arguments
 that may range from -100 to +100.  The first is the gap in pixels
 above a normal menu item (or a menu title), the second is the gap
 in pixels below it.  Negative numbers do not make much sense and
 may screw up the menu completely.  If no arguments are given or
 the given arguments are invalid, the built-in defaults are used:
-one pixel above the item or title and two below.</p><p>
-<a name="MenuStyle_VerticalMargins"></a><font class="fvwmopt">VerticalMargins</font>
+one pixel above the item or title and two below.
+<P>
+
+<I>VerticalMargins</I>
 can be used to add some padding at the top and bottom of menus.
 It takes two numeric arguments that must be positive integers (or
 zero).  If the number of arguments or its values are incorrect,
 fvwm defaults both to 0, which means no padding at all.  If the
 values are correct, the first one is used for the top margin, and
-the second one is used for the bottom margin.</p><p>
-<a name="MenuStyle_SubmenusLeft"></a><font class="fvwmopt">SubmenusLeft</font>
+the second one is used for the bottom margin.
+<P>
+
+<I>SubmenusLeft</I>
 mirrors the menu layout and behavior.  Sub menus pop up to the
 left, the sub menu triangle is drawn left and the mini icon and
 side picture are drawn at the right side of the menu.  The default
 is
-<a name="MenuStyle_SubmenusRight"></a><font class="fvwmopt">SubmenusRight</font>.
+<I>SubmenusRight</I>.
 The position hints of a menu are also affected by this setting,
 i.e. position hints using
-<span class="emphasis"><em>item</em></span> or <span class="emphasis"><em>menu</em></span>
+<I>item</I> or <I>menu</I>
 as context rectangle and position hints using
-<span class="emphasis"><em>m</em></span>
-offsets.</p><p>
-<a name="MenuStyle_AutomaticHotkeys"></a><font class="fvwmopt">AutomaticHotkeys</font> and
-<span class="emphasis"><em>!AutomaticHotkeys</em></span>
+<I>m</I>
+offsets.
+<P>
+
+<I>AutomaticHotkeys</I> and
+<I>!AutomaticHotkeys</I>
 control the menu's ability to automatically provide hot-keys on
 the first character of each menu item's label.  This behavior is
 always overridden if an explicit hot-key is assigned in the
-<span class="emphasis"><em>AddToMenu</em></span>
-command.</p><p>
-<a name="MenuStyle_MouseWheel"></a><font class="fvwmopt">MouseWheel</font>
-controls the ability to scroll the menu using a mouse wheel. It takes
+<B>AddToMenu</B>
+command.
+<P>
+
+<I>MouseWheel</I>
+controls the ability to scroll the menu using a mouse wheel.  It takes
 one argument, that can be one of
 ScrollsPointer, ScrollsMenu, ScrollsMenuBackwards or ActivatesItem.
 ScrollsPointer makes the mouse wheel scroll the pointer over a menu.
-This is the default. ScrollsMenu and ScrollsMenuBackwards scroll the menu
-beneath the pointer. ActivatesItem disables scrolling by mouse wheel and
+This is the default.  ScrollsMenu and ScrollsMenuBackwards scroll the menu
+beneath the pointer.  ActivatesItem disables scrolling by mouse wheel and
 makes the use of a mouse wheel act as if the menu was clicked.
-If no argument is supplied the default setting is restored.</p><p>
-<a name="MenuStyle_ScrollOffPage"></a><font class="fvwmopt">ScrollOffPage</font>
+If no argument is supplied the default setting is restored.
+<P>
+
+<I>ScrollOffPage</I>
 allows a menu to be scrolled out of the visible area if
-<span class="emphasis"><em>MouseWheel</em></span>
-is set to ScrollsMenu or ScrollsMenuBackwards. This is the default.
+<I>MouseWheel</I>
+is set to ScrollsMenu or ScrollsMenuBackwards.  This is the default.
 The opposite,
-<span class="emphasis"><em>!ScrollOffPage</em></span>
-disables this behaviour.</p><p>
-<a name="MenuStyle_TrianglesUseFore"></a><font class="fvwmopt">TrianglesUseFore</font>
+<I>!ScrollOffPage</I>
+disables this behaviour.
+<P>
+
+<I>TrianglesUseFore</I>
 draws sub menu triangles with the foreground color of the menu colorset
 (normally drawn with the hilight color).
-<span class="emphasis"><em>!TrianglesUseFore</em></span>
-disables this behaviour.</p><p>Examples:</p><pre class="programlisting">
+<I>!TrianglesUseFore</I>
+disables this behaviour.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 MenuStyle * Mwm
 MenuStyle * Foreground Black, Background gray40
 MenuStyle * Greyed gray70, ActiveFore White
@@ -2521,39 +4781,66 @@ MenuStyle red Greyed Red, ActiveFore Red
 MenuStyle red !HilightBack, Hilight3DOff
 MenuStyle red Font lucidasanstypewriter-12
 MenuStyle red MenuFace DGradient 64 Red Black
-</pre><p>Note that all style options could be placed on a single line for
-each style name.</p><div class="cmdsynopsis"><p><code class="command">MenuStyle</code>   <em class="replaceable"><code>forecolor</code></em>   <em class="replaceable"><code>backcolor</code></em>   <em class="replaceable"><code>shadecolor</code></em>   <em class="replaceable"><code>font</code></em>   <em class="replaceable"><code>style</code></em>  [<em class="replaceable"><code>anim</code></em>]</p></div><p>This is the old syntax of the
-<span class="emphasis"><em>MenuStyle</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+Note that all style options could be placed on a single line for
+each style name.
+</DL>
+
+<DT><B>MenuStyle</B> <I>forecolor</I> <I>backcolor</I> <I>shadecolor</I> <I>font</I> <I>style</I> [<I>anim</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This is the old syntax of the
+<B>MenuStyle</B>
 command.  It is obsolete and may be removed in the future.  Please
-use the new syntax as described above.</p><p>Sets the menu style.  When using monochrome the colors are
+use the new syntax as described above.
+<P>
+
+Sets the menu style.  When using monochrome the colors are
 ignored.  The
-<em class="replaceable"><code>shadecolor</code></em>
+<I>shadecolor</I>
 is the one used to draw a menu-selection which is prohibited (or
 not recommended) by the Mwm hints which an application has
 specified.  The style option is either
-<span class="emphasis"><em>Fvwm</em></span>, <span class="emphasis"><em>Mwm</em></span> or <span class="emphasis"><em>Win</em></span>,
-which changes the appearance and operation of the menus.</p><p><span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
+<I>Fvwm</I>, <I>Mwm</I> or <I>Win</I>,
+which changes the appearance and operation of the menus.
+<P>
+
+<I>Mwm</I> and <I>Win</I>
 style menus popup sub menus automatically.
-<span class="emphasis"><em>Win</em></span>
+<I>Win</I>
 menus indicate the current menu item by changing the background to
 black.
-<span class="emphasis"><em>Fvwm</em></span>
+<I>Fvwm</I>
 sub menus overlap the parent menu,
-<span class="emphasis"><em>Mwm</em></span> and <span class="emphasis"><em>Win</em></span>
-style menus never overlap the parent menu.</p><p>When the
-<em class="replaceable"><code>anim</code></em>
+<I>Mwm</I> and <I>Win</I>
+style menus never overlap the parent menu.
+<P>
+
+When the
+<I>anim</I>
 option is given, sub menus that do not fit on the screen cause the
 parent menu to be shifted to the left so the sub menu can be
-seen. See also
-<a href="#SetAnimation">SetAnimation</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Popup"></a>31.1.15. Popup</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Popup</code>   <em class="replaceable"><code>PopupName</code></em>  [<em class="replaceable"><code>position</code></em>] [<em class="replaceable"><code>default-action</code></em>]</p></div><p>This command has two purposes: to bind a menu to a key or mouse
+seen.  See also
+<B>SetAnimation</B>
+command.
+</DL>
+
+<DT><B>Popup</B> <I>PopupName</I> [<I>position</I>] [<I>default-action</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command has two purposes: to bind a menu to a key or mouse
 button, and to bind a sub menu into a menu.  The formats for the
 two purposes differ slightly.  The
-<em class="replaceable"><code>position</code></em>
+<I>position</I>
 arguments are the same as for
-<a href="#Menu">Menu</a>.
+<B>Menu</B>.
 The command
-<em class="replaceable"><code>default-action</code></em>
+<I>default-action</I>
 is invoked if the user clicks a button to invoke the menu and
 releases it immediately again (or hits the key rapidly twice if
 the menu is bound to a key).  If the default action is not
@@ -2561,1018 +4848,1912 @@ specified, double clicking on the menu does nothing.  However, if
 the menu begins with a menu item (i.e. not with a title or a
 separator) and the default action is not given, double clicking
 invokes the first item of the menu (but only if the pointer really
-was over the item).</p><p>To bind a previously defined pop-up menu to a key or mouse button:</p><p>The following example binds mouse buttons 2 and 3 to a pop-up
-called "Window Ops".  The menu pops up if the buttons 2 or 3 are
+was over the item).
+<P>
+
+To bind a previously defined pop-up menu to a key or mouse button:
+<P>
+
+The following example binds mouse buttons 2 and 3 to a pop-up
+called &quot;Window Ops&quot;.  The menu pops up if the buttons 2 or 3 are
 pressed in the window frame, side-bar, or title-bar, with no
-modifiers (none of shift, control, or meta).</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 2 FST N Popup "Window Ops"
-<a href="#Mouse">Mouse</a> 3 FST N Popup "Window Ops"
-</pre><p>Pop-ups can be bound to keys through the use of the
-<a href="#Key">Key</a>
+modifiers (none of shift, control, or meta).
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 2 FST N Popup &quot;Window Ops&quot;
+<B>Mouse</B> 3 FST N Popup &quot;Window Ops&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+Pop-ups can be bound to keys through the use of the
+<B>Key</B>
 command.  Pop-ups can be operated without using the mouse by
 binding to keys and operating via the up arrow, down arrow, and
-enter keys.</p><p>To bind a previously defined pop-up menu to another menu, for use
-as a sub menu:</p><p>The following example defines a sub menu "Quit-Verify" and binds
-it into a main menu, called "RootMenu":</p><pre class="programlisting">
-<a href="#AddToMenu">AddToMenu</a> Quit-Verify
- + "Really Quit Fvwm?" <a href="#Title">Title</a>
- + "Yes, Really Quit"  <a href="#Quit">Quit</a>
- + "Restart Fvwm"      <a href="#Restart">Restart</a>
- + "Restart Fvwm 1.xx" <a href="#Restart">Restart</a> fvwm1 -s
- + ""                  <a href="#Nop">Nop</a>
- + "No, Don't Quit"    <a href="#Nop">Nop</a>
+enter keys.
+<P>
 
-<a href="#AddToMenu">AddToMenu</a> RootMenu "Root Menu" <a href="#Title">Title</a>
- + "Open XTerm Window" Popup NewWindowMenu
- + "Login as Root"     <a href="#Exec">Exec</a> exec xterm -T Root -n Root -e su -
- + "Login as Anyone"   <a href="#Popup">Popup</a> AnyoneMenu
- + "Remote Hosts"      <a href="#Popup">Popup</a> HostMenu
- + ""                  <a href="#Nop">Nop</a>
- + "X utilities"       Popup Xutils
- + ""                  <a href="#Nop">Nop</a>
- + "Fvwm Modules"      Popup Module-Popup
- + "Fvwm Window Ops"   Popup Window-Ops
- + ""                  <a href="#Nop">Nop</a>
- + "Previous Focus"    <a href="#Prev">Prev</a> (AcceptsFocus) <a href="#Focus">Focus</a>
- + "Next Focus"        <a href="#Next">Next</a> (AcceptsFocus) <a href="#Focus">Focus</a>
- + ""                  <a href="#Nop">Nop</a>
- + "Refresh screen"    <a href="#Refresh">Refresh</a>
- + ""                  <a href="#Nop">Nop</a>
- + "Reset X defaults"  <a href="#Exec">Exec</a> xrdb -load \
+To bind a previously defined pop-up menu to another menu, for use
+as a sub menu:
+<P>
+
+The following example defines a sub menu &quot;Quit-Verify&quot; and binds
+it into a main menu, called &quot;RootMenu&quot;:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToMenu</B> Quit-Verify
+ + &quot;Really Quit Fvwm?&quot; <B>Title</B>
+ + &quot;Yes, Really Quit&quot;  <B>Quit</B>
+ + &quot;Restart Fvwm&quot;      <B>Restart</B>
+ + &quot;Restart Fvwm 1.xx&quot; <B>Restart</B> fvwm1 -s
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;No, Don't Quit&quot;    <B>Nop</B>
+
+<B>AddToMenu</B> RootMenu &quot;Root Menu&quot; <B>Title</B>
+ + &quot;Open XTerm Window&quot; Popup NewWindowMenu
+ + &quot;Login as Root&quot;     <B>Exec</B> exec xterm -T Root -n Root -e su -
+ + &quot;Login as Anyone&quot;   <B>Popup</B> AnyoneMenu
+ + &quot;Remote Hosts&quot;      <B>Popup</B> HostMenu
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;X utilities&quot;       Popup Xutils
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;Fvwm Modules&quot;      Popup Module-Popup
+ + &quot;Fvwm Window Ops&quot;   Popup Window-Ops
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;Previous Focus&quot;    <B>Prev</B> (AcceptsFocus) <B>Focus</B>
+ + &quot;Next Focus&quot;        <B>Next</B> (AcceptsFocus) <B>Focus</B>
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;Refresh screen&quot;    <B>Refresh</B>
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;Reset X defaults&quot;  <B>Exec</B> xrdb -load \
                        $HOME/.Xdefaults
- + ""                  <a href="#Nop">Nop</a>
- + ""                  <a href="#Nop">Nop</a>
- + <a href="#Quit">Quit</a>                Popup Quit-Verify
-</pre><p>Popup differs from
-<a href="#Menu">Menu</a>
+ + &quot;&quot;                  <B>Nop</B>
+ + &quot;&quot;                  <B>Nop</B>
+ + <B>Quit</B>                Popup Quit-Verify
+</PRE>
+
+</DL>
+
+<P>
+
+Popup differs from
+<B>Menu</B>
 in that pop-ups do not stay up if the user simply clicks.  These
 are popup-menus, which are a little hard on the wrist.
-<a href="#Menu">Menu</a>
+<B>Menu</B>
 menus stay up on a click action.  See the
-<a href="#Menu">Menu</a>
-command for an explanation of the interactive behavior of menus. A
+<B>Menu</B>
+command for an explanation of the interactive behavior of menus.  A
 menu can be open up to ten times at once, so a menu may even use
-itself or any of its predecessors as a sub menu.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TearMenuOff"></a>31.1.16. TearMenuOff</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">TearMenuOff</code> </p></div><p>When assigned to a menu item, it inserts a tear off bar into the
+itself or any of its predecessors as a sub menu.
+</DL>
+
+<DT><B>TearMenuOff</B><DD>
+<DL COMPACT><DT><DD>
+
+When assigned to a menu item, it inserts a tear off bar into the
 menu (a horizontal broken line).  Activating that item tears off
 the menu.  If the menu item has a label, it is shown instead of
 the broken line.  If used outside menus, this command does
-nothing.  Examples:</p><pre class="programlisting">
-<a href="#AddToMenu">AddToMenu</a> WindowMenu
-+ I "" TearMenuOff
+nothing.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToMenu</B> WindowMenu
++ I &quot;&quot; TearMenuOff
 
-<a href="#AddToMenu">AddToMenu</a> RootMenu
-+ I "click here to tear me off" TearMenuOff
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Title"></a>31.1.17. Title</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Title</code> </p></div><p>Does nothing This is used to insert a title line in a popup or menu.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="miscellaneous_commands"></a>31.2. Miscellaneous Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BugOpts"></a>31.2.1. BugOpts</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BugOpts</code>   [<em class="replaceable"><code>option</code></em> [<em class="replaceable"><code>bool</code></em>]],... </p></div><p>This command controls several workarounds for bugs in third party
+<B>AddToMenu</B> RootMenu
++ I &quot;click here to tear me off&quot; TearMenuOff
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Title</B><DD>
+<DL COMPACT><DT><DD>
+
+Does nothing This is used to insert a title line in a popup or menu.
+</DL>
+
+</DL>
+<A NAME="lbBP">&nbsp;</A>
+<H3>Miscellaneous Commands</H3>
+
+<DL COMPACT>
+<DT><B>BugOpts</B> [<I>option</I>&nbsp;[<I>bool</I>]], ...<DD>
+<DL COMPACT><DT><DD>
+
+This command controls several workarounds for bugs in third party
 programs.  The individual options are separated by commas.  The
 optional argument
-<em class="replaceable"><code>bool</code></em>
+<I>bool</I>
 is a boolean argument and controls if the bug workaround is
-enabled or not.  It can either be "True" or "False" to turn the
-option on or off, or "toggle" to switch is back and forth.  If
-<em class="replaceable"><code>bool</code></em>
-is omitted, the default setting is restored.</p><p><a name="BugOpts_FlickeringMoveWorkaround"></a><font class="fvwmopt">FlickeringMoveWorkaround</font>
+enabled or not.  It can either be &quot;True&quot; or &quot;False&quot; to turn the
+option on or off, or &quot;toggle&quot; to switch is back and forth.  If
+<I>bool</I>
+is omitted, the default setting is restored.
+<P>
+
+<I>FlickeringMoveWorkaround</I>
 disables ConfigureNotify events that are usually sent to an
 application while it is moved.  If some windows flicker annoyingly
 while being moved, this option may help you.  Note that if this
 problem occurs it is not an fvwm bug, it is a problem of the
-application.</p><p><a name="BugOpts_MixedVisualWorkaround"></a><font class="fvwmopt">MixedVisualWorkaround</font>
+application.
+<P>
+
+<I>MixedVisualWorkaround</I>
 makes fvwm install the root colormap before it does some
 operations using the root window visuals.  This is only useful
 when the
-<code class="option">-visual</code>
+<B>-visual</B>
 option is used to start fvwm and then only with some
 configurations of some servers (e.g. Exceed 6.0 with an 8 bit
-PseudoColor root and fvwm using a 24 bit TrueColor visual).</p><p>The
-<a name="BugOpts_ModalityIsEvil"></a><font class="fvwmopt">ModalityIsEvil</font>
+PseudoColor root and fvwm using a 24 bit TrueColor visual).
+<P>
+
+The
+<I>ModalityIsEvil</I>
 option controls whether Motif applications have the ability to
 have modal dialogs (dialogs that force you to close them first
 before you can do anything else).  The default is to not allow
 applications to have modal dialogs.  Use this option with
-care. Once this option is turned on, you have to restart fvwm to
-turn it off.</p><p><a name="BugOpts_RaiseOverNativeWindows"></a><font class="fvwmopt">RaiseOverNativeWindows</font>
+care.  Once this option is turned on, you have to restart fvwm to
+turn it off.
+<P>
+
+<I>RaiseOverNativeWindows</I>
 makes fvwm try to raise the windows it manages over native windows
 of the X server's host system.  This is needed for some X servers
 running under Windows, Windows NT or Mac OS X.  Fvwm tries to detect if it
 is running under such an X server and initializes the flag
-accordingly.</p><p><a name="BugOpts_RaiseOverUnmanaged"></a><font class="fvwmopt">RaiseOverUnmanaged</font>
+accordingly.
+<P>
+
+<I>RaiseOverUnmanaged</I>
 makes fvwm try to raise the windows it manages over
 override_redirect windows.  This is used to cope with ill-mannered
 applications that use long-lived windows of this sort, contrary to
-<acronym class="acronym">ICCCM</acronym>
+ICCCM
 conventions.  It is useful with the
-<a href="#Style_Unmanaged">Unmanaged</a>
-style option too.</p><p><a name="BugOpts_FlickeringQtDialogsWorkaround"></a><font class="fvwmopt">FlickeringQtDialogsWorkaround</font>
+<I>Unmanaged</I>
+style option too.
+<P>
+
+<I>FlickeringQtDialogsWorkaround</I>
 suppresses flickering of the focused window in some modules when
-using <acronym class="acronym">KDE</acronym> or <acronym class="acronym">QT</acronym> applications with application modal dialog
+using KDE or QT applications with application modal dialog
 windows.  By default this option is turned on.  This option may be
 visually disturbing for other applications using windows not
 managed by fvwm.  Since these applications are rare it is most
-likely safe to leave this option at its default.</p><p><a name="BugOpts_QtDragnDropWorkaround"></a><font class="fvwmopt">QtDragnDropWorkaround</font>
+likely safe to leave this option at its default.
+<P>
+
+<I>QtDragnDropWorkaround</I>
 surpresses the forwarding of unknown ClientEvent messages to windows --
 usually this is harmless, but Qt has problems handling unrecognised
 ClientEvent messages.  Enabling this option might therefore help for Qt
-applications using DragnDrop.  This option is off by default.</p><p><a name="BugOpts_EWMHIconicStateWorkaround"></a><font class="fvwmopt">EWMHIconicStateWorkaround</font>
-is needed by <acronym class="acronym">EWMH</acronym> compliant pagers or taskbars which represent
-windows which are on a different desktops as iconified. These
-pagers and taskbars use a version of the <acronym class="acronym">EWMH</acronym> specification before
-version 1.2 (the current <acronym class="acronym">KDE</acronym> 2 &amp; 3 versions).  These pagers and
+applications using DragnDrop.  This option is off by default.
+<P>
+
+<I>EWMHIconicStateWorkaround</I>
+is needed by EWMH compliant pagers or taskbars which represent
+windows which are on a different desktops as iconified.  These
+pagers and taskbars use a version of the EWMH specification before
+version 1.2 (the current KDE 2 &amp; 3 versions).  These pagers and
 taskbars use the IconicState WM_STATE state to determine if an
 application is iconified.  This state, according to the
-<acronym class="acronym">ICCCM</acronym>,
+ICCCM,
 does not imply that a window is iconified (in the usual sense).
 Turning on this option forces fvwm to establish an equivalence
 between the IconicState WM_STATE state and the iconified window.
 This violates
-<acronym class="acronym">ICCCM</acronym>
+ICCCM
 compliance but should not cause big problems.
-By default this option is off.</p><p>With the
-<a name="BugOpts_DisplayNewWindowNames"></a><font class="fvwmopt">DisplayNewWindowNames</font>
+By default this option is off.
+<P>
+
+With the
+<I>DisplayNewWindowNames</I>
 enabled, fvwm prints the name, icon name (if available), resource
 and class of new windows to the console.  This can help in finding
 the correct strings to use in the
-<a href="#Style">Style</a>
-command.</p><p>When the
-<a name="BugOpts_ExplainWindowPlacement"></a><font class="fvwmopt">ExplainWindowPlacement</font>
+<B>Style</B>
+command.
+<P>
+
+When the
+<I>ExplainWindowPlacement</I>
 option is enabled, fvwm prints a message to the console whenever a
 new window is placed or one of the commands
-<a href="#PlaceAgain">PlaceAgain</a>,
-<a href="#Recapture">Recapture</a> or
-<a href="#RecaptureWindow">RecaptureWindow</a>
+<B>PlaceAgain</B>,
+<B>Recapture</B> or
+<B>RecaptureWindow</B>
 is used.  The message explains on which desk, page, Xinerama
 screen and position it was placed and why.  This option can be
 used to figure out why a specific window does not appear where you
-think it should.</p><p>The
-<a name="BugOpts_DebugCRMotionMethod"></a><font class="fvwmopt">DebugCRMotionMethod</font>
+think it should.
+<P>
+
+The
+<I>DebugCRMotionMethod</I>
 option enables some debugging code in the ConfigureRequest
 handling routines of fvwm.  It is not helpful for the user, but if
 you report a bug to the fvwm team we may ask you to enable this
-option.</p><p>The <a name="BugOpts_TransliterateUtf8"></a><font class="fvwmopt">TransliterateUtf8</font> option
+option.
+<P>
+
+The <I>TransliterateUtf8</I> option
 enables transliteration during conversions from utf-8 strings.  By
 default fvwm will not transliterate during conversion, but will fall
 back to alternate strings provided by the clients if conversion from
 utf-8 fails due to characters which have no direct correspondance in
-the target charecter set. Some clients however neglect to set non utf-8
-properties correctly in which case this option may help.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BusyCursor"></a>31.2.2. BusyCursor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BusyCursor</code>   [<em class="replaceable"><code>Option</code></em> <em class="replaceable"><code>bool</code></em>],... </p></div><p>This command controls the cursor during the execution of certain
+the target charecter set.  Some clients however neglect to set non utf-8
+properties correctly in which case this option may help.
+</DL>
+
+<DT><B>BusyCursor</B> [<I>Option</I>&nbsp;<I>bool</I>], ...<DD>
+<DL COMPACT><DT><DD>
+
+This command controls the cursor during the execution of certain
 commands.
-<em class="replaceable"><code>Option</code></em>
+<I>Option</I>
 can be
-<span class="emphasis"><em>DynamicMenu</em></span>,
-<span class="emphasis"><em>ModuleSynchronous</em></span>,
-<span class="emphasis"><em>Read</em></span>,
-<span class="emphasis"><em>Wait</em></span> or
-<span class="emphasis"><em>*</em></span>.
+<I>DynamicMenu</I>,
+<I>ModuleSynchronous</I>,
+<I>Read</I>,
+<I>Wait</I> or
+<I>*</I>.
 An option must be followed by a boolean argument
-<em class="replaceable"><code>bool</code></em>.
+<I>bool</I>.
 You can use commas to separate individual options.  If you set an
-option to "True", then when the corresponding command is run, fvwm
+option to &quot;True&quot;, then when the corresponding command is run, fvwm
 displays the cursor of the
-<a href="#CursorStyle_WAIT">WAIT</a>
+<I>WAIT</I>
 context of the
-<a href="#CursorStyle">CursorStyle</a>
-command.  "False" forces to not display the cursor.  The default is:</p><pre class="programlisting">
+<B>CursorStyle</B>
+command.  &quot;False&quot; forces to not display the cursor.  The default is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 BusyCursor DynamicMenu False, ModuleSynchronous False, \
   Read False, Wait False
-</pre><p>
-The <a name="BusyCursor_*"></a><font class="fvwmopt">*</font> option
-refers to all available options.</p><p>
-The <a name="BusyCursor_Read"></a><font class="fvwmopt">Read</font>
-option controls the <a href="#PipeRead">PipeRead</a> command.</p><p>
-The <a name="BusyCursor_DynamicMenu"></a><font class="fvwmopt">DynamicMenu</font>
-option affects the <a href="#AddToMenu_DynamicPopupAction">DynamicPopupAction</a>
-and <a href="#AddToMenu_MissingSubmenuFunction">MissingSubmenuFunction</a>
-options of the <a href="#AddToMenu">AddToMenu</a>
-command.  If this option is set to "False", then the busy cursor
+</PRE>
+
+</DL>
+
+<P>
+
+The <I>*</I> option
+refers to all available options.
+<P>
+
+The <I>Read</I>
+option controls the <B>PipeRead</B> command.
+<P>
+
+The <I>DynamicMenu</I>
+option affects the <I>DynamicPopupAction</I>
+and <I>MissingSubmenuFunction</I>
+options of the <B>AddToMenu</B>
+command.  If this option is set to &quot;False&quot;, then the busy cursor
 is not displayed during a dynamic menu command even if this
-command is a <a href="#Read">Read</a> or <a href="#PipeRead">PipeRead</a>
-command and the <span class="emphasis"><em>Read</em></span>
-option is set to "True".</p><p>The <a name="BusyCursor_ModuleSynchronous"></a><font class="fvwmopt">ModuleSynchronous</font>
-option affects the <a href="#ModuleSynchronous">ModuleSynchronous</a> command.
-If this option is set to "False", then the busy cursor is not
+command is a <B>Read</B> or <B>PipeRead</B>
+command and the <I>Read</I>
+option is set to &quot;True&quot;.
+<P>
+
+The <I>ModuleSynchronous</I>
+option affects the <B>ModuleSynchronous</B> command.
+If this option is set to &quot;False&quot;, then the busy cursor is not
 displayed while fvwm waits for a module started by
-<a href="#ModuleSynchronous">ModuleSynchronous</a> to complete its startup.</p><p>
-The <a name="BusyCursor_Wait"></a><font class="fvwmopt">Wait</font>
+<B>ModuleSynchronous</B> to complete its startup.
+<P>
+
+The <I>Wait</I>
 option affects only the root cursor.  During a wait pause the root
 cursor is replaced by the busy cursor and fvwm is still fully
 functional (you can escape from the pause, see the
-<a href="#EscapeFunc">EscapeFunc</a>
+<B>EscapeFunc</B>
 command).  If you want to use this option and if you do not use
 the default root cursor, you must set your root cursor with the
-<a href="#CursorStyle">CursorStyle</a> command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ClickTime"></a>31.2.3. ClickTime</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ClickTime</code>  [<em class="replaceable"><code>delay</code></em>]</p></div><p>Specifies the maximum delay in milliseconds between a button press
+<B>CursorStyle</B> command.
+</DL>
+
+<DT><B>ClickTime</B> [<I>delay</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Specifies the maximum delay in milliseconds between a button press
 and a button release for the
-<a href="#Function">Function</a>
+<B>Function</B>
 command to consider the action a mouse click.  The default delay
 is 150 milliseconds.  Omitting the delay value resets the
-<span class="emphasis"><em>ClickTime</em></span>
-to the default.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ColorLimit"></a>31.2.4. ColorLimit</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ColorLimit</code>   <em class="replaceable"><code>limit</code></em> </p></div><p>
-This command is obsolete. See the <code class="option">--color-limit</code> option to fvwm.
-</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ColormapFocus"></a>31.2.5. ColormapFocus</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ColormapFocus</code>    FollowsMouse  |   FollowsFocus  </p></div><p>By default, fvwm installs the colormap of the window that the
-cursor is in.  If you use</p><pre class="programlisting">
-ColormapFocus <a name="ColormapFocus_FollowsFocus"></a><font class="fvwmopt">FollowsFocus</font>
-</pre><p>then the installed colormap is the one for the window that
-currently has the keyboard focus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorStyle"></a>31.2.6. CursorStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorStyle</code>   <em class="replaceable"><code>context</code></em>  [  <em class="replaceable"><code>num</code></em>  |   <em class="replaceable"><code>name</code></em>  |   None  |   Tiny  |   <em class="replaceable"><code>file</code></em> [ <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em> ]   [ <em class="replaceable"><code>fg</code></em> 
-			  <em class="replaceable"><code>bg</code></em> ]]</p></div><p>Defines a new cursor for the specified context.  Note that this
+<B>ClickTime</B>
+to the default.
+</DL>
+
+<DT><B>ColorLimit</B> <I>limit</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete.  See the <B>--color-limit</B> option to fvwm.
+</DL>
+
+<DT><B>ColormapFocus</B> FollowsMouse | FollowsFocus<DD>
+<DL COMPACT><DT><DD>
+
+By default, fvwm installs the colormap of the window that the
+cursor is in.  If you use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+ColormapFocus <I>FollowsFocus</I>
+</PRE>
+
+</DL>
+
+<P>
+
+then the installed colormap is the one for the window that
+currently has the keyboard focus.
+</DL>
+
+<DT><B>CursorStyle</B> <I>context</I> [<I>num</I>&nbsp;|&nbsp;<I>name</I>&nbsp;|&nbsp;None&nbsp;|&nbsp;Tiny&nbsp;|&nbsp;<I>file</I>&nbsp;[<I>x</I>&nbsp;<I>y</I>]&nbsp;[<I>fg</I>&nbsp;<I>bg</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Defines a new cursor for the specified context.  Note that this
 command can not control the shapes an applications uses, for
-example, to indicate that it is busy.  The various contexts are:</p><div class="variablelist"><dl><dt><span class="term"><a name="CursorStyle_POSITION"></a><font class="fvwmopt">POSITION</font> (top_left_corner)</span></dt><dd><p>used when initially placing windows</p></dd><dt><span class="term"><a name="CursorStyle_TITLE"></a><font class="fvwmopt">TITLE</font> (top_left_arrow)</span></dt><dd><p>used in a window title-bar</p></dd><dt><span class="term"><a name="CursorStyle_DEFAULT"></a><font class="fvwmopt">DEFAULT</font> (top_left_arrow)</span></dt><dd><p>used in windows that do not set their cursor</p></dd><dt><span class="term"><a name="CursorStyle_SYS"></a><font class="fvwmopt">SYS</font> (hand2)</span></dt><dd><p>used in one of the title-bar buttons</p></dd><dt><span class="term"><a name="CursorStyle_MOVE"></a><font class="fvwmopt">MOVE</font> (fleur)</span></dt><dd><p>used when moving or resizing windows</p></dd><dt><span class="term"><a name="CursorStyle_RESIZE"></a><font class="fvwmopt">RESIZE</font> (sizing)</span></dt><dd><p>used when moving or resizing windows</p></dd><dt><span class="term"><a name="CursorStyle_WAIT"></a><font class="fvwmopt">WAIT</font> (watch)</span></dt><dd><p>used during certain fvwm commands (see <a href="#BusyCursor">BusyCursor</a> for details)</p></dd><dt><span class="term"><a name="CursorStyle_MENU"></a><font class="fvwmopt">MENU</font> (top_left_arrow)</span></dt><dd><p>used in menus</p></dd><dt><span class="term"><a name="CursorStyle_SELECT"></a><font class="fvwmopt">SELECT</font> (crosshair)</span></dt><dd><p>used when the user is required to select a window</p></dd><dt><span class="term"><a name="CursorStyle_DESTROY"></a><font class="fvwmopt">DESTROY</font> (pirate)</span></dt><dd><p>used for <a href="#Destroy">Destroy</a>, <a href="#Close">Close</a>, and <a href="#Delete">Delete</a> commands</p></dd><dt><span class="term"><a name="CursorStyle_TOP"></a><font class="fvwmopt">TOP</font> (top_side)</span></dt><dd><p>used in the top side-bar of a window</p></dd><dt><span class="term"><a name="CursorStyle_RIGHT"></a><font class="fvwmopt">RIGHT</font> (right_side)</span></dt><dd><p>used in the right side-bar of a window</p></dd><dt><span class="term"><a name="CursorStyle_BOTTOM"></a><font class="fvwmopt">BOTTOM</font> (bottom_side)</span></dt><dd><p>used in the bottom side-bar of a window</p></dd><dt><span class="term"><a name="CursorStyle_LEFT"></a><font class="fvwmopt">LEFT</font> (left_side)</span></dt><dd><p>used in the left side-bar of a window</p></dd><dt><span class="term"><a name="CursorStyle_TOP_LEFT"></a><font class="fvwmopt">TOP_LEFT</font> (top_left_corner)</span></dt><dd><p>used in the top left corner of a window</p></dd><dt><span class="term"><a name="CursorStyle_TOP_RIGHT"></a><font class="fvwmopt">TOP_RIGHT</font> (top_right_corner)</span></dt><dd><p>used in the top right corner of a window</p></dd><dt><span class="term"><a name="CursorStyle_BOTTOM_LEFT"></a><font class="fvwmopt">BOTTOM_LEFT</font> (bottom_left_corner)</span></dt><dd><p>used in the bottom left corner of a window</p></dd><dt><span class="term"><a name="CursorStyle_BOTTOM_RIGHT"></a><font class="fvwmopt">BOTTOM_RIGHT</font> (bottom_right_corner)</span></dt><dd><p>used in the bottom right corner of a window</p></dd><dt><span class="term"><a name="CursorStyle_TOP_EDGE"></a><font class="fvwmopt">TOP_EDGE</font> (top_side)</span></dt><dd><p>used at the top edge of the screen</p></dd><dt><span class="term"><a name="CursorStyle_RIGHT_EDGE"></a><font class="fvwmopt">RIGHT_EDGE</font> (right_side)</span></dt><dd><p>used at the right edge of the screen</p></dd><dt><span class="term"><a name="CursorStyle_BOTTOM_EDGE"></a><font class="fvwmopt">BOTTOM_EDGE</font> (bottom_side)</span></dt><dd><p>used at the bottom edge of the screen</p></dd><dt><span class="term"><a name="CursorStyle_LEFT_EDGE"></a><font class="fvwmopt">LEFT_EDGE</font> (left_side)</span></dt><dd><p>used at the left edge of the screen</p></dd><dt><span class="term"><a name="CursorStyle_ROOT"></a><font class="fvwmopt">ROOT</font> (left_ptr)</span></dt><dd><p>used as the root cursor</p></dd><dt><span class="term"><a name="CursorStyle_STROKE"></a><font class="fvwmopt">STROKE</font> (plus)</span></dt><dd><p>used during a <a href="#StrokeFunc">StrokeFunc</a> command.</p></dd></dl></div><p>
+example, to indicate that it is busy.  The various contexts are:
+<P>
+
+<I>POSITION</I> (top_left_corner)
+<DL COMPACT><DT><DD>
+used when initially placing windows
+</DL>
+
+<P>
+
+<I>TITLE</I> (top_left_arrow)
+<DL COMPACT><DT><DD>
+used in a window title-bar
+</DL>
+
+<P>
+
+<I>DEFAULT</I> (top_left_arrow)
+<DL COMPACT><DT><DD>
+used in windows that do not set their cursor
+</DL>
+
+<P>
+
+<I>SYS</I> (hand2)
+<DL COMPACT><DT><DD>
+used in one of the title-bar buttons
+</DL>
+
+<P>
+
+<I>MOVE</I> (fleur)
+<DL COMPACT><DT><DD>
+used when moving or resizing windows
+</DL>
+
+<P>
+
+<I>RESIZE</I> (sizing)
+<DL COMPACT><DT><DD>
+used when moving or resizing windows
+</DL>
+
+<P>
+
+<I>WAIT</I> (watch)
+<DL COMPACT><DT><DD>
+used during certain fvwm commands (see
+<B>BusyCursor</B>
+for details)
+</DL>
+
+<P>
+
+<I>MENU</I> (top_left_arrow)
+<DL COMPACT><DT><DD>
+used in menus
+</DL>
+
+<P>
+
+<I>SELECT</I> (crosshair)
+<DL COMPACT><DT><DD>
+used when the user is required to select a window
+</DL>
+
+<P>
+
+<I>DESTROY</I> (pirate)
+<DL COMPACT><DT><DD>
+used for
+<B>Destroy</B>,
+<B>Close</B>, and
+<B>Delete</B>
+commands
+</DL>
+
+<P>
+
+<I>TOP</I> (top_side)
+<DL COMPACT><DT><DD>
+used in the top side-bar of a window
+</DL>
+
+<P>
+
+<I>RIGHT</I> (right_side)
+<DL COMPACT><DT><DD>
+used in the right side-bar of a window
+</DL>
+
+<P>
+
+<I>BOTTOM</I> (bottom_side)
+<DL COMPACT><DT><DD>
+used in the bottom side-bar of a window
+</DL>
+
+<P>
+
+<I>LEFT</I> (left_side)
+<DL COMPACT><DT><DD>
+used in the left side-bar of a window
+</DL>
+
+<P>
+
+<I>TOP_LEFT</I> (top_left_corner)
+<DL COMPACT><DT><DD>
+used in the top left corner of a window
+</DL>
+
+<P>
+
+<I>TOP_RIGHT</I> (top_right_corner)
+<DL COMPACT><DT><DD>
+used in the top right corner of a window
+</DL>
+
+<P>
+
+<I>BOTTOM_LEFT</I> (bottom_left_corner)
+<DL COMPACT><DT><DD>
+used in the bottom left corner of a window
+</DL>
+
+<P>
+
+<I>BOTTOM_RIGHT</I> (bottom_right_corner)
+<DL COMPACT><DT><DD>
+used in the bottom right corner of a window
+</DL>
+
+<P>
+
+<I>TOP_EDGE</I> (top_side)
+<DL COMPACT><DT><DD>
+used at the top edge of the screen
+</DL>
+
+<P>
+
+<I>RIGHT_EDGE</I> (right_side)
+<DL COMPACT><DT><DD>
+used at the right edge of the screen
+</DL>
+
+<P>
+
+<I>BOTTOM_EDGE</I> (bottom_side)
+<DL COMPACT><DT><DD>
+used at the bottom edge of the screen
+</DL>
+
+<P>
+
+<I>LEFT_EDGE</I> (left_side)
+<DL COMPACT><DT><DD>
+used at the left edge of the screen
+</DL>
+
+<P>
+
+<I>ROOT</I> (left_ptr)
+<DL COMPACT><DT><DD>
+used as the root cursor
+</DL>
+
+<P>
+
+<I>STROKE</I> (plus)
+<DL COMPACT><DT><DD>
+used during a
+<B>StrokeFunc</B>
+command.
+</DL>
+
+<P>
+
 The defaults are shown in parentheses above.  If you ever want to
 restore the default cursor for a specific context you can omit the
 second argument.
-</p><p>
+<P>
+
 The second argument is either the numeric value of the cursor as
-defined in the include file <code class="filename">X11/cursorfont.h</code>
-or its name (without the XC_ prefix). Alternatively, the xpm file
+defined in the include file <I>X11/cursorfont.h</I>
+or its name (without the XC_ prefix).  Alternatively, the xpm file
 name may be specified.  The name can also be
-<a name="CursorStyle_None"></a><font class="fvwmopt">None</font>
+<I>None</I>
 (no cursor) or
-<a name="CursorStyle_Tiny"></a><font class="fvwmopt">Tiny</font>
-(a single pixel as the cursor).</p><pre class="programlisting">
+<I>Tiny</I>
+(a single pixel as the cursor).
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # make the kill cursor be XC_gumby (both forms work):
 CursorStyle DESTROY 56
 CursorStyle DESTROY gumby
-</pre><p>
+</PRE>
+
+</DL>
+
+<P>
+
 Alternatively, the cursor can be loaded from an (XPM, PNG or SVG) image
-<em class="replaceable"><code>file</code></em>.  If fvwm is compiled with Xcursor support,
+<I>file</I>.  If fvwm is compiled with Xcursor support,
 full ARGB is used, and (possibly animated) cursor files made with the
-<span><strong class="command">xcursorgen</strong></span> program can be loaded.  Otherwise the cursor
+<B>xcursorgen</B> program can be loaded.  Otherwise the cursor
 is converted to monochrome.
-</p><p>
-The optional <em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
-arguments (following a <em class="replaceable"><code>file</code></em> argument) specifies
+<P>
+
+The optional <I>x</I> and <I>y</I>
+arguments (following a <I>file</I> argument) specifies
 the hot-spot coordinate with 0 0 as the top left corner of the image.
 Coordinates within the image boundary are valid and overrides any hot-spot
 defined in the (XPM/Xcursor) image file.  An invalid or undefined hot-spot
-is placed in the center of the image.</p><pre class="programlisting">
+is placed in the center of the image.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 CursorStyle ROOT cursor_image.png 0 0
-</pre><p>The optional
-<em class="replaceable"><code>fg</code></em> and <em class="replaceable"><code>bg</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+The optional
+<I>fg</I> and <I>bg</I>
 arguments specify the foreground and background colors for the
 cursor, defaulting to black and white (reverse video compared
 to the actual bitmap).  These colors are only used with monochrome
-cursors.  Otherwise they are silently ignored.</p><pre class="programlisting">
+cursors.  Otherwise they are silently ignored.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 CursorStyle ROOT nice_arrow.xpm yellow black
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultColors"></a>31.2.7. DefaultColors</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultColors</code>  [<em class="replaceable"><code>foreground</code></em>] [<em class="replaceable"><code>background</code></em>]</p></div><p><span class="emphasis"><em>DefaultColors</em></span>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>DefaultColors</B> [<I>foreground</I>] [<I>background</I>]<DD>
+<DL COMPACT><DT><DD>
+
+<B>DefaultColors</B>
 sets the default foreground and background colors used in
 miscellaneous windows created by fvwm, for example in the geometry
-feedback windows during a move or resize operation. If you do not
-want to change one color or the other, use - as its color name. To
-revert to the built-in default colors omit both color names. Note
+feedback windows during a move or resize operation.  If you do not
+want to change one color or the other, use - as its color name.  To
+revert to the built-in default colors omit both color names.  Note
 that the default colors are not used in menus, window titles or
-icon titles.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultColorset"></a>31.2.8. DefaultColorset</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultColorset</code>  [<em class="replaceable"><code>num</code></em>]</p></div><p><span class="emphasis"><em>DefaultColorset</em></span>
+icon titles.
+</DL>
+
+<DT><B>DefaultColorset</B> [<I>num</I>]<DD>
+<DL COMPACT><DT><DD>
+
+<B>DefaultColorset</B>
 sets the colorset used by the windows controlled by the
-<a href="#DefaultColors">DefaultColors</a>
+<B>DefaultColors</B>
 command.  To revert back to the
-<a href="#DefaultColors">DefaultColors</a>
-colors use</p><pre class="programlisting">
+<B>DefaultColors</B>
+colors use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 DefaultColorset -1
-</pre><p>or any variant of the
-<a href="#DefaultColors">DefaultColors</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultFont"></a>31.2.9. DefaultFont</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultFont</code>  [<em class="replaceable"><code>fontname</code></em>]</p></div><p><span class="emphasis"><em>DefaultFont</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+or any variant of the
+<B>DefaultColors</B>
+command.
+</DL>
+
+<DT><B>DefaultFont</B> [<I>fontname</I>]<DD>
+<DL COMPACT><DT><DD>
+
+<B>DefaultFont</B>
 sets the default font to font
-<em class="replaceable"><code>fontname</code></em>.
+<I>fontname</I>.
 The default font is used by fvwm whenever no other font has been
 specified.  To reset the default font to the built-in default,
 omit the argument.  The default font is used for menus, window
 titles, icon titles as well as the geometry feedback windows
 during a move or resize operation.  To override the default font
 in a specific context, use the
-<a href="#Style">Style</a> * <a href="#Style_Font">Font</a>,
-<a href="#Style">Style</a> * <a href="#Style_IconFont">IconFont</a>, or
-<a href="#MenuStyle">MenuStyle</a>
-commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultIcon"></a>31.2.10. DefaultIcon</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultIcon</code>   <em class="replaceable"><code>filename</code></em> </p></div><p>
+<B>Style</B> * <I>Font</I>,
+<B>Style</B> * <I>IconFont</I>, or
+<B>MenuStyle</B>
+commands.
+</DL>
+
+<DT><B>DefaultIcon</B> <I>filename</I><DD>
+<DL COMPACT><DT><DD>
+
 Sets the default icon which is used if a window has neither an
 client-supplied icon nor an icon supplied via the
-<a href="#Style_Icon">Icon</a>
+<I>Icon</I>
 option of the
-<a href="#Style">Style</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DefaultLayers"></a>31.2.11. DefaultLayers</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DefaultLayers</code>   <em class="replaceable"><code>bottom</code></em>   <em class="replaceable"><code>put</code></em>   <em class="replaceable"><code>top</code></em> </p></div><p>
+<B>Style</B>
+command.
+</DL>
+
+<DT><B>DefaultLayers</B> <I>bottom</I> <I>put</I> <I>top</I><DD>
+<DL COMPACT><DT><DD>
+
 Changes the layers that are used for the
-<a href="#Style_StaysOnBottom">StaysOnBottom</a>,
-<a href="#Style_StaysPut">StaysPut</a>,
-<a href="#Style_StaysOnTop">StaysOnTop</a>
-<a href="#Style">Style</a>
-options.  Initially, the layers 2, 4 and 6 are used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Deschedule"></a>31.2.12. Deschedule</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Deschedule</code>  [<em class="replaceable"><code>command_id</code></em>]</p></div><p>Removes all commands that were scheduled with the id
-<em class="replaceable"><code>command_id</code></em>
+<I>StaysOnBottom</I>,
+<I>StaysPut</I>,
+<I>StaysOnTop</I>
+<B>Style</B>
+options.  Initially, the layers 2, 4 and 6 are used.
+</DL>
+
+<DT><B>Deschedule</B> [<I>command_id</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Removes all commands that were scheduled with the id
+<I>command_id</I>
 with the
-<a href="#Schedule">Schedule</a>
+<B>Schedule</B>
 command from the list of commands to be executed unless they were
 already executed.  If the
-<em class="replaceable"><code>command_id</code></em>
+<I>command_id</I>
 is omitted, the value of the variable $[schedule.last] is used as
-the id.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Emulate"></a>31.2.13. Emulate</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Emulate</code>    Fvwm  |   Mwm  |   Win  </p></div><p>This command is a catch all for how miscellaneous things are done
-by fvwm. Right now this command affects where the move/resize
-feedback window appears and how window placement is aborted. To
+the id.
+</DL>
+
+<DT><B>Emulate</B> Fvwm | Mwm | Win<DD>
+<DL COMPACT><DT><DD>
+
+This command is a catch all for how miscellaneous things are done
+by fvwm.  Right now this command affects where the move/resize
+feedback window appears and how window placement is aborted.  To
 have more Mwm- or Win-like behavior you can call
-<span class="emphasis"><em>Emulate</em></span>
+<B>Emulate</B>
 with
-<a name="Emulate_Mwm"></a><font class="fvwmopt">Mwm</font> or
-<a name="Emulate_Win"></a><font class="fvwmopt">Win</font>
+<I>Mwm</I> or
+<I>Win</I>
 as its argument.  With
 Mwm
 resize and move feedback windows are in the center of the screen,
 instead of the upper left corner.
 This also affects how manual placement is aborted.
-See the <a href="#Style_ManualPlacement">ManualPlacement</a> description.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EscapeFunc"></a>31.2.14. EscapeFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EscapeFunc</code> </p></div><p>By default the key sequence
-<span class="keysym">Ctrl-Alt-Escape</span>
+See the <I>ManualPlacement</I> description.
+</DL>
+
+<DT><B>EscapeFunc</B><DD>
+<DL COMPACT><DT><DD>
+
+By default the key sequence
+<FONT>Ctrl-Alt-Escape</FONT>
 allows for escaping from a
-<a href="#Wait">Wait</a>
+<B>Wait</B>
 pause and from a locked
-<a href="#ModuleSynchronous">ModuleSynchronous</a>
+<B>ModuleSynchronous</B>
 command.  The
-<span class="emphasis"><em>EscapeFunc</em></span>
+<B>EscapeFunc</B>
 command used with the
-<a href="#Key">Key</a>
-command allows for configuring this key sequence.  An example:</p><pre class="programlisting">
-<a href="#Key">Key</a> Escape A MC -
-<a href="#Key">Key</a> Escape A  S EscapeFunc
-</pre><p>replaces the
-<span class="keysym">Ctrl-Alt-Escape</span>
+<B>Key</B>
+command allows for configuring this key sequence.  An example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> Escape A MC -
+<B>Key</B> Escape A  S EscapeFunc
+</PRE>
+
+</DL>
+
+<P>
+
+replaces the
+<FONT>Ctrl-Alt-Escape</FONT>
 key sequence with
-<span class="keysym">Shift-Escape</span>
+<FONT>Shift-Escape</FONT>
 for aborting a
-<a href="#Wait">Wait</a>
+<B>Wait</B>
 pause and
-<a href="#ModuleSynchronous">ModuleSynchronous</a>
+<B>ModuleSynchronous</B>
 command.
-<span class="emphasis"><em>EscapeFunc</em></span>
+<B>EscapeFunc</B>
 used outside the
-<a href="#Key">Key</a>
-command does nothing.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeClick"></a>31.2.15. FakeClick</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeClick</code>   [<span class="optional"> <em class="replaceable"><code>command</code></em>   <em class="replaceable"><code>value</code></em> </span>]... </p></div><p>This command is mainly intended for debugging fvwm and no
+<B>Key</B>
+command does nothing.
+</DL>
+
+<DT><B>FakeClick</B> [<I>command</I>&nbsp;<I>value</I>] ...<DD>
+<DL COMPACT><DT><DD>
+
+This command is mainly intended for debugging fvwm and no
 guarantees are made that it works for you.
-<span class="emphasis"><em>FakeClick</em></span>
+<I>FakeClick</I>
 can simulate mouse button press and release events and pass them
 to fvwm or the applications.  The parameters are a list of
 commands which consist of pairs of
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 tokens and integer
-<em class="replaceable"><code>values</code></em>,
+<I>values</I>,
 The
-<a name="FakeClick_press"></a><font class="fvwmopt">press</font> and <a name="FakeClick_release"></a><font class="fvwmopt">release</font>
+<I>press</I> and <I>release</I>
 commands are followed by the appropriate mouse button number and
 generate a button press or release event on the window below the
 pointer.  The
-<a name="FakeClick_wait"></a><font class="fvwmopt">wait</font>
+<I>wait</I>
 commands pauses fvwm for the given number of milliseconds.  The
-<a name="FakeClick_modifiers"></a><font class="fvwmopt">modifiers</font>
+<I>modifiers</I>
 command simulates pressing or releasing modifier keys.  The values
 1 to 5 are mapped to
-<span class="keysym">Mod1</span>
+<FONT>Mod1</FONT>
 to
-<span class="keysym">Mod5</span>
+<FONT>Mod5</FONT>
 while 6, 7 and 8 are mapped to
-<span class="keysym">Shift</span>,
-<span class="keysym">Lock</span>
+<FONT>Shift</FONT>
+,
+<FONT>Lock</FONT>
 and
-<span class="keysym">Control</span>.
+<FONT>Control</FONT>
+.
 The modifier is set for any further button events.  To release a
 modifier key, use the corresponding negative number.  The
-<a name="FakeClick_depth"></a><font class="fvwmopt">depth</font>
+<I>depth</I>
 command determines to which window the button events are
-sent. With a depth of 1, all events go to the root window,
+sent.  With a depth of 1, all events go to the root window,
 regardless of the pointer's position.  With 2, the event is passed
 to the top level window under the pointer which is usually the
-frame window. With 3, events go to the client window. Higher
+frame window.  With 3, events go to the client window.  Higher
 numbers go to successive sub windows.  Zero (0) goes to the
 smallest window that contains the pointer.  Note that events
-propagate upward.</p><pre class="programlisting">
+propagate upward.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 FakeClick depth 2 press 1 wait 250 release 1
-</pre><p>This simulates a click with button 1 in the parent window (depth
+</PRE>
+
+</DL>
+
+<P>
+
+This simulates a click with button 1 in the parent window (depth
 2) with a delay of 250 milliseconds between the press and the
 release.
-Note: all command names can be abbreviated with their first letter.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FakeKeypress"></a>31.2.16. FakeKeypress</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FakeKeypress</code>   [<span class="optional"> <em class="replaceable"><code>command</code></em>   <em class="replaceable"><code>value</code></em> </span>]... </p></div><p>This command is mainly intended for debugging fvwm and no
+Note: all command names can be abbreviated with their first letter.
+</DL>
+
+<DT><B>FakeKeypress</B> [<I>command</I>&nbsp;<I>value</I>] ...<DD>
+<DL COMPACT><DT><DD>
+
+This command is mainly intended for debugging fvwm and no
 guarantees are made that it works for you.
-<span class="emphasis"><em>FakeKeypress</em></span>
+<B>FakeKeypress</B>
 can simulate key press and release events and pass them
 to fvwm or applications.  The parameters are a list of
 commands which consist of pairs of command tokens and values.
 The
-<a name="FakeKeypress_press"></a><font class="fvwmopt">press</font> and
-<a name="FakeKeypress_release"></a><font class="fvwmopt">release</font>
+<I>press</I> and
+<I>release</I>
 commands are followed by a key name.
 The key name is a standard X11 key name as defined in
-<code class="filename">/usr/include/X11/keysymdef.h</code>,
+<I>/usr/include/X11/keysymdef.h</I>,
 (without the
-<span class="emphasis"><em>XK_</em></span>
+<I>XK_</I>
 prefix), or the keysym database
-<code class="filename">/usr/X11R6/lib/X11/XKeysymDB</code>.
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
 The
-<a name="FakeKeypress_wait"></a><font class="fvwmopt">wait</font>,
-<a name="FakeKeypress_modifiers"></a><font class="fvwmopt">modifiers</font> and
-<a name="FakeKeypress_depth"></a><font class="fvwmopt">depth</font>
+<I>wait</I>,
+<I>modifiers</I> and
+<I>depth</I>
 commands are the same as those used by
-<a href="#FakeClick">FakeClick</a>.</p><p>Save all GVim sessions with: "Esc:w\n"</p><pre class="programlisting">
-<a href="#All">All</a> (gvim) FakeKeypress press Escape \
+<B>FakeClick</B>.
+<P>
+
+Save all GVim sessions with: &quot;Esc:w\n&quot;
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>All</B> (gvim) FakeKeypress press Escape \
                         press colon \
                         press w \
                         press Return
-</pre><p>Save &amp; exit all GVim sessions with: "Esc:wq\n"</p><pre class="programlisting">
-<a href="#All">All</a> (gvim) FakeKeypress press Escape \
+</PRE>
+
+</DL>
+
+<P>
+
+Save &amp; exit all GVim sessions with: &quot;Esc:wq\n&quot;
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>All</B> (gvim) FakeKeypress press Escape \
                         press colon \
                         press w \
                         press q \
                         press Return
-</pre><p>Send A to a specific window:</p><pre class="programlisting">
-<a href="#WindowId">WindowId</a> 0x3800002 FakeKeypress press A
-</pre><p>Note: all command names can be abbreviated with their first letter.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GlobalOpts"></a>31.2.17. GlobalOpts</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GlobalOpts</code>  [<em class="replaceable"><code>options</code></em>]</p></div><p>This command is obsolete.  Please
+</PRE>
+
+</DL>
+
+<P>
+
+Send A to a specific window:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>WindowId</B> 0x3800002 FakeKeypress press A
+</PRE>
+
+</DL>
+
+<P>
+
+Note: all command names can be abbreviated with their first letter.
+</DL>
+
+<DT><B>GlobalOpts</B> [<I>options</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete.  Please
 replace the global options in your configuration file according to
-the following table:</p><pre class="programlisting">
-GlobalOpts <a name="GlobalOpts_WindowShadeShrinks"></a><font class="fvwmopt">WindowShadeShrinks</font>
+the following table:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+GlobalOpts <I>WindowShadeShrinks</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_WindowShadeShrinks">WindowShadeShrinks</a>
+<B>Style</B> * <I>WindowShadeShrinks</I>
 
-GlobalOpts <a name="GlobalOpts_WindowShadeScrolls"></a><font class="fvwmopt">WindowShadeScrolls</font>
+GlobalOpts <I>WindowShadeScrolls</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_WindowShadeScrolls">WindowShadeScrolls</a>
+<B>Style</B> * <I>WindowShadeScrolls</I>
 
-GlobalOpts <a name="GlobalOpts_SmartPlacementIsReallySmart"></a><font class="fvwmopt">SmartPlacementIsReallySmart</font>
+GlobalOpts <I>SmartPlacementIsReallySmart</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_MinOverlapPlacement">MinOverlapPlacement</a>
+<B>Style</B> * <I>MinOverlapPlacement</I>
 
-GlobalOpts <a name="GlobalOpts_SmartPlacementIsNormal"></a><font class="fvwmopt">SmartPlacementIsNormal</font>
+GlobalOpts <I>SmartPlacementIsNormal</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_TileCascadePlacement">TileCascadePlacement</a>
+<B>Style</B> * <I>TileCascadePlacement</I>
 
-GlobalOpts <a name="GlobalOpts_ClickToFocusDoesntPassClick"></a><font class="fvwmopt">ClickToFocusDoesntPassClick</font>
+GlobalOpts <I>ClickToFocusDoesntPassClick</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ClickToFocusPassesClickOff">ClickToFocusPassesClickOff</a>
+<B>Style</B> * <I>ClickToFocusPassesClickOff</I>
 
-GlobalOpts <a name="GlobalOpts_ClickToFocusPassesClick"></a><font class="fvwmopt">ClickToFocusPassesClick</font>
+GlobalOpts <I>ClickToFocusPassesClick</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ClickToFocusPassesClick">ClickToFocusPassesClick</a>
+<B>Style</B> * <I>ClickToFocusPassesClick</I>
 
-GlobalOpts <a name="GlobalOpts_ClickToFocusDoesntRaise"></a><font class="fvwmopt">ClickToFocusDoesntRaise</font>
+GlobalOpts <I>ClickToFocusDoesntRaise</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ClickToFocusRaisesOff">ClickToFocusRaisesOff</a>
+<B>Style</B> * <I>ClickToFocusRaisesOff</I>
 
-GlobalOpts <a name="GlobalOpts_ClickToFocusRaises"></a><font class="fvwmopt">ClickToFocusRaises</font>
+GlobalOpts <I>ClickToFocusRaises</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ClickToFocusRaises">ClickToFocusRaises</a>
+<B>Style</B> * <I>ClickToFocusRaises</I>
 
-GlobalOpts <a name="GlobalOpts_MouseFocusClickDoesntRaise"></a><font class="fvwmopt">MouseFocusClickDoesntRaise</font>
+GlobalOpts <I>MouseFocusClickDoesntRaise</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_MouseFocusClickRaisesOff">MouseFocusClickRaisesOff</a>
+<B>Style</B> * <I>MouseFocusClickRaisesOff</I>
 
-GlobalOpts <a name="GlobalOpts_MouseFocusClickRaises"></a><font class="fvwmopt">MouseFocusClickRaises</font>
+GlobalOpts <I>MouseFocusClickRaises</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_MouseFocusClickRaises">MouseFocusClickRaises</a>
+<B>Style</B> * <I>MouseFocusClickRaises</I>
 
-GlobalOpts <a name="GlobalOpts_NoStipledTitles"></a><font class="fvwmopt">NoStipledTitles</font>
+GlobalOpts <I>NoStipledTitles</I>
   --&gt;
-<a href="#Style">Style</a> * !<a href="#Style_StippledTitle">StippledTitle</a>
+<B>Style</B> * !<I>StippledTitle</I>
 
-GlobalOpts <a name="GlobalOpts_StipledTitles"></a><font class="fvwmopt">StipledTitles</font>
+GlobalOpts <I>StipledTitles</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_StippledTitle">StippledTitle</a>
+<B>Style</B> * <I>StippledTitle</I>
 
-GlobalOpts <a name="GlobalOpts_CaptureHonorsStartsOnPage"></a><font class="fvwmopt">CaptureHonorsStartsOnPage</font>
+GlobalOpts <I>CaptureHonorsStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_CaptureHonorsStartsOnPage">CaptureHonorsStartsOnPage</a>
+<B>Style</B> * <I>CaptureHonorsStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_CaptureIgnoresStartsOnPage"></a><font class="fvwmopt">CaptureIgnoresStartsOnPage</font>
+GlobalOpts <I>CaptureIgnoresStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_CaptureIgnoresStartsOnPage">CaptureIgnoresStartsOnPage</a>
+<B>Style</B> * <I>CaptureIgnoresStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_RecaptureHonorsStartsOnPage"></a><font class="fvwmopt">RecaptureHonorsStartsOnPage</font>
+GlobalOpts <I>RecaptureHonorsStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_RecaptureHonorsStartsOnPage">RecaptureHonorsStartsOnPage</a>
+<B>Style</B> * <I>RecaptureHonorsStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_RecaptureIgnoresStartsOnPage"></a><font class="fvwmopt">RecaptureIgnoresStartsOnPage</font>
+GlobalOpts <I>RecaptureIgnoresStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_RecaptureIgnoresStartsOnPage">RecaptureIgnoresStartsOnPage</a>
+<B>Style</B> * <I>RecaptureIgnoresStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_ActivePlacementHonorsStartsOnPage"></a><font class="fvwmopt">ActivePlacementHonorsStartsOnPage</font>
+GlobalOpts <I>ActivePlacementHonorsStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ManualPlacementHonorsStartsOnPage">ManualPlacementHonorsStartsOnPage</a>
+<B>Style</B> * <I>ManualPlacementHonorsStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_ActivePlacementIgnoresStartsOnPage"></a><font class="fvwmopt">ActivePlacementIgnoresStartsOnPage</font>
+GlobalOpts <I>ActivePlacementIgnoresStartsOnPage</I>
   --&gt;
-<a href="#Style">Style</a> * <a href="#Style_ManualPlacementIgnoresStartsOnPage">ManualPlacementIgnoresStartsOnPage</a>
+<B>Style</B> * <I>ManualPlacementIgnoresStartsOnPage</I>
 
-GlobalOpts <a name="GlobalOpts_RaiseOverNativeWindows"></a><font class="fvwmopt">RaiseOverNativeWindows</font>
+GlobalOpts <I>RaiseOverNativeWindows</I>
   --&gt;
-<a href="#BugOpts">BugOpts</a> <a href="#Style_RaiseOverNativeWindows">RaiseOverNativeWindows</a> on
+<B>BugOpts</B> <I>RaiseOverNativeWindows</I> on
 
-GlobalOpts <a name="GlobalOpts_IgnoreNativeWindows"></a><font class="fvwmopt">IgnoreNativeWindows</font>
+GlobalOpts <I>IgnoreNativeWindows</I>
   --&gt;
-<a href="#BugOpts">BugOpts</a> <a href="#Style_RaiseOverNativeWindows">RaiseOverNativeWindows</a> off
+<B>BugOpts</B> <I>RaiseOverNativeWindows</I> off
 
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="HilightColor"></a>31.2.18. HilightColor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">HilightColor</code>   <em class="replaceable"><code>textcolor</code></em>   <em class="replaceable"><code>backgroundcolor</code></em> </p></div><p>This command is obsoleted by the
-<a href="#Style">Style</a>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>HilightColor</B> <I>textcolor</I> <I>backgroundcolor</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsoleted by the
+<B>Style</B>
 options
-<a href="#Style_HilightFore">HilightFore</a> and
-<a href="#Style_HilightBack">HilightBack</a>.
-Please use</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_HilightFore">HilightFore</a> textcolor, <a href="#Style_HilightBack">HilightBack</a> backgroundcolor
-</pre><p>instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="HilightColorset"></a>31.2.19. HilightColorset</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">HilightColorset</code>  [<em class="replaceable"><code>num</code></em>]</p></div><p>This command is obsoleted by the
-<a href="#Style">Style</a>
+<I>HilightFore</I> and
+<I>HilightBack</I>.
+Please use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>HilightFore</I> textcolor, <I>HilightBack</I> backgroundcolor
+</PRE>
+
+</DL>
+
+<P>
+
+instead.
+</DL>
+
+<DT><B>HilightColorset</B> [<I>num</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is obsoleted by the
+<B>Style</B>
 option
-<a href="#Style_HilightColorset">HilightColorset</a>.
-Please use</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_HilightColorset">HilightColorset</a> num
-</pre><p>instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="IconFont"></a>31.2.20. IconFont</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">IconFont</code>  [<em class="replaceable"><code>fontname</code></em>]</p></div><p>This command is obsoleted by the
-<a href="#Style">Style</a>
+<I>HilightColorset</I>.
+Please use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>HilightColorset</I> num
+</PRE>
+
+</DL>
+
+<P>
+
+instead.
+</DL>
+
+<DT><B>IconFont</B> [<I>fontname</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is obsoleted by the
+<B>Style</B>
 option
-<a href="#Style_IconFont">IconFont</a>.
-Please use</p><pre class="programlisting">
-<a href="#Style">Style</a> * IconFont fontname
-</pre><p>instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="IconPath"></a>31.2.21. IconPath</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">IconPath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>This command is obsolete.  Please use
-<a href="#ImagePath">ImagePath</a>
-instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ImagePath"></a>31.2.22. ImagePath</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ImagePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of directories in which to search
+<I>IconFont</I>.
+Please use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * IconFont fontname
+</PRE>
+
+</DL>
+
+<P>
+
+instead.
+</DL>
+
+<DT><B>IconPath</B> <I>path</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete.  Please use
+<B>ImagePath</B>
+instead.
+</DL>
+
+<DT><B>ImagePath</B> <I>path</I><DD>
+<DL COMPACT><DT><DD>
+
+Specifies a colon separated list of directories in which to search
 for images (both monochrome and pixmap).  To find an image given
 by a relative pathname, fvwm looks into each directory listed in
-turn, and uses the first file found.</p><p>If a directory is given in the form "/some/dir;.ext", this means
-all images in this directory have the extension ".ext" that should
+turn, and uses the first file found.
+<P>
+
+If a directory is given in the form &quot;/some/dir;.ext&quot;, this means
+all images in this directory have the extension &quot;.ext&quot; that should
 be forced.  The original image name (that may contain another
-extension or no extension at all) is not probed, instead ".ext" is
+extension or no extension at all) is not probed, instead &quot;.ext&quot; is
 added or replaces the original extension.  This is useful, for
-example, if a user has some image directories with ".xpm" images
-and other image directories with the same names, but ".png"
-images.</p><p>The
-<em class="replaceable"><code>path</code></em>
+example, if a user has some image directories with &quot;.xpm&quot; images
+and other image directories with the same names, but &quot;.png&quot;
+images.
+<P>
+
+The
+<I>path</I>
 may contain environment variables such as
-<code class="envar">$HOME</code> (or <code class="envar">${HOME}</code>).
+<I>$HOME</I> (or <I>${HOME}</I>).
 Further, a '+' in the
-<em class="replaceable"><code>path</code></em>
+<I>path</I>
 is expanded to the previous value of the path, allowing appending
-or prepending to the path easily.</p><p>For example:</p><pre class="programlisting">
+or prepending to the path easily.
+<P>
+
+For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ImagePath $HOME/icons:+:/usr/include/X11/bitmaps
-</pre><p>Note: if the
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>
+</PRE>
+
+</DL>
+
+<P>
+
+Note: if the
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
 module is used to parse your
-<code class="filename">config</code>
-files, then m4 may want to mangle the word "include" which
+<I>config</I>
+files, then m4 may want to mangle the word &quot;include&quot; which
 frequently shows up in the
-<span class="emphasis"><em>ImagePath</em></span>
-command.  To fix this one may add</p><pre class="programlisting">
+<B>ImagePath</B>
+command.  To fix this one may add
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 undefine(`include')
-</pre><p>prior to the
-<span class="emphasis"><em>ImagePath</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+prior to the
+<B>ImagePath</B>
 command, or better: use the
-<code class="option">-m4-prefix</code>
+<B>-m4-prefix</B>
 option to force all
-<span class="emphasis"><em>m4</em></span>
-directives to have a prefix of "m4_" (see the
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>
-man page).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="LocalePath"></a>31.2.23. LocalePath</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">LocalePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of "locale path" in which to
-search for string translations. A locale path is constituted by a
+<B>m4</B>
+directives to have a prefix of &quot;m4_&quot; (see the
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
+man page).
+</DL>
+
+<DT><B>LocalePath</B> <I>path</I><DD>
+<DL COMPACT><DT><DD>
+
+Specifies a colon separated list of &quot;locale path&quot; in which to
+search for string translations.  A locale path is constituted by a
 directory path and a text domain separated by a semicolon
-(';'). As an example the default locale path is:</p><pre class="programlisting">
+(';').  As an example the default locale path is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 /install_prefix/share/locale;fvwm
-</pre><p>where install_prefix is the fvwm installation directory. With such
-a locale path translations are searched for in</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+where install_prefix is the fvwm installation directory.  With such
+a locale path translations are searched for in
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 /install_prefix/share/locale/lang/LC_MESSAGES/fvwm.mo
-</pre><p>where
-<span class="emphasis"><em>lang</em></span>
-depends on the locale. If no directory is given the default
-directory path is assumed. If no text domain is given,
-<span><strong class="command">fvwm</strong></span>
-is assumed. Without argument the default locale path is restored.</p><p>As for the
-<a href="#ImagePath">ImagePath</a>
+</PRE>
+
+</DL>
+
+<P>
+
+where
+<I>lang</I>
+depends on the locale.  If no directory is given the default
+directory path is assumed.  If no text domain is given,
+<B><u>fvwm</u></B>
+is assumed.  Without argument the default locale path is restored.
+<P>
+
+As for the
+<B>ImagePath</B>
 command,
-<em class="replaceable"><code>path</code></em>
+<I>path</I>
 may contain environment variables and a '+' to append or prepend
-the locale path easily.</p><p>For example, the fvwm-themes package uses</p><pre class="programlisting">
-LocalePath ";fvwm-themes:+"
-</pre><p>to add locale catalogs.</p><p>The default fvwm catalog contains a few strings used by the fvwm
+the locale path easily.
+<P>
+
+For example, the fvwm-themes package uses
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+LocalePath &quot;;fvwm-themes:+&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+to add locale catalogs.
+<P>
+
+The default fvwm catalog contains a few strings used by the fvwm
 executable itself (Desk and Geometry) and strings used in some
 default configuration files and
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>
-configuration. You can take a look at the po/ subdirectory of the
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
+configuration.  You can take a look at the po/ subdirectory of the
 fvwm source to get the list of the strings with a possible
-translation in various languages. At present, very few languages
-are supported.</p><p>The main use of locale catalogs is via the "$[gt.string]"
-parameter:</p><pre class="programlisting">
-<a href="#DestroyMenu">DestroyMenu</a> MenuFvwmWindowOps
-<a href="#AddToMenu">AddToMenu</a>   MenuFvwmWindowOps "$[gt.Window Ops]" <a href="#Title">Title</a>
-+ "$[gt.&amp;Move]"              <a href="#Move">Move</a>
-+ "$[gt.&amp;Resize]"            <a href="#Resize">Resize</a>
-+ "$[gt.R&amp;aise]"             <a href="#Raise">Raise</a>
-+ "$[gt.&amp;Lower]"             <a href="#Lower">Lower</a>
-+ "$[gt.(De)&amp;Iconify]"       <a href="#Iconify">Iconify</a>
-+ "$[gt.(Un)&amp;Stick]"         <a href="#Stick">Stick</a>
-+ "$[gt.(Un)Ma&amp;ximize]"      <a href="#Maximize">Maximize</a>
-+ "" <a href="#Nop">Nop</a>
-+ "$[gt.&amp;Close]"             <a href="#Close">Close</a>
-+ "$[gt.&amp;Destroy]"           <a href="#Destroy">Destroy</a>
-</pre><p>gives a menu in the locale languages if translations are
-available.</p><p>Note that the
-<a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a>
+translation in various languages.  At present, very few languages
+are supported.
+<P>
+
+The main use of locale catalogs is via the &quot;$[gt.string]&quot;
+parameter:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyMenu</B> MenuFvwmWindowOps
+<B>AddToMenu</B>   MenuFvwmWindowOps &quot;$[gt.Window Ops]&quot; <B>Title</B>
++ &quot;$[gt.&amp;Move]&quot;              <B>Move</B>
++ &quot;$[gt.&amp;Resize]&quot;            <B>Resize</B>
++ &quot;$[gt.R&amp;aise]&quot;             <B>Raise</B>
++ &quot;$[gt.&amp;Lower]&quot;             <B>Lower</B>
++ &quot;$[gt.(De)&amp;Iconify]&quot;       <B>Iconify</B>
++ &quot;$[gt.(Un)&amp;Stick]&quot;         <B>Stick</B>
++ &quot;$[gt.(Un)Ma&amp;ximize]&quot;      <B>Maximize</B>
++ &quot;&quot; <B>Nop</B>
++ &quot;$[gt.&amp;Close]&quot;             <B>Close</B>
++ &quot;$[gt.&amp;Destroy]&quot;           <B>Destroy</B>
+</PRE>
+
+</DL>
+
+<P>
+
+gives a menu in the locale languages if translations are
+available.
+<P>
+
+Note that the
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
 module has its own catalog and that the
-<a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a>
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 module has a set of special instructions for string
-translation. It is out of the scope of this discussion to explain
-how to build locale catalogs. Please refer to the <acronym class="acronym">GNU</acronym> gettext
-documentation.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PixmapPath"></a>31.2.24. PixmapPath</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PixmapPath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>This command is obsolete. Please use
-<a href="#ImagePath">ImagePath</a>
-instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PrintInfo"></a>31.2.25. PrintInfo</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PrintInfo</code>   <em class="replaceable"><code>subject</code></em>  [<em class="replaceable"><code>verbose</code></em>]</p></div><p>Print information on
-<em class="replaceable"><code>subject</code></em>
+translation.  It is out of the scope of this discussion to explain
+how to build locale catalogs.  Please refer to the GNU gettext
+documentation.
+</DL>
+
+<DT><B>PixmapPath</B> <I>path</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete.  Please use
+<B>ImagePath</B>
+instead.
+</DL>
+
+<DT><B>PrintInfo</B> <I>subject</I> [<I>verbose</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Print information on
+<I>subject</I>
 on stderr.  An optional integer argument
-<em class="replaceable"><code>verbose</code></em>
+<I>verbose</I>
 defines the level of information which is given.
-The current valid subjects are:</p><p><a name="PrintInfo_Colors"></a><font class="fvwmopt">Colors</font>
-which prints information about the colors used by fvwm. This useful
+The current valid subjects are:
+<P>
+
+<I>Colors</I>
+which prints information about the colors used by fvwm.  This useful
 on screens which can only display 256 (or less) colors at once.
 If
-<em class="replaceable"><code>verbose</code></em>
+<I>verbose</I>
 is one or greater the palette used by fvwm is printed.
 If you have a limited color palette, and you run out of colors,
-this command might be helpful.</p><p><a name="PrintInfo_ImageCache"></a><font class="fvwmopt">ImageCache</font>
-which prints information about the images loaded by fvwm. If
-<em class="replaceable"><code>verbose</code></em>
+this command might be helpful.
+<P>
+
+<I>ImageCache</I>
+which prints information about the images loaded by fvwm.  If
+<I>verbose</I>
 is one or greater all images in the cache will be listed together
-with their respective reuse.</p><p><a name="PrintInfo_Locale"></a><font class="fvwmopt">Locale</font>
+with their respective reuse.
+<P>
+
+<I>Locale</I>
 which prints information on your locale and the fonts that fvwm
 used.
-<em class="replaceable"><code>verbose</code></em>
-can be 1 or 2.</p><p><a name="PrintInfo_nls"></a><font class="fvwmopt">nls</font>
-which prints information on the locale catalogs that fvwm used</p><p><a name="PrintInfo_style"></a><font class="fvwmopt">style</font>
+<I>verbose</I>
+can be 1 or 2.
+<P>
+
+<I>nls</I>
+which prints information on the locale catalogs that fvwm used
+<P>
+
+<I>style</I>
 which prints information on fvwm styles.
-<em class="replaceable"><code>verbose</code></em>
-can be 1.</p><p><a name="_bindings"></a><font class="fvwmopt">bindings</font>
-which prints information on all the bindings fvwm has:  key, mouse and
+<I>verbose</I>
+can be 1.
+<P>
+
+<I>bindings</I>
+which prints information on all the bindings fvwm has: key, mouse and
 stroke bindings.
-<em class="replaceable"><code>verbose</code></em>
-has no effect with this option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Repeat"></a>31.2.26. Repeat</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Repeat</code> </p></div><p>When the
-<span class="emphasis"><em>Repeat</em></span>
+<I>verbose</I>
+has no effect with this option.
+</DL>
+
+<DT><B>Repeat</B><DD>
+<DL COMPACT><DT><DD>
+
+When the
+<B>Repeat</B>
 command is invoked, the last command that was executed by fvwm is
 executed again.  This happens regardless of whether it was
 triggered by user interaction, a module or by an X event.
 Commands that are executed from a function defined with the
-<a href="#Function">Function</a>
+<B>Function</B>
 command, from the
-<a href="#Read">Read</a> or
-<a href="#PipeRead">PipeRead</a>
+<B>Read</B> or
+<B>PipeRead</B>
 commands or by a menu are not repeated.  Instead, the function,
 menu or the
-<a href="#Read">Read</a> or
-<a href="#PipeRead">PipeRead</a>
-command is executed again.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Schedule"></a>31.2.27. Schedule</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Schedule</code>  [Periodic]  <em class="replaceable"><code>delay_ms</code></em>  [<em class="replaceable"><code>command_id</code></em>]  <em class="replaceable"><code>command</code></em> </p></div><p>The
-<em class="replaceable"><code>command</code></em>
+<B>Read</B> or
+<B>PipeRead</B>
+command is executed again.
+</DL>
+
+<DT><B>Schedule</B> [Periodic] <I>delay_ms</I> [<I>command_id</I>] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+The
+<I>command</I>
 is executed after about
-<em class="replaceable"><code>delay_ms</code></em>
+<I>delay_ms</I>
 milliseconds.  This may be useful in some tricky setups.  The
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 is executed in the same context window as the
-<span class="emphasis"><em>Schedule</em></span>
+<B>Schedule</B>
 command.  An optional integer argument
-<em class="replaceable"><code>command_id</code></em>
+<I>command_id</I>
 may be given in decimal, hexadecimal or octal format.  This id can
 be used with the
-<a href="#Deschedule">Deschedule</a>
+<B>Deschedule</B>
 command to remove the scheduled command before it is executed.  If
 no id is given, fvwm uses negative id numbers, starting with -1
 and decreasing by one with each use of the
-<span class="emphasis"><em>Schedule</em></span>
+<B>Schedule</B>
 command.
 Note that the
-<span class="emphasis"><em>Schedule</em></span>
+<B>Schedule</B>
 command and its arguments undergo the usual command line
 expansion, and, when
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 is finally executed, it is expanded again.  It may therefore be
 necessary to quote the parts of the command that must not be
-expanded twice.</p><p>Note:  A window's id as it is returned with $[w.id] can be used as
+expanded twice.
+<P>
+
+Note: A window's id as it is returned with $[w.id] can be used as
 the
-<em class="replaceable"><code>command_id</code></em>.
-Example:</p><pre class="programlisting">
-<a href="#Current">Current</a> Schedule 1000 $[w.id] <a href="#WindowShade">WindowShade</a>
-</pre><p>The
-<span class="emphasis"><em>Schedule</em></span>
+<I>command_id</I>.
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Current</B> Schedule 1000 $[w.id] <B>WindowShade</B>
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<B>Schedule</B>
 command also supports the optional keyword
-<a name="Schedule_Periodic"></a><font class="fvwmopt">Periodic</font>
+<I>Periodic</I>
 which indicates that the
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 should be executed every
-<em class="replaceable"><code>delay_ms</code></em>.
-Example:</p><pre class="programlisting">
-Schedule Periodic 10000 <a href="#PipeRead">PipeRead</a> '[ -N "$MAIL" ] &amp;&amp; echo \
+<I>delay_ms</I>.
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Schedule Periodic 10000 <B>PipeRead</B> '[ -N &quot;$MAIL&quot; ] &amp;&amp; echo \
      Echo You have mail'
-</pre><p>Use the
-<a href="#Deschedule">Deschedule</a>
-command to stop periodic commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="State"></a>31.2.28. State</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">State</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Sets, clears or toggles one of the 32 user defined states which
+</PRE>
+
+</DL>
+
+<P>
+
+Use the
+<B>Deschedule</B>
+command to stop periodic commands.
+</DL>
+
+<DT><B>State</B> <I>state</I> [<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Sets, clears or toggles one of the 32 user defined states which
 are associated with each window.  The
-<em class="replaceable"><code>state</code></em>
+<I>state</I>
 is a number ranging from 0 to 31.  The states have no meaning in
 fvwm, but they can be checked in conditional commands like
-<a href="#Next">Next</a>
+<B>Next</B>
 with the
-<span class="emphasis"><em>State</em></span>
+<I>State</I>
 condition.  The optional argument
-<em class="replaceable"><code>bool</code></em>
-is a boolean argument.  "True" sets the given state, while "False"
-clears it.  Using "toggle" switches to the opposite state.  If the
-<em class="replaceable"><code>bool</code></em>
-argument is not given, the state is toggled.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowFont"></a>31.2.29. WindowFont</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowFont</code>  [<em class="replaceable"><code>fontname</code></em>]</p></div><p>This command is obsoleted by the
-<a href="#Style">Style</a>
+<I>bool</I>
+is a boolean argument.  &quot;True&quot; sets the given state, while &quot;False&quot;
+clears it.  Using &quot;toggle&quot; switches to the opposite state.  If the
+<I>bool</I>
+argument is not given, the state is toggled.
+</DL>
+
+<DT><B>WindowFont</B> [<I>fontname</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is obsoleted by the
+<B>Style</B>
 option
-<a href="#Style_Font">Font</a>.
-Please use</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_Font">Font</a> fontname
-</pre><p>instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowList"></a>31.2.30. WindowList</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowList</code>  [(<em class="replaceable"><code>conditions</code></em>)] [<em class="replaceable"><code>position</code></em>] [<em class="replaceable"><code>options</code></em>] [<em class="replaceable"><code>double-click-action</code></em>]</p></div><p>Generates a pop-up menu (and pops it up) in which the title and
+<I>Font</I>.
+Please use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>Font</I> fontname
+</PRE>
+
+</DL>
+
+<P>
+
+instead.
+</DL>
+
+<DT><B>WindowList</B> [(<I>conditions</I>)] [<I>position</I>] [<I>options</I>] [<I>double-click-action</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Generates a pop-up menu (and pops it up) in which the title and
 geometry of each of the windows currently on the desktop are
-shown.</p><p>The format of the geometry part is:
-<em class="replaceable"><code>desk</code></em>(<em class="replaceable"><code>layer</code></em>): <em class="replaceable"><code>x-geometry</code></em> <em class="replaceable"><code>sticky</code></em>,
+shown.
+<P>
+
+The format of the geometry part is:
+<I>desk</I>(<I>layer</I>): <I>x-geometry</I> <I>sticky</I>,
 where
-<em class="replaceable"><code>desk</code></em> and <em class="replaceable"><code>layer</code></em>
+<I>desk</I> and <I>layer</I>
 are the corresponding numbers and
-<em class="replaceable"><code>sticky</code></em>
+<I>sticky</I>
 is empty or a capital S.  The geometry of iconified windows is
 shown in parentheses.  Selecting an item from the window list
-pop-up menu causes the interpreted function "WindowListFunc" to be
-run with the window id of that window passed in as $0. The default
-"WindowListFunc" looks like this:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> WindowListFunc
-+ I <a href="#Iconify">Iconify</a> off
-+ I <a href="#FlipFocus">FlipFocus</a>
-+ I <a href="#Raise">Raise</a>
-+ I <a href="#WarpToWindow">WarpToWindow</a> 5p 5p
-</pre><p>You can destroy the built-in "WindowListFunc" and create your own
-if these defaults do not suit you.</p><p>The window list menu uses the "WindowList" menu style if it is
+pop-up menu causes the interpreted function &quot;WindowListFunc&quot; to be
+run with the window id of that window passed in as $0.  The default
+&quot;WindowListFunc&quot; looks like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> WindowListFunc
++ I <B>Iconify</B> off
++ I <B>FlipFocus</B>
++ I <B>Raise</B>
++ I <B>WarpToWindow</B> 5p 5p
+</PRE>
+
+</DL>
+
+<P>
+
+You can destroy the built-in &quot;WindowListFunc&quot; and create your own
+if these defaults do not suit you.
+<P>
+
+The window list menu uses the &quot;WindowList&quot; menu style if it is
 defined (see
-<a href="#MenuStyle">MenuStyle</a>
+<B>MenuStyle</B>
 command).  Otherwise the default menu style is used.  To switch
-back to the default menu style, issue the command</p><pre class="programlisting">
-<a href="#DestroyMenuStyle">DestroyMenuStyle</a> WindowList
-</pre><p>Example:</p><pre class="programlisting">
-<a href="#MenuStyle">MenuStyle</a> WindowList <a href="#MenuStyle_SelectOnRelease">SelectOnRelease</a> Meta_L
-</pre><p>The
-<em class="replaceable"><code>conditions</code></em>
+back to the default menu style, issue the command
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyMenuStyle</B> WindowList
+</PRE>
+
+</DL>
+
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>MenuStyle</B> WindowList <I>SelectOnRelease</I> Meta_L
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>conditions</I>
 can be used to exclude certain windows from the window
-list. Please refer to the
-<a href="#Current">Current</a>
+list.  Please refer to the
+<B>Current</B>
 command for details.  Only windows that match the given conditions
 are displayed in the window list.  The
-<em class="replaceable"><code>options</code></em>
+<I>options</I>
 below work vice versa: windows that would otherwise not be
 included in the window list can be selected with them.  The
-<em class="replaceable"><code>conditions</code></em>
+<I>conditions</I>
 always override the
-<em class="replaceable"><code>options</code></em>.</p><p>The
-<em class="replaceable"><code>position</code></em>
+<I>options</I>.
+<P>
+
+The
+<I>position</I>
 arguments are the same as for
-<a href="#Menu">Menu</a>.
+<B>Menu</B>.
 The command
-<em class="replaceable"><code>double-click-action</code></em>
+<I>double-click-action</I>
 is invoked if the user double-clicks (or hits the key rapidly
 twice if the menu is bound to a key) when bringing the window
 list.  The
-<em class="replaceable"><code>double-click-action</code></em>
-must be quoted if it consists of more than one word.</p><p>The
-<em class="replaceable"><code>double-click-action</code></em>
+<I>double-click-action</I>
+must be quoted if it consists of more than one word.
+<P>
+
+The
+<I>double-click-action</I>
 is useful to define a default window if you have bound the window
-list to a key (or button) like this:</p><pre class="programlisting">
+list to a key (or button) like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Here we call an existing function, but
 # it may be different.  See the default
 # WindowListFunc definition earlier in this
 # man page.
-<a href="#AddToFunc">AddToFunc</a> SwitchToWindow
+<B>AddToFunc</B> SwitchToWindow
 + I WindowListFunc
 
-<a href="#Key">Key</a> Tab A M WindowList "Prev SwitchToWindow"
-</pre><p>Hitting
-<span class="keysym">Alt-Tab</span>
+<B>Key</B> Tab A M WindowList &quot;Prev SwitchToWindow&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+Hitting
+<FONT>Alt-Tab</FONT>
 once it brings up the window list, if you hit it twice the focus
 is flipped between the current and the last focused window.  With
 the proper
-<a href="#MenuStyle_SelectOnRelease">SelectOnRelease</a>
+<I>SelectOnRelease</I>
 menu style (see example above) a window is selected as soon as you
 release the
-<span class="keysym">Alt</span>
-key.</p><p>The
-<em class="replaceable"><code>options</code></em>
+<FONT>Alt</FONT>
+key.
+<P>
+
+The
+<I>options</I>
 passed to WindowList are separated by commas and can be
-<span class="emphasis"><em>Geometry</em></span> / <span class="emphasis"><em>NoGeometry</em></span> / <span class="emphasis"><em>NoGeometryWithInfo</em></span>,
-<span class="emphasis"><em>NoDeskNum,</em></span>
-<span class="emphasis"><em>NoLayer,</em></span>
-<span class="emphasis"><em>NoNumInDeskTitle</em></span>,
-<span class="emphasis"><em>NoCurrentDeskTitle</em></span>,
-<span class="emphasis"><em>MaxLabelWidth width</em></span>,
-<span class="emphasis"><em>TitleForAllDesks</em></span>,
-<span class="emphasis"><em>Function funcname</em></span>,
-<span class="emphasis"><em>Desk desknum</em></span>,
-<span class="emphasis"><em>CurrentDesk</em></span>,
-<span class="emphasis"><em>NoIcons</em></span> / <span class="emphasis"><em>Icons</em></span> / <span class="emphasis"><em>OnlyIcons</em></span>,
-<span class="emphasis"><em>NoNormal</em></span> / <span class="emphasis"><em>Normal</em></span> / <span class="emphasis"><em>OnlyNormal</em></span>,
-<span class="emphasis"><em>NoSticky</em></span> / <span class="emphasis"><em>Sticky</em></span> / <span class="emphasis"><em>OnlySticky</em></span>,
-<span class="emphasis"><em>NoStickyAcrossPages</em></span> / <span class="emphasis"><em>StickyAcrossPages</em></span> / <span class="emphasis"><em>OnlyStickyAcrossPages</em></span>,
-<span class="emphasis"><em>NoStickyAcrossDesks</em></span> / <span class="emphasis"><em>StickyAcrossDesks</em></span> / <span class="emphasis"><em>OnlyStickyAcrossDesks</em></span>,
-<span class="emphasis"><em>NoOnTop</em></span> / <span class="emphasis"><em>OnTop</em></span> / <span class="emphasis"><em>OnlyOnTop</em></span>,
-<span class="emphasis"><em>NoOnBottom</em></span> / <span class="emphasis"><em>OnBottom</em></span> / <span class="emphasis"><em>OnlyOnBottom</em></span>,
-<span class="emphasis"><em>Layer m [n]</em></span>,
-<span class="emphasis"><em>UseSkipList</em></span> / <span class="emphasis"><em>OnlySkipList</em></span>,
-<span class="emphasis"><em>NoDeskSort</em></span>,
-<span class="emphasis"><em>ReverseOrder</em></span>,
-<span class="emphasis"><em>CurrentAtEnd</em></span>,
-<span class="emphasis"><em>IconifiedAtEnd</em></span>,
-<span class="emphasis"><em>UseIconName</em></span>,
-<span class="emphasis"><em>Alphabetic</em></span> / <span class="emphasis"><em>NotAlphabetic</em></span>,
-<span class="emphasis"><em>SortByResource</em></span>,
-<span class="emphasis"><em>SortByClass</em></span>,
-<span class="emphasis"><em>NoHotkeys</em></span>,
-<span class="emphasis"><em>SelectOnRelease</em></span>.</p><p>(Note - normal means not iconic, sticky, or on top)</p><p>With the
-<a name="WindowList_SortByResource"></a><font class="fvwmopt">SortByResource</font>
+<I>Geometry</I> / <I>NoGeometry</I> / <I>NoGeometryWithInfo</I>,
+<I>NoDeskNum,</I>
+<I>NoLayer,</I>
+<I>NoNumInDeskTitle</I>,
+<I>NoCurrentDeskTitle</I>,
+<I>MaxLabelWidth width</I>,
+<I>TitleForAllDesks</I>,
+<I>Function funcname</I>,
+<I>Desk desknum</I>,
+<I>CurrentDesk</I>,
+<I>NoIcons</I> / <I>Icons</I> / <I>OnlyIcons</I>,
+<I>NoNormal</I> / <I>Normal</I> / <I>OnlyNormal</I>,
+<I>NoSticky</I> / <I>Sticky</I> / <I>OnlySticky</I>,
+<I>NoStickyAcrossPages</I> / <I>StickyAcrossPages</I> / <I>OnlyStickyAcrossPages</I>,
+<I>NoStickyAcrossDesks</I> / <I>StickyAcrossDesks</I> / <I>OnlyStickyAcrossDesks</I>,
+<I>NoOnTop</I> / <I>OnTop</I> / <I>OnlyOnTop</I>,
+<I>NoOnBottom</I> / <I>OnBottom</I> / <I>OnlyOnBottom</I>,
+<I>Layer m [n]</I>,
+<I>UseSkipList</I> / <I>OnlySkipList</I>,
+<I>NoDeskSort</I>,
+<I>ReverseOrder</I>,
+<I>CurrentAtEnd</I>,
+<I>IconifiedAtEnd</I>,
+<I>UseIconName</I>,
+<I>Alphabetic</I> / <I>NotAlphabetic</I>,
+<I>SortByResource</I>,
+<I>SortByClass</I>,
+<I>NoHotkeys</I>,
+<I>SelectOnRelease</I>.
+<P>
+
+(Note - normal means not iconic, sticky, or on top)
+<P>
+
+With the
+<I>SortByResource</I>
 option windows are alphabetically sorted first by resource class,
 then by resource name and then by window name (or icon name if
-<a name="WindowList_UseIconName"></a><font class="fvwmopt">UseIconName</font>
+<I>UseIconName</I>
 is specified).
-<a name="WindowList_ReverseOrder"></a><font class="fvwmopt">ReverseOrder</font>
-also works in the expected manner.</p><p>With the
-<a name="WindowList_SortByClass"></a><font class="fvwmopt">SortByClass</font>
+<I>ReverseOrder</I>
+also works in the expected manner.
+<P>
+
+With the
+<I>SortByClass</I>
 option windows are sorted just like with
-<span class="emphasis"><em>SortByResource</em></span>,
+<I>SortByResource</I>,
 but the resource name is not taken into account, only the resource
-class.</p><p>The
-<a name="WindowList_SelectOnRelease"></a><font class="fvwmopt">SelectOnRelease</font>
+class.
+<P>
+
+The
+<I>SelectOnRelease</I>
 option works exactly like the
-<a href="#MenuStyle">MenuStyle</a>
+<B>MenuStyle</B>
 option with the same name, but overrides the option given in a
 menu style.  By default, this option is set to the left
-<span class="keysym">Alt</span>
+<FONT>Alt</FONT>
 key.  To switch it off, use
-<span class="emphasis"><em>SelectOnRelease</em></span>
-without a key name.</p><p>If you pass in a function via
-<a href="#Function">Function</a> funcname,
-it is called within a window context of the selected window:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> IFunc I <a href="#Iconify">Iconify</a> toggle
-WindowList <a href="#Function">Function</a> IFunc, NoSticky, CurrentDesk, NoIcons
-</pre><p>If you use the
-<a name="WindowList_Layer"></a><font class="fvwmopt">Layer</font>
-<em class="replaceable"><code>m</code></em>
-[<span class="optional"><em class="replaceable"><code>n</code></em></span>]
-option, only windows in layers between m and n are displayed. n
+<I>SelectOnRelease</I>
+without a key name.
+<P>
+
+If you pass in a function via
+<B>Function</B> funcname,
+it is called within a window context of the selected window:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> IFunc I <B>Iconify</B> toggle
+WindowList <B>Function</B> IFunc, NoSticky, CurrentDesk, NoIcons
+</PRE>
+
+</DL>
+
+<P>
+
+If you use the
+<I>Layer</I>
+<I>m</I>
+[<I>n</I>]
+option, only windows in layers between m and n are displayed.  n
 defaults to m.  With the
-<span class="emphasis"><em>ReverseOrder</em></span>
-option the order of the windows in the list is reversed.</p><p>With the
-<a name="WindowList_CurrentAtEnd"></a><font class="fvwmopt">CurrentAtEnd</font>
+<I>ReverseOrder</I>
+option the order of the windows in the list is reversed.
+<P>
+
+With the
+<I>CurrentAtEnd</I>
 option the currently focused window (if any) is shown at the
 bottom of the list.  This is mostly intended for simulating the
-Alt-Tab behavior in another GUI.</p><p>
-<a name="WindowList_IconifiedAtEnd"></a><font class="fvwmopt">IconifiedAtEnd</font>
+Alt-Tab behavior in another GUI.
+<P>
+
+<I>IconifiedAtEnd</I>
 makes iconified windows be moved to the end of the list.  This is
-also from another GUI.</p><p>The
-<a name="WindowList_NoGeometry"></a><font class="fvwmopt">NoGeometry</font>
+also from another GUI.
+<P>
+
+The
+<I>NoGeometry</I>
 option causes fvwm to not display the geometries as well as
 the separators which indicate the different desktops.
-<a name="WindowList_NoGeometryWithInfo"></a><font class="fvwmopt">NoGeometryWithInfo</font>
+<I>NoGeometryWithInfo</I>
 removes the geometries, but keep the desktop information
 and indicates iconic windows.
-<a name="WindowList_NoDeskNum"></a><font class="fvwmopt">NoDeskNum</font>
+<I>NoDeskNum</I>
 causes fvwm to not display the desktop number in the geometry
 or before the window title with the
-<a name="WindowList_NoGeometryWithInfo"></a><font class="fvwmopt">NoGeometryWithInfo</font>
+<I>NoGeometryWithInfo</I>
 option.
-<a name="WindowList_NoNumInDeskTitle"></a><font class="fvwmopt">NoNumInDeskTitle</font>
+<I>NoNumInDeskTitle</I>
 is only useful if a desktop name is defined with the
-<a href="#DesktopName">DesktopName</a>
-command. It causes fvwm to not display the desktop number before
+<B>DesktopName</B>
+command.  It causes fvwm to not display the desktop number before
 the desktop name.  By default, the WindowList menu have a title
 which indicates the current desk or the selected desktop if the
-<a name="WindowList_Desk"></a><font class="fvwmopt">Desk</font>
-condition is used. The
-<a name="WindowList_NoCurrentDeskTitle"></a><font class="fvwmopt">NoCurrentDeskTitle</font>
+<I>Desk</I>
+condition is used.  The
+<I>NoCurrentDeskTitle</I>
 option removes this title.
-<a name="WindowList_TitleForAllDesks"></a><font class="fvwmopt">TitleForAllDesks</font>
+<I>TitleForAllDesks</I>
 causes fvwm to add a menu title with the desk name and/or number
 before each group of windows on the same desk.
 With
-<a name="WindowList_NoLayer"></a><font class="fvwmopt">NoLayer</font>,
+<I>NoLayer</I>,
 the layer of the window is not diplayed.  The options
-<a name="WindowList_ShowPage"></a><font class="fvwmopt">ShowPage</font>,
-<a name="WindowList_ShowPageX"></a><font class="fvwmopt">ShowPageX</font> and
-<a name="WindowList_ShowPageY"></a><font class="fvwmopt">ShowPageY</font>
+<I>ShowPage</I>,
+<I>ShowPageX</I> and
+<I>ShowPageY</I>
 enable displaying the page of the window rounded multiples of the
 display size.
 With
-<a name="WindowList_ShowScreen"></a><font class="fvwmopt">ShowScreen</font>,
-the window's Xinerama screen number is displayed.</p><p>The
-<a name="WindowList_MaxLabelWidth"></a><font class="fvwmopt">MaxLabelWidth</font>
+<I>ShowScreen</I>,
+the window's Xinerama screen number is displayed.
+<P>
+
+The
+<I>MaxLabelWidth</I>
 option takes the number of characters to print as its argument.
-No more than that many characters of the window name are visible.</p><p>If you wanted to use the
-<span class="emphasis"><em>WindowList</em></span>
-as an icon manager, you could invoke the following:</p><pre class="programlisting">
+No more than that many characters of the window name are visible.
+<P>
+
+If you wanted to use the
+<B>WindowList</B>
+as an icon manager, you could invoke the following:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 WindowList OnlyIcons, Sticky, OnTop, Geometry
-</pre><p>(Note - the
-<span class="emphasis"><em>Only</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+(Note - the
+<I>Only</I>
 options essentially wipe out all other ones... but the
-<a name="WindowList_OnlyListSkip"></a><font class="fvwmopt">OnlyListSkip</font>
+<I>OnlyListSkip</I>
 option which just causes
-<span class="emphasis"><em>WindowList</em></span>
+<B>WindowList</B>
 to only consider the windows with
-<a href="#Style_WindowListSkip">WindowListSkip</a>
-style.)</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XSync"></a>31.2.31. XSync</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XSync</code> </p></div><p>When
-<span class="emphasis"><em>XSync</em></span>
+<I>WindowListSkip</I>
+style.)
+</DL>
+
+<DT><B>XSync</B><DD>
+<DL COMPACT><DT><DD>
+
+When
+<B>XSync</B>
 is called, the X function with the same name is used to send all
 pending X requests to the server.  This command is intended for
-debugging only.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XSynchronize"></a>31.2.32. XSynchronize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XSynchronize</code>  [bool]</p></div><p>The
-<span class="emphasis"><em>XSynchronize</em></span>
+debugging only.
+</DL>
+
+<DT><B>XSynchronize</B> [bool]<DD>
+<DL COMPACT><DT><DD>
+
+The
+<B>XSynchronize</B>
 command controls whether X requests are sent to the X server
 immediately or not.  Normally, requests are sent in larger batches
 to save unnecessary communication.  To send requests immediately,
-use "True" as the argument, to disable this use "False" or to
-toggle between both methods use "Toggle" or omit the
-<span class="emphasis"><em>bool</em></span>
+use &quot;True&quot; as the argument, to disable this use &quot;False&quot; or to
+toggle between both methods use &quot;Toggle&quot; or omit the
+<B>bool</B>
 argument.  Fvwm defaults to synchronized requests when started
 with the
-<code class="option">--debug</code>
-option.  This command is intended for debugging only.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Plus"></a>31.2.33. Plus</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">+</code> </p></div><p>Used to continue adding to the last specified decor, function or
-menu. See the discussion for
-<a href="#AddToDecor">AddToDecor</a>,
-<a href="#AddToFunc">AddToFunc</a>, and
-<a href="#AddToMenu">AddToMenu</a>.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_movement_and_placement"></a>31.3. Window Movement and Placement</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AnimatedMove"></a>31.3.1. AnimatedMove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AnimatedMove</code>   <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em>  [Warp]</p></div><p>Move a window in an animated fashion.  Similar to
-<a href="#Move">Move</a>
-command. The options are the same, except they are required,
+<B>--debug</B>
+option.  This command is intended for debugging only.
+</DL>
+
+<DT><B>+</B><DD>
+<DL COMPACT><DT><DD>
+
+Used to continue adding to the last specified decor, function or
+menu.  See the discussion for
+<B>AddToDecor</B>,
+<B>AddToFunc</B>, and
+<B>AddToMenu</B>.
+</DL>
+
+</DL>
+<A NAME="lbBQ">&nbsp;</A>
+<H3>Window Movement and Placement</H3>
+
+<DL COMPACT>
+<DT><B>AnimatedMove</B> <I>x</I> <I>y</I> [Warp]<DD>
+<DL COMPACT><DT><DD>
+
+Move a window in an animated fashion.  Similar to
+<B>Move</B>
+command.  The options are the same, except they are required,
 since it doesn't make sense to have a user move the window
 interactively and animatedly.  If the optional argument
-<a name="AnimatedMove_Warp"></a><font class="fvwmopt">Warp</font>
-is specified the pointer is warped with the window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="HideGeometryWindow"></a>31.3.2. HideGeometryWindow</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">HideGeometryWindow</code>  [ Never  |   Move  |   Resize ]</p></div><p>Hides the position or size window that is usually shown when a
+<I>Warp</I>
+is specified the pointer is warped with the window.
+</DL>
+
+<DT><B>HideGeometryWindow</B> [Never | Move | Resize]<DD>
+<DL COMPACT><DT><DD>
+
+Hides the position or size window that is usually shown when a
 window is moved or resized interactively.  To switch it off only
 for move or resize operations the optional parameters
-<a name="HideGeometryWindow_Move"></a><font class="fvwmopt">Move</font> and
-<a name="HideGeometryWindow_Resize"></a><font class="fvwmopt">Resize</font>
+<I>Move</I> and
+<I>Resize</I>
 can be used respectively.  To switch both on again use the
-<a name="HideGeometryWindow_Never"></a><font class="fvwmopt">Never</font>
-option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Layer"></a>31.3.3. Layer</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Layer</code>   [<em class="replaceable"><code>arg1</code></em> <em class="replaceable"><code>arg2</code></em>] |  [default] </p></div><p>Puts the current window in a new layer.  If
-<em class="replaceable"><code>arg1</code></em>
+<I>Never</I>
+option.
+</DL>
+
+<DT><B>Layer</B> [<I>arg1</I>&nbsp;<I>arg2</I>] | [default]<DD>
+<DL COMPACT><DT><DD>
+
+Puts the current window in a new layer.  If
+<I>arg1</I>
 is non zero then the next layer is the current layer number plus
-<em class="replaceable"><code>arg1</code></em>.
+<I>arg1</I>.
 If
-<em class="replaceable"><code>arg1</code></em>
+<I>arg1</I>
 is zero then the new layer is
-<em class="replaceable"><code>arg2</code></em>.</p><p>As a special case,
-<a name="Layer_default"></a><font class="fvwmopt">default</font>
+<I>arg2</I>.
+<P>
+
+As a special case,
+<I>default</I>
 puts the window in its default layer, i.e. the layer it was
 initially in.  The same happens if no or invalid arguments are
-specified.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Lower"></a>31.3.4. Lower</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Lower</code> </p></div><p>Allows the user to lower a window.  Note that this lowers a window
-only in its layer.  To bring a window to the absolute bottom, use</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> lower-to-bottom
- + I <a href="#Layer">Layer</a> 0 0
+specified.
+</DL>
+
+<DT><B>Lower</B><DD>
+<DL COMPACT><DT><DD>
+
+Allows the user to lower a window.  Note that this lowers a window
+only in its layer.  To bring a window to the absolute bottom, use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> lower-to-bottom
+ + I <B>Layer</B> 0 0
  + I Lower
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Move"></a>31.3.5. Move</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [[screen <em class="replaceable"><code>screen</code></em>]  [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]...   [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>]...  [Warp]] |  [pointer] </p></div><p>Allows the user to move a window.  If called from somewhere in a
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Move</B> [[screen&nbsp;<I>screen</I>]&nbsp;[w&nbsp;|&nbsp;m]<I>x</I>[p&nbsp;|&nbsp;w]&nbsp;...&nbsp;[w&nbsp;|&nbsp;m]<I>y</I>[p&nbsp;|&nbsp;w]&nbsp;...&nbsp;[Warp]] | [pointer]<DD>
+<DL COMPACT><DT><DD>
+
+Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
-window.</p><p>If the literal option <a name="Move_screen"></a><font class="fvwmopt">screen</font> followed by a
-<em class="replaceable"><code>screen</code></em>
+window.
+<P>
+
+If the literal option <I>screen</I> followed by a
+<I>screen</I>
 argument is specified, the coordinates are interpreted as relative
 to the given screen.  The width and height of the screen are used
 for the calculations instead of the display dimensions.  The
-<em class="replaceable"><code>screen</code></em>
+<I>screen</I>
 as interpreted as in the
-<a href="#MoveToScreen">MoveToScreen</a>
+<B>MoveToScreen</B>
 command.
 If the optional argument
-<a name="Move_Warp"></a><font class="fvwmopt">Warp</font>
+<I>Warp</I>
 is specified the pointer is warped with the window.  If the single
 argument
-<a name="Move_pointer"></a><font class="fvwmopt">pointer</font>
+<I>pointer</I>
 is given, the top left corner of the window is moved to the
 pointer position before starting the operation; this is mainly
 intended for internal use by modules like
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or any mouse
-button not set to place the window. By default mouse button 2 is set to cancel
-the move operation. To change this you may use the
-<a href="#Mouse">Mouse</a>
-command with special context 'P' for Placement.</p><p>The window condition
-<a href="#Style_PlacedByButton">PlacedByButton</a>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>.
+<P>
+
+The operation can be aborted with 
+<FONT>Escape</FONT>
+or any mouse
+button not set to place the window.  By default mouse button 2 is set to cancel
+the move operation.  To change this you may use the
+<B>Mouse</B>
+command with special context 'P' for Placement.
+<P>
+
+The window condition
+<I>PlacedByButton</I>
 can be used to check if a specific button was pressed to place the
 window (see
-<a href="#Current">Current</a>
-command).</p><p>If the optional arguments
-<a name="Move_x"></a><font class="fvwmopt">x</font> and
-<a name="Move_y"></a><font class="fvwmopt">y</font>
+<B>Current</B>
+command).
+<P>
+
+If the optional arguments
+<I>x</I> and
+<I>y</I>
 are provided, then the window is moved immediately without user
 interaction.  Each argument can specify an absolute or relative
 position from either the left/top or right/bottom of the screen.
 By default, the numeric value given is interpreted as a percentage
-of the screen width/height, but a trailing
-'<span class="emphasis"><em>p</em></span>'
-changes the interpretation to mean pixels, while a trailing
-'<span class="emphasis"><em>w</em></span>'
+of the screen width/height, but a trailing '<I>p</I>'
+changes the interpretation to mean pixels, while a trailing '<I>w</I>'
 means precent of the window width/height.
 To move the window
-relative to its current position, add the
-'<a name="Move_w"></a><font class="fvwmopt">w</font>'
-(for "window") prefix before the
-<em class="replaceable"><code>x</code></em> and/or <em class="replaceable"><code>y</code></em>
+relative to its current position, add the '<I>w</I>'
+(for &quot;window&quot;) prefix before the
+<I>x</I> and/or <I>y</I>
 value.  To move the window to a position relative to the current
-location of the pointer, add the
-'<a name="Move_m"></a><font class="fvwmopt">m</font>'
-(for "mouse") prefix.  To leave either coordinate unchanged,
-"<a name="Move_keep"></a><font class="fvwmopt">keep</font>" can be specified in place of
-<em class="replaceable"><code>x</code></em> or <em class="replaceable"><code>y</code></em>.</p>
-
+location of the pointer, add the '<I>m</I>'
+(for &quot;mouse&quot;) prefix.  To leave either coordinate unchanged,
+&quot;<I>keep</I>&quot; can be specified in place of
+<I>x</I> or <I>y</I>.
+<P>
+<P>
 For advanced uses, the arguments
-<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
-can be used multiple times, but without the prefix
-'<em class="replaceable"><code>m</code></em>' or '<em class="replaceable"><code>w</code></em>'.
+<I>x</I> and <I>y</I>
+can be used multiple times, but without the prefix '<I>m</I>' or '<I>w</I>'.
 (See complex examples below).
+<P>
 
-<p>Simple Examples:</p><pre class="programlisting">
+Simple Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Interactive move
-<a href="#Mouse">Mouse</a> 1 T A Move
+<B>Mouse</B> 1 T A Move
 # Move window to top left is at (10%,10%)
-<a href="#Mouse">Mouse</a> 2 T A Move 10 10
+<B>Mouse</B> 2 T A Move 10 10
 # Move top left to (10pixels,10pixels)
-<a href="#Mouse">Mouse</a> 3 T A Move 10p 10p
-</pre><p>More complex examples (these can be bound as actions to
-keystrokes, etc.; only the command is shown, though):</p><pre class="programlisting">
+<B>Mouse</B> 3 T A Move 10p 10p
+</PRE>
+
+</DL>
+
+<P>
+
+More complex examples (these can be bound as actions to
+keystrokes, etc.; only the command is shown, though):
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Move window so bottom right is at bottom
 # right of screen
 Move -0 -0
@@ -3595,296 +6776,570 @@ Move m+0 m+0
 # Move window to center of screen (50% of screen
 # poition minus 50% of widow size).
 Move 50-50w 50-50w
-</pre><p>See also the
-<a href="#AnimatedMove">AnimatedMove</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToDesk"></a>31.3.6. MoveToDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToDesk</code>  [ prev  |    <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>]
-			 [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>] ]</p></div><p>Moves the selected window to another desktop.  The arguments are
+</PRE>
+
+</DL>
+
+<P>
+
+Note: In order to obtain moving windows which do not snap
+to screen, with interactive move, hold down <I>Alt</I>
+whilst moving the window to disable snap attraction if it's defined.
+<P>
+
+See also the
+<B>AnimatedMove</B>
+command.
+</DL>
+
+<DT><B>MoveToDesk</B> [prev | <I>arg1</I>&nbsp;[<I>arg2</I>]&nbsp;[<I>min</I>&nbsp;<I>max</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Moves the selected window to another desktop.  The arguments are
 the same as for the
-<a href="#GotoDesk">GotoDesk</a>
+<B>GotoDesk</B>
 command.  Without any arguments, the window is moved to the
 current desk.
-<span class="emphasis"><em>MoveToDesk</em></span>
+<B>MoveToDesk</B>
 is a replacement for the obsolete
-<a href="#WindowsDesk">WindowsDesk</a>
-command, which can no longer be used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveThreshold"></a>31.3.7. MoveThreshold</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveThreshold</code>  [<em class="replaceable"><code>pixels</code></em>]</p></div><p>When the user presses a mouse button upon an object fvwm waits to
+<B>WindowsDesk</B>
+command, which can no longer be used.
+</DL>
+
+<DT><B>MoveThreshold</B> [<I>pixels</I>]<DD>
+<DL COMPACT><DT><DD>
+
+When the user presses a mouse button upon an object fvwm waits to
 see if the action is a click or a drag.  If the mouse moves by
 more than
-<em class="replaceable"><code>pixels</code></em>
-pixels it is assumed to be a drag.</p><p>Previous versions of fvwm hardwired
-<em class="replaceable"><code>pixels</code></em>
+<I>pixels</I>
+pixels it is assumed to be a drag.
+<P>
+
+Previous versions of fvwm hardwired
+<I>pixels</I>
 to 3, which is now the default value.  If
-<em class="replaceable"><code>pixels</code></em>
+<I>pixels</I>
 is negative or omitted the default value (which might be increased
-when 16000x9000 pixel displays become affordable) is restored.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToPage"></a>31.3.8. MoveToPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToPage</code>    [<em class="replaceable"><code>options</code></em>] [ <em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]   <em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>] ]  |  [prev] </p></div><p>Moves the selected window to another page
-(<em class="replaceable"><code>x</code></em>,<em class="replaceable"><code>y</code></em>). The
+when 16000x9000 pixel displays become affordable) is restored.
+</DL>
+
+<DT><B>MoveToPage</B> [<I>options</I>]&nbsp;[<I>x</I>[p&nbsp;|&nbsp;w]&nbsp;<I>y</I>[p&nbsp;|&nbsp;w]] | [prev]<DD>
+<DL COMPACT><DT><DD>
+
+Moves the selected window to another page
+(<I>x</I>,<I>y</I>).  The
 upper left page is (0,0), the upper right is (M,0), where M is one
 less than the current number of horizontal pages specified in the
-<a href="#DesktopSize">DesktopSize</a>
+<B>DesktopSize</B>
 command.  Similarly the lower left page is (0,N), and the lower
 right page is (M,N).  Negative page numbers refer to pages from
 the rightmost/lowest page.  If
-<a name="MoveToPage_x"></a><font class="fvwmopt">x</font> and
-<a name="MoveToPage_y"></a><font class="fvwmopt">y</font>
+<I>x</I> and
+<I>y</I>
 are not given, the window is moved to the current page (a window
 that has the focus but is off-screen can be retrieved with this).
 Moving windows to a page relative to the current page can be
-achieved by adding a trailing
-'<a name="MoveToPage_p"></a><font class="fvwmopt">p</font>'
+achieved by adding a trailing '<I>p</I>'
 after any or both numerical arguments.  To move the window
-relative to its current location, add a trailing
-'<a name="MoveToPage_w"></a><font class="fvwmopt">w</font>'.
+relative to its current location, add a trailing '<I>w</I>'.
 To move a window to the previous page use
-<a name="MoveToPage_prev"></a><font class="fvwmopt">prev</font>
-as the single argument.</p><p>Windows are usually not moved beyond desk boundaries.</p><p>Possible
-<em class="replaceable"><code>options</code></em>
+<I>prev</I>
+as the single argument.
+<P>
+
+Windows are usually not moved beyond desk boundaries.
+<P>
+
+Possible
+<I>options</I>
 are
-<a name="MoveToPage_wrapx"></a><font class="fvwmopt">wrapx</font> and
-<a name="MoveToPage_wrapy"></a><font class="fvwmopt">wrapy</font>
+<I>wrapx</I> and
+<I>wrapy</I>
 to wrap around the x or y coordinate when the window is moved
-beyond the border of the desktop. For example, with
-<span class="emphasis"><em>wrapx</em></span>,
+beyond the border of the desktop.  For example, with
+<I>wrapx</I>,
 when the window moves past the right edge of the desktop, it
 reappears on the left edge.  The options
-<a name="MoveToPage_nodesklimitx"></a><font class="fvwmopt">nodesklimitx</font> and
-<a name="MoveToPage_nodesklimity"></a><font class="fvwmopt">nodesklimity</font>
+<I>nodesklimitx</I> and
+<I>nodesklimity</I>
 allow moving windows beyond the desk boundaries in x and y
 direction (disabling the
-<span class="emphasis"><em>wrapx</em></span> and <span class="emphasis"><em>wrapy</em></span>
-options).</p><p>Examples:</p><pre class="programlisting">
-# <a href="#Move">Move</a> window to page (2,3)
+<I>wrapx</I> and <I>wrapy</I>
+options).
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+# <B>Move</B> window to page (2,3)
 MoveToPage 2 3
 
-# <a href="#Move">Move</a> window to lowest and rightmost page
+# <B>Move</B> window to lowest and rightmost page
 MoveToPage -1 -1
 
-# <a href="#Move">Move</a> window to last page visited
+# <B>Move</B> window to last page visited
 MoveToPage prev
 
-# <a href="#Move">Move</a> window two pages to the right and one
+# <B>Move</B> window two pages to the right and one
 # page up, wrap at desk boundaries
 MoveToPage wrapx wrapy +2p -1p
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="MoveToScreen"></a>31.3.9. MoveToScreen</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">MoveToScreen</code>  [<em class="replaceable"><code>screen</code></em>]</p></div><p>Moves the selected window to another Xinerama screen.  The
-<em class="replaceable"><code>screen</code></em>
-argument can be '<a name="MoveToScreen_p"></a><font class="fvwmopt">p</font>' for the primary screen,
-'<a name="MoveToScreen_c"></a><font class="fvwmopt">c</font>' for the current
-screen (containing the mouse pointer),
-'<a name="MoveToScreen_w"></a><font class="fvwmopt">w</font>' for the screen containing the center of
-+the the context window,
-'<a name="MoveToScreen_g"></a><font class="fvwmopt">g</font>' for the global screen
-or the screen number itself (counting from zero).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="OpaqueMoveSize"></a>31.3.10. OpaqueMoveSize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">OpaqueMoveSize</code>  [<em class="replaceable"><code>percentage</code></em>]</p></div><p>Tells fvwm the maximum size window with which opaque window
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>MoveToScreen</B> [<I>screen</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Moves the selected window to another Xinerama screen.  The
+<I>screen</I>
+argument can be '<I>p</I>' for the primary screen, '<I>c</I>' for the current
+screen (containing the mouse pointer), '<I>w</I>' for the screen containing the center of
++the the context window, '<I>g</I>' for the global screen
+or the screen number itself (counting from zero).
+</DL>
+
+<DT><B>OpaqueMoveSize</B> [<I>percentage</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Tells fvwm the maximum size window with which opaque window
 movement should be used.  The percentage is percent of the total
-screen area (may be greater than 100).  With</p><pre class="programlisting">OpaqueMoveSize 0</pre><p>all windows are moved using the traditional rubber-band
-outline. With</p><pre class="programlisting">
-OpaqueMoveSize <a name="OpaqueMoveSize_unlimited"></a><font class="fvwmopt">unlimited</font>
-</pre><p>or if a negative percentage is given
-all windows are moved as solid windows.  The default is</p><pre class="programlisting">OpaqueMoveSize 5</pre><p>which allows small windows to be moved in an opaque manner but
+screen area (may be greater than 100).  With
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+OpaqueMoveSize 0
+</PRE>
+
+</DL>
+
+<P>
+
+all windows are moved using the traditional rubber-band
+outline.  With
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+OpaqueMoveSize <I>unlimited</I>
+</PRE>
+
+</DL>
+
+<P>
+
+or if a negative percentage is given
+all windows are moved as solid windows.  The default is
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+OpaqueMoveSize 5
+</PRE>
+
+</DL>
+
+<P>
+
+which allows small windows to be moved in an opaque manner but
 large windows are moved as rubber-bands.  If
-<em class="replaceable"><code>percentage</code></em>
+<I>percentage</I>
 is omitted or invalid the default value is set.  To resize windows
 in an opaque manner you can use the
-<a href="#Style_ResizeOpaque">ResizeOpaque</a>
+<I>ResizeOpaque</I>
 style.  See
-the <a href="#Style">Style</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PlaceAgain"></a>31.3.11. PlaceAgain</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PlaceAgain</code>  [Anim] [Icon]</p></div><p>Causes the current window's position to be re-computed using the
+the <B>Style</B>
+command.
+</DL>
+
+<DT><B>PlaceAgain</B> [Anim] [Icon]<DD>
+<DL COMPACT><DT><DD>
+
+Causes the current window's position to be re-computed using the
 initial window placement logic.  The window is moved to where it
 would have been if it were a new window that had just appeared.
 Most useful with
-<span class="emphasis"><em>Smart</em></span> or <span class="emphasis"><em>Clever</em></span> (<span class="emphasis"><em>ReallySmart</em></span>)
+<I>Smart</I> or <I>Clever</I> (<I>ReallySmart</I>)
 placement.  With the optional argument
-<a name="PlaceAgain_Anim"></a><font class="fvwmopt">Anim</font>
+<I>Anim</I>
 an animated move is used to place the window in its new position.
 With the additional option
-<a name="PlaceAgain_Icon"></a><font class="fvwmopt">Icon</font>,
-the icon is placed again instead.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Raise"></a>31.3.12. Raise</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Raise</code> </p></div><p>Allows the user to raise a window. Note that this raises a window
-only in its layer. To bring a window to the absolute top, use</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> raise-to-top
- + I <a href="#Layer">Layer</a> 0 ontop
+<I>Icon</I>,
+the icon is placed again instead.
+</DL>
+
+<DT><B>Raise</B><DD>
+<DL COMPACT><DT><DD>
+
+Allows the user to raise a window.  Note that this raises a window
+only in its layer.  To bring a window to the absolute top, use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> raise-to-top
+ + I <B>Layer</B> 0 ontop
  + I Raise
-</pre><p>where ontop is the highest layer used in your setup.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="RaiseLower"></a>31.3.13. RaiseLower</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">RaiseLower</code> </p></div><p>Alternately raises and lowers a window.  The window is raised if
+</PRE>
+
+</DL>
+
+<P>
+
+where ontop is the highest layer used in your setup.
+</DL>
+
+<DT><B>RaiseLower</B><DD>
+<DL COMPACT><DT><DD>
+
+Alternately raises and lowers a window.  The window is raised if
 it is obscured by any window (except for its own transients when
-<a href="#Style_RaiseTransient">RaiseTransient</a>
+<I>RaiseTransient</I>
 style is used; see the
-<a href="#Style">Style</a>
-command) otherwise it is lowered.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Resize"></a>31.3.14. Resize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Resize</code>    [<span class="optional">[frame] [direction <em class="replaceable"><code>dir</code></em> [warptoborder]] [fixeddirection]  [<span class="optional">w</span>]<em class="replaceable"><code>width</code></em>[<span class="optional">  p  |   c  </span>]   [<span class="optional">w</span>]<em class="replaceable"><code>height</code></em>[<span class="optional">  p  |   c  </span>] </span>]</p></div><p>Allows for resizing a window.  If called from somewhere in a window
+<B>Style</B>
+command) otherwise it is lowered.
+</DL>
+
+<DT><B>Resize</B> [[frame] [direction&nbsp;<I>dir</I>&nbsp;[warptoborder]] [fixeddirection] [w]<I>width</I>[p&nbsp;|&nbsp;c] [w]<I>height</I>[p&nbsp;|&nbsp;c]]<DD>
+<DL COMPACT><DT><DD>
+
+Allows for resizing a window.  If called from somewhere in a window
 or its border, then that window is resized.  If called from the
-root window then the user is allowed to select the target window.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or by pressing
-any mouse button (except button 1 which confirms it).</p><p>If the optional arguments
-<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
+root window then the user is allowed to select the target window.
+<P>
+
+The operation can be aborted with 
+<FONT>Escape</FONT>
+or by pressing
+any mouse button (except button 1 which confirms it).
+<P>
+
+If the optional arguments
+<I>width</I> and <I>height</I>
 are provided, then the window is resized so that its dimensions
 are
-<em class="replaceable"><code>width</code></em> by <em class="replaceable"><code>height</code></em>.
+<I>width</I> by <I>height</I>.
 The units of
-<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
-are percent-of-screen, unless a letter
-'<a name="Resize_p"></a><font class="fvwmopt">p</font>'
+<I>width</I> and <I>height</I>
+are percent-of-screen, unless a letter '<I>p</I>'
 is appended to one or both coordinates, in which case the location
-is specified in pixels.  With a
-'<a name="Resize_c"></a><font class="fvwmopt">c</font>'
+is specified in pixels.  With a '<I>c</I>'
 suffix the unit defined by the client application (hence the c) is
-used.  So you can say</p><pre class="programlisting">Resize 80c 24c</pre><p>to make a terminal window just big enough for 80x24
-characters.</p><p>If the
-<em class="replaceable"><code>width</code></em> or <em class="replaceable"><code>height</code></em>
-is prefixed with the letter
-'<a name="Resize_w"></a><font class="fvwmopt">w</font>'
+used.  So you can say
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Resize 80c 24c
+</PRE>
+
+</DL>
+
+<P>
+
+to make a terminal window just big enough for 80x24
+characters.
+<P>
+
+If the
+<I>width</I> or <I>height</I>
+is prefixed with the letter '<I>w</I>'
 the size is not taken as an absolute value but added to the
-current size of the window.  Example:</p><pre class="programlisting">
+current size of the window.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Enlarge window by one line
 Resize keep w+1c
-</pre><p>Both,
-<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+Both,
+<I>width</I> and <I>height</I>
 can be negative.  In this case the new size is the screen size
-minus the given value.  If either value is "<a name="Resize_keep"></a><font class="fvwmopt">keep</font>", the
+minus the given value.  If either value is &quot;<I>keep</I>&quot;, the
 corresponding dimension of the window is left untouched.  The new
-size is the size of the client window, thus</p><pre class="programlisting">Resize 100 100</pre><p>may make the window bigger than the screen.  To base the new size
+size is the size of the client window, thus
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Resize 100 100
+</PRE>
+
+</DL>
+
+<P>
+
+may make the window bigger than the screen.  To base the new size
 on the size of the whole fvwm window, add the
-<a name="Resize_frame"></a><font class="fvwmopt">frame</font>
+<I>frame</I>
 option after the command.  The options
-<span class="emphasis"><em>fixeddirection</em></span>,
-<span class="emphasis"><em>direction</em></span> and
-<span class="emphasis"><em>warptoborder</em></span>
+<I>fixeddirection</I>,
+<I>direction</I> and
+<I>warptoborder</I>
 are only used in interactive move operations.  With
-<a name="Resize_fixeddirection"></a><font class="fvwmopt">fixeddirection</font>
+<I>fixeddirection</I>
 the same border is moved even if the pointer moves past the
 opposite border.  The
-<a name="Resize_direction"></a><font class="fvwmopt">direction</font>
-option must be followed by a direction name such as "NorthWest",
-"South" or "East" (you get the idea).  Resizing is started
+<I>direction</I>
+option must be followed by a direction name such as &quot;NorthWest&quot;,
+&quot;South&quot; or &quot;East&quot; (you get the idea).  Resizing is started
 immediately, even if the pointer is not on a border.  The
-<a name="Resize_warptoborder"></a><font class="fvwmopt">warptoborder</font>
+<I>warptoborder</I>
 option changes the behaviour of the
-<span class="emphasis"><em>direction</em></span>
+<I>direction</I>
 option so that the pointer is automatically warped to the border
 in the given direction before starting to resize.  Also, if
 resizing is started by clicking on the window border, the pointer
-is warped to the outer edge of the border.</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> ResizeSE I Resize <a href="#Direction">Direction</a> SE
-<a href="#Mouse">Mouse</a> 3 A M ResizeSE
-</pre><div class="cmdsynopsis"><p><code class="command">Resize</code>  [  bottomright  |   br    <em class="replaceable"><code>x</code></em>   <em class="replaceable"><code>y</code></em> ]</p></div><p>An alternate syntax is used if the keyword
-<a name="Resize_bottomright"></a><font class="fvwmopt">bottomright</font> or in short
-<a name="Resize_br"></a><font class="fvwmopt">br</font>
+is warped to the outer edge of the border.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> ResizeSE I Resize <B>Direction</B> SE
+<B>Mouse</B> 3 A M ResizeSE
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Resize</B> [bottomright&nbsp;|&nbsp;br&nbsp;<I>x</I>&nbsp;<I>y</I>]<DD>
+<DL COMPACT><DT><DD>
+
+An alternate syntax is used if the keyword
+<I>bottomright</I> or in short
+<I>br</I>
 follows the command name.  In this case, the arguments
-<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
+<I>x</I> and <I>y</I>
 specify the desired position of the bottom right corner of the
 window.  They are interpreted exactly like the
-<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
+<I>x</I> and <I>y</I>
 arguments of the
-<a href="#Move">Move</a>
+<B>Move</B>
 command.  Actually, any of the options accepted by the
-<a href="#Move">Move</a>
-command can be used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ResizeMaximize"></a>31.3.15. ResizeMaximize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ResizeMaximize</code>  [<em class="replaceable"><code>resize-arguments</code></em>]</p></div><p>Combines the effects of
-<a href="#Resize">Resize</a>
+<B>Move</B>
+command can be used.
+</DL>
+
+<DT><B>ResizeMaximize</B> [<I>resize-arguments</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Combines the effects of
+<B>Resize</B>
 and
-<a href="#Maximize">Maximize</a>
+<B>Maximize</B>
 in a single command.  When used on a maximized window, the window
 is resized and is still in the maximized state afterwards.  When
 used on an unmaximized window, the window is resized and put into
 the maximized state afterwards.  This is useful if the user wants
 to resize the window temporarily and then return to the original
 geometry.  The
-<em class="replaceable"><code>resize-arguments</code></em>
+<I>resize-arguments</I>
 are the same as for the
-<a href="#Resize">Resize</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ResizeMove"></a>31.3.16. ResizeMove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ResizeMove</code>   <em class="replaceable"><code>resize-arguments</code></em>   <em class="replaceable"><code>move-arguments</code></em> </p></div><p>This command does the same as the
-<a href="#Resize">Resize</a>
+<B>Resize</B>
+command.
+</DL>
+
+<DT><B>ResizeMove</B> <I>resize-arguments</I> <I>move-arguments</I><DD>
+<DL COMPACT><DT><DD>
+
+This command does the same as the
+<B>Resize</B>
 and
-<a href="#Move">Move</a>
+<B>Move</B>
 commands, but in a single call which is less visually
-disturbing. The
-<em class="replaceable"><code>resize-arguments</code></em>
+disturbing.  The
+<I>resize-arguments</I>
 are exactly the same arguments as for the
-<a href="#Resize">Resize</a>
+<B>Resize</B>
 command and the
-<em class="replaceable"><code>move-arguments</code></em>
+<I>move-arguments</I>
 are exactly the same arguments as for the
-<a href="#Move">Move</a>
+<B>Move</B>
 command except the
-<a href="#Move_pointer">pointer</a>
+<I>pointer</I>
 option which is not supported by the
-<span class="emphasis"><em>ResizeMove</em></span>
-command.</p><p>Examples:</p><pre class="programlisting">
+<B>ResizeMove</B>
+command.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Move window to top left corner and cover
 # most of the screen
 ResizeMove -10p -20p 0 0
 
 # Grow the focused window towards the top of screen
-<a href="#Current">Current</a> <a href="#Resize">Resize</a> keep w+$[w.y]p keep 0
-</pre><p>Note: Fvwm may not be able to parse the command properly if the
+<B>Current</B> <B>Resize</B> keep w+$[w.y]p keep 0
+</PRE>
+
+</DL>
+
+<P>
+
+Note: Fvwm may not be able to parse the command properly if the
 option
-<a href="#Resize_bottomright">bottomright</a>
+<I>bottomright</I>
 of the
-<a href="#Resize">Resize</a>
-command is used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ResizeMoveMaximize"></a>31.3.17. ResizeMoveMaximize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ResizeMoveMaximize</code>   <em class="replaceable"><code>resize-arguments</code></em>   <em class="replaceable"><code>move-arguments</code></em> </p></div><p>Combines the effects of
-<a href="#ResizeMove">ResizeMove</a>
+<B>Resize</B>
+command is used.
+</DL>
+
+<DT><B>ResizeMoveMaximize</B> <I>resize-arguments</I> <I>move-arguments</I><DD>
+<DL COMPACT><DT><DD>
+
+Combines the effects of
+<B>ResizeMove</B>
 and
-<a href="#Maximize">Maximize</a>
+<B>Maximize</B>
 in a single command.  When used on a maximized window, the window
 is resized and moved and is still in the maximized state
 afterwards.  When used on an unmaximized window, the window is
 resized and put into the maximized state afterwards.  This is
 useful if the user wants to resize the window temporarily and then
 return to the original geometry.  The
-<em class="replaceable"><code>resize-arguments</code></em> and <em class="replaceable"><code>move-arguments</code></em>
+<I>resize-arguments</I> and <I>move-arguments</I>
 are the same as for the
-<a href="#ResizeMove">ResizeMove</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="RestackTransients"></a>31.3.18. RestackTransients</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">RestackTransients</code> </p></div><p>This command regroups the transients of a window close to it in
+<B>ResizeMove</B>
+command.
+</DL>
+
+<DT><B>RestackTransients</B><DD>
+<DL COMPACT><DT><DD>
+
+This command regroups the transients of a window close to it in
 the stacking order as if the window had just been lowered and then
 raised.  The position of the window itself is not altered.  Only
 windows that use either the
-<a href="#Style_RaiseTransient">RaiseTransient</a> or
-<a href="#Style_LowerTransient">LowerTransient</a>
+<I>RaiseTransient</I> or
+<I>LowerTransient</I>
 style are affected at all.  When
-<span class="emphasis"><em>RestackTransients</em></span>
+<B>RestackTransients</B>
 is used on a transient window with the
-<a href="#Style_StackTransientParent">StackTransientParent</a>
-style set, it is redirected to the parent window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetAnimation"></a>31.3.19. SetAnimation</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetAnimation</code>   <em class="replaceable"><code>milliseconds-delay</code></em>  [<em class="replaceable"><code>fractions-to-move-list</code></em>]</p></div><p>Sets the time between frames and the list of fractional offsets to
+<I>StackTransientParent</I>
+style set, it is redirected to the parent window.
+</DL>
+
+<DT><B>SetAnimation</B> <I>milliseconds-delay</I> [<I>fractions-to-move-list</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Sets the time between frames and the list of fractional offsets to
 customize the animated moves of the
-<a href="#AnimatedMove">AnimatedMove</a>
+<B>AnimatedMove</B>
 command and the animation of menus (if the menu style is set to
 animated; see
-<a href="#MenuStyle">MenuStyle</a>
+<B>MenuStyle</B>
 command).  If the
-<em class="replaceable"><code>fractions-to-move-list</code></em>
+<I>fractions-to-move-list</I>
 is omitted, only the time between frames is altered.  The
-<em class="replaceable"><code>fractions-to-move-list</code></em>
+<I>fractions-to-move-list</I>
 specifies how far the window should be offset at each successive
 frame as a fraction of the difference between the starting
-location and the ending location.  e.g.:</p><pre class="programlisting">
+location and the ending location.  e.g.:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 SetAnimation 10 -.01 0 .01 .03 .08 .18 .3 \
   .45 .6 .75 .85 .90 .94 .97 .99 1.0
-</pre><p>Sets the delay between frames to 10 milliseconds, and sets the
+</PRE>
+
+</DL>
+
+<P>
+
+Sets the delay between frames to 10 milliseconds, and sets the
 positions of the 16 frames of the animation motion.  Negative
 values are allowed, and in particular can be used to make the
 motion appear more cartoonish, by briefly moving slightly in the
 opposite direction of the main motion.  The above settings are the
-default.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapAttraction"></a>31.3.20. SnapAttraction</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapAttraction</code>  [<em class="replaceable"><code>proximity</code></em> [<em class="replaceable"><code>behaviour</code></em>] [Screen]]</p></div><p>The <a href="#SnapAttraction">SnapAttraction</a> command is obsolete.  It has
-been replaced by the <a href="#Style">Style</a> command option
-<a href="#Style_SnapAttraction">SnapAttraction</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SnapGrid"></a>31.3.21. SnapGrid</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SnapGrid</code>  [<em class="replaceable"><code>x-grid-size</code></em> <em class="replaceable"><code>y-grid-size</code></em>]</p></div><p>The <a href="#SnapGrid">SnapGrid</a> command is obsolete.  It has
-been replaced by the <a href="#Style">Style</a> command option
-<a href="#Style_SnapGrid">SnapGrid</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowsDesk"></a>31.3.22. WindowsDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowsDesk</code>   <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>]</p></div><p>Moves the selected window to another desktop.</p><p>This command has been removed and must be replaced by
-<a href="#MoveToDesk">MoveToDesk</a>,
+default.
+</DL>
+
+<DT><B>SnapAttraction</B> [<I>proximity</I>&nbsp;[<I>behaviour</I>]&nbsp;[Screen]]<DD>
+<DL COMPACT><DT><DD>
+
+The <B>SnapAttraction</B> command is obsolete.  It has
+been replaced by the <B>Style</B> command option
+<I>SnapAttraction</I>.
+</DL>
+
+<DT><B>SnapGrid</B> [<I>x-grid-size</I>&nbsp;<I>y-grid-size</I>]<DD>
+<DL COMPACT><DT><DD>
+
+The <B>SnapGrid</B> command is obsolete.  It has
+been replaced by the <B>Style</B> command option
+<I>SnapGrid</I>.
+</DL>
+
+<DT><B>WindowsDesk</B> <I>arg1</I> [<I>arg2</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Moves the selected window to another desktop.
+<P>
+
+This command has been removed and must be replaced by
+<B>MoveToDesk</B>,
 the arguments for which are the same as for the
-<a href="#GotoDesk">GotoDesk</a>
-command.</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3>
+<B>GotoDesk</B>
+command.
+<P>
+
+
+
+<BR>
+
+<B>Important</B>
+<P>
 You cannot simply change the name of the command: the syntax has
 changed.  If you used:
-
-<pre class="programlisting">
+<P>
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 WindowsDesk n
-</pre><p>to move a window to desk n, you have to change it to:</p><pre class="programlisting">
-<a href="#MoveToDesk">MoveToDesk</a> 0 n
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XorPixmap"></a>31.3.23. XorPixmap</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XorPixmap</code>  [<em class="replaceable"><code>pixmap</code></em>]</p></div><p>Selects the pixmap with which bits are xor'ed when doing
+</PRE>
+
+</DL>
+
+<P>
+
+to move a window to desk n, you have to change it to:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>MoveToDesk</B> 0 n
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>XorPixmap</B> [<I>pixmap</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Selects the pixmap with which bits are xor'ed when doing
 rubber-band window moving or resizing.  This has a better chance
 of making the rubber-band visible if
-<a href="#XorValue">XorValue</a>
+<B>XorValue</B>
 does not give good results.  An example pixmap
-<code class="filename">resize.rainbow.xpm</code>
+<I>resize.rainbow.xpm</I>
 is provided with the icon distribution.  To turn the
-<span class="emphasis"><em>XorPixmap</em></span>
+<I>XorPixmap</I>
 off again use the
-<a href="#XorValue">XorValue</a>
+<B>XorValue</B>
 command or omit the
-<em class="replaceable"><code>pixmap</code></em>
-argument.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XorValue"></a>31.3.24. XorValue</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XorValue</code>  [<em class="replaceable"><code>number</code></em>]</p></div><p>Changes the value with which bits are xor'ed when doing
+<I>pixmap</I>
+argument.
+</DL>
+
+<DT><B>XorValue</B> [<I>number</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Changes the value with which bits are xor'ed when doing
 rubber-band window moving or resizing.
 Valid values range from zero to the maximum value of an
 unsigned long integer on your system.
@@ -3892,1401 +7347,2294 @@ Setting this value is a trial-and-error process.
 The default value 0 tries to find a
 value that gives a good contrast to black and white.
 The default value is used if the given
-<em class="replaceable"><code>number</code></em>
-is omitted or invalid.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="focus_and_mouse_movement"></a>31.4. Focus &amp; Mouse Movement</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CursorMove"></a>31.4.1. CursorMove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CursorMove</code>   <em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>] </p></div><p>Moves the mouse pointer by
-<em class="replaceable"><code>horizontal</code></em>
+<I>number</I>
+is omitted or invalid.
+</DL>
+
+</DL>
+<A NAME="lbBR">&nbsp;</A>
+<H3>Focus &amp; Mouse Movement</H3>
+
+<DL COMPACT>
+<DT><B>CursorMove</B> <I>horizontal</I>[p] <I>vertical</I>[p]<DD>
+<DL COMPACT><DT><DD>
+
+Moves the mouse pointer by
+<I>horizontal</I>
 pages in the X direction and
-<em class="replaceable"><code>vertical</code></em>
+<I>vertical</I>
 pages in the Y direction.  Either or both entries may be
-negative. Both horizontal and vertical values are expressed in
-percent of pages, so</p><pre class="programlisting">
+negative.  Both horizontal and vertical values are expressed in
+percent of pages, so
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 CursorMove 100 100
-</pre><p>means to move down and right by one full page.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+means to move down and right by one full page.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 CursorMove 50 25
-</pre><p>means to move right half a page and down a quarter of a
-page. Alternatively, the distance can be specified in pixels by
-appending a
-'<a name="CursorMove_p"></a><font class="fvwmopt">p</font>'
-to the horizontal and/or vertical specification.  For example</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+means to move right half a page and down a quarter of a
+page.  Alternatively, the distance can be specified in pixels by
+appending a '<I>p</I>'
+to the horizontal and/or vertical specification.  For example
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 CursorMove -10p -10p
-</pre><p>means move ten pixels up and ten pixels left.  The CursorMove
-function should not be called from pop-up menus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FlipFocus"></a>31.4.2. FlipFocus</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FlipFocus</code>  [NoWarp]</p></div><p>Executes a
-<a href="#Focus">Focus</a>
+</PRE>
+
+</DL>
+
+<P>
+
+means move ten pixels up and ten pixels left.  The CursorMove
+function should not be called from pop-up menus.
+</DL>
+
+<DT><B>FlipFocus</B> [NoWarp]<DD>
+<DL COMPACT><DT><DD>
+
+Executes a
+<B>Focus</B>
 command as if the user had used the pointer to select the
-window. This command alters the order of the WindowList in the
+window.  This command alters the order of the WindowList in the
 same way as clicking in a window to focus, i.e. the target window
 is removed from the
-<span class="emphasis"><em>WindowList</em></span>
-and placed at the start. This command is recommended for use with
+<B>WindowList</B>
+and placed at the start.  This command is recommended for use with
 the
-<a href="#Direction">Direction</a>
+<B>Direction</B>
 command and in the function invoked from
-<a href="#WindowList">WindowList</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Focus"></a>31.4.3. Focus</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Focus</code>  [NoWarp]</p></div><p>Sets the keyboard focus to the selected window.  If the
-<a name="Focus_NoWarp"></a><font class="fvwmopt">NoWarp</font>
+<B>WindowList</B>.
+</DL>
+
+<DT><B>Focus</B> [NoWarp]<DD>
+<DL COMPACT><DT><DD>
+
+Sets the keyboard focus to the selected window.  If the
+<I>NoWarp</I>
 argument is given, this is all it does.  Otherwise it also moves
 the viewport or window as needed to make the selected window
-visible. This command does not automatically raise the
-window. Does not warp the pointer into the selected window (see
-<a href="#WarpToWindow">WarpToWindow</a>
+visible.  This command does not automatically raise the
+window.  Does not warp the pointer into the selected window (see
+<B>WarpToWindow</B>
 function).  Does not de-iconify.  This command does not alter the
 order of the
-<span class="emphasis"><em>WindowList</em></span>,
+<B>WindowList</B>,
 it rotates the
-<span class="emphasis"><em>WindowList</em></span>
-around so that the target window is at the start.</p><p>When the
-<span class="emphasis"><em>NoWarp</em></span>
+<B>WindowList</B>
+around so that the target window is at the start.
+<P>
+
+When the
+<I>NoWarp</I>
 argument is given, Focus cannot transfer the keyboard focus to
-windows on other desks.</p><p>To raise and/or warp a pointer to a window together with
-<span class="emphasis"><em>Focus</em></span> or <a href="#FlipFocus">FlipFocus</a>,
-use a function, like:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> SelectWindow
+windows on other desks.
+<P>
+
+To raise and/or warp a pointer to a window together with
+<B>Focus</B> or <B>FlipFocus</B>,
+use a function, like:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> SelectWindow
 + I Focus
-+ I <a href="#Iconify">Iconify</a> false
-+ I <a href="#Raise">Raise</a>
-+ I <a href="#WarpToWindow">WarpToWindow</a> 50 8p
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WarpToWindow"></a>31.4.4. WarpToWindow</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WarpToWindow</code>   <em class="replaceable"><code>x</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>y</code></em>[<span class="optional">p</span>] </p></div><p>Warps the cursor to the associated window.  The parameters
-<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
++ I <B>Iconify</B> false
++ I <B>Raise</B>
++ I <B>WarpToWindow</B> 50 8p
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>WarpToWindow</B> <I>x</I>[p] <I>y</I>[p]<DD>
+<DL COMPACT><DT><DD>
+
+Warps the cursor to the associated window.  The parameters
+<I>x</I> and <I>y</I>
 default to percentage of window down and in from the upper left
-hand corner (or number of pixels down and in if
-'<a name="WarpToWindow_p"></a><font class="fvwmopt">p</font>'
+hand corner (or number of pixels down and in if '<I>p</I>'
 is appended to the numbers).  If a number is negative the opposite
 edge is used and the direction reversed.  This command works also
 with windows that are not managed by fvwm.  In this case fvwm does
 not bring the window onto the screen if it is not visible.  For
 example it is possible to warp the pointer to the center of the
-root window on screen 1:</p><pre class="programlisting">
-<a href="#WindowId">WindowId</a> root 1 WarpToWindow 50 50
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_state"></a>31.5. Window State</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Close"></a>31.5.1. Close</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Close</code> </p></div><p>If the window accepts the delete window protocol a message is sent
+root window on screen 1:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>WindowId</B> root 1 WarpToWindow 50 50
+</PRE>
+
+</DL>
+
+</DL>
+
+</DL>
+<A NAME="lbBS">&nbsp;</A>
+<H3>Window State</H3>
+
+<DL COMPACT>
+<DT><B>Close</B><DD>
+<DL COMPACT><DT><DD>
+
+If the window accepts the delete window protocol a message is sent
 to the window asking it to gracefully remove itself.  If the
 window does not understand the delete window protocol then the
 window is destroyed as with the
-<a href="#Destroy">Destroy</a>
+<B>Destroy</B>
 command.  Note: if the window accepts the delete window protocol
-but does not close itself in response, the window is not deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Delete"></a>31.5.2. Delete</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Delete</code> </p></div><p>Sends a message to a window asking that it remove itself,
-frequently causing the application to exit.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Destroy"></a>31.5.3. Destroy</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Destroy</code> </p></div><p>Destroys an application window, which usually causes the
-application to crash and burn.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Iconify"></a>31.5.4. Iconify</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Iconify</code>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Iconifies a window if it is not already iconified or de-iconifies
+but does not close itself in response, the window is not deleted.
+</DL>
+
+<DT><B>Delete</B><DD>
+<DL COMPACT><DT><DD>
+
+Sends a message to a window asking that it remove itself,
+frequently causing the application to exit.
+</DL>
+
+<DT><B>Destroy</B><DD>
+<DL COMPACT><DT><DD>
+
+Destroys an application window, which usually causes the
+application to crash and burn.
+</DL>
+
+<DT><B>Iconify</B> [<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Iconifies a window if it is not already iconified or de-iconifies
 it if it is already iconified.  The optional argument
-<em class="replaceable"><code>bool</code></em>
-is a boolean argument.  "<a name="Iconify_True"></a><font class="fvwmopt">True</font>" means only iconification is
-allowed, while "<a name="Iconify_False"></a><font class="fvwmopt">False</font>" forces de-iconification.  Using "<a name="Iconify_toggle"></a><font class="fvwmopt">toggle</font>"
-switches between iconified and de-iconified states.</p><p>There are a number of
-<a href="#Style">Style</a>
+<I>bool</I>
+is a boolean argument.  &quot;<I>True</I>&quot; means only iconification is
+allowed, while &quot;<I>False</I>&quot; forces de-iconification.  Using &quot;<I>toggle</I>&quot;
+switches between iconified and de-iconified states.
+<P>
+
+There are a number of
+<B>Style</B>
 options which influence the appearance and behavior of icons (e.g.
-<a href="#Style_StickyIcon">StickyIcon</a>, <a href="#Style_NoIcon">NoIcon</a>).</p><p>For backward compatibility, the optional argument may also be a
-positive number instead of "True", or a negative number instead
-of "False".  Note that this syntax is obsolete, and will be removed
-in the future.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Maximize"></a>31.5.5. Maximize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Maximize</code>  [<em class="replaceable"><code>flags</code></em>] [<em class="replaceable"><code>bool</code></em>] [<em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]] [<em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]]</p></div><p>Without its optional arguments (or if the
-<em class="replaceable"><code>bool</code></em>
-bit has the value "<a name="Maximize_toggle"></a><font class="fvwmopt">toggle</font>")
-<span class="emphasis"><em>Maximize</em></span>
+<I>StickyIcon</I>, <I>NoIcon</I>).
+<P>
+
+For backward compatibility, the optional argument may also be a
+positive number instead of &quot;True&quot;, or a negative number instead
+of &quot;False&quot;.  Note that this syntax is obsolete, and will be removed
+in the future.
+</DL>
+
+<DT><B>Maximize</B> [<I>flags</I>] [<I>bool</I>] [<I>horizontal</I>[p]] [<I>vertical</I>[p]]<DD>
+<DL COMPACT><DT><DD>
+
+Without its optional arguments (or if the
+<I>bool</I>
+bit has the value &quot;<I>toggle</I>&quot;)
+<B>Maximize</B>
 causes the window to alternately switch from a full-screen size to
 its normal size.  To force a window into maximized (normal) state
-you can use a "<a name="Maximize_True"></a><font class="fvwmopt">True</font>" or "<a name="Maximize_False"></a><font class="fvwmopt">False</font>" value for the
-<em class="replaceable"><code>bool</code></em>
-argument.</p><p>With the optional arguments
-<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>,
+you can use a &quot;<I>True</I>&quot; or &quot;<I>False</I>&quot; value for the
+<I>bool</I>
+argument.
+<P>
+
+With the optional arguments
+<I>horizontal</I> and <I>vertical</I>,
 which are expressed as percentage of a full screen, the user can
-control the new size of the window.  An optional suffix
-'<a name="Maximize_p"></a><font class="fvwmopt">p</font>'
+control the new size of the window.  An optional suffix '<I>p</I>'
 can be used to indicate pixels instead of percents of the screen
 size.  If horizontal is greater than 0 then the horizontal
 dimension of the window is set to
-<em class="replaceable"><code>horizontal</code></em>*screen_width/100.
+<I>horizontal</I>*screen_width/100.
 If the value is smaller than 0 the size is subtracted from the
 screen width, i.e. -25 is the same as 75.  If
-<em class="replaceable"><code>horizontal</code></em>
-is "<a name="Maximize_grow"></a><font class="fvwmopt">grow</font>", it is maximized to curren
+<I>horizontal</I>
+is &quot;<I>grow</I>&quot;, it is maximized to curren
 available space until
 finding any obstacle.  The vertical resizing is similar.  If both
-horizontal and vertical values are "grow", it expands vertically
+horizontal and vertical values are &quot;grow&quot;, it expands vertically
 first, then horizontally to find space.  Instead of the horizontal
-"grow" argument, "<a name="Maximize_growleft"></a><font class="fvwmopt">growleft</font>" or "<a name="Maximize_growright"></a><font class="fvwmopt">growright</font>" can be used
-respectively "<a name="Maximize_growup"></a><font class="fvwmopt">growup</font>" and "<a name="Maximize_growdown"></a><font class="fvwmopt">growdown</font>".
+&quot;grow&quot; argument, &quot;<I>growleft</I>&quot; or &quot;<I>growright</I>&quot; can be used
+respectively &quot;<I>growup</I>&quot; and &quot;<I>growdown</I>&quot;.
 The optional
-<em class="replaceable"><code>flags</code></em>
+<I>flags</I>
 argument is a space separated list containing the following
 key words:
-<span class="emphasis"><em>ewmhiwa</em></span>, <span class="emphasis"><em>growonwindowlayer</em></span>, <span class="emphasis"><em>growonlayers</em></span> and <span class="emphasis"><em>screen</em></span>.
-<a name="Maximize_ewmhiwa"></a><font class="fvwmopt">ewmhiwa</font>
-causes fvwm to ignore the <acronym class="acronym">EWMH</acronym> working area.
-<a name="Maximize_growonwindowlayer"></a><font class="fvwmopt">growonwindowlayer</font>
+<I>ewmhiwa</I>, <I>growonwindowlayer</I>, <I>growonlayers</I> and <I>screen</I>.
+<I>ewmhiwa</I>
+causes fvwm to ignore the EWMH working area.
+<I>growonwindowlayer</I>
 causes the various grow methods to ignore windows with a layer
 other than the current layer of the window which is maximized.
 The
-<a name="Maximize_growonlayers"></a><font class="fvwmopt">growonlayers</font>
+<I>growonlayers</I>
 option must have two integer arguments.  The first one is the
 minimum layer and the second one the maximum layer to use.
 Windows that are outside of this range of layers are ignored by
 the grow methods.  A negative value as the first or second
 argument means to assume no minimum or maximum layer.
-<a name="Maximize_screen"></a><font class="fvwmopt">screen</font>
+<I>screen</I>
 must have an argument which specifies the Xinerama screen on which
 to operate.
 It can be 'p' for the primary screen, 'c' for the current
 screen (containing the mouse pointer), 'g' for the global screen
 or the screen number itself (counting from zero).  This option is
-only useful with multiple Xinerama screens.</p><p>Here are some examples.  The following adds a title-bar button to
-switch a window to the full vertical size of the screen:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize 0 100
-</pre><p>The following causes windows to be stretched to the full width:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize 100 0
-</pre><p>This makes a window that is half the screen size in each
-direction:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize 50 50
-</pre><p>To expand a window horizontally until any other window is found:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize 0 grow
-</pre><p>To expand a window until any other window on the same or a higher
-layer is hit.</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize growonlayers $[w.layer] -1 grow grow
-</pre><p>To expand a window but leave the lower 60 pixels of the screen
-unoccupied:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 0 4 A Maximize 100 -60p
-</pre><p>Values larger than 100 can be used with caution.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Recapture"></a>31.5.6. Recapture</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Recapture</code> </p></div><p>This command is obsolete and should not be used anymore.  Should
+only useful with multiple Xinerama screens.
+<P>
+
+Here are some examples.  The following adds a title-bar button to
+switch a window to the full vertical size of the screen:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize 0 100
+</PRE>
+
+</DL>
+
+<P>
+
+The following causes windows to be stretched to the full width:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize 100 0
+</PRE>
+
+</DL>
+
+<P>
+
+This makes a window that is half the screen size in each
+direction:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize 50 50
+</PRE>
+
+</DL>
+
+<P>
+
+To expand a window horizontally until any other window is found:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize 0 grow
+</PRE>
+
+</DL>
+
+<P>
+
+To expand a window until any other window on the same or a higher
+layer is hit.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize growonlayers $[w.layer] -1 grow grow
+</PRE>
+
+</DL>
+
+<P>
+
+To expand a window but leave the lower 60 pixels of the screen
+unoccupied:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 0 4 A Maximize 100 -60p
+</PRE>
+
+</DL>
+
+<P>
+
+Values larger than 100 can be used with caution.
+</DL>
+
+<DT><B>Recapture</B><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete and should not be used anymore.  Should
 you want to do something specific that you cannot do without it,
 please report this to the fvwm-workers mailing list
-<code class="email">&lt;<a class="email" href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</code>.  This command may be removed at some point
+&lt;<A HREF="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</A>&gt;.  This command may be removed at some point
 in the future.  Please read the note at the end of the section
-<a href="#delayed_execution_of_commands">Delayed Execution of Commands</a>
+<B>Delayed Execution of Commands</B>
 to learn about how to avoid the
-<span class="emphasis"><em>Recapture</em></span>
-command.</p><p>Causes fvwm to recapture all of its windows.  This ensures that
+<B>Recapture</B>
+command.
+<P>
+
+Causes fvwm to recapture all of its windows.  This ensures that
 the latest style parameters are used.  The recapture operation is
-visually disturbing.</p><p>Since fvwm version 2.4 only a very few
-<a href="#Style">Style</a>
+visually disturbing.
+<P>
+
+Since fvwm version 2.4 only a very few
+<B>Style</B>
 options need a
-<span class="emphasis"><em>Recapture</em></span>
+<B>Recapture</B>
 to take effect (e.g.
-<a href="#Style_UseStyle">UseStyle</a>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="RecaptureWindow"></a>31.5.7. RecaptureWindow</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">RecaptureWindow</code> </p></div><p>This command is obsolete and should not be used anymore.  See
-<a href="#Recapture">Recapture</a>
-For details.</p><p>Causes fvwm to recapture the chosen window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Refresh"></a>31.5.8. Refresh</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Refresh</code> </p></div><p>Causes all windows on the screen to redraw themselves. All pending
+<I>UseStyle</I>).
+</DL>
+
+<DT><B>RecaptureWindow</B><DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete and should not be used anymore.  See
+<B>Recapture</B>
+For details.
+<P>
+
+Causes fvwm to recapture the chosen window.
+</DL>
+
+<DT><B>Refresh</B><DD>
+<DL COMPACT><DT><DD>
+
+Causes all windows on the screen to redraw themselves.  All pending
 updates of all windows' styles and looks are applied immediately.
 E.g. if
-<a href="#Style">Style</a> or
-<a href="#TitleStyle">TitleStyle</a>
-commands were issued inside a fvwm function.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="RefreshWindow"></a>31.5.9. RefreshWindow</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">RefreshWindow</code> </p></div><p>Causes the chosen window to redraw itself. All pending updates of
+<B>Style</B> or
+<B>TitleStyle</B>
+commands were issued inside a fvwm function.
+</DL>
+
+<DT><B>RefreshWindow</B><DD>
+<DL COMPACT><DT><DD>
+
+Causes the chosen window to redraw itself.  All pending updates of
 the window's style and look are applied immediately.  E.g. if
-<a href="#Style">Style</a> or
-<a href="#TitleStyle">TitleStyle</a>
-commands were issued inside a fvwm function.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Stick"></a>31.5.10. Stick</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Stick</code>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>If the
-<em class="replaceable"><code>bool</code></em>
-argument is empty or "<a name="Stick_toggle"></a><font class="fvwmopt">toggle</font>", the
-<span class="emphasis"><em>Stick</em></span>
+<B>Style</B> or
+<B>TitleStyle</B>
+commands were issued inside a fvwm function.
+</DL>
+
+<DT><B>Stick</B> [<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
+If the
+<I>bool</I>
+argument is empty or &quot;<I>toggle</I>&quot;, the
+<B>Stick</B>
 command makes a window sticky if it is not already sticky, or
 non-sticky if it is already sticky.  To make a window sticky
 regardless of its current state the
-<em class="replaceable"><code>bool</code></em>
-argument must be "True".  To make it non-sticky use "False".</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="StickAcrossPages"></a>31.5.11. StickAcrossPages</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">StickAcrossPages</code>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Works like
-<a href="#Stick">Stick</a>
-but only sticks a window across pages, not across desks.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="StickAcrossDesks"></a>31.5.12. StickAcrossDesks</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">StickAcrossDesks</code>  [<em class="replaceable"><code>bool</code></em>]</p></div><p>Works like
-<a href="#Stick">Stick</a>
-but only sticks a window across desks, not across pages.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowShade"></a>31.5.13. WindowShade</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowShade</code>   [bool] |  [[ShadeAgain]  <em class="replaceable"><code>direction</code></em> ] </p></div><p>Toggles the window shade feature for titled windows.  Windows in
+<I>bool</I>
+argument must be &quot;True&quot;.  To make it non-sticky use &quot;False&quot;.
+</DL>
+
+<DT><B>StickAcrossPages</B> [<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Works like
+<B>Stick</B>
+but only sticks a window across pages, not across desks.
+</DL>
+
+<DT><B>StickAcrossDesks</B> [<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Works like
+<B>Stick</B>
+but only sticks a window across desks, not across pages.
+</DL>
+
+<DT><B>WindowShade</B> [bool] | [[ShadeAgain]&nbsp;<I>direction</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Toggles the window shade feature for titled windows.  Windows in
 the shaded state only display a title-bar.  If
-<span class="emphasis"><em>bool</em></span>
-is not given or "<a name="WindowShade_toggle"></a><font class="fvwmopt">toggle</font>",
+<I>bool</I>
+is not given or &quot;<I>toggle</I>&quot;,
 the window shade state is toggled.  If
-<span class="emphasis"><em>bool</em></span>
-is "True", the window is forced to the shaded state.  If
-<span class="emphasis"><em>bool</em></span>
-is "False", then the window is forced to the non-shaded
+<I>bool</I>
+is &quot;True&quot;, the window is forced to the shaded state.  If
+<I>bool</I>
+is &quot;False&quot;, then the window is forced to the non-shaded
 state.  To force shading in a certain direction, the
-<em class="replaceable"><code>direction</code></em>
+<I>direction</I>
 argument can be used.  Any of the strings
-"<a name="WindowShade_North"></a><font class="fvwmopt">North</font>",
-"<a name="WindowShade_South"></a><font class="fvwmopt">South</font>",
-"<a name="WindowShade_West"></a><font class="fvwmopt">West</font>",
-"<a name="WindowShade_East"></a><font class="fvwmopt">East</font>",
-"<a name="WindowShade_NorthWest"></a><font class="fvwmopt">NorthWest</font>",
-"<a name="WindowShade_NorthEast"></a><font class="fvwmopt">NorthEast</font>",
-"<a name="WindowShade_SouthWest"></a><font class="fvwmopt">SouthWest</font>",
-"<a name="WindowShade_SouthEast"></a><font class="fvwmopt">SouthEast</font>" or
-"<a name="WindowShade_Last"></a><font class="fvwmopt">Last</font>"
-can be given. The direction can be abbreviated with
-the usual one or two letters "<a name="WindowShade_N"></a><font class="fvwmopt">N</font>", "<a name="WindowShade_NW"></a><font class="fvwmopt">NW</font>", etc.  Using a direction on
+&quot;<I>North</I>&quot;,
+&quot;<I>South</I>&quot;,
+&quot;<I>West</I>&quot;,
+&quot;<I>East</I>&quot;,
+&quot;<I>NorthWest</I>&quot;,
+&quot;<I>NorthEast</I>&quot;,
+&quot;<I>SouthWest</I>&quot;,
+&quot;<I>SouthEast</I>&quot; or
+&quot;<I>Last</I>&quot;
+can be given.  The direction can be abbreviated with
+the usual one or two letters &quot;<I>N</I>&quot;, &quot;<I>NW</I>&quot;, etc.  Using a direction on
 a window that was already shaded unshades the window.  To shade it
 in a different direction, use the
-<a name="WindowShade_ShadeAgain"></a><font class="fvwmopt">ShadeAgain</font>
-option. The direction
-<span class="emphasis"><em>Last</em></span>
-shades the window in the direction it last was shaded. If the
+<I>ShadeAgain</I>
+option.  The direction
+<I>Last</I>
+shades the window in the direction it last was shaded.  If the
 window has never been shaded before it is shaded as if no
-direction had been given. Windows without titles can be shaded too.
+direction had been given.  Windows without titles can be shaded too.
 Please refer also to the options
-<a href="#Style_WindowShadeSteps">WindowShadeSteps</a>,
-<a href="#Style_WindowShadeShrinks">WindowShadeShrinks</a>,
-<a href="#Style_WindowShadeScrolls">WindowShadeScrolls</a>,
-<a href="#Style_WindowShadeLazy">WindowShadeLazy</a>,
-<a href="#Style_WindowShadeAlwaysLazy">WindowShadeAlwaysLazy</a> and
-<a href="#Style_WindowShadeBusy">WindowShadeBusy</a>
+<I>WindowShadeSteps</I>,
+<I>WindowShadeShrinks</I>,
+<I>WindowShadeScrolls</I>,
+<I>WindowShadeLazy</I>,
+<I>WindowShadeAlwaysLazy</I> and
+<I>WindowShadeBusy</I>
 options of the
-<a href="#Style">Style</a>
-command.  Examples:</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_WindowShadeShrinks">WindowShadeShrinks</a>, <a href="#Style_WindowShadeSteps">WindowShadeSteps</a> 20, \
-        <a href="#Style_WindowShadeLazy">WindowShadeLazy</a>
-<a href="#Mouse">Mouse</a> 1 - S WindowShade North
-<a href="#Mouse">Mouse</a> 1 [ S WindowShade West
-<a href="#Mouse">Mouse</a> 1 ] S WindowShade E
-<a href="#Mouse">Mouse</a> 1 _ S WindowShade S
-</pre><p>Note: When a window that has been shaded with a
-<em class="replaceable"><code>direction</code></em>
+<B>Style</B>
+command.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>WindowShadeShrinks</I>, <I>WindowShadeSteps</I> 20, \
+        <I>WindowShadeLazy</I>
+<B>Mouse</B> 1 - S WindowShade North
+<B>Mouse</B> 1 [ S WindowShade West
+<B>Mouse</B> 1 ] S WindowShade E
+<B>Mouse</B> 1 _ S WindowShade S
+</PRE>
+
+</DL>
+
+<P>
+
+Note: When a window that has been shaded with a
+<I>direction</I>
 argument changes the direction of the window title (see
-<a href="#Style_TitleAtTop">TitleAtTop</a>
-<a href="#Style">Style</a>
+<I>TitleAtTop</I>
+<B>Style</B>
 option), the shading direction does not change.  This may look
 very strange.  Windows that were shaded without a
-<em class="replaceable"><code>direction</code></em>
-argument stay shaded in the direction of the title bar.</p><p>For backward compatibility, the optional argument may also be 1 to
-signify "on", and 2 to signify "off". Note that this syntax is
-obsolete, and will be removed in the future.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowShadeAnimate"></a>31.5.14. WindowShadeAnimate</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowShadeAnimate</code>  [<em class="replaceable"><code>steps</code></em> [p]]</p></div><p>This command is obsolete.  Please use the
-<a href="#Style_WindowShadeSteps">WindowShadeSteps</a>
+<I>direction</I>
+argument stay shaded in the direction of the title bar.
+<P>
+
+For backward compatibility, the optional argument may also be 1 to
+signify &quot;on&quot;, and 2 to signify &quot;off&quot;.  Note that this syntax is
+obsolete, and will be removed in the future.
+</DL>
+
+<DT><B>WindowShadeAnimate</B> [<I>steps</I>&nbsp;[p]]<DD>
+<DL COMPACT><DT><DD>
+
+This command is obsolete.  Please use the
+<I>WindowShadeSteps</I>
 option of the
-<a href="#Style">Style</a>
-command instead.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="mouse_key_and_stroke_bindings"></a>31.6. Mouse, Key &amp; Stroke Bindings</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="IgnoreModifiers"></a>31.6.1. IgnoreModifiers</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">IgnoreModifiers</code>  [<em class="replaceable"><code>Modifiers</code></em>]</p></div><p>Tells fvwm which modifiers to ignore when matching Mouse or Key
+<B>Style</B>
+command instead.
+</DL>
+
+</DL>
+<A NAME="lbBT">&nbsp;</A>
+<H3>Mouse, Key &amp; Stroke Bindings</H3>
+
+<DL COMPACT>
+<DT><B>IgnoreModifiers</B> [<I>Modifiers</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Tells fvwm which modifiers to ignore when matching Mouse or Key
 bindings.
-<span class="emphasis"><em>IgnoreModifiers</em></span>
+<B>IgnoreModifiers</B>
 affects the
-<a href="#Style_ClickToFocus">ClickToFocus</a>
+<I>ClickToFocus</I>
 style too.  This command belongs into your
-<code class="filename">config</code>.
+<I>config</I>.
 If you issue it when your fvwm session is already up and running
 the results are unpredictable.  The should appear before any
 applications or modules are started in your
-<code class="filename">config</code>
+<I>config</I>
 file (e.g. with the
-<a href="#Exec">Exec</a>
-command).</p><p><em class="replaceable"><code>Modifiers</code></em>
+<B>Exec</B>
+command).
+<P>
+
+<I>Modifiers</I>
 has the same syntax as in the
-<a href="#Mouse">Mouse</a> or <a href="#Key">Key</a>
+<B>Mouse</B> or <B>Key</B>
 bindings, with the addition of 'L' meaning the
-<span class="keysym">caps lock</span>
-key.  The default is "L".
-<em class="replaceable"><code>Modifiers</code></em>
+<FONT>caps lock</FONT>
+key.  The default is &quot;L&quot;.
+<I>Modifiers</I>
 can be omitted, meaning no modifiers are ignored.  This command
 comes in handy if the
-<span class="keysym">num-lock</span>
+<FONT>num-lock</FONT>
 and
-<span class="keysym">scroll-lock</span>
+<FONT>scroll-lock</FONT>
 keys interfere with your shortcuts.  With XFree86 '2' usually is
 the
-<span class="keysym">num-lock</span>
+<FONT>num-lock</FONT>
 modifier and '5' refers to the
-<span class="keysym">scroll-lock</span>
-key. To turn all these pesky modifiers off you can use this
-command:</p><pre class="programlisting">
+<FONT>scroll-lock</FONT>
+key.  To turn all these pesky modifiers off you can use this
+command:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 IgnoreModifiers L25
-</pre><p>If the
-<em class="replaceable"><code>Modifiers</code></em>
-argument is the string "<a name="IgnoreModifiers_default"></a><font class="fvwmopt">default</font>", fvwm reverts back to the
-default value "L".</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3>
+</PRE>
+
+</DL>
+
+<P>
+
+If the
+<I>Modifiers</I>
+argument is the string &quot;<I>default</I>&quot;, fvwm reverts back to the
+default value &quot;L&quot;.
+<P>
+
+
+
+
+<BR>
+
+<B>Important</B>
 This command creates a lot of extra network traffic, depending on
 your CPU, network connection, the number of
-<a href="#Key">Key</a> or <a href="#Mouse">Mouse</a>
+<B>Key</B> or <B>Mouse</B>
 commands in your configuration file and the number of modifiers
 you want to ignore.  If you do not have a lightning fast machine
 or very few bindings you should not ignore more than two
-modifiers. I.e. do not ignore
-<span class="keysym">scroll-lock</span>
+modifiers.  I.e. do not ignore
+<FONT>scroll-lock</FONT>
 if you have no problem with it.  In the
-<span class="emphasis"><em>FAQ</em></span>
-you can find a better solution of this problem.</div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeCommand"></a>31.6.2. EdgeCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeCommand</code>  [ <em class="replaceable"><code>direction</code></em>  [<em class="replaceable"><code>Function</code></em>]]</p></div><p>Binds a specified fvwm command
-<em class="replaceable"><code>Function</code></em>
-to an edge of the screen. Direction may be one of
-"<a name="EdgeCommand_North"></a><font class="fvwmopt">North</font>",
-"<a name="EdgeCommand_Top"></a><font class="fvwmopt">Top</font>",
-"<a name="EdgeCommand_West"></a><font class="fvwmopt">West</font>",
-"<a name="EdgeCommand_Left"></a><font class="fvwmopt">Left</font>",
-"<a name="EdgeCommand_South"></a><font class="fvwmopt">South</font>",
-"<a name="EdgeCommand_Bottom"></a><font class="fvwmopt">Bottom</font>",
-"<a name="EdgeCommand_Right"></a><font class="fvwmopt">Right</font>" and
-"<a name="EdgeCommand_East"></a><font class="fvwmopt">East</font>".
+<I>FAQ</I>
+you can find a better solution of this problem.
+</DL>
+
+<DT><B>EdgeCommand</B> [<I>direction</I>&nbsp;[<I>Function</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Binds a specified fvwm command
+<I>Function</I>
+to an edge of the screen.  Direction may be one of
+&quot;<I>North</I>&quot;,
+&quot;<I>Top</I>&quot;,
+&quot;<I>West</I>&quot;,
+&quot;<I>Left</I>&quot;,
+&quot;<I>South</I>&quot;,
+&quot;<I>Bottom</I>&quot;,
+&quot;<I>Right</I>&quot; and
+&quot;<I>East</I>&quot;.
 If
-<em class="replaceable"><code>Function</code></em>
-is omitted the binding for this edge is removed. If EdgeCommand is
-called without any arguments all edge bindings are removed.</p><p><em class="replaceable"><code>Function</code></em> is executed when the mouse pointer
+<I>Function</I>
+is omitted the binding for this edge is removed.  If EdgeCommand is
+called without any arguments all edge bindings are removed.
+<P>
+
+<I>Function</I> is executed when the mouse pointer
 enters the invisible pan frames that surround the visible screen.
 The binding works only if
-<a href="#EdgeThickness">EdgeThickness</a>
+<B>EdgeThickness</B>
 is set to a value greater than 0.
 If a function is bound to an edge, scrolling specified by
-<a href="#EdgeScroll">EdgeScroll</a>
+<B>EdgeScroll</B>
 is disabled for this edge.
 It is possible to bind a function only to some edges
 and use the other edges for scrolling.
 This command is intended to raise or lower certain windows
 when the mouse pointer enters an edge.
-<a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a>
+<B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>
 can be used get a delay when raising or lowering windows.
 The following example raises
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
-if the mouse pointer enters the top edge of the screen.</p><pre class="programlisting">
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+if the mouse pointer enters the top edge of the screen.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Disable EdgeScrolling but make it possible
 # to move windows over the screen edge
-<a href="#EdgeResistance">EdgeResistance</a> -1
-<a href="#Style">Style</a> * EdgeMoveDelay 250
-<a href="#Style">Style</a> * EdgeMoveResistance 20
+<B>EdgeResistance</B> -1
+<B>Style</B> * EdgeMoveDelay 250
+<B>Style</B> * EdgeMoveResistance 20
 
 # Set thickness of the edge of the screen to 1
-<a href="#EdgeThickness">EdgeThickness</a> 1
+<B>EdgeThickness</B> 1
 
 # Give focus to FvwmButtons if the mouse
 # hits top edge
-EdgeCommand Top <a href="#Next">Next</a> (FvwmButtons) <a href="#Focus">Focus</a>
-# Make sure the <a href="#Next">Next</a> command matches the window
-<a href="#Style">Style</a> FvwmButtons CirculateHit
+EdgeCommand Top <B>Next</B> (FvwmButtons) <B>Focus</B>
+# Make sure the <B>Next</B> command matches the window
+<B>Style</B> FvwmButtons CirculateHit
 
-<a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
-<a href="#Module">Module</a> <a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a> 100 "Silent AutoRaiseFunction" \
-     "Silent AutoLowerFunction"
+<B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+<B>Module</B> <B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B> 100 &quot;Silent AutoRaiseFunction&quot; \
+     &quot;Silent AutoLowerFunction&quot;
 
 # If any window except FvwmButtons has
 # focus when calling this function
 # FvwmButtons are lowered
-<a href="#DestroyFunc">DestroyFunc</a> AutoLowerFunction
-<a href="#AddToFunc">AddToFunc</a> AutoLowerFunction
-+ I <a href="#Current">Current</a> (!FvwmButtons) <a href="#All">All</a> (FvwmButtons) <a href="#Lower">Lower</a>
+<B>DestroyFunc</B> AutoLowerFunction
+<B>AddToFunc</B> AutoLowerFunction
++ I <B>Current</B> (!FvwmButtons) <B>All</B> (FvwmButtons) <B>Lower</B>
 
 # If FvwmButtons has focus when calling this function raise it
-<a href="#DestroyFunc">DestroyFunc</a> AutoRaiseFunction
-<a href="#AddToFunc">AddToFunc</a> AutoRaiseFunction
-+ I <a href="#Current">Current</a> (FvwmButtons) <a href="#Raise">Raise</a>
-</pre><p>Normally, the invisible pan frames are only on the screen edges
+<B>DestroyFunc</B> AutoRaiseFunction
+<B>AddToFunc</B> AutoRaiseFunction
++ I <B>Current</B> (FvwmButtons) <B>Raise</B>
+</PRE>
+
+</DL>
+
+<P>
+
+Normally, the invisible pan frames are only on the screen edges
 that border virtual pages.  If a screen edge has a command bound
-to it, the pan frame is always created on that edge.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeLeaveCommand"></a>31.6.3. EdgeLeaveCommand</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeLeaveCommand</code>  [ <em class="replaceable"><code>direction</code></em> 
-		 [<em class="replaceable"><code>Function</code></em>]]</p></div><p>Binds a specified fvwm command
-<em class="replaceable"><code>Function</code></em>
-to an edge of the screen. Direction may be one of
-"<a name="EdgeLeaveCommand_North"></a><font class="fvwmopt">North</font>",
-"<a name="EdgeLeaveCommand_Top"></a><font class="fvwmopt">Top</font>",
-"<a name="EdgeLeaveCommand_West"></a><font class="fvwmopt">West</font>",
-"<a name="EdgeLeaveCommand_Left"></a><font class="fvwmopt">Left</font>",
-"<a name="EdgeLeaveCommand_South"></a><font class="fvwmopt">South</font>",
-"<a name="EdgeLeaveCommand_Bottom"></a><font class="fvwmopt">Bottom</font>",
-"<a name="EdgeLeaveCommand_Right"></a><font class="fvwmopt">Right</font>" and
-"<a name="EdgeLeaveCommand_East"></a><font class="fvwmopt">East</font>".
+to it, the pan frame is always created on that edge.
+</DL>
+
+<DT><B>EdgeLeaveCommand</B> [<I>direction</I>&nbsp;[<I>Function</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Binds a specified fvwm command
+<I>Function</I>
+to an edge of the screen.  Direction may be one of
+&quot;<I>North</I>&quot;,
+&quot;<I>Top</I>&quot;,
+&quot;<I>West</I>&quot;,
+&quot;<I>Left</I>&quot;,
+&quot;<I>South</I>&quot;,
+&quot;<I>Bottom</I>&quot;,
+&quot;<I>Right</I>&quot; and
+&quot;<I>East</I>&quot;.
 If
-<em class="replaceable"><code>Function</code></em>
-is omitted the binding for this edge is removed. If
+<I>Function</I>
+is omitted the binding for this edge is removed.  If
 EdgeLeaveCommand is called without any arguments all edge bindings
-are removed.</p><p><em class="replaceable"><code>Function</code></em>
+are removed.
+<P>
+
+<I>Function</I>
 is executed when the mouse pointer
 leaves the invisible pan frames that surround the visible screen.
 The binding works only if
-<a href="#EdgeThickness">EdgeThickness</a>
+<B>EdgeThickness</B>
 is set to a value greater than 0.
 If a function is bound to an edge, scrolling specified by
-<a href="#EdgeScroll">EdgeScroll</a>
+<B>EdgeScroll</B>
 is disabled for this edge.
 It is possible to bind a function only to some edges
 and use the other edges for scrolling.
 This command is intended to raise or lower certain windows
 when the mouse pointer leaves an edge.
-<a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a>
+<B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B>
 can be used get a delay when raising or lowering windows.
 See example for
-<a href="#EdgeCommand">EdgeCommand</a></p><p>Normally, the invisible pan frames are only on the screen edges
+<B>EdgeCommand</B>
+<P>
+
+Normally, the invisible pan frames are only on the screen edges
 that border virtual pages.  If a screen edge has a command bound
-to it, the pan frame is always created on that edge.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GnomeButton"></a>31.6.4. GnomeButton</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GnomeButton</code> </p></div><p>Used in conjunction with
-<a href="#Mouse">Mouse</a>
+to it, the pan frame is always created on that edge.
+</DL>
+
+<DT><B>GnomeButton</B><DD>
+<DL COMPACT><DT><DD>
+
+Used in conjunction with
+<B>Mouse</B>
 to pass mouse button presses on the root window to a
-<acronym class="acronym">GNOME</acronym>
+GNOME
 program (such as GMC).  The following example passes presses of
-mouse buttons 1 and 3 to such a program.</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 R A GnomeButton
-<a href="#Mouse">Mouse</a> 3 R A GnomeButton
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Key"></a>31.6.5. Key</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Key</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Keyname</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Binds a keyboard key to a specified fvwm command, or
+mouse buttons 1 and 3 to such a program.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 R A GnomeButton
+<B>Mouse</B> 3 R A GnomeButton
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Key</B> [(<I>window</I>)] <I>Keyname</I> <I>Context</I> <I>Modifiers</I> <I>Function</I><DD>
+<DL COMPACT><DT><DD>
+
+Binds a keyboard key to a specified fvwm command, or
 removes the binding if
-<em class="replaceable"><code>Function</code></em>
+<I>Function</I>
 is '-'.  The syntax is the same as for a
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 binding except that the mouse button number is replaced with a
-<em class="replaceable"><code>Keyname</code></em>.
+<I>Keyname</I>.
 Normally, the key binding is activated when the key is pressed.
-<em class="replaceable"><code>Keyname</code></em>
+<I>Keyname</I>
 is a standard X11 key name as defined in
-<code class="filename">/usr/include/X11/keysymdef.h</code>,
+<I>/usr/include/X11/keysymdef.h</I>,
 (without the
-<span class="emphasis"><em>XK_</em></span>
+<I>XK_</I>
 prefix), or the keysym database
-<code class="filename">/usr/X11R6/lib/X11/XKeysymDB</code>.
+<I>/usr/X11R6/lib/X11/XKeysymDB</I>.
 Only key names that are
 generated with no modifier keys or with just the
-<span class="keysym">Shift</span>
+<FONT>Shift</FONT>
 key held are guaranteed to work.  The
-<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
+<I>Context</I> and <I>Modifiers</I>
 fields are defined as in the
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 binding.  However, when you press a key the context window is the
 window that has the keyboard focus.  That is not necessarily the
 same as the window the pointer is over (with
-<a href="#Style_SloppyFocus">SloppyFocus</a> or
-<a href="#Style_ClickToFocus">ClickToFocus</a>).
-Note that key bindings with the '<a name="Key_R"></a><font class="fvwmopt">R</font>' (root window) context do not
+<I>SloppyFocus</I> or
+<I>ClickToFocus</I>).
+Note that key bindings with the '<I>R</I>' (root window) context do not
 work properly with
-<a href="#Style_SloppyFocus">SloppyFocus</a> and
-<a href="#Style_ClickToFocus">ClickToFocus</a>.
+<I>SloppyFocus</I> and
+<I>ClickToFocus</I>.
 If you encounter problems, use the
-<a href="#PointerKey">PointerKey</a>
+<B>PointerKey</B>
 command instead.  If you want to bind keys to a window with
-<a href="#Style_SloppyFocus">SloppyFocus</a> or
-<a href="#Style_ClickToFocus">ClickToFocus</a>
+<I>SloppyFocus</I> or
+<I>ClickToFocus</I>
 that are supposed to work when the pointer is not over the window,
 fvwm assumes the pointer is over the client window (i.e. you have
-to use the 'W' context).</p><p>The special context '<a name="Key_M"></a><font class="fvwmopt">M</font>' for menus can be used to (re)define the menu
-controls. It be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the <a href="#menu_bindings">Menu Bindings</a>
-section for details.</p><p>The following example binds the built-in window list to pop up
+to use the 'W' context).
+<P>
+
+The special context '<I>M</I>' for menus can be used to (re)define the menu
+controls.  It be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the <B>Menu Bindings</B>
+section for details.
+<P>
+
+The following example binds the built-in window list to pop up
 when
-<span class="keysym">Alt-Ctrl-Shift-F11</span>
-is hit, no matter where the mouse pointer is:</p><pre class="programlisting">
-Key F11 A SCM <a href="#WindowList">WindowList</a>
-</pre><p>Binding a key to a title-bar button causes that button to appear.
+<FONT>Alt-Ctrl-Shift-F11</FONT>
+is hit, no matter where the mouse pointer is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Key F11 A SCM <B>WindowList</B>
+</PRE>
+
+</DL>
+
+<P>
+
+Binding a key to a title-bar button causes that button to appear.
 Please refer to the
-<a href="#Mouse">Mouse</a>
-command for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Mouse"></a>31.6.6. Mouse</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Mouse</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Button</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Defines a mouse binding, or removes the binding if
-<em class="replaceable"><code>Function</code></em>
+<B>Mouse</B>
+command for details.
+</DL>
+
+<DT><B>Mouse</B> [(<I>window</I>)] <I>Button</I> <I>Context</I> <I>Modifiers</I> <I>Function</I><DD>
+<DL COMPACT><DT><DD>
+
+Defines a mouse binding, or removes the binding if
+<I>Function</I>
 is '-'.
-<em class="replaceable"><code>Button</code></em>
+<I>Button</I>
 is the mouse button number.  If
-<em class="replaceable"><code>Button</code></em>
+<I>Button</I>
 is zero then any button performs the specified function.  Note
 that only mouse buttons 1 to 5 are fully supported by X11.  Any
 number above this works only partially.  Complex functions can not
 be used with these buttons and neither any operation that requires
 dragging the pointer with the button held.  This is due to
 limitations of X11.  By default, the highest allowed button number
-is 9.</p><p><em class="replaceable"><code>Context</code></em>
-describes where the binding applies.  Valid contexts are
-'<a name="Mouse_R"></a><font class="fvwmopt">R</font>' for the root window,
-'<a name="Mouse_W"></a><font class="fvwmopt">W</font>' for an application window,
-'<a name="Mouse_D"></a><font class="fvwmopt">D</font>' for a desktop application (as kdesktop or Nautilus desktop),
-'<a name="Mouse_T"></a><font class="fvwmopt">T</font>' for a window title-bar,
-'<a name="Mouse_S"></a><font class="fvwmopt">S</font>' for a window side, top, or bottom bar,
-'<a name="Mouse_%5B"></a><font class="fvwmopt">[</font>',
-'<a name="Mouse_%5D"></a><font class="fvwmopt">]</font>',
-'<a name="Mouse_-"></a><font class="fvwmopt">-</font>' and
-'<a name="Mouse__"></a><font class="fvwmopt">_</font>' for the left, right, top or bottom side only,
-'<a name="Mouse_F"></a><font class="fvwmopt">F</font>' for a window frame (the corners),
-'&lt;', '^', '&gt;' and
-'<a name="Mouse_v"></a><font class="fvwmopt">v</font>' for the top
-left, top right, bottom right or bottom left corner,
-'<a name="Mouse_I"></a><font class="fvwmopt">I</font>' for an icon window, or
-'<a name="Mouse_0"></a><font class="fvwmopt">0</font>' through
-'<a name="Mouse_9"></a><font class="fvwmopt">9</font>' for title-bar buttons, or any combination of these letters.
-'<a name="Mouse_A"></a><font class="fvwmopt">A</font>' is for any context.  For
-instance, a context of "FST" applies when the mouse is anywhere in
+is 9.
+<P>
+
+<I>Context</I>
+describes where the binding applies.  Valid contexts are '<I>R</I>' for the root window, '<I>W</I>' for an application window, '<I>D</I>' for a desktop application (as kdesktop or Nautilus desktop), '<I>T</I>' for a window title-bar, '<I>S</I>' for a window side, top, or bottom bar, '<I>[</I>', '<I>]</I>', '<I>-</I>' and '<I>_</I>' for the left, right, top or bottom side only, '<I>F</I>' for a window frame (the corners), '&lt;', '^', '&gt;' and '<I>v</I>' for the top
+left, top right, bottom right or bottom left corner, '<I>I</I>' for an icon window, or '<I>0</I>' through '<I>9</I>' for title-bar buttons, or any combination of these letters.  '<I>A</I>' is for any context.  For
+instance, a context of &quot;FST&quot; applies when the mouse is anywhere in
 a window's border except the title-bar buttons.  Only 'S' and 'W'
-are valid for an undecorated window.</p><p>The special context '<a name="Mouse_M"></a><font class="fvwmopt">M</font>' for menus can be used to (re)define the menu
-controls. It can be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the
-<a href="#menu_bindings">Menu Bindings</a>
-section for details.</p><p>The special context '<a name="Mouse_P"></a><font class="fvwmopt">P</font>' controls what buttons that can be used to
-place a window. When using this context no modifiers are allowed
-(<em class="replaceable"><code>Modifiers</code></em>
+are valid for an undecorated window.
+<P>
+
+The special context '<I>M</I>' for menus can be used to (re)define the menu
+controls.  It can be used alone or together with 'T', 'S', 'I', '[', ']', '-' and '_'.  See the
+<B>Menu Bindings</B>
+section for details.
+<P>
+
+The special context '<I>P</I>' controls what buttons that can be used to
+place a window.  When using this context no modifiers are allowed
+(<I>Modifiers</I>
 must be N), no
-<em class="replaceable"><code>window</code></em>
+<I>window</I>
 is allowed, and the
-<em class="replaceable"><code>Function</code></em>
+<I>Function</I>
 must be one of
-<span class="emphasis"><em>PlaceWindow</em></span>,
-<span class="emphasis"><em>PlaceWindowDrag</em></span>,
-<span class="emphasis"><em>PlaceWindowInteractive</em></span>,
-<span class="emphasis"><em>CancelPlacement</em></span>,
-<span class="emphasis"><em>CancelPlacementDrag</em></span>,
-<span class="emphasis"><em>CancelPlacementInteractive</em></span> or
-<span class="emphasis"><em>-</em></span>.</p><p>
-<a name="Mouse_PlaceWindow"></a><font class="fvwmopt">PlaceWindow</font>
+<I>PlaceWindow</I>,
+<I>PlaceWindowDrag</I>,
+<I>PlaceWindowInteractive</I>,
+<I>CancelPlacement</I>,
+<I>CancelPlacementDrag</I>,
+<I>CancelPlacementInteractive</I> or
+<I>-</I>.
+<P>
+
+<I>PlaceWindow</I>
 makes
-<em class="replaceable"><code>Button</code></em>
+<I>Button</I>
 usable for window placement, both for interactive and drag move.
-<a name="Mouse_CancelPlacement"></a><font class="fvwmopt">CancelPlacement</font>
-does the inverse. That is makes
-<em class="replaceable"><code>Button</code></em>
-to cancel move for both interactive and drag move. It may however
-not override how new windows are resized after being placed. This
+<I>CancelPlacement</I>
+does the inverse.  That is makes
+<I>Button</I>
+to cancel move for both interactive and drag move.  It may however
+not override how new windows are resized after being placed.  This
 is controlled by the
-<a href="#Emulate">Emulate</a>
-command. Also a window being dragged can always be placed
+<B>Emulate</B>
+command.  Also a window being dragged can always be placed
 by releasing the button hold while dragging, regardless of if it is
 set to
-<span class="emphasis"><em>PlaceWindow</em></span>
-or not.</p><p>
-<a name="Mouse_PlaceWindowDrag"></a><font class="fvwmopt">PlaceWindowDrag</font> and
-<a name="Mouse_PlaceWindowInteractive"></a><font class="fvwmopt">PlaceWindowInteractive</font>/<a name="Mouse_CancelPlacementDrag"></a><font class="fvwmopt">CancelPlacementDrag</font>
-and <a name="Mouse_CancelPlacementInteractive"></a><font class="fvwmopt">CancelPlacementInteractive</font>
+<I>PlaceWindow</I>
+or not.
+<P>
+
+<I>PlaceWindowDrag</I> and
+<I>PlaceWindowInteractive</I>/<I>CancelPlacementDrag</I>
+and <I>CancelPlacementInteractive</I>
 work as
-<span class="emphasis"><em>PlaceWindow</em></span>/<span class="emphasis"><em>CancelPlacement</em></span>
+<I>PlaceWindow</I>/<I>CancelPlacement</I>
 with the exception that they only affect either windows dragged /
-placed interactively.</p><p>
-<a name="Mouse_-"></a><font class="fvwmopt">-</font>
+placed interactively.
+<P>
+
+<I>-</I>
 is equivalent to
-<span class="emphasis"><em>CancelPlacement</em></span>.</p><p>The following example makes all buttons but button 3 usable for
+<I>CancelPlacement</I>.
+<P>
+
+The following example makes all buttons but button 3 usable for
 interactive placement and makes drag moves started by other buttons
-than one cancel if button 1 is pressed before finishing the move:</p><pre class="programlisting">
+than one cancel if button 1 is pressed before finishing the move:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Mouse 0 P N PlaceWindow
 Mouse 3 P N CancelPlacement
 Mouse 1 P N CancelPlacementDrag
-</pre><p>By default, the binding applies to all windows. You can specify
+</PRE>
+
+</DL>
+
+<P>
+
+By default, the binding applies to all windows.  You can specify
 that a binding only applies to specific windows by specifying the
-window name in brackets. The window name is a wildcard pattern
+window name in brackets.  The window name is a wildcard pattern
 specifying the class, resource or name of the window you want the
-binding to apply to.</p><p>The following example shows how the same key-binding can be used to
-perform different functions depending on the window that is focused:</p><pre class="programlisting">
-<a href="#Key">Key</a> (rxvt)  V A C <a href="#Echo">Echo</a> ctrl-V-in-RXVT
-<a href="#Key">Key</a> (*term) V A C <a href="#Echo">Echo</a> ctrl-V-in-Term
-<a href="#Key">Key</a> (*vim)  V A C --
-<a href="#Key">Key</a>         V A C <a href="#Echo">Echo</a> ctrl-V-elsewhere
-</pre><p>A '<a name="Mouse_--"></a><font class="fvwmopt">--</font>' action indicates that the event should be propagated to the
-specified window to handle. This is only a valid action for
-window-specific bindings.</p><p>This example shows how to display the WindowList when Button 3 is
-pressed on an rxvt window:</p><pre class="programlisting">
-Mouse (rxvt) 3 A A <a href="#WindowList">WindowList</a>
-</pre><p>Note that Fvwm actually intercepts all events for a window-specific
+binding to apply to.
+<P>
+
+The following example shows how the same key-binding can be used to
+perform different functions depending on the window that is focused:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> (rxvt)  V A C <B>Echo</B> ctrl-V-in-RXVT
+<B>Key</B> (*term) V A C <B>Echo</B> ctrl-V-in-Term
+<B>Key</B> (*vim)  V A C --
+<B>Key</B>         V A C <B>Echo</B> ctrl-V-elsewhere
+</PRE>
+
+</DL>
+
+<P>
+
+A '<I>--</I>' action indicates that the event should be propagated to the
+specified window to handle.  This is only a valid action for
+window-specific bindings.
+<P>
+
+This example shows how to display the WindowList when Button 3 is
+pressed on an rxvt window:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Mouse (rxvt) 3 A A <B>WindowList</B>
+</PRE>
+
+</DL>
+
+<P>
+
+Note that Fvwm actually intercepts all events for a window-specific
 binding and (if the focused window doesn't match any of the
-bindings) sends a synthetic copy of the event to the window. This
+bindings) sends a synthetic copy of the event to the window.  This
 should be transparent to most applications, however (for security
 reasons) some programs ignore these synthetic events by default -
-xterm is one of them. To enable handling of these events, add the
-following line to your <code class="filename">~/.Xdefaults</code> file:</p><pre class="programlisting">
+xterm is one of them.  To enable handling of these events, add the
+following line to your <I>~/.Xdefaults</I> file:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 XTerm*allowSendEvents:  true
-</pre><p><em class="replaceable"><code>Modifiers</code></em>
-is any combination of
-'<a name="Mouse_N"></a><font class="fvwmopt">N</font>' for no modifiers,
-'<a name="Mouse_C"></a><font class="fvwmopt">C</font>' for control,
-'<a name="Mouse_S"></a><font class="fvwmopt">S</font>' for shift,
-'<a name="Mouse_M"></a><font class="fvwmopt">M</font>' for Meta,
-'<a name="Mouse_L"></a><font class="fvwmopt">L</font>' for Caps-Lock or
-'<a name="Mouse_A"></a><font class="fvwmopt">A</font>' for any
-modifier. For example, a modifier of "SM" applies when both the
-<span class="keysym">Meta</span>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>Modifiers</I>
+is any combination of '<I>N</I>' for no modifiers, '<I>C</I>' for control, '<I>S</I>' for shift, '<I>M</I>' for Meta, '<I>L</I>' for Caps-Lock or '<I>A</I>' for any
+modifier.  For example, a modifier of &quot;SM&quot; applies when both the
+<FONT>Meta</FONT>
 and
-<span class="keysym">Shift</span>
+<FONT>Shift</FONT>
 keys are down.  X11 modifiers mod1 through mod5 are represented as
 the digits '1' through '5'.  The modifier 'L' is ignored by
 default.  To turn it on, use the
-<a href="#IgnoreModifiers">IgnoreModifiers</a>
-command.</p><p><em class="replaceable"><code>Function</code></em>
-is one of fvwm's commands.</p><p>The title-bar buttons are numbered with odd numbered buttons on
+<B>IgnoreModifiers</B>
+command.
+<P>
+
+<I>Function</I>
+is one of fvwm's commands.
+<P>
+
+The title-bar buttons are numbered with odd numbered buttons on
 the left side of the title-bar and even numbers on the
-right. Smaller-numbered buttons are displayed toward the outside
+right.  Smaller-numbered buttons are displayed toward the outside
 of the window while larger-numbered buttons appear toward the
 middle of the window (0 is short for 10).  In summary, the buttons
-are numbered:</p><pre class="programlisting">
+are numbered:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 1 3 5 7 9    0 8 6 4 2
-</pre><p>The highest odd numbered button which has an action bound to it
+</PRE>
+
+</DL>
+
+<P>
+
+The highest odd numbered button which has an action bound to it
 determines the number of buttons drawn on the left side of the
 title bar.  The highest even number determines the number of right
 side buttons which are drawn.  Actions can be bound to either
-mouse buttons or keyboard keys.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PointerKey"></a>31.6.7. PointerKey</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PointerKey</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Keyname</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>This command works exactly like the
-<a href="#Key">Key</a>
+mouse buttons or keyboard keys.
+</DL>
+
+<DT><B>PointerKey</B> [(<I>window</I>)] <I>Keyname</I> <I>Context</I> <I>Modifiers</I> <I>Function</I><DD>
+<DL COMPACT><DT><DD>
+
+This command works exactly like the
+<B>Key</B>
 command.  The only difference is that the binding operates on the
 window under the pointer.  Normal key bindings operate on the
 focused window instead.  The
-<span class="emphasis"><em>PointerKey</em></span>
+<B>PointerKey</B>
 command can for example be used to bind keys to the root window if
 you are using
-<a href="#Style_SloppyFocus">SloppyFocus</a> or
-<a href="#Style_ClickToFocus">ClickToFocus</a>.
+<I>SloppyFocus</I> or
+<I>ClickToFocus</I>.
 However, some applications (xterm is one example) are unable to
 handle this key anymore, even if the pointer is over the xterm
 window.  It is recommended to use the
-<span class="emphasis"><em>PointerKey</em></span>
+<B>PointerKey</B>
 command only for key combinations that are not needed in any
-application window.</p><p>Example:</p><pre class="programlisting">
-<a href="#Style">Style</a> * <a href="#Style_SloppyFocus">SloppyFocus</a>
-PointerKey f1 a m <a href="#Menu">Menu</a> MainMenu
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Stroke"></a>31.6.8. Stroke</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Stroke</code>  [(<em class="replaceable"><code>window</code></em>)]  <em class="replaceable"><code>Sequence</code></em>   <em class="replaceable"><code>Button</code></em>   <em class="replaceable"><code>Context</code></em>   <em class="replaceable"><code>Modifiers</code></em>   <em class="replaceable"><code>Function</code></em> </p></div><p>Binds a mouse stroke sequence to a specified fvwm command,
+application window.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * <I>SloppyFocus</I>
+PointerKey f1 a m <B>Menu</B> MainMenu
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Stroke</B> [(<I>window</I>)] <I>Sequence</I> <I>Button</I> <I>Context</I> <I>Modifiers</I> <I>Function</I><DD>
+<DL COMPACT><DT><DD>
+
+Binds a mouse stroke sequence to a specified fvwm command,
 or removes the binding if
-<em class="replaceable"><code>Function</code></em>
+<I>Function</I>
 is '-'.  The syntax is the same as for a
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 binding except that
-<em class="replaceable"><code>Sequence</code></em>
+<I>Sequence</I>
 is inserted in front of the button number and a value of 0 for
-<em class="replaceable"><code>Button</code></em>
+<I>Button</I>
 concerns the
-<a href="#StrokeFunc">StrokeFunc</a>
+<B>StrokeFunc</B>
 command.  The
-<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
+<I>Context</I> and <I>Modifiers</I>
 fields are defined as in the
-<a href="#Mouse">Mouse</a>
-binding.  However, only the '<a href="#Mouse_R">R</a>' Context really works (if you want
+<B>Mouse</B>
+binding.  However, only the '<I>R</I>' Context really works (if you want
 to use other contexts you need to use the
-<a href="#StrokeFunc">StrokeFunc</a>
-below).</p><p>Strokes sequences are defined in a telephone grid like this:</p><pre class="programlisting">
+<B>StrokeFunc</B>
+below).
+<P>
+
+Strokes sequences are defined in a telephone grid like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
  1  2  3
 
  4  5  6
 
  7  8  9
-</pre><p>or in a numeric pad grid like this:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+or in a numeric pad grid like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
  7  8  9
 
  4  5  6
 
  1  2  3
-</pre><p>The telephone grid is used by default, to use the numeric pad grid
-you should begin the sequence with a '<a name="Stroke_N"></a><font class="fvwmopt">N</font>'.
+</PRE>
+
+</DL>
+
+<P>
+
+The telephone grid is used by default, to use the numeric pad grid
+you should begin the sequence with a '<I>N</I>'.
 Note that a complex motion may produce several different sequences
-(see the "netscape"
+(see the &quot;netscape&quot;
 example below to handle such motion).  Moreover, sequences are
 limited to 20 elements (with the present version of
-<span class="emphasis"><em>libstroke</em></span>),
+<B>libstroke</B>),
 however, in practice it is preferable to use sequence with less
-than 12 elements.</p><p>Because of the default button menu in fvwm, you may need to remove
-a mouse button binding (using an empty action) before using the
-stroke</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 3 R N
-</pre><p>Also, you can still use the stroke "sequence 0" to simulate a
-click:</p><pre class="programlisting">
-Stroke 0 3 R N <a href="#Menu">Menu</a> <a href="#WindowList">WindowList</a> <a href="#Nop">Nop</a>
-</pre><p>The following example starts xterm when the mouse drags an 'I' on
-the root window with button 3 pressed down:</p><pre class="programlisting">
-Stroke 258  3  R  N  <a href="#Exec">Exec</a> exec xterm
-</pre><p>An example for Netscape:</p><pre class="programlisting">
-Stroke 7415963    3  R  N  <a href="#Exec">Exec</a> exec netscape
-Stroke 74148963   3  R  N  <a href="#Exec">Exec</a> exec netscape
-Stroke 74158963   3  R  N  <a href="#Exec">Exec</a> exec netscape
-Stroke 7418963    3  R  N  <a href="#Exec">Exec</a> exec netscape
-Stroke 415963     3  R  N  <a href="#Exec">Exec</a> exec netscape
-</pre><p>You may prefer to use the numeric pad grid since you have such a
-grid on your machine. Here an example:</p><pre class="programlisting">
-Stroke N78963214   3  R  N <a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> FvwmForm-QuitVerify
-Stroke N789632147  3  R  N <a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> FvwmForm-QuitVerify
-</pre><p>This example starts the "QuitVerify" form if you draw a box that
-begins in the top left corner.</p><p>Note: You need
-<span class="emphasis"><em>libstroke</em></span>
-installed and fvwm compiled with stroke support.
+than 12 elements.
+<P>
 
-<span class="emphasis"><em>libstroke</em></span>
+Because of the default button menu in fvwm, you may need to remove
+a mouse button binding (using an empty action) before using the
+stroke
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 3 R N
+</PRE>
+
+</DL>
+
+<P>
+
+Also, you can still use the stroke &quot;sequence 0&quot; to simulate a
+click:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Stroke 0 3 R N <B>Menu</B> <B>WindowList</B> <B>Nop</B>
+</PRE>
+
+</DL>
+
+<P>
+
+The following example starts xterm when the mouse drags an 'I' on
+the root window with button 3 pressed down:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Stroke 258  3  R  N  <B>Exec</B> exec xterm
+</PRE>
+
+</DL>
+
+<P>
+
+An example for Netscape:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Stroke 7415963    3  R  N  <B>Exec</B> exec netscape
+Stroke 74148963   3  R  N  <B>Exec</B> exec netscape
+Stroke 74158963   3  R  N  <B>Exec</B> exec netscape
+Stroke 7418963    3  R  N  <B>Exec</B> exec netscape
+Stroke 415963     3  R  N  <B>Exec</B> exec netscape
+</PRE>
+
+</DL>
+
+<P>
+
+You may prefer to use the numeric pad grid since you have such a
+grid on your machine.  Here an example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Stroke N78963214   3  R  N <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> FvwmForm-QuitVerify
+Stroke N789632147  3  R  N <B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> FvwmForm-QuitVerify
+</PRE>
+
+</DL>
+
+<P>
+
+This example starts the &quot;QuitVerify&quot; form if you draw a box that
+begins in the top left corner.
+<P>
+
+Note: You need
+<B>libstroke</B>
+installed and fvwm compiled with stroke support.
+<B>libstroke</B>
 can be obtained at
-<a class="ulink" href="http://www.etla.net/~willey/projects/libstroke/" target="_top">http://www.etla.net/~willey/projects/libstroke/</a>
-</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="StrokeFunc"></a>31.6.9. StrokeFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">StrokeFunc</code>  [<em class="replaceable"><code>Options</code></em>]</p></div><p>Causes fvwm to record a mouse stroke sequence and to execute the
+<I><A HREF="http://www.etla.net/~willey/projects/libstroke/">http://www.etla.net/~willey/projects/libstroke/</A></I>
+</DL>
+
+<DT><B>StrokeFunc</B> [<I>Options</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Causes fvwm to record a mouse stroke sequence and to execute the
 corresponding action as defined in a
-<a href="#Stroke">Stroke</a>
+<B>Stroke</B>
 command.  The cursor is modified to the
-<a href="#CursorStyle_STROKE">STROKE</a>
+<I>STROKE</I>
 context of the
-<a href="#CursorStyle">CursorStyle</a>
+<B>CursorStyle</B>
 command during recording.  When the stroke is finished
-<span class="emphasis"><em>StrokeFunc</em></span>
-looks for a stroke binding of the form</p><pre class="programlisting">
-<a href="#Stroke">Stroke</a> sequence 0 Context Modifiers action
-</pre><p>and executes the corresponding action (Note the 0).  Normal use of
+<B>StrokeFunc</B>
+looks for a stroke binding of the form
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Stroke</B> sequence 0 Context Modifiers action
+</PRE>
+
+</DL>
+
+<P>
+
+and executes the corresponding action (Note the 0).  Normal use of
 this function is via a
-<a href="#Mouse">Mouse</a> or
-<a href="#Key">Key</a>
-command.  Examples:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 3 A M StrokeFunc
-<a href="#Key">Key</a> x R N StrokeFunc
-</pre><p>If you press mouse button 3 and
-<span class="keysym">Alt</span>
+<B>Mouse</B> or
+<B>Key</B>
+command.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 3 A M StrokeFunc
+<B>Key</B> x R N StrokeFunc
+</PRE>
+
+</DL>
+
+<P>
+
+If you press mouse button 3 and
+<FONT>Alt</FONT>
 anywhere (respectively, press the key x when the cursor is on the
 root window), then fvwm records the mouse motions until the mouse
 button 3 (respectively, the x key) is released and then check if
 the recorded
-<span class="emphasis"><em>sequence</em></span>
-corresponds to a stroke binding of the form</p><pre class="programlisting">
-"Stroke <em class="replaceable"><code>sequence</code></em> 0 A M <em class="replaceable"><code>action</code></em>"
-"Stroke <em class="replaceable"><code>sequence</code></em> 0 R N <em class="replaceable"><code>action</code></em>"
-</pre><p>Note that the
-<em class="replaceable"><code>Context</code></em> and <em class="replaceable"><code>Modifiers</code></em>
+<I>sequence</I>
+corresponds to a stroke binding of the form
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+&quot;Stroke <I>sequence</I> 0 A M <I>action</I>&quot;
+&quot;Stroke <I>sequence</I> 0 R N <I>action</I>&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+Note that the
+<I>Context</I> and <I>Modifiers</I>
 are taken at the beginning of the execution of the
-<span class="emphasis"><em>StrokeFunc</em></span>
+<B>StrokeFunc</B>
 command (so you can release the modifiers before the end of the
 stroke recording in the case of a mouse binding and if you used,
 say, a title-bar context the mouse motion can go through an
 application window).  The keys
-<span class="keysym">Escape</span> and
-<span class="keysym">Delete</span>
-allow you to abort the command.</p><p>The
-<span class="emphasis"><em>StrokeFunc</em></span>
+<FONT>Escape</FONT>
+and
+<FONT>Delete</FONT>
+allow you to abort the command.
+<P>
+
+The
+<B>StrokeFunc</B>
 command has five options:
-<span class="emphasis"><em>NotStayPressed</em></span>, <span class="emphasis"><em>EchoSequence</em></span>, <span class="emphasis"><em>DrawMotion</em></span>, 
-<span class="emphasis"><em>FeedBack</em></span> and <span class="emphasis"><em>StrokeWidth</em></span>.
+<I>NotStayPressed</I>, <I>EchoSequence</I>, <I>DrawMotion</I>, 
+<I>FeedBack</I> and <I>StrokeWidth</I>.
 These options are disabled by default.
-<a name="StrokeFunc_EchoSequence"></a><font class="fvwmopt">EchoSequence</font>
+<I>EchoSequence</I>
 causes fvwm to Echo the recorded stroke sequence.
-<a name="StrokeFunc_DrawMotion"></a><font class="fvwmopt">DrawMotion</font>
+<I>DrawMotion</I>
 causes fvwm to draw the mouse motion on the screen.
-<a name="StrokeFunc_FeedBack"></a><font class="fvwmopt">FeedBack</font>
+<I>FeedBack</I>
 causes fvwm to display during a fraction of second the cursor of
 the
-<a href="#CursorStyle_WAIT">WAIT</a>
+<I>WAIT</I>
 context of the
-<a href="#CursorStyle">CursorStyle</a>
+<B>CursorStyle</B>
 command if the recorded stroke sequence corresponds to a stroke
 binding.
-<a name="StrokeFunc_StrokeWidth"></a><font class="fvwmopt">StrokeWidth</font>
+<I>StrokeWidth</I>
 takes an integer argument, which must be &gt;= 0 and &lt;= 100 and which
 defines the width of the line for the
-<span class="emphasis"><em>DrawMotion</em></span>
-option.</p><p>
-<a name="StrokeFunc_NotStayPressed"></a><font class="fvwmopt">NotStayPressed</font>
+<I>DrawMotion</I>
+option.
+<P>
+
+<I>NotStayPressed</I>
 works only if
-<span class="emphasis"><em>StrokeFunc</em></span>
+<B>StrokeFunc</B>
 is used via a
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 or a
-<a href="#Key">Key</a>
+<B>Key</B>
 command.  This option removes the need to have a button or the key
 pressed during the stroke, but you have to do a mouse click or
 press the
-<span class="keysym">Return</span>
+<FONT>Return</FONT>
 or
-<span class="keysym">Space</span>
+<FONT>Space</FONT>
 key to finish the mouse motion recording (these keys also work
 without the
-<span class="emphasis"><em>NotStayPressed</em></span>
-option).</p><p>You can use the
-<span class="emphasis"><em>StrokeFunc</em></span>
-"alone".  In this case it works as above with the
-<span class="emphasis"><em>NotStayPressed</em></span>
+<I>NotStayPressed</I>
+option).
+<P>
+
+You can use the
+<B>StrokeFunc</B>
+&quot;alone&quot;.  In this case it works as above with the
+<I>NotStayPressed</I>
 option enabled.  However,
-<em class="replaceable"><code>Modifiers</code></em>,
+<I>Modifiers</I>,
 in general, may not work as expected (i.e., in this case use 'A'
 or 'N' as
-<em class="replaceable"><code>Modifiers</code></em>
-in the stroke bindings).</p><p>Note that some computers do not support key release events. If
+<I>Modifiers</I>
+in the stroke bindings).
+<P>
+
+Note that some computers do not support key release events.  If
 that is the case the
-<span class="emphasis"><em>StrokeFunc</em></span>
+<B>StrokeFunc</B>
 used via a
-<a href="#Key">Key</a>
+<B>Key</B>
 command works as if the
-<span class="emphasis"><em>NotStayPressed</em></span>
-option is enabled.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="controlling_window_styles"></a>31.7. Controlling Window Styles</h3></div></div></div><p>For readability, the commands in this section are not sorted alphabetically.
-The description of the <a href="#Style">Style</a> command can be found at the end of this section.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="FocusStyle"></a>31.7.1. FocusStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">FocusStyle</code>   <em class="replaceable"><code>stylename</code></em>   <em class="replaceable"><code>options</code></em> </p></div><p>works exactly like the
-<a href="#Style">Style</a>
+<I>NotStayPressed</I>
+option is enabled.
+</DL>
+
+</DL>
+<A NAME="lbBU">&nbsp;</A>
+<H3>Controlling Window Styles</H3>
+
+<P>
+
+For readability, the commands in this section are not sorted alphabetically.
+The description of the <B>Style</B> command can be found at the end of this section.
+<DL COMPACT>
+<DT><B>FocusStyle</B> <I>stylename</I> <I>options</I><DD>
+<DL COMPACT><DT><DD>
+
+works exactly like the
+<B>Style</B>
 command, but accepts only the focus policy related styles
-beginning with "FP".  The prefix can be removed, but at the cost
+beginning with &quot;FP&quot;.  The prefix can be removed, but at the cost
 of a little bit of time.
-<span class="emphasis"><em>FocusStyle</em></span>
-is meant to make the configuration file more readable.  Example:</p><pre class="programlisting">
+<B>FocusStyle</B>
+is meant to make the configuration file more readable.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 FocusStyle * EnterToFocus, !LeaveToUnfocus
-</pre><p>is equivalent to</p><pre class="programlisting">
-<a href="#Style">Style</a> * FPEnterToFocus, !FPLeaveToUnfocus
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyStyle"></a>31.7.2. DestroyStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyStyle</code>   <em class="replaceable"><code>style</code></em> </p></div><p>deletes the style named
-<em class="replaceable"><code>style</code></em>.
+</PRE>
+
+</DL>
+
+<P>
+
+is equivalent to
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * FPEnterToFocus, !FPLeaveToUnfocus
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>DestroyStyle</B> <I>style</I><DD>
+<DL COMPACT><DT><DD>
+
+deletes the style named
+<I>style</I>.
 The changes take effect immediately.  Note that
-<em class="replaceable"><code>style</code></em>
+<I>style</I>
 is not a wild-carded search string, but rather a case-sensitive
 string that should exactly match the original
-<a href="#Style">Style</a>
-command.</p><p>Destroying style "*" can be done, but isn't really to be
-recommended. For example:</p><pre class="programlisting">
+<B>Style</B>
+command.
+<P>
+
+Destroying style &quot;*&quot; can be done, but isn't really to be
+recommended.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 DestroyStyle Application*
-</pre><p>This removes all settings for the style named "Application*", NOT
-all styles starting with "Application".</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyWindowStyle"></a>31.7.3. DestroyWindowStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyWindowStyle</code> </p></div><p>deletes the styles set by the
-<a href="#WindowStyle">WindowStyle</a>
-command on the selected window. The changes take effect immediately.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UpdateStyles"></a>31.7.4. UpdateStyles</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UpdateStyles</code> </p></div><p>All pending updates of all windows' styles and looks are applied
+</PRE>
+
+</DL>
+
+<P>
+
+This removes all settings for the style named &quot;Application*&quot;, NOT
+all styles starting with &quot;Application&quot;.
+</DL>
+
+<DT><B>DestroyWindowStyle</B><DD>
+<DL COMPACT><DT><DD>
+
+deletes the styles set by the
+<B>WindowStyle</B>
+command on the selected window.  The changes take effect immediately.
+</DL>
+
+<DT><B>UpdateStyles</B><DD>
+<DL COMPACT><DT><DD>
+
+All pending updates of all windows' styles and looks are applied
 immediately.  E.g. if
-<a href="#Style">Style</a>,
-<a href="#Style_WindowStyle">WindowStyle</a> or
-<a href="#Style_TitleStyle">TitleStyle</a>
-commands were issued inside a fvwm function.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Style"></a>31.7.5. Style</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Style</code>   <em class="replaceable"><code>stylename</code></em>   <em class="replaceable"><code>options</code></em>... </p></div><p>The
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>,
+<I>WindowStyle</I> or
+<I>TitleStyle</I>
+commands were issued inside a fvwm function.
+</DL>
+
+<DT><B>Style</B> <I>stylename</I> <I>options</I> ...<DD>
+<DL COMPACT><DT><DD>
+
+The
+<B>Style</B>
 command is used to set attributes of a window to values other than
-the default or to set the window manager default styles.</p><p><em class="replaceable"><code>stylename</code></em>
+the default or to set the window manager default styles.
+<P>
+
+<I>stylename</I>
 can be a window's name, class, visible name, or resource string.  It may contain
 the wildcards '*' and '?', which are matched in the usual Unix
 filename manner.  Multiple style options in a single
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>
 command are read from left to right as if they were issued one
 after each other in separate commands.  A given style always
 overrides all conflicting styles that have been issued earlier (or
-further left on the same style line).</p><p>Note: windows that have no name (WM_NAME) are given a name of
-"Untitled", and windows that do not have a class (WM_CLASS,
-res_class) are given class "NoClass" and those that do not have a
-resource (WM_CLASS, res_name) are given resource "NoResource".</p><p>If a window has the resource "fvwmstyle" set, the value of that
+further left on the same style line).
+<P>
+
+Note: windows that have no name (WM_NAME) are given a name of
+&quot;Untitled&quot;, and windows that do not have a class (WM_CLASS,
+res_class) are given class &quot;NoClass&quot; and those that do not have a
+resource (WM_CLASS, res_name) are given resource &quot;NoResource&quot;.
+<P>
+
+If a window has the resource &quot;fvwmstyle&quot; set, the value of that
 resource is used in addition to any window names when
-selecting the style.</p><p><em class="replaceable"><code>options</code></em>
+selecting the style.
+<P>
+
+<I>options</I>
 is a comma separated list containing one or more of the
 following keywords.  Each group of style names is separated by
 slashes ('/').  The last style in these groups is the default.
-<span class="emphasis"><em>BorderWidth</em></span>, <span class="emphasis"><em>HandleWidth</em></span>,
-<span class="emphasis"><em>!Icon</em></span> / <span class="emphasis"><em>Icon</em></span>, <span class="emphasis"><em>MiniIcon</em></span>,
-<span class="emphasis"><em>IconBox</em></span>, <span class="emphasis"><em>IconGrid</em></span>, <span class="emphasis"><em>IconFill</em></span>, <span class="emphasis"><em>IconSize</em></span>,
-<span class="emphasis"><em>!Title</em></span> / <span class="emphasis"><em>Title</em></span>,
-<span class="emphasis"><em>TitleAtBottom</em></span> / <span class="emphasis"><em>TitleAtLeft</em></span> / <span class="emphasis"><em>TitleAtRight</em></span> / <span class="emphasis"><em>TitleAtTop</em></span>,
-<span class="emphasis"><em>LeftTitleRotatedCW</em></span> / <span class="emphasis"><em>LeftTitleRotatedCCW</em></span>,
-<span class="emphasis"><em>RightTitleRotatedCCW</em></span> / <span class="emphasis"><em>RightTitleRotatedCW</em></span>,
-<span class="emphasis"><em>TopTitleRotated</em></span> / <span class="emphasis"><em>TopTitleNotRotated</em></span>,
-<span class="emphasis"><em>BottomTitleRotated</em></span> / <span class="emphasis"><em>BottomTitleNotRotated</em></span>,
-<span class="emphasis"><em>!UseTitleDecorRotation</em></span> / <span class="emphasis"><em>UseTitleDecorRotation</em></span>,
-<span class="emphasis"><em>StippledTitle</em></span> / <span class="emphasis"><em>!StippledTitle</em></span>,
-<span class="emphasis"><em>StippledIconTitle</em></span> / <span class="emphasis"><em>!StippledIconTitle</em></span>,
-<span class="emphasis"><em>IndexedWindowName</em></span> / <span class="emphasis"><em>ExactWindowName</em></span>,
-<span class="emphasis"><em>IndexedIconName</em></span> / <span class="emphasis"><em>ExactIconName</em></span>,
-<span class="emphasis"><em>!Borders</em></span> / <span class="emphasis"><em>Borders</em></span>,
-<span class="emphasis"><em>!Handles</em></span> / <span class="emphasis"><em>Handles</em></span>,
-<span class="emphasis"><em>WindowListSkip</em></span> / <span class="emphasis"><em>WindowListHit</em></span>,
-<span class="emphasis"><em>CirculateSkip</em></span> / <span class="emphasis"><em>CirculateHit</em></span>,
-<span class="emphasis"><em>CirculateSkipShaded</em></span> / <span class="emphasis"><em>CirculateHitShaded</em></span>,
-<span class="emphasis"><em>CirculateSkipIcon</em></span> / <span class="emphasis"><em>CirculateHitIcon</em></span>,
-<span class="emphasis"><em>Layer</em></span>,
-<span class="emphasis"><em>StaysOnTop</em></span> / <span class="emphasis"><em>StaysOnBottom</em></span> / <span class="emphasis"><em>StaysPut</em></span>,
-<span class="emphasis"><em>Sticky</em></span> / <span class="emphasis"><em>Slippery</em></span>,
-<span class="emphasis"><em>StickyAcrossPages</em></span> / <span class="emphasis"><em>!StickyAcrossPages</em></span>,
-<span class="emphasis"><em>StickyAcrossDesks</em></span> / <span class="emphasis"><em>!StickyAcrossDesks</em></span>,
-<span class="emphasis"><em>!StickyStippledTitle</em></span> / <span class="emphasis"><em>StickyStippledTitle</em></span>,
-<span class="emphasis"><em>!StickyStippledIconTitle</em></span> / <span class="emphasis"><em>StickyStippledIconTitle</em></span>,
-<span class="emphasis"><em>StartIconic</em></span> / <span class="emphasis"><em>StartNormal</em></span>,
-<span class="emphasis"><em>Color</em></span>, <span class="emphasis"><em>ForeColor</em></span>, <span class="emphasis"><em>BackColor</em></span>, <span class="emphasis"><em>Colorset</em></span>,
-<span class="emphasis"><em>HilightFore</em></span>, <span class="emphasis"><em>HilightBack</em></span>, <span class="emphasis"><em>HilightColorset</em></span>,
-<span class="emphasis"><em>BorderColorset</em></span>, <span class="emphasis"><em>HilightBorderColorset</em></span>,
-<span class="emphasis"><em>IconTitleColorset</em></span>, <span class="emphasis"><em>HilightIconTitleColorset</em></span>,
-<span class="emphasis"><em>IconBackgroundColorset</em></span>,
-<span class="emphasis"><em>IconTitleRelief</em></span>, <span class="emphasis"><em>IconBackgroundRelief</em></span>, <span class="emphasis"><em>IconBackgroundPadding</em></span>,
-<span class="emphasis"><em>Font</em></span>,
-<span class="emphasis"><em>IconFont</em></span>,
-<span class="emphasis"><em>StartsOnDesk</em></span> / <span class="emphasis"><em>StartsOnPage</em></span> / <span class="emphasis"><em>StartsAnyWhere</em></span>,
-<span class="emphasis"><em>StartsOnScreen</em></span>,
-<span class="emphasis"><em>StartShaded</em></span> / <span class="emphasis"><em>!StartShaded</em></span>,
-<span class="emphasis"><em>ManualPlacementHonorsStartsOnPage</em></span> / <span class="emphasis"><em>ManualPlacementIgnoresStartsOnPage</em></span>,
-<span class="emphasis"><em>CaptureHonorsStartsOnPage</em></span> / <span class="emphasis"><em>CaptureIgnoresStartsOnPage</em></span>,
-<span class="emphasis"><em>RecaptureHonorsStartsOnPage</em></span> / <span class="emphasis"><em>RecaptureIgnoresStartsOnPage</em></span>,
-<span class="emphasis"><em>StartsOnPageIncludesTransients</em></span> / <span class="emphasis"><em>StartsOnPageIgnoresTransients</em></span>,
-<span class="emphasis"><em>IconTitle</em></span> / <span class="emphasis"><em>!IconTitle</em></span>,
-<span class="emphasis"><em>MwmButtons</em></span> / <span class="emphasis"><em>FvwmButtons</em></span>,
-<span class="emphasis"><em>MwmBorder</em></span> / <span class="emphasis"><em>FvwmBorder</em></span>,
-<span class="emphasis"><em>MwmDecor</em></span> / <span class="emphasis"><em>!MwmDecor</em></span>,
-<span class="emphasis"><em>MwmFunctions</em></span> / <span class="emphasis"><em>!MwmFunctions</em></span>,
-<span class="emphasis"><em>HintOverride</em></span> / <span class="emphasis"><em>!HintOverride</em></span>,
-<span class="emphasis"><em>!Button</em></span> / <span class="emphasis"><em>Button</em></span>,
-<span class="emphasis"><em>ResizeHintOverride</em></span> / <span class="emphasis"><em>!ResizeHintOverride</em></span>,
-<span class="emphasis"><em>OLDecor</em></span> / <span class="emphasis"><em>!OLDecor</em></span>,
-<span class="emphasis"><em>GNOMEUseHints</em></span> / <span class="emphasis"><em>GNOMEIgnoreHints</em></span>,
-<span class="emphasis"><em>StickyIcon</em></span> / <span class="emphasis"><em>SlipperyIcon</em></span>,
-<span class="emphasis"><em>StickyAcrossPagesIcon</em></span> / <span class="emphasis"><em>!StickyAcrossPagesIcon</em></span>,
-<span class="emphasis"><em>StickyAcrossDesksIcon</em></span> / <span class="emphasis"><em>!StickyAcrossDesksIcon</em></span>,
-<span class="emphasis"><em>ManualPlacement</em></span> / <span class="emphasis"><em>CascadePlacement</em></span> / <span class="emphasis"><em>MinOverlapPlacement</em></span> /
-<span class="emphasis"><em>MinOverlapPercentPlacement</em></span> / <span class="emphasis"><em>TileManualPlacement</em></span> /
-<span class="emphasis"><em>TileCascadePlacement</em></span> / <span class="emphasis"><em>PositionPlacement</em></span>,
-<span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>,
-<span class="emphasis"><em>MinOverlapPercentPlacementPenalties</em></span>,
-<span class="emphasis"><em>DecorateTransient</em></span> / <span class="emphasis"><em>NakedTransient</em></span>,
-<span class="emphasis"><em>DontRaiseTransient</em></span> / <span class="emphasis"><em>RaiseTransient</em></span>,
-<span class="emphasis"><em>DontLowerTransient</em></span> / <span class="emphasis"><em>LowerTransient</em></span>,
-<span class="emphasis"><em>DontStackTransientParent</em></span> / <span class="emphasis"><em>StackTransientParent</em></span>,
-<span class="emphasis"><em>SkipMapping</em></span> / <span class="emphasis"><em>ShowMapping</em></span>,
-<span class="emphasis"><em>ScatterWindowGroups</em></span> / <span class="emphasis"><em>KeepWindowGroupsOnDesk</em></span>,
-<span class="emphasis"><em>UseDecor</em></span>,
-<span class="emphasis"><em>UseStyle</em></span>,
-<span class="emphasis"><em>!UsePPosition</em></span> / <span class="emphasis"><em>NoPPosition</em></span> / <span class="emphasis"><em>UsePPosition</em></span>,
-<span class="emphasis"><em>!UseUSPosition</em></span>, <span class="emphasis"><em>NoUSPosition</em></span> / <span class="emphasis"><em>UseUSPosition</em></span>,
-<span class="emphasis"><em>!UseTransientPPosition</em></span>, <span class="emphasis"><em>NoTransientPPosition</em></span> / <span class="emphasis"><em>UseTransientPPosition</em></span>,
-<span class="emphasis"><em>!UseTransientUSPosition</em></span> / <span class="emphasis"><em>NoTransientUSPosition</em></span> / <span class="emphasis"><em>UseTransientUSPosition</em></span>,
-<span class="emphasis"><em>!UseIconPosition</em></span> / <span class="emphasis"><em>NoIconPosition</em></span> / <span class="emphasis"><em>UseIconPosition</em></span>,
-<span class="emphasis"><em>Lenience</em></span> / <span class="emphasis"><em>!Lenience</em></span>,
-<span class="emphasis"><em>ClickToFocus</em></span> / <span class="emphasis"><em>SloppyFocus</em></span> /
-<span class="emphasis"><em>MouseFocus</em></span>|<span class="emphasis"><em>FocusFollowsMouse</em></span> / <span class="emphasis"><em>NeverFocus</em></span>,
-<span class="emphasis"><em>ClickToFocusPassesClickOff</em></span> / <span class="emphasis"><em>ClickToFocusPassesClick</em></span>,
-<span class="emphasis"><em>ClickToFocusRaisesOff</em></span> / <span class="emphasis"><em>ClickToFocusRaises</em></span>,
-<span class="emphasis"><em>MouseFocusClickRaises</em></span> / <span class="emphasis"><em>MouseFocusClickRaisesOff</em></span>,
-<span class="emphasis"><em>GrabFocus</em></span> / <span class="emphasis"><em>GrabFocusOff</em></span>,
-<span class="emphasis"><em>GrabFocusTransientOff</em></span> / <span class="emphasis"><em>GrabFocusTransient</em></span>,
-<span class="emphasis"><em>FPFocusClickButtons</em></span>,
-<span class="emphasis"><em>FPFocusClickModifiers</em></span>,
-<span class="emphasis"><em>!FPSortWindowlistByFocus</em></span> / <span class="emphasis"><em>FPSortWindowlistByFocus</em></span>,
-<span class="emphasis"><em>FPClickRaisesFocused</em></span> / <span class="emphasis"><em>!FPClickRaisesFocused</em></span>,
-<span class="emphasis"><em>FPClickDecorRaisesFocused</em></span> / <span class="emphasis"><em>!FPClickDecorRaisesFocused</em></span>,
-<span class="emphasis"><em>FPClickIconRaisesFocused</em></span> / <span class="emphasis"><em>!FPClickIconRaisesFocused</em></span>,
-<span class="emphasis"><em>!FPClickRaisesUnfocused</em></span> / <span class="emphasis"><em>FPClickRaisesUnfocused</em></span>,
-<span class="emphasis"><em>FPClickDecorRaisesUnfocused</em></span> / <span class="emphasis"><em>!FPClickDecorRaisesUnfocused</em></span>,
-<span class="emphasis"><em>FPClickIconRaisesUnfocused</em></span> / <span class="emphasis"><em>!FPClickIconRaisesUnfocused</em></span>,
-<span class="emphasis"><em>FPClickToFocus</em></span> / <span class="emphasis"><em>!FPClickToFocus</em></span>,
-<span class="emphasis"><em>FPClickDecorToFocus</em></span> / <span class="emphasis"><em>!FPClickDecorToFocus</em></span>,
-<span class="emphasis"><em>FPClickIconToFocus</em></span> / <span class="emphasis"><em>!FPClickIconToFocus</em></span>,
-<span class="emphasis"><em>!FPEnterToFocus</em></span> / <span class="emphasis"><em>FPEnterToFocus</em></span>,
-<span class="emphasis"><em>!FPLeaveToUnfocus</em></span> / <span class="emphasis"><em>FPLeaveToUnfocus</em></span>,
-<span class="emphasis"><em>!FPFocusByProgram</em></span> / <span class="emphasis"><em>FPFocusByProgram</em></span>,
-<span class="emphasis"><em>!FPFocusByFunction</em></span> / <span class="emphasis"><em>FPFocusByFunction</em></span>,
-<span class="emphasis"><em>FPFocusByFunctionWarpPointer</em></span> / <span class="emphasis"><em>!FPFocusByFunctionWarpPointer</em></span>,
-<span class="emphasis"><em>FPLenient</em></span> / <span class="emphasis"><em>!FPLenient</em></span>,
-<span class="emphasis"><em>!FPPassFocusClick</em></span> / <span class="emphasis"><em>FPPassFocusClick</em></span>,
-<span class="emphasis"><em>!FPPassRaiseClick</em></span> / <span class="emphasis"><em>FPPassRaiseClick</em></span>,
-<span class="emphasis"><em>FPIgnoreFocusClickMotion</em></span> / <span class="emphasis"><em>!FPIgnoreFocusClickMotion</em></span>,
-<span class="emphasis"><em>FPIgnoreRaiseClickMotion</em></span> / <span class="emphasis"><em>!FPIgnoreRaiseClickMotion</em></span>,
-<span class="emphasis"><em>!FPAllowFocusClickFunction</em></span> / <span class="emphasis"><em>FPAllowFocusClickFunction</em></span>,
-<span class="emphasis"><em>!FPAllowRaiseClickFunction</em></span> / <span class="emphasis"><em>FPAllowRaiseClickFunction</em></span>,
-<span class="emphasis"><em>FPGrabFocus</em></span> / <span class="emphasis"><em>!FPGrabFocus</em></span>,
-<span class="emphasis"><em>!FPGrabFocusTransient</em></span> / <span class="emphasis"><em>FPGrabFocusTransient</em></span>,
-<span class="emphasis"><em>FPOverrideGrabFocus</em></span> / <span class="emphasis"><em>!FPOverrideGrabFocus</em></span>,
-<span class="emphasis"><em>FPReleaseFocus</em></span> / <span class="emphasis"><em>!FPReleaseFocus</em></span>,
-<span class="emphasis"><em>!FPReleaseFocusTransient</em></span> / <span class="emphasis"><em>FPReleaseFocusTransient</em></span>,
-<span class="emphasis"><em>FPOverrideReleaseFocus</em></span> / <span class="emphasis"><em>!FPOverrideReleaseFocus</em></span>,
-<span class="emphasis"><em>StartsLowered</em></span> / <span class="emphasis"><em>StartsRaised</em></span>,
-<span class="emphasis"><em>IgnoreRestack</em></span> / <span class="emphasis"><em>AllowRestack</em></span>,
-<span class="emphasis"><em>FixedPosition</em></span> / <span class="emphasis"><em>VariablePosition</em></span>,
-<span class="emphasis"><em>FixedUSPosition</em></span> / <span class="emphasis"><em>VariableUSPosition</em></span>,
-<span class="emphasis"><em>FixedPPosition</em></span> / <span class="emphasis"><em>VariablePPosition</em></span>,
-<span class="emphasis"><em>FixedSize</em></span> / <span class="emphasis"><em>VariableSize</em></span>,
-<span class="emphasis"><em>FixedUSSize</em></span> / <span class="emphasis"><em>VariableUSSize</em></span>,
-<span class="emphasis"><em>FixedPSize</em></span> / <span class="emphasis"><em>VariablePSize</em></span>,
-<span class="emphasis"><em>!Closable</em></span> / <span class="emphasis"><em>Closable</em></span>,
-<span class="emphasis"><em>!Iconifiable</em></span> / <span class="emphasis"><em>Iconifiable</em></span>,
-<span class="emphasis"><em>!Maximizable</em></span> / <span class="emphasis"><em>Maximizable</em></span>,
-<span class="emphasis"><em>!AllowMaximizeFixedSize</em></span> / <span class="emphasis"><em>AllowMaximizeFixedSize</em></span>,
-<span class="emphasis"><em>IconOverride</em></span> / <span class="emphasis"><em>NoIconOverride</em></span> / <span class="emphasis"><em>NoActiveIconOverride</em></span>,
-<span class="emphasis"><em>DepressableBorder</em></span> / <span class="emphasis"><em>FirmBorder</em></span>,
-<span class="emphasis"><em>MinWindowSize</em></span>,
-<span class="emphasis"><em>MaxWindowSize</em></span>,
-<span class="emphasis"><em>IconifyWindowGroups</em></span> / <span class="emphasis"><em>IconifyWindowGroupsOff</em></span>,
-<span class="emphasis"><em>ResizeOpaque</em></span> / <span class="emphasis"><em>ResizeOutline</em></span>,
-<span class="emphasis"><em>BackingStore</em></span> / <span class="emphasis"><em>BackingStoreOff</em></span> / <span class="emphasis"><em>BackingStoreWindowDefault</em></span>,
-<span class="emphasis"><em>Opacity</em></span> / <span class="emphasis"><em>ParentalRelativity</em></span>,
-<span class="emphasis"><em>SaveUnder</em></span> / <span class="emphasis"><em>SaveUnderOff</em></span>,
-<span class="emphasis"><em>WindowShadeShrinks</em></span> / <span class="emphasis"><em>WindowShadeScrolls</em></span>,
-<span class="emphasis"><em>WindowShadeSteps</em></span>,
-<span class="emphasis"><em>WindowShadeAlwaysLazy</em></span> / <span class="emphasis"><em>WindowShadeBusy</em></span> / <span class="emphasis"><em>WindowShadeLazy,</em></span>
-<span class="emphasis"><em>EWMHDonateIcon</em></span> / <span class="emphasis"><em>EWMHDontDonateIcon</em></span>,
-<span class="emphasis"><em>EWMHDonateMiniIcon</em></span> / <span class="emphasis"><em>EWMHDontDonateMiniIcon</em></span>,
-<span class="emphasis"><em>EWMHMiniIconOverride</em></span> / <span class="emphasis"><em>EWMHNoMiniIconOverride</em></span>,
-<span class="emphasis"><em>EWMHUseStackingOrderHints</em></span> / <span class="emphasis"><em>EWMHIgnoreStackingOrderHints</em></span>,
-<span class="emphasis"><em>EWMHIgnoreStateHints</em></span> / <span class="emphasis"><em>EWMHUseStateHints</em></span>,
-<span class="emphasis"><em>EWMHIgnoreStrutHints</em></span> / <span class="emphasis"><em>EWMHUseStrutHints</em></span>,
-<span class="emphasis"><em>EWMHIgnoreWindowType</em></span> / <span class="emphasis"><em>!EWMHIgnoreWindowType</em></span>,
-<span class="emphasis"><em>EWMHMaximizeIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHMaximizeUseWorkingArea</em></span> /
-<span class="emphasis"><em>EWMHMaximizeUseDynamicWorkingArea</em></span>,
-<span class="emphasis"><em>EWMHPlacementIgnoreWorkingArea</em></span> / <span class="emphasis"><em>EWMHPlacementUseWorkingArea</em></span> /
-<span class="emphasis"><em>EWMHPlacementUseDynamicWorkingArea</em></span>,
-<span class="emphasis"><em>MoveByProgramMethod</em></span>,
-<span class="emphasis"><em>Unmanaged</em></span>,
-<span class="emphasis"><em>State</em></span>,
-<span class="emphasis"><em>SnapGrid</em></span>,
-<span class="emphasis"><em>SnapAttraction</em></span>,
-<span class="emphasis"><em>EdgeMoveDelay</em></span>,
-<span class="emphasis"><em>EdgeResizeDelay</em></span>.
-<span class="emphasis"><em>EdgeMoveResistance</em></span>,
-<span class="emphasis"><em>InitialMapCommand</em></span>
-</p><p>In the above list some options are listed as
+<I>BorderWidth</I>, <I>HandleWidth</I>,
+<I>!Icon</I> / <I>Icon</I>, <I>MiniIcon</I>,
+<I>IconBox</I>, <I>IconGrid</I>, <I>IconFill</I>, <I>IconSize</I>,
+<I>!Title</I> / <I>Title</I>,
+<I>TitleAtBottom</I> / <I>TitleAtLeft</I> / <I>TitleAtRight</I> / <I>TitleAtTop</I>,
+<I>LeftTitleRotatedCW</I> / <I>LeftTitleRotatedCCW</I>,
+<I>RightTitleRotatedCCW</I> / <I>RightTitleRotatedCW</I>,
+<I>TopTitleRotated</I> / <I>TopTitleNotRotated</I>,
+<I>BottomTitleRotated</I> / <I>BottomTitleNotRotated</I>,
+<I>!UseTitleDecorRotation</I> / <I>UseTitleDecorRotation</I>,
+<I>StippledTitle</I> / <I>!StippledTitle</I>,
+<I>StippledIconTitle</I> / <I>!StippledIconTitle</I>,
+<I>IndexedWindowName</I> / <I>ExactWindowName</I>,
+<I>IndexedIconName</I> / <I>ExactIconName</I>,
+<I>!Borders</I> / <I>Borders</I>,
+<I>!Handles</I> / <I>Handles</I>,
+<I>WindowListSkip</I> / <I>WindowListHit</I>,
+<I>CirculateSkip</I> / <I>CirculateHit</I>,
+<I>CirculateSkipShaded</I> / <I>CirculateHitShaded</I>,
+<I>CirculateSkipIcon</I> / <I>CirculateHitIcon</I>,
+<I>Layer</I>,
+<I>StaysOnTop</I> / <I>StaysOnBottom</I> / <I>StaysPut</I>,
+<I>Sticky</I> / <I>Slippery</I>,
+<I>StickyAcrossPages</I> / <I>!StickyAcrossPages</I>,
+<I>StickyAcrossDesks</I> / <I>!StickyAcrossDesks</I>,
+<I>!StickyStippledTitle</I> / <I>StickyStippledTitle</I>,
+<I>!StickyStippledIconTitle</I> / <I>StickyStippledIconTitle</I>,
+<I>StartIconic</I> / <I>StartNormal</I>,
+<I>Color</I>, <I>ForeColor</I>, <I>BackColor</I>, <I>Colorset</I>,
+<I>HilightFore</I>, <I>HilightBack</I>, <I>HilightColorset</I>,
+<I>BorderColorset</I>, <I>HilightBorderColorset</I>,
+<I>IconTitleColorset</I>, <I>HilightIconTitleColorset</I>,
+<I>IconBackgroundColorset</I>,
+<I>IconTitleRelief</I>, <I>IconBackgroundRelief</I>, <I>IconBackgroundPadding</I>,
+<I>Font</I>,
+<I>IconFont</I>,
+<I>StartsOnDesk</I> / <I>StartsOnPage</I> / <I>StartsAnyWhere</I>,
+<I>StartsOnScreen</I>,
+<I>StartShaded</I> / <I>!StartShaded</I>,
+<I>ManualPlacementHonorsStartsOnPage</I> / <I>ManualPlacementIgnoresStartsOnPage</I>,
+<I>CaptureHonorsStartsOnPage</I> / <I>CaptureIgnoresStartsOnPage</I>,
+<I>RecaptureHonorsStartsOnPage</I> / <I>RecaptureIgnoresStartsOnPage</I>,
+<I>StartsOnPageIncludesTransients</I> / <I>StartsOnPageIgnoresTransients</I>,
+<I>IconTitle</I> / <I>!IconTitle</I>,
+<I>MwmButtons</I> / <I>FvwmButtons</I>,
+<I>MwmBorder</I> / <I>FvwmBorder</I>,
+<I>MwmDecor</I> / <I>!MwmDecor</I>,
+<I>MwmFunctions</I> / <I>!MwmFunctions</I>,
+<I>HintOverride</I> / <I>!HintOverride</I>,
+<I>!Button</I> / <I>Button</I>,
+<I>ResizeHintOverride</I> / <I>!ResizeHintOverride</I>,
+<I>OLDecor</I> / <I>!OLDecor</I>,
+<I>GNOMEUseHints</I> / <I>GNOMEIgnoreHints</I>,
+<I>StickyIcon</I> / <I>SlipperyIcon</I>,
+<I>StickyAcrossPagesIcon</I> / <I>!StickyAcrossPagesIcon</I>,
+<I>StickyAcrossDesksIcon</I> / <I>!StickyAcrossDesksIcon</I>,
+<I>ManualPlacement</I> / <I>CascadePlacement</I> / <I>MinOverlapPlacement</I> /
+<I>MinOverlapPercentPlacement</I> / <I>TileManualPlacement</I> /
+<I>TileCascadePlacement</I> / <I>PositionPlacement</I>,
+<I>MinOverlapPlacementPenalties</I>,
+<I>MinOverlapPercentPlacementPenalties</I>,
+<I>DecorateTransient</I> / <I>NakedTransient</I>,
+<I>DontRaiseTransient</I> / <I>RaiseTransient</I>,
+<I>DontLowerTransient</I> / <I>LowerTransient</I>,
+<I>DontStackTransientParent</I> / <I>StackTransientParent</I>,
+<I>SkipMapping</I> / <I>ShowMapping</I>,
+<I>ScatterWindowGroups</I> / <I>KeepWindowGroupsOnDesk</I>,
+<I>UseDecor</I>,
+<I>UseStyle</I>,
+<I>!UsePPosition</I> / <I>NoPPosition</I> / <I>UsePPosition</I>,
+<I>!UseUSPosition</I>, <I>NoUSPosition</I> / <I>UseUSPosition</I>,
+<I>!UseTransientPPosition</I>, <I>NoTransientPPosition</I> / <I>UseTransientPPosition</I>,
+<I>!UseTransientUSPosition</I> / <I>NoTransientUSPosition</I> / <I>UseTransientUSPosition</I>,
+<I>!UseIconPosition</I> / <I>NoIconPosition</I> / <I>UseIconPosition</I>,
+<I>Lenience</I> / <I>!Lenience</I>,
+<I>ClickToFocus</I> / <I>SloppyFocus</I> /
+<I>MouseFocus</I>|<I>FocusFollowsMouse</I> / <I>NeverFocus</I>,
+<I>ClickToFocusPassesClickOff</I> / <I>ClickToFocusPassesClick</I>,
+<I>ClickToFocusRaisesOff</I> / <I>ClickToFocusRaises</I>,
+<I>MouseFocusClickRaises</I> / <I>MouseFocusClickRaisesOff</I>,
+<I>GrabFocus</I> / <I>GrabFocusOff</I>,
+<I>GrabFocusTransientOff</I> / <I>GrabFocusTransient</I>,
+<I>FPFocusClickButtons</I>,
+<I>FPFocusClickModifiers</I>,
+<I>!FPSortWindowlistByFocus</I> / <I>FPSortWindowlistByFocus</I>,
+<I>FPClickRaisesFocused</I> / <I>!FPClickRaisesFocused</I>,
+<I>FPClickDecorRaisesFocused</I> / <I>!FPClickDecorRaisesFocused</I>,
+<I>FPClickIconRaisesFocused</I> / <I>!FPClickIconRaisesFocused</I>,
+<I>!FPClickRaisesUnfocused</I> / <I>FPClickRaisesUnfocused</I>,
+<I>FPClickDecorRaisesUnfocused</I> / <I>!FPClickDecorRaisesUnfocused</I>,
+<I>FPClickIconRaisesUnfocused</I> / <I>!FPClickIconRaisesUnfocused</I>,
+<I>FPClickToFocus</I> / <I>!FPClickToFocus</I>,
+<I>FPClickDecorToFocus</I> / <I>!FPClickDecorToFocus</I>,
+<I>FPClickIconToFocus</I> / <I>!FPClickIconToFocus</I>,
+<I>!FPEnterToFocus</I> / <I>FPEnterToFocus</I>,
+<I>!FPLeaveToUnfocus</I> / <I>FPLeaveToUnfocus</I>,
+<I>!FPFocusByProgram</I> / <I>FPFocusByProgram</I>,
+<I>!FPFocusByFunction</I> / <I>FPFocusByFunction</I>,
+<I>FPFocusByFunctionWarpPointer</I> / <I>!FPFocusByFunctionWarpPointer</I>,
+<I>FPLenient</I> / <I>!FPLenient</I>,
+<I>!FPPassFocusClick</I> / <I>FPPassFocusClick</I>,
+<I>!FPPassRaiseClick</I> / <I>FPPassRaiseClick</I>,
+<I>FPIgnoreFocusClickMotion</I> / <I>!FPIgnoreFocusClickMotion</I>,
+<I>FPIgnoreRaiseClickMotion</I> / <I>!FPIgnoreRaiseClickMotion</I>,
+<I>!FPAllowFocusClickFunction</I> / <I>FPAllowFocusClickFunction</I>,
+<I>!FPAllowRaiseClickFunction</I> / <I>FPAllowRaiseClickFunction</I>,
+<I>FPGrabFocus</I> / <I>!FPGrabFocus</I>,
+<I>!FPGrabFocusTransient</I> / <I>FPGrabFocusTransient</I>,
+<I>FPOverrideGrabFocus</I> / <I>!FPOverrideGrabFocus</I>,
+<I>FPReleaseFocus</I> / <I>!FPReleaseFocus</I>,
+<I>!FPReleaseFocusTransient</I> / <I>FPReleaseFocusTransient</I>,
+<I>FPOverrideReleaseFocus</I> / <I>!FPOverrideReleaseFocus</I>,
+<I>StartsLowered</I> / <I>StartsRaised</I>,
+<I>IgnoreRestack</I> / <I>AllowRestack</I>,
+<I>FixedPosition</I> / <I>VariablePosition</I>,
+<I>FixedUSPosition</I> / <I>VariableUSPosition</I>,
+<I>FixedPPosition</I> / <I>VariablePPosition</I>,
+<I>FixedSize</I> / <I>VariableSize</I>,
+<I>FixedUSSize</I> / <I>VariableUSSize</I>,
+<I>FixedPSize</I> / <I>VariablePSize</I>,
+<I>!Closable</I> / <I>Closable</I>,
+<I>!Iconifiable</I> / <I>Iconifiable</I>,
+<I>!Maximizable</I> / <I>Maximizable</I>,
+<I>!AllowMaximizeFixedSize</I> / <I>AllowMaximizeFixedSize</I>,
+<I>IconOverride</I> / <I>NoIconOverride</I> / <I>NoActiveIconOverride</I>,
+<I>DepressableBorder</I> / <I>FirmBorder</I>,
+<I>MinWindowSize</I>,
+<I>MaxWindowSize</I>,
+<I>IconifyWindowGroups</I> / <I>IconifyWindowGroupsOff</I>,
+<I>ResizeOpaque</I> / <I>ResizeOutline</I>,
+<I>BackingStore</I> / <I>BackingStoreOff</I> / <I>BackingStoreWindowDefault</I>,
+<I>Opacity</I> / <I>ParentalRelativity</I>,
+<I>SaveUnder</I> / <I>SaveUnderOff</I>,
+<I>WindowShadeShrinks</I> / <I>WindowShadeScrolls</I>,
+<I>WindowShadeSteps</I>,
+<I>WindowShadeAlwaysLazy</I> / <I>WindowShadeBusy</I> / <I>WindowShadeLazy,</I>
+<I>EWMHDonateIcon</I> / <I>EWMHDontDonateIcon</I>,
+<I>EWMHDonateMiniIcon</I> / <I>EWMHDontDonateMiniIcon</I>,
+<I>EWMHMiniIconOverride</I> / <I>EWMHNoMiniIconOverride</I>,
+<I>EWMHUseStackingOrderHints</I> / <I>EWMHIgnoreStackingOrderHints</I>,
+<I>EWMHIgnoreStateHints</I> / <I>EWMHUseStateHints</I>,
+<I>EWMHIgnoreStrutHints</I> / <I>EWMHUseStrutHints</I>,
+<I>EWMHIgnoreWindowType</I> / <I>!EWMHIgnoreWindowType</I>,
+<I>EWMHMaximizeIgnoreWorkingArea</I> / <I>EWMHMaximizeUseWorkingArea</I> /
+<I>EWMHMaximizeUseDynamicWorkingArea</I>,
+<I>EWMHPlacementIgnoreWorkingArea</I> / <I>EWMHPlacementUseWorkingArea</I> /
+<I>EWMHPlacementUseDynamicWorkingArea</I>,
+<I>MoveByProgramMethod</I>,
+<I>Unmanaged</I>,
+<I>State</I>,
+<I>SnapGrid</I>,
+<I>SnapAttraction</I>,
+<I>EdgeMoveDelay</I>,
+<I>EdgeResizeDelay</I>.
+<I>EdgeMoveResistance</I>,
+<I>InitialMapCommand</I>
+<P>
+
+In the above list some options are listed as
 style-option/opposite-style-option.  The opposite-style-option for
 entries that have them describes the fvwm default behavior and can
-be used if you want to change the fvwm default behavior.</p><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="focus_policy"></a>31.7.5.1. Focus policy</h5></div></div></div><p><a name="Style_ClickToFocus"></a><font class="fvwmopt">ClickToFocus</font>
+be used if you want to change the fvwm default behavior.
+<DL COMPACT>
+<DT><B>Focus policy</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<I>ClickToFocus</I>
 instructs fvwm to give the focus to a window when it is clicked
 in.  The default
-<a name="Style_MouseFocus"></a><font class="fvwmopt">MouseFocus</font>
+<I>MouseFocus</I>
 (or its alias
-<a name="Style_FocusFollowsMouse"></a><font class="fvwmopt">FocusFollowsMouse</font>)
+<I>FocusFollowsMouse</I>)
 tells fvwm to give a window the focus as soon as the pointer
 enters the window, and take it away when the pointer leaves the
 window.
-<a name="Style_SloppyFocus"></a><font class="fvwmopt">SloppyFocus</font>
+<I>SloppyFocus</I>
 is similar, but doesn't give up the focus if the pointer leaves
 the window to pass over the root window or a ClickToFocus window
 (unless you click on it, that is), which makes it possible to move
 the mouse out of the way without losing focus.  A window with the
 style
-<a name="Style_NeverFocus"></a><font class="fvwmopt">NeverFocus</font>
+<I>NeverFocus</I>
 never receives the focus.  This is useful for modules like
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>.
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>.
 for example.
-Note:  Once any of the "FP..." styles has been used, the defaults
+Note: Once any of the &quot;FP...&quot; styles has been used, the defaults
 that come with the basic focus policies are not restored when the
 latter are used again.  For example, once !FPGrabFocus has been
-used, using ClickToFocus does not restore FPGrabFocus.</p><p>The focus model can be augmented with several additional options.
+used, using ClickToFocus does not restore FPGrabFocus.
+<P>
+
+The focus model can be augmented with several additional options.
 In fvwm-2.5.3 and later, there are a large number of advanced
-options beginning with "FP" or "!FP".  These options shall replace
+options beginning with &quot;FP&quot; or &quot;!FP&quot;.  These options shall replace
 the older options one day and are described first.  Using any of
 these new options may limit compatibility with older releases.  In
-general, options beginning with "FP" turn a feature on, while
-those beginning with "!FP" turn it off.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="window_focus"></a>31.7.5.2. Focusing the window</h5></div></div></div><p>With
-<a name="Style_FPEnterToFocus"></a><font class="fvwmopt">FPEnterToFocus</font>,
-when the pointer enters a window it receives focus.</p><p>With
-<a name="Style_FPLeaveToUnfocus"></a><font class="fvwmopt">FPLeaveToUnfocus</font>
-a window loses focus when the pointer leaves it.</p><p>With
-<a name="Style_FPClickToFocus"></a><font class="fvwmopt">FPClickToFocus</font>,
-<a name="Style_FPClickDecorToFocus"></a><font class="fvwmopt">FPClickDecorToFocus</font> or
-<a name="Style_FPClickIconToFocus"></a><font class="fvwmopt">FPClickIconToFocus</font>,
+general, options beginning with &quot;FP&quot; turn a feature on, while
+those beginning with &quot;!FP&quot; turn it off.
+</DL>
+
+<DT><B>Focusing the window</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+With
+<I>FPEnterToFocus</I>,
+when the pointer enters a window it receives focus.
+<P>
+
+With
+<I>FPLeaveToUnfocus</I>
+a window loses focus when the pointer leaves it.
+<P>
+
+With
+<I>FPClickToFocus</I>,
+<I>FPClickDecorToFocus</I> or
+<I>FPClickIconToFocus</I>,
 a window receives focus when the inside of the window or the
-decorations or its icon is clicked.</p><p>The
-<a name="Style_FPFocusByProgram"></a><font class="fvwmopt">FPFocusByProgram</font>
-style allows windows to take the focus themselves.</p><p>The
-!<a name="Style_FPFocusByFunction"></a><font class="fvwmopt">FPFocusByFunction</font>
+decorations or its icon is clicked.
+<P>
+
+The
+<I>FPFocusByProgram</I>
+style allows windows to take the focus themselves.
+<P>
+
+The
+!<I>FPFocusByFunction</I>
 style forbids that a window receives the focus via the
-<a href="#Focus">Focus</a> and <a href="#FlipFocus">FlipFocus</a>
-commands.</p><p>The
-<a name="Style_FPFocusByFunctionWarpPointer"></a><font class="fvwmopt">FPFocusByFunctionWarpPointer</font>
+<B>Focus</B> and <B>FlipFocus</B>
+commands.
+<P>
+
+The
+<I>FPFocusByFunctionWarpPointer</I>
 style controls if the pointer is warped to a selected window
 when the
-<a href="#Focus">Focus</a>
-command is used.</p><p><a name="Style_FPLenient"></a><font class="fvwmopt">FPLenient</font>
+<B>Focus</B>
+command is used.
+<P>
+
+<I>FPLenient</I>
 allows focus on windows that do not want it, like
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>
-or xclock.</p><p>The
-<a name="Style_FPFocusClickButtons"></a><font class="fvwmopt">FPFocusClickButtons</font>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
+or xclock.
+<P>
+
+The
+<I>FPFocusClickButtons</I>
 style takes a list of mouse buttons that can be clicked to focus
 or raise a window when the appropriate style is used.  The default
-is to use the first three buttons ("123").</p><p>The
-<a name="Style_FPFocusClickModifiers"></a><font class="fvwmopt">FPFocusClickModifiers</font>
+is to use the first three buttons (&quot;123&quot;).
+<P>
+
+The
+<I>FPFocusClickModifiers</I>
 style takes a list of modifier keys just like the
-<a href="#Key">Key</a>
+<B>Key</B>
 command.  The exact combination of modifier keys must be pressed
 for the click to focus or raise a window to work.  The default is
-to use no modifiers ("N").</p><p>With the
-<a name="Style_FPPassFocusClick"></a><font class="fvwmopt">FPPassFocusClick</font>
+to use no modifiers (&quot;N&quot;).
+<P>
+
+With the
+<I>FPPassFocusClick</I>
 style, the click that was used to focus a window is passed to
-the application.</p><p>With the
-<a name="Style_FPAllowFocusClickFunction"></a><font class="fvwmopt">FPAllowFocusClickFunction</font>
+the application.
+<P>
+
+With the
+<I>FPAllowFocusClickFunction</I>
 style, the click that was used to focus a window can also
 trigger a normal action that was bound to the window with the
-<a href="#Mouse">Mouse</a>
-command).</p><p>If the
-<a name="Style_FPIgnoreFocusClickMotion"></a><font class="fvwmopt">FPIgnoreFocusClickMotion</font>
+<B>Mouse</B>
+command).
+<P>
+
+If the
+<I>FPIgnoreFocusClickMotion</I>
 style is used, clicking in a window and then dragging the pointer
 with the button held down does not count as the click to focus the
 window.  Instead, the application processes these events
 normally.  This is useful to select text in a terminal window with
 the mouse without raising the window.  However, mouse bindings on
 the client window are not guaranteed to work anymore (see
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 command).  This style forces the initial click to be
 passed to the application.  The distance that the pointer must be
 moved to trigger this is controlled by the
-<a href="#MoveThreshold">MoveThreshold</a>
-command.</p><p>The
-<a name="Style_FPSortWindowlistByFocus"></a><font class="fvwmopt">FPSortWindowlistByFocus</font> and !<a name="Style_FPSortWindowlistByFocus"></a><font class="fvwmopt">FPSortWindowlistByFocus</font>
+<B>MoveThreshold</B>
+command.
+<P>
+
+The
+<I>FPSortWindowlistByFocus</I> and !<I>FPSortWindowlistByFocus</I>
 styles control whether the internal window list is sorted in the
 order the windows were focused or in the order they were created.
 The latter is the default for
-<span class="emphasis"><em>ClickToFocus</em></span> and <span class="emphasis"><em>SloppyFocus</em></span>.</p><p><span class="emphasis"><em>Clicking the window to raise</em></span></p><p>The styles
-<a name="Style_FPClickRaisesFocused"></a><font class="fvwmopt">FPClickRaisesFocused</font>, <a name="Style_FPClickDecorRaisesFocused"></a><font class="fvwmopt">FPClickDecorRaisesFocused</font> and
-<a name="Style_FPClickIconRaisesFocused"></a><font class="fvwmopt">FPClickIconRaisesFocused</font>
+<I>ClickToFocus</I> and <I>SloppyFocus</I>.
+<P>
+
+<B>Clicking the window to raise</B>
+<P>
+
+The styles
+<I>FPClickRaisesFocused</I>, <I>FPClickDecorRaisesFocused</I> and
+<I>FPClickIconRaisesFocused</I>
 allow to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is already
-focused.</p><p>The styles
-<a name="Style_FPClickRaisesUnfocused"></a><font class="fvwmopt">FPClickRaisesUnfocused</font>, <a name="Style_FPClickDecorRaisesUnfocused"></a><font class="fvwmopt">FPClickDecorRaisesUnfocused</font> and
-<a name="Style_FPClickIconRaisesUnfocused"></a><font class="fvwmopt">FPClickIconRaisesUnfocused</font>
+focused.
+<P>
+
+The styles
+<I>FPClickRaisesUnfocused</I>, <I>FPClickDecorRaisesUnfocused</I> and
+<I>FPClickIconRaisesUnfocused</I>
 allow to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is not yet
-focused.</p><p>With the
-<a name="Style_FPPassRaiseClick"></a><font class="fvwmopt">FPPassRaiseClick</font>
+focused.
+<P>
+
+With the
+<I>FPPassRaiseClick</I>
 style, the click that was used to raise the window is passed to
-the application.</p><p>With the
-<a name="Style_FPAllowRaiseClickFunction"></a><font class="fvwmopt">FPAllowRaiseClickFunction</font>
+the application.
+<P>
+
+With the
+<I>FPAllowRaiseClickFunction</I>
 style, the click that was used to raise the window can also
 trigger a normal action that was bound to the window with the
-<a href="#Mouse">Mouse</a>
-command.</p><p>If the
-<a name="Style_FPIgnoreRaiseClickMotion"></a><font class="fvwmopt">FPIgnoreRaiseClickMotion</font>
+<B>Mouse</B>
+command.
+<P>
+
+If the
+<I>FPIgnoreRaiseClickMotion</I>
 style is used, clicking in a window and then dragging the pointer
 with the button held down does not count as the click to raise the
 window.  Instead, the application processes these events
 normally.  This is useful to select text in a terminal window with
 the mouse without raising the window.  However, mouse bindings on
 the client window are not guaranteed to work anymore (see
-<a href="#Mouse">Mouse</a>
+<B>Mouse</B>
 command.  Note that this style forces that the initial click is
 passed to the application.  The distance that the pointer must be
 moved to trigger this is controlled by the
-<a href="#MoveThreshold">MoveThreshold</a>
-command.</p><p><span class="emphasis"><em>Grabbing the focus when a new window is created</em></span></p><p>New normal or transient windows with the
-<a name="Style_FPGrabFocus"></a><font class="fvwmopt">FPGrabFocus</font> or <a name="Style_FPGrabFocusTransient"></a><font class="fvwmopt">FPGrabFocusTransient</font>
+<B>MoveThreshold</B>
+command.
+<P>
+
+<B>Grabbing the focus when a new window is created</B>
+<P>
+
+New normal or transient windows with the
+<I>FPGrabFocus</I> or <I>FPGrabFocusTransient</I>
 style automatically receive the focus when they are created.
-<a name="Style_FPGrabFocus"></a><font class="fvwmopt">FPGrabFocus</font>
+<I>FPGrabFocus</I>
 is the default for windows with the
-<span class="emphasis"><em>ClickToFocus</em></span>
+<I>ClickToFocus</I>
 style.  Note that even if these styles are disabled, the
-application may take the focus itself.  Fvwm can not prevent this.</p><p>The
-<a name="Style_OverrideGrabFocus"></a><font class="fvwmopt">OverrideGrabFocus</font>
+application may take the focus itself.  Fvwm can not prevent this.
+<P>
+
+The
+<I>OverrideGrabFocus</I>
 style instructs fvwm to never take away the focus from such a
 window via the
-<a name="Style_GrabFocus"></a><font class="fvwmopt">GrabFocus</font> or <a name="Style_GrabFocusTransient"></a><font class="fvwmopt">GrabFocusTransient</font>
+<I>GrabFocus</I> or <I>GrabFocusTransient</I>
 styles.  This can be useful if you like to have transient windows
 receive the focus immediately, for example in a web browser, but
 not while you are working in a terminal window or a text
-processor.</p><p>The above three styles are accompanied by
-<a name="Style_FPReleaseFocus"></a><font class="fvwmopt">FPReleaseFocus</font>, <a name="Style_FPReleaseFocusTransient"></a><font class="fvwmopt">FPReleaseFocusTransient</font> and
-<a name="Style_FPOverrideReleaseFocus"></a><font class="fvwmopt">FPOverrideReleaseFocus</font>.
+processor.
+<P>
+
+The above three styles are accompanied by
+<I>FPReleaseFocus</I>, <I>FPReleaseFocusTransient</I> and
+<I>FPOverrideReleaseFocus</I>.
 These control if the focus is returned to another window when the
 window is closed.  Otherwise no window or the window under the
-pointer receives the focus.</p><p><a name="Style_ClickToFocusPassesClickOff"></a><font class="fvwmopt">ClickToFocusPassesClickOff</font> and <a name="Style_ClickToFocusPassesClick"></a><font class="fvwmopt">ClickToFocusPassesClick</font>
+pointer receives the focus.
+<P>
+
+<I>ClickToFocusPassesClickOff</I> and <I>ClickToFocusPassesClick</I>
 controls whether a mouse click to focus a window is sent to the
 application or not.  Similarly,
-<a name="Style_ClickToFocusRaisesOff"></a><font class="fvwmopt">ClickToFocusRaisesOff</font>/<a name="Style_MouseFocusClickRaisesOff"></a><font class="fvwmopt">MouseFocusClickRaisesOff</font>
+<I>ClickToFocusRaisesOff</I>/<I>MouseFocusClickRaisesOff</I>
 and
-<a name="Style_ClickToFocusRaises"></a><font class="fvwmopt">ClickToFocusRaises</font>/<a name="Style_MouseFocusClickRaises"></a><font class="fvwmopt">MouseFocusClickRaises</font>
+<I>ClickToFocusRaises</I>/<I>MouseFocusClickRaises</I>
 control if the window is raised (but depending on the focus
-model).</p><p>Note: in fvwm versions prior to
-2.5.3, the "Click..." options applied only to windows with
-<span class="emphasis"><em>ClickToFocus</em></span>
-while the "Mouse..." options applied to windows with a different
-focus policy.  This is no longer the case.</p><p>The old
-<a name="Style_GrabFocus"></a><font class="fvwmopt">GrabFocus</font>
+model).
+<P>
+
+Note: in fvwm versions prior to
+2.5.3, the &quot;Click...&quot; options applied only to windows with
+<I>ClickToFocus</I>
+while the &quot;Mouse...&quot; options applied to windows with a different
+focus policy.  This is no longer the case.
+<P>
+
+The old
+<I>GrabFocus</I>
 style is equivalent to using
-<span class="emphasis"><em>FPGrabFocus</em></span> + <span class="emphasis"><em>FPReleaseFocus</em></span>.</p><p>The old
-<a name="Style_GrabFocusTransient"></a><font class="fvwmopt">GrabFocusTransient</font>
+<I>FPGrabFocus</I> + <I>FPReleaseFocus</I>.
+<P>
+
+The old
+<I>GrabFocusTransient</I>
 style is equivalent to using
-<a name="Style_FPGrabFocusTransient"></a><font class="fvwmopt">FPGrabFocusTransient</font> + <a name="Style_FPReleaseFocusTransient"></a><font class="fvwmopt">FPReleaseFocusTransient</font>.</p><p><a name="Style_Lenience"></a><font class="fvwmopt">Lenience</font>
+<I>FPGrabFocusTransient</I> + <I>FPReleaseFocusTransient</I>.
+<P>
+
+<I>Lenience</I>
 is equivalent to the new style
-<span class="emphasis"><em>FPLenient</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="window_title"></a>31.7.5.3. Window title</h5></div></div></div><p>The
-<a name="Style_Title"></a><font class="fvwmopt">Title</font> and !Title
+<I>FPLenient</I>.
+</DL>
+
+<DT><B>Window title</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+The
+<I>Title</I> and !Title
 options determine if the window has a title-bar or not.  By
 default all windows have a title-bar.
-<a name="Style_NoTitle"></a><font class="fvwmopt">NoTitle</font>
+<I>NoTitle</I>
 is equivalent to
-<span class="emphasis"><em>!Title</em></span>
-but is deprecated.</p><p>Windows with the
-<a name="Style_TitleAtBottom"></a><font class="fvwmopt">TitleAtBottom</font>, <a name="Style_TitleAtLeft"></a><font class="fvwmopt">TitleAtLeft</font> or <a name="Style_TitleAtRight"></a><font class="fvwmopt">TitleAtRight</font>
+<I>!Title</I>
+but is deprecated.
+<P>
+
+Windows with the
+<I>TitleAtBottom</I>, <I>TitleAtLeft</I> or <I>TitleAtRight</I>
 style have a title-bar below, to the left or to the right of the
 window instead of above as usual.  The
-<a name="Style_TitleAtTop"></a><font class="fvwmopt">TitleAtTop</font>
+<I>TitleAtTop</I>
 style restores the default placement.  Even if the window has the
-<span class="emphasis"><em>!Title</em></span>
+<I>!Title</I>
 style set, this affects the
-<a href="#WindowShade">WindowShade</a>
+<B>WindowShade</B>
 command.  Please check the
-<a href="#WindowShade">WindowShade</a>
+<B>WindowShade</B>
 command for interactions between that command and these styles.
 Titles on the left or right side of the windows are augmented by
-the following styles:</p><p>Normally, the text in titles on the left side of a window is
+the following styles:
+<P>
+
+Normally, the text in titles on the left side of a window is
 rotated counterclockwise by 90 degrees from the normal upright
 position and 90 degrees clockwise for titles on the right side.
 It can also be rotated in the opposite directions with
-<a name="Style_LeftTitleRotatedCW"></a><font class="fvwmopt">LeftTitleRotatedCW</font> if <a name="Style_TitleAtLeft"></a><font class="fvwmopt">TitleAtLeft</font>
+<I>LeftTitleRotatedCW</I> if <I>TitleAtLeft</I>
 is used, and with
-<a name="Style_RightTitleRotatedCCW"></a><font class="fvwmopt">RightTitleRotatedCCW</font> if <a name="Style_TitleAtRight"></a><font class="fvwmopt">TitleAtRight</font>
+<I>RightTitleRotatedCCW</I> if <I>TitleAtRight</I>
 is used.  The defaults can be restored with
-<a name="Style_LeftTitleRotatedCCW"></a><font class="fvwmopt">LeftTitleRotatedCCW</font> and <a name="Style_RightTitleRotatedCW"></a><font class="fvwmopt">RightTitleRotatedCW</font>.
+<I>LeftTitleRotatedCCW</I> and <I>RightTitleRotatedCW</I>.
 A normal horizontal text may be rotated as well with
-<a name="Style_TopTitleRotated"></a><font class="fvwmopt">TopTitleRotated</font> if <span class="emphasis"><em>TitleAtTop</em></span>
+<I>TopTitleRotated</I> if <I>TitleAtTop</I>
 is used, and with
-<a name="Style_BottomTitleRotated"></a><font class="fvwmopt">BottomTitleRotated</font> if <a name="Style_TitleAtBottom"></a><font class="fvwmopt">TitleAtBottom</font>
+<I>BottomTitleRotated</I> if <I>TitleAtBottom</I>
 is used.  The defaults can be restored with
-<a name="Style_TopTitleNotRotated"></a><font class="fvwmopt">TopTitleNotRotated</font> and <a name="Style_BottomTitleNotRotated"></a><font class="fvwmopt">BottomTitleNotRotated</font>.</p><p>By default the title bar decoration defined using the
-<a href="#TitleStyle">TitleStyle</a>
+<I>TopTitleNotRotated</I> and <I>BottomTitleNotRotated</I>.
+<P>
+
+By default the title bar decoration defined using the
+<B>TitleStyle</B>
 command is rotated following the title text rotation (see the
-previous paragraph). This can be disabled by using the
-!<a name="Style_UseTitleDecorRotation"></a><font class="fvwmopt">UseTitleDecorRotation</font>
+previous paragraph).  This can be disabled by using the
+!<I>UseTitleDecorRotation</I>
 style.
-<span class="emphasis"><em>UseTitleDecorRotation</em></span>
-reverts back to the default.</p><p>With the
-<a name="Style_StippledTitle"></a><font class="fvwmopt">StippledTitle</font>
+<I>UseTitleDecorRotation</I>
+reverts back to the default.
+<P>
+
+With the
+<I>StippledTitle</I>
 style, titles are drawn with the same effect that is usually
 reserved for windows with the
-<a name="Style_Sticky"></a><font class="fvwmopt">Sticky</font>, <a name="Style_StickyAcrossPages"></a><font class="fvwmopt">StickyAcrossPages</font> or <a name="Style_StickyAcrossDesks"></a><font class="fvwmopt">StickyAcrossDesks</font>
+<I>Sticky</I>, <I>StickyAcrossPages</I> or <I>StickyAcrossDesks</I>
 style.
-<span class="emphasis"><em>!StippledTitle</em></span>
+<I>!StippledTitle</I>
 reverts back to normal titles.
-<a name="Style_StippledTitleOff"></a><font class="fvwmopt">StippledTitleOff</font>
+<I>StippledTitleOff</I>
 is equivalent to
-<span class="emphasis"><em>!StippledTitle</em></span>
-but is deprecated.</p><p><a name="Style_Color"></a><font class="fvwmopt">Color</font>
+<I>!StippledTitle</I>
+but is deprecated.
+<P>
+
+<I>Color</I>
 takes two arguments.  The first is the window-label text color and
-the second is the window decorations normal background color. The
+the second is the window decorations normal background color.  The
 two colors are separated with a slash.  If the use of a slash
 causes problems then the separate
-<a name="Style_ForeColor"></a><font class="fvwmopt">ForeColor</font> and <a name="Style_BackColor"></a><font class="fvwmopt">BackColor</font>
-options can be used.</p><p><a href="#Colorset">Colorset</a>
+<I>ForeColor</I> and <I>BackColor</I>
+options can be used.
+<P>
+
+<B>Colorset</B>
 takes the colorset number as its sole argument and overrides the
 colors set by
-<span class="emphasis"><em>Color</em></span>.
+<I>Color</I>.
 Instead, the corresponding colors from the given colorset are
 used.  Note that all other features of a colorset are not used.
 Use the
-<a href="#Colorset">Colorset</a>
+<B>Colorset</B>
 decoration style in the
-<a href="#TitleStyle">TitleStyle</a> and <a name="Style_ButtonStyle"></a><font class="fvwmopt">ButtonStyle</font>
+<B>TitleStyle</B> and <I>ButtonStyle</I>
 command for that.
-To stop using the colorset, the colorset number is omitted.</p><p>The
-<a name="Style_HilightFore"></a><font class="fvwmopt">HilightFore</font>, <a name="Style_HilightBack"></a><font class="fvwmopt">HilightBack</font> and <a name="Style_HilightColorset"></a><font class="fvwmopt">HilightColorset</font>
+To stop using the colorset, the colorset number is omitted.
+<P>
+
+The
+<I>HilightFore</I>, <I>HilightBack</I> and <I>HilightColorset</I>
 style options work exactly like
-<a name="Style_ForeColor"></a><font class="fvwmopt">ForeColor</font>, <a name="Style_BackColor"></a><font class="fvwmopt">BackColor</font> and <span class="emphasis"><em>Colorset</em></span>
+<I>ForeColor</I>, <I>BackColor</I> and <I>Colorset</I>
 but are used only if the window has the focus.  These styles
 replace the old commands
-<a href="#HilightColor">HilightColor</a> and <a name="Style_HilightColorset"></a><font class="fvwmopt">HilightColorset</font>.</p><p><a name="Style_BorderColorset"></a><font class="fvwmopt">BorderColorset</font>
+<B>HilightColor</B> and <I>HilightColorset</I>.
+<P>
+
+<I>BorderColorset</I>
 takes the colorset number as its sole argument and overrides the
 colors set by
-<span class="emphasis"><em>Color</em></span> or <span class="emphasis"><em>Colorset</em></span>.
+<I>Color</I> or <I>Colorset</I>.
 for the window border.  To stop using a colorset, the argument is
-omitted.</p><p>The
-<a name="Style_HilightBorderColorset"></a><font class="fvwmopt">HilightBorderColorset</font>
+omitted.
+<P>
+
+The
+<I>HilightBorderColorset</I>
 style option works similarly to
-<span class="emphasis"><em>BorderColorset</em></span>
-but is used when the window has the focus.</p><p>!<a name="Style_IconTitle"></a><font class="fvwmopt">IconTitle</font>
+<I>BorderColorset</I>
+but is used when the window has the focus.
+<P>
+
+!<I>IconTitle</I>
 disables displaying icon labels while the opposite style
-<span class="emphasis"><em>IconTitle</em></span>
+<I>IconTitle</I>
 enables icon labels (default behaviour).
-<a name="Style_NoIconTitle"></a><font class="fvwmopt">NoIconTitle</font>
+<I>NoIconTitle</I>
 is equivalent to
-<span class="emphasis"><em>!IconTitle</em></span>
-but is deprecated.</p><p><a name="Style_IconTitleColorset"></a><font class="fvwmopt">IconTitleColorset</font>
+<I>!IconTitle</I>
+but is deprecated.
+<P>
+
+<I>IconTitleColorset</I>
 takes the colorset number as its sole argument and overrides the
 colors set by
-<span class="emphasis"><em>Color</em></span> or <span class="emphasis"><em>Colorset</em></span>.
-To stop using this colorset, the argument is omitted.</p><p><a name="Style_HilightIconTitleColorset"></a><font class="fvwmopt">HilightIconTitleColorset</font>
+<I>Color</I> or <I>Colorset</I>.
+To stop using this colorset, the argument is omitted.
+<P>
+
+<I>HilightIconTitleColorset</I>
 takes the colorset number as its sole argument and overrides the
 colors set by
-<a href="#HilightColor">HilightColor</a> or <span class="emphasis"><em>HilightColorset</em></span>.
-To stop using this colorset, the argument is omitted.</p><p><a name="Style_IconBackgroundColorset"></a><font class="fvwmopt">IconBackgroundColorset</font>
+<B>HilightColor</B> or <I>HilightColorset</I>.
+To stop using this colorset, the argument is omitted.
+<P>
+
+<I>IconBackgroundColorset</I>
 takes the colorset number as its sole argument and uses it to set
-a background for the icon picture. By default the icon picture is
-not drawn onto a background image. To restore the default, the
-argument is omitted.</p><p><a name="Style_IconTitleRelief"></a><font class="fvwmopt">IconTitleRelief</font>
+a background for the icon picture.  By default the icon picture is
+not drawn onto a background image.  To restore the default, the
+argument is omitted.
+<P>
+
+<I>IconTitleRelief</I>
 takes one numeric argument that may be between -50 and +50 pixels
 and defines the thickness of the 3D relief drawn around the icon
-title. With negative values the icon title gets a pressed in
-look. The default is 2 and it is restored if the argument is
-omitted.</p><p><a name="Style_IconBackgroundRelief"></a><font class="fvwmopt">IconBackgroundRelief</font>
+title.  With negative values the icon title gets a pressed in
+look.  The default is 2 and it is restored if the argument is
+omitted.
+<P>
+
+<I>IconBackgroundRelief</I>
 takes one numeric argument that may be between -50 and +50 pixels
 and defines the thickness of the 3D relief drawn around the icon
-picture background (if any). With negative values the icon
+picture background (if any).  With negative values the icon
 background gets a pressed in look.  The default is 2 and it is
-restored if the argument is omitted.</p><p><a name="Style_IconBackgroundPadding"></a><font class="fvwmopt">IconBackgroundPadding</font>
+restored if the argument is omitted.
+<P>
+
+<I>IconBackgroundPadding</I>
 takes one numeric argument that may be between 0 and 50 pixels and
 defines the amount of free space between the relief of the icon
-background picture (if any) and the icon picture. The default is 2
-and it is restored if the argument is omitted.</p><p>The
-<a name="Style_Font"></a><font class="fvwmopt">Font</font> and <a name="Style_IconFont"></a><font class="fvwmopt">IconFont</font>
-options take the name of a font as their sole argument. This font
+background picture (if any) and the icon picture.  The default is 2
+and it is restored if the argument is omitted.
+<P>
+
+The
+<I>Font</I> and <I>IconFont</I>
+options take the name of a font as their sole argument.  This font
 is used in the window or icon title.  By default the font given in
 the
-<a href="#DefaultFont">DefaultFont</a>
+<B>DefaultFont</B>
 command is used.  To revert back to the default, use the style
 without the name argument.  These styles replace the older
-<a href="#WindowFont">WindowFont</a> and <a name="Style_IconFont"></a><font class="fvwmopt">IconFont</font>
-commands.</p><p>The
-<a name="Style_IndexedWindowName"></a><font class="fvwmopt">IndexedWindowName</font>
-style causes fvwm to use window titles in the form</p><pre class="programlisting">
+<B>WindowFont</B> and <I>IconFont</I>
+commands.
+<P>
+
+The
+<I>IndexedWindowName</I>
+style causes fvwm to use window titles in the form
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 name (i)
-</pre><p>where
-<a name="Style_name"></a><font class="fvwmopt">name</font>
+</PRE>
+
+</DL>
+
+<P>
+
+where
+<I>name</I>
 is the exact window name and
-<a name="Style_i"></a><font class="fvwmopt">i</font>
+<I>i</I>
 is an integer which represents the
-<span class="emphasis"><em>i th</em></span>
+<I>i th</I>
 window with
-<span class="emphasis"><em>name</em></span>
+<I>name</I>
 as window name.
-<a name="Style_ExactWindowName"></a><font class="fvwmopt">ExactWindowName</font>
+<I>ExactWindowName</I>
 restores the default which is to use the exact window name.
-<a name="Style_IndexedIconName"></a><font class="fvwmopt">IndexedIconName</font>
+<I>IndexedIconName</I>
 and
-<a name="Style_ExactIconName"></a><font class="fvwmopt">ExactIconName</font>
+<I>ExactIconName</I>
 work the same as
-<span class="emphasis"><em>IndexedWindowName</em></span>
+<I>IndexedWindowName</I>
 and
-<span class="emphasis"><em>ExactWindowName</em></span>
-styles but for the icon titles.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="title_buttons"></a>31.7.5.4. Title buttons</h5></div></div></div><p><a name="Style_Button"></a><font class="fvwmopt">Button</font> and !<a name="Style_Button"></a><font class="fvwmopt">Button</font>
+<I>ExactWindowName</I>
+styles but for the icon titles.
+</DL>
+
+<DT><B>Title buttons</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<I>Button</I> and !<I>Button</I>
 take a numeric argument which is the number of the title-bar
 button which is to be shown or omitted.
-<a name="Style_NoButton"></a><font class="fvwmopt">NoButton</font>
+<I>NoButton</I>
 is equivalent to
-<span class="emphasis"><em>!Button</em></span>
-but is deprecated.</p><p><a name="Style_MwmButtons"></a><font class="fvwmopt">MwmButtons</font>
+<I>!Button</I>
+but is deprecated.
+<P>
+
+<I>MwmButtons</I>
 makes the
-<a href="#Maximize">Maximize</a>
+<B>Maximize</B>
 button look pressed-in when the window is maximized.  See the
-<a href="#ButtonStyle_MwmDecorMax">MwmDecorMax</a>
+<I>MwmDecorMax</I>
 flag in
-<a href="#ButtonStyle">ButtonStyle</a>
+<B>ButtonStyle</B>
 for more information.  To switch this style off again, use the
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
-style.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="borders"></a>31.7.5.5. Borders</h5></div></div></div><p>!<a name="Style_Borders"></a><font class="fvwmopt">Borders</font>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+style.
+</DL>
+
+<DT><B>Borders</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+!<I>Borders</I>
 suppresses the window border (but not the title) completely.  The
-<span class="emphasis"><em>Borders</em></span>
+<I>Borders</I>
 style enables them again.  Without borders, all other styles
-affecting window borders are meaningless.</p><p><a name="Style_MwmBorder"></a><font class="fvwmopt">MwmBorder</font>
+affecting window borders are meaningless.
+<P>
+
+<I>MwmBorder</I>
 makes the 3D bevel more closely match Mwm's.
-<a name="Style_FvwmBorder"></a><font class="fvwmopt">FvwmBorder</font>
-turns off the previous option.</p><p>With the
-!<a name="Style_Handles"></a><font class="fvwmopt">Handles</font>
+<I>FvwmBorder</I>
+turns off the previous option.
+<P>
+
+With the
+!<I>Handles</I>
 style, the window does not get the handles in the window corners
 that are commonly used to resize it.  With
-<span class="emphasis"><em>!Handles</em></span>,
+<I>!Handles</I>,
 the width from the
-<span class="emphasis"><em>BorderWidth</em></span>
+<I>BorderWidth</I>
 style is used.  By default, or if
-<span class="emphasis"><em>Handles</em></span>
+<I>Handles</I>
 is specified, the width from the
-<span class="emphasis"><em>HandleWidth</em></span>
+<I>HandleWidth</I>
 style is used.
-<a name="Style_NoHandles"></a><font class="fvwmopt">NoHandles</font>
+<I>NoHandles</I>
 is equivalent to
-<span class="emphasis"><em>!Handles</em></span>
-but is deprecated.</p><p>
-<a name="Style_HandleWidth"></a><font class="fvwmopt">HandleWidth</font>
+<I>!Handles</I>
+but is deprecated.
+<P>
+
+<I>HandleWidth</I>
 takes a numeric argument which is the width of the border to place
-the window if it does have resize-handles. Using HandleWidth
-without an argument restores the default.</p><p>
-<a name="Style_BorderWidth"></a><font class="fvwmopt">BorderWidth</font>
+the window if it does have resize-handles.  Using HandleWidth
+without an argument restores the default.
+<P>
+
+<I>BorderWidth</I>
 takes a numeric argument which is the width of the border to place
 the window if it does not have resize-handles.  It is used only if
 the
-<span class="emphasis"><em>!Handles</em></span>
-style is specified too. Using BorderWidth
-without an argument restores the default.</p><p><a name="Style_DepressableBorder"></a><font class="fvwmopt">DepressableBorder</font>
+<I>!Handles</I>
+style is specified too.  Using BorderWidth
+without an argument restores the default.
+<P>
+
+<I>DepressableBorder</I>
 makes the border parts of the window decoration look sunken in
 when a button is pressed over them.  This can be disabled again
 with the
-<a name="Style_FirmBorder"></a><font class="fvwmopt">FirmBorder</font>
-style.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="icons_shading_maximising_movement_resizing"></a>31.7.5.6. Icons, shading, maximizing, movement, resizing</h5></div></div></div><p><a name="Style_Icon"></a><font class="fvwmopt">Icon</font>
+<I>FirmBorder</I>
+style.
+</DL>
+
+<DT><B>Icons, shading, maximizing, movement, resizing</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<I>Icon</I>
 takes an (optional) unquoted string argument which is the icon
-bitmap or pixmap to use. Icons specified this way override pixmap
+bitmap or pixmap to use.  Icons specified this way override pixmap
 icons, but not icon windows or the ewmh icon, provided by the
 client in the application (with the WM_HINTS property or with the
 ewmh _NET_WM_ICON property).  The
-<a name="Style_IconOverride"></a><font class="fvwmopt">IconOverride</font>
+<I>IconOverride</I>
 style changes the behavior to override any client-provided icons;
 the
-<a name="Style_NoIconOverride"></a><font class="fvwmopt">NoIconOverride</font>
+<I>NoIconOverride</I>
 style changes the behavior to not override any client-provided
 icons; the default overriding behavior can be activated with the
-<a name="Style_NoActiveIconOverride"></a><font class="fvwmopt">NoActiveIconOverride</font>
+<I>NoActiveIconOverride</I>
 style.  With this style, fvwm uses application provided icons if
 the icon is changed but uses the icon provided in the
-configuration file until then.</p><p>There is one exception to these rules, namely</p><pre class="programlisting">
+configuration file until then.
+<P>
+
+There is one exception to these rules, namely
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * Icon unknown.xpm
-</pre><p>doesn't force the unknown.xpm icon on every window, it just sets
-the default icon like the DefaultIcon command. If you really want
-all windows to have the same icon, you can use</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+doesn't force the unknown.xpm icon on every window, it just sets
+the default icon like the DefaultIcon command.  If you really want
+all windows to have the same icon, you can use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style ** Icon unknown.xpm
-</pre><p>If the
-<a name="Style_NoIcon"></a><font class="fvwmopt">NoIcon</font>
+</PRE>
+
+</DL>
+
+<P>
+
+If the
+<I>NoIcon</I>
 attribute is set then the specified window simply disappears when
 it is iconified.  The window can be recovered through the
 window-list.  If
-<span class="emphasis"><em>Icon</em></span>
+<I>Icon</I>
 is set without an argument then the
-<span class="emphasis"><em>NoIcon</em></span>
+<I>NoIcon</I>
 attribute is cleared but no icon is specified.  An example which
 allows only the
-<span class="emphasis"><em>FvwmPager</em></span>
-module icon to exist:</p><pre class="programlisting">
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
+module icon to exist:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * NoIcon
 Style FvwmPager Icon
-</pre><p><a name="Style_IconBox"></a><font class="fvwmopt">IconBox</font>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>IconBox</I>
 takes no argument, four numeric arguments (plus optionally a
 screen specification), an X11 geometry string or the string
-"none":</p><pre class="programlisting">
-IconBox<span class="emphasis"><em> [</em></span>screen scr-spec<span class="emphasis"><em>] </em></span>l t r b
-</pre><p>or</p><pre class="programlisting">
+&quot;none&quot;:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+IconBox<I> [</I>screen scr-spec<I>] </I>l t r b
+</PRE>
+
+</DL>
+
+<P>
+
+or
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 IconBox geometry
-</pre><p>Where
-<a name="Style_l"></a><font class="fvwmopt">l</font>
+</PRE>
+
+</DL>
+
+<P>
+
+Where
+<I>l</I>
 is the left coordinate,
-<a name="Style_t"></a><font class="fvwmopt">t</font>
+<I>t</I>
 is the top,
-<a name="Style_r"></a><font class="fvwmopt">r</font>
+<I>r</I>
 is right and
-<a name="Style_b"></a><font class="fvwmopt">b</font>
+<I>b</I>
 is bottom.  Negative coordinates indicate distance from the right
 or bottom of the screen.
 If the first argument is the word
-<a name="Style_screen"></a><font class="fvwmopt">screen</font>,
+<I>screen</I>,
 the
-<a name="Style_scr-spec"></a><font class="fvwmopt">scr-spec</font>
+<I>scr-spec</I>
 argument specifies the Xinerama screen on which the IconBox is
 defined.  It can be the usual screen Xinerama specification, 'p',
-´c', 'g', a screen number or the additional 'w' for the screen
+&acute;c', 'g', a screen number or the additional 'w' for the screen
 where the window center is located.  This is only useful with
 multiple Xinerama screens.
-The "l t r b" specification is more flexible than an X11 geometry.
-For example:</p><pre class="programlisting">
+The &quot;l t r b&quot; specification is more flexible than an X11 geometry.
+For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 IconBox -80 240 -1 -1
-</pre><p>defines a box that is 80 pixels wide from the right edge,
+</PRE>
+
+</DL>
+
+<P>
+
+defines a box that is 80 pixels wide from the right edge,
 240 pixels down from the top, and continues to the bottom of
-the screen.</p><p>Perhaps it is easier to use is an X11
-geometry string though:</p><pre class="programlisting">
+the screen.
+<P>
+
+Perhaps it is easier to use is an X11
+geometry string though:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 IconBox 1000x70-1-1
-</pre><p>places an 1000 by 70 pixel icon box on the bottom of the screen
-starting in the lower right  hand corner of the screen.
+</PRE>
+
+</DL>
+
+<P>
+
+places an 1000 by 70 pixel icon box on the bottom of the screen
+starting in the lower right hand corner of the screen.
 One way to figure out a geometry like this is to use a window
 that resizes in pixel increments, for example, xv.
 Then resize and place the xv window where you want the iconbox.
@@ -5298,231 +9646,398 @@ Multiple icon boxes can be
 defined as overflow areas.  When the first icon box is full, the
 second one is filled.  All the icon boxes for one style must be
 defined in one
-<span class="emphasis"><em>Style</em></span>
-command.  For example:</p><pre class="programlisting">
+<B>Style</B>
+command.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * IconBox -80 240 -1 -1, \
         IconBox 1000x70-1-1
-</pre><p>A Style command with the IconBox option replaces any icon box
+</PRE>
+
+</DL>
+
+<P>
+
+A Style command with the IconBox option replaces any icon box
 defined previously by another Style command for the same style.
-Thats why the backslash in the previous example is required.</p><p>Note: The geometry for the icon box command takes the additional
-screen specifier "@w" in case a Xinerama setup is used.  This
+Thats why the backslash in the previous example is required.
+<P>
+
+Note: The geometry for the icon box command takes the additional
+screen specifier &quot;@w&quot; in case a Xinerama setup is used.  This
 designates the screen where the window center is located.  The
-additional screen specifier is not allowed anywhere else.</p><p>If you never define an icon box, or you fill all the icon boxes,
+additional screen specifier is not allowed anywhere else.
+<P>
+
+If you never define an icon box, or you fill all the icon boxes,
 fvwm has a default icon box that covers the screen, it fills top
 to bottom, then left to right, and has an 80x80 pixel grid.  To
 disable all but the default icon box you can use IconBox without
 arguments in a separate
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>
 command.  To disable all icon boxes including the default icon
-box, the argument "none" can be specified.</p><p>Hint: You can auto arrange your icons in the icon box with a
-simple fvwm function.  Put the "DeiconifyAndRearrange" function
-below in your configuration file:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> DeiconifyAndRearrange
- + C <a href="#Iconify">Iconify</a> off
- + C <a href="#All">All</a> (CurrentPage, Iconic) <a href="#PlaceAgain">PlaceAgain</a> Icon
-</pre><p>And then replace all places where you call the
-<a href="#Iconify">Iconify</a>
-command to de-iconify an icon with a call to the new
-function.  For example replace</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> IconFunc
- + C <a href="#Iconify">Iconify</a> off
- + M <a href="#Raise">Raise</a>
- + M <a href="#Move">Move</a>
- + D <a href="#Iconify">Iconify</a> off
+box, the argument &quot;none&quot; can be specified.
+<P>
 
-<a href="#Mouse">Mouse</a> 1 I A <a href="#Iconify">Iconify</a> off
-</pre><p>with</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> IconFunc
+Hint: You can auto arrange your icons in the icon box with a
+simple fvwm function.  Put the &quot;DeiconifyAndRearrange&quot; function
+below in your configuration file:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> DeiconifyAndRearrange
+ + C <B>Iconify</B> off
+ + C <B>All</B> (CurrentPage, Iconic) <B>PlaceAgain</B> Icon
+</PRE>
+
+</DL>
+
+<P>
+
+And then replace all places where you call the
+<B>Iconify</B>
+command to de-iconify an icon with a call to the new
+function.  For example replace
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> IconFunc
+ + C <B>Iconify</B> off
+ + M <B>Raise</B>
+ + M <B>Move</B>
+ + D <B>Iconify</B> off
+
+<B>Mouse</B> 1 I A <B>Iconify</B> off
+</PRE>
+
+</DL>
+
+<P>
+
+with
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> IconFunc
  + C DeiconifyAndRearrange
- + M <a href="#Raise">Raise</a>
- + M <a href="#Move">Move</a>
+ + M <B>Raise</B>
+ + M <B>Move</B>
  + D DeiconifyAndRearrange
 
-<a href="#Mouse">Mouse</a> 1 I A DeiconifyAndRearrange
-</pre><p><a name="Style_IconGrid"></a><font class="fvwmopt">IconGrid</font>
-takes 2 numeric arguments greater than zero.</p><pre class="programlisting">
-<span class="emphasis"><em>IconGrid x y</em></span>
-</pre><p>Icons are placed in an icon box by stepping through the icon box
+<B>Mouse</B> 1 I A DeiconifyAndRearrange
+</PRE>
+
+</DL>
+
+<P>
+
+<I>IconGrid</I>
+takes 2 numeric arguments greater than zero.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<I>IconGrid x y</I>
+</PRE>
+
+</DL>
+
+<P>
+
+Icons are placed in an icon box by stepping through the icon box
 using the
-<a name="Style_x"></a><font class="fvwmopt">x</font> and <a name="Style_y"></a><font class="fvwmopt">y</font>
-values for the icon grid, looking for a free space. The default
-grid is 3 by 3 pixels which gives a tightly packed appearance. To
+<I>x</I> and <I>y</I>
+values for the icon grid, looking for a free space.  The default
+grid is 3 by 3 pixels which gives a tightly packed appearance.  To
 get a more regular appearance use a grid larger than your largest
-icon. Use the
-<span class="emphasis"><em>IconSize</em></span>
-definition to clip an icon to a maximum size. An
-<span class="emphasis"><em>IconGrid</em></span>
+icon.  Use the
+<I>IconSize</I>
+definition to clip an icon to a maximum size.  An
+<I>IconGrid</I>
 definition must follow the
-<span class="emphasis"><em>IconBox</em></span>
-definition that it applies to:</p><pre class="programlisting">
+<B>IconBox</B>
+definition that it applies to:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * IconBox -80x240-1-1, IconGrid 90 90
-</pre><p><a name="Style_IconFill"></a><font class="fvwmopt">IconFill</font>
-takes 2 arguments.</p><pre class="programlisting">
-IconFill <span class="emphasis"><em>Bottom Right</em></span>
-</pre><p>Icons are placed in an icon box by stepping through the icon box
+</PRE>
+
+</DL>
+
+<P>
+
+<I>IconFill</I>
+takes 2 arguments.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+IconFill <I>Bottom Right</I>
+</PRE>
+
+</DL>
+
+<P>
+
+Icons are placed in an icon box by stepping through the icon box
 using these arguments to control the direction the box is filled
-in. By default the direction is left to right, then top to bottom.
-This would be expressed as:</p><pre class="programlisting">
+in.  By default the direction is left to right, then top to bottom.
+This would be expressed as:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 IconFill left top
-</pre><p>To fill an icon box in columns instead of rows, specify the
-vertical direction (top or bottom) first. The directions can be
-abbreviated or spelled out as follows: "t", "top", "b", "bot",
-"bottom", "l", "lft", "left", "r", "rgt", "right". An
-<span class="emphasis"><em>IconFill</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+To fill an icon box in columns instead of rows, specify the
+vertical direction (top or bottom) first.  The directions can be
+abbreviated or spelled out as follows: &quot;t&quot;, &quot;top&quot;, &quot;b&quot;, &quot;bot&quot;,
+&quot;bottom&quot;, &quot;l&quot;, &quot;lft&quot;, &quot;left&quot;, &quot;r&quot;, &quot;rgt&quot;, &quot;right&quot;.  An
+<B>IconFill</B>
 definition must follow the
-<span class="emphasis"><em>IconBox</em></span>
-definition that it applies to:</p><pre class="programlisting">
+<B>IconBox</B>
+definition that it applies to:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * IconBox -80x240-1-1, IconFill b r
-</pre><p>
-<a name="Style_IconSize"></a><font class="fvwmopt">IconSize</font>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>IconSize</I>
 sets limits on the size of an icon image.  Both user-provided
-and application-provided icon images are affected.</p><pre class="programlisting">
-IconSize<span class="emphasis"><em> [ </em></span>width<span class="emphasis"><em> </em></span>height<span class="emphasis"><em> [ </em></span>maxwidth<span class="emphasis"><em> </em></span>maxheight<span class="emphasis"><em> ] ]</em></span>
-</pre><p>All arguments are measured in pixels.  When all four arguments are
+and application-provided icon images are affected.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+IconSize<I> [ </I>width<I> </I>height<I> [ </I>maxwidth<I> </I>maxheight<I> ] ]</I>
+</PRE>
+
+</DL>
+
+<P>
+
+All arguments are measured in pixels.  When all four arguments are
 passed to
-<span class="emphasis"><em>IconSize,</em></span>
-<span class="emphasis"><em>width</em></span>
+<I>IconSize,</I>
+<I>width</I>
 and
-<span class="emphasis"><em>height</em></span>
+<I>height</I>
 represent the minimum size of an icon, and
-<span class="emphasis"><em>maxwidth</em></span>
+<I>maxwidth</I>
 and
-<span class="emphasis"><em>maxheight</em></span>
+<I>maxheight</I>
 represent the maximum size of an icon.  Icon images that are smaller
 than the minimum size are padded.  Icon images that are bigger than
-the maximum size are clipped.</p><p>If only two arguments are passed to
-<span class="emphasis"><em>IconSize,</em></span>
-<span class="emphasis"><em>width</em></span>
+the maximum size are clipped.
+<P>
+
+If only two arguments are passed to
+<I>IconSize,</I>
+<I>width</I>
 and
-<span class="emphasis"><em>height</em></span>
+<I>height</I>
 represent the absolute size of an icon.  Icons covered by this style
-are padded or clipped to achieve the given size.</p><p>If no arguments are specified, the default values are used for each
-dimension.  This effectively places no limits on the size of an icon.</p><p>The value of "-1" can be used in place of any of the arguments to
-specify the default value for that dimension.</p><p>Note that application-provided icon windows are not affected.</p><p><a name="Style_MiniIcon"></a><font class="fvwmopt">MiniIcon</font>
+are padded or clipped to achieve the given size.
+<P>
+
+If no arguments are specified, the default values are used for each
+dimension.  This effectively places no limits on the size of an icon.
+<P>
+
+The value of &quot;-1&quot; can be used in place of any of the arguments to
+specify the default value for that dimension.
+<P>
+
+Note that application-provided icon windows are not affected.
+<P>
+
+<I>MiniIcon</I>
 specifies a pixmap to use as the miniature icon for the
-window. This miniature icon can be drawn in a title-bar button
+window.  This miniature icon can be drawn in a title-bar button
 (see
-<a href="#ButtonStyle">ButtonStyle</a>),
+<B>ButtonStyle</B>),
 and can be used by various fvwm modules
-(<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a>, <a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a> and <a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a>).
-It takes the name of a pixmap as an argument.</p><p><a name="Style_WindowShadeShrinks"></a><font class="fvwmopt">WindowShadeShrinks</font> and <a name="Style_WindowShadeScrolls"></a><font class="fvwmopt">WindowShadeScrolls</font>
+(<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>, <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> and <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>).
+It takes the name of a pixmap as an argument.
+<P>
+
+<I>WindowShadeShrinks</I> and <I>WindowShadeScrolls</I>
 control if the contents of a window that is being shaded with the
-<a href="#WindowShade">WindowShade</a>
+<B>WindowShade</B>
 command are scrolled (default) or if they stay in place.  The
-shrinking mode is a bit faster</p><p>The
-<a name="Style_WindowShadeSteps"></a><font class="fvwmopt">WindowShadeSteps</font>
+shrinking mode is a bit faster
+<P>
+
+The
+<I>WindowShadeSteps</I>
 option selects the number of steps for animation when shading a
 window with
-<a href="#WindowShade">WindowShade</a>.
-It takes one number as its argument.  If the number has a trailing
-'<a name="Style_p"></a><font class="fvwmopt">p</font>'
+<B>WindowShade</B>.
+It takes one number as its argument.  If the number has a trailing '<I>p</I>'
 it sets the number of pixels to use as the step size instead of
 a fixed number of steps.  0 disables the animation.  This happens
-too if the argument is omitted or invalid.</p><p>The
-<a href="#WindowShade">WindowShade</a>
+too if the argument is omitted or invalid.
+<P>
+
+The
+<B>WindowShade</B>
 command has two modes of operation: busy and lazy shading.  Busy
 shading can be 50% slower than lazy shading, but the latter can
 look strange under some conditions, for example, if the window
 borders, buttons or the title are filled with a tiled pixmap.
 Also, the window handles are not drawn in lazy mode and the border
 relief may only be drawn partially right before the window reaches
-the shaded state or tight after leaves the unshaded state. By
+the shaded state or tight after leaves the unshaded state.  By
 default, fvwm uses lazy mode if there are no bad visual effects
 (not counting the window handles) and busy mode otherwise.  Use
 the
-<span class="emphasis"><em>WindowShadeAlwaysLazy  or  WindowShadeBusy</em></span>
+<I>WindowShadeAlwaysLazy or WindowShadeBusy</I>
 to force using the lazy or busy mode.  The default setting is
 restored with
-<a name="Style_WindowShadeLazy"></a><font class="fvwmopt">WindowShadeLazy</font>.</p><p><a name="Style_ResizeOpaque"></a><font class="fvwmopt">ResizeOpaque</font>
+<I>WindowShadeLazy</I>.
+<P>
+
+<I>ResizeOpaque</I>
 instructs fvwm to resize the corresponding windows with their
 contents visible instead of using an outline.  Since this causes
 the application to redraw frequently it can be quite slow and make
 the window flicker excessively, depending on the amount of
 graphics the application redraws.  The
-<a name="Style_ResizeOutline"></a><font class="fvwmopt">ResizeOutline</font>
+<I>ResizeOutline</I>
 style (default) negates the
-<span class="emphasis"><em>ResizeOpaque</em></span>
+<I>ResizeOpaque</I>
 style.  Many applications do not like their windows being resized
 opaque, e.g. XEmacs, Netscape or terminals with a pixmap
-background. If you do not like the result, do not use the
-<span class="emphasis"><em>ResizeOpaque</em></span>
+background.  If you do not like the result, do not use the
+<I>ResizeOpaque</I>
 style for these windows.  To exempt certain windows from opaque
-resizing you could use these lines in your configuration file:</p><pre class="programlisting">
+resizing you could use these lines in your configuration file:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * ResizeOpaque
 Style rxvt ResizeOutline
 Style emacs ResizeOutline
-</pre><p><a name="Style_Sticky"></a><font class="fvwmopt">Sticky</font>
+</PRE>
+
+</DL>
+
+<P>
+
+<I>Sticky</I>
 makes the window sticky, i.e. it is always visible on each page
 and each desk.  The opposite style,
-<a name="Style_Slippery"></a><font class="fvwmopt">Slippery</font>
-reverts back to the default.</p><p>
-<a name="Style_StickyIcon"></a><font class="fvwmopt">StickyIcon</font>
+<I>Slippery</I>
+reverts back to the default.
+<P>
+
+<I>StickyIcon</I>
 makes the window sticky when it's iconified.  It de-iconifies on
 top the active desktop.
-<a name="Style_SlipperyIcon"></a><font class="fvwmopt">SlipperyIcon</font>
+<I>SlipperyIcon</I>
 reverts back to the default.
-</p><p><a name="Style_StickyAcrossPages"></a><font class="fvwmopt">StickyAcrossPages</font> and <a name="Style_StickyAcrossPagesIcon"></a><font class="fvwmopt">StickyAcrossPagesIcon</font>
+<P>
+
+<I>StickyAcrossPages</I> and <I>StickyAcrossPagesIcon</I>
 work like
-<span class="emphasis"><em>Sticky</em></span> and <span class="emphasis"><em>StickyIcon</em></span>,
+<I>Sticky</I> and <I>StickyIcon</I>,
 but stick the window only across pages, not desks while
-<span class="emphasis"><em>StickyAcrossDesks  and  StickyAcrossDesksIcon</em></span>
-works the other way round.</p><p>Windows that have been marked as
-<span class="emphasis"><em>Sticky</em></span> or
-<a name="Style_StickyAcrossDesks"></a><font class="fvwmopt">StickyAcrossDesks</font> or
-<span class="emphasis"><em>StickyAcrossPages</em></span> will have stipples drawn
+<I>StickyAcrossDesks and StickyAcrossDesksIcon</I>
+works the other way round.
+<P>
+
+Windows that have been marked as
+<I>Sticky</I> or
+<I>StickyAcrossDesks</I> or
+<I>StickyAcrossPages</I> will have stipples drawn
 on the titlebar.  This can be negated with the
-!<a name="Style_StickyStippledTitle"></a><font class="fvwmopt">StickyStippledTitle</font>
+!<I>StickyStippledTitle</I>
 style.  The style
-<span class="emphasis"><em>StickyStippledTitle</em></span>
+<I>StickyStippledTitle</I>
 puts back the stipples where that window has also been marked as
-<span class="emphasis"><em>Sticky</em></span>.  Note that this is the default style for
-<span class="emphasis"><em>Sticky</em></span> windows.  Sticky icons will have stipples drawn
-on the icon title. This can be disabled in the same way with the
-!<a name="Style_StickyStippledIconTitle"></a><font class="fvwmopt">StickyStippledIconTitle</font>
-style.</p><p>Windows with the
-<a name="Style_StartIconic"></a><font class="fvwmopt">StartIconic</font>
+<I>Sticky</I>.  Note that this is the default style for
+<I>Sticky</I> windows.  Sticky icons will have stipples drawn
+on the icon title.  This can be disabled in the same way with the
+!<I>StickyStippledIconTitle</I>
+style.
+<P>
+
+Windows with the
+<I>StartIconic</I>
 style are shown as icons initially.  Note that some applications
 counteract that by deiconifying themselves.  The default is to not
 iconify windows and can be set with the
-<a name="Style_StartNormal"></a><font class="fvwmopt">StartNormal</font>
-style.</p><p><a name="Style_StickyIcon"></a><font class="fvwmopt">StickyIcon</font>
+<I>StartNormal</I>
+style.
+<P>
+
+<I>StickyIcon</I>
 makes the window sticky when it's iconified.  It de-iconifies on
 top the active desktop.
-<a name="Style_SlipperyIcon"></a><font class="fvwmopt">SlipperyIcon</font>
-reverts back to the default.</p><p><a name="Style_StickyIconPage"></a><font class="fvwmopt">StickyIconPage</font>
+<I>SlipperyIcon</I>
+reverts back to the default.
+<P>
+
+<I>StickyIconPage</I>
 works like
-<span class="emphasis"><em>StickyIcon</em></span>,
+<I>StickyIcon</I>,
 but sticks the icon only across pages, not desks while
-<a name="Style_StickyIconDesk"></a><font class="fvwmopt">StickyIconDesk</font>
-works the other way round.</p><p><a name="Style_StippledIconTitle"></a><font class="fvwmopt">StippledIconTitle</font>
+<I>StickyIconDesk</I>
+works the other way round.
+<P>
+
+<I>StippledIconTitle</I>
 works like
-<span class="emphasis"><em>StippledTitle</em></span>
+<I>StippledTitle</I>
 in that it draws stipples on the titles of icons but doesn't
-make the icon sticky.</p><p><a name="Style_IgnoreRestack"></a><font class="fvwmopt">IgnoreRestack</font>
+make the icon sticky.
+<P>
+
+<I>IgnoreRestack</I>
 makes fvwm ignore attempts of clients to raise or lower their own
 windows.  By default, the opposite style,
-<a name="Style_AllowRestack"></a><font class="fvwmopt">AllowRestack</font>
-is active.</p><p><a name="Style_FixedPosition"></a><font class="fvwmopt">FixedPosition</font> and <a name="Style_FixedUSPosition"></a><font class="fvwmopt">FixedUSPosition</font>
+<I>AllowRestack</I>
+is active.
+<P>
+
+<I>FixedPosition</I> and <I>FixedUSPosition</I>
 make fvwm ignore attempts of the user to move the window.  It is
 still possible to move the window by resizing it.  To allow the
 user to move windows, use the
-<a name="Style_VariablePosition"></a><font class="fvwmopt">VariablePosition</font> or <a name="Style_VariableUSPosition"></a><font class="fvwmopt">VariableUSPosition</font>
-style.</p><p><a name="Style_FixedSize"></a><font class="fvwmopt">FixedSize</font> and <a name="Style_FixedUSSize"></a><font class="fvwmopt">FixedUSSize</font>
+<I>VariablePosition</I> or <I>VariableUSPosition</I>
+style.
+<P>
+
+<I>FixedSize</I> and <I>FixedUSSize</I>
 make fvwm ignore attempts of the user to resize the window.  To
 allow the user to resize windows, use the
-<a name="Style_VariableSize"></a><font class="fvwmopt">VariableSize</font> or <a name="Style_VariableUSSize"></a><font class="fvwmopt">VariableUSSize</font>
-style.</p><p><a name="Style_FixedPPosition"></a><font class="fvwmopt">FixedPPosition</font> and <a name="Style_FixedPSize"></a><font class="fvwmopt">FixedPSize</font>
+<I>VariableSize</I> or <I>VariableUSSize</I>
+style.
+<P>
+
+<I>FixedPPosition</I> and <I>FixedPSize</I>
 make fvwm ignore attempts of the program to move or resize its
 windows.  To allow this kind of actions, use the
-<a name="Style_VariablePPosition"></a><font class="fvwmopt">VariablePPosition</font> or <a name="Style_VariablePSize"></a><font class="fvwmopt">VariablePSize</font>
+<I>VariablePPosition</I> or <I>VariablePSize</I>
 style.  These styles may sometimes affect the initial placement
 and dimensions of new windows (depending on the application).  If
 windows are created at strange places, try either the
-<a name="Style_VariablePPosition"></a><font class="fvwmopt">VariablePPosition</font> or <a name="Style_NoPPosition"></a><font class="fvwmopt">NoPPosition</font>
+<I>VariablePPosition</I> or <I>NoPPosition</I>
 styles.  The
-<a name="Style_FixedPSize"></a><font class="fvwmopt">FixedPSize</font>
+<I>FixedPSize</I>
 style may screw up window dimensions for some applications.  Do Not
-use this style in this case.</p><p><a name="Style_MoveByProgramMethod"></a><font class="fvwmopt">MoveByProgramMethod</font>
+use this style in this case.
+<P>
+
+<I>MoveByProgramMethod</I>
 affects how fvwm reacts to requests by the application to move its
 windows.  By default, fvwm tries to detect which method to use,
 but it sometimes detects the wrong method.  You may come across a
@@ -5531,139 +10046,213 @@ application resizes it, moves to a screen border with the frame
 decorations off screen, that remembers its position for the next
 time it starts but appears in a slighly shifted position, or that
 attepmts to become full screen but has the.  Try out both options,
-<a name="Style_UseGravity"></a><font class="fvwmopt">UseGravity</font> and <a name="Style_IgnoreGravity"></a><font class="fvwmopt">IgnoreGravity</font>
+<I>UseGravity</I> and <I>IgnoreGravity</I>
 on the window (and that window only) and see if that helps.  By
 default, fvwm uses the
-<a name="Style_AutoDetect"></a><font class="fvwmopt">AutoDetect</font>
+<I>AutoDetect</I>
 method.  Once the method was detected, it is never changed again.
 As long as fvwm can not detect the proper method, it uses
-<a name="Style_IgnoreGravity"></a><font class="fvwmopt">IgnoreGravity</font>.
+<I>IgnoreGravity</I>.
 To force fvwm to retry the detection, use one of the other two
 options first and then use
-<span class="emphasis"><em>AutoDetect</em></span>
-again.</p><p>Note:  This option was introduced to alleviate a problem with the
-<acronym class="acronym">ICCCM</acronym> specification.  The <acronym class="acronym">ICCCM</acronym> clearly states that the
-<a name="Style_UseGravity"></a><font class="fvwmopt">UseGravity</font>
+<I>AutoDetect</I>
+again.
+<P>
+
+Note: This option was introduced to alleviate a problem with the
+ICCCM specification.  The ICCCM clearly states that the
+<I>UseGravity</I>
 option should be used, but traditionally applications ignored this
-rule.</p><p><a name="Style_Closable"></a><font class="fvwmopt">Closable</font>
+rule.
+<P>
+
+<I>Closable</I>
 enables the functions
-<a href="#Close">Close</a>,
-<a href="#Delete">Delete</a>
+<B>Close</B>,
+<B>Delete</B>
 and
-<a href="#Destroy">Destroy</a>
-to be performed on the windows. This is on by default.
+<B>Destroy</B>
+to be performed on the windows.  This is on by default.
 The opposite,
-<span class="emphasis"><em>!Closable</em></span>,
-inhibits the window to be closed.</p><p><a name="Style_Iconifiable"></a><font class="fvwmopt">Iconifiable</font>
+<I>!Closable</I>,
+inhibits the window to be closed.
+<P>
+
+<I>Iconifiable</I>
 enables the function
-<a href="#Iconify">Iconify</a>
+<B>Iconify</B>
 to be performed on the windows.
 This is on by default.
 The opposite,
-<span class="emphasis"><em>!Iconifiable</em></span>,
-inhibits the window from being iconified.</p><p><a name="Style_Maximizable"></a><font class="fvwmopt">Maximizable</font>
+<I>!Iconifiable</I>,
+inhibits the window from being iconified.
+<P>
+
+<I>Maximizable</I>
 enables the function
-<a href="#Maximize">Maximize</a>
+<B>Maximize</B>
 to be performed on the windows.
 This is on by default.
 The opposite,
-<span class="emphasis"><em>!Maximizable</em></span>,
-inhibits the window from being maximized.</p><p><a name="Style_AllowMaximizeFixedSize"></a><font class="fvwmopt">AllowMaximizeFixedSize</font>
+<I>!Maximizable</I>,
+inhibits the window from being maximized.
+<P>
+
+<I>AllowMaximizeFixedSize</I>
 enables the function
-<a href="#Maximize">Maximize</a>
+<B>Maximize</B>
 to be performed on windows that are not resizable, unless
 maximization has been disabled either using the style
-<span class="emphasis"><em>!Maximizable</em></span>
+<I>!Maximizable</I>
 or through WM hints.  This is on by default.  The opposite,
-<span class="emphasis"><em>!AllowMaximizeFixedSize</em></span>,
-inhibits all windows that are not resizable from being maximized.</p><p><a name="Style_ResizeHintOverride"></a><font class="fvwmopt">ResizeHintOverride</font>
+<I>!AllowMaximizeFixedSize</I>,
+inhibits all windows that are not resizable from being maximized.
+<P>
+
+<I>ResizeHintOverride</I>
 instructs fvwm to ignore the program supplied minimum and maximum
 size as well as the resize step size (the character size in many
 applications).
 This can be handy for broken applications that refuse to be
 resized.  Do not use it if you do not need it.  The default
 (opposite) style is
-<a name="Style_NoResizeOverride"></a><font class="fvwmopt">NoResizeOverride</font>.</p><p><span class="emphasis"><em>MinWindowSize  [ width [ p ]  height [ p ] ]</em></span>
+<I>NoResizeOverride</I>.
+<P>
+
+<I>MinWindowSize [ width [ p ] height [ p ] ]</I>
 Tells fvwm the minimum width and height of a window.  The values
-are the percentage of the total screen area.  If the letter
-'<span class="emphasis"><em>p</em></span>'
+are the percentage of the total screen area.  If the letter '<I>p</I>'
 is appended to either of the values, the numbers are interpreted
-as pixels. This command is useful for certain versions of xemacs
+as pixels.  This command is useful for certain versions of xemacs
 which freak out if their windows become too small.  If you omit
 he parameters or their values are invalid, both limits are set to
-0 pixels (which is the default value).</p><p><span class="emphasis"><em>MaxWindowSize  [ width [ p ]  height [ p ] ]</em></span>
+0 pixels (which is the default value).
+<P>
+
+<I>MaxWindowSize [ width [ p ] height [ p ] ]</I>
 Tells fvwm the maximum width and height of a window.  The values
-are the percentage of the total screen area.  If the letter
-'<span class="emphasis"><em>p</em></span>'
+are the percentage of the total screen area.  If the letter '<I>p</I>'
 is appended to either of the values, the numbers are interpreted
-as pixels. This command is useful to force large application
+as pixels.  This command is useful to force large application
 windows to be fully visible.  Neither
-<span class="emphasis"><em>height</em></span> nor <span class="emphasis"><em>width</em></span>
+<I>height</I> nor <I>width</I>
 may be less than 100 pixels.  If you omit the parameters or their
 values are invalid, both limits are set to 32767 pixels (which is
-the default).</p><p>With
-<a name="Style_IconifyWindowGroups"></a><font class="fvwmopt">IconifyWindowGroups</font>
+the default).
+<P>
+
+With
+<I>IconifyWindowGroups</I>
 all windows in the same window group are iconified and deiconified
 at once when any window in the group is (de)iconified.
- The default is
-<a name="Style_IconifyWindowGroupsOff"></a><font class="fvwmopt">IconifyWindowGroupsOff</font>,
+The default is
+<I>IconifyWindowGroupsOff</I>,
 which disables this behavior.  Although a number of applications
 use the window group hint, it is rarely used in a proper way, so
 it is probably best to use
-<span class="emphasis"><em>IconifyWindowGroups</em></span>
-only for selected applications.</p><p>The option <a name="Style_SnapAttraction"></a><font class="fvwmopt">SnapAttraction</font>
-affects interactive window movement:  If during an interactive
+<I>IconifyWindowGroups</I>
+only for selected applications.
+<P>
+
+The option <I>SnapAttraction</I>
+affects interactive window movement: If during an interactive
 move the window or icon comes within
-<em class="replaceable"><code>proximity</code></em> pixels of another the window
+<I>proximity</I> pixels of another the window
 or icon, it is moved to make the borders adjoin.  The default of 0
 means that no snapping happens.  Calling this command without
 arguments turns off snap attraction and restores the default
-behavior.  Please refer also to the <a href="#SnapGrid">SnapGrid</a>
-command.</p><p>The second argument determined is optional and may be set to one of the
-five following values: With <em class="replaceable"><code>All</code></em> both icons and
+behavior.  Please refer also to the <B>SnapGrid</B>
+command.
+<P>
+
+The second argument determined is optional and may be set to one of the
+five following values: With <I>All</I> both icons and
 windows snap to other windows and other icons.
-<em class="replaceable"><code>SameType</code></em> lets windows snap only to windows, and
-icons snap only to icons. With <em class="replaceable"><code>Windows</code></em> windows snap
-only to other windows. Similarly with <em class="replaceable"><code>Icons</code></em> icons
-snap only to other icons. With <em class="replaceable"><code>None</code></em> no snapping
-takes place. This option can be useful in conjunction with the following
-argument if you only want to snap against the screen edges. The default
-behavior is <span class="emphasis"><em>All</em></span>.</p><p>The third and last optional argument may be set to one of the
+<I>SameType</I> lets windows snap only to windows, and
+icons snap only to icons.  With <I>Windows</I> windows snap
+only to other windows.  Similarly with <I>Icons</I> icons
+snap only to other icons.  With <I>None</I> no snapping
+takes place.  This option can be useful in conjunction with the following
+argument if you only want to snap against the screen edges.  The default
+behavior is <I>All</I>.
+<P>
+
+The third and last optional argument may be set to one of the
 four following values: 
-</p><div class="itemizedlist"><ul type="disc"><li><p>With <em class="replaceable"><code>Screen</code></em> the
-already snapping icons or windows, which is controlled by the second
-argument, will snap now also to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenWindows</code></em> snaps
-only windows to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenIcons</code></em> snaps
-only icons to the screen edges.</p></li><li><p><em class="replaceable"><code>ScreenAll</code></em> snaps
-windows and icons to the screen edges.</p></li></ul></div><p>The option <a name="Style_SnapGrid"></a><font class="fvwmopt">SnapGrid</font> defines an
+<P>
+<DL COMPACT><DT><DD>
+&bull;With
+<I>Screen</I>
+the already snapping icons or windows, which is controlled by the second argument, will snap now also to the screen edges.
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<I>ScreenWindows</I>
+snaps only windows to the screen edges.
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<I>ScreenIcons</I>
+snaps only icons to the screen edges.
+</DL>
+
+<P>
+<DL COMPACT><DT><DD>
+&bull;<I>ScreenAll</I>
+snaps windows and icons to the screen edges.
+</DL>
+
+<P>
+
+The option <I>SnapGrid</I> defines an
 invisible grid on the screen.  During an interactive move a window
 or icon is positioned such that its location (top left corner) is
-coincident with the nearest grid point. The default
-<em class="replaceable"><code>x-grid-size</code></em> and
-<em class="replaceable"><code>y-grid-size</code></em> setting are both 1, which
-is effectively no grid all.</p><p>An interactive move with both <a href="#SnapGrid">SnapGrid</a> and
-<a href="#Style_SnapAttraction">SnapAttraction</a> results in the window
+coincident with the nearest grid point.  The default
+<I>x-grid-size</I> and
+<I>y-grid-size</I> setting are both 1, which
+is effectively no grid all.
+<P>
+
+An interactive move with both <B>SnapGrid</B> and
+<I>SnapAttraction</I> results in the window
 being moved to be adjacent to the nearest window border (if within
-snap proximity) or grid position. The window moves the shortest
-distance possible to satisfy both <a href="#SnapGrid">SnapGrid</a> and
-<a href="#Style_SnapAttraction">SnapAttraction</a>.  Note that the x and y
+snap proximity) or grid position.  The window moves the shortest
+distance possible to satisfy both <B>SnapGrid</B> and
+<I>SnapAttraction</I>.  Note that the x and y
 coordinates are not coupled.  For example, a window may snap to
 another window on the x axis while snapping to a grid point on the
 y axis.  Using this style without arguments reinstates the default
-settings.</p><p>The styles <a name="Style_EdgeMoveDelay"></a><font class="fvwmopt">EdgeMoveDelay</font> and
-<a name="Style_EdgeResizeDelay"></a><font class="fvwmopt">EdgeResizeDelay</font> tells how hard it
+settings.
+<P>
+
+The styles <I>EdgeMoveDelay</I> and
+<I>EdgeResizeDelay</I> tells how hard it
 should be to change the desktop viewport by moving or resizing a
-window over the edge of the screen. The parameter tells how many
+window over the edge of the screen.  The parameter tells how many
 milliseconds the pointer must spend on the screen edge before fvwm
-moves the viewport.  The command <a href="#EdgeScroll">EdgeScroll</a>
+moves the viewport.  The command <B>EdgeScroll</B>
 determines how far the viewport is scrolled.  If -1 is given as
 the delay, page flipping is disabled completely.  The defaults are
 no delay for moving (0) and no flipping for resizing (-1).  Using
 these styles without any argument restores the default
-settings.  Note that, with</p><pre class="programlisting">
-<a href="#EdgeScroll">EdgeScroll</a> 0 0
-</pre><p>it is still possible to move or resize windows across the
-edge of the current screen.  See also <a href="#EdgeThickness">EdgeThickness</a>.</p><p>The option <a name="Style_EdgeMoveResistance"></a><font class="fvwmopt">EdgeMoveResistance</font>
+settings.  Note that, with
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>EdgeScroll</B> 0 0
+</PRE>
+
+</DL>
+
+<P>
+
+it is still possible to move or resize windows across the
+edge of the current screen.  See also <B>EdgeThickness</B>.
+<P>
+
+The option <I>EdgeMoveResistance</I>
 makes it easier to place a window directly adjacent to the
 screen's or xinerama screen's border.  It takes one or two
 parameters.  The first parameter tells how many pixels over the
@@ -5675,179 +10264,295 @@ type of movement.  Set the second parameter to 0 to zero to ignore
 individual xinerama screen edges.  Note that the center of the
 window being moved determines the xinerama screen on which the
 window should be kept.  Both values are 0 by default.  To restore
-the defaults, the option <a name="Style_EdgeMoveResistance"></a><font class="fvwmopt">EdgeMoveResistance</font> can be used without any
-parameters.</p><p>The option <a name="Style_InitialMapCommand"></a><font class="fvwmopt">InitialMapCommand</font> allows
+the defaults, the option <I>EdgeMoveResistance</I> can be used without any
+parameters.
+<P>
+
+The option <I>InitialMapCommand</I> allows
 for any valid fvwm command or function to run when the window is 
-initially mapped by fvwm.  Example:</p><pre class="programlisting">
-<a href="#Style">Style</a> MyWindow StartsOnPage 0 0, InitialMapCommand Iconify
-</pre><p>This would hence place the window called <span class="emphasis"><em>MyWindow</em></span>
-on page 0 0 for the current desk, and immediately run the <a href="#Iconify">Iconify</a>
-command on that window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="window_manager_placement"></a>31.7.5.7. Window Manager placement</h5></div></div></div><p>Applications can place windows at a particular spot on the screen
+initially mapped by fvwm.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> MyWindow StartsOnPage 0 0, InitialMapCommand Iconify
+</PRE>
+
+</DL>
+
+<P>
+
+This would hence place the window called <I>MyWindow</I>
+on page 0 0 for the current desk, and immediately run the <B>Iconify</B>
+command on that window.
+<P>
+
+Note that should <I>InitialMapCommand</I> be
+used as a global option for all windows, but there is a need that some
+windows should not have this command applied, then an action of 
+<B>Nop</B> can be used on those windows, as in the following
+example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> * InitialMapCommand Iconify
+<B>Style</B> XTeddy InitialMapCommand Nop
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Window Manager placement</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Applications can place windows at a particular spot on the screen
 either by window manager hints or a geometry specification.  When
 they do neither, then the window manager steps in to find a place
 for the window.  Fvwm knows several ways to deal with this
-situation. The default is
-<span class="emphasis"><em>TileCascadePlacement</em></span>.</p><p>
-<a name="Style_PositionPlacement"></a><font class="fvwmopt">PositionPlacement</font>
-[<span class="emphasis"><em>Center</em></span>|<span class="emphasis"><em>UnderMouse</em></span>|<span class="emphasis"><em>move-arguments</em></span>]
+situation.  The default is
+<I>TileCascadePlacement</I>.
+<P>
+
+<I>PositionPlacement</I>
+[<I>Center</I>|<I>UnderMouse</I>|<I>move-arguments</I>]
 When used without an argument, new windows are placed in the
 top left corner of the display.  With the argument
-<span class="emphasis"><em>Center</em></span>,
+<I>Center</I>,
 all new window appear at the center of the screen, and with
-<span class="emphasis"><em>UnderMouse</em></span>,
+<I>UnderMouse</I>,
 windows are centered under the mouse pointer where possible.  If the window
 is unable to fit on the screen because the pointer is at the edge of the
 screen, then the window is forced on-screen using this option.  If any other
-<span class="emphasis"><em>move-arguments</em></span>
+<I>move-arguments</I>
 are given, they are interpreted exactly as the
-<span class="emphasis"><em>Move</em></span>
+<B>Move</B>
 command does (with the exception that references to the current
 window position do not work as the window has not been placed
-yet).</p><p><a name="Style_CascadePlacement"></a><font class="fvwmopt">CascadePlacement</font>
-automatically place new windows in a cascading fashion.</p><p>
-<a name="Style_TileCascadePlacement"></a><font class="fvwmopt">TileCascadePlacement</font>
+yet).
+<P>
+
+<I>CascadePlacement</I>
+automatically place new windows in a cascading fashion.
+<P>
+
+<I>TileCascadePlacement</I>
 automatically places new windows in a smart location - a location
 in which they do not overlap any other windows on the screen.  If
 no such position can be found
-<span class="emphasis"><em>CascadePlacement</em></span>
-is used as a fall-back method.</p><p><a name="Style_TileManualPlacement"></a><font class="fvwmopt">TileManualPlacement</font>
+<I>CascadePlacement</I>
+is used as a fall-back method.
+<P>
+
+<I>TileManualPlacement</I>
 This is the same as
-<span class="emphasis"><em>TileCascadePlacement</em></span>,
+<I>TileCascadePlacement</I>,
 but uses
-<span class="emphasis"><em>ManualPlacement</em></span>
-as the fall-back method.</p><p><a name="Style_MinOverlapPlacement"></a><font class="fvwmopt">MinOverlapPlacement</font>
+<I>ManualPlacement</I>
+as the fall-back method.
+<P>
+
+<I>MinOverlapPlacement</I>
 automatically places new windows in a location in which the
 overlapping area in pixels of other windows is minimized.
 By default this placement policy tries to avoid
 overlapping icons and windows on higher layers.
 This can be configured with the
-<a name="Style_MinOverlapPlacementPenalties"></a><font class="fvwmopt">MinOverlapPlacementPenalties</font>
-style.</p><p><a name="Style_MinOverlapPercentPlacement"></a><font class="fvwmopt">MinOverlapPercentPlacement</font>
+<I>MinOverlapPlacementPenalties</I>
+style.
+<P>
+
+<I>MinOverlapPercentPlacement</I>
 is similar to
-<span class="emphasis"><em>MinOverlapPlacement</em></span>
+<I>MinOverlapPlacement</I>
 but tries to minimize the overlapped percentages of other windows
 instead of the overlapped area in pixels.  This placement policy
 tries to avoid covering other windows completely and tries even
 harder not to cover small windows.
 This can be configured with the
-<span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>
+<I>MinOverlapPlacementPenalties</I>
 and
-<a name="Style_MinOverlapPercentPlacementPenalties"></a><font class="fvwmopt">MinOverlapPercentPlacementPenalties</font>
-styles.</p><p><span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>
-takes at most 6 positive or null decimal arguments:</p><pre class="programlisting">
-<span class="emphasis"><em>normal ontop icon sticky below strut</em></span>
-</pre><p>if trailing arguments are missing the default is used which is:</p><pre class="programlisting">
+<I>MinOverlapPercentPlacementPenalties</I>
+styles.
+<P>
+
+<I>MinOverlapPlacementPenalties</I>
+takes at most 6 positive or null decimal arguments:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<I>normal ontop icon sticky below strut</I>
+</PRE>
+
+</DL>
+
+<P>
+
+if trailing arguments are missing the default is used which is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 1 5 10 1 0.05 50
-</pre><p>To reset this style to the default values, prefix it with a '!'. This style configures the
-<span class="emphasis"><em>MinOverlapPlacement</em></span> and <span class="emphasis"><em>MinOverlapPercentPlacement</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+To reset this style to the default values, prefix it with a '!'.  This style configures the
+<I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
 placement policy.
 The
-<span class="emphasis"><em>normal</em></span>
+<I>normal</I>
 factor affects normal windows, the
-<span class="emphasis"><em>ontop</em></span>
+<I>ontop</I>
 factor affects windows with a greater layer than the window being
 placed, the
-<span class="emphasis"><em>icon</em></span>
+<I>icon</I>
 factor affects icons, the
-<span class="emphasis"><em>sticky</em></span>
+<I>sticky</I>
 factor affects sticky windows, the
-<span class="emphasis"><em>below</em></span>
+<I>below</I>
 factor affects windows with a smaller layer than the window being
 placed, the
-<span class="emphasis"><em>strut</em></span>
-factor affects the complement of the <acronym class="acronym">EWMH</acronym> working area if the
+<I>strut</I>
+factor affects the complement of the EWMH working area if the
 window being placed has the
-<a name="Style_EWMHPlacementUseWorkingArea"></a><font class="fvwmopt">EWMHPlacementUseWorkingArea</font>
-style and windows with an <acronym class="acronym">EWMH</acronym> strut hint (i.e., a "please do not
-cover me" hint) if the window being placed has the
-<a name="Style_EWMHPlacementUseDynamicWorkingArea"></a><font class="fvwmopt">EWMHPlacementUseDynamicWorkingArea</font>
+<I>EWMHPlacementUseWorkingArea</I>
+style and windows with an EWMH strut hint (i.e., a &quot;please do not
+cover me&quot; hint) if the window being placed has the
+<I>EWMHPlacementUseDynamicWorkingArea</I>
 style.  These factors represent the amount of area that these
 types of windows (or area) are counted as, when a new window is
 placed.  For example, by default the area of ontop windows is
 counted 5 times as much as normal windows.  So
-<span class="emphasis"><em>MinOverlapPlacement</em></span> and <span class="emphasis"><em>MinOverlapPercentPlacement</em></span>
+<I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
 covers 5 times as much area of another window before it will
 cover an ontop window.  To treat ontop windows the same as other
 windows, set this to 1.  To really, really avoid putting windows
-under ontop windows, set this to a high value, say 1000. This
+under ontop windows, set this to a high value, say 1000.  This
 style affects the window already mapped and not the window which
-is currently placed. There is one exception to this rule: in the
+is currently placed.  There is one exception to this rule: in the
 case of the window being placed has the
-<span class="emphasis"><em>EWMHPlacementUseWorkingArea</em></span>
+<I>EWMHPlacementUseWorkingArea</I>
 style the
-<span class="emphasis"><em>strut</em></span>
-factor affects the placed window.</p><p><span class="emphasis"><em>MinOverlapPercentPlacementPenalties</em></span>
-takes at most 4 positive or null integer arguments:</p><pre class="programlisting">
-<span class="emphasis"><em>cover_100 cover_95 cover_85 cover_75</em></span>
-</pre><p>if trailing arguments are missing the defaults are used
-which are:</p><pre class="programlisting">
-12 6 4 1
-</pre><p>To reset this style to the default values, prefix it with a '!'.
+<I>strut</I>
+factor affects the placed window.
+<P>
 
+<I>MinOverlapPercentPlacementPenalties</I>
+takes at most 4 positive or null integer arguments:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<I>cover_100 cover_95 cover_85 cover_75</I>
+</PRE>
+
+</DL>
+
+<P>
+
+if trailing arguments are missing the defaults are used
+which are:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+12 6 4 1
+</PRE>
+
+</DL>
+
+<P>
+
+To reset this style to the default values, prefix it with a '!'.
 This style affects the
-<span class="emphasis"><em>MinOverlapPercentPlacement</em></span>
+<I>MinOverlapPercentPlacement</I>
 placement policy and is similar to the
-<span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>
-style. The
-<span class="emphasis"><em>cover_xx</em></span>
+<I>MinOverlapPlacementPenalties</I>
+style.  The
+<I>cover_xx</I>
 factor is used when the window being placed covers at least
-<span class="emphasis"><em>xx</em></span>
-percent of the window. This factor is added to the factor
+<I>xx</I>
+percent of the window.  This factor is added to the factor
 determined by the
-<span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>
-style.</p><p>
-<a name="Style_ManualPlacement"></a><font class="fvwmopt">ManualPlacement</font>
-(aka active placement). The user is required to place every new
+<I>MinOverlapPlacementPenalties</I>
+style.
+<P>
+
+<I>ManualPlacement</I>
+(aka active placement).  The user is required to place every new
 window manually.  The window only shows as a rubber band until a
-place is selected manually. The window is placed when a mouse
+place is selected manually.  The window is placed when a mouse
 button or any key except
-<a name="Style_Escape"></a><font class="fvwmopt">Escape</font>
+<I>Escape</I>
 is pressed.  Escape aborts manual placement which places the
-window in the top left corner of the screen. If mouse button 2 is
+window in the top left corner of the screen.  If mouse button 2 is
 pressed during the initial placement of a window (respectively
-<a name="Style_Shift"></a><font class="fvwmopt">Shift</font>
+<I>Shift</I>
 and mouse button 1 in case Mwm emulation has been enabled with the
-<a href="#Emulate">Emulate</a>
-command), the user is asked to resize the window too.</p><p>It is possible to define buttons usable to place windows with the
-<a href="#Move">Move</a>
+<B>Emulate</B>
+command), the user is asked to resize the window too.
+<P>
+
+It is possible to define buttons usable to place windows with the
+<B>Move</B>
 command and the special context 'P' for placement (see
-<a href="#Move">Move</a>
-command). However, you can't redefine the way to also resize the
+<B>Move</B>
+command).  However, you can't redefine the way to also resize the
 window other than the way it is affected by the
-<a href="#Emulate">Emulate</a>
-command. The button used for placing the window can be checked with
+<B>Emulate</B>
+command.  The button used for placing the window can be checked with
 the
-<a name="Style_PlacedByButton"></a><font class="fvwmopt">PlacedByButton</font>
+<I>PlacedByButton</I>
 condition (see
-<a href="#Current">Current</a>
-command).</p><p>Example:</p><pre class="programlisting">
+<B>Current</B>
+command).
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * ManualPlacement
 
 *FvwmEvent: PassID
 *FvwmEvent: add_window GrowDownFunc
-<a href="#AddToFunc">AddToFunc</a> StartFunction
+<B>AddToFunc</B> StartFunction
 + I FvwmEvent
 
-<a href="#AddToFunc">AddToFunc</a> GrowDownFunc
+<B>AddToFunc</B> GrowDownFunc
 + I windowid $0 (PlacedByButton 3) \
-  <a href="#Resize">Resize</a> bottomright keep -0p
-</pre><p>Now, whenever a window is created and the user presses button 3 to
+  <B>Resize</B> bottomright keep -0p
+</PRE>
+
+</DL>
+
+<P>
+
+Now, whenever a window is created and the user presses button 3 to
 finish initial placement, the window is automatically enlarged
-until it hits the bottom screen border.</p><p><span class="emphasis"><em>Old placement styles</em></span>
+until it hits the bottom screen border.
+<P>
+
+<I>Old placement styles</I>
 DumbPlacement / SmartPlacement / SmartPlacementOff,
 CleverPlacement / CleverPlacementOff,
 ActivePlacement / RandomPlacement,
 ActivePlacementsHonorsStartsOnPage /
 ActivePlacementsHonorsStartsOnPageOff, GlobalOpts
 SmartPlacementIsReallySmart / GlobalOpts SmartPlacementIsNormal
-are still supported but will be removed in the future. The old and
-new styles can be translated according to the following table:</p><pre class="programlisting">
-<a href="#GlobalOpts">GlobalOpts</a> SmartPlacementIsReallySmart
+are still supported but will be removed in the future.  The old and
+new styles can be translated according to the following table:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>GlobalOpts</B> SmartPlacementIsReallySmart
 Style * SmartPlacement
 --&gt;
 Style * SmartPlacement, CleverPlacement
 
-<a href="#GlobalOpts">GlobalOpts</a> SmartPlacementIsNormal
+<B>GlobalOpts</B> SmartPlacementIsNormal
 Style * SmartPlacement
   --&gt;
 Style * SmartPlacement, CleverPlacementOff
@@ -5886,60 +10591,88 @@ Style * ManualPlacementsHonorsStartsOnPage
 Style * ActivePlacementsHonorsStartsOnPageOff
   --&gt;
 Style * ManualPlacementsHonorsStartsOnPageOff
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="placement_policy_and_window_stacking"></a>31.7.5.8. Placement policy options and window stacking</h5></div></div></div><p><a name="Style_NoUsePPosition"></a><font class="fvwmopt">NoUsePPosition</font>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Placement policy options and window stacking</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<I>NoUsePPosition</I>
 instructs fvwm to ignore the program specified position (PPosition
 hint) when adding new windows.  Using PPosition is required for
 some applications, but if you do not have one of those it's a real
 headache.  Many programs set PPosition to something obnoxious like
 0,0 (upper left corner).
-Note: <span class="emphasis"><em>!UsePPosition</em></span>
+Note: <I>!UsePPosition</I>
 is equivalent to the deprecated option
-<span class="emphasis"><em>NoPPosition</em></span></p><p><a name="Style_NoUseUSPosition"></a><font class="fvwmopt">NoUseUSPosition</font>
+<I>NoPPosition</I>
+<P>
+
+<I>NoUseUSPosition</I>
 works like
-<span class="emphasis"><em>!UsePPosition</em></span>
+<I>!UsePPosition</I>
 but applies suppresses using the user specified position indicated
 by the program (USPosition hint).  It is generally a bad thing to
 override the user's choice, but some applications misuse the
 USPosition hint to force their windows to a certain spot on the
 screen without the user's consent.
-Note: <span class="emphasis"><em>!UseUSPosition</em></span>
+Note: <I>!UseUSPosition</I>
 is equivalent to the deprecated option
-<span class="emphasis"><em>!USPosition</em></span></p><p>
-<a name="Style_NoUseTransientPPosition"></a><font class="fvwmopt">NoUseTransientPPosition</font> and
-<a name="Style_UseTransientPPosition"></a><font class="fvwmopt">UseTransientPPosition</font>
+<I>!USPosition</I>
+<P>
+
+<I>NoUseTransientPPosition</I> and
+<I>UseTransientPPosition</I>
 work like
-<span class="emphasis"><em>!UsePPosition</em></span> and
-<span class="emphasis"><em>UsePPosition</em></span>
+<I>!UsePPosition</I> and
+<I>UsePPosition</I>
 but apply only to transient windows.
-Note: <span class="emphasis"><em>!UseTransientPPosition</em></span>
+Note: <I>!UseTransientPPosition</I>
 is equivalent to the deprecated option
-<span class="emphasis"><em>!TransientPPosition</em></span></p><p><a name="Style_NoUseIconPosition"></a><font class="fvwmopt">NoUseIconPosition</font>
+<I>!TransientPPosition</I>
+<P>
+
+<I>NoUseIconPosition</I>
 instructs fvwm to ignore the program specified icon position
 (IconPosition hint) when iconifying the window.
-Note: <span class="emphasis"><em>!UseIconPosition</em></span>
+Note: <I>!UseIconPosition</I>
 is equivalent to the deprecated option
-<span class="emphasis"><em>!IconPosition</em></span></p><p><a name="Style_StartsOnDesk"></a><font class="fvwmopt">StartsOnDesk</font>
+<I>!IconPosition</I>
+<P>
+
+<I>StartsOnDesk</I>
 takes a numeric argument which is the desktop number on which the
 window should be initially placed.  Note that standard Xt programs
-can also specify this via a resource (e.g. "-xrm '*Desk: 1'").</p><p><a name="Style_StartsOnPage"></a><font class="fvwmopt">StartsOnPage</font>
+can also specify this via a resource (e.g. &quot;-xrm '*Desk: 1'&quot;).
+<P>
+
+<I>StartsOnPage</I>
 takes 1, 2, or 3 numeric arguments.  If one or three arguments are
-given, the first (or only) argument is the desktop number. If
+given, the first (or only) argument is the desktop number.  If
 three arguments are given, the 2nd and 3rd arguments identify the
 x,y page position on the virtual window.  If two arguments are
 given, they specify the page position, and indicate no desk
 preference.  If only one argument is given,
-<span class="emphasis"><em>StartsOnPage</em></span>
+<I>StartsOnPage</I>
 functions exactly like
-<span class="emphasis"><em>StartsOnDesk</em></span>.
+<I>StartsOnDesk</I>.
 For those standard Xt programs which understand this usage, the
 starting desk/page can also be specified via a resource (e.g.,
-"-xrm '*page: 1 0 2'").
-<span class="emphasis"><em>StartsOnPage</em></span>
+&quot;-xrm '*page: 1 0 2'&quot;).
+<I>StartsOnPage</I>
 in conjunction with
-<a name="Style_SkipMapping"></a><font class="fvwmopt">SkipMapping</font>
+<I>SkipMapping</I>
 is a useful technique when you want to start an app on some other
 page and continue with what you were doing, rather than waiting
-for it to appear.</p><p><a name="Style_StartsOnScreen"></a><font class="fvwmopt">StartsOnScreen</font>
+for it to appear.
+<P>
+
+<I>StartsOnScreen</I>
 takes one argument.  It can be 'p' for the primary screen, 'c' for
 the current screen (containing the mouse pointer), 'g' for the
 global screen or the screen number itself (counting from zero).  A
@@ -5949,358 +10682,549 @@ pointer at the time the window is created.  However, those windows
 which are not placed by fvwm (i.e., those with a USPosition hint
 from a user specified geometry) are normally placed in a position
 relative to the global screen.  The
-<span class="emphasis"><em>StartsOnScreen</em></span>
+<I>StartsOnScreen</I>
 style is also useful to cause these windows to be placed relative
-to a specific Xinerama screen.  For example:</p><pre class="programlisting">
+to a specific Xinerama screen.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * StartsOnScreen c
-</pre><p>Would cause all windows, including those with their own geometry
+</PRE>
+
+</DL>
+
+<P>
+
+Would cause all windows, including those with their own geometry
 to be placed relative to the current Xinerama screen rather than
 the global screen.  For those standard Xt programs which
 understand this usage, the starting desk/page can also be
-specified via a resource (e.g., "-xrm '*fvwmscreen: c'").
+specified via a resource (e.g., &quot;-xrm '*fvwmscreen: c'&quot;).
 ('fvwmscreen' was chosen because some applications already use
-´.screen' for other purposes.)</p><p><a name="Style_StartsOnPageIncludesTransients"></a><font class="fvwmopt">StartsOnPageIncludesTransients</font>
+&acute;.screen' for other purposes.)
+<P>
+
+<I>StartsOnPageIncludesTransients</I>
 causes the
-<span class="emphasis"><em>StartsOnPage</em></span>
+<I>StartsOnPage</I>
 style to be applied even for transient windows.  This is not
 usually useful, since transients are usually pop ups that you want
 to appear in your visible viewport; but occasionally an
 application uses a transient for something like a startup window
-that needs to be coerced into place.</p><p><a name="Style_ManualPlacementIgnoresStartsOnPage"></a><font class="fvwmopt">ManualPlacementIgnoresStartsOnPage</font>
+that needs to be coerced into place.
+<P>
+
+<I>ManualPlacementIgnoresStartsOnPage</I>
 suppresses
-<span class="emphasis"><em>StartsOnPage</em></span> or <span class="emphasis"><em>StartsOnDesk</em></span>
+<I>StartsOnPage</I> or <I>StartsOnDesk</I>
 placement in the event that both
-<span class="emphasis"><em>ManualPlacement</em></span> and <span class="emphasis"><em>SkipMapping</em></span>
+<I>ManualPlacement</I> and <I>SkipMapping</I>
 are in effect when a window is created.  This prevents you from
 interactively placing a window and then wondering where it
 disappeared to, because it got placed on a different desk or page.
-<a name="Style_ManualPlacementHonorsStartsOnPage"></a><font class="fvwmopt">ManualPlacementHonorsStartsOnPage</font>
+<I>ManualPlacementHonorsStartsOnPage</I>
 allows this to happen anyway.  The option has no effect if
-<span class="emphasis"><em>SkipMapping</em></span>
+<I>SkipMapping</I>
 is not in effect, because fvwm switches to the proper desk/page to
 perform interactive placement.  The default is
-<span class="emphasis"><em>ManualPlacementIgnoresStartsOnPage</em></span>;
-<span class="emphasis"><em>ManualPlacementHonorsStartsOnPage</em></span>
+<I>ManualPlacementIgnoresStartsOnPage</I>;
+<I>ManualPlacementHonorsStartsOnPage</I>
 matches the way the old
-<span class="emphasis"><em>StartsOnDesk</em></span>
-style used to handle the situation.</p><p><a name="Style_CaptureHonorsStartsOnPage"></a><font class="fvwmopt">CaptureHonorsStartsOnPage</font>
+<I>StartsOnDesk</I>
+style used to handle the situation.
+<P>
+
+<I>CaptureHonorsStartsOnPage</I>
 causes the initial capture (of an already existing window) at
 startup to place the window according to the
-<span class="emphasis"><em>StartsOnPage</em></span> and <span class="emphasis"><em>StartsOnScreen</em></span>
+<I>StartsOnPage</I> and <I>StartsOnScreen</I>
 desk, page and Xinerama screen specification.
-<a name="Style_CaptureIgnoresStartsOnPage"></a><font class="fvwmopt">CaptureIgnoresStartsOnPage</font>
+<I>CaptureIgnoresStartsOnPage</I>
 causes fvwm to ignore these settings (including
-<span class="emphasis"><em>StartsOnDesk</em></span>)
+<I>StartsOnDesk</I>)
 on initial capture.  The default is
-<span class="emphasis"><em>CaptureIgnoresStartsOnPage</em></span>.</p><p><a name="Style_RecaptureHonorsStartsOnPage"></a><font class="fvwmopt">RecaptureHonorsStartsOnPage</font>
+<I>CaptureIgnoresStartsOnPage</I>.
+<P>
+
+<I>RecaptureHonorsStartsOnPage</I>
 causes a window to be placed according to, or revert to, the
-<span class="emphasis"><em>StartsOnPage</em></span> and <span class="emphasis"><em>StartsOnScreen</em></span>
+<I>StartsOnPage</I> and <I>StartsOnScreen</I>
 desk, page and Xinerama screen specification on
-<a href="#Restart">Restart</a> or <a name="Style_Recapture"></a><font class="fvwmopt">Recapture</font>.
-<a name="Style_RecaptureIgnoresStartsOnPage"></a><font class="fvwmopt">RecaptureIgnoresStartsOnPage</font>
+<B>Restart</B> or <I>Recapture</I>.
+<I>RecaptureIgnoresStartsOnPage</I>
 causes fvwm to respect the current window position on
-<a href="#Restart">Restart</a> or <a href="#Recapture">Recapture</a>.
+<B>Restart</B> or <B>Recapture</B>.
 The default is
-<span class="emphasis"><em>RecaptureIgnoresStartsOnPage</em></span>.</p><p>
-<a name="Style_Layer"></a><font class="fvwmopt">Layer</font>
+<I>RecaptureIgnoresStartsOnPage</I>.
+<P>
+
+<I>Layer</I>
 accepts one optional argument: a non-negative integer.  This is
 the layer the window is put in.  If no argument is given, any
-previously set value is deleted and the default layer is implied.</p><p><a name="Style_StaysOnTop"></a><font class="fvwmopt">StaysOnTop</font>
+previously set value is deleted and the default layer is implied.
+<P>
+
+<I>StaysOnTop</I>
 puts the window in the top layer.  This layer can be changed by
 the command
-<a href="#DefaultLayers">DefaultLayers</a>;
-the default is 6.</p><p><a name="Style_StaysPut"></a><font class="fvwmopt">StaysPut</font>
+<B>DefaultLayers</B>;
+the default is 6.
+<P>
+
+<I>StaysPut</I>
 puts the window in the put layer.  This layer can be changed by
 the command
-<a href="#DefaultLayers">DefaultLayers</a>;
-the default is 4.</p><p><a name="Style_StaysOnBottom"></a><font class="fvwmopt">StaysOnBottom</font>
+<B>DefaultLayers</B>;
+the default is 4.
+<P>
+
+<I>StaysOnBottom</I>
 puts the window in the bottom layer.  This layer can be changed by
 the command
-<a href="#DefaultLayers">DefaultLayers</a>;
-the default is 2.</p><p><a name="Style_StartsLowered"></a><font class="fvwmopt">StartsLowered</font>
+<B>DefaultLayers</B>;
+the default is 2.
+<P>
+
+<I>StartsLowered</I>
 instructs fvwm to put the window initially at the bottom of its
 layer rather than the default
-<a name="Style_StartsRaised"></a><font class="fvwmopt">StartsRaised</font>.</p><p><a name="Style_StartShaded"></a><font class="fvwmopt">StartShaded</font>
+<I>StartsRaised</I>.
+<P>
+
+<I>StartShaded</I>
 tells fvwm to shade the window.  An optional direction argument may be
 given, which can be one of
-"<a name="WindowShade_North"></a><font class="fvwmopt">North</font>",
-"<a name="WindowShade_South"></a><font class="fvwmopt">South</font>",
-"<a name="WindowShade_West"></a><font class="fvwmopt">West</font>",
-"<a name="WindowShade_East"></a><font class="fvwmopt">East</font>",
-"<a name="WindowShade_NorthWest"></a><font class="fvwmopt">NorthWest</font>",
-"<a name="WindowShade_NorthEast"></a><font class="fvwmopt">NorthEast</font>",
-"<a name="WindowShade_SouthWest"></a><font class="fvwmopt">SouthWest</font>",
-"<a name="WindowShade_SouthEast"></a><font class="fvwmopt">SouthEast</font>" or
-if no direction is given, the default is to shade north.</p><p><span class="emphasis"><em>SkipMapping</em></span>
+&quot;<I>North</I>&quot;,
+&quot;<I>South</I>&quot;,
+&quot;<I>West</I>&quot;,
+&quot;<I>East</I>&quot;,
+&quot;<I>NorthWest</I>&quot;,
+&quot;<I>NorthEast</I>&quot;,
+&quot;<I>SouthWest</I>&quot;,
+&quot;<I>SouthEast</I>&quot; or
+if no direction is given, the default is to shade north.
+<P>
+
+<I>SkipMapping</I>
 tells fvwm not to switch to the desk the window is on when it gets
 mapped initially (useful with
-<span class="emphasis"><em>StartsOnDesk</em></span> or <span class="emphasis"><em>StartsOnPage</em></span>).</p><p><a name="Style_KeepWindowGroupsOnDesk"></a><font class="fvwmopt">KeepWindowGroupsOnDesk</font>
+<I>StartsOnDesk</I> or <I>StartsOnPage</I>).
+<P>
+
+<I>KeepWindowGroupsOnDesk</I>
 makes new windows that have the window group hint set appear on
 the same desk as the other windows of the same group.  Since this
 behavior may be confusing, the default setting is
-<a name="Style_ScatterWindowGroups"></a><font class="fvwmopt">ScatterWindowGroups</font>.
+<I>ScatterWindowGroups</I>.
 The window group hint is ignored when placing windows in this
-case.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="transient_windows"></a>31.7.5.9. Transient windows</h5></div></div></div><p><a name="Style_DecorateTransient"></a><font class="fvwmopt">DecorateTransient</font>
+case.
+</DL>
+
+<DT><B>Transient windows</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<I>DecorateTransient</I>
 causes transient windows, which are normally left undecorated, to
 be given the usual fvwm decorations (title bar, buttons,
-etc.). Note that some pop-up windows, such as the xterm menus, are
+etc.).  Note that some pop-up windows, such as the xterm menus, are
 not managed by the window manager and still do not receive
 decorations.
-<a name="Style_NakedTransient"></a><font class="fvwmopt">NakedTransient</font>
+<I>NakedTransient</I>
 (the default) causes transient windows not to be given the
-standard decorations. You can only bind keys or mouse buttons to
+standard decorations.  You can only bind keys or mouse buttons to
 the sides and the client part of an undecorated window ('S' and
-´W' contexts in bindings, see
-<a href="#Mouse">Mouse</a> and <a name="Style_Key"></a><font class="fvwmopt">Key</font>
-commands).</p><p>A window with the
-<a name="Style_RaiseTransient"></a><font class="fvwmopt">RaiseTransient</font>
+&acute;W' contexts in bindings, see
+<B>Mouse</B> and <I>Key</I>
+commands).
+<P>
+
+A window with the
+<I>RaiseTransient</I>
 style that has transient windows raises all its transients when it
 is raised.  The
-<a name="Style_DontRaiseTransient"></a><font class="fvwmopt">DontRaiseTransient</font>
+<I>DontRaiseTransient</I>
 style disables this behavior.  All windows are then treated as if
-they had no transients.</p><p>A window with the
-<a name="Style_LowerTransient"></a><font class="fvwmopt">LowerTransient</font>
+they had no transients.
+<P>
+
+A window with the
+<I>LowerTransient</I>
 style that has transient windows lowers all its transients when it
 is lowered.  The
-<a name="Style_DontLowerTransient"></a><font class="fvwmopt">DontLowerTransient</font>
+<I>DontLowerTransient</I>
 style disables this behavior.  All windows are then treated as if
-they had no transients.</p><p>The
-<a name="Style_StackTransientParent"></a><font class="fvwmopt">StackTransientParent</font>
+they had no transients.
+<P>
+
+The
+<I>StackTransientParent</I>
 style augments
-<span class="emphasis"><em>RaiseTransient</em></span> and <span class="emphasis"><em>LowerTransient</em></span>
+<I>RaiseTransient</I> and <I>LowerTransient</I>
 styles.  Raising a window with
-<span class="emphasis"><em>StackTransientParent</em></span>
+<I>StackTransientParent</I>
 style transfers the raise action to the main window if the window
 being raised is a transient and its main window has
-<span class="emphasis"><em>RaiseTransient</em></span>
+<I>RaiseTransient</I>
 style; this effect makes raise on a transient act just like raise
 on its main - the whole group is raised.  Similar behavior holds
 for lowering a whole group of transients when the main has
-<span class="emphasis"><em>LowerTransient</em></span>
+<I>LowerTransient</I>
 style.
-<a name="Style_DontStackTransientParent"></a><font class="fvwmopt">DontStackTransientParent</font>
+<I>DontStackTransientParent</I>
 turns this behavior off.
-<a name="Style_(Dont)StackTransientParent"></a><font class="fvwmopt">(Dont)StackTransientParent</font>
+<I>(Dont)StackTransientParent</I>
 has no effect if
-<span class="emphasis"><em>RaiseTransient</em></span> and <span class="emphasis"><em>LowerTransient</em></span>
-are not used.</p><p>A reasonable emulation of Motif raise/lower on transients is
-possible like this</p><pre class="programlisting">
+<I>RaiseTransient</I> and <I>LowerTransient</I>
+are not used.
+<P>
+
+A reasonable emulation of Motif raise/lower on transients is
+possible like this
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * RaiseTransient
 Style * LowerTransient
 Style * StackTransientParent
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="ewmh"></a>31.7.5.10. Extended Window Manager Hints styles</h5></div></div></div><p>To understand the used terminology in this sub section, please
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Extended Window Manager Hints styles</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+To understand the used terminology in this sub section, please
 read the
-<a href="#extended_window_manager_hints">Extended Window Manager Hints</a>
-section.</p><p><a name="Style_EWMHDonateIcon"></a><font class="fvwmopt">EWMHDonateIcon</font>
+<B>Extended Window Manager Hints</B>
+section.
+<P>
+
+<I>EWMHDonateIcon</I>
 instructs fvwm to set the application ewmh icon hint with the icon
 that is used by fvwm if the application does not provide such hint
 (and if the icon used by fvwm is not an icon window).
-<a name="Style_EWMHDonateMiniIcon"></a><font class="fvwmopt">EWMHDonateMiniIcon</font>
-does the same thing for mini icons. This allows compliant pager,
+<I>EWMHDonateMiniIcon</I>
+does the same thing for mini icons.  This allows compliant pager,
 taskbar, iconbox ...etc to display the same (mini) icons as
-fvwm. Note that on some hardware (e.g., 8-bit displays) these
+fvwm.  Note that on some hardware (e.g., 8-bit displays) these
 styles can slow down window mapping and that in general only one
 of these styles is needed by a compliant application.
-<a name="Style_EWMHDontDonateIcon"></a><font class="fvwmopt">EWMHDontDonateIcon</font>
+<I>EWMHDontDonateIcon</I>
 and
-<a name="Style_EWMHDontDonateMiniIcon"></a><font class="fvwmopt">EWMHDontDonateMiniIcon</font>
+<I>EWMHDontDonateMiniIcon</I>
 restore the defaults which are to not set any ewmh (mini) icons
-hints.</p><p>By default, if an application provides an ewmh icon hint of small
+hints.
+<P>
+
+By default, if an application provides an ewmh icon hint of small
 size (i.e., height and width less than or equal to 22), then fvwm
 uses this icon as its mini icon.
-<a name="Style_EWMHMiniIconOverride"></a><font class="fvwmopt">EWMHMiniIconOverride</font>
+<I>EWMHMiniIconOverride</I>
 instructs fvwm to ignore ewmh icons and to use the mini icon
 provided by the
-<span class="emphasis"><em>MiniIcon</em></span>
+<I>MiniIcon</I>
 style.
-<a name="Style_EWMHNoMiniIconOverride"></a><font class="fvwmopt">EWMHNoMiniIconOverride</font>
-restores the default.</p><p><a name="Style_EWMHUseStackingOrderHints"></a><font class="fvwmopt">EWMHUseStackingOrderHints</font>
-causes fvwm to use <acronym class="acronym">EWMH</acronym> hints and respect <acronym class="acronym">EWMH</acronym> hints which change
+<I>EWMHNoMiniIconOverride</I>
+restores the default.
+<P>
+
+<I>EWMHUseStackingOrderHints</I>
+causes fvwm to use EWMH hints and respect EWMH hints which change
 the window layer.
-<a name="Style_EWMHIgnoreStackingOrderHints"></a><font class="fvwmopt">EWMHIgnoreStackingOrderHints</font>
-causes fvwm to ignore EWMH layer hints.</p><p>An application can ask for some reserved space on the desktop by a
-hint.  In the <acronym class="acronym">EWMH</acronym> terminology such a hint is called a strut and
+<I>EWMHIgnoreStackingOrderHints</I>
+causes fvwm to ignore EWMH layer hints.
+<P>
+
+An application can ask for some reserved space on the desktop by a
+hint.  In the EWMH terminology such a hint is called a strut and
 it is used to compute the working area and may be used for window
 placement and in the maximize command.
-<a name="Style_EWMHIgnoreStrutHints"></a><font class="fvwmopt">EWMHIgnoreStrutHints</font>
+<I>EWMHIgnoreStrutHints</I>
 causes fvwm to ignore such hints, as
-<a name="Style_EWMHUseStrutHints"></a><font class="fvwmopt">EWMHUseStrutHints</font>,
-causes fvwm to use it which is the default.</p><p><a name="Style_EWMHIgnoreStateHints"></a><font class="fvwmopt">EWMHIgnoreStateHints</font>
-causes fvwm to ignore initial <acronym class="acronym">EWMH</acronym> state hints when a new window
-is mapped. The default
-<a name="Style_EWMHUseStateHints"></a><font class="fvwmopt">EWMHUseStateHints</font>
-causes fvwm to accept such hints.</p><p><a name="Style_EWMHIgnoreWindowType"></a><font class="fvwmopt">EWMHIgnoreWindowType</font>
-causes fvwm to ignore <acronym class="acronym">EWMH</acronym> window type specification. The default
-<span class="emphasis"><em>!EWMHIgnoreWindowType</em></span>
-causes fvwm to style windows of specified types as such.</p><p><a name="Style_EWMHMaximizeIgnoreWorkingArea"></a><font class="fvwmopt">EWMHMaximizeIgnoreWorkingArea</font>
-causes fvwm to ignore the <acronym class="acronym">EWMH</acronym> working area when it executes a
-<a href="#Maximize">Maximize</a>
-command. With
-<a name="Style_EWMHMaximizeUseWorkingArea"></a><font class="fvwmopt">EWMHMaximizeUseWorkingArea</font>
-the <acronym class="acronym">EWMH</acronym> working area is used as with
-<a name="Style_EWMHMaximizeUseDynamicWorkingArea"></a><font class="fvwmopt">EWMHMaximizeUseDynamicWorkingArea</font>
-the <acronym class="acronym">EWMH</acronym> dynamic working area is used (the default).</p><p><a name="Style_EWMHPlacementIgnoreWorkingArea"></a><font class="fvwmopt">EWMHPlacementIgnoreWorkingArea</font>
-causes fvwm to ignore the <acronym class="acronym">EWMH</acronym> working area when it places (or
-places again) a window. With
-<span class="emphasis"><em>EWMHPlacementUseWorkingArea</em></span>
-the <acronym class="acronym">EWMH</acronym> working area is taken in account as with
-<span class="emphasis"><em>EWMHPlacementUseDynamicWorkingArea</em></span>
-the <acronym class="acronym">EWMH</acronym> dynamic working area is taken in account (the default).
+<I>EWMHUseStrutHints</I>,
+causes fvwm to use it which is the default.
+<P>
+
+<I>EWMHIgnoreStateHints</I>
+causes fvwm to ignore initial EWMH state hints when a new window
+is mapped.  The default
+<I>EWMHUseStateHints</I>
+causes fvwm to accept such hints.
+<P>
+
+<I>EWMHIgnoreWindowType</I>
+causes fvwm to ignore EWMH window type specification.  The default
+<I>!EWMHIgnoreWindowType</I>
+causes fvwm to style windows of specified types as such.
+<P>
+
+<I>EWMHMaximizeIgnoreWorkingArea</I>
+causes fvwm to ignore the EWMH working area when it executes a
+<B>Maximize</B>
+command.  With
+<I>EWMHMaximizeUseWorkingArea</I>
+the EWMH working area is used as with
+<I>EWMHMaximizeUseDynamicWorkingArea</I>
+the EWMH dynamic working area is used (the default).
+<P>
+
+<I>EWMHPlacementIgnoreWorkingArea</I>
+causes fvwm to ignore the EWMH working area when it places (or
+places again) a window.  With
+<I>EWMHPlacementUseWorkingArea</I>
+the EWMH working area is taken in account as with
+<I>EWMHPlacementUseDynamicWorkingArea</I>
+the EWMH dynamic working area is taken in account (the default).
 Note that with the
-<span class="emphasis"><em>MinOverlapPlacement</em></span> and <span class="emphasis"><em>MinOverlapPercentPlacement</em></span>
-placement policy, the way the <acronym class="acronym">EWMH</acronym> (dynamic) working area is taken
+<I>MinOverlapPlacement</I> and <I>MinOverlapPercentPlacement</I>
+placement policy, the way the EWMH (dynamic) working area is taken
 in account is configurable with the
-<span class="emphasis"><em>MinOverlapPlacementPenalties</em></span>
-style.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="miscellaneous"></a>31.7.5.11. Miscellaneous</h5></div></div></div><p>The
-<a name="Style_BackingStore"></a><font class="fvwmopt">BackingStore</font>, <a name="Style_BackingStoreOff"></a><font class="fvwmopt">BackingStoreOff</font> and <a name="Style_BackingStoreWindowDefault"></a><font class="fvwmopt">BackingStoreWindowDefault</font>
+<I>MinOverlapPlacementPenalties</I>
+style.
+</DL>
+
+<DT><B>Miscellaneous</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+The
+<I>BackingStore</I>, <I>BackingStoreOff</I> and <I>BackingStoreWindowDefault</I>
 determine if the X server uses backing store for the window or
 not.
-<a name="Style_BackingStore"></a><font class="fvwmopt">BackingStore</font>
+<I>BackingStore</I>
 means that the X server tries to keep the obscured parts of a
 window in memory.  This is usually slower if the client runs on
 the same machine as the X server, but can be much faster if the
 connection is slow (see also
-<span class="emphasis"><em>SaveUnder</em></span>
+<I>SaveUnder</I>
 below).
-<a name="Style_BackingStoreOff"></a><font class="fvwmopt">BackingStoreOff</font>
+<I>BackingStoreOff</I>
 disables backing store for the window.  By default, fvwm
 does not enable or disable backing store itself but leaves is as
 the window requested it.  To revert back to the application's
 choice, use the
-<a name="Style_BackingStoreWindowDefault"></a><font class="fvwmopt">BackingStoreWindowDefault</font>
-style.</p><p>Note: This style is useless if the X server does not allow backing
-store.</p><p>
-<a name="Style_SaveUnder"></a><font class="fvwmopt">SaveUnder</font>
+<I>BackingStoreWindowDefault</I>
+style.
+<P>
+
+Note: This style is useless if the X server does not allow backing
+store.
+<P>
+
+<I>SaveUnder</I>
 enables the corresponding window attribute in the X server.  For a
 window using this style, the X server tries to store the graphics
 below it in memory which is usually slower if the client runs on
 the same machine as the X server.
-<span class="emphasis"><em>SaveUnder</em></span>
+<I>SaveUnder</I>
 may speed up fvwm if the connection to the X server is slow
 (e.g. over a modem link).  To disable save under, use the
-<a name="Style_SaveUnderOff"></a><font class="fvwmopt">SaveUnderOff</font>
-style.  This is the default. See also
-<span class="emphasis"><em>BackingStore</em></span>
-above.</p><p>Note: This style is useless if the X server does not allow save
-under.</p><p><a name="Style_ParentalRelativity"></a><font class="fvwmopt">ParentalRelativity</font>
+<I>SaveUnderOff</I>
+style.  This is the default.  See also
+<I>BackingStore</I>
+above.
+<P>
+
+Note: This style is useless if the X server does not allow save
+under.
+<P>
+
+<I>ParentalRelativity</I>
 enables clients that use a background pixmap of type
-<a name="Style_ParentRelative"></a><font class="fvwmopt">ParentRelative</font>
-to achieve transparency. Fvwm modules that support transparent
+<I>ParentRelative</I>
+to achieve transparency.  Fvwm modules that support transparent
 colorsets require this setting.
-<a name="Style_Opacity"></a><font class="fvwmopt">Opacity</font>
+<I>Opacity</I>
 is the default and should be used for all non-transparent clients
-for better performance.</p><p><a name="Style_MwmDecor"></a><font class="fvwmopt">MwmDecor</font>
+for better performance.
+<P>
+
+<I>MwmDecor</I>
 makes fvwm attempt to recognize and respect the mwm decoration
 hints that applications occasionally use.  To switch this style
 off, use the
-<a name="Style_NoDecorHint"></a><font class="fvwmopt">NoDecorHint</font>
-style.</p><p><a name="Style_MwmFunctions"></a><font class="fvwmopt">MwmFunctions</font>
+<I>NoDecorHint</I>
+style.
+<P>
+
+<I>MwmFunctions</I>
 makes fvwm attempt to recognize and respect the mwm prohibited
 operations hints that applications occasionally use.
-<a name="Style_HintOverride"></a><font class="fvwmopt">HintOverride</font>
+<I>HintOverride</I>
 makes fvwm shade out operations that mwm would prohibit, but it
 lets you perform the operation anyway.
-<a name="Style_NoFuncHint"></a><font class="fvwmopt">NoFuncHint</font>
-allows turns off the mwm hints completely.</p><p><a name="Style_OLDecor"></a><font class="fvwmopt">OLDecor</font>
+<I>NoFuncHint</I>
+allows turns off the mwm hints completely.
+<P>
+
+<I>OLDecor</I>
 makes fvwm attempt to recognize and respect the olwm and olvwm
 hints that many older XView and OLIT applications use.  Switch
 this option off with
-<a name="Style_NoOLDecor"></a><font class="fvwmopt">NoOLDecor</font>.</p><p>With
-<a name="Style_GNOMEIgnoreHints"></a><font class="fvwmopt">GNOMEIgnoreHints</font>
-fvwm ignores all <acronym class="acronym">GNOME</acronym> hints for the window, even if <acronym class="acronym">GNOME</acronym>
+<I>NoOLDecor</I>.
+<P>
+
+With
+<I>GNOMEIgnoreHints</I>
+fvwm ignores all GNOME hints for the window, even if GNOME
 compliance is compiled in.  This is useful for those pesky
 applications that try to be more clever than the user and use
-<acronym class="acronym">GNOME</acronym> hints to force the window manager to ignore the user's
+GNOME hints to force the window manager to ignore the user's
 preferences.  The
-<a name="Style_GNOMEUseHints"></a><font class="fvwmopt">GNOMEUseHints</font>
-style switches back to the default behavior.</p><p><a name="Style_UseDecor"></a><font class="fvwmopt">UseDecor</font>
+<I>GNOMEUseHints</I>
+style switches back to the default behavior.
+<P>
+
+<I>UseDecor</I>
 This style is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p><span class="emphasis"><em>UseDecor</em></span>
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+<I>UseDecor</I>
 accepts one argument: the name of a decor created with
-<a href="#AddToDecor">AddToDecor</a>.
-If no decor name is specified, the "Default" decor is
-used. Windows do not actually contain decors, but are always
+<B>AddToDecor</B>.
+If no decor name is specified, the &quot;Default&quot; decor is
+used.  Windows do not actually contain decors, but are always
 assigned to one.  If the decor is later modified with
-<a href="#AddToDecor">AddToDecor</a>,
+<B>AddToDecor</B>,
 the changes are visible for all windows which are assigned to it.
 The decor for a window can be reassigned with
-<a href="#ChangeDecor">ChangeDecor</a>.</p><p><a name="Style_UseStyle"></a><font class="fvwmopt">UseStyle</font>
+<B>ChangeDecor</B>.
+<P>
+
+<I>UseStyle</I>
 This style is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p><span class="emphasis"><em>UseStyle</em></span>
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+<I>UseStyle</I>
 takes one arg, which is the name of another style.  That way you
 can have unrelated window names easily inherit similar traits
-without retyping.  For example:</p><pre class="programlisting">
+without retyping.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
   Style rxvt UseStyle XTerm
-</pre><p>Warning: If a style is built from one or more parent styles and
+</PRE>
+
+</DL>
+
+<P>
+
+Warning: If a style is built from one or more parent styles and
 the parent styles are changed, the derived style is not
-modified. To achieve this you have to issue the
-<span class="emphasis"><em>UseStyle</em></span>
-line again.</p><p><a name="Style_Unmanaged"></a><font class="fvwmopt">Unmanaged</font>
+modified.  To achieve this you have to issue the
+<I>UseStyle</I>
+line again.
+<P>
+
+<I>Unmanaged</I>
 Windows with the
-<span class="emphasis"><em>Unmanaged</em></span>
+<I>Unmanaged</I>
 style option are ignored by fvwm.  They are not decorated, can not
 be moved or resized, etc.  You probably want to use
-<span class="emphasis"><em>Bugopts RaiseOverUnmanaged</em></span>
+<B>Bugopts RaiseOverUnmanaged</B>
 too.  This option can be turned off with the
-<span class="emphasis"><em>!Unmanaged</em></span>
+<I>!Unmanaged</I>
 style.
 However, windows that are already ignored at the time when the
 option is set must be recaptured with the
-<a href="#Recapture">Recapture</a>
-command in order to become managed.</p><p>
-<a name="Style_State"></a><font class="fvwmopt">State</font>
+<B>Recapture</B>
+command in order to become managed.
+<P>
+
+<I>State</I>
 sets the initial value of one of the 32 user defined states
 which are associated with each window.  The state number ranges
 from 0 to 31 and must be given as an argument.  The states have no
 meaning in fvwm, but they can be checked in conditional commands
 like
-<a href="#Next">Next</a>
+<B>Next</B>
 with the
-<span class="emphasis"><em>State</em></span>
+<I>State</I>
 condition and manipulated with the
-<a href="#State">State</a>
-command.</p><pre class="programlisting">
+<B>State</B>
+command.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # turn on state 11 for xterms ...
-Style xterm <a href="#State">State</a> 11
+Style xterm <B>State</B> 11
 # ... but not for rxvts.
 Style rxvt !State 11
-</pre><p>Windows with the
-<a name="Style_WindowListSkip"></a><font class="fvwmopt">WindowListSkip</font>
+</PRE>
+
+</DL>
+
+<P>
+<P>
+
+Windows with the
+<I>WindowListSkip</I>
 styles do not appear in the menu that is created with the
-<a href="#WindowList">WindowList</a>
+<B>WindowList</B>
 command or the lists shown in several modules like
-<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a> or <a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a>.
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> or <B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>.
 In the modules, the style can usually be ignored with an option.
 Please refer to the man page of the module in question for
 further information.  To disable this feature, use the default
 style
-<a name="Style_WindowListHit"></a><font class="fvwmopt">WindowListHit</font>.</p><p>The styles
-<a name="Style_CirculateSkip"></a><font class="fvwmopt">CirculateSkip</font> and <a name="Style_CirculateHit"></a><font class="fvwmopt">CirculateHit</font>
+<I>WindowListHit</I>.
+<P>
+
+The styles
+<I>CirculateSkip</I> and <I>CirculateHit</I>
 control whether the window is considered by conditional commands,
 for example
-<a href="#Next">Next</a>, <a name="Style_Prev"></a><font class="fvwmopt">Prev</font> or <a name="Style_All"></a><font class="fvwmopt">All</font>.
+<B>Next</B>, <I>Prev</I> or <I>All</I>.
 Windows with
-<a name="Style_CirculateSkip"></a><font class="fvwmopt">CirculateSkip</font>,
+<I>CirculateSkip</I>,
 are never selected by conditional commands.  However, the styles
 can be overridden explicitly in the condition with the
-<a name="Style_CirculateHit"></a><font class="fvwmopt">CirculateHit</font>, <a name="Style_CirculateHitIcon"></a><font class="fvwmopt">CirculateHitIcon</font> or <a name="Style_CirculateHitShaded"></a><font class="fvwmopt">CirculateHitShaded</font>
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> or <I>CirculateHitShaded</I>
 conditions, and some conditional commands, e.g.
-<a href="#Current">Current</a> and <a name="Style_All"></a><font class="fvwmopt">All</font>,
+<B>Current</B> and <I>All</I>,
 do this by default.
 The styles
-<a name="Style_CirculateSkipIcon"></a><font class="fvwmopt">CirculateSkipIcon</font>, <a name="Style_CirculateHitIcon"></a><font class="fvwmopt">CirculateHitIcon</font>,
-<a name="Style_CirculateSkipShaded"></a><font class="fvwmopt">CirculateSkipShaded</font> and <a name="Style_CirculateHitShaded"></a><font class="fvwmopt">CirculateHitShaded</font>
+<I>CirculateSkipIcon</I>, <I>CirculateHitIcon</I>,
+<I>CirculateSkipShaded</I> and <I>CirculateHitShaded</I>
 work like
-<span class="emphasis"><em>CirculateSkip</em></span> and <span class="emphasis"><em>CirculateHit</em></span>
+<I>CirculateSkip</I> and <I>CirculateHit</I>
 but apply only to iconic or shaded windows.
 Note: if multiple ...Skip... options are combined, windows are
 only selected if they match none of the given conditions.  So,
-with</p><pre class="programlisting">
+with
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Style * CirculateSkipIcon, CirculateSkipShaded
-</pre><p>only windows that are neither iconic nor shaded are selected.
-Note:  For historical reasons, the conditional commands understand
+</PRE>
+
+</DL>
+
+<P>
+
+only windows that are neither iconic nor shaded are selected.
+Note: For historical reasons, the conditional commands understand
 the names of these styles as condition names.  Take care not to
-confuse them.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="examples"></a>31.7.5.12. Examples</h5></div></div></div><pre class="programlisting">
+confuse them.
+</DL>
+
+<DT><B>Examples</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Change default fvwm behavior to no title-
 # bars on windows! Also define a default icon.
 Style *             !Title,                \
@@ -6343,281 +11267,453 @@ Style signal      StartsOnDesk 3
 # bother me with it...
 Style Netscape* SkipMapping,              \
                 StartsOnPage 1 1 1
-</pre><p>Note that all properties for a window are or'ed together.  In the
-above example "FvwmPager" gets the property
-<span class="emphasis"><em>StaysOnTop</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+Note that all properties for a window are or'ed together.  In the
+above example &quot;FvwmPager&quot; gets the property
+<I>StaysOnTop</I>
 via an exact window name match but also gets
-<span class="emphasis"><em>!Handles</em></span>, <span class="emphasis"><em>Sticky</em></span> and <span class="emphasis"><em>WindowListSkip</em></span>
-by a match to "Fvwm*".  It gets
-<span class="emphasis"><em>!Title</em></span>
-by virtue of a match to "*".  If conflicting styles are specified
-for a window, then the last style specified is used.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="WindowStyle"></a>31.7.6. WindowStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowStyle</code>   <em class="replaceable"><code>options</code></em> </p></div><p>sets attributes (styles) on the selected window. The
-<em class="replaceable"><code>options</code></em>
+<I>!Handles</I>, <I>Sticky</I> and <I>WindowListSkip</I>
+by a match to &quot;Fvwm*&quot;.  It gets
+<I>!Title</I>
+by virtue of a match to &quot;*&quot;.  If conflicting styles are specified
+for a window, then the last style specified is used.
+</DL>
+
+</DL>
+</DL>
+
+<DT><B>WindowStyle</B> <I>options</I><DD>
+<DL COMPACT><DT><DD>
+
+sets attributes (styles) on the selected window.  The
+<I>options</I>
 are exactly the same as for the
-<a href="#Style">Style</a>
-command.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="window_styles"></a>31.8. Window Styles</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddButtonStyle"></a>31.8.1. AddButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddButtonStyle</code>   button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Adds a button style to
-<em class="replaceable"><code>button</code></em>.
-<em class="replaceable"><code>button</code></em>
+<B>Style</B>
+command.
+</DL>
+
+</DL>
+<A NAME="lbBV">&nbsp;</A>
+<H3>Window Styles</H3>
+
+<DL COMPACT>
+<DT><B>AddButtonStyle</B> button [<I>state</I>] [<I>style</I>] [--&nbsp;[!]<I>flag</I>&nbsp;...]<DD>
+<DL COMPACT><DT><DD>
+
+Adds a button style to
+<I>button</I>.
+<I>button</I>
 can be a button number, or one of
-"<a name="AddButtonStyle_All"></a><font class="fvwmopt">All</font>",
-"<a name="AddButtonStyle_Left"></a><font class="fvwmopt">Left</font>" or
-"<a name="AddButtonStyle_Right"></a><font class="fvwmopt">Right</font>".
-<em class="replaceable"><code>state</code></em>
+&quot;<I>All</I>&quot;,
+&quot;<I>Left</I>&quot; or
+&quot;<I>Right</I>&quot;.
+<I>state</I>
 can be
-"<a name="AddButtonStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>",
-"<a name="AddButtonStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>",
-"<a name="AddButtonStyle_InactiveUp"></a><font class="fvwmopt">InactiveUp</font>" or
-"<a name="AddButtonStyle_InactiveDown"></a><font class="fvwmopt">InactiveDown</font>", or
-"<a name="AddButtonStyle_Active"></a><font class="fvwmopt">Active</font>" (the same as both "ActiveUp" and "ActiveDown") or
-"<a name="AddButtonStyle_Inactive"></a><font class="fvwmopt">Inactive</font>" (the same as both "InactiveUp" and "InactiveDown")
+&quot;<I>ActiveUp</I>&quot;,
+&quot;<I>ActiveDown</I>&quot;,
+&quot;<I>InactiveUp</I>&quot; or
+&quot;<I>InactiveDown</I>&quot;, or
+&quot;<I>Active</I>&quot; (the same as both &quot;ActiveUp&quot; and &quot;ActiveDown&quot;) or
+&quot;<I>Inactive</I>&quot; (the same as both &quot;InactiveUp&quot; and &quot;InactiveDown&quot;)
 or any of these 6 with
-"<a name="AddButtonStyle_Toggled"></a><font class="fvwmopt">Toggled</font>" prepended.
-The "Active" states apply to the focused window, the "Inactive"
-ones apply to all other windows. The "Up" states apply to the
-non pressed buttons, the "Down" ones apply to pressed buttons.
-The "Toggled" prefix refers to maximized, shaded or sticky windows
+&quot;<I>Toggled</I>&quot; prepended.
+The &quot;Active&quot; states apply to the focused window, the &quot;Inactive&quot;
+ones apply to all other windows.  The &quot;Up&quot; states apply to the
+non pressed buttons, the &quot;Down&quot; ones apply to pressed buttons.
+The &quot;Toggled&quot; prefix refers to maximized, shaded or sticky windows
 that have the corresponding
-<span class="emphasis"><em>MwmDecor...</em></span>
+<I>MwmDecor...</I>
 button style set.
 Additionally, the following shortcuts may be used:
-"<a name="AddButtonStyle_AllNormal"></a><font class="fvwmopt">AllNormal</font>",
-"<a name="AddButtonStyle_AllToggled"></a><font class="fvwmopt">AllToggled</font>",
-"<a name="AddButtonStyle_AllActive"></a><font class="fvwmopt">AllActive</font>",
-"<a name="AddButtonStyle_AllInactive"></a><font class="fvwmopt">AllInactive</font>",
-"<a name="AddButtonStyle_AllUp"></a><font class="fvwmopt">AllUp</font>",
-"<a name="AddButtonStyle_AllDown"></a><font class="fvwmopt">AllDown</font>".
+&quot;<I>AllNormal</I>&quot;,
+&quot;<I>AllToggled</I>&quot;,
+&quot;<I>AllActive</I>&quot;,
+&quot;<I>AllInactive</I>&quot;,
+&quot;<I>AllUp</I>&quot;,
+&quot;<I>AllDown</I>&quot;.
 They are actually different masks for 4 individual states from
 8 total.  These are supported too:
-"<a name="AddButtonStyle_AllActiveUp"></a><font class="fvwmopt">AllActiveUp</font>",
-"<a name="AddButtonStyle_AllActiveDown"></a><font class="fvwmopt">AllActiveDown</font>",
-"<a name="AddButtonStyle_AllInactiveUp"></a><font class="fvwmopt">AllInactiveUp</font>",
-"<a name="AddButtonStyle_AllInactiveDown"></a><font class="fvwmopt">AllInactiveDown</font>".</p><p>If
-<em class="replaceable"><code>state</code></em>
+&quot;<I>AllActiveUp</I>&quot;,
+&quot;<I>AllActiveDown</I>&quot;,
+&quot;<I>AllInactiveUp</I>&quot;,
+&quot;<I>AllInactiveDown</I>&quot;.
+<P>
+
+If
+<I>state</I>
 is omitted, then the style is added to every state.  If the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
+<I>style</I> and <I>flags</I>
 are enclosed in parentheses, then multiple
-<em class="replaceable"><code>state</code></em>
+<I>state</I>
 definitions can be placed on a single line.
-<em class="replaceable"><code>Flags</code></em>
-for additional button styles cannot be changed after definition.</p><p>Buttons are drawn in the order of definition, beginning with the
+<I>Flags</I>
+for additional button styles cannot be changed after definition.
+<P>
+
+Buttons are drawn in the order of definition, beginning with the
 most recent button style, followed by those added with
-<span class="emphasis"><em>AddButtonStyle</em></span>.
+<B>AddButtonStyle</B>.
 To clear the button style stack, change style flags, or for
 descriptions of available styles and flags, see the
-<a href="#ButtonStyle">ButtonStyle</a>
-command.  Examples:</p><pre class="programlisting">
-<a href="#ButtonStyle">ButtonStyle</a> 1 Pixmap led.xpm -- Top Left
-<a href="#ButtonStyle">ButtonStyle</a> 1 ActiveDown HGradient 8 grey black
-<a href="#ButtonStyle">ButtonStyle</a> <a href="#All">All</a> --  UseTitleStyle
+<B>ButtonStyle</B>
+command.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>ButtonStyle</B> 1 Pixmap led.xpm -- Top Left
+<B>ButtonStyle</B> 1 ActiveDown HGradient 8 grey black
+<B>ButtonStyle</B> <B>All</B> --  UseTitleStyle
 AddButtonStyle 1 \
-	ActiveUp (Pixmap a.xpm) \
-	ActiveDown (Pixmap b.xpm -- Top)
+        ActiveUp (Pixmap a.xpm) \
+        ActiveDown (Pixmap b.xpm -- Top)
 AddButtonStyle 1 Vector 4 50x30@1 70x70@0 30x70@0 50x30@1
-</pre><p>Initially for this example all button states are set to a pixmap.
-The second line replaces the "ActiveDown" state with a gradient
+</PRE>
+
+</DL>
+
+<P>
+
+Initially for this example all button states are set to a pixmap.
+The second line replaces the &quot;ActiveDown&quot; state with a gradient
 (it overrides the pixmap assigned to it in the line before, which
 assigned the same style to every state).  Then, the
-<span class="emphasis"><em>UseTitleStyle</em></span>
+<I>UseTitleStyle</I>
 flag is set for all buttons, which causes fvwm to draw any styles
 set with
-<a href="#TitleStyle">TitleStyle</a>
+<B>TitleStyle</B>
 before drawing the buttons.  Finally,
-<span class="emphasis"><em>AddButtonStyle</em></span>
-is used to place additional pixmaps for both "ActiveUp" and
-"ActiveDown" states and a vector button style is drawn on top of
-all states.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddTitleStyle"></a>31.8.2. AddTitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddTitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Adds a title style to the title-bar.
-<em class="replaceable"><code>state</code></em> can be
-"<a name="AddTitleStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>",
-"<a name="AddTitleStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>",
-"<a name="AddTitleStyle_InactiveUp"></a><font class="fvwmopt">InactiveUp</font>" or
-"<a name="AddTitleStyle_InactiveDown"></a><font class="fvwmopt">InactiveDown</font>", or
-"<a name="AddTitleStyle_Active"></a><font class="fvwmopt">Active</font>" (the same as both "ActiveUp" and "ActiveDown") or
-"<a name="AddTitleStyle_Inactive"></a><font class="fvwmopt">Inactive</font>" (the same as both "InactiveUp" and "InactiveDown")
-or any of these 6 with "Toggled" prepended.  If
-<em class="replaceable"><code>state</code></em>
+<B>AddButtonStyle</B>
+is used to place additional pixmaps for both &quot;ActiveUp&quot; and
+&quot;ActiveDown&quot; states and a vector button style is drawn on top of
+all states.
+</DL>
+
+<DT><B>AddTitleStyle</B> [<I>state</I>] [<I>style</I>] [--&nbsp;[!]<I>flag</I>&nbsp;...]<DD>
+<DL COMPACT><DT><DD>
+
+Adds a title style to the title-bar.
+<I>state</I> can be
+&quot;<I>ActiveUp</I>&quot;,
+&quot;<I>ActiveDown</I>&quot;,
+&quot;<I>InactiveUp</I>&quot; or
+&quot;<I>InactiveDown</I>&quot;, or
+&quot;<I>Active</I>&quot; (the same as both &quot;ActiveUp&quot; and &quot;ActiveDown&quot;) or
+&quot;<I>Inactive</I>&quot; (the same as both &quot;InactiveUp&quot; and &quot;InactiveDown&quot;)
+or any of these 6 with &quot;Toggled&quot; prepended.  If
+<I>state</I>
 is omitted, then the style is added to every state.  If the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
+<I>style</I> and <I>flags</I>
 are enclosed in parentheses, then multiple
-<em class="replaceable"><code>state</code></em>
+<I>state</I>
 definitions can be placed on a single line.  This command is quite
 similar to the
-<a href="#AddButtonStyle">AddButtonStyle</a>
-command.</p><p>Title-bars are drawn in the order of definition, beginning with
+<B>AddButtonStyle</B>
+command.
+<P>
+
+Title-bars are drawn in the order of definition, beginning with
 the most recent
-<a href="#TitleStyle">TitleStyle</a>,
+<B>TitleStyle</B>,
 followed by those added with
-<span class="emphasis"><em>AddTitleStyle</em></span>.
+<B>AddTitleStyle</B>.
 To clear the title style stack, change style flags, or for the
 descriptions of available styles and flags, see the
-<a href="#TitleStyle">TitleStyle</a> and
-<a href="#ButtonStyle">ButtonStyle</a>
-commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddToDecor"></a>31.8.3. AddToDecor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddToDecor</code>   <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Add or divert commands to the decor named
-<em class="replaceable"><code>decor</code></em>.
+<B>TitleStyle</B> and
+<B>ButtonStyle</B>
+commands.
+</DL>
+
+<DT><B>AddToDecor</B> <I>decor</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is deprecated and will be removed in the future.  There
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+Add or divert commands to the decor named
+<I>decor</I>.
 A decor is a name given to the set of commands which affect button
 styles, title-bar styles and border styles.  If
-<em class="replaceable"><code>decor</code></em>
+<I>decor</I>
 does not exist it is created; otherwise the existing
-<em class="replaceable"><code>decor</code></em>
+<I>decor</I>
 is modified.  Note: Earlier versions allowed to use the
-<a href="#HilightColor">HilightColor</a>, <a href="#HilightColorset">HilightColorset</a> and <a href="#WindowFont">WindowFont</a>
+<B>HilightColor</B>, <B>HilightColorset</B> and <B>WindowFont</B>
 commands in decors.  This is no longer possible.  Please use the
-<a href="#Style">Style</a>
+<B>Style</B>
 command with the
-<span class="emphasis"><em>Hilight...</em></span> and <a href="#Style_Font">Font</a>
-options.</p><p>New decors start out exactly like the "default" decor without any
+<I>Hilight...</I> and <I>Font</I>
+options.
+<P>
+
+New decors start out exactly like the &quot;default&quot; decor without any
 style definitions.  A given decor may be applied to a set of
 windows with the
-<a href="#Style_UseDecor">UseDecor</a>
+<I>UseDecor</I>
 option of the
-<a href="#Style">Style</a>
+<B>Style</B>
 command.  Modifying an existing decor affects all windows which
-are currently assigned to it.</p><p><span class="emphasis"><em>AddToDecor</em></span>
+are currently assigned to it.
+<P>
+
+<B>AddToDecor</B>
 is similar in usage to the
-<a href="#AddToMenu">AddToMenu</a> and <a href="#AddToFunc">AddToFunc</a>
+<B>AddToMenu</B> and <B>AddToFunc</B>
 commands, except that menus and functions are replaced by
-<a href="#ButtonStyle">ButtonStyle</a>, <a href="#AddButtonStyle">AddButtonStyle</a>, <a href="#TitleStyle">TitleStyle</a>,
-<a href="#AddTitleStyle">AddTitleStyle</a> and <a href="#BorderStyle">BorderStyle</a>
+<B>ButtonStyle</B>, <B>AddButtonStyle</B>, <B>TitleStyle</B>,
+<B>AddTitleStyle</B> and <B>BorderStyle</B>
 commands.  Decors created with
-<span class="emphasis"><em>AddToDecor</em></span>
+<B>AddToDecor</B>
 can be manipulated with
-<a href="#ChangeDecor">ChangeDecor</a>, <a href="#DestroyDecor">DestroyDecor</a>, <a href="#UpdateDecor">UpdateDecor</a>
+<B>ChangeDecor</B>, <B>DestroyDecor</B>, <B>UpdateDecor</B>
 and the
-<a href="#Style">Style</a>
-option.</p><p>The following example creates a decor "FlatDecor" and style
-"FlatStyle".  They are distinct entities:</p><pre class="programlisting">
+<B>Style</B>
+option.
+<P>
+
+The following example creates a decor &quot;FlatDecor&quot; and style
+&quot;FlatStyle&quot;.  They are distinct entities:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 AddToDecor FlatDecor
-+ <a href="#ButtonStyle">ButtonStyle</a> All Active (-- flat) Inactive (-- flat)
-+ <a href="#TitleStyle">TitleStyle</a>  -- flat
-+ <a href="#BorderStyle">BorderStyle</a> -- HiddenHandles NoInset
++ <B>ButtonStyle</B> All Active (-- flat) Inactive (-- flat)
++ <B>TitleStyle</B>  -- flat
++ <B>BorderStyle</B> -- HiddenHandles NoInset
 
-<a href="#Style">Style</a> FlatStyle \
-	UseDecor FlatDecor, HandleWidth 4, ForeColor white, \
-	BackColor grey40, HilightFore black, HilightBack grey70
+<B>Style</B> FlatStyle \
+        UseDecor FlatDecor, HandleWidth 4, ForeColor white, \
+        BackColor grey40, HilightFore black, HilightBack grey70
 
-<a href="#Style">Style</a> xterm UseStyle FlatStyle
-</pre><p>An existing window's decor may be reassigned with
-<a href="#ChangeDecor">ChangeDecor</a>.
+<B>Style</B> xterm UseStyle FlatStyle
+</PRE>
+
+</DL>
+
+<P>
+
+An existing window's decor may be reassigned with
+<B>ChangeDecor</B>.
 A decor can be destroyed with
-<a href="#DestroyDecor">DestroyDecor</a>.</p><pre class="programlisting">
-<a href="#DestroyDecor">DestroyDecor</a> FlatDecor
+<B>DestroyDecor</B>.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyDecor</B> FlatDecor
 AddToDecor FlatDecor ...
 
-<a href="#Style">Style</a> FlatStyle UseDecor FlatDecor
-</pre><p>and now apply the style again:</p><pre class="programlisting">
-<a href="#Style">Style</a> xterm UseStyle FlatStyle
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="BorderStyle"></a>31.8.4. BorderStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">BorderStyle</code>   <em class="replaceable"><code>state</code></em>  [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Defines a border style for windows.
-<em class="replaceable"><code>state</code></em>
-can be either "<a name="BorderStyle_Active"></a><font class="fvwmopt">Active</font>" or "<a name="BorderStyle_Inactive"></a><font class="fvwmopt">Inactive</font>".  If
-<em class="replaceable"><code>state</code></em>
+<B>Style</B> FlatStyle UseDecor FlatDecor
+</PRE>
+
+</DL>
+
+<P>
+
+and now apply the style again:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> xterm UseStyle FlatStyle
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>BorderStyle</B> <I>state</I> [<I>style</I>] [--&nbsp;[!]<I>flag</I>&nbsp;...]<DD>
+<DL COMPACT><DT><DD>
+
+Defines a border style for windows.
+<I>state</I>
+can be either &quot;<I>Active</I>&quot; or &quot;<I>Inactive</I>&quot;.  If
+<I>state</I>
 is omitted, then the style is set for both states.  If the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
+<I>style</I> and <I>flags</I>
 are enclosed in parentheses, then multiple
-<em class="replaceable"><code>state</code></em>
-definitions can be specified per line.</p><p><em class="replaceable"><code>style</code></em>
+<I>state</I>
+definitions can be specified per line.
+<P>
+
+<I>style</I>
 is a subset of the available button styles, and can only be
-<a name="BorderStyle_TiledPixmap"></a><font class="fvwmopt">TiledPixmap</font>
+<I>TiledPixmap</I>
 (uniform pixmaps which match the bevel colors work best this
-way) or <a name="BorderStyle_Colorset"></a><font class="fvwmopt">Colorset</font>. If a
-'!' is prefixed to any
-<em class="replaceable"><code>flag</code></em>,
+way) or <I>Colorset</I>.  If a '!' is prefixed to any
+<I>flag</I>,
 the behavior is negated.  If
-<em class="replaceable"><code>style</code></em>
+<I>style</I>
 is not specified, then one can change flags without resetting the
-style.</p><p>The
-<a name="BorderStyle_HiddenHandles"></a><font class="fvwmopt">HiddenHandles</font>
+style.
+<P>
+
+The
+<I>HiddenHandles</I>
 flag hides the corner handle dividing lines on windows with
-handles (this option has no effect for !<a href="#Style_Handles">Handles</a> windows).  By
+handles (this option has no effect for !<I>Handles</I> windows).  By
 default,
-<span class="emphasis"><em>HiddenHandles</em></span>
-is disabled.</p><p>The
-<a name="BorderStyle_NoInset"></a><font class="fvwmopt">NoInset</font>
+<I>HiddenHandles</I>
+is disabled.
+<P>
+
+The
+<I>NoInset</I>
 flag supplements
-<span class="emphasis"><em>HiddenHandles</em></span>.
+<I>HiddenHandles</I>.
 If given, the inner bevel around the window frame is not drawn.
 If
-<span class="emphasis"><em>HiddenHandles</em></span>
-is not specified, the frame looks a little strange.</p><p>
-<a name="BorderStyle_Raised"></a><font class="fvwmopt">Raised</font>
+<I>HiddenHandles</I>
+is not specified, the frame looks a little strange.
+<P>
+
+<I>Raised</I>
 causes a raised relief pattern to be drawn (default).
-<a name="BorderStyle_Sunk"></a><font class="fvwmopt">Sunk</font>
+<I>Sunk</I>
 causes a sunken relief pattern to be drawn.
-<a name="BorderStyle_Flat"></a><font class="fvwmopt">Flat</font>
-inhibits the relief pattern from being drawn.</p><p>To decorate the active and inactive window borders with a textured
-pixmap, one might specify:</p><pre class="programlisting">
+<I>Flat</I>
+inhibits the relief pattern from being drawn.
+<P>
+
+To decorate the active and inactive window borders with a textured
+pixmap, one might specify:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 BorderStyle Active TiledPixmap marble.xpm
 BorderStyle Inactive TiledPixmap granite.xpm
 BorderStyle Active -- HiddenHandles NoInset
-</pre><p>To clear the style for both states:</p><pre class="programlisting">
-BorderStyle <a name="BorderStyle_Simple"></a><font class="fvwmopt">Simple</font>
-</pre><p>To clear for a single state:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+To clear the style for both states:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+BorderStyle <I>Simple</I>
+</PRE>
+
+</DL>
+
+<P>
+
+To clear for a single state:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 BorderStyle Active Simple
-</pre><p>To unset a flag for a given state:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+To unset a flag for a given state:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 BorderStyle Inactive -- !NoInset
-</pre><p>title-bar buttons can inherit the border style with the
-<a href="#ButtonStyle_UseBorderStyle">UseBorderStyle</a>
+</PRE>
+
+</DL>
+
+<P>
+
+title-bar buttons can inherit the border style with the
+<I>UseBorderStyle</I>
 flag (see
-<a href="#ButtonStyle">ButtonStyle</a>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ButtonState"></a>31.8.5. ButtonState</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ButtonState</code>  [ActiveDown <em class="replaceable"><code>bool</code></em>] [Inactive <em class="replaceable"><code>bool</code></em>] [InactiveDown <em class="replaceable"><code>bool</code></em>]</p></div><p>
+<B>ButtonStyle</B>).
+</DL>
+
+<DT><B>ButtonState</B> [ActiveDown&nbsp;<I>bool</I>] [Inactive&nbsp;<I>bool</I>] [InactiveDown&nbsp;<I>bool</I>]<DD>
+<DL COMPACT><DT><DD>
+
 The
-<span class="emphasis"><em>ButtonState</em></span>
+<B>ButtonState</B>
 command controls which states of the window titles and title
 buttons are used.  The default is to use all four states:
-"ActiveUp&gt;",
-"ActiveDown&gt;",
-"InactiveUp&gt;" and
-"InactiveDown&gt;" (see
-<a href="#ButtonStyle">ButtonStyle</a> and
-<a href="#TitleStyle">TitleStyle</a>
+&quot;ActiveUp&gt;&quot;,
+&quot;ActiveDown&gt;&quot;,
+&quot;InactiveUp&gt;&quot; and
+&quot;InactiveDown&gt;&quot; (see
+<B>ButtonStyle</B> and
+<B>TitleStyle</B>
 commands).  The
-<em class="replaceable"><code>bool</code></em>
+<I>bool</I>
 argument after the key word controls if the designated state is
-used ("True") or not ("False").  The "ActiveUp" state cannot be
-deactivated. If no arguments are provided or the given arguments
-are illegal, the default is restored.</p><p>If
-<a name="ButtonState_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>
-argument is "False", no different button style
-for the pressed down buttons used, instead "ActiveUp" state is
-used even when button is pressed.</p><p>If
-<a name="ButtonState_Inactive"></a><font class="fvwmopt">Inactive</font>
-argument is "False", focused and unfocused windows
-look similarly, the corresponding "Active" states are always used.</p><p>If
-<a name="ButtonState_InactiveDown"></a><font class="fvwmopt">InactiveDown</font>
-argument is "False" (only applied when
-<span class="emphasis"><em>Inactive</em></span>
-is "True"), the pressed titles and title buttons in non-focused
-windows are drawn using "InactiveUp" or "ActiveUp" states
-depending on the values of the other key words.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ButtonStyle"></a>31.8.6. ButtonStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code> 
-	&gt;  button  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the button style for a title-bar button.
-<em class="replaceable"><code>button</code></em>
+used (&quot;True&quot;) or not (&quot;False&quot;).  The &quot;ActiveUp&quot; state cannot be
+deactivated.  If no arguments are provided or the given arguments
+are illegal, the default is restored.
+<P>
+
+If
+<I>ActiveDown</I>
+argument is &quot;False&quot;, no different button style
+for the pressed down buttons used, instead &quot;ActiveUp&quot; state is
+used even when button is pressed.
+<P>
+
+If
+<I>Inactive</I>
+argument is &quot;False&quot;, focused and unfocused windows
+look similarly, the corresponding &quot;Active&quot; states are always used.
+<P>
+
+If
+<I>InactiveDown</I>
+argument is &quot;False&quot; (only applied when
+<I>Inactive</I>
+is &quot;True&quot;), the pressed titles and title buttons in non-focused
+windows are drawn using &quot;InactiveUp&quot; or &quot;ActiveUp&quot; states
+depending on the values of the other key words.
+</DL>
+
+<DT><B>ButtonStyle</B> button [<I>state</I>] [<I>style</I>] [--&nbsp;[!]<I>flag</I>&nbsp;...]<DD>
+<DL COMPACT><DT><DD>
+
+Sets the button style for a title-bar button.
+<I>button</I>
 is the title-bar button number between 0 and 9, or one of
-"<a name="ButtonStyle_All"></a><font class="fvwmopt">All</font>",
-"<a name="ButtonStyle_Left"></a><font class="fvwmopt">Left</font>",
-"<a name="ButtonStyle_Right"></a><font class="fvwmopt">Right</font>", or
-"<a name="ButtonStyle_Reset"></a><font class="fvwmopt">Reset</font>".  Button numbering is described in the
-<a href="#Mouse">Mouse</a>
+&quot;<I>All</I>&quot;,
+&quot;<I>Left</I>&quot;,
+&quot;<I>Right</I>&quot;, or
+&quot;<I>Reset</I>&quot;.  Button numbering is described in the
+<B>Mouse</B>
 command section.  If the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
+<I>style</I> and <I>flags</I>
 are enclosed in parentheses, then multiple
-<em class="replaceable"><code>state</code></em>
-definitions can be specified per line.</p><p><em class="replaceable"><code>state</code></em>
+<I>state</I>
+definitions can be specified per line.
+<P>
+
+<I>state</I>
 refers to which button state should be set.  Button states are
 defined as follows:
-"<a name="ButtonStyle_ActiveUp"></a><font class="fvwmopt">ActiveUp</font>" and
-"<a name="ButtonStyle_ActiveDown"></a><font class="fvwmopt">ActiveDown</font>" refer to the
+&quot;<I>ActiveUp</I>&quot; and
+&quot;<I>ActiveDown</I>&quot; refer to the
 un-pressed and pressed states for buttons on active windows; while
-the "<a name="ButtonStyle_InactiveUp"></a><font class="fvwmopt">InactiveUp</font>" and
-"<a name="ButtonStyle_InactiveDown"></a><font class="fvwmopt">InactiveDown</font>" states denote buttons on
+the &quot;<I>InactiveUp</I>&quot; and
+&quot;<I>InactiveDown</I>&quot; states denote buttons on
 inactive windows.  The shortcut
-"<a name="ButtonStyle_Active"></a><font class="fvwmopt">Active</font>" denotes both "ActiveUp" and
-"ActiveDown" states.  Shortcut
-"<a name="ButtonStyle_Inactive"></a><font class="fvwmopt">Inactive</font>" denotes both "InactiveUp"
-and "InactiveDown" states.
-The similar state names like just described, but with the "Toggled"
+&quot;<I>Active</I>&quot; denotes both &quot;ActiveUp&quot; and
+&quot;ActiveDown&quot; states.  Shortcut
+&quot;<I>Inactive</I>&quot; denotes both &quot;InactiveUp&quot;
+and &quot;InactiveDown&quot; states.
+The similar state names like just described, but with the &quot;Toggled&quot;
 prefix are used instead for title buttons which have one of the
-<span class="emphasis"><em>MwmDecorMax</em></span>, <span class="emphasis"><em>MwmDecorShade</em></span>, <span class="emphasis"><em>MwmDecorStick</em></span> or <span class="emphasis"><em>MwmDecorLayer</em></span>
+<I>MwmDecorMax</I>, <I>MwmDecorShade</I>, <I>MwmDecorStick</I> or <I>MwmDecorLayer</I>
 hints, if the window is maximized, shaded, sticky or placed on specific
-layer, respectively.</p><pre class="programlisting">
-<a href="#AddToDecor">AddToDecor</a> Default
+layer, respectively.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToDecor</B> Default
  + ButtonStyle 6                   \
    Vector 4 50x25@1 85x75@0 15x75@0 50x25@1
  + ButtonStyle 6 ToggledActiveUp   \
@@ -6627,686 +11723,1220 @@ layer, respectively.</p><pre class="programlisting">
  + ButtonStyle 6 ToggledInactive   \
    Vector 4 50x75@0 85x25@1 15x25@0 50x75@0
  + ButtonStyle 6 - MwmDecorShade
-<a href="#Mouse">Mouse</a> 0 6 N <a href="#WindowShade">WindowShade</a>
-</pre><p>Additionally, the following shortcuts may be used:
-"<a name="ButtonStyle_AllNormal"></a><font class="fvwmopt">AllNormal</font>",
-"<a name="ButtonStyle_AllToggled"></a><font class="fvwmopt">AllToggled</font>",
-"<a name="ButtonStyle_AllActive"></a><font class="fvwmopt">AllActive</font>",
-"<a name="ButtonStyle_AllInactive"></a><font class="fvwmopt">AllInactive</font>",
-"<a name="ButtonStyle_AllUp"></a><font class="fvwmopt">AllUp</font>",
-"<a name="ButtonStyle_AllDown"></a><font class="fvwmopt">AllDown</font>".
+<B>Mouse</B> 0 6 N <B>WindowShade</B>
+</PRE>
+
+</DL>
+
+<P>
+
+Additionally, the following shortcuts may be used:
+&quot;<I>AllNormal</I>&quot;,
+&quot;<I>AllToggled</I>&quot;,
+&quot;<I>AllActive</I>&quot;,
+&quot;<I>AllInactive</I>&quot;,
+&quot;<I>AllUp</I>&quot;,
+&quot;<I>AllDown</I>&quot;.
 They are actually different masks for 4 individual states from
 8 total.  These are supported too:
-"<a name="ButtonStyle_AllActiveUp"></a><font class="fvwmopt">AllActiveUp</font>",
-"<a name="ButtonStyle_AllActiveDown"></a><font class="fvwmopt">AllActiveDown</font>",
-"<a name="ButtonStyle_AllInactiveUp"></a><font class="fvwmopt">AllInactiveUp</font>",
-"<a name="ButtonStyle_AllInactiveDown"></a><font class="fvwmopt">AllInactiveDown</font>".</p><p>If
-<em class="replaceable"><code>state</code></em>
+&quot;<I>AllActiveUp</I>&quot;,
+&quot;<I>AllActiveDown</I>&quot;,
+&quot;<I>AllInactiveUp</I>&quot;,
+&quot;<I>AllInactiveDown</I>&quot;.
+<P>
+
+If
+<I>state</I>
 is specified,
 that particular button state is set.  If
-<em class="replaceable"><code>state</code></em>
+<I>state</I>
 is omitted, every state is set.  Specifying a style destroys the
 current style (use
-<a href="#AddButtonStyle">AddButtonStyle</a>
-to avoid this).</p><p>If
-<em class="replaceable"><code>style</code></em>
+<B>AddButtonStyle</B>
+to avoid this).
+<P>
+
+If
+<I>style</I>
 is omitted, then state-dependent flags can be set for the primary
 button style without destroying the current style.  Examples (each
-line should be considered independent):</p><pre class="programlisting">
+line should be considered independent):
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle Left -- flat
 ButtonStyle All ActiveUp (-- flat) Inactive (-- flat)
-</pre><p>The first line sets every state of the left buttons to flat, while
-the second sets only the "ActiveUp" and "Inactive" states of every
+</PRE>
+
+</DL>
+
+<P>
+
+The first line sets every state of the left buttons to flat, while
+the second sets only the &quot;ActiveUp&quot; and &quot;Inactive&quot; states of every
 button to flat (only flags are changed; the buttons' individual
-styles are not changed).</p><p>If you want to reset all buttons to their defaults:</p><pre class="programlisting">
-ButtonStyle <a name="ButtonStyle_Reset"></a><font class="fvwmopt">Reset</font>
-</pre><p>To reset the "ActiveUp" button state of button 1 to the default:</p><pre class="programlisting">
+styles are not changed).
+<P>
+
+If you want to reset all buttons to their defaults:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+ButtonStyle <I>Reset</I>
+</PRE>
+
+</DL>
+
+<P>
+
+To reset the &quot;ActiveUp&quot; button state of button 1 to the default:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle 1 ActiveUp Default
-</pre><p>To reset all button states of button 1 to the default of
-button number 2:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+To reset all button states of button 1 to the default of
+button number 2:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle 1 Default 2
-</pre><p>For any button, multiple
-<em class="replaceable"><code>state</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+For any button, multiple
+<I>state</I>
 definitions can be given on one line by enclosing the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>
+<I>style</I> and <I>flags</I>
 in parentheses.  If only one definition per line is given the
-parentheses can be omitted.</p><p><em class="replaceable"><code>flags</code></em>
+parentheses can be omitted.
+<P>
+
+<I>flags</I>
 affect the specified
-<em class="replaceable"><code>state</code></em>.
-If a
-'!'
+<I>state</I>.
+If a '!'
 is prefixed to any
-<em class="replaceable"><code>flag</code></em>,
+<I>flag</I>,
 its behavior is negated.  The available state-dependent flags for
 all styles are described here (the
-<span class="emphasis"><em>ButtonStyle</em></span>
-entry deals with state-independent flags).</p><p>
-<a name="ButtonStyle_Raised"></a><font class="fvwmopt">Raised</font>
-causes a raised relief pattern to be drawn.</p><p>
-<a name="ButtonStyle_Sunk"></a><font class="fvwmopt">Sunk</font>
-causes a sunken relief pattern to be drawn.</p><p>
-<a name="ButtonStyle_Flat"></a><font class="fvwmopt">Flat</font>
-inhibits the relief pattern from being drawn.</p><p>
-<a name="ButtonStyle_UseTitleStyle"></a><font class="fvwmopt">UseTitleStyle</font>
+<B>ButtonStyle</B>
+entry deals with state-independent flags).
+<P>
+
+<I>Raised</I>
+causes a raised relief pattern to be drawn.
+<P>
+
+<I>Sunk</I>
+causes a sunken relief pattern to be drawn.
+<P>
+
+<I>Flat</I>
+inhibits the relief pattern from being drawn.
+<P>
+
+<I>UseTitleStyle</I>
 causes the given button state to render the current title style
 before rendering the buttons' own styles.  The
-<a href="#TitleStyle_Raised">Raised</a>,
-<a href="#TitleStyle_Flat">Flat</a> and
-<a href="#TitleStyle_Sunk">Sunk</a>
-<a href="#TitleStyle">TitleStyle</a>
-flags are ignored since they are redundant in this context.</p><p>
-<a name="ButtonStyle_UseBorderStyle"></a><font class="fvwmopt">UseBorderStyle</font>
+<I>Raised</I>,
+<I>Flat</I> and
+<I>Sunk</I>
+<B>TitleStyle</B>
+flags are ignored since they are redundant in this context.
+<P>
+
+<I>UseBorderStyle</I>
 causes the button to inherit the decorated
-<span class="emphasis"><em>BorderStyle</em></span>
-options.</p><p>
-<span class="emphasis"><em>Raised</em></span>, <span class="emphasis"><em>Sunk</em></span> and <span class="emphasis"><em>Flat</em></span>
+<B>BorderStyle</B>
+options.
+<P>
+
+<I>Raised</I>, <I>Sunk</I> and <I>Flat</I>
 are mutually exclusive, and can be specified for the initial
-<span class="emphasis"><em>ButtonStyle</em></span>
+<B>ButtonStyle</B>
 only.
-<span class="emphasis"><em>UseTitleStyle</em></span> and <span class="emphasis"><em>UseBorderStyle</em></span>
+<I>UseTitleStyle</I> and <I>UseBorderStyle</I>
 are also mutually exclusive (both can be off however).  The
 default is
-<span class="emphasis"><em>Raised</em></span>
+<I>Raised</I>
 with both
-<span class="emphasis"><em>UseBorderStyle  and  UseTitleStyle</em></span>
-left unset.</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Important</h3>
-for the "ActiveDown" and "InactiveDown" states:  When a button is
+<I>UseBorderStyle and UseTitleStyle</I>
+left unset.
+<P>
+
+
+
+<BR>
+
+<B>Important</B>
+<P>
+for the &quot;ActiveDown&quot; and &quot;InactiveDown&quot; states:  When a button is
 pressed, the relief is inverted.  Because of this, to obtain the
-raised look in "ActiveDown" or "InactiveDown" states you must
+raised look in &quot;ActiveDown&quot; or &quot;InactiveDown&quot; states you must
 specify the opposite of the desired relief (i.e.
-<span class="emphasis"><em>Sunk</em></span>
-for "ActiveDown" or "InactiveDown").  This behavior is consistent,
+<I>Sunk</I>
+for &quot;ActiveDown&quot; or &quot;InactiveDown&quot;).  This behavior is consistent,
 but may seem confusing at first.  The same applies to the
-"Toggled" states.</div><p>Button styles are classified as non-destructive, partially
+&quot;Toggled&quot; states.
+<P>
+
+Button styles are classified as non-destructive, partially
 destructive, or fully destructive.  Non-destructive styles do not
-affect the image. Partially destructive styles can obscure some or
+affect the image.  Partially destructive styles can obscure some or
 all parts of the underlying image (i.e.
-<span class="emphasis"><em>Pixmap</em></span>).
+<I>Pixmap</I>).
 Fully destructive styles obscure the entire underlying image (i.e.
-<span class="emphasis"><em>Solid</em></span>
+<I>Solid</I>
 or one of the
-<span class="emphasis"><em>gradient</em></span>
+<I>gradient</I>
 styles).  Thus, if stacking styles with
-<a href="#AddButtonStyle">AddButtonStyle</a> (or <a href="#AddTitleStyle">AddTitleStyle</a>
-for title-bars), use care in sequencing styles to minimize redraw.</p><p>The available styles are:</p><p><span class="emphasis"><em>Simple</em></span>, <span class="emphasis"><em>Default</em></span>, <span class="emphasis"><em>Solid</em></span>, <span class="emphasis"><em>Colorset</em></span>, <span class="emphasis"><em>Vector</em></span>,
-<span class="emphasis"><em>?Gradient</em></span>, <span class="emphasis"><em>Pixmap</em></span>, <span class="emphasis"><em>AdjustedPixmap</em></span>,
-<span class="emphasis"><em>ShrunkPixmap</em></span>, <span class="emphasis"><em>StretchedPixmap</em></span>, <span class="emphasis"><em>TiledPixmap</em></span>, <span class="emphasis"><em>MiniIcon</em></span></p><p>The description of these styles and their arguments follow:</p><p>The
-<a name="ButtonStyle_Simple"></a><font class="fvwmopt">Simple</font>
+<B>AddButtonStyle</B> (or <B>AddTitleStyle</B>
+for title-bars), use care in sequencing styles to minimize redraw.
+<P>
+
+The available styles are:
+<P>
+
+<I>Simple</I>, <I>Default</I>, <I>Solid</I>, <I>Colorset</I>, <I>Vector</I>,
+<I>?Gradient</I>, <I>Pixmap</I>, <I>AdjustedPixmap</I>,
+<I>ShrunkPixmap</I>, <I>StretchedPixmap</I>, <I>TiledPixmap</I>, <I>MiniIcon</I>
+<P>
+
+The description of these styles and their arguments follow:
+<P>
+
+The
+<I>Simple</I>
 style does nothing.  There are no arguments, and this style is an
-example of a non-destructive button style.</p><p>The
-<a name="ButtonStyle_Default"></a><font class="fvwmopt">Default</font>
+example of a non-destructive button style.
+<P>
+
+The
+<I>Default</I>
 style conditionally accepts one argument: a number which specifies
 the default button number to load.  If the style command given is
-<span class="emphasis"><em>ButtonStyle</em></span> or <a href="#AddButtonStyle">AddButtonStyle</a>,
+<B>ButtonStyle</B> or <B>AddButtonStyle</B>,
 the argument is optional (if given, it overrides the current button).
 If a command other than
-<span class="emphasis"><em>ButtonStyle</em></span> or <a href="#AddButtonStyle">AddButtonStyle</a>
-is used, the number must be specified.</p><p>The
-<a name="ButtonStyle_Solid"></a><font class="fvwmopt">Solid</font>
+<B>ButtonStyle</B> or <B>AddButtonStyle</B>
+is used, the number must be specified.
+<P>
+
+The
+<I>Solid</I>
 style fills the button with a solid color.  The relief border
 color is not affected.  The color is specified as a single
-argument.  This style is fully destructive.</p><p>The
-<a name="ButtonStyle_Colorset"></a><font class="fvwmopt">Colorset</font>
-<em class="replaceable"><code>cs</code></em>
-[<span class="optional"><em class="replaceable"><code>alpha</code></em></span>]
+argument.  This style is fully destructive.
+<P>
+
+The
+<I>Colorset</I>
+<I>cs</I>
+[<I>alpha</I>]
 style fills the button with the Colorset
-<em class="replaceable"><code>cs</code></em>.
+<I>cs</I>.
 The optional
-<em class="replaceable"><code>alpha</code></em>
-argument is a percentage between 0 and 100. It causes fvwm to
+<I>alpha</I>
+argument is a percentage between 0 and 100.  It causes fvwm to
 merge the colorset background onto the button using this
-percentage. If the percentage is 0 the colorset background is
+percentage.  If the percentage is 0 the colorset background is
 hidden and if it is 100 the colorset background is fully
-applied. The default is 100. So, the destructiveness depends on the
-<em class="replaceable"><code>alpha</code></em>
-argument.</p><p>The
-<a name="ButtonStyle_Vector"></a><font class="fvwmopt">Vector</font>
-<em class="replaceable"><code>num</code></em>
-<span class="emphasis"><em>X</em></span><span class="emphasis"><em>[</em></span><span class="emphasis"><em>offset</em></span><span class="emphasis"><em>p]x</em></span><span class="emphasis"><em>Y</em></span><span class="emphasis"><em>[</em></span><span class="emphasis"><em>offset</em></span><span class="emphasis"><em>p]@</em></span><span class="emphasis"><em>C</em></span><span class="emphasis"><em> ...</em></span>
+applied.  The default is 100.  So, the destructiveness depends on the
+<I>alpha</I>
+argument.
+<P>
+
+The
+<I>Vector</I>
+<I>num</I>
+<I>X</I><B>[</B><I>offset</I><B>p]x</B><I>Y</I><B>[</B><I>offset</I><B>p]@</B><I>C</I><B> ...</B>
 style draws a line pattern.  Since this is a standard button style,
 the keyword
-<span class="emphasis"><em>Vector</em></span>
+<I>Vector</I>
 is optional,
-<em class="replaceable"><code>num</code></em>
+<I>num</I>
 is a number of point specifications of the form
-<span class="emphasis"><em>X</em></span><span class="emphasis"><em>[</em></span><span class="emphasis"><em>offset</em></span><span class="emphasis"><em>p]x</em></span><span class="emphasis"><em>Y</em></span><span class="emphasis"><em>[</em></span><span class="emphasis"><em>offset</em></span><span class="emphasis"><em>p]@</em></span><span class="emphasis"><em>C</em></span><span class="emphasis"><em> ...</em></span>
-<span class="emphasis"><em>X</em></span> and <span class="emphasis"><em>Y</em></span>
+<I>X</I><B>[</B><I>offset</I><B>p]x</B><I>Y</I><B>[</B><I>offset</I><B>p]@</B><I>C</I><B> ...</B>
+<I>X</I> and <I>Y</I>
 are point coordinates inside the button, given in percents
 (from 0 to 100).  An optional absolute
-<span class="emphasis"><em>offset</em></span>
-in pixels, can be given as "+&lt;offset&gt;p" for a positive or
-"-&lt;offset&gt;p" for a negative offset.</p><p>
-<a name="ButtonStyle_C"></a><font class="fvwmopt">C</font>
+<I>offset</I>
+in pixels, can be given as &quot;+&lt;offset&gt;p&quot; for a positive or
+&quot;-&lt;offset&gt;p&quot; for a negative offset.
+<P>
+
+<I>C</I>
 specifies a line color (0 - the shadow color, 1 - the highlight
 color, 2 - the background color, 3 - the foreground color, 4 -
 only move the point, do not draw).  The first point color is not
 used.  You can use up to 10000 points in a line pattern.  This
-style is partially destructive.</p><p>The specification is a little cumbersome:</p><pre class="programlisting">
+style is partially destructive.
+<P>
+
+The specification is a little cumbersome:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle 2 Vector 4 50x30@1 70x70@0 30x70@0 50x30@1
-</pre><p>then the button 2 decoration uses a 4-point pattern consisting of
+</PRE>
+
+</DL>
+
+<P>
+
+then the button 2 decoration uses a 4-point pattern consisting of
 a line from (x=50,y=30) to (70,70) in the shadow color (@0), and
 then to (30,70) in the shadow color, and finally to (50,30) in the
-highlight color (@1).  Is that too confusing?  See the fvwm web
-pages for some examples with screenshots.</p><p>A more complex example of
-<span class="emphasis"><em>Vector</em></span>:</p><pre class="programlisting">
+highlight color (@1).  Is that too confusing? See the fvwm web
+pages for some examples with screenshots.
+<P>
+
+A more complex example of
+<I>Vector</I>:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle 8 Vector 10 45x65@2 45x75@3 \
   20x75@3 20x50@3 35x50@3 35x65@1 35x25@1 \
   75x25@1 75x65@0 35x65@0
 ButtonStyle 0 Vector 10 45x65@2 45x75@0 \
   20x75@0 20x50@1 45x50@1 45x65@0 75x65@3 \
   75x25@3 35x25@3 35x47@3
-</pre><p>The
-<a name="ButtonStyle_?Gradient"></a><font class="fvwmopt">?Gradient</font>
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>?Gradient</I>
 styles denote color gradients.  Fill in the question mark with any
 one of the defined gradient types.  Please refer to the
-<a href="#color_gradients">Color Gradients</a>
+<B>Color Gradients</B>
 section for a description of the gradient syntax.  The gradient
-styles are fully destructive.</p><p>The
-<a name="ButtonStyle_Pixmap"></a><font class="fvwmopt">Pixmap</font>
+styles are fully destructive.
+<P>
+
+The
+<I>Pixmap</I>
 style displays a pixmap.  A pixmap should be specified as an
 argument.  For example, the following would give button number 2
 the same pixmap for all 4 states (2 active and 2 inactive), and
-button number 4 all different pixmaps.</p><pre class="programlisting">
+button number 4 all different pixmaps.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ButtonStyle 2 Pixmap my_pixmap.xpm
 ButtonStyle 4 \
-	ActiveUp (Pixmap activeup.xpm) \
-	ActiveDown (Pixmap activedown.xpm) \
-	Inactive (Pixmap inactiveup.xpm)
+        ActiveUp (Pixmap activeup.xpm) \
+        ActiveDown (Pixmap activedown.xpm) \
+        Inactive (Pixmap inactiveup.xpm)
 ButtonStyle 4 \
-	InactiveDown Pixmap inactivedown.xpm
-</pre><p>The pixmap specification can be given as an absolute or relative
+        InactiveDown Pixmap inactivedown.xpm
+</PRE>
+
+</DL>
+
+<P>
+
+The pixmap specification can be given as an absolute or relative
 pathname (see
-<a href="#ImagePath">ImagePath</a>).
+<B>ImagePath</B>).
 If the pixmap cannot be found, the button style reverts to
-<span class="emphasis"><em>Simple</em></span>.
+<I>Simple</I>.
 Flags specific to the
-<span class="emphasis"><em>Pixmap</em></span>
+<I>Pixmap</I>
 style are
-<span class="emphasis"><em>Left</em></span>, <span class="emphasis"><em>Right</em></span>, 
-<span class="emphasis"><em>Top</em></span>, and <span class="emphasis"><em>Bottom</em></span>.
+<I>Left</I>, <I>Right</I>, 
+<I>Top</I>, and <I>Bottom</I>.
 These can be used to justify the pixmap (default is centered for
 both directions).  Pixmap transparency is used for the color
-"None."  This style is partially destructive.</p><p>The
-<a name="ButtonStyle_AdjustedPixmap"></a><font class="fvwmopt">AdjustedPixmap</font>
+&quot;None.&quot; This style is partially destructive.
+<P>
+
+The
+<I>AdjustedPixmap</I>
 style is similar to the
-<span class="emphasis"><em>Pixmap</em></span>
-style. But the image is resized to exactly fit the button.</p><p>The
-<a name="ButtonStyle_ShrunkPixmap"></a><font class="fvwmopt">ShrunkPixmap</font>
+<I>Pixmap</I>
+style.  But the image is resized to exactly fit the button.
+<P>
+
+The
+<I>ShrunkPixmap</I>
 style is similar to the
-<span class="emphasis"><em>Pixmap</em></span>
-style. But if the image is bigger than the button the image is
-resized to fit into the button.</p><p>The
-<a name="ButtonStyle_StretchedPixmap"></a><font class="fvwmopt">StretchedPixmap</font>
+<I>Pixmap</I>
+style.  But if the image is bigger than the button the image is
+resized to fit into the button.
+<P>
+
+The
+<I>StretchedPixmap</I>
 style is similar to the
-<span class="emphasis"><em>Pixmap</em></span>
-style. But if the image is smaller than the button the image is
-resized to cover the button.</p><p>The
-<a name="ButtonStyle_TiledPixmap"></a><font class="fvwmopt">TiledPixmap</font>
-style accepts a pixmap to be tiled as the button background. One
+<I>Pixmap</I>
+style.  But if the image is smaller than the button the image is
+resized to cover the button.
+<P>
+
+The
+<I>TiledPixmap</I>
+style accepts a pixmap to be tiled as the button background.  One
 pixmap is specified as an argument.  Pixmap transparency is not
-used.  This style is fully destructive.</p><p>The
-<a name="ButtonStyle_MiniIcon"></a><font class="fvwmopt">MiniIcon</font>
+used.  This style is fully destructive.
+<P>
+
+The
+<I>MiniIcon</I>
 style draws the window's miniature icon in the button, which is
 specified with the
-<span class="emphasis"><em>MiniIcon</em></span>
+<I>MiniIcon</I>
 option of the
-<span class="emphasis"><em>Style</em></span>
-command.  This button style accepts no arguments.  Example:</p><pre class="programlisting">
-<a href="#Style">Style</a> *     MiniIcon mini-bx2.xpm
-<a href="#Style">Style</a> xterm MiniIcon mini-term.xpm
-<a href="#Style">Style</a> Emacs MiniIcon mini-doc.xpm
+<B>Style</B>
+command.  This button style accepts no arguments.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> *     MiniIcon mini-bx2.xpm
+<B>Style</B> xterm MiniIcon mini-term.xpm
+<B>Style</B> Emacs MiniIcon mini-doc.xpm
 
 ButtonStyle 1 MiniIcon
-</pre><div class="cmdsynopsis"><p><code class="command">ButtonStyle</code>   <em class="replaceable"><code>button</code></em>   -   [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... </p></div><p>Sets state-independent flags for the specified
-<em class="replaceable"><code>button</code></em>.
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>ButtonStyle</B> <I>button</I> - [!]<I>flag</I> ...<DD>
+<DL COMPACT><DT><DD>
+
+Sets state-independent flags for the specified
+<I>button</I>.
 State-independent flags affect button behavior.  Each
-<em class="replaceable"><code>flag</code></em>
+<I>flag</I>
 is separated by a space.  If a '!'
 is prefixed to the flag then the behavior is negated.  The special
 flag
-<a name="ButtonStyle_Clear"></a><font class="fvwmopt">Clear</font>
-clears any existing flags.</p><p>The following flags are usually used to tell fvwm which buttons
+<I>Clear</I>
+clears any existing flags.
+<P>
+
+The following flags are usually used to tell fvwm which buttons
 should be affected by mwm function hints (see
-<a href="#Style_MwmFunctions">MwmFunctions</a>
+<I>MwmFunctions</I>
 option of the
-<a href="#Style">Style</a>
+<B>Style</B>
 command.  This is not done automatically since you might have
-buttons bound to complex functions, for instance.</p><p>
-<a name="ButtonStyle_MwmDecorMenu"></a><font class="fvwmopt">MwmDecorMenu</font>
+buttons bound to complex functions, for instance.
+<P>
+
+<I>MwmDecorMenu</I>
 should be assigned to title-bar buttons which display a menu.  The
 default assignment is the leftmost button.  When a window with the
-<a href="#Style_MwmFunctions">MwmFunctions</a>
-<a href="#Style">Style</a>
-option requests not to show this button, it is hidden.</p><p>
-<a name="ButtonStyle_MwmDecorMin"></a><font class="fvwmopt">MwmDecorMin</font>
+<I>MwmFunctions</I>
+<B>Style</B>
+option requests not to show this button, it is hidden.
+<P>
+
+<I>MwmDecorMin</I>
 should be assigned to title-bar buttons which minimize or iconify
 the window.  The default assignment is the second button over from
 the rightmost button.  When a window with the
-<a href="#Style_MwmFunctions">MwmFunctions</a>
-<a href="#Style">Style</a>
-option requests not to show this button, it is hidden.</p><p>
-<a name="ButtonStyle_MwmDecorMax"></a><font class="fvwmopt">MwmDecorMax</font>
+<I>MwmFunctions</I>
+<B>Style</B>
+option requests not to show this button, it is hidden.
+<P>
+
+<I>MwmDecorMax</I>
 should be assigned to title-bar buttons which maximize the
-window. The default assignment is the rightmost button.  When a
+window.  The default assignment is the rightmost button.  When a
 window with the
-<a href="#Style_MwmFunctions">MwmFunctions</a>
-<a href="#Style">Style</a>
+<I>MwmFunctions</I>
+<B>Style</B>
 option requests not to show this button, it is hidden.  When the
 window is maximized, the vector pattern on the button looks
-pressed in.</p><p>
-<a name="ButtonStyle_MwmDecorShade"></a><font class="fvwmopt">MwmDecorShade</font>
+pressed in.
+<P>
+
+<I>MwmDecorShade</I>
 should be assigned to title-bar buttons which shade the window
 (see
-<a href="#WindowShade">WindowShade</a>
+<B>WindowShade</B>
 command).  When the window is shaded, the vector pattern on the
-button looks pressed in.</p><p>
-<a name="ButtonStyle_MwmDecorStick"></a><font class="fvwmopt">MwmDecorStick</font>
+button looks pressed in.
+<P>
+
+<I>MwmDecorStick</I>
 should be assigned to title-bar buttons which make the window
-sticky. When the window is sticky, the vector pattern on the
-button looks pressed in.</p><p>The flag
-<a name="ButtonStyle_MwmDecorLayer"></a><font class="fvwmopt">MwmDecorLayer</font>
-<em class="replaceable"><code>layer</code></em>
+sticky.  When the window is sticky, the vector pattern on the
+button looks pressed in.
+<P>
+
+The flag
+<I>MwmDecorLayer</I>
+<I>layer</I>
 should be assigned to title-bar buttons which place the window in
 the layer numbered
-<em class="replaceable"><code>layer</code></em>.
+<I>layer</I>.
 When the window is on that specific layer, the vector pattern on
-the button looks pressed in.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ChangeDecor"></a>31.8.7. ChangeDecor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ChangeDecor</code>   <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Changes the decor of a window to
-<em class="replaceable"><code>decor</code></em>.
-<em class="replaceable"><code>decor</code></em>
-is "Default" or the name of a decor defined with
-<a href="#AddToDecor">AddToDecor</a>.
+the button looks pressed in.
+</DL>
+
+<DT><B>ChangeDecor</B> <I>decor</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is deprecated and will be removed in the future.  There
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+Changes the decor of a window to
+<I>decor</I>.
+<I>decor</I>
+is &quot;Default&quot; or the name of a decor defined with
+<B>AddToDecor</B>.
 If
-<em class="replaceable"><code>decor</code></em>
+<I>decor</I>
 is invalid, nothing occurs.  If called from somewhere in a window
 or its border, then that window is affected.  If called from the
 root window the user is allowed to select the target window.
-<span class="emphasis"><em>ChangeDecor</em></span>
+<B>ChangeDecor</B>
 only affects attributes which can be set using the
-<a href="#AddToDecor">AddToDecor</a>
-command.</p><pre class="programlisting">
+<B>AddToDecor</B>
+command.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ChangeDecor CustomDecor1
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyDecor"></a>31.8.8. DestroyDecor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyDecor</code>  [recreate]  <em class="replaceable"><code>decor</code></em> </p></div><p>This command is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>Deletes the
-<em class="replaceable"><code>decor</code></em>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>DestroyDecor</B> [recreate] <I>decor</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is deprecated and will be removed in the future.  There
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+Deletes the
+<I>decor</I>
 defined with
-<span class="emphasis"><em>AddToDecor</em></span>,
+<B>AddToDecor</B>,
 so that subsequent references to it are no longer valid.  Windows
 using this
-<em class="replaceable"><code>decor</code></em>
-revert to the "Default" decor. The optional parameter
-<a name="DestroyDecor_recreate"></a><font class="fvwmopt">recreate</font>
+<I>decor</I>
+revert to the &quot;Default&quot; decor.  The optional parameter
+<I>recreate</I>
 tells fvwm not to throw away the decor completely but to throw
-away only its contents. If the decor is created again later,
+away only its contents.  If the decor is created again later,
 windows do not use it before the
-<a href="#Style_UseDecor">UseDecor</a>
+<I>UseDecor</I>
 style is applied again unless the decor was destroyed with the
-<span class="emphasis"><em>recreate</em></span>
-option.  The decor named "Default" cannot be destroyed.</p><pre class="programlisting">
+<I>recreate</I>
+option.  The decor named &quot;Default&quot; cannot be destroyed.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 DestroyDecor CustomDecor1
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="TitleStyle"></a>31.8.9. TitleStyle</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>justification</code></em>] [Height [<span class="optional"><em class="replaceable"><code>num</code></em></span>]] [MinHeight [<span class="optional"><em class="replaceable"><code>num</code></em></span>]]</p></div><p>Sets attributes for the title-bar.  Justifications can be
-<a name="TitleStyle_Centered"></a><font class="fvwmopt">Centered</font>,
-<a name="TitleStyle_RightJustified"></a><font class="fvwmopt">RightJustified</font> or
-<a name="TitleStyle_LeftJustified"></a><font class="fvwmopt">LeftJustified</font>.
-<a name="TitleStyle_Height"></a><font class="fvwmopt">Height</font>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>TitleStyle</B> [<I>justification</I>] [Height&nbsp;[<I>num</I>]] [MinHeight&nbsp;[<I>num</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Sets attributes for the title-bar.  Justifications can be
+<I>Centered</I>,
+<I>RightJustified</I> or
+<I>LeftJustified</I>.
+<I>Height</I>
 sets the title bar's height to an amount in pixels.
-<a name="TitleStyle_MinHeight"></a><font class="fvwmopt">MinHeight</font>
+<I>MinHeight</I>
 sets the minimal height in pixels of the title bar.
 Defaults are
-<span class="emphasis"><em>Centered</em></span>,
+<I>Centered</I>,
 the window's font height and no minimal height.
 To reset the font height to the
 default value, omit the
-<em class="replaceable"><code>num</code></em>
+<I>num</I>
 argument after the
-<span class="emphasis"><em>Height</em></span>
-keyword. The
-<span class="emphasis"><em>MinHeight</em></span>
+<I>Height</I>
+keyword.  The
+<I>MinHeight</I>
 height is reseted by
-<span class="emphasis"><em>Height</em></span>
+<I>Height</I>
 or if given with no argument.
-Example:</p><pre class="programlisting">
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 TitleStyle LeftJustified Height 24
-</pre><div class="cmdsynopsis"><p><code class="command">TitleStyle</code>  [<em class="replaceable"><code>state</code></em>] [<em class="replaceable"><code>style</code></em>] [--  [<span class="optional">!</span>]<em class="replaceable"><code>flag</code></em>... ]</p></div><p>Sets the style for the title-bar.
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>TitleStyle</B> [<I>state</I>] [<I>style</I>] [--&nbsp;[!]<I>flag</I>&nbsp;...]<DD>
+<DL COMPACT><DT><DD>
+
+Sets the style for the title-bar.
 See also
-<a href="#AddTitleStyle">AddTitleStyle</a> and <a href="#ButtonStyle">ButtonStyle</a>
-<em class="replaceable"><code>state</code></em>
-can be one of "<a href="#ButtonStyle_ActiveUp">ActiveUp</a>",
-"<a href="#ButtonStyle_ActiveDown">ActiveDown</a>",
-"<a href="#ButtonStyle_InactiveUp">InactiveUp</a>",
-or "<a href="#ButtonStyle_InactiveDown">InactiveDown</a>".  Shortcuts like
-"<a href="#ButtonStyle_Active">Active</a>" and
-"<a href="#ButtonStyle_Inactive">Inactive</a>" are
-allowed.  The states with the "Toggled" prefix are allowed too,
-the title itself does not use "Toggled" states, but these states
+<B>AddTitleStyle</B> and <B>ButtonStyle</B>
+<I>state</I>
+can be one of &quot;<I>ActiveUp</I>&quot;,
+&quot;<I>ActiveDown</I>&quot;,
+&quot;<I>InactiveUp</I>&quot;,
+or &quot;<I>InactiveDown</I>&quot;.  Shortcuts like
+&quot;<I>Active</I>&quot; and
+&quot;<I>Inactive</I>&quot; are
+allowed.  The states with the &quot;Toggled&quot; prefix are allowed too,
+the title itself does not use &quot;Toggled&quot; states, but these states
 are used for the buttons with
-<a href="#ButtonStyle">ButtonStyle</a>
-<a href="#ButtonStyle_UseTitleStyle">UseTitleStyle</a>.
+<B>ButtonStyle</B>
+<I>UseTitleStyle</I>.
 If
-<em class="replaceable"><code>state</code></em>
+<I>state</I>
 is omitted, then the
-<em class="replaceable"><code>style</code></em>
+<I>style</I>
 is added to every state.  If parentheses are placed around the
-<em class="replaceable"><code>style</code></em> and <em class="replaceable"><code>flags</code></em>,
+<I>style</I> and <I>flags</I>,
 then multiple state definitions can be given per line.
-<em class="replaceable"><code>style</code></em>
+<I>style</I>
 can be omitted so that flags can be set while not destroying the
-current style.</p><p>If a
-'!'
+current style.
+<P>
+
+If a '!'
 is prefixed to any
-<em class="replaceable"><code>flag</code></em>,
+<I>flag</I>,
 its behavior is negated.  Valid flags for each state include
-<a href="#ButtonStyle_Raised">Raised</a>,
-<a href="#ButtonStyle_Flat">Flat</a> and 
-<a href="#ButtonStyle_Sunk">Sunk</a>
+<I>Raised</I>,
+<I>Flat</I> and 
+<I>Sunk</I>
 (these are mutually exclusive).  The default is
-<a href="#ButtonStyle_Raised">Raised</a>.
+<I>Raised</I>.
 See the note in
-<a href="#ButtonStyle">ButtonStyle</a>
-regarding the "<a href="#ButtonStyle_ActiveDown">ActiveDown</a>" state.  Examples:</p><pre class="programlisting">
+<B>ButtonStyle</B>
+regarding the &quot;<I>ActiveDown</I>&quot; state.  Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 TitleStyle ActiveUp HGradient 16 navy black
 TitleStyle \
-	ActiveDown (Solid red -- flat) \
-	Inactive (TiledPixmap wood.xpm)
+        ActiveDown (Solid red -- flat) \
+        Inactive (TiledPixmap wood.xpm)
 TitleStyle \
-	ActiveUp (-- Flat) \
-	ActiveDown (-- Raised) \
-	InactiveUp (-- Flat) \
-	InactiveDown (-- Sunk)
-</pre><p>This sets the "ActiveUp" state to a horizontal gradient, the
-"ActiveDown" state to solid red, and the "Inactive" states to a
-tiled wood pixmap. Finally, "ActiveUp" and "InactiveUp" are set
-to look flat, while "ActiveDown" set to be sunk (the
-<a href="#ButtonStyle_Raised">Raised</a>
-flag for the "ActiveDown" state causes it to appear sunk due to
-relief inversion), and "InactiveDown" is set to look raised. An
-example which sets flags for all states:</p><pre class="programlisting">
+        ActiveUp (-- Flat) \
+        ActiveDown (-- Raised) \
+        InactiveUp (-- Flat) \
+        InactiveDown (-- Sunk)
+</PRE>
+
+</DL>
+
+<P>
+
+This sets the &quot;ActiveUp&quot; state to a horizontal gradient, the
+&quot;ActiveDown&quot; state to solid red, and the &quot;Inactive&quot; states to a
+tiled wood pixmap.  Finally, &quot;ActiveUp&quot; and &quot;InactiveUp&quot; are set
+to look flat, while &quot;ActiveDown&quot; set to be sunk (the
+<I>Raised</I>
+flag for the &quot;ActiveDown&quot; state causes it to appear sunk due to
+relief inversion), and &quot;InactiveDown&quot; is set to look raised.  An
+example which sets flags for all states:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 TitleStyle -- flat
-</pre><p>For a flattened look:</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+For a flattened look:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 TitleStyle -- flat
-<a href="#ButtonStyle">ButtonStyle</a> <a href="#All">All</a> Active (-- flat) Inactive (-- flat)
-</pre><p><span class="emphasis"><em>TitleStyle</em></span>
+<B>ButtonStyle</B> <B>All</B> Active (-- flat) Inactive (-- flat)
+</PRE>
+
+</DL>
+
+<P>
+
+<B>TitleStyle</B>
 accepts all the
-<a href="#ButtonStyle">ButtonStyle</a>
- styles and arguments:</p><p><a href="#ButtonStyle_Simple">Simple</a>,
-<a href="#ButtonStyle_Default">Default</a>,
-<a href="#ButtonStyle_Solid">Solid</a>,
-<a href="#ButtonStyle_Colorset">Colorset</a>,
-<a href="#ButtonStyle_Vector">Vector</a>,
-<a href="#ButtonStyle_?Gradient">?Gradient</a>,
-<a href="#ButtonStyle_Pixmap">Pixmap</a>,
-<a href="#ButtonStyle_AdjustedPixmap">AdjustedPixmap</a>,
-<a href="#ButtonStyle_ShrunkPixmap">ShrunkPixmap</a>,
-<a href="#ButtonStyle_StretchedPixmap">StretchedPixmap</a>,
-<a href="#ButtonStyle_TiledPixmap">TiledPixmap</a>,
-<a href="#ButtonStyle_MiniIcon">MiniIcon</a>.</p><p>See the
-<a href="#ButtonStyle">ButtonStyle</a>
-command for a description of all these styles and their arguments.</p><p>In addition to these styles
-<span class="emphasis"><em>TitleStyle</em></span>
-accepts a powerful
-<a name="TitleStyle_MultiPixmap"></a><font class="fvwmopt">MultiPixmap</font>
-option. This allows you to specify different pixmaps, colorsets or
-colors for different parts of the titlebar. Some of them are tiled or
-stretched to fit a particular space; others are discrete "transition"
-images. The definable
-<a href="#ButtonStyle_sections">sections</a>
-are:</p><div class="variablelist"><dl><dt><span class="term"><a name="TitleStyle_Main"></a><font class="fvwmopt">Main</font></span></dt><dd><p>The full titlebar</p></dd><dt><span class="term"><a name="TitleStyle_LeftMain"></a><font class="fvwmopt">LeftMain</font></span></dt><dd><p>Left of title text</p></dd><dt><span class="term"><a name="TitleStyle_RightMain"></a><font class="fvwmopt">RightMain</font></span></dt><dd><p>Right of title text</p></dd><dt><span class="term"><a name="TitleStyle_UnderText"></a><font class="fvwmopt">UnderText</font></span></dt><dd><p>Underneath title text</p></dd><dt><span class="term"><a name="TitleStyle_LeftOfText"></a><font class="fvwmopt">LeftOfText</font></span></dt><dd><p>just to the left of the title text</p></dd><dt><span class="term"><a name="TitleStyle_RightOfText"></a><font class="fvwmopt">RightOfText</font></span></dt><dd><p>just to the right of the title text</p></dd><dt><span class="term"><a name="TitleStyle_LeftEnd"></a><font class="fvwmopt">LeftEnd</font></span></dt><dd><p>at the far left end of the titlebar
-  (just after left buttons if any)</p></dd><dt><span class="term"><a name="TitleStyle_RightEnd"></a><font class="fvwmopt">RightEnd</font></span></dt><dd><p>at the far right end of the titlebar
-			(just before right buttons if any)</p></dd><dt><span class="term"><a name="TilteStyle_Buttons"></a><font class="fvwmopt">Buttons</font></span></dt><dd><p>under buttons in case of
-		    <a name="ButtonStyle_UseTitleStyle"></a><font class="fvwmopt">UseTitleStyle</font>
-		</p></dd><dt><span class="term"><a name="TitleStyle_LeftButtons"></a><font class="fvwmopt">LeftButtons</font></span></dt><dd><p>under left buttons in case of
-		    <a name="ButtonStyle_UseTitleStyle"></a><font class="fvwmopt">UseTitleStyle</font>
-		</p></dd><dt><span class="term"><a name="TitleStyle_RightButtons"></a><font class="fvwmopt">RightButtons</font></span></dt><dd><p>under right buttons in case of
-		    <a name="ButtonStyle_UseTitleStyle"></a><font class="fvwmopt">UseTitleStyle</font>
-		</p></dd></dl></div><p>None of these are mandatory except for
-<span class="emphasis"><em>Main</em></span>
-(or, if you do not define
-<span class="emphasis"><em>Main</em></span>
-you must define both
-<span class="emphasis"><em>LeftMain</em></span> and <span class="emphasis"><em>RightMain</em></span>).
-If no
-<span class="emphasis"><em>Buttons</em></span>
-pixmaps are defined and
-<a href="#ButtonStyle_UseTitleStyle">UseTitleStyle</a>
-is specified for one or more buttons,
-<span class="emphasis"><em>Main</em></span>,
-<span class="emphasis"><em>LeftMain</em></span> or <span class="emphasis"><em>RightMain</em></span>
-are used as appropriate.</p><p>The syntax for this style type is:</p><pre class="programlisting">
-MultiPixmap section style arg, ...
-</pre><p>continuing for whatever you want to define. The
-<em class="replaceable"><code>style</code></em>
-can be either
-<a href="#ButtonStyle_TiledPixmap">TiledPixmap</a>, <a href="#ButtonStyle_AdjustedPixmap">AdjustedPixmap</a>, <a href="#ButtonStyle_Colorset">Colorset</a> or <a href="#ButtonStyle_Solid">Solid</a>.
+<B>ButtonStyle</B>
+styles and arguments:
+<P>
+
+<I>Simple</I>,
+<I>Default</I>,
+<I>Solid</I>,
+<I>Colorset</I>,
+<I>Vector</I>,
+<I>?Gradient</I>,
+<I>Pixmap</I>,
+<I>AdjustedPixmap</I>,
+<I>ShrunkPixmap</I>,
+<I>StretchedPixmap</I>,
+<I>TiledPixmap</I>,
+<I>MiniIcon</I>.
+<P>
+
 See the
-<a href="#ButtonStyle">ButtonStyle</a>
+<B>ButtonStyle</B>
+command for a description of all these styles and their arguments.
+<P>
+
+In addition to these styles
+<B>TitleStyle</B>
+accepts a powerful
+<I>MultiPixmap</I>
+option.  This allows you to specify different pixmaps, colorsets or
+colors for different parts of the titlebar.  Some of them are tiled or
+stretched to fit a particular space; others are discrete &quot;transition&quot;
+images.  The definable
+<I>sections</I>
+are:
+<P>
+
+<I>Main</I>
+<DL COMPACT><DT><DD>
+The full titlebar
+</DL>
+
+<P>
+
+<I>LeftMain</I>
+<DL COMPACT><DT><DD>
+Left of title text
+</DL>
+
+<P>
+
+<I>RightMain</I>
+<DL COMPACT><DT><DD>
+Right of title text
+</DL>
+
+<P>
+
+<I>UnderText</I>
+<DL COMPACT><DT><DD>
+Underneath title text
+</DL>
+
+<P>
+
+<I>LeftOfText</I>
+<DL COMPACT><DT><DD>
+just to the left of the title text
+</DL>
+
+<P>
+
+<I>RightOfText</I>
+<DL COMPACT><DT><DD>
+just to the right of the title text
+</DL>
+
+<P>
+
+<I>LeftEnd</I>
+<DL COMPACT><DT><DD>
+at the far left end of the titlebar (just after left buttons if any)
+</DL>
+
+<P>
+
+<I>RightEnd</I>
+<DL COMPACT><DT><DD>
+at the far right end of the titlebar (just before right buttons if any)
+</DL>
+
+<P>
+
+<I>Buttons</I>
+<DL COMPACT><DT><DD>
+under buttons in case of
+<I>UseTitleStyle</I>
+</DL>
+
+<P>
+
+<I>LeftButtons</I>
+<DL COMPACT><DT><DD>
+under left buttons in case of
+<I>UseTitleStyle</I>
+</DL>
+
+<P>
+
+<I>RightButtons</I>
+<DL COMPACT><DT><DD>
+under right buttons in case of
+<I>UseTitleStyle</I>
+</DL>
+
+<P>
+
+None of these are mandatory except for
+<I>Main</I>
+(or, if you do not define
+<I>Main</I>
+you must define both
+<I>LeftMain</I> and <I>RightMain</I>).
+If no
+<I>Buttons</I>
+pixmaps are defined and
+<I>UseTitleStyle</I>
+is specified for one or more buttons,
+<I>Main</I>,
+<I>LeftMain</I> or <I>RightMain</I>
+are used as appropriate.
+<P>
+
+The syntax for this style type is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+MultiPixmap section style arg, ...
+</PRE>
+
+</DL>
+
+<P>
+
+continuing for whatever you want to define.  The
+<I>style</I>
+can be either
+<I>TiledPixmap</I>, <I>AdjustedPixmap</I>, <I>Colorset</I> or <I>Solid</I>.
+See the
+<B>ButtonStyle</B>
 command for the description of these styles.
 In the case of a transition section,
-<span class="emphasis"><em>LeftEnd</em></span>, <span class="emphasis"><em>LeftOfText</em></span>,
-<span class="emphasis"><em>RightOfText</em></span> or <span class="emphasis"><em>RightEnd</em></span>,
-<a href="#ButtonStyle_AdjustedPixmap">AdjustedPixmap</a>
-only resize the pixmap in the "y" direction. For the
-<a href="#ButtonStyle_Colorset">Colorset</a> and <a href="#ButtonStyle_Solid">Solid</a>
+<I>LeftEnd</I>, <I>LeftOfText</I>,
+<I>RightOfText</I> or <I>RightEnd</I>,
+<I>AdjustedPixmap</I>
+only resize the pixmap in the &quot;y&quot; direction.  For the
+<I>Colorset</I> and <I>Solid</I>
 styles a width of the half of the title bar height is assumed
-for the transition sections.</p><p>An example:</p><pre class="programlisting">
+for the transition sections.
+<P>
+
+An example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 MultiPixmap Main AdjustedPixmap foo.xpm, \
             UnderText TiledPixmap bar.xpm, \
-            Buttons <a href="#ButtonStyle_Colorset">Colorset</a> 2
-</pre><p>Note that the old syntax is still supported: if the style is omitted,
-<a href="#ButtonStyle_TiledPixmap">TiledPixmap</a>
-is assumed and adding "(stretched)" between the section and the
+            Buttons <I>Colorset</I> 2
+</PRE>
+
+</DL>
+
+<P>
+
+Note that the old syntax is still supported: if the style is omitted,
+<I>TiledPixmap</I>
+is assumed and adding &quot;(stretched)&quot; between the section and the
 file name implies
-<a href="#ButtonStyle_AdjustedPixmap">AdjustedPixmap</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UpdateDecor"></a>31.8.10. UpdateDecor</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UpdateDecor</code>  [<em class="replaceable"><code>decor</code></em>]</p></div><p>This command is deprecated and will be removed in the future.  There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p><p>This command is kept mainly for backward compatibility.  Since
+<I>AdjustedPixmap</I>.
+</DL>
+
+<DT><B>UpdateDecor</B> [<I>decor</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is deprecated and will be removed in the future.  There
+are plans to replace it with a more flexible solution in fvwm-3.0.
+<P>
+
+This command is kept mainly for backward compatibility.  Since
 all elements of a decor are updated immediately when they are
-changed, this command is mostly useless.</p><p>Updates window decorations.
-<em class="replaceable"><code>decor</code></em>
+changed, this command is mostly useless.
+<P>
+
+Updates window decorations.
+<I>decor</I>
 is an optional argument which specifies the
-<em class="replaceable"><code>decor</code></em>
+<I>decor</I>
 to update.  If given, only windows which are assigned to that
 particular
-<em class="replaceable"><code>decor</code></em>
+<I>decor</I>
 are updated.  This command is useful, for instance, after a
-<a href="#ButtonStyle">ButtonStyle</a>, <a href="#TitleStyle">TitleStyle</a> or <a href="#BorderStyle">BorderStyle</a>
+<B>ButtonStyle</B>, <B>TitleStyle</B> or <B>BorderStyle</B>
 (possibly used in conjunction with
-<a href="#AddToDecor">AddToDecor</a>).
+<B>AddToDecor</B>).
 Specifying an invalid decor results in all windows being
 updated.  This command is less disturbing than
-<a href="#Recapture">Recapture</a>,
+<B>Recapture</B>,
 but does not affect window style options as
-<a href="#Recapture">Recapture</a>
-does.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="virtual_desktop_commands"></a>31.9. Controlling the Virtual Desktop</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Desk"></a>31.9.1. Desk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Desk</code>   <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>] [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>]</p></div><p>This command has been renamed.  Please see
-<a href="#GotoDesk">GotoDesk</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DesktopName"></a>31.9.2. DesktopName</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DesktopName</code>   <em class="replaceable"><code>desk</code></em>   <em class="replaceable"><code>name</code></em> </p></div><p>Defines the name of the desktop number
-<em class="replaceable"><code>desk</code></em>
+<B>Recapture</B>
+does.
+</DL>
+
+</DL>
+<A NAME="lbBW">&nbsp;</A>
+<H3>Controlling the Virtual Desktop</H3>
+
+<DL COMPACT>
+<DT><B>Desk</B> <I>arg1</I> [<I>arg2</I>] [<I>min</I>&nbsp;<I>max</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command has been renamed.  Please see
+<B>GotoDesk</B>
+command.
+</DL>
+
+<DT><B>DesktopName</B> <I>desk</I> <I>name</I><DD>
+<DL COMPACT><DT><DD>
+
+Defines the name of the desktop number
+<I>desk</I>
 to
-<em class="replaceable"><code>name</code></em>.
+<I>name</I>.
 This name is used in the
-<a href="#WindowList">WindowList</a>
+<B>WindowList</B>
 command and in the
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 where it override the
-<a href="<?php echo conv_link_target('FvwmPager.php');?>#FvwmPager_Label">Label</a>
-configuration option. Moreover, if consecutive names starting from
-desktop 0 are defined, then these names can be used by any <acronym class="acronym">EWMH</acronym>
-compliant application (as a pager).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DesktopSize"></a>31.9.3. DesktopSize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DesktopSize</code>   <em class="replaceable"><code>Horizontal</code></em>x<em class="replaceable"><code>Vertical</code></em> </p></div><p>Defines the virtual desktop size in units of the physical screen
-size.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeResistance"></a>31.9.4. EdgeResistance</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeResistance</code>   
-		<em class="replaceable"><code>delay</code></em>
-         <br><code class="command">EdgeResistance</code>   <em class="replaceable"><code>scrolling</code></em>   <em class="replaceable"><code>moving</code></em>  [<em class="replaceable"><code>xinerama-scrolling</code></em>]</p></div><p>Tells how hard it should be to change the desktop viewport by
-moving the mouse over the edge of the screen. The parameter tells
+<I>Label</I>
+configuration option.  Moreover, if consecutive names starting from
+desktop 0 are defined, then these names can be used by any EWMH
+compliant application (as a pager).
+</DL>
+
+<DT><B>DesktopSize</B> <I>Horizontal</I>x<I>Vertical</I><DD>
+<DL COMPACT><DT><DD>
+
+Defines the virtual desktop size in units of the physical screen
+size.
+</DL>
+
+<DT><B>EdgeResistance</B> <I>delay</I><B>EdgeResistance</B> <I>scrolling</I> <I>moving</I> [<I>xinerama-scrolling</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Tells how hard it should be to change the desktop viewport by
+moving the mouse over the edge of the screen.  The parameter tells
 how many milliseconds the pointer must spend on the screen edge
 before fvwm moves the viewport.  This is intended for people who
-use</p><pre class="programlisting">
-<a href="#EdgeScroll">EdgeScroll</a> 100 100
-</pre><p>but find themselves accidentally flipping pages when they do
+use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>EdgeScroll</B> 100 100
+</PRE>
+
+</DL>
+
+<P>
+
+but find themselves accidentally flipping pages when they do
 not want to.  If -1 is given as the delay, scrolling is disabled
-completely.</p><p>The second form of invocation with two or three arguments is
+completely.
+<P>
+
+The second form of invocation with two or three arguments is
 obsolete and should be replaced with the following three commands
-as needed:</p><pre class="programlisting">
-<a href="#EdgeResistance">EdgeResistance</a> <em class="replaceable"><code>scrolling</code></em>
-<a href="#Style">Style</a> * EdgeMoveDelay <em class="replaceable"><code>scrolling</code></em>
-<a href="#Style">Style</a> * EdgeMoveResistance <em class="replaceable"><code>moving</code></em>
+as needed:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>EdgeResistance</B> <I>scrolling</I>
+<B>Style</B> * EdgeMoveDelay <I>scrolling</I>
+<B>Style</B> * EdgeMoveResistance <I>moving</I>
 or
-<a href="#Style">Style</a> * EdgeMoveResistance <em class="replaceable"><code>moving</code></em> <em class="replaceable"><code>xinerama-scrolling</code></em>
-</pre><p>Fvwm does this substitution automatically and prints a warning.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeScroll"></a>31.9.5. EdgeScroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeScroll</code>   <em class="replaceable"><code>horizontal</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]
-	  [ wrap  |   wrapx  |   wrapy ]</p></div><p>Specifies the percentage of a page to scroll when the cursor hits
-the edge of a page.  A trailing
-'<a name="EdgeScroll_p"></a><font class="fvwmopt">p</font>'
+<B>Style</B> * EdgeMoveResistance <I>moving</I> <I>xinerama-scrolling</I>
+</PRE>
+
+</DL>
+
+<P>
+
+Fvwm does this substitution automatically and prints a warning.
+</DL>
+
+<DT><B>EdgeScroll</B> <I>horizontal</I>[p] <I>vertical</I>[p] [wrap | wrapx | wrapy]<DD>
+<DL COMPACT><DT><DD>
+
+Specifies the percentage of a page to scroll when the cursor hits
+the edge of a page.  A trailing '<I>p</I>'
 changes the interpretation to mean pixels.  If you do not want any
-paging or scrolling when you hit the edge of a page include</p><pre class="programlisting">
+paging or scrolling when you hit the edge of a page include
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 EdgeScroll 0 0
-</pre><p>in your
-<code class="filename">config</code>
+</PRE>
+
+</DL>
+
+<P>
+
+in your
+<I>config</I>
 file, or possibly better, set the
-<a href="#EdgeThickness">EdgeThickness</a>
+<B>EdgeThickness</B>
 to zero.  See the
-<a href="#EdgeThickness">EdgeThickness</a>
-command. If you want whole pages, use</p><pre class="programlisting">
+<B>EdgeThickness</B>
+command.  If you want whole pages, use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 EdgeScroll 100 100
-</pre><p>Both
-<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
-should be positive numbers.</p><p>If the
-<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
+</PRE>
+
+</DL>
+
+<P>
+
+Both
+<I>horizontal</I> and <I>vertical</I>
+should be positive numbers.
+<P>
+
+If the
+<I>horizontal</I> and <I>vertical</I>
 percentages are multiplied by 1000 or one of the keywords
-<a name="EdgeScroll_wrap"></a><font class="fvwmopt">wrap</font>, <a name="EdgeScroll_wrapx"></a><font class="fvwmopt">wrapx</font>
-and <a name="EdgeScroll_wrapy"></a><font class="fvwmopt">wrapy</font>
+<I>wrap</I>, <I>wrapx</I>
+and <I>wrapy</I>
 is given then scrolling wraps around at the edge of the desktop.
-If</p><pre class="programlisting">
+If
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 EdgeScroll 100000 100000
-</pre><p>is used fvwm scrolls by whole pages, wrapping around at the edge
-of the desktop.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EdgeThickness"></a>31.9.6. EdgeThickness</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EdgeThickness</code>    0  |   1  |   2  </p></div><p>This is the width or height of the invisible window that fvwm
+</PRE>
+
+</DL>
+
+<P>
+
+is used fvwm scrolls by whole pages, wrapping around at the edge
+of the desktop.
+</DL>
+
+<DT><B>EdgeThickness</B> 0 | 1 | 2<DD>
+<DL COMPACT><DT><DD>
+
+This is the width or height of the invisible window that fvwm
 creates on the edges of the screen that are used for the edge
-scrolling feature.</p><p>In order to enable page scrolling via the mouse, four windows
-called the "pan frames" are placed at the very edge of the
-screen. This is how fvwm detects the mouse's presence at the
-window edge. Because of the way this works, they need to be at the
+scrolling feature.
+<P>
+
+In order to enable page scrolling via the mouse, four windows
+called the &quot;pan frames&quot; are placed at the very edge of the
+screen.  This is how fvwm detects the mouse's presence at the
+window edge.  Because of the way this works, they need to be at the
 top of the stack and eat mouse events, so if you have any kind of
-error along the lines of: "mouse clicks at the edge of the screen
-do the wrong thing" you're having trouble with the pan frames and
+error along the lines of: &quot;mouse clicks at the edge of the screen
+do the wrong thing&quot; you're having trouble with the pan frames and
 (assuming you do not use the mouse to flip between pages) should
-set the EdgeThickness to 0.</p><p>A value of
-<code class="literal">0</code>
+set the EdgeThickness to 0.
+<P>
+
+A value of
+0
 completely disables mouse edge scrolling, even while dragging a
 window.
-<code class="literal">1</code>
+1
 gives the smallest pan frames, which seem to work best except on
-some servers.</p><p><code class="literal">2</code>
-is the default.</p><p>Pan frames of
-<code class="literal">1</code> or <code class="literal">2</code>
+some servers.
+<P>
+
+2
+is the default.
+<P>
+
+Pan frames of
+1 or 2
 pixels can sometimes be confusing, for example, if you drag a
 window over the edge of the screen, so that it straddles a pan
 frame, clicks on the window, near the edge of the screen are
-treated as clicks on the root window.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EwmhBaseStruts"></a>31.9.7. EwmhBaseStruts</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EwmhBaseStruts</code>   <em class="replaceable"><code>left</code></em>   <em class="replaceable"><code>right</code></em>   <em class="replaceable"><code>top</code></em>   <em class="replaceable"><code>bottom</code></em> </p></div><p>Where left, right, top and bottom are positive or null integers
+treated as clicks on the root window.
+</DL>
+
+<DT><B>EwmhBaseStruts</B> <I>left</I> <I>right</I> <I>top</I> <I>bottom</I><DD>
+<DL COMPACT><DT><DD>
+
+Where left, right, top and bottom are positive or null integers
 which define bands at the edge of the screen.
-<em class="replaceable"><code>left</code></em>
+<I>left</I>
 defines a band on the left of your screen of width
-<em class="replaceable"><code>left</code></em>,
-<em class="replaceable"><code>right</code></em>
+<I>left</I>,
+<I>right</I>
 defines a band on the right of your screen of width
-<em class="replaceable"><code>right</code></em>,
-<em class="replaceable"><code>top</code></em>
+<I>right</I>,
+<I>top</I>
 defines a band on the top of your screen of height
-<em class="replaceable"><code>top</code></em>
+<I>top</I>
 and
-<em class="replaceable"><code>bottom</code></em>
+<I>bottom</I>
 defines a band on the bottom of your screen of height
-<em class="replaceable"><code>bottom</code></em>.
+<I>bottom</I>.
 The unit is the pixel and the default is 0 0 0 0.  These areas
 define additional reserved space to the reserved space defined by
-some ewmh compliant applications. This is used to compute the
-Working Area. See the
-<a href="#extended_window_manager_hints">Extended Window Manager Hints</a>
-section for a definition of the Working Area.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EwmhNumberOfDesktops"></a>31.9.8. EwmhNumberOfDesktops</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EwmhNumberOfDesktops</code>   <em class="replaceable"><code>num</code></em>  [<em class="replaceable"><code>max</code></em>]</p></div><p>This command is useful only for an ewmh compliant pager or taskbar
+some ewmh compliant applications.  This is used to compute the
+Working Area.  See the
+<B>Extended Window Manager Hints</B>
+section for a definition of the Working Area.
+</DL>
+
+<DT><B>EwmhNumberOfDesktops</B> <I>num</I> [<I>max</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command is useful only for an ewmh compliant pager or taskbar
 (as kpager or kicker taskbar) and not for fvwm modules (
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a> or <a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>). It causes a
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B> or <B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>).  It causes a
 compliant application to consider at least
-<em class="replaceable"><code>num</code></em>
+<I>num</I>
 desktops (desktop 0 to desktop
-<em class="replaceable"><code>num</code></em>-1).
+<I>num</I>-1).
 The optional argument
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
 causes a compliant application to never consider more than
-<em class="replaceable"><code>max</code></em>
-desktops. If
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
+desktops.  If
+<I>max</I>
 is 0 (the default) there is no limitation.  The actual number of
 desktops is determined dynamically.  It is at least
-<em class="replaceable"><code>num</code></em>,
+<I>num</I>,
 but it can be d if there is a window on desktop d-1 (or if the
 current desktop is desktop d-1) and d is less or equal to
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
 or
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
 is null.
 Moreover, a compliant pager can ask to change
-<em class="replaceable"><code>num</code></em>
+<I>num</I>
 itself.
 This is accepted by fvwm only if this number is
 less than or equal to
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
 or if
-<em class="replaceable"><code>max</code></em>
+<I>max</I>
 is null.  Note that negative desktops are not supported by the
-ewmh specification.  The default is 4 0.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDesk"></a>31.9.9. GotoDesk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDesk</code>  [ prev  |    <em class="replaceable"><code>arg1</code></em>  [<em class="replaceable"><code>arg2</code></em>] [<em class="replaceable"><code>min</code></em> <em class="replaceable"><code>max</code></em>] ]</p></div><p>
+ewmh specification.  The default is 4 0.
+</DL>
+
+<DT><B>GotoDesk</B> [prev | <I>arg1</I>&nbsp;[<I>arg2</I>]&nbsp;[<I>min</I>&nbsp;<I>max</I>]]<DD>
+<DL COMPACT><DT><DD>
+
 Switches the current viewport to another desktop (workspace, room).
-</p><p>The command takes 1, 2, 3, or 4 arguments.  A single argument is
+<P>
+
+The command takes 1, 2, 3, or 4 arguments.  A single argument is
 interpreted as a relative desk number.  Two arguments are
 understood as a relative and an absolute desk number.  Three
 arguments specify a relative desk and the minimum and maximum of
-the allowable range. Four arguments specify the relative,
+the allowable range.  Four arguments specify the relative,
 absolute, minimum and maximum values.  (Desktop numbers can be
 negative).  If a literal
-<a name="GotoDesk_prev"></a><font class="fvwmopt">prev</font>
+<I>prev</I>
 is given as the single argument, the last visited desk number is
-used.</p><p>If
-<em class="replaceable"><code>arg1</code></em>
+used.
+<P>
+
+If
+<I>arg1</I>
 is non zero then the next desktop number is the current desktop
 number plus
-<em class="replaceable"><code>arg1</code></em>.</p><p>If
-<em class="replaceable"><code>arg1</code></em>
+<I>arg1</I>.
+<P>
+
+If
+<I>arg1</I>
 is zero then the new desktop number is
-<em class="replaceable"><code>arg2</code></em>.
+<I>arg2</I>.
 (If
-<em class="replaceable"><code>arg2</code></em>
-is not present, then the command has no effect.)</p><p>If
-<em class="replaceable"><code>min</code></em> and <em class="replaceable"><code>max</code></em>
+<I>arg2</I>
+is not present, then the command has no effect.)
+<P>
+
+If
+<I>min</I> and <I>max</I>
 are given, the new desktop number is no smaller than
-<em class="replaceable"><code>min</code></em>
+<I>min</I>
 and no bigger than
-<em class="replaceable"><code>max</code></em>.
+<I>max</I>.
 Values out of this range are truncated (if you gave an absolute
 desk number) or wrapped around (if you gave a relative desk
-number).</p><p>The syntax is the same as for
-<a href="#MoveToDesk">MoveToDesk</a>,
-which moves a window to a different desktop.</p><p>The number of active desktops is determined dynamically.  Only
+number).
+<P>
+
+The syntax is the same as for
+<B>MoveToDesk</B>,
+which moves a window to a different desktop.
+<P>
+
+The number of active desktops is determined dynamically.  Only
 desktops which contain windows or are currently being displayed
 are active.  Desktop numbers must be between 2147483647 and
--2147483648 (is that enough?).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoDeskAndPage"></a>31.9.10. GotoDeskAndPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoDeskAndPage</code>    prev  |    <em class="replaceable"><code>desk</code></em>   <em class="replaceable"><code>xpage</code></em>   <em class="replaceable"><code>ypage</code></em>   </p></div><p>Switches the current viewport to another desktop and page, similar
+-2147483648 (is that enough?).
+</DL>
+
+<DT><B>GotoDeskAndPage</B> prev | <I>desk</I>&nbsp;<I>xpage</I>&nbsp;<I>ypage</I><DD>
+<DL COMPACT><DT><DD>
+
+Switches the current viewport to another desktop and page, similar
 to the
-<a href="#GotoDesk">GotoDesk</a> and <a href="#GotoPage">GotoPage</a>
+<B>GotoDesk</B> and <B>GotoPage</B>
 commands.  The new desk is
-<em class="replaceable"><code>desk</code></em>
+<I>desk</I>
 and the new page is
-(<em class="replaceable"><code>xpage</code></em>,<em class="replaceable"><code>ypage</code></em>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="GotoPage"></a>31.9.11. GotoPage</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">GotoPage</code>    prev  |   [<em class="replaceable"><code>options</code></em>]  <em class="replaceable"><code>x</code></em>[<span class="optional">p</span>]   <em class="replaceable"><code>y</code></em>[<span class="optional">p</span>]   </p></div><p>
+(<I>xpage</I>,<I>ypage</I>).
+</DL>
+
+<DT><B>GotoPage</B> prev | [<I>options</I>]&nbsp;<I>x</I>[p]&nbsp;<I>y</I>[p]<DD>
+<DL COMPACT><DT><DD>
+
 Moves the desktop viewport to page (x,y).  The upper left page is
 (0,0), the upper right is (M,0), where M is one less than the
 current number of horizontal pages specified in the
-<a href="#DesktopSize">DesktopSize</a>
+<B>DesktopSize</B>
 command.  The lower left page is (0,N), and the lower right page
 is (M,N), where N is the desktop's vertical size as specified in the
-<a href="#DesktopSize">DesktopSize</a>
+<B>DesktopSize</B>
 command.  To switch to a page relative to the current one add a
-trailing
-'<a name="GotoPage_p"></a><font class="fvwmopt">p</font>'
-after any or both numerical arguments.</p><p>Possible
-<em class="replaceable"><code>options</code></em>
+trailing '<I>p</I>'
+after any or both numerical arguments.
+<P>
+
+Possible
+<I>options</I>
 are
-<a name="GotoPage_wrapx"></a><font class="fvwmopt">wrapx</font> and <a name="GotoPage_wrapy"></a><font class="fvwmopt">wrapy</font>
+<I>wrapx</I> and <I>wrapy</I>
 to wrap around the x or y coordinate when the viewport is moved
-beyond the border of the desktop.</p><p>To go to the last visited page use
-<a name="GotoPage_prev"></a><font class="fvwmopt">prev</font>
+beyond the border of the desktop.
+<P>
+
+To go to the last visited page use
+<I>prev</I>
 as the first argument.  The
-<span class="emphasis"><em>GotoPage</em></span>
-function should not be used in a pop-up menu.</p><p>Examples:</p><pre class="programlisting">
+<B>GotoPage</B>
+function should not be used in a pop-up menu.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Go to page (2,3)
 GotoPage 2 3
 
@@ -7318,63 +12948,145 @@ GotoPage prev
 
 # Go two pages to the right and one page up
 GotoPage +2p -1p
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Scroll"></a>31.9.12. Scroll</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Scroll</code>  [ <em class="replaceable"><code>horizonal</code></em>[<span class="optional">p</span>] <em class="replaceable"><code>vertical</code></em>[<span class="optional">p</span>]  |   reverse ]</p></div><p>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Scroll</B> [<I>horizonal</I>[p]&nbsp;<I>vertical</I>[p] | reverse]<DD>
+<DL COMPACT><DT><DD>
+
 Scrolls the virtual desktop's viewport by
-<a name="MenuStyle_horizontal"></a><font class="fvwmopt">horizontal</font>
+<I>horizontal</I>
 pages in the x-direction and
-<a name="MenuStyle_vertical"></a><font class="fvwmopt">vertical</font>
+<I>vertical</I>
 pages in the y-direction or starts interactive scrolling of the viewport.  Either or both entries may be negative.
 Both
-<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
-values are expressed in percent of pages, so</p><pre class="programlisting">
+<I>horizontal</I> and <I>vertical</I>
+values are expressed in percent of pages, so
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Scroll 100 100
-</pre><p>means to scroll down and right by one full page.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+means to scroll down and right by one full page.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Scroll 50 25
-</pre><p>means to scroll right half a page and down a quarter of a page.
+</PRE>
+
+</DL>
+
+<P>
+
+means to scroll right half a page and down a quarter of a page.
 The
-<span class="emphasis"><em>Scroll</em></span>
+<B>Scroll</B>
 function should not be called from pop-up menus.  Normally,
-scrolling stops at the edge of the desktop.</p><p>If the
-<em class="replaceable"><code>horizontal</code></em> and <em class="replaceable"><code>vertical</code></em>
+scrolling stops at the edge of the desktop.
+<P>
+
+If the
+<I>horizontal</I> and <I>vertical</I>
 percentages are 100 or more and are multiplied by 1000 then
-scrolling wraps around at the edge of the desktop.  If</p><pre class="programlisting">
+scrolling wraps around at the edge of the desktop.  If
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Scroll 100000 0
-</pre><p>is executed over and over fvwm moves to the next desktop page on
+</PRE>
+
+</DL>
+
+<P>
+
+is executed over and over fvwm moves to the next desktop page on
 each execution and wraps around at the edge of the desktop, so
-that every page is hit in turn.</p><p>If the letter
-'<a name="Scroll_p"></a><font class="fvwmopt">p</font>'
+that every page is hit in turn.
+<P>
+
+If the letter '<I>p</I>'
 is appended to each coordinate
-(<em class="replaceable"><code>horizontal</code></em> and/or <em class="replaceable"><code>vertical</code></em>),
-then the scroll amount is measured in pixels.</p><p>Without arguments or if the option
-<span class="emphasis"><em>reverse</em></span>
+(<I>horizontal</I> and/or <I>vertical</I>),
+then the scroll amount is measured in pixels.
+<P>
+
+Without arguments or if the option
+<I>reverse</I>
 is given interactive scrolling takes place.  The viewport
-scrolls as the mouse is moved. With the
-<a name="Scroll_reverse"></a><font class="fvwmopt">reverse</font>
+scrolls as the mouse is moved.  With the
+<I>reverse</I>
 option scrolling is done in opposite direction of the mouse
 movement, and without it scrolling in the same direction as the
-mouse.</p><p>The binding</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 A CM Scroll reverse
-</pre><p>gives an effect of grabbing and dragging the viewport with button 1
+mouse.
+<P>
+
+The binding
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 A CM Scroll reverse
+</PRE>
+
+</DL>
+
+<P>
+
+gives an effect of grabbing and dragging the viewport with button 1
 if
-<span class="keysym">Control</span>
+<FONT>Control</FONT>
 and
-<span class="keysym">Meta</span>
-is pressed.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Xinerama"></a>31.9.13. Xinerama</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Xinerama</code>  [bool]</p></div><p>Enables Xinerama support if the boolean argument is true and
+<FONT>Meta</FONT>
+is pressed.
+</DL>
+
+<DT><B>Xinerama</B> [bool]<DD>
+<DL COMPACT><DT><DD>
+
+Enables Xinerama support if the boolean argument is true and
 disables it if the argument is false.  Calling this command
 without arguments turns on Xinerama support if it was disabled before
-and turns it off if it was enabled.  For example:</p><pre class="programlisting">
+and turns it off if it was enabled.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Turn Xinerama support on, use primary screen 2
-<a href="#XineramaPrimaryScreen">XineramaPrimaryScreen</a> 2
+<B>XineramaPrimaryScreen</B> 2
 Xinerama on
 # Turn it off again
 Xinerama off
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XineramaPrimaryScreen"></a>31.9.14. XineramaPrimaryScreen</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XineramaPrimaryScreen</code>  [primary-screen]</p></div><p>Takes an integer number or 'g' or 'c' as its argument.  A number
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>XineramaPrimaryScreen</B> [primary-screen]<DD>
+<DL COMPACT><DT><DD>
+
+Takes an integer number or 'g' or 'c' as its argument.  A number
 is taken as the number of the Xinerama screen that is to be used
 as the primary screen.  The primary screen can be used as the
-preferred screen to place windows with</p><pre class="programlisting">
+preferred screen to place windows with
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 XineramaPrimaryScreen &lt;screen number&gt;
-<a href="#Style">Style</a> * StartsOnScreen p
-</pre><p>The primary screen is used in some of the modules and for the
+<B>Style</B> * StartsOnScreen p
+</PRE>
+
+</DL>
+
+<P>
+
+The primary screen is used in some of the modules and for the
 default icon box too.  Any number that is zero or more is taken as
 the primary screen's number.  Instead, the letter 'c' indicates to
 use the current screen (containing the pointer) whenever the
@@ -7382,1202 +13094,2223 @@ primary screen is used.  This may be very confusing under some
 circumstances.  With 'g', the global screen is used as the primary
 screen, effectively disabling the primary screen.  Calling this
 function with any other argument (including none) resets the
-primary screen to 0.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XineramaSls"></a>31.9.15. XineramaSls</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XineramaSls</code>  [bool]</p></div><p>For multi-screen implementations other than Xinerama, such as
+primary screen to 0.
+</DL>
+
+<DT><B>XineramaSls</B> [bool]<DD>
+<DL COMPACT><DT><DD>
+
+For multi-screen implementations other than Xinerama, such as
 Single Logical Screen, it is possible to simulate a Xinerama
 configuration if the total screen seen by fvwm is made up of
 equal sized monitors in a rectangular grid.  The
-<span class="emphasis"><em>XineramaSls</em></span>
+<B>XineramaSls</B>
 command turns SLS support on or off or toggles it to the opposite
-state, depending on if the boolean argument is "True", "False" or
-"toggle".  If no argument is given, this is treated like "toggle".
+state, depending on if the boolean argument is &quot;True&quot;, &quot;False&quot; or
+&quot;toggle&quot;.  If no argument is given, this is treated like &quot;toggle&quot;.
 The default layout uses one by one screens.  To configure the
 layout, use the
-<a href="#XineramaSlsSize">XineramaSlsSize</a> or <a href="#XineramaSlsScreens">XineramaSlsScreens</a>
-command.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XineramaSlsSize"></a>31.9.16. XineramaSlsSize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XineramaSlsSize</code>   <em class="replaceable"><code>Horizontal</code></em> x  <em class="replaceable"><code>Vertical</code></em> </p></div><p>This command configures the layout of the Single Logical screen
+<B>XineramaSlsSize</B> or <B>XineramaSlsScreens</B>
+command.
+</DL>
+
+<DT><B>XineramaSlsSize</B> <I>Horizontal</I> <I>Vertical</I><DD>
+<DL COMPACT><DT><DD>
+
+This command configures the layout of the Single Logical screen
 feature.  It takes two arguments,
-<em class="replaceable"><code>Horizontal</code></em> and <em class="replaceable"><code>Vertical</code></em>
+<I>Horizontal</I> and <I>Vertical</I>
 which must be an integer value dividing evenly into the total
 desktop width, and height.  For an example with two
 monitors side by side which appear as one screen through the
-X-Server with the right screen as the primary screen, use:</p><pre class="programlisting">
+X-Server with the right screen as the primary screen, use:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 XineramaSlsSize 2x1
-<a href="#XineramaSls">XineramaSls</a> On
-<a href="#XineramaPrimaryScreen">XineramaPrimaryScreen</a> 1
-<a href="#Xinerama">Xinerama</a> On
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="XineramaSlsScreens"></a>31.9.17. XineramaSlsScreens</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">XineramaSlsScreens</code>   number-of-screens  [<em class="replaceable"><code>screen-spec</code></em>...]</p></div><p>This command configures the layout of the Single Logical screen
+<B>XineramaSls</B> On
+<B>XineramaPrimaryScreen</B> 1
+<B>Xinerama</B> On
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>XineramaSlsScreens</B> number-of-screens [<I>screen-spec</I> ...]<DD>
+<DL COMPACT><DT><DD>
+
+This command configures the layout of the Single Logical screen
 feature.  Its first argument is the number of screens to use.  It
 must be followed by exactly this number of
-<em class="replaceable"><code>screen-spec</code></em>
+<I>screen-spec</I>
 arguments.  Each of these can be written either in standard X
-geometry format: "&lt;width&gt;x&lt;height&gt;+&lt;x&gt;+&lt;y&gt;" or as a space separated
-list of numbers: "x y width height". Both ways of describing
+geometry format: &quot;&lt;width&gt;x&lt;height&gt;+&lt;x&gt;+&lt;y&gt;&quot; or as a space separated
+list of numbers: &quot;x y width height&quot;.  Both ways of describing
 screens can be mixed in a single command.  All four numbers must
 be supplied.  The
-<em class="replaceable"><code>x</code></em> and <em class="replaceable"><code>y</code></em>
+<I>x</I> and <I>y</I>
 values specify the origin of the screen in relation to the global
 screen's origin while
-<em class="replaceable"><code>width</code></em> and <em class="replaceable"><code>height</code></em>
+<I>width</I> and <I>height</I>
 specify the size of the screen in pixels.  No checks are done if
 the geometries make sense, so it is possible to define overlapping
 screens (with random results) or screens that are not visible at
-all.</p><pre class="programlisting">
+all.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 XineramaSlsScreens 3 \
   512x768+0+0 512x300+512+0 512 300 512 468
-<a href="#XineramaSls">XineramaSls</a> On
-<a href="#XineramaPrimaryScreen">XineramaPrimaryScreen</a> 1
-<a href="#Xinerama">Xinerama</a> On
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="user_functions_and_shell_commands"></a>31.10. User Functions and Shell Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="AddToFunc"></a>31.10.1. AddToFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">AddToFunc</code>  [<em class="replaceable"><code>name</code></em> [  I  |   M  |   C  |   H  |   D    <em class="replaceable"><code>action</code></em> ]]</p></div><p>Begins or adds to a function definition.  Here is an example:</p><pre class="programlisting">
-AddToFunc Move-or-Raise I <a href="#Raise">Raise</a>
- + M <a href="#Move">Move</a>
- + D <a href="#Lower">Lower</a>
-</pre><p>The function name is "Move-or-Raise", and it could be invoked from a
-menu or a mouse binding or key binding:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 TS A Move-or-Raise
-</pre><p>The
-<em class="replaceable"><code>name</code></em>
+<B>XineramaSls</B> On
+<B>XineramaPrimaryScreen</B> 1
+<B>Xinerama</B> On
+</PRE>
+
+</DL>
+
+</DL>
+
+</DL>
+<A NAME="lbBX">&nbsp;</A>
+<H3>User Functions and Shell Commands</H3>
+
+<DL COMPACT>
+<DT><B>AddToFunc</B> [<I>name</I>&nbsp;[I&nbsp;|&nbsp;M&nbsp;|&nbsp;C&nbsp;|&nbsp;H&nbsp;|&nbsp;D&nbsp;<I>action</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Begins or adds to a function definition.  Here is an example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToFunc Move-or-Raise I <B>Raise</B>
+ + M <B>Move</B>
+ + D <B>Lower</B>
+</PRE>
+
+</DL>
+
+<P>
+
+The function name is &quot;Move-or-Raise&quot;, and it could be invoked from a
+menu or a mouse binding or key binding:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 TS A Move-or-Raise
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>name</I>
 must not contain embedded whitespace.  No guarantees are made
 whether function names with embedded whitespace work or not.  This
 behavior may also change in the future without further notice.
 The letter before the
-<em class="replaceable"><code>action</code></em>
-tells what kind of action triggers the command which follows it.
-'<a name="AddToFunc_I"></a><font class="fvwmopt">I</font>'
-stands for "Immediate", and is executed as soon as the function is
-invoked.
-'<a name="AddToFunc_M"></a><font class="fvwmopt">M</font>'
-stands for "Motion", i.e. if the user starts moving the mouse.
-'<a name="AddToFunc_C"></a><font class="fvwmopt">C</font>'
-stands for "Click", i.e., if the user presses and releases the
-mouse button.
-'<a name="AddToFunc_H"></a><font class="fvwmopt">H</font>'
-stands for "Hold", i.e. if the user presses a mouse button and
+<I>action</I>
+tells what kind of action triggers the command which follows it.  '<I>I</I>'
+stands for &quot;Immediate&quot;, and is executed as soon as the function is
+invoked.  '<I>M</I>'
+stands for &quot;Motion&quot;, i.e. if the user starts moving the mouse.  '<I>C</I>'
+stands for &quot;Click&quot;, i.e., if the user presses and releases the
+mouse button.  '<I>H</I>'
+stands for &quot;Hold&quot;, i.e. if the user presses a mouse button and
 holds it down for more than
-<a href="#ClickTime">ClickTime</a>
-milliseconds.
-'<a name="AddToFunc_D"></a><font class="fvwmopt">D</font>'
-stands for "Double-click". The action
-'<span class="emphasis"><em>I</em></span>'
+<B>ClickTime</B>
+milliseconds.  '<I>D</I>'
+stands for &quot;Double-click&quot;.  The action '<I>I</I>'
 causes an action to be performed on the button-press, if the
 function is invoked with prior knowledge of which window to act
-on.</p><p>There is a number of predefined symbols that are replaced by
+on.
+<P>
+
+There is a number of predefined symbols that are replaced by
 certain values if they appear on the command line.  Please refer
 to the
-<a href="#command_expansion">Command Expansion</a>
-section for details.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Please read the comments on executing complex functions
+<B>Command Expansion</B>
+section for details.
+<P>
+
+
+
+<BR>
+
+<B>Warning</B>
+Please read the comments on executing complex functions
 in the section
-<a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.
-</div><p>Examples:</p><p>If you call</p><pre class="programlisting">
-<a href="#Key">Key</a> F10 R A <a href="#Function">Function</a> MailFunction xmh "-font fixed"
-</pre><p>and "MailFunction" is</p><pre class="programlisting">
+<B>Scripting and Complex Functions</B>.
+<P>
+
+Examples:
+<P>
+
+If you call
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> F10 R A <B>Function</B> MailFunction xmh &quot;-font fixed&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+and &quot;MailFunction&quot; is
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 AddToFunc MailFunction
- + I <a href="#Next">Next</a> ($0) <a href="#Iconify">Iconify</a> off
- + I <a href="#Next">Next</a> (AcceptsFocus, $0) <a href="#Focus">Focus</a>
- + I <a href="#None">None</a> ($0) <a href="#Exec">Exec</a> exec $0 $1
-</pre><p>Then the last line of the function becomes</p><pre class="programlisting">
- + I <a href="#None">None</a> (xmh) <a href="#Exec">Exec</a> exec xmh -font fixed
-</pre><p>The expansion is performed as the function is executed, so you can
+ + I <B>Next</B> ($0) <B>Iconify</B> off
+ + I <B>Next</B> (AcceptsFocus, $0) <B>Focus</B>
+ + I <B>None</B> ($0) <B>Exec</B> exec $0 $1
+</PRE>
+
+</DL>
+
+<P>
+
+Then the last line of the function becomes
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+ + I <B>None</B> (xmh) <B>Exec</B> exec xmh -font fixed
+</PRE>
+
+</DL>
+
+<P>
+
+The expansion is performed as the function is executed, so you can
 use the same function with all sorts of different arguments.  You
-could use</p><pre class="programlisting">
-<a href="#Key">Key</a> F11 R A <a href="#Function">Function</a> MailFunction zmail "-bg pink"
-</pre><p>in the same
-<code class="filename">config</code>,
-if you wanted.  An example of using "$[w.id]" is:</p><pre class="programlisting">
+could use
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> F11 R A <B>Function</B> MailFunction zmail &quot;-bg pink&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+in the same
+<I>config</I>,
+if you wanted.  An example of using &quot;$[w.id]&quot; is:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 AddToFunc PrintFunction
- + I <a href="#Raise">Raise</a>
- + I <a href="#Exec">Exec</a> xdpr -id $[w.id]
-</pre><p>Note that "$$" is expanded to '$'.</p><p>Another example: bind right mouse button within the window button
+ + I <B>Raise</B>
+ + I <B>Exec</B> xdpr -id $[w.id]
+</PRE>
+
+</DL>
+
+<P>
+
+Note that &quot;$$&quot; is expanded to '$'.
+<P>
+
+Another example: bind right mouse button within the window button
 number 6 (this is a minimize button for the win95 theme) to
-iconify all windows of the same resource:</p><pre class="programlisting">
-AddToFunc FuncIconifySameResource "I" <a href="#All">All</a> ($0) <a href="#Iconify">Iconify</a> on
-<a href="#Mouse">Mouse</a> 3 6 A FuncIconifySameResource $[w.resource]
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Beep"></a>31.10.2. Beep</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Beep</code> </p></div><p>As might be expected, this makes the terminal beep.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyFunc"></a>31.10.3. DestroyFunc</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyFunc</code>   <em class="replaceable"><code>function</code></em> </p></div><p>Deletes a function, so that subsequent references to it are no
+iconify all windows of the same resource:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+AddToFunc FuncIconifySameResource &quot;I&quot; <B>All</B> ($0) <B>Iconify</B> on
+<B>Mouse</B> 3 6 A FuncIconifySameResource $[w.resource]
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Beep</B><DD>
+<DL COMPACT><DT><DD>
+
+As might be expected, this makes the terminal beep.
+</DL>
+
+<DT><B>DestroyFunc</B> <I>function</I><DD>
+<DL COMPACT><DT><DD>
+
+Deletes a function, so that subsequent references to it are no
 longer valid.  You can use this to change the contents of a
 function during a fvwm session.  The function can be rebuilt using
-<a href="#AddToFunc">AddToFunc</a>.</p><pre class="programlisting">
+<B>AddToFunc</B>.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 DestroyFunc PrintFunction
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Echo"></a>31.10.4. Echo</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Echo</code>   <em class="replaceable"><code>string</code></em> </p></div><p>Prints a message to
-<code class="filename">stderr</code>.
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Echo</B> <I>string</I><DD>
+<DL COMPACT><DT><DD>
+
+Prints a message to
+<I>stderr</I>.
 Potentially useful for debugging things in your
-<code class="filename">config</code>.</p><pre class="programlisting">
+<I>config</I>.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Echo Beginning style definitions...
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="EchoFuncDefinition"></a>31.10.5. EchoFuncDefinition</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">EchoFuncDefinition</code>   <em class="replaceable"><code>function</code></em> </p></div><p>The
-<span class="emphasis"><em>EchoFuncDefinition</em></span>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>EchoFuncDefinition</B> <I>function</I><DD>
+<DL COMPACT><DT><DD>
+
+The
+<B>EchoFuncDefinition</B>
 is similar to the
-<a href="#Echo">Echo</a>
+<B>Echo</B>
 command but prints the definition for the given
-<em class="replaceable"><code>function</code></em>
+<I>function</I>
 to
-<code class="filename">stderr</code>.
+<I>stderr</I>.
 It is useful to find out how fvwm handles quoting and for
 debugging functions
-.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Exec"></a>31.10.6. Exec</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Exec</code>   <em class="replaceable"><code>command</code></em> </p></div><p>Executes
-<em class="replaceable"><code>command</code></em>.
-You should not use an ampersand '&amp;' at the end of the command. You
-probably want to use an additional "exec" at the beginning of
-<em class="replaceable"><code>command</code></em>.
+.
+</DL>
+
+<DT><B>Exec</B> <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Executes
+<I>command</I>.
+You should not use an ampersand '&amp;' at the end of the command.  You
+probably want to use an additional &quot;exec&quot; at the beginning of
+<I>command</I>.
 Without that, the shell that fvwm invokes to run your command
 stays until the command exits.  In effect, you'll have twice as
 many processes running as you need.  Note that some shells are
 smart enough to avoid this, but it never hurts to include the
-"exec" anyway.</p><p>The following example binds function key
-<span class="keysym">F1</span>
-in the root window, with no modifiers, to the exec function. The
-program rxvt is started with an assortment of options.</p><pre class="programlisting">
-<a href="#Key">Key</a> F1 R N Exec exec rxvt -fg yellow -bg blue \
+&quot;exec&quot; anyway.
+<P>
+
+The following example binds function key
+<FONT>F1</FONT>
+in the root window, with no modifiers, to the exec function.  The
+program rxvt is started with an assortment of options.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> F1 R N Exec exec rxvt -fg yellow -bg blue \
   -e /bin/tcsh
-</pre><p>Note that this function doesn't wait for
-<em class="replaceable"><code>command</code></em>
-to complete, so things like:</p><pre class="programlisting">
-Exec "echo <a href="#AddToMenu">AddToMenu</a> ... &gt; /tmp/file"
-<a href="#Read">Read</a> /tmp/file
-</pre><p>do not work reliably
+</PRE>
+
+</DL>
+
+<P>
+
+Note that this function doesn't wait for
+<I>command</I>
+to complete, so things like:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Exec &quot;echo <B>AddToMenu</B> ... &gt; /tmp/file&quot;
+<B>Read</B> /tmp/file
+</PRE>
+
+</DL>
+
+<P>
+
+do not work reliably
 (see the
-<a href="#PipeRead">PipeRead</a>
-command).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ExecUseShell"></a>31.10.7. ExecUseShell</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ExecUseShell</code>  [<em class="replaceable"><code>shell</code></em>]</p></div><p>Makes the
-<a href="#Exec">Exec</a>
+<B>PipeRead</B>
+command).
+</DL>
+
+<DT><B>ExecUseShell</B> [<I>shell</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Makes the
+<B>Exec</B>
 command use the specified shell, or the value of the
-<code class="envar">$SHELL</code>
+<I>$SHELL</I>
 environment variable if no shell is specified, instead of the
 default Bourne shell
-(<code class="filename">/bin/sh</code>).</p><pre class="programlisting">
+(<I>/bin/sh</I>).
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ExecUseShell
 ExecUseShell /usr/local/bin/tcsh
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Function"></a>31.10.8. Function</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Function</code>   <em class="replaceable"><code>FunctionName</code></em> </p></div><p>Used to bind a previously defined function to a key or mouse
-button. The following example binds mouse button 1 to a function
-called "Move-or-Raise", whose definition was provided as an
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Function</B> <I>FunctionName</I><DD>
+<DL COMPACT><DT><DD>
+
+Used to bind a previously defined function to a key or mouse
+button.  The following example binds mouse button 1 to a function
+called &quot;Move-or-Raise&quot;, whose definition was provided as an
 example earlier in this man page.  After performing this binding
-fvwm executes the "move-or-raise" function whenever button 1 is
-pressed in a window's title-bar.</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a> 1 T A Function Move-or-Raise
-</pre><p>The keyword
-<span class="emphasis"><em>Function</em></span>
+fvwm executes the &quot;move-or-raise&quot; function whenever button 1 is
+pressed in a window's title-bar.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B> 1 T A Function Move-or-Raise
+</PRE>
+
+</DL>
+
+<P>
+
+The keyword
+<B>Function</B>
 may be omitted if
-<em class="replaceable"><code>FunctionName</code></em>
-does not coincide with an fvwm command.</p><p>Warning:  Please read the comments on executing complex functions
-in the section <a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Nop"></a>31.10.9. Nop</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Nop</code> </p></div><p>Does nothing.  This is used to insert a blank line or separator in
-a menu.  If the menu item specification is</p><pre class="programlisting">
-<a href="#AddToMenu">AddToMenu</a> MyMenu " " Nop
-</pre><p>then a blank line is inserted.  If it looks like</p><pre class="programlisting">
-+ "" Nop
-</pre><p>then a separator line is inserted.  Can also be used as the
+<I>FunctionName</I>
+does not coincide with an fvwm command.
+<P>
+
+Warning: Please read the comments on executing complex functions
+in the section <B>Scripting and Complex Functions</B>.
+</DL>
+
+<DT><B>Nop</B><DD>
+<DL COMPACT><DT><DD>
+
+Does nothing.  This is used to insert a blank line or separator in
+a menu.  If the menu item specification is
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToMenu</B> MyMenu &quot; &quot; Nop
+</PRE>
+
+</DL>
+
+<P>
+
+then a blank line is inserted.  If it looks like
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
++ &quot;&quot; Nop
+</PRE>
+
+</DL>
+
+<P>
+
+then a separator line is inserted.  Can also be used as the
 double-click action for
-<a href="#Menu">Menu</a> or <span class="emphasis"><em>Popup</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PipeRead"></a>31.10.10. PipeRead</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
-<em class="replaceable"><code>command</code></em>.
+<B>Menu</B> or <B>Popup</B>.
+</DL>
+
+<DT><B>PipeRead</B> <I>command</I> [quiet]<DD>
+<DL COMPACT><DT><DD>
+
+Causes fvwm to read commands from the output of the
+<I>command</I>.
 This
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 is executed by
-<code class="filename">/bin/sh</code>
+<I>/bin/sh</I>
 as if you typed it on the command line.  If the command consists
 of more than one word it must be quoted.  Useful for building up
 dynamic menu entries based on a directories contents, for
-example. If the keyword
-<a name="PipeRead_Quiet"></a><font class="fvwmopt">Quiet</font>
+example.  If the keyword
+<I>Quiet</I>
 follows the command no message is produced if the
-<em class="replaceable"><code>command</code></em>
-is not found.</p><p>Example:</p><pre class="programlisting">
-<a href="#AddToMenu">AddToMenu</a> HomeDirMenu
+<I>command</I>
+is not found.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToMenu</B> HomeDirMenu
 PipeRead 'for i in $HOME/*; \
-  do echo "+ $i <a href="#Exec">Exec</a> xterm -e vi $i"; done'
-</pre><p>Note: The
-<span class="emphasis"><em>PipeRead</em></span>
+  do echo &quot;+ $i <B>Exec</B> xterm -e vi $i&quot;; done'
+</PRE>
+
+</DL>
+
+<P>
+
+Note: The
+<B>PipeRead</B>
 changes the pointer to a watch cursor by default during
 execution.  However, some commands, for example xwd, need to take
 control of the pointer themselves and do not work.  To disable the
 watch cursor, use the command prior to
-<span class="emphasis"><em>PipeRead</em></span></p><pre class="programlisting">
-<a href="#BusyCursor">BusyCursor</a> <a href="#BusyCursor_Read">Read</a> off
-</pre><p>The
-<span class="emphasis"><em>PipeRead</em></span>
+<B>PipeRead</B>
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>BusyCursor</B> <I>Read</I> off
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<B>PipeRead</B>
 command executes synchronously.  If you want to
-<a href="#Exec">Exec</a>
+<B>Exec</B>
 something, but need the command to run synchronously,
-you might do something like:</p><pre class="programlisting">
+you might do something like:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 PipeRead 'command 1&gt;&amp;2'
-</pre><p>The redirection causes any output from the program to go to stderr
+</PRE>
+
+</DL>
+
+<P>
+
+The redirection causes any output from the program to go to stderr
 instead of being read as a sequence of commands by fvwm.
-<span class="emphasis"><em>PipeRead</em></span>
+<B>PipeRead</B>
 returns 1 if the given command could be executed or -1 if not
 (see the section
-<a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Read"></a>31.10.11. Read</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Read</code>   <em class="replaceable"><code>filename</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the file named
-<em class="replaceable"><code>filename</code></em>.
+<B>Conditional Commands</B>
+for the meaning of return codes).
+</DL>
+
+<DT><B>Read</B> <I>filename</I> [quiet]<DD>
+<DL COMPACT><DT><DD>
+
+Causes fvwm to read commands from the file named
+<I>filename</I>.
 If the keyword
-<a name="Read_Quiet"></a><font class="fvwmopt">Quiet</font>
+<I>Quiet</I>
 follows the command no message is produced if the file is not
 found.  If the file name does not begin with a slash ('/'), fvwm
 looks in the user's data directory, then the system data
 directory.  The user's data directory is by default
-<code class="filename"><code class="envar">$HOME</code>/.fvwm</code>.
+<I>$HOME</I><I>/.fvwm</I>.
 It can be overridden by exporting
-<code class="envar">FVWM_USERDIR</code>
+<I>FVWM_USERDIR</I>
 set to any other directory.  The
-<span class="emphasis"><em>Read</em></span>
+<B>Read</B>
 command returns 1 if the given file could be read or -1 if not
 (see the section
-<a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetEnv"></a>31.10.12. SetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetEnv</code>   <em class="replaceable"><code>variable</code></em>   <em class="replaceable"><code>value</code></em> </p></div><p>Set an environment variable to a new value, similar to the shell's
+<B>Conditional Commands</B>
+for the meaning of return codes).
+</DL>
+
+<DT><B>SetEnv</B> <I>variable</I> <I>value</I><DD>
+<DL COMPACT><DT><DD>
+
+Set an environment variable to a new value, similar to the shell's
 export or setenv command.  The
-<em class="replaceable"><code>variable</code></em>
+<I>variable</I>
 and its
-<em class="replaceable"><code>value</code></em>
+<I>value</I>
 are inherited by processes started directly by fvwm.  This can be
 especially useful in conjunction with the
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a>
-module.  For example:</p><pre class="programlisting">
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B>
+module.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 SetEnv height HEIGHT
-</pre><p>makes the <a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a> set variable
-<span class="emphasis"><em>HEIGHT</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+makes the <B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B> set variable
+<I>HEIGHT</I>
 usable by processes started by fvwm as the environment variable
-<span class="emphasis"><em>$height</em></span>.
+<I>$height</I>.
 If
-<em class="replaceable"><code>value</code></em>
+<I>value</I>
 includes whitespace, you should enclose it in quotes.  If no
-<em class="replaceable"><code>value</code></em>
-is given, the variable is deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Silent"></a>31.10.13. Silent</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Silent</code>   <em class="replaceable"><code>command</code></em> </p></div><p>A number of commands require a window to operate on.  If
+<I>value</I>
+is given, the variable is deleted.
+</DL>
+
+<DT><B>Silent</B> <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+A number of commands require a window to operate on.  If
 no window was selected when such a function is invoked the user is
 asked to select a window.  Sometimes this behavior is unwanted,
 for example if the function was called by a module and the window
 that was selected at first does not exist anymore.  You can
 prevent this by putting
-<span class="emphasis"><em>Silent</em></span>
+<B>Silent</B>
 in front of the fvwm
-<em class="replaceable"><code>command</code></em>.
+<I>command</I>.
 If a function that needs a window is called with
-<span class="emphasis"><em>Silent</em></span>
+<B>Silent</B>
 without a window selected, it simply returns without doing
-anything. If
-<span class="emphasis"><em>Silent</em></span>
+anything.  If
+<B>Silent</B>
 is used on a user defined function it affects all function and sub
-function calls until the original function exits.</p><p>Another usage of
-<span class="emphasis"><em>Silent</em></span>
+function calls until the original function exits.
+<P>
+
+Another usage of
+<B>Silent</B>
 is with binding commands
-<a href="#Key">Key</a>, <span class="emphasis"><em>PointerKey</em></span> and <span class="emphasis"><em>Mouse</em></span>,
-this disables error messages.</p><p><span class="emphasis"><em>Silent</em></span>
+<B>Key</B>, <B>PointerKey</B> and <B>Mouse</B>,
+this disables error messages.
+<P>
+
+<B>Silent</B>
 also disables the error message for non-existent commands.  Note:
 This command is treated as a prefix to its
-<em class="replaceable"><code>command</code></em>.
+<I>command</I>.
 Expansion of the command line is done as if
-<span class="emphasis"><em>Silent</em></span>
-was not there.</p><p>Examples:</p><pre class="programlisting">
-Silent <a href="#Move">Move</a> 0 0
+<B>Silent</B>
+was not there.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Silent <B>Move</B> 0 0
 Silent User_defined_function
-# do not complain on keyboards without "Help" key
-Silent <a href="#Key">Key</a> Help R A <a href="#Popup">Popup</a> HelpMenu
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UnsetEnv"></a>31.10.14. UnsetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UnsetEnv</code>  [<em class="replaceable"><code>variable</code></em>]</p></div><p>Unset an environment variable, similar to shell's export or
-unsetenv command. The
-<em class="replaceable"><code>variable</code></em>
+# do not complain on keyboards without &quot;Help&quot; key
+Silent <B>Key</B> Help R A <B>Popup</B> HelpMenu
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>UnsetEnv</B> [<I>variable</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Unset an environment variable, similar to shell's export or
+unsetenv command.  The
+<I>variable</I>
 then is removed from the environment array inherited by processes
-started directly by fvwm.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Wait"></a>31.10.15. Wait</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Wait</code>   <em class="replaceable"><code>window</code></em> </p></div><p>This command is intended to be used in fvwm functions only.  It
+started directly by fvwm.
+</DL>
+
+<DT><B>Wait</B> <I>window</I><DD>
+<DL COMPACT><DT><DD>
+
+This command is intended to be used in fvwm functions only.  It
 causes execution of a function to pause until a new window matching
-<em class="replaceable"><code>window</code></em>
+<I>window</I>
 appears.  This can be a window's name, class, or resource string.
 It may contain the wildcards '*' and '?', which are matched in the
 usual Unix filename manner.  This is particularly useful in the
-"InitFunction" if you are trying to start windows on specific desktops:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> InitFunction
- + I <a href="#Exec">Exec</a> exec xterm -geometry 80x64+0+0
+&quot;InitFunction&quot; if you are trying to start windows on specific desktops:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> InitFunction
+ + I <B>Exec</B> exec xterm -geometry 80x64+0+0
  + I Wait xterm
- + I <a href="#GotoDesk">GotoDesk</a> 0 2
- + I <a href="#Exec">Exec</a> exec xmh -font fixed -geometry \
+ + I <B>GotoDesk</B> 0 2
+ + I <B>Exec</B> exec xmh -font fixed -geometry \
        507x750+0+0
  + I Wait xmh
- + I <a href="#GotoDesk">GotoDesk</a> 0 0
-</pre><p>The above function starts an xterm on the current desk, waits for
+ + I <B>GotoDesk</B> 0 0
+</PRE>
+
+</DL>
+
+<P>
+
+The above function starts an xterm on the current desk, waits for
 it to map itself, then switches to desk 2 and starts an xmh.
-After the xmh window appears control moves to desk 0.</p><p>Fvwm remains partially functional during a wait, but any input
+After the xmh window appears control moves to desk 0.
+<P>
+
+Fvwm remains partially functional during a wait, but any input
 from the modules is queued up and processed only after the window
 appears or the command is aborted.  For example, windows can not
-be focused with <a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a> or 
-<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a> during a wait.</p><p>You can escape from a
-<span class="emphasis"><em>Wait</em></span>
+be focused with <B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B> or 
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> during a wait.
+<P>
+
+You can escape from a
+<B>Wait</B>
 pause by pressing
-<span class="keysym">Ctrl-Alt-Escape</span>
+<FONT>Ctrl-Alt-Escape</FONT>
 (where
-<span class="keysym">Alt</span>
+<FONT>Alt</FONT>
 is the first modifier).  To redefine this key sequence see the
-<a href="#EscapeFunc">EscapeFunc</a>
-command.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="conditional_commands"></a>31.11. Conditional Commands</h3></div></div></div><p>Conditional commands are commands that are only executed if certain
+<B>EscapeFunc</B>
+command.
+</DL>
+
+</DL>
+<A NAME="lbBY">&nbsp;</A>
+<H3>Conditional Commands</H3>
+
+<P>
+
+Conditional commands are commands that are only executed if certain
 conditions are met.  Most conditional commands work on windows,
 like
-<a href="#Next">Next</a>, <a href="#ThisWindow">ThisWindow</a> or <a href="#All">All</a>.
+<B>Next</B>, <B>ThisWindow</B> or <B>All</B>.
 There is one conditional command,
-<a href="#Test">Test</a>,
+<B>Test</B>,
 that works on global conditions unrelated to windows.  The syntax
 of the conditions is described below.  For readability, the list
-of conditions is located at the end of this section.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="return_codes"></a>31.11.1. Return Codes</h4></div></div></div><p>All commands in this section (unless specifically stated for the
+of conditions is located at the end of this section.
+<DL COMPACT>
+<DT><B>Return Codes</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+All commands in this section (unless specifically stated for the
 command) also have a return code that can be 1 (if the condition
 was met) or 0 (if the condition was not met).  Some commands may
 return -1 which means that an error occurred and the return code
 is useless.  The
-<span class="emphasis"><em>Break</em></span>
+<B>Break</B>
 command returns -2.  Additionally, the return codes of commands
 run in a complex functions are passed to the invoking complex
 function.  The return code is used by the
-<a href="#TestRc">TestRc</a>
+<B>TestRc</B>
 command.  Please refer to the commands' description for examples.
 The return code can also be accessed through the variable
-<span class="emphasis"><em>$[cond.rc]</em></span>.
+<I>$[cond.rc]</I>.
 Non conditional commands do not modify the return code of the last
-conditional command.  Important note:  return codes are only
+conditional command.  Important note: return codes are only
 defined inside functions created with the
-<a href="#AddToFunc">AddToFunc</a>
+<B>AddToFunc</B>
 command and are not inherited by sub functions.  To run a command
 without altering the return code, the
-<a href="#KeepRc">KeepRc</a>
-command can be used.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ring_of_windows"></a>31.11.2. The Ring of Windows</h4></div></div></div><p>Fvwm stores windows in a ring internally.  Think of the focused
+<B>KeepRc</B>
+command can be used.
+</DL>
+
+<DT><B>The Ring of Windows</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+Fvwm stores windows in a ring internally.  Think of the focused
 window as a cursor on the current position in the ring.  The
-<a href="#Next">Next</a>
+<B>Next</B>
 command and many other commands search forwards through the ring
 for a matching window, and
-<a href="#Prev">Prev</a>
+<B>Prev</B>
 searches backwards.  The windows in the ring are either ordered by
 creation time (if the
-<span class="emphasis"><em>!FPSortWindowlistByFocus</em></span>,
-<span class="emphasis"><em>NeverFocus</em></span> or <span class="emphasis"><em>MouseFocus</em></span>
-styles are used) or by the last time they had the focus.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="list_of_conditional_commands"></a>31.11.3. List of Conditional Commands</h4></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="All"></a>31.11.3.1. All</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">All</code>  [<em class="replaceable"><code>options</code></em>] [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Execute
-<em class="replaceable"><code>command</code></em>
+<I>!FPSortWindowlistByFocus</I>,
+<I>NeverFocus</I> or <I>MouseFocus</I>
+styles are used) or by the last time they had the focus.
+</DL>
+
+<DT><B>List of Conditional Commands</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+<B>All</B> [<I>options</I>] [(<I>conditions</I>)] <I>command</I>
+<DL COMPACT><DT><DD>
+
+Execute
+<I>command</I>
 on all windows meeting the conditions.  It returns 1 if any window
-matches the condition and 0 otherwise. The execution starts at the top of the
-window ring and continues towards the bottom. The
-<em class="replaceable"><code>options</code></em>
+matches the condition and 0 otherwise.  The execution starts at the top of the
+window ring and continues towards the bottom.  The
+<I>options</I>
 can be any combination of
-<span class="emphasis"><em>Reverse</em></span> and <span class="emphasis"><em>UseStack</em></span>.
+<I>Reverse</I> and <I>UseStack</I>.
 If the option
-<a name="All_Reverse"></a><font class="fvwmopt">Reverse</font>
-is given the execution order is reversed. The option
-<a name="All_UseStack"></a><font class="fvwmopt">UseStack</font>
+<I>Reverse</I>
+is given the execution order is reversed.  The option
+<I>UseStack</I>
 makes All use the stacking order instead of the window ring when walking
 through windows.
-See the <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+See the <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Any"></a>31.11.3.2. Any</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Any</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<I>!CirculateHit</I>
+etc.  explicitly.
+</DL>
+
+<DL COMPACT>
+<DT><B>Any</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 if any window which satisfies all
-<em class="replaceable"><code>conditions</code></em>
+<I>conditions</I>
 exists.  The command is run in the context of the root window.
-See the <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Break"></a>31.11.3.3. Break</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Break</code>  [<em class="replaceable"><code>levels</code></em>]</p></div><p>If the break command is used in a function, function execution is
+See the <B>Conditions</B> section for a list of conditions.
+</DL>
+
+<DT><B>Break</B> [<I>levels</I>]<DD>
+<DL COMPACT><DT><DD>
+
+If the break command is used in a function, function execution is
 terminated immediately.  Further commands of the function are not
 processed.  Normally, all nested invocations of complex functions
 are left.  An optional integer number
-<em class="replaceable"><code>levels</code></em>
+<I>levels</I>
 may be given to break out of the given number of nested functions
 and continue execution of a higher level function.
 The
-<span class="emphasis"><em>Break</em></span>
-command always has the return code -2.  Example:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> PickWindowRaiseAndDeiconify
-+ I <a href="#Pick">Pick</a>
-+ I <a href="#TestRc">TestRc</a> (Error) Break
-+ I <a href="#Raise">Raise</a>
-+ I <a href="#Iconify">Iconify</a> off
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Current"></a>31.11.3.4. Current</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Current</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<B>Break</B>
+command always has the return code -2.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> PickWindowRaiseAndDeiconify
++ I <B>Pick</B>
++ I <B>TestRc</B> (Error) Break
++ I <B>Raise</B>
++ I <B>Iconify</B> off
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Current</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 on the currently focused window if it satisfies all
-<em class="replaceable"><code>conditions</code></em>.
-See the <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+<I>conditions</I>.
+See the <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Direction"></a>31.11.3.5. Direction</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Direction</code>  [FromPointer]  <em class="replaceable"><code>direction</code></em>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<I>!CirculateHit</I>
+etc.  explicitly.
+</DL>
+
+<DT><B>Direction</B> [FromPointer] <I>direction</I> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 (typically
-<a href="#Focus">Focus</a>)
+<B>Focus</B>)
 on a window in the given direction which satisfies all
-<em class="replaceable"><code>conditions</code></em>.
+<I>conditions</I>.
 Normally, the center of the currently focused window or the
 context window in which the command was invoked is taken as the
 starting point.  Lacking such a window, or when the
-<a name="Direction_FromPointer"></a><font class="fvwmopt">FromPointer</font>
+<I>FromPointer</I>
 option is given, the current position of the pointer is taken as
 the starting point.  The
-<em class="replaceable"><code>direction</code></em>
-may be one of "North", "Northeast", "East", "Southeast", "South",
-"Southwest", "West", "Northwest" and "Center".  Which window
-<span class="emphasis"><em>Direction</em></span>
+<I>direction</I>
+may be one of &quot;North&quot;, &quot;Northeast&quot;, &quot;East&quot;, &quot;Southeast&quot;, &quot;South&quot;,
+&quot;Southwest&quot;, &quot;West&quot;, &quot;Northwest&quot; and &quot;Center&quot;.  Which window
+<B>Direction</B>
 selects depends on angle and distance between the center points of
 the windows.  Closer windows are considered a better match than
 those farther away.  The
-<a name="Direction_Center"></a><font class="fvwmopt">Center</font>
+<I>Center</I>
 direction simply selects the window closest to the starting point.
 Returns -1 if an invalid direction was given.
-See the <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="KeepRc"></a>31.11.3.6. KeepRc</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">KeepRc</code>   <em class="replaceable"><code>command</code></em> </p></div><p>Runs the
-<em class="replaceable"><code>command</code></em>
+See the <B>Conditions</B> section for a list of conditions.
+</DL>
+
+<DT><B>KeepRc</B> <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Runs the
+<I>command</I>
 but does not alter the return code of the previous command.  Note:
-<span class="emphasis"><em>KeepRc</em></span>
+<B>KeepRc</B>
 is treated as a prefix to its
-<em class="replaceable"><code>command</code></em>.
+<I>command</I>.
 Expansion of the command line is done as if
-<span class="emphasis"><em>KeepRc</em></span>
-was not there.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Next"></a>31.11.3.7. Next</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Next</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<B>KeepRc</B>
+was not there.
+</DL>
+
+<DT><B>Next</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 (typically
-<a href="#Focus">Focus</a>)
+<B>Focus</B>)
 on the next window which satisfies all
-<em class="replaceable"><code>conditions</code></em>.
+<I>conditions</I>.
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
 focused window.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="None"></a>31.11.3.8. None</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">None</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+See <B>Conditions</B> section for a list of conditions.
+</DL>
+
+<DT><B>None</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 if no window which satisfies all
-<em class="replaceable"><code>conditions</code></em>
+<I>conditions</I>
 exists.  The command is run in the context of the root window.
 Returns 1 if no window matches the conditions and 0 otherwise.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+See <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="NoWindow"></a>31.11.3.9. NoWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">NoWindow</code>   <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>,
+<I>!CirculateHit</I>
+etc.  explicitly.
+</DL>
+
+<DT><B>NoWindow</B> <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>,
 but removes the window context if any.  This is not really a
 conditional command, but a prefix that may be useful in menu items
 that should operate without a window even if such menu is bound to
-window decorations.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Pick"></a>31.11.3.10. Pick</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Pick</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p><span class="emphasis"><em>Pick</em></span>
+window decorations.
+</DL>
+
+<DT><B>Pick</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+<B>Pick</B>
 works like
-<a href="#Function">Function</a>
+<B>Function</B>
 if invoked in the context of a window.  If invoked in the root
 window, it first asks the user to pick a window and then executes
 the
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 in the context of that window.  This avoids annoying multiple
 selections with complex functions.  The command is executed only
 if the given
-<em class="replaceable"><code>conditions</code></em>
+<I>conditions</I>
 are met.  Returns -1 if no window was selected.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+See <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="PointerWindow"></a>31.11.3.11. PointerWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">PointerWindow</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<I>!CirculateHit</I>
+etc.  explicitly.
+</DL>
+
+<DT><B>PointerWindow</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 if the window under the pointer satisfies all
-<em class="replaceable"><code>conditions</code></em>.
+<I>conditions</I>.
 Returns -1 if there is no window under the pointer.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+See <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Prev"></a>31.11.3.12. Prev</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Prev</code>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<I>!CirculateHit</I>
+etc.  explicitly.
+</DL>
+
+<DT><B>Prev</B> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 (typically
-<a href="#Focus">Focus</a>)
+<B>Focus</B>)
 on the previous window which satisfies all
-<em class="replaceable"><code>conditions</code></em>.
+<I>conditions</I>.
 If the command is running in a window context, it starts looking
 for a matching window from there.  Otherwise it starts at the
 focused window.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="ScanForWindow"></a>31.11.3.13. ScanForWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">ScanForWindow</code>  [FromPointer]  <em class="replaceable"><code>dir1</code></em>   <em class="replaceable"><code>dir2</code></em>  [(<em class="replaceable"><code>conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs <em class="replaceable"><code>command</code></em>
-(typically <a href="#Focus">Focus</a>)
+See <B>Conditions</B> section for a list of conditions.
+</DL>
+
+<DT><B>ScanForWindow</B> [FromPointer] <I>dir1</I> <I>dir2</I> [(<I>conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs <I>command</I>
+(typically <B>Focus</B>)
 on a window in the given direction which satisfies all
-<em class="replaceable"><code>conditions</code></em>.
+<I>conditions</I>.
 Normally, the center of the currently focused window or the
 context window in which the command was invoked is taken as the
 starting point.  Lacking such a window, or when the
-<a name="ScanForWindow_FromPointer"></a><font class="fvwmopt">FromPointer</font>
+<I>FromPointer</I>
 option is given, the current position of the pointer is taken as
 the starting point.  The direction
-<em class="replaceable"><code>dir1</code></em>
-may be one of "North", "NorthEast", "East", "SouthEast", "South",
-"SouthWest", "West", and "NorthWest".  Which window
-<span class="emphasis"><em>ScanForWindow</em></span>
+<I>dir1</I>
+may be one of &quot;North&quot;, &quot;NorthEast&quot;, &quot;East&quot;, &quot;SouthEast&quot;, &quot;South&quot;,
+&quot;SouthWest&quot;, &quot;West&quot;, and &quot;NorthWest&quot;.  Which window
+<B>ScanForWindow</B>
 selects depends first on the position along the primary axis given
 by
-<em class="replaceable"><code>dir1</code></em>.
+<I>dir1</I>.
 If any windows have the exact same coordinate along the primary
 axis, the secondary direction is used to order the windows.  The
-direction <em class="replaceable"><code>dir2</code></em>
+direction <I>dir2</I>
 may be one of the same set of values as
-<em class="replaceable"><code>dir1</code></em>.
-If <em class="replaceable"><code>dir2</code></em>
+<I>dir1</I>.
+If <I>dir2</I>
 is not perfectly perpendicular to
-<em class="replaceable"><code>dir1</code></em>,
+<I>dir1</I>,
 ScanForWindow returns a failure.  When using ScanForWindow
 repeatedly with the same arguments, it is guaranteed that all
 windows matching the conditions will eventually be found.  If the
 focus reaches a limit along the primary axis, it will wrap around
 to the opposite side.  Returns -1 if an invalid direction was
 given.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="Test"></a>31.11.3.14. Test</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">Test</code>  [(<em class="replaceable"><code>test-conditions</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs <em class="replaceable"><code>command</code></em> if all
-<em class="replaceable"><code>test-conditions</code></em> are satisfied.  The
-<em class="replaceable"><code>test-conditions</code></em>
+See <B>Conditions</B> section for a list of conditions.
+</DL>
+
+<DT><B>Test</B> [(<I>test-conditions</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs <I>command</I> if all
+<I>test-conditions</I> are satisfied.  The
+<I>test-conditions</I>
 are keywords with possible arguments from the list below
 and are separated by commas or whitespace.  They include:
-<span class="emphasis"><em>Version operator x.y.z</em></span>,
-<span class="emphasis"><em>EnvIsSet varname</em></span>,
-<span class="emphasis"><em>EnvMatch varname pattern</em></span>,
-<span class="emphasis"><em>EdgeHasPointer direction</em></span>,
-<span class="emphasis"><em>EdgeIsActive direction</em></span>,
-<span class="emphasis"><em>Start</em></span>,
-<span class="emphasis"><em>Init</em></span>,
-<span class="emphasis"><em>Restart</em></span>,
-<span class="emphasis"><em>Exit</em></span>,
-<span class="emphasis"><em>Quit</em></span>,
-<span class="emphasis"><em>ToRestart</em></span>,
-<span class="emphasis"><em>True</em></span>,
-<span class="emphasis"><em>False</em></span>,
-<span class="emphasis"><em>F</em></span>,
-<span class="emphasis"><em>R</em></span>,
-<span class="emphasis"><em>W</em></span>,
-<span class="emphasis"><em>X</em></span> and
-<span class="emphasis"><em>I</em></span>.
-A test-condition prefixed with "!" is negated.</p><p>The
-<a name="Test_Version"></a><font class="fvwmopt">Version</font> <span class="emphasis"><em>operator x.y.z</em></span>
+<I>Version operator x.y.z</I>,
+<I>EnvIsSet varname</I>,
+<I>EnvMatch varname pattern</I>,
+<I>EdgeHasPointer direction</I>,
+<I>EdgeIsActive direction</I>,
+<I>Start</I>,
+<I>Init</I>,
+<I>Restart</I>,
+<I>Exit</I>,
+<I>Quit</I>,
+<I>ToRestart</I>,
+<I>True</I>,
+<I>False</I>,
+<I>F</I>,
+<I>R</I>,
+<I>W</I>,
+<I>X</I> and
+<I>I</I>.
+A test-condition prefixed with &quot;!&quot; is negated.
+<P>
+
+The
+<I>Version</I> <I>operator x.y.z</I>
 test-condition is fulfilled if the logical condition of the expression is
-true. Valid <span class="emphasis"><em>operator</em></span> values are:
-<span class="emphasis"><em>&gt;=</em></span>,
-<span class="emphasis"><em>&gt;</em></span>,
-<span class="emphasis"><em>&lt;=</em></span>,
-<span class="emphasis"><em>&lt;</em></span>,
-<span class="emphasis"><em>==</em></span>
+true.  Valid <I>operator</I> values are:
+<I>&gt;=</I>,
+<I>&gt;</I>,
+<I>&lt;=</I>,
+<I>&lt;</I>,
+<I>==</I>
 and
-<span class="emphasis"><em>!=</em></span>.</p><p>Example:</p><pre class="programlisting">
-Test (Version &gt;= 2.5.11) <a href="#Echo">Echo</a> 2.5.11 or later.
-</pre><p>The
-<a name="Test_EnvIsSet"></a><font class="fvwmopt">EnvIsSet</font> <span class="emphasis"><em>varname</em></span>
+<I>!=</I>.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Test (Version &gt;= 2.5.11) <B>Echo</B> 2.5.11 or later.
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>EnvIsSet</I> <I>varname</I>
 test-condition is true if the given environment variable is set.
 The
-<a name="Test_EnvMatch"></a><font class="fvwmopt">EnvMatch</font> <span class="emphasis"><em>varname pattern</em></span>
+<I>EnvMatch</I> <I>varname pattern</I>
 test-condition is true if
-<span class="emphasis"><em>pattern</em></span>
+<I>pattern</I>
 matches the given environment variable value.
-The pattern may contain special "*" and "?" chars.</p><p>The
-<a name="Test_EdgeHasPointer"></a><font class="fvwmopt">EdgeHasPointer</font>
-[<span class="optional"><em class="replaceable"><code>direction</code></em></span>]
+The pattern may contain special &quot;*&quot; and &quot;?&quot; chars.
+<P>
+
+The
+<I>EdgeHasPointer</I>
+[<I>direction</I>]
 test-condition is true if the edge in the given direction currently
 contains the pointer.
 The
-<a name="Test_EdgeIsActive"></a><font class="fvwmopt">EdgeIsActive</font>
-[<span class="optional"><em class="replaceable"><code>direction</code></em></span>]
+<I>EdgeIsActive</I>
+[<I>direction</I>]
 test-condition is true if the edge in the given direction currently is
-active. An edge is active, and can contain a pointer if either a
+active.  An edge is active, and can contain a pointer if either a
 command is bound to it or edge scroll is available in that
-direction. The direction may be one of
-<span class="emphasis"><em> Any</em></span>,<span class="emphasis"><em> North</em></span>,<span class="emphasis"><em> Top</em></span>,<span class="emphasis"><em> Up</em></span>,<span class="emphasis"><em> West</em></span>,<span class="emphasis"><em> Left</em></span>,<span class="emphasis"><em> South</em></span>,<span class="emphasis"><em> Bottom</em></span>,
-<span class="emphasis"><em> Down</em></span>,<span class="emphasis"><em> Right</em></span> and <span class="emphasis"><em> East</em></span>.
-If no direction is specified <span class="emphasis"><em>Any</em></span> is assumed.</p><p>The
-<a name="Test_Start"></a><font class="fvwmopt">Start</font>
+direction.  The direction may be one of
+<I> Any</I>,<I> North</I>,<I> Top</I>,<I> Up</I>,<I> West</I>,<I> Left</I>,<I> South</I>,<I> Bottom</I>,
+<I> Down</I>,<I> Right</I> and <I> East</I>.
+If no direction is specified <I>Any</I> is assumed.
+<P>
+
+The
+<I>Start</I>
 test-condition is the same as either
-<a name="Test_Init"></a><font class="fvwmopt">Init</font> or <a name="Test_Restart"></a><font class="fvwmopt">Restart</font>.
+<I>Init</I> or <I>Restart</I>.
 It is only true on startup or restart prior and during
-<span class="emphasis"><em>StartFunction</em></span>
+<B>StartFunction</B>
 execution.
 The
-<a name="Test_Exit"></a><font class="fvwmopt">Exit</font>
+<I>Exit</I>
 test-condition is the same as either
-<a name="Test_Quit"></a><font class="fvwmopt">Quit</font> or <a name="Test_ToRestart"></a><font class="fvwmopt">ToRestart</font>.
+<I>Quit</I> or <I>ToRestart</I>.
 It is only valid on shutdown during
-<span class="emphasis"><em>ExitFunction</em></span>
-function execution.</p><p>The <a name="Test_True"></a><font class="fvwmopt">True</font> and <a name="Test_False"></a><font class="fvwmopt">False</font>
-test-conditions are unconditionally true and false.</p><p>Additionally, if a test-condition name is not recognized, the Error
-return code is set and the command is not executed.</p><p>The
-<a name="Test_F"></a><font class="fvwmopt">F</font> <em class="replaceable"><code>file</code></em>,
-<a name="Test_R"></a><font class="fvwmopt">R</font> <em class="replaceable"><code>file</code></em>,
-<a name="Test_W"></a><font class="fvwmopt">W</font> <em class="replaceable"><code>file</code></em>,
-<a name="Test_X"></a><font class="fvwmopt">X</font> <em class="replaceable"><code>file</code></em> and
-<a name="Test_I"></a><font class="fvwmopt">I</font> <em class="replaceable"><code>file</code></em>
+<B>ExitFunction</B>
+function execution.
+<P>
+
+The <I>True</I> and <I>False</I>
+test-conditions are unconditionally true and false.
+<P>
+
+Additionally, if a test-condition name is not recognized, the Error
+return code is set and the command is not executed.
+<P>
+
+The
+<I>F</I> <I>file</I>,
+<I>R</I> <I>file</I>,
+<I>W</I> <I>file</I>,
+<I>X</I> <I>file</I> and
+<I>I</I> <I>file</I>
 test-conditions test for existence of the given [F]ile (possibly
-with [R]ead/[W]rite permissions), e[X]ecutable (in <code class="envar">$PATH</code>),
-or the [I]mage (in ImagePath).</p><p>Example:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> StartFunction I Test (Init) <a href="#Exec">Exec</a> exec xterm
+with [R]ead/[W]rite permissions), e[X]ecutable (in <I>$PATH</I>),
+or the [I]mage (in ImagePath).
+<P>
 
-<a href="#AddToFunc">AddToFunc</a> VerifyVersion
-+ I Test (Version 2.5.*) <a href="#Echo">Echo</a> 2.5.x detected
-+ I <a href="#TestRc">TestRc</a> (NoMatch) \
-	Test (!Version 2.6.*) <a href="#Echo">Echo</a> Future version
-+ I <a href="#TestRc">TestRc</a> (NoMatch) \
-	<a href="#Echo">Echo</a> 2.6.x is detected
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> StartFunction I Test (Init) <B>Exec</B> exec xterm
 
-Test (F $[FVWM_USERDIR]/local-config) <a href="#Read">Read</a> local-config
-Test (X xterm-utf16) <a href="#Exec">Exec</a> exec xterm-utf16
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="TestRc"></a>31.11.3.15. TestRc</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">TestRc</code>  [([<span class="optional">!</span>]<em class="replaceable"><code>returncode</code></em>)]  <em class="replaceable"><code>command</code></em> </p></div><p>Performs
-<em class="replaceable"><code>command</code></em>
+<B>AddToFunc</B> VerifyVersion
++ I Test (Version 2.5.*) <B>Echo</B> 2.5.x detected
++ I <B>TestRc</B> (NoMatch) \
+        Test (!Version 2.6.*) <B>Echo</B> Future version
++ I <B>TestRc</B> (NoMatch) \
+        <B>Echo</B> 2.6.x is detected
+
+Test (F $[FVWM_USERDIR]/local-config) <B>Read</B> local-config
+Test (X xterm-utf16) <B>Exec</B> exec xterm-utf16
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>TestRc</B> [([!]<I>returncode</I>)] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+Performs
+<I>command</I>
 if the last conditional command returned the value
-<em class="replaceable"><code>returncode</code></em>.
+<I>returncode</I>.
 Instead of the numeric values 0 (no match), 1 (match), -1 (error),
-and -2 (break) the symbolic names "<a name="TestRc_NoMatch"></a><font class="fvwmopt">NoMatch</font>",
-"<a name="TestRc_Match"></a><font class="fvwmopt">Match</font>", "<a name="TestRc_Error"></a><font class="fvwmopt">Error</font>" and
-"<a name="TestRc_Break"></a><font class="fvwmopt">Break</font>" can be used.  If no
-<em class="replaceable"><code>returncode</code></em>
+and -2 (break) the symbolic names &quot;<I>NoMatch</I>&quot;,
+&quot;<I>Match</I>&quot;, &quot;<I>Error</I>&quot; and
+&quot;<I>Break</I>&quot; can be used.  If no
+<I>returncode</I>
 is given, the default 0 is assumed.  If the return code is
 prefixed with '!', the command is executed if
-<em class="replaceable"><code>returncode</code></em>
+<I>returncode</I>
 does not match the value returned by the conditional command.
-The <span class="emphasis"><em>TestRc</em></span>
+The <B>TestRc</B>
 command can only be used inside functions.  If the
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 is another conditional command, the previous return code is
-replaced by the new one.  Example:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> ToggleXterm
-+ I <a href="#All">All</a> (my_xtermwindow) <a href="#Close">Close</a>
-+ I TestRc (NoMatch) <a href="#Exec">Exec</a> xterm -T my_xtermwindow
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="ThisWindow"></a>31.11.3.16. ThisWindow</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">ThisWindow</code>  [(<em class="replaceable"><code>conditions</code></em>)]  command </p></div><p><span class="emphasis"><em>ThisWindow</em></span>
+replaced by the new one.  Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> ToggleXterm
++ I <B>All</B> (my_xtermwindow) <B>Close</B>
++ I TestRc (NoMatch) <B>Exec</B> xterm -T my_xtermwindow
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>ThisWindow</B> [(<I>conditions</I>)] command<DD>
+<DL COMPACT><DT><DD>
+
+<B>ThisWindow</B>
 executes the specified
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 in the context of the current operand window.  If there is no
 operand window (it is invoked in the root window), the command is
 ignored.
-<span class="emphasis"><em>ThisWindow</em></span>
+<B>ThisWindow</B>
 is never interactive.  The command is executed only if the given
-<em class="replaceable"><code>conditions</code></em>
+<I>conditions</I>
 are met.  It returns -1 if used outside a window context.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
-They can be turned off by specifying "!CirculateHit"
-etc. explicitly.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="WindowId"></a>31.11.3.17. WindowId</h5></div></div></div><div class="cmdsynopsis"><p><code class="command">WindowId</code>    [<em class="replaceable"><code>id</code></em>] [(<em class="replaceable"><code>conditions</code></em>)]  |  [root [<em class="replaceable"><code>screen</code></em>]]   <em class="replaceable"><code>command</code></em> </p></div><p>The
-<span class="emphasis"><em>WindowId</em></span>
+See <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
+They can be turned off by specifying &quot;!CirculateHit&quot;
+etc.  explicitly.
+</DL>
+
+<DT><B>WindowId</B> [<I>id</I>]&nbsp;[(<I>conditions</I>)] | [root&nbsp;[<I>screen</I>]] <I>command</I><DD>
+<DL COMPACT><DT><DD>
+
+The
+<B>WindowId</B>
 command looks for a specific window
-<em class="replaceable"><code>id</code></em>
+<I>id</I>
 and runs the specified
-<em class="replaceable"><code>command</code></em>
+<I>command</I>
 on it.  The second form of syntax retrieves the window id of the
 root window of the given
-<em class="replaceable"><code>screen</code></em>.
+<I>screen</I>.
 If no
-<em class="replaceable"><code>screen</code></em>
+<I>screen</I>
 is given, the current screen is assumed.  The window indicated by
-<em class="replaceable"><code>id</code></em>
+<I>id</I>
 may belong to a window not managed by fvwm or even a window on a
 different screen.  Although most commands can not operate on such
 windows, there are some exceptions, for example the
-<a href="#WarpToWindow">WarpToWindow</a>
+<B>WarpToWindow</B>
 command.
 Returns -1 if no window with the given id exists.
-See <a href="#conditions">Conditions</a> section for a list of conditions.</p><p>This command implies the conditions
-<span class="emphasis"><em>CirculateHit</em></span>, <span class="emphasis"><em>CirculateHitIcon</em></span> and <span class="emphasis"><em>CirculateHitShaded</em></span>.
+See <B>Conditions</B> section for a list of conditions.
+<P>
+
+This command implies the conditions
+<I>CirculateHit</I>, <I>CirculateHitIcon</I> and <I>CirculateHitShaded</I>.
 They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.</p><p>Examples:</p><pre class="programlisting">
-WindowId 0x34567890 <a href="#Raise">Raise</a>
-WindowId root 1 <a href="#WarpToWindow">WarpToWindow</a> 50 50
-WindowId $0 (Silly_Popup) <a href="#Delete">Delete</a>
-</pre><p>In the past this command was mostly useful for functions used with
+<I>!CirculateHit</I>
+etc.  explicitly.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+WindowId 0x34567890 <B>Raise</B>
+WindowId root 1 <B>WarpToWindow</B> 50 50
+WindowId $0 (Silly_Popup) <B>Delete</B>
+</PRE>
+
+</DL>
+
+<P>
+
+In the past this command was mostly useful for functions used with
 the
-<a href="#WindowList">WindowList</a>
+<B>WindowList</B>
 command, or for selective processing of
-<a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a>
+<B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B>
 calls (as in the last example), but currently these handler functions
 are called within a window context, so this command is not really
 needed in these cases.  Still it may be useful if, for example, the
 window id should be stored in the environment variable for a further
-proceeding.</p><pre class="programlisting">
-<a href="#Pick">Pick</a> <a href="#SetEnv">SetEnv</a> BOOKMARKED_WINDOW $[w.id]
-WindowId $[BOOKMARKED_WINDOW] <a href="#WarpToWindow">WarpToWindow</a>
-</pre></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="conditions"></a>31.11.4. Conditions</h4></div></div></div><p>The
-<span class="emphasis"><em>conditions</em></span>
+proceeding.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Pick</B> <B>SetEnv</B> BOOKMARKED_WINDOW $[w.id]
+WindowId $[BOOKMARKED_WINDOW] <B>WarpToWindow</B>
+</PRE>
+
+</DL>
+
+</DL>
+
+</DL>
+</DL>
+
+<DT><B>Conditions</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+The
+<I>conditions</I>
 that may be given as an argument to any conditional command are a
 list of keywords separated by commas, enclosed in
 parentheses.  Unless stated otherwise, conditional commands accept
 all the conditions listed below.  Note that earlier versions of
 fvwm required the conditions to be separated by whitespace instead
 of commas and enclosed in brackets instead of parentheses
-(this is still supported for backward compatibility).</p><p>In addition, the
-<span class="emphasis"><em>conditions</em></span>
+(this is still supported for backward compatibility).
+<P>
+
+In addition, the
+<I>conditions</I>
 may include one or more window names to match to.  If more than
 one window name is given, all of them must match.  The window
 name, icon name, class, and resource are considered when
-attempting to find a match. Each name may include the wildcards
-'*' and '?', and may consist of two or more alternatives,
+attempting to find a match.  Each name may include the wildcards '*' and '?', and may consist of two or more alternatives,
 separated by the character '|', which acts as an OR operator.  (If
 OR operators are used, they must not be separated by spaces from
-the names.)  Each window name can begin with '!', which prevents
-<span class="emphasis"><em>command</em></span>
+the names.) Each window name can begin with '!', which prevents
+<I>command</I>
 if any of the window name, icon name, class or resource match.
 However, '!' must not be applied to individual names in a group
 separated by OR operators; it may only be applied to the beginning
-of the group, and then it operates on the whole group.</p><p>Examples:</p><pre class="programlisting">
-<a href="#Next">Next</a> ("Netscape|konqueror|Mozilla*") <a href="#WarpToWindow">WarpToWindow</a> 99 90
-</pre><p>This goes to the next web browser window, no matter which of the
-three named web browsers is being used.</p><pre class="programlisting">
-<a href="#Next">Next</a> ("Mozilla*", "Bookmark*") <a href="#WarpToWindow">WarpToWindow</a> 99 90
-</pre><p>This goes to Mozilla's bookmark manager window, ignoring other
-Mozilla windows and other browsers' bookmark windows.</p><pre class="programlisting">
-<a href="#All">All</a> ("XTerm|rxvt", !console) <a href="#Iconify">Iconify</a>
-</pre><p>This iconifies all the xterm and rxvt windows on the current page,
-except that the one named "console" (with the -name option to xterm)
-is excluded.</p><pre class="programlisting">
-<a href="#Next">Next</a> (!"<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>|<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>*|<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>") <a href="#Raise">Raise</a>
-<a href="#Next">Next</a> (!<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>, !<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>*, !<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>) <a href="#Raise">Raise</a>
-</pre><p>These two commands are equivalent; either one raises the next window
-which is not one of the named fvwm modules.</p><p>Any condition can be negated by using a an exclamation mark ('!')
-directly in front of its name.</p><p><span class="emphasis"><em>AcceptsFocus</em></span>,
-<span class="emphasis"><em>AnyScreen</em></span>,
-<span class="emphasis"><em>CirculateHit</em></span>,
-<span class="emphasis"><em>CirculateHitIcon</em></span>,
-<span class="emphasis"><em>CirculateHitShaded</em></span>,
-<span class="emphasis"><em>Closable</em></span>,
-<span class="emphasis"><em>CurrentDesk</em></span>,
-<span class="emphasis"><em>CurrentGlobalPage</em></span>,
-<span class="emphasis"><em>CurrentGlobalPageAnyDesk</em></span>,
-<span class="emphasis"><em>CurrentPage</em></span>,
-<span class="emphasis"><em>CurrentPageAnyDesk</em></span>,
-<span class="emphasis"><em>CurrentScreen</em></span>,
-<span class="emphasis"><em>FixedPosition</em></span>,
-<span class="emphasis"><em>FixedSize</em></span>,
-<span class="emphasis"><em>Focused</em></span>,
-<span class="emphasis"><em>HasHandles</em></span>,
-<span class="emphasis"><em>HasPointer</em></span>,
-<span class="emphasis"><em>Iconic</em></span>,
-<span class="emphasis"><em>Iconifiable</em></span>,
-<span class="emphasis"><em>Layer [n]</em></span>,
-<span class="emphasis"><em>Maximizable</em></span>,
-<span class="emphasis"><em>Maximized</em></span>,
-<span class="emphasis"><em>Overlapped</em></span>,
-<span class="emphasis"><em>PlacedByButton n</em></span>,
-<span class="emphasis"><em>PlacedByButton3</em></span>,
-<span class="emphasis"><em>PlacedByFvwm</em></span>,
-<span class="emphasis"><em>Raised</em></span>,
-<span class="emphasis"><em>Shaded</em></span>,
-<span class="emphasis"><em>State n</em></span>,
-<span class="emphasis"><em>Sticky</em></span>,
-<span class="emphasis"><em>StickyAcrossDesks</em></span>,
-<span class="emphasis"><em>StickyAcrossPages</em></span>,
-<span class="emphasis"><em>StickyIcon</em></span>,
-<span class="emphasis"><em>StickyAcrossDesksIcon</em></span>,
-<span class="emphasis"><em>StickyAcrossPagesIcon</em></span>,
-<span class="emphasis"><em>Transient</em></span>,
-<span class="emphasis"><em>Visible</em></span>.</p><p>The
-<span class="emphasis"><em>AcceptsFocus</em></span>
+of the group, and then it operates on the whole group.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Next</B> (&quot;Netscape|konqueror|Mozilla*&quot;) <B>WarpToWindow</B> 99 90
+</PRE>
+
+</DL>
+
+<P>
+
+This goes to the next web browser window, no matter which of the
+three named web browsers is being used.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Next</B> (&quot;Mozilla*&quot;, &quot;Bookmark*&quot;) <B>WarpToWindow</B> 99 90
+</PRE>
+
+</DL>
+
+<P>
+
+This goes to Mozilla's bookmark manager window, ignoring other
+Mozilla windows and other browsers' bookmark windows.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>All</B> (&quot;XTerm|rxvt&quot;, !console) <B>Iconify</B>
+</PRE>
+
+</DL>
+
+<P>
+
+This iconifies all the xterm and rxvt windows on the current page,
+except that the one named &quot;console&quot; (with the -name option to xterm)
+is excluded.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Next</B> (!&quot;<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>|<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>*|<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>&quot;) <B>Raise</B>
+<B>Next</B> (!<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>, !<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>*, !<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>) <B>Raise</B>
+</PRE>
+
+</DL>
+
+<P>
+
+These two commands are equivalent; either one raises the next window
+which is not one of the named fvwm modules.
+<P>
+
+Any condition can be negated by using a an exclamation mark ('!')
+directly in front of its name.
+<P>
+
+<I>AcceptsFocus</I>,
+<I>AnyScreen</I>,
+<I>CirculateHit</I>,
+<I>CirculateHitIcon</I>,
+<I>CirculateHitShaded</I>,
+<I>Closable</I>,
+<I>CurrentDesk</I>,
+<I>CurrentGlobalPage</I>,
+<I>CurrentGlobalPageAnyDesk</I>,
+<I>CurrentPage</I>,
+<I>CurrentPageAnyDesk</I>,
+<I>CurrentScreen</I>,
+<I>FixedPosition</I>,
+<I>FixedSize</I>,
+<I>Focused</I>,
+<I>HasHandles</I>,
+<I>HasPointer</I>,
+<I>Iconic</I>,
+<I>Iconifiable</I>,
+<I>Layer [n]</I>,
+<I>Maximizable</I>,
+<I>Maximized</I>,
+<I>Overlapped</I>,
+<I>PlacedByButton n</I>,
+<I>PlacedByButton3</I>,
+<I>PlacedByFvwm</I>,
+<I>Raised</I>,
+<I>Shaded</I>,
+<I>State n</I>,
+<I>Sticky</I>,
+<I>StickyAcrossDesks</I>,
+<I>StickyAcrossPages</I>,
+<I>StickyIcon</I>,
+<I>StickyAcrossDesksIcon</I>,
+<I>StickyAcrossPagesIcon</I>,
+<I>Transient</I>,
+<I>Visible</I>.
+<P>
+
+The
+<I>AcceptsFocus</I>
 condition excludes all windows that do not want the input focus
-(the application has set the "Input hints" for the window to
+(the application has set the &quot;Input hints&quot; for the window to
 False) and do not use the
-<span class="emphasis"><em>Lenience</em></span>
+<I>Lenience</I>
 option of the
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>
 command.  Also, all windows using the
-<span class="emphasis"><em>NeverFocus</em></span>
+<I>NeverFocus</I>
 style are ignored.
 Note:
-<span class="emphasis"><em>!Lenience</em></span>
+<I>!Lenience</I>
 is equivalent to the deprecated option
-<span class="emphasis"><em>NoLenience</em></span>.</p><p>With the
-<span class="emphasis"><em>AnyScreen</em></span>
+<I>NoLenience</I>.
+<P>
+
+With the
+<I>AnyScreen</I>
 condition used together with any of the
-<span class="emphasis"><em>Current...</em></span>
+<I>Current...</I>
 conditions, windows that do not intersect the Xinerama screen
 containing the mouse pointer are considered for a match too.  For
-example:</p><pre class="programlisting">
+example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # Focus next window on current page,
 # regardless of Xinerama screen
-<a href="#Next">Next</a> (CurrentPage, AnyScreen) <a href="#Focus">Focus</a>
-</pre><p>The
-<span class="emphasis"><em>CirculateHit</em></span> and <span class="emphasis"><em>CirculateHitIcon</em></span>
+<B>Next</B> (CurrentPage, AnyScreen) <B>Focus</B>
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>CirculateHit</I> and <I>CirculateHitIcon</I>
 options override the
-<span class="emphasis"><em>CirculateSkip</em></span> and <span class="emphasis"><em>CirculateSkipIcon</em></span>
-<span class="emphasis"><em>Style</em></span>
+<I>CirculateSkip</I> and <I>CirculateSkipIcon</I>
+<B>Style</B>
 attributes for normal or iconic windows.  The
-<span class="emphasis"><em>CirculateHitShaded</em></span>
+<I>CirculateHitShaded</I>
 option overrides the
-<span class="emphasis"><em>CirculateSkipShaded</em></span>
-<span class="emphasis"><em>Style.</em></span>
+<I>CirculateSkipShaded</I>
+<B>Style.</B>
 All three options are turned on
 by default for the
-<a href="#Current">Current</a>
+<B>Current</B>
 command.  They can be turned off by specifying
-<span class="emphasis"><em>!CirculateHit</em></span>
-etc. explicitly.
-Note:  Do not confuse these conditions with the style options of
-the same name.  Specifically,</p><pre class="programlisting">
-<a href="#Style">Style</a> foo CirculateSkip
-<a href="#Next">Next</a> (foo, CirculateHit) ...
-</pre><p>is not the same as</p><pre class="programlisting">
-<a href="#Style">Style</a> foo CirculateHit ...
-<a href="#Next">Next</a> (foo)
-</pre><p>The prior selects windows with the name foo only in the Next
+<I>!CirculateHit</I>
+etc.  explicitly.
+Note: Do not confuse these conditions with the style options of
+the same name.  Specifically,
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> foo CirculateSkip
+<B>Next</B> (foo, CirculateHit) ...
+</PRE>
+
+</DL>
+
+<P>
+
+is not the same as
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Style</B> foo CirculateHit ...
+<B>Next</B> (foo)
+</PRE>
+
+</DL>
+
+<P>
+
+The prior selects windows with the name foo only in the Next
 command.  In the second example, these windows are always matched
-in all conditional commands.</p><p>The
-<span class="emphasis"><em>Closable</em></span>
-condition matches only windows that are allowed to be closed.</p><p>The
-<span class="emphasis"><em>CurrentDesk</em></span>
-condition matches only windows that are on the current desk.</p><p>The
-<span class="emphasis"><em>CurrentGlobalPage</em></span>
+in all conditional commands.
+<P>
+
+The
+<I>Closable</I>
+condition matches only windows that are allowed to be closed.
+<P>
+
+The
+<I>CurrentDesk</I>
+condition matches only windows that are on the current desk.
+<P>
+
+The
+<I>CurrentGlobalPage</I>
 condition matches only windows that are on the current page of the
 current desk, regardless of whether Xinerama support is enabled or
 not.  This condition implicitly activates the
-<span class="emphasis"><em>CurrentDesk</em></span>
-condition.</p><p>The
-<span class="emphasis"><em>CurrentGlobalPageAnyDesk</em></span>
+<I>CurrentDesk</I>
+condition.
+<P>
+
+The
+<I>CurrentGlobalPageAnyDesk</I>
 condition matches only windows that are on the current page of any
-desk, regardless of whether Xinerama support is enabled or not.</p><p>The
-<span class="emphasis"><em>CurrentPage</em></span>
+desk, regardless of whether Xinerama support is enabled or not.
+<P>
+
+The
+<I>CurrentPage</I>
 condition matches only windows that are on the current page of the
 current desk.  If Xinerama support is enabled, it only matches
 windows that are at least partially on the Xinerama screen
 containing the mouse pointer.  This condition implicitly
 activates the
-<span class="emphasis"><em>CurrentDesk</em></span>
-condition.</p><p>The
-<span class="emphasis"><em>CurrentPageAnyDesk</em></span> and <span class="emphasis"><em>CurrentScreen</em></span>
+<I>CurrentDesk</I>
+condition.
+<P>
+
+The
+<I>CurrentPageAnyDesk</I> and <I>CurrentScreen</I>
 conditions matches only windows that are on the current page of any
 desk.  If Xinerama support is enabled, they only match windows
 that are at least partially on the Xinerama screen containing the
-mouse pointer.</p><p>The
-<span class="emphasis"><em>FixedPosition</em></span>
+mouse pointer.
+<P>
+
+The
+<I>FixedPosition</I>
 condition excludes all windows that do not have a fixed position,
 either set through WM hints or the
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>
 option
-<span class="emphasis"><em>FixedPosition</em></span>.
-Example:</p><pre class="programlisting">
-<a href="#DestroyFunc">DestroyFunc</a> ToggleFixedGeometry
-<a href="#AddToFunc">AddToFunc</a>   ToggleFixedGeometry
-+ I <a href="#Pick">Pick</a> (FixedPosition) \
-	<a href="#WindowStyle">WindowStyle</a> VariablePosition, VariableSize
-+ I <a href="#TestRc">TestRc</a> (NoMatch) <a href="#WindowStyle">WindowStyle</a> FixedPosition, FixedSize
-</pre><p>The
-<span class="emphasis"><em>FixedSize</em></span>
+<I>FixedPosition</I>.
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyFunc</B> ToggleFixedGeometry
+<B>AddToFunc</B>   ToggleFixedGeometry
++ I <B>Pick</B> (FixedPosition) \
+        <B>WindowStyle</B> VariablePosition, VariableSize
++ I <B>TestRc</B> (NoMatch) <B>WindowStyle</B> FixedPosition, FixedSize
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>FixedSize</I>
 condition excludes all windows that do not have a fixed size,
 either set through WM hints or the
-<span class="emphasis"><em>Style</em></span>
+<B>Style</B>
 option
-<span class="emphasis"><em>FixedSize</em></span>.</p><p>The
-<span class="emphasis"><em>Focused</em></span>
+<I>FixedSize</I>.
+<P>
+
+The
+<I>Focused</I>
 matches on the window that currently has the keyboard focus.
 This is not useful for the
-<span class="emphasis"><em>Current</em></span>
-command but can be used with the other conditional commands.</p><p>The
-<span class="emphasis"><em>HasHandles</em></span>
-condition excludes all windows that do not have resize handles.</p><p>The
-<span class="emphasis"><em>HasPointer</em></span>
-condition excludes all windows that do not contain the pointer.</p><p>The
-<span class="emphasis"><em>Iconic</em></span>
-condition matches only iconic windows.</p><p>The
-<span class="emphasis"><em>Iconifiable</em></span>
-condition matches only windows that are allowed to be iconified.</p><p>The
-<span class="emphasis"><em>Layer [n]</em></span>
+<B>Current</B>
+command but can be used with the other conditional commands.
+<P>
+
+The
+<I>HasHandles</I>
+condition excludes all windows that do not have resize handles.
+<P>
+
+The
+<I>HasPointer</I>
+condition excludes all windows that do not contain the pointer.
+<P>
+
+The
+<I>Iconic</I>
+condition matches only iconic windows.
+<P>
+
+The
+<I>Iconifiable</I>
+condition matches only windows that are allowed to be iconified.
+<P>
+
+The
+<I>Layer [n]</I>
 condition matches only windows on the specified layer.  The
 optional argument of the
-<span class="emphasis"><em>Layer</em></span>
+<I>Layer</I>
 condition defaults to the layer of the focused window.  The
 negation
-<span class="emphasis"><em>!Layer</em></span>
+<I>!Layer</I>
 switches off the
-<span class="emphasis"><em>Layer</em></span>
-condition.</p><p>The
-<span class="emphasis"><em>Maximizable</em></span>
-condition matches only windows that are allowed to be maximized.</p><p>The
-<span class="emphasis"><em>Maximized</em></span>
-condition matches only maximized windows.</p><p>The
-<span class="emphasis"><em>Overlapped</em></span>
+<I>Layer</I>
+condition.
+<P>
+
+The
+<I>Maximizable</I>
+condition matches only windows that are allowed to be maximized.
+<P>
+
+The
+<I>Maximized</I>
+condition matches only maximized windows.
+<P>
+
+The
+<I>Overlapped</I>
 condition matches only windows that are overlapped by other windows
 on the same layer (or unmanaged windows if the option
-<span class="emphasis"><em>RaiseOverUnmanaged</em></span>
+<I>RaiseOverUnmanaged</I>
 of the
-<a href="#BugOpts">BugOpts</a>
+<B>BugOpts</B>
 command is used).  Note that this condition can be slow if you
 have many windows or if RaiseOverUnmanaged is used and the
-connection to the X server is slow.</p><p>The
-<span class="emphasis"><em>PlacedByButton n</em></span>
+connection to the X server is slow.
+<P>
+
+The
+<I>PlacedByButton n</I>
 condition is fulfilled if the last interactive motion of the
 window (with the
-<a href="#Move">Move</a>
+<B>Move</B>
 command or as
-<span class="emphasis"><em>ManualPlacement</em></span>)
+<I>ManualPlacement</I>)
 was ended by pressing mouse button
-<span class="emphasis"><em>n</em></span>.
-Example:</p><pre class="programlisting">
-<a href="#Mouse">Mouse</a>   1 T     A       <a href="#Function">Function</a> MoveWindow
+<I>n</I>.
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Mouse</B>   1 T     A       <B>Function</B> MoveWindow
 
-<a href="#DestroyFunc">DestroyFunc</a> MoveWindow
-<a href="#AddToFunc">AddToFunc</a> MoveWindow
-+ C <a href="#Move">Move</a>
-+ C <a href="#ThisWindow">ThisWindow</a> (PlacedByButton 5) <a href="#WindowShade">WindowShade</a> off
-+ C <a href="#TestRc">TestRc</a> (Match) <a href="#Maximize">Maximize</a> on 0 100
-+ C <a href="#ThisWindow">ThisWindow</a> (PlacedByButton 4) <a href="#WindowShade">WindowShade</a> on
-</pre><p>The
-<span class="emphasis"><em>PlacedByButton3</em></span>
+<B>DestroyFunc</B> MoveWindow
+<B>AddToFunc</B> MoveWindow
++ C <B>Move</B>
++ C <B>ThisWindow</B> (PlacedByButton 5) <B>WindowShade</B> off
++ C <B>TestRc</B> (Match) <B>Maximize</B> on 0 100
++ C <B>ThisWindow</B> (PlacedByButton 4) <B>WindowShade</B> on
+</PRE>
+
+</DL>
+
+<P>
+
+The
+<I>PlacedByButton3</I>
 condition has the same meaning as
-<span class="emphasis"><em>PlacedByButton</em></span>
-3. It remains only for backward compatibility.</p><p>The
-<span class="emphasis"><em>PlacedByFvwm</em></span>
+<I>PlacedByButton</I>
+3.  It remains only for backward compatibility.
+<P>
+
+The
+<I>PlacedByFvwm</I>
 condition excludes all windows that have been placed manually or
-by using the user or program position hint.</p><p>The
-<span class="emphasis"><em>Raised</em></span>
+by using the user or program position hint.
+<P>
+
+The
+<I>Raised</I>
 conditions matches only windows that are fully visible on the
-current viewport and not overlapped by any other window.</p><p>The
-<span class="emphasis"><em>Shaded</em></span>
+current viewport and not overlapped by any other window.
+<P>
+
+The
+<I>Shaded</I>
 conditions matches only shaded windows (see
-<a href="#WindowShade">WindowShade</a>
-command).</p><p>The
-<span class="emphasis"><em>State n</em></span> or <span class="emphasis"><em>!State n</em></span>
+<B>WindowShade</B>
+command).
+<P>
+
+The
+<I>State n</I> or <I>!State n</I>
 conditions match only windows with the specified integer state set
 (or unset).  See the
-<a href="#State">State</a>
-command for details.  The argument may range from 0 to 31.</p><p>The
-<span class="emphasis"><em>Sticky</em></span>, <span class="emphasis"><em>StickyAcrossDesks</em></span> and <span class="emphasis"><em>StickyAcrossPages</em></span>
+<B>State</B>
+command for details.  The argument may range from 0 to 31.
+<P>
+
+The
+<I>Sticky</I>, <I>StickyAcrossDesks</I> and <I>StickyAcrossPages</I>
 match only windows that are currently sticky, sticky across all
 desks or sticky across all pages.  Please refer to the
-<a href="#Style">Style</a>
+<B>Style</B>
 options with the same name and the commands
-<a href="#Stick">Stick</a>, <a href="#StickAcrossDesks">StickAcrossDesks</a> and <a href="#StickAcrossPages">StickAcrossPages</a>
-for details.</p><p>The
-<span class="emphasis"><em>StickyIcon</em></span>, <span class="emphasis"><em>StickyAcrossDesksIcon</em></span> and <span class="emphasis"><em>StickyAcrossPagesIcon</em></span>
+<B>Stick</B>, <B>StickAcrossDesks</B> and <B>StickAcrossPages</B>
+for details.
+<P>
+
+The
+<I>StickyIcon</I>, <I>StickyAcrossDesksIcon</I> and <I>StickyAcrossPagesIcon</I>
 match only windows that become sticky, sticky across all desks or sticky
-across all pages when they are in iconified state.</p><p>The
-<span class="emphasis"><em>Transient</em></span>
-condition matches only windows that have the "transient"
+across all pages when they are in iconified state.
+<P>
+
+The
+<I>Transient</I>
+condition matches only windows that have the &quot;transient&quot;
 property set by the application.  This it usually the case for
 application popup menus and dialogs.  The
-<a href="<?php echo conv_link_target('FvwmIdent.php');?>">FvwmIdent</a>
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>
 module can be used to find out whether a specific window is
-transient.</p><p>The
-<span class="emphasis"><em>Visible</em></span>
+transient.
+<P>
+
+The
+<I>Visible</I>
 condition matches only windows that are at least partially
 visible on the current viewport and not completely overlapped by
-other windows.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="module_commands"></a>31.12. Module Commands</h3></div></div></div><p>Fvwm maintains a database of module configuration lines in a form</p><pre class="programlisting">
-<span class="emphasis"><em>*</em></span><span class="emphasis"><em>&lt;ModuleName&gt;</em></span><span class="emphasis"><em>: </em></span><span class="emphasis"><em>&lt;Config-Resource&gt;</em></span>
-</pre><p>where
-<span class="emphasis"><em>&lt;ModuleName&gt;</em></span>
-is either a real module name or an alias.</p><p>This database is initially filled from config file (or from
+other windows.
+</DL>
+
+</DL>
+<A NAME="lbBZ">&nbsp;</A>
+<H3>Module Commands</H3>
+
+<P>
+
+Fvwm maintains a database of module configuration lines in a form
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>*</B><I>&lt;ModuleName&gt;</I><B>: </B><I>&lt;Config-Resource&gt;</I>
+</PRE>
+
+</DL>
+
+<P>
+
+where
+<I>&lt;ModuleName&gt;</I>
+is either a real module name or an alias.
+<P>
+
+This database is initially filled from config file (or from
 output of
-<code class="option">-cmd</code>
+<B>-cmd</B>
 config command), and can be later modified either by user (via
-<a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a>)
-or by modules.</p><p>When modules are run, they read appropriate portion of database.
+<B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B>)
+or by modules.
+<P>
+
+When modules are run, they read appropriate portion of database.
 (The concept of this database is similar to one used in X resource
-database).</p><p>Commands for manipulating module configuration database are
-described below.</p><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Asterisk"></a>31.12.1. Asterisk</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">*</code>   <em class="replaceable"><code>module_config_line</code></em> </p></div><p>Defines a module configuration.
-<em class="replaceable"><code>module_config_line</code></em>
+database).
+<P>
+
+Commands for manipulating module configuration database are
+described below.
+<DL COMPACT>
+<DT><B>*</B> <I>module_config_line</I><DD>
+<DL COMPACT><DT><DD>
+
+Defines a module configuration.
+<I>module_config_line</I>
 consists of a module name (or a module alias) and a module
-resource line. The new syntax allows a delimiter, a colon and
+resource line.  The new syntax allows a delimiter, a colon and
 optional spaces, between the module name and the rest of the line,
-this is recommended to avoid conflicts.</p><pre class="programlisting">
+this is recommended to avoid conflicts.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 *FvwmIconBox: MaxIconSize 48x48
 *FvwmPager: WindowBorderWidth 1
 *FvwmButtons-TopRight: Geometry 100x100-0+0
 *FvwmButtons-Bottom: Geometry +0-0
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="DestroyModuleConfig"></a>31.12.2. DestroyModuleConfig</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">DestroyModuleConfig</code>   <em class="replaceable"><code>module_config</code></em> </p></div><p>Deletes module configuration entries, so that new configuration
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>DestroyModuleConfig</B> <I>module_config</I><DD>
+<DL COMPACT><DT><DD>
+
+Deletes module configuration entries, so that new configuration
 lines may be entered instead.  This also sometimes the only way to
 turn back some module settings, previously defined.  This changes
 the way a module runs during a fvwm session without restarting.
-Wildcards can be used for portions of the name as well.</p><p>The new non-conflicting syntax allows a delimiter, a colon and
+Wildcards can be used for portions of the name as well.
+<P>
+
+The new non-conflicting syntax allows a delimiter, a colon and
 optional spaces between the module name and the rest of the line.
-In this case a module name (or alias) can't have wildcards.</p><pre class="programlisting">
+In this case a module name (or alias) can't have wildcards.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 DestroyModuleConfig FvwmButtons*
 DestroyModuleConfig FvwmForm: Fore
 DestroyModuleConfig FvwmIconBox: Max*
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="KillModule"></a>31.12.3. KillModule</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">KillModule</code>   <em class="replaceable"><code>modulename</code></em>  [<em class="replaceable"><code>modulealias</code></em>]</p></div><p>Causes the module which was invoked with name
-<em class="replaceable"><code>modulename</code></em>
-to be killed.  The name may include wildcards. If
-<em class="replaceable"><code>modulealias</code></em>
-is given, only modules started with the given alias are killed.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>KillModule</B> <I>modulename</I> [<I>modulealias</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Causes the module which was invoked with name
+<I>modulename</I>
+to be killed.  The name may include wildcards.  If
+<I>modulealias</I>
+is given, only modules started with the given alias are killed.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # kill all pagers
 KillModule FvwmPager
 
-<a href="#Module">Module</a> FvwmEvent SoundEvent
+<B>Module</B> FvwmEvent SoundEvent
 KillModule FvwmEvent SoundEvent
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Module"></a>31.12.4. Module</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Module</code>   <em class="replaceable"><code>modulename</code></em>  [<em class="replaceable"><code>moduleparams</code></em>]</p></div><p>Specifies a module with its optional parameters which should be
-spawned. Currently several modules, including
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>,
-<a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a>,
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a>,
-<a href="<?php echo conv_link_target('FvwmGtk.php');?>">FvwmGtk</a>,
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>,
-<a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a>
+</PRE>
+
+</DL>
+
+</DL>
+
+<DT><B>Module</B> <I>modulename</I> [<I>moduleparams</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Specifies a module with its optional parameters which should be
+spawned.  Currently several modules, including
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmGtk.php');?>">FvwmGtk</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
 support aliases.  Aliases are useful if more than one instance of
 the module should be spawned.  Aliases may be configured
 separately using
-<span class="emphasis"><em>*</em></span>
+<B>*</B>
 syntax.  To start a module
-<span class="emphasis"><em>FvwmForm</em></span>
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B>
 using an alias
-<span class="emphasis"><em>MyForm</em></span>,
-the following syntax may be used:</p><pre class="programlisting">
+<I>MyForm</I>,
+the following syntax may be used:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Module FvwmForm MyForm
-</pre><p>At the current time the available modules (included with fvwm) are
-<a href="<?php echo conv_link_target('FvwmAnimate.php');?>">FvwmAnimate</a> (produces animation effects when a window is iconified or de-iconified),
-<a href="<?php echo conv_link_target('FvwmAuto.php');?>">FvwmAuto</a> (an auto raise module),
-<a href="<?php echo conv_link_target('FvwmBacker.php');?>">FvwmBacker</a> (to change the background when you change desktops),
-<a href="<?php echo conv_link_target('FvwmBanner.php');?>">FvwmBanner</a> (to display a spiffy XBM, XPM, PNG or SVG),
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a> (brings up a customizable tool bar),
-<a href="<?php echo conv_link_target('FvwmCommandS.php');?>">FvwmCommandS</a> (a command server to use with shell's FvwmCommand client),
-<a href="<?php echo conv_link_target('FvwmConsole.php');?>">FvwmConsole</a> (to execute fvwm commands directly),
-<a href="<?php echo conv_link_target('FvwmCpp.php');?>">FvwmCpp</a> (to preprocess your <span class="emphasis"><em>config</em></span> with cpp),
-<a href="<?php echo conv_link_target('FvwmDebug.php');?>">FvwmDebug</a> (to help debug fvwm),
-<a href="<?php echo conv_link_target('FvwmDragWell.php');?>">FvwmDragWell</a> (the place to drag&amp;drop to),
-<a href="<?php echo conv_link_target('FvwmEvent.php');?>">FvwmEvent</a> (trigger various actions by events),
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> (to bring up dialogs),
-<a href="<?php echo conv_link_target('FvwmGtk.php');?>">FvwmGtk</a> (to bring up <acronym class="acronym">GTK</acronym> menus and dialogs),
-<a href="<?php echo conv_link_target('FvwmIconBox.php');?>">FvwmIconBox</a> (like the mwm IconBox),
-<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a> (a flexible icon manager),
-<a href="<?php echo conv_link_target('FvwmIdent.php');?>">FvwmIdent</a> (to get window info),
-<a href="<?php echo conv_link_target('FvwmM4.php');?>">FvwmM4</a> (to preprocess your <span class="emphasis"><em>config</em></span> with m4),
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a> (a mini version of the desktop),
-<a href="<?php echo conv_link_target('FvwmPerl.php');?>">FvwmPerl</a> (a Perl manipulator and preprocessor),
-<a href="<?php echo conv_link_target('FvwmProxy.php');?>">FvwmProxy</a> (to locate and control obscured windows by using small proxy windows),
-<a href="<?php echo conv_link_target('FvwmRearrange.php');?>">FvwmRearrange</a> (to rearrange windows),
-<a href="<?php echo conv_link_target('FvwmSave.php');?>">FvwmSave</a> (saves the desktop state in .xinitrc style),
-<a href="<?php echo conv_link_target('FvwmSaveDesk.php');?>">FvwmSaveDesk</a> (saves the desktop state in fvwm commands),
-<a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a> (another powerful dialog toolkit),
-<a href="<?php echo conv_link_target('FvwmScroll.php');?>">FvwmScroll</a> (puts scrollbars on any window),
-<a href="<?php echo conv_link_target('FvwmTabs.php');?>">FvwmTabs</a> (a generic tabbing module),
-<a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a> (a Windows like task bar),
-<a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a> (managed colorsets, obsolete),
-<a href="<?php echo conv_link_target('FvwmWharf.php');?>">FvwmWharf</a> (an AfterStep like button bar),
-<a href="<?php echo conv_link_target('FvwmWindowMenu.php');?>">FvwmWindowMenu</a> (a configurable fvwm menu listing current windows),
-<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a> (a window list).
+</PRE>
+
+</DL>
+
+<P>
+
+At the current time the available modules (included with fvwm) are
+<B><a href="<?php echo conv_link_target('./FvwmAnimate.php');?>">FvwmAnimate</a></B> (produces animation effects when a window is iconified or de-iconified),
+<B><a href="<?php echo conv_link_target('./FvwmAuto.php');?>">FvwmAuto</a></B> (an auto raise module),
+<B><a href="<?php echo conv_link_target('./FvwmBacker.php');?>">FvwmBacker</a></B> (to change the background when you change desktops),
+<B><a href="<?php echo conv_link_target('./FvwmBanner.php');?>">FvwmBanner</a></B> (to display a spiffy XBM, XPM, PNG or SVG),
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B> (brings up a customizable tool bar),
+<B>FvwmCommandS</B> (a command server to use with shell's FvwmCommand client),
+<B><a href="<?php echo conv_link_target('./FvwmConsole.php');?>">FvwmConsole</a></B> (to execute fvwm commands directly),
+<B><a href="<?php echo conv_link_target('./FvwmCpp.php');?>">FvwmCpp</a></B> (to preprocess your <I>config</I> with cpp),
+<B><a href="<?php echo conv_link_target('./FvwmDebug.php');?>">FvwmDebug</a></B> (to help debug fvwm),
+<B><a href="<?php echo conv_link_target('./FvwmDragWell.php');?>">FvwmDragWell</a></B> (the place to drag&amp;drop to),
+<B><a href="<?php echo conv_link_target('./FvwmEvent.php');?>">FvwmEvent</a></B> (trigger various actions by events),
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> (to bring up dialogs),
+<B><a href="<?php echo conv_link_target('./FvwmGtk.php');?>">FvwmGtk</a></B> (to bring up GTK menus and dialogs),
+<B><a href="<?php echo conv_link_target('./FvwmIconBox.php');?>">FvwmIconBox</a></B> (like the mwm IconBox),
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B> (a flexible icon manager),
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B> (to get window info),
+<B><a href="<?php echo conv_link_target('./FvwmM4.php');?>">FvwmM4</a></B> (to preprocess your <I>config</I> with m4),
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B> (a mini version of the desktop),
+<B><a href="<?php echo conv_link_target('./FvwmPerl.php');?>">FvwmPerl</a></B> (a Perl manipulator and preprocessor),
+<B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B> (to locate and control obscured windows by using small proxy windows),
+<B><a href="<?php echo conv_link_target('./FvwmRearrange.php');?>">FvwmRearrange</a></B> (to rearrange windows),
+<B><a href="<?php echo conv_link_target('./FvwmSave.php');?>">FvwmSave</a></B> (saves the desktop state in .xinitrc style),
+<B><a href="<?php echo conv_link_target('./FvwmSaveDesk.php');?>">FvwmSaveDesk</a></B> (saves the desktop state in fvwm commands),
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B> (another powerful dialog toolkit),
+<B><a href="<?php echo conv_link_target('./FvwmScroll.php');?>">FvwmScroll</a></B> (puts scrollbars on any window),
+<B><a href="<?php echo conv_link_target('./FvwmTabs.php');?>">FvwmTabs</a></B> (a generic tabbing module),
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B> (a Windows like task bar),
+<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B> (managed colorsets, obsolete),
+<B><a href="<?php echo conv_link_target('./FvwmWharf.php');?>">FvwmWharf</a></B> (an AfterStep like button bar),
+<B><a href="<?php echo conv_link_target('./FvwmWindowMenu.php');?>">FvwmWindowMenu</a></B> (a configurable fvwm menu listing current windows),
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> (a window list).
 These modules have their own man
-pages.  There may be other modules out on there as well.</p><p>Modules can be short lived transient programs or, like
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
+pages.  There may be other modules out on there as well.
+<P>
+
+Modules can be short lived transient programs or, like
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
 ,
 can remain for the duration of the X session.  Modules are
 terminated by the window manager prior to restarts and quits, if
 possible.  See the introductory section on modules.  The keyword
-<span class="emphasis"><em>Module</em></span>
+<B>Module</B>
 may be omitted if
-<em class="replaceable"><code>modulename</code></em>
-is distinct from all fvwm commands.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ModuleListenOnly"></a>31.12.5. ModuleListenOnly</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ModuleListenOnly</code>   <em class="replaceable"><code>modulename</code></em>  [<em class="replaceable"><code>moduleparams</code></em>]</p></div><p>This command works like the
-<a href="#Module">Module</a>
-command, but fvwm never sends any messages to the module. This may
+<I>modulename</I>
+is distinct from all fvwm commands.
+</DL>
+
+<DT><B>ModuleListenOnly</B> <I>modulename</I> [<I>moduleparams</I>]<DD>
+<DL COMPACT><DT><DD>
+
+This command works like the
+<B>Module</B>
+command, but fvwm never sends any messages to the module.  This may
 be handy to write a module as a shell script that is triggered by
 external events without the burden to answer packets sent by
-fvwm. For example, a module written as a shell script may change
+fvwm.  For example, a module written as a shell script may change
 labels of the
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
-module to implement a simple clock.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ModulePath"></a>31.12.6. ModulePath</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ModulePath</code>   <em class="replaceable"><code>path</code></em> </p></div><p>Specifies a colon separated list of directories in which to search
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+module to implement a simple clock.
+</DL>
+
+<DT><B>ModulePath</B> <I>path</I><DD>
+<DL COMPACT><DT><DD>
+
+Specifies a colon separated list of directories in which to search
 for modules.  To find a module, fvwm searches each directory in
 turn and uses the first file found.  Directory names on the list
-do not need trailing slashes.</p><p>The
-<span class="emphasis"><em>ModulePath</em></span>
+do not need trailing slashes.
+<P>
+
+The
+<B>ModulePath</B>
 may contain environment variables such as
-<code class="envar">$HOME</code> (or <code class="envar">${HOME}</code>).
+<I>$HOME</I> (or <I>${HOME}</I>).
 Further, a '+' in the
-<em class="replaceable"><code>path</code></em>
+<I>path</I>
 is expanded to the previous value of the
-<em class="replaceable"><code>path</code></em>,
+<I>path</I>,
 allowing easy appending or prepending to the
-<em class="replaceable"><code>path</code></em>.</p><p>For example:</p><pre class="programlisting">
+<I>path</I>.
+<P>
+
+For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 ModulePath ${HOME}/lib/fvwm/modules:+
-</pre><p>The directory containing the standard modules is available via the
+</PRE>
+
+</DL>
+
+<P>
+
+The directory containing the standard modules is available via the
 environment variable
-<code class="envar">$FVWM_MODULEDIR</code>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ModuleSynchronous"></a>31.12.7. ModuleSynchronous</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ModuleSynchronous</code>  [Expect <em class="replaceable"><code>string</code></em>] [Timeout <em class="replaceable"><code>secs</code></em>]  <em class="replaceable"><code>modulename</code></em> </p></div><p>The
-<span class="emphasis"><em>ModuleSynchronous</em></span>
+<I>$FVWM_MODULEDIR</I>.
+</DL>
+
+<DT><B>ModuleSynchronous</B> [Expect&nbsp;<I>string</I>] [Timeout&nbsp;<I>secs</I>] <I>modulename</I><DD>
+<DL COMPACT><DT><DD>
+
+The
+<B>ModuleSynchronous</B>
 command is very similar to
-<a href="#Module">Module</a>.
+<B>Module</B>.
 Fvwm stops processing any commands and user input until the module
-sends a string beginning with "NOP FINISHED STARTUP" back to fvwm.
+sends a string beginning with &quot;NOP FINISHED STARTUP&quot; back to fvwm.
 If the optional
-<a name="ModuleSynchronous_Timeout"></a><font class="fvwmopt">Timeout</font>
+<I>Timeout</I>
 is given fvwm gives up if the module sent no input back to fvwm
 for
-<em class="replaceable"><code>secs</code></em>
+<I>secs</I>
 seconds.  If the
-<a name="ModuleSynchronous_Expect"></a><font class="fvwmopt">Expect</font>
+<I>Expect</I>
 option is given, fvwm waits for the given
-<em class="replaceable"><code>string</code></em>
+<I>string</I>
 instead.
-<span class="emphasis"><em>ModuleSynchronous</em></span>
+<B>ModuleSynchronous</B>
 should only be used during fvwm startup to enforce the order in
 which modules are started.  This command is intended for use with
 the (currently hypothetical) module that should be in place before
-other modules are started.</p><p>Warning: It is quite easy to hang fvwm with this command, even if
+other modules are started.
+<P>
+
+Warning: It is quite easy to hang fvwm with this command, even if
 a timeout is given.  Be extra careful choosing the string to wait
-for. Although all modules in the fvwm distribution send back the
-"NOP FINISHED STARTUP" string once they have properly started up,
+for.  Although all modules in the fvwm distribution send back the
+&quot;NOP FINISHED STARTUP&quot; string once they have properly started up,
 this may not be the case for third party modules.  Moreover, you
 can try to escape from a locked
-<span class="emphasis"><em>ModuleSynchronous</em></span>
+<B>ModuleSynchronous</B>
 command by using the key sequence
-<span class="keysym">Ctrl-Alt-Escape</span>
+<FONT>Ctrl-Alt-Escape</FONT>
 (see the
-<a href="#EscapeFunc">EscapeFunc</a>).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="ModuleTimeout"></a>31.12.8. ModuleTimeout</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">ModuleTimeout</code>   <em class="replaceable"><code>timeout</code></em> </p></div><p>Specifies how many seconds fvwm waits for a module to respond. If
+<B>EscapeFunc</B>).
+</DL>
+
+<DT><B>ModuleTimeout</B> <I>timeout</I><DD>
+<DL COMPACT><DT><DD>
+
+Specifies how many seconds fvwm waits for a module to respond.  If
 the module does not respond within the time limit then fvwm kills
 it.
-<em class="replaceable"><code>timeout</code></em>
+<I>timeout</I>
 must be greater than zero, or it is reset to the default value of
-30 seconds.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SendToModule"></a>31.12.9. SendToModule</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SendToModule</code>   <em class="replaceable"><code>modulename</code></em>   <em class="replaceable"><code>string</code></em> </p></div><p>Sends an arbitrary string (no quotes required) to all modules,
+30 seconds.
+</DL>
+
+<DT><B>SendToModule</B> <I>modulename</I> <I>string</I><DD>
+<DL COMPACT><DT><DD>
+
+Sends an arbitrary string (no quotes required) to all modules,
 whose alias or name matching
-<em class="replaceable"><code>modulename</code></em>,
+<I>modulename</I>,
 which may contain wildcards.  This only makes sense if the module
-is set up to understand and deal with these strings though. Can be
+is set up to understand and deal with these strings though.  Can be
 used for module to module communication, or implementation of more
-complex commands in modules.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="session_management_commands"></a>31.13. Session Management Commands</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Quit"></a>31.13.1. Quit</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Quit</code> </p></div><p>Exits fvwm, generally causing X to exit too.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="QuitScreen"></a>31.13.2. QuitScreen</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">QuitScreen</code> </p></div><p>Causes fvwm to stop managing the screen on which the command was
-issued.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Restart"></a>31.13.3. Restart</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Restart</code>  [<em class="replaceable"><code>window_manager</code></em> [<em class="replaceable"><code>params</code></em>]
-	]</p></div><p>Causes fvwm to restart itself if
-<em class="replaceable"><code>window_manager</code></em>
+complex commands in modules.
+</DL>
+
+</DL>
+<A NAME="lbCA">&nbsp;</A>
+<H3>Session Management Commands</H3>
+
+<DL COMPACT>
+<DT><B>Quit</B><DD>
+<DL COMPACT><DT><DD>
+
+Exits fvwm, generally causing X to exit too.
+</DL>
+
+<DT><B>QuitScreen</B><DD>
+<DL COMPACT><DT><DD>
+
+Causes fvwm to stop managing the screen on which the command was
+issued.
+</DL>
+
+<DT><B>Restart</B> [<I>window_manager</I>&nbsp;[<I>params</I>]]<DD>
+<DL COMPACT><DT><DD>
+
+Causes fvwm to restart itself if
+<I>window_manager</I>
 is left blank, or to switch to an alternate window manager (or
 other fvwm version) if
-<em class="replaceable"><code>window_manager</code></em>
+<I>window_manager</I>
 is specified.  If the window manager is not in your default search
 path, then you should use the full path name for
-<em class="replaceable"><code>window_manager</code></em>.</p><p>This command should not have a trailing ampersand.  The command
+<I>window_manager</I>.
+<P>
+
+This command should not have a trailing ampersand.  The command
 can have optional parameters with simple shell-like syntax.  You
 can use
-<code class="filename">~</code>
+<I>~</I>
 (is expanded to the user's home directory) and environmental
 variables
-<code class="envar">$VAR</code> or <code class="envar">${VAR}</code>.
-Here are several examples:</p><pre class="programlisting">
-<a href="#Key">Key</a> F1 R N Restart
-<a href="#Key">Key</a> F1 R N Restart fvwm -s
-<a href="#Key">Key</a> F1 R N Restart ~/bin/fvwm -f $HOME/.fvwm/main
-<a href="#Key">Key</a> F1 R N Restart fvwm1 -s -f .fvwmrc
-<a href="#Key">Key</a> F1 R N Restart xterm -n '"X console"' \
-  -T \"X\ console\" -e fvwm1 -s
-</pre><p>If you need a native restart, we suggest only to use
-<span class="emphasis"><em>Restart</em></span>
+<I>$VAR</I> or <I>${VAR}</I>.
+Here are several examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Key</B> F1 R N Restart
+<B>Key</B> F1 R N Restart fvwm -s
+<B>Key</B> F1 R N Restart ~/bin/fvwm -f $HOME/.fvwm/main
+<B>Key</B> F1 R N Restart fvwm1 -s -f .fvwmrc
+<B>Key</B> F1 R N Restart xterm -n '&quot;X console&quot;' \
+  -T \&quot;X\&nbsp;console\&quot; -e fvwm1 -s
+</PRE>
+
+</DL>
+
+<P>
+
+If you need a native restart, we suggest only to use
+<B>Restart</B>
 command without parameters unless there is a reason not to.  If you
 still use an old command 'Restart fvwm2' that was correct in 2.2.x,
 all current command line arguments are lost.  On a restart without
 parameters or with --pass-args, they are preserved.  Here are some
-cases when 'Restart fvwm2' or 'Restart fvwm' cause troubles:</p><pre class="programlisting">
+cases when 'Restart fvwm2' or 'Restart fvwm' cause troubles:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 * running fvwm under a session manager
 * running fvwm with multi headed displays
 * having command line arguments, like
   -f themes-rc or -cmd
 * if the first fvwm2 in the $PATH is a
   different one
-</pre><p>This is why we are issuing a warning on an old usage. If you
+</PRE>
+
+</DL>
+
+<P>
+
+This is why we are issuing a warning on an old usage.  If you
 really want to restart to fvwm with no additional arguments, you
-may get rid of this warning by using "Restart fvwm -s" or
-"Restart /full/path/fvwm".</p><p>Note, currently with multi headed displays, restart of fvwms on
-different screens works independently.</p><div class="cmdsynopsis"><p><code class="command">Restart</code>   <code class="option">--pass-args</code>   <em class="replaceable"><code>window_manager</code></em> </p></div><p>The same as
-<span class="emphasis"><em>Restart</em></span>
+may get rid of this warning by using &quot;Restart fvwm -s&quot; or
+&quot;Restart /full/path/fvwm&quot;.
+<P>
+
+Note, currently with multi headed displays, restart of fvwms on
+different screens works independently.
+</DL>
+
+<DT><B>Restart</B> <B>--pass-args</B> <I>window_manager</I><DD>
+<DL COMPACT><DT><DD>
+
+The same as
+<B>Restart</B>
 without parameters but the name for the current window manager is
 replaced with the specified
-<em class="replaceable"><code>window_manager</code></em>
-and original arguments are preserved.</p><p>This command is useful if you use initial arguments like</p><pre class="programlisting">
+<I>window_manager</I>
+and original arguments are preserved.
+<P>
+
+This command is useful if you use initial arguments like
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 -cmd FvwmCpp
-</pre><p>and want to switch to another fvwm version without losing the
-initial arguments.</p><div class="cmdsynopsis"><p><code class="command">Restart</code>   <code class="option">--dont-preserve-state</code>  [<em class="replaceable"><code>other-params</code></em>]</p></div><p>The same as</p><pre class="programlisting">
-<span class="emphasis"><em>Restart</em></span> [<span class="optional"><em class="replaceable"><code>other-params</code></em></span>]
-</pre><p>but it does not save any window states over the restart.</p><p>Without this option,
-<span class="emphasis"><em>Restart</em></span>
+</PRE>
+
+</DL>
+
+<P>
+
+and want to switch to another fvwm version without losing the
+initial arguments.
+</DL>
+
+<DT><B>Restart</B> <B>--dont-preserve-state</B> [<I>other-params</I>]<DD>
+<DL COMPACT><DT><DD>
+
+The same as
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>Restart</B> [<I>other-params</I>]
+</PRE>
+
+</DL>
+
+<P>
+
+but it does not save any window states over the restart.
+<P>
+
+Without this option,
+<B>Restart</B>
 preserves most per-window state by writing it to a file named
-<code class="filename">.fs-restart-<code class="envar">$HOSTDISPLAY</code></code>
-in the user's home directory.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SaveSession"></a>31.13.4. SaveSession</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SaveSession</code> </p></div><p>Causes a session manager (if any) to save the session.  This
+<I>.fs-restart-</I><I>$HOSTDISPLAY</I>
+in the user's home directory.
+</DL>
+
+<DT><B>SaveSession</B><DD>
+<DL COMPACT><DT><DD>
+
+Causes a session manager (if any) to save the session.  This
 command does not work for xsm, it seems that xsm does not
 implement this functionality.  Use Unix signals to manage xsm
-remotely.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SaveQuitSession"></a>31.13.5. SaveQuitSession</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SaveQuitSession</code> </p></div><p>Causes a session manager (if any) to save and then shutdown the
-session. This command does not work for xsm, it seems that xsm
+remotely.
+</DL>
+
+<DT><B>SaveQuitSession</B><DD>
+<DL COMPACT><DT><DD>
+
+Causes a session manager (if any) to save and then shutdown the
+session.  This command does not work for xsm, it seems that xsm
 does not implement this functionality.  Use Unix signals to manage
-xsm remotely.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="colorsets"></a>31.14. Colorsets</h3></div></div></div><p>Colorsets are a powerful method to control colors. Colorsets
+xsm remotely.
+</DL>
+
+</DL>
+<A NAME="lbCB">&nbsp;</A>
+<H3>Colorsets</H3>
+
+<P>
+
+Colorsets are a powerful method to control colors.  Colorsets
 create appearance resources that are shared by fvwm and its
 modules.  When a colorset is modified all parts of fvwm react to
-that change. A colorset includes a foreground color, background
+that change.  A colorset includes a foreground color, background
 color, shadow and highlight color (often based on the background
 color), background face (this includes images and all kinds of
 gradients).  There is a way to render background face and specify
-other color operations.</p><p>In the 2.4.x versions a special module
-<a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>
+other color operations.
+<P>
+
+In the 2.4.x versions a special module
+<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>
 was introduced to manage colorsets.  Starting with the 2.5.x beta
-version, the <a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a> functionality was moved to the core fvwm,
-so this module became obsolete.</p><p>The old syntax:</p><pre class="programlisting">
-<a href="#DestroyModuleConfig">DestroyModuleConfig</a> <a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>: *
-*<a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>: <a href="#Colorset">Colorset</a> 0 fg black, bg rgb:b4/aa/94
-*<a href="<?php echo conv_link_target('FvwmTheme.php');?>">FvwmTheme</a>: <a href="#Colorset">Colorset</a> 1 fg black, bg rgb:a1/b2/c8
-</pre><p>corresponds to the new syntax:</p><pre class="programlisting">
-<a href="#CleanupColorsets">CleanupColorsets</a>
-<a href="#Colorset">Colorset</a> 0 fg black, bg rgb:b4/aa/94
-<a href="#Colorset">Colorset</a> 1 fg black, bg rgb:a1/b2/c8
-</pre><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Colorset"></a>31.14.1. Colorset</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Colorset</code>   <em class="replaceable"><code>num</code></em>  [<em class="replaceable"><code>options</code></em>]</p></div><p>Creates or modifies colorset
-<em class="replaceable"><code>num</code></em>.
-Colorsets are identified by this number. The number can start at
-zero and can be a very large number.</p><p>Warning: The highest colorset number used determines memory
-consumption. Thus, if you define 'Colorset 100000', the memory for
+version, the <B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B> functionality was moved to the core fvwm,
+so this module became obsolete.
+<P>
+
+The old syntax:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>DestroyModuleConfig</B> <B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>: *
+*<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>: <B>Colorset</B> 0 fg black, bg rgb:b4/aa/94
+*<B><a href="<?php echo conv_link_target('./FvwmTheme.php');?>">FvwmTheme</a></B>: <B>Colorset</B> 1 fg black, bg rgb:a1/b2/c8
+</PRE>
+
+</DL>
+
+<P>
+
+corresponds to the new syntax:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>CleanupColorsets</B>
+<B>Colorset</B> 0 fg black, bg rgb:b4/aa/94
+<B>Colorset</B> 1 fg black, bg rgb:a1/b2/c8
+</PRE>
+
+</DL>
+
+<P>
+<DL COMPACT>
+<DT><B>Colorset</B> <I>num</I> [<I>options</I>]<DD>
+<DL COMPACT><DT><DD>
+
+Creates or modifies colorset
+<I>num</I>.
+Colorsets are identified by this number.  The number can start at
+zero and can be a very large number.
+<P>
+
+Warning: The highest colorset number used determines memory
+consumption.  Thus, if you define 'Colorset 100000', the memory for
 100001 colorsets is used.  Keep your colorset numbers as small as
-possible.</p><p>By convention, colorsets are numbered like this:</p><pre class="programlisting">
+possible.
+<P>
+
+By convention, colorsets are numbered like this:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 # 0 = Default colors
 # 1 = Inactive windows
 # 2 = Active windows
@@ -8586,16 +15319,30 @@ possible.</p><p>By convention, colorsets are numbered like this:</p><pre class="
 # 5 = greyed out menu entry (only bg used)
 # 6 = module foreground and background
 # 7 = hilight colors
-</pre><p>If you need to have more colors and do not want to reinvent the
+</PRE>
+
+</DL>
+
+<P>
+
+If you need to have more colors and do not want to reinvent the
 wheel, you may use the convention used in fvwm-themes, it defines
-the meaning of the first 40 colorsets for nearly all purposes:</p><p>
-<a class="ulink" href="http://fvwm-themes.sourceforge.net/doc/colorsets" target="_top">http://fvwm-themes.sourceforge.net/doc/colorsets</a></p><p>Each colorset has four colors, an optional pixmap and an optional
+the meaning of the first 40 colorsets for nearly all purposes:
+<P>
+
+<I><A HREF="http://fvwm-themes.sourceforge.net/doc/colorsets">http://fvwm-themes.sourceforge.net/doc/colorsets</A></I>
+<P>
+
+Each colorset has four colors, an optional pixmap and an optional
 shape mask.  The four colors are used by modules as the
 foreground, background, highlight and shadow colors.  When a
 colorset is created it defaults to a foreground of black and
 background of gray.  The background and foreground are marked as
-"average" and "contrast" (see later) so that just specifying a
-pixmap or gradient gives sensible results.</p><p><em class="replaceable"><code>options</code></em>
+&quot;average&quot; and &quot;contrast&quot; (see later) so that just specifying a
+pixmap or gradient gives sensible results.
+<P>
+
+<I>options</I>
 is a comma separated list containing some of the keywords:
 fg, Fore, Foreground,
 bg, Back, Background,
@@ -8611,429 +15358,778 @@ Alpha, fgAlpha,
 Dither, NoDither,
 IconTint,
 IconAlpha,
-Plain.</p><p>
-<a name="Colorset_fg"></a><font class="fvwmopt">fg</font>,
-<a name="Colorset_Fore"></a><font class="fvwmopt">Fore</font> and
-<a name="Colorset_Foreground"></a><font class="fvwmopt">Foreground</font>
+Plain.
+<P>
+
+<I>fg</I>,
+<I>Fore</I> and
+<I>Foreground</I>
 take a color name as an argument and set the foreground color.
 The special name
-<a name="Colorset_Contrast"></a><font class="fvwmopt">Contrast</font>
+<I>Contrast</I>
 may be used to select a color that contrasts well with the
 background color.  To reset the foreground color to the default
-value you can simply omit the color name.</p><p>
-<a name="Colorset_bg"></a><font class="fvwmopt">bg</font>,
-<a name="Colorset_Back"></a><font class="fvwmopt">Back</font> and
-<a name="Colorset_Background"></a><font class="fvwmopt">Background</font>
+value you can simply omit the color name.
+<P>
+
+<I>bg</I>,
+<I>Back</I> and
+<I>Background</I>
 take a color name as an argument and set the background color.  It
 also sets the highlight and shadow colors to values that give a 3d
 effect unless these have been explicitly set with the options
 below.  The special name
-<a name="Colorset_Average"></a><font class="fvwmopt">Average</font>
+<I>Average</I>
 may be used to select a color that is the average color of the
 pixmap.  If the pixmap is tinted with the
-<span class="emphasis"><em>Tint</em></span>
+<I>Tint</I>
 option, the tint is not taken in account in the computation of the
-average color. You should use the
-<span class="emphasis"><em>bgTint</em></span>
-option to get the "real" average color.  The background color is
-reset to the default value if the color name is omitted.</p><p>
-<a name="Colorset_hi"></a><font class="fvwmopt">hi</font>,
-<a name="Colorset_Hilite"></a><font class="fvwmopt">Hilite</font> and
-<a name="Colorset_Hilight"></a><font class="fvwmopt">Hilight</font>
+average color.  You should use the
+<I>bgTint</I>
+option to get the &quot;real&quot; average color.  The background color is
+reset to the default value if the color name is omitted.
+<P>
+
+<I>hi</I>,
+<I>Hilite</I> and
+<I>Hilight</I>
 take a color name as an argument and set the highlight color.  If
 the highlight color is not explicitly set, the default is to
 calculate it from the background color.  To switch back to the
-default behavior the color name can be omitted.</p><p>
-<a name="Colorset_sh"></a><font class="fvwmopt">sh</font>,
-<a name="Colorset_Shade"></a><font class="fvwmopt">Shade</font> and
-<a name="Colorset_Shadow"></a><font class="fvwmopt">Shadow</font>
+default behavior the color name can be omitted.
+<P>
+
+<I>sh</I>,
+<I>Shade</I> and
+<I>Shadow</I>
 take a color name as an argument and set the shadow color.  If the
 shadow color is not explicitly set, the default is to calculate it
 from the background color.  To switch back to the default behavior
-the color name can be omitted.</p><p>
-<a name="Colorset_fgsh"></a><font class="fvwmopt">fgsh</font>
+the color name can be omitted.
+<P>
+
+<I>fgsh</I>
 takes a color name as an argument and sets the color used by the
-shadowing font effect. See the
-<a href="#font_shadow_effects">Font Shadow Effects</a>
+shadowing font effect.  See the
+<B>Font Shadow Effects</B>
 section of the fvwm man page.  By default this color is computed
 from the foreground and background colors.  To switch back to the
-default the color name can be omitted.</p><p>
-<a name="Colorset_Pixmap"></a><font class="fvwmopt">Pixmap</font>,
-<a name="Colorset_TiledPixmap"></a><font class="fvwmopt">TiledPixmap</font> and
-<a name="Colorset_AspectPixmap"></a><font class="fvwmopt">AspectPixmap</font>
+default the color name can be omitted.
+<P>
+
+<I>Pixmap</I>,
+<I>TiledPixmap</I> and
+<I>AspectPixmap</I>
 take a file name as an argument, search the
-<a href="#ImagePath">ImagePath</a>
+<B>ImagePath</B>
 and use it as the background pixmap.  Any transparent parts are
 filled with the background color.  Not specifying a file name
 removes any existing image from the colorset.
-<span class="emphasis"><em>TiledPixmap</em></span>
+<I>TiledPixmap</I>
 produces repeated copies of the image with no scaling,
-<span class="emphasis"><em>Pixmap</em></span>
+<I>Pixmap</I>
 causes the image to be stretched to fit whatever object the
 colorset is applied to and
-<span class="emphasis"><em>AspectPixmap</em></span>
-stretches to fit but retains the image aspect ratio.</p><p>
-<a name="Colorset_Transparent"></a><font class="fvwmopt">Transparent</font>
+<I>AspectPixmap</I>
+stretches to fit but retains the image aspect ratio.
+<P>
+
+<I>Transparent</I>
 creates a transparent background pixmap.  The pixmap is used as a
 window background to achieve root transparency.  For this you
 should use the
-<a href="#Style_ParentalRelativity">ParentalRelativity</a>
+<I>ParentalRelativity</I>
 option to the
-<a href="#Style">Style</a>
+<B>Style</B>
 command.
 A subsequent root background change may be detected or not, this
 depends on the program used to set the background.  If you use
-<span><strong class="command">fvwm-root</strong></span>, <span><strong class="command">xsetbg</strong></span> (xli),
-<a href="<?php echo conv_link_target('FvwmBacker.php');?>">FvwmBacker</a> with solid or colorset colors
-or a recent version of <span><strong class="command">Esetroot</strong></span> (&gt;= 9.2) a background change is
-detected. If background changes are not detected (e.g., if you use
-<span><strong class="command">xv</strong></span> or <span><strong class="command">xsetroot</strong></span>) you can force detection by using the <code class="option">-d</code> option of
-fvwm-root:</p><pre class="programlisting">
+<B><a href="<?php echo conv_link_target('./fvwm-root.php');?>">fvwm-root</a></B>, <B>xsetbg</B> (xli),
+<B><a href="<?php echo conv_link_target('./FvwmBacker.php');?>">FvwmBacker</a></B> with solid or colorset colors
+or a recent version of <B>Esetroot</B> (&gt;= 9.2) a background change is
+detected.  If background changes are not detected (e.g., if you use
+<B>xv</B> or <B>xsetroot</B>) you can force detection by using the <B>-d</B> option of
+fvwm-root:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 xv -root -quit mybg.png; fvwm-root -d
-</pre><p>Due to the way X implements transparency no guarantees can be made
+</PRE>
+
+</DL>
+
+<P>
+
+Due to the way X implements transparency no guarantees can be made
 that the desired effect can be achieved.  The application may even
 crash.  If you experience any problems with this option, do not
-use it.</p><p>Using outline move and resize (see the
-<a href="#OpaqueMoveSize">OpaqueMoveSize</a>
+use it.
+<P>
+
+Using outline move and resize (see the
+<B>OpaqueMoveSize</B>
 command and the
-<a href="#Style_ResizeOpaque">ResizeOpaque</a>
-<a href="#Style">Style</a>
+<I>ResizeOpaque</I>
+<B>Style</B>
 option) as well as setting the
-<a href="#Style_WindowShadeShrinks">WindowShadeShrinks</a>
+<I>WindowShadeShrinks</I>
 style may help.  The transparency achieved with
-<span class="emphasis"><em>Transparent</em></span>
+<I>Transparent</I>
 depends on whether the colorset is applied to the foreground or
-the background of a window. In the second case the transparency is
+the background of a window.  In the second case the transparency is
 relative to the parent window of the window on which the colorset
-is defined.  For example:</p><pre class="programlisting">
+is defined.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 12 VGradient 200 grey30 grey60
 Colorset 17 Transparent
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: Colorset 12
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: PlainColorset 17
-</pre><p>gives an IconMan with a vertical grey gradient background and the
-buttons use the background (by transparency). To obtain a (root)
-transparent IconMan:</p><pre class="programlisting">
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: Colorset 12
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: PlainColorset 17
+</PRE>
+
+</DL>
+
+<P>
+
+gives an IconMan with a vertical grey gradient background and the
+buttons use the background (by transparency).  To obtain a (root)
+transparent IconMan:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 12 Transparent
 Colorset 17 Transparent
 Colorset 18 Transparent
 Colorset 19 Transparent
 
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: Colorset 12
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: PlainColorset 17
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: FocusColorset 18
-*<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>: IconColorset  19
-</pre><p>The Colorset IconMan option defines the IconMan window background,
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: Colorset 12
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: PlainColorset 17
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: FocusColorset 18
+*<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>: IconColorset  19
+</PRE>
+
+</DL>
+
+<P>
+
+The Colorset IconMan option defines the IconMan window background,
 but the PlainColorset and the FocusColorset are drawn on the
-foreground. So, the transparency of the IconMan buttons is
+foreground.  So, the transparency of the IconMan buttons is
 achieved by drawing nothing.  Now if this IconMan is swallowed in
-an FvwmButtons as:</p><pre class="programlisting">
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>:(Colorset 10, Swallow "FvwmIconMan" 'FvwmIconMan')
-</pre><p>then,
-<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>
+an FvwmButtons as:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>:(Colorset 10, Swallow &quot;FvwmIconMan&quot; 'FvwmIconMan')
+</PRE>
+
+</DL>
+
+<P>
+
+then,
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>
 becomes a child of
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
 and it is transparent relative to
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>.
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>.
 So, in this case
-<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>
-uses Colorset 10 as background. If you want root transparency use
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>
+uses Colorset 10 as background.  If you want root transparency use
 the
-<span class="emphasis"><em>RootTransparent</em></span>
+<I>RootTransparent</I>
 option.
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>,
-<a href="<?php echo conv_link_target('FvwmIconMan.php');?>">FvwmIconMan</a>,
-<a href="<?php echo conv_link_target('FvwmIdent.php');?>">FvwmIdent</a>,
-<a href="<?php echo conv_link_target('FvwmScroll.php');?>">FvwmScroll</a>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmIconMan.php');?>">FvwmIconMan</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmIdent.php');?>">FvwmIdent</a></B>,
+<B><a href="<?php echo conv_link_target('./FvwmScroll.php');?>">FvwmScroll</a></B>
 and
-<a href="<?php echo conv_link_target('FvwmTaskBar.php');?>">FvwmTaskBar</a>
-are relatively simple. There is one main colorset option which
+<B><a href="<?php echo conv_link_target('./FvwmTaskBar.php');?>">FvwmTaskBar</a></B>
+are relatively simple.  There is one main colorset option which
 defines the background of the window and the other colorsets (if
-any) are drawn on the foreground. The case of
-<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a> and
-<a href="<?php echo conv_link_target('FvwmProxy.php');?>">FvwmProxy</a>
-are simpler. With
-<a href="<?php echo conv_link_target('FvwmWinList.php');?>">FvwmWinList</a>
+any) are drawn on the foreground.  The case of
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B> and
+<B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B>
+are simpler.  With
+<B><a href="<?php echo conv_link_target('./FvwmWinList.php');?>">FvwmWinList</a></B>
 all the colorsets are drawn on the foreground and with
-<a href="<?php echo conv_link_target('FvwmProxy.php');?>">FvwmProxy</a>
+<B><a href="<?php echo conv_link_target('./FvwmProxy.php');?>">FvwmProxy</a></B>
 the two colorsets refer to the window backgrounds.
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>
+<B><a href="<?php echo conv_link_target('./FvwmPager.php');?>">FvwmPager</a></B>
 is more complicated as almost everything in the pager are windows
 with some parental relations (the mini windows are the child and
 the desktops are the parents and all this is complicated by the
-hilighted page). So, the colorsets apply to the background of
-these windows. You should experiment. For
-<a href="<?php echo conv_link_target('FvwmForm.php');?>">FvwmForm</a> and
-<a href="<?php echo conv_link_target('FvwmScript.php');?>">FvwmScript</a>
-the situation is similar. There is a main window (a child of the
+hilighted page).  So, the colorsets apply to the background of
+these windows.  You should experiment.  For
+<B><a href="<?php echo conv_link_target('./FvwmForm.php');?>">FvwmForm</a></B> and
+<B><a href="<?php echo conv_link_target('./FvwmScript.php');?>">FvwmScript</a></B>
+the situation is similar.  There is a main window (a child of the
 root window) which corresponds to the main colorset and most of
 the widgets are windows which are children of the main window.
-<span class="emphasis"><em>Tint</em></span>
+<I>Tint</I>
 may work or not with the
-<span class="emphasis"><em>Transparent</em></span>
-option. When the colorset is drawn on the foreground
-<span class="emphasis"><em>Tint</em></span>
-should work. In some cases, tinting may be very slow. Tinting may
-work with fvwm menu (without animation). Tinting may work better
+<I>Transparent</I>
+option.  When the colorset is drawn on the foreground
+<I>Tint</I>
+should work.  In some cases, tinting may be very slow.  Tinting may
+work with fvwm menu (without animation).  Tinting may work better
 if your X server has backing store enabled (try xdpyinfo to see if
-this the case). There is a chance that the backing store support
+this the case).  There is a chance that the backing store support
 of your X server does not work well with the terrible hack used to
-Tint the ParentRelative Pixmap. So, to get tinted root
+Tint the ParentRelative Pixmap.  So, to get tinted root
 transparency it is more safe to use the
-<span class="emphasis"><em>RootTransparent</em></span>
-option.</p><p>
-<a name="Colorset_RootTransparent"></a><font class="fvwmopt">RootTransparent</font> [<span class="optional"> <span class="emphasis"><em>buffer</em></span> </span>]
-creates a root transparent background. To make this option work,
-you must use an <span><strong class="command">Esetroot</strong></span> compatible program, fvwm-root with the
---retain-pixmap option or <a href="<?php echo conv_link_target('FvwmBacker.php');?>">FvwmBacker</a> with the RetainPixmap option
+<I>RootTransparent</I>
+option.
+<P>
+
+<I>RootTransparent</I> [ <I>buffer</I> ]
+creates a root transparent background.  To make this option work,
+you must use an <B>Esetroot</B> compatible program, fvwm-root with the
+--retain-pixmap option or <B><a href="<?php echo conv_link_target('./FvwmBacker.php');?>">FvwmBacker</a></B> with the RetainPixmap option
 (and colorset or solid backgrounds).  The
-<span class="emphasis"><em>buffer</em></span>
+<I>buffer</I>
 keyword is useful only when the
-<span class="emphasis"><em>Tint</em></span>
-option is used too. This speeds up creation of windows which use
+<I>Tint</I>
+option is used too.  This speeds up creation of windows which use
 the colorset (useful for fvwm menus) at the cost of memory
-usage. It also speeds up opaque move and resize which can be
+usage.  It also speeds up opaque move and resize which can be
 unacceptably slow without
-<span class="emphasis"><em>buffer</em></span>.
+<I>buffer</I>.
 However, this option may add a lot of memory to your X server
 (depending on the size of the image used to set the
-background). In summary, using outline move and resize for modules
-which use such a colorset may be a good idea.</p><p>
-<a name="Colorset_Shape"></a><font class="fvwmopt">Shape</font>,
-<a name="Colorset_TiledShape"></a><font class="fvwmopt">TiledShape</font> and
-<a name="Colorset_AspectShape"></a><font class="fvwmopt">AspectShape</font>
+background).  In summary, using outline move and resize for modules
+which use such a colorset may be a good idea.
+<P>
+
+<I>Shape</I>,
+<I>TiledShape</I> and
+<I>AspectShape</I>
 take a file name as an argument, search the
-<a href="#ImagePath">ImagePath</a>
+<B>ImagePath</B>
 and use it as the shape bitmap.
-<span class="emphasis"><em>TiledShape</em></span>
+<I>TiledShape</I>
 produces repeated copies of the bitmap with no scaling,
-<span class="emphasis"><em>Shape</em></span>
+<I>Shape</I>
 causes the bitmap to be stretched to fit whatever object the
 colorset is applied to and
-<span class="emphasis"><em>AspectShape</em></span>
+<I>AspectShape</I>
 stretches to fit but retains the bitmap aspect ratio.  If the file
 is a pixmap in xpm format the shape mask (all opaque pixels) of the
 pixmap is used.  For png and svg images, the shape mask is equivalent
-to all not completely transparent pixels (alpha &gt; 0).</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><h3 class="title">Warning</h3>Due to the way X11 implements shapes you cannot take back
+to all not completely transparent pixels (alpha &gt; 0).
+<P>
+
+
+
+<BR>
+
+<B>Warning</B>
+Due to the way X11 implements shapes you cannot take back
 making windows shaped. You may have to restart fvwm or the shaped
-application.</div><p>
-<span class="emphasis"><em>?Gradient ...</em></span>
+application.
+<P>
+
+<I>?Gradient ...</I>
 creates a pixmap and stretches it to fit the window.
-<span class="emphasis"><em>?Gradient</em></span>
-may be one of <a name="Colorset_HGradient"></a><font class="fvwmopt">HGradient</font>, <a name="Colorset_VGradient"></a><font class="fvwmopt">VGradient</font>,
-<a name="Colorset_DGradient"></a><font class="fvwmopt">DGradient</font>, <a name="Colorset_BGradient"></a><font class="fvwmopt">BGradient</font>,
-<a name="Colorset_SGradient"></a><font class="fvwmopt">SGradient</font>, <a name="Colorset_CGradient"></a><font class="fvwmopt">CGradient</font>,
-<a name="Colorset_RGradient"></a><font class="fvwmopt">RGradient</font> or <a name="Colorset_YGradient"></a><font class="fvwmopt">YGradient</font>.
+<I>?Gradient</I>
+may be one of <I>HGradient</I>, <I>VGradient</I>,
+<I>DGradient</I>, <I>BGradient</I>,
+<I>SGradient</I>, <I>CGradient</I>,
+<I>RGradient</I> or <I>YGradient</I>.
 The gradient types
-are as follows:  H is horizontal; V is vertical; D is diagonal
+are as follows: H is horizontal; V is vertical; D is diagonal
 from top left to bottom right; B is a backwards diagonal from
 bottom left to top right; S is concentric squares; C is concentric
 circles; R is a radar like pattern and Y is a Yin Yang style (but
 without the dots).
 Please refer to the
-<a href="#color_gradients">Color Gradients</a>
-section for the syntax of gradients.</p><p>
-<a name="Colorset_Tint"></a><font class="fvwmopt">Tint</font>
-takes 2 arguments, a color and a percentage between 0 and 100. It
+<B>Color Gradients</B>
+section for the syntax of gradients.
+<P>
+
+<I>Tint</I>
+takes 2 arguments, a color and a percentage between 0 and 100.  It
 causes the image defined using
-<span class="emphasis"><em>?Pixmap</em></span>
+<I>?Pixmap</I>
 or
-<span class="emphasis"><em>?Gradient</em></span>
-to be tinted with the specified color using the percentage. If the
+<I>?Gradient</I>
+to be tinted with the specified color using the percentage.  If the
 image is transparent
-<span class="emphasis"><em>Tint</em></span>
-tints only the image part. Unfortunately, a colorset background
+<I>Tint</I>
+tints only the image part.  Unfortunately, a colorset background
 specified using the
-<span class="emphasis"><em>Transparent</em></span>
-option can give strange results. See the
-<span class="emphasis"><em>Transparent</em></span>
-option for details. With no arguments this option removes the
-tint.</p><p>
-<a name="Colorset_fgTint"></a><font class="fvwmopt">fgTint</font>
-takes 2 arguments, a color and a percentage between 0 and 100. It
+<I>Transparent</I>
+option can give strange results.  See the
+<I>Transparent</I>
+option for details.  With no arguments this option removes the
+tint.
+<P>
+
+<I>fgTint</I>
+takes 2 arguments, a color and a percentage between 0 and 100.  It
 causes the color defined using
-<span class="emphasis"><em>fg</em></span>
-to be tinted with the specified color using the percentage. With
-no arguments this option removes the tint.</p><p>
-<a name="Colorset_bgTint"></a><font class="fvwmopt">bgTint</font>
-takes 2 arguments, a color and a percentage between 0 and 100. It
+<I>fg</I>
+to be tinted with the specified color using the percentage.  With
+no arguments this option removes the tint.
+<P>
+
+<I>bgTint</I>
+takes 2 arguments, a color and a percentage between 0 and 100.  It
 causes the color defined using
-<span class="emphasis"><em>bg</em></span>
-to be tinted with the specified color using the percentage. If the
-<span class="emphasis"><em>sh</em></span>
+<I>bg</I>
+to be tinted with the specified color using the percentage.  If the
+<I>sh</I>
 and
-<span class="emphasis"><em>hi</em></span>
+<I>hi</I>
 colors are not specified, they are recomputed from the tinted bg
-color. With no arguments this option removes the tint.</p><p>
-<a name="Colorset_Alpha"></a><font class="fvwmopt">Alpha</font>
-takes a percentage between 0 and 100 as an argument. It causes
+color.  With no arguments this option removes the tint.
+<P>
+
+<I>Alpha</I>
+takes a percentage between 0 and 100 as an argument.  It causes
 fvwm to merge the image defined using
-<span class="emphasis"><em>?Pixmap</em></span>
+<I>?Pixmap</I>
 or
-<span class="emphasis"><em>?Gradient</em></span>
+<I>?Gradient</I>
 with the
-<span class="emphasis"><em>bg</em></span>
-color using the percentage. If the percentage is 0 the image is
+<I>bg</I>
+color using the percentage.  If the percentage is 0 the image is
 hidden and if it is 100 the image is displayed as usual (no
-merge). The default is 100 and it is restored if no argument is
-given.</p><p>
-<a name="Colorset_fgAlpha"></a><font class="fvwmopt">fgAlpha</font>
-takes a percentage between 0 and 100 as an argument. It causes
+merge).  The default is 100 and it is restored if no argument is
+given.
+<P>
+
+<I>fgAlpha</I>
+takes a percentage between 0 and 100 as an argument.  It causes
 fvwm to merge the text and the colorset background using the
-percentage. If the percentage is 0 the text is hidden and if it is
-100 the text is displayed as usual (no merge). This option has an
+percentage.  If the percentage is 0 the text is hidden and if it is
+100 the text is displayed as usual (no merge).  This option has an
 effect only with fonts loaded by Xft, see the
-<a href="#font_names_and_font_loading">Font Names and Font Loading</a>
-section. The default is 100 and it is restored if no argument is
-given.</p><p>
-<a name="Colorset_Dither"></a><font class="fvwmopt">Dither</font>
+<B>Font Names and Font Loading</B>
+section.  The default is 100 and it is restored if no argument is
+given.
+<P>
+
+<I>Dither</I>
 causes fvwm to dither the image defined using
-<span class="emphasis"><em>?Pixmap</em></span>
+<I>?Pixmap</I>
 or
-<span class="emphasis"><em>?Gradient.</em></span>
+<I>?Gradient.</I>
 This is useful only with displays with depth less than or equal to
 16 (i.e., on displays which can only display less than 65537
-colors at once). The dithering effect lets you simulate having
+colors at once).  The dithering effect lets you simulate having
 more colors available that you actually have.
-<a name="Colorset_NoDither"></a><font class="fvwmopt">NoDither</font>
+<I>NoDither</I>
 causes fvwm to do not dither the images.
-<span class="emphasis"><em>Dither</em></span>
+<I>Dither</I>
 is the default if the depth is less than or equal to 8 (a screen
-with 256 colors or less). In depth 15 (32768 colors) and 16 (65536
+with 256 colors or less).  In depth 15 (32768 colors) and 16 (65536
 colors), the default is
-<span class="emphasis"><em>NoDither</em></span>,
+<I>NoDither</I>,
 however this effect can be useful with images which contain a lot
-of close colors. For example a fine gradient looks more
-smooth.</p><p>
-<a name="Colorset_IconTint"></a><font class="fvwmopt">IconTint</font>
-takes 2 arguments, a color and a percentage between 0 and 100. It
-causes fvwm or a module to tint the "icons" which are rendered
+of close colors.  For example a fine gradient looks more
+smooth.
+<P>
+
+<I>IconTint</I>
+takes 2 arguments, a color and a percentage between 0 and 100.  It
+causes fvwm or a module to tint the &quot;icons&quot; which are rendered
 into the colorset background with the specified color using a
-percentage. Here "icons" means, fvwm Icons, fvwm menu icons,
+percentage.  Here &quot;icons&quot; means, fvwm Icons, fvwm menu icons,
 MiniIcons which represent applications in various modules, images
 loaded by modules (e.g., images specified by the
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>#FvwmButtons_Icon">Icon</a>
-<a href="<?php echo conv_link_target('FvwmButtons.php');?>">FvwmButtons</a>
-button option) ...etc. With no arguments this option removes the
-icon tint.</p><p>
-<a name="Colorset_IconAlpha"></a><font class="fvwmopt">IconAlpha</font>
-takes a percentage between 0 and 100 as an argument. It causes
-fvwm to merge the "icons" which are rendered into the colorset
-background using this percentage. The default is 100 and it is
-restored if no argument is given.</p><p><span class="emphasis"><em>Note</em></span>:
-It is equivalent to use "Tint a_color rate" and "Alpha a" if a =
-100 and the bg color is a_color. This equivalence does not hold
+<I>Icon</I>
+<B><a href="<?php echo conv_link_target('./FvwmButtons.php');?>">FvwmButtons</a></B>
+button option) ...etc.  With no arguments this option removes the
+icon tint.
+<P>
+
+<I>IconAlpha</I>
+takes a percentage between 0 and 100 as an argument.  It causes
+fvwm to merge the &quot;icons&quot; which are rendered into the colorset
+background using this percentage.  The default is 100 and it is
+restored if no argument is given.
+<P>
+
+<I>Note</I>:
+It is equivalent to use &quot;Tint a_color rate&quot; and &quot;Alpha a&quot; if a =
+100 and the bg color is a_color.  This equivalence does not hold
 for IconAlpha and IconTint as the background can be an image or a
 gradient (and not a uniform color background).
 However, in some cases you can achieve (almost) the same effect by
-using IconTint in the place of IconAlpha. This is preferable as,
-in general, IconAlpha generates more redrawing than IconTint.</p><p>
-<a name="Colorset_NoShape"></a><font class="fvwmopt">NoShape</font>
+using IconTint in the place of IconAlpha.  This is preferable as,
+in general, IconAlpha generates more redrawing than IconTint.
+<P>
+
+<I>NoShape</I>
 removes the shape mask from the colorset while
-<a name="Colorset_Plain"></a><font class="fvwmopt">Plain</font>
-removes the background pixmap or gradient.</p><p>Examples</p><pre class="programlisting">
+<I>Plain</I>
+removes the background pixmap or gradient.
+<P>
+
+Examples
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 3 fg tan, bg navy
-</pre><p>If necessary this creates colorsets 0, 1, 2 and 3 and then changes
-colorset 3 to have a foreground of tan, a background of navy.</p><pre class="programlisting">
-Colorset 3 bg "navy blue"
-</pre><p>changes the background color of colorset 3 to navy blue. The
-foreground and pixmap are unchanged.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+If necessary this creates colorsets 0, 1, 2 and 3 and then changes
+colorset 3 to have a foreground of tan, a background of navy.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+Colorset 3 bg &quot;navy blue&quot;
+</PRE>
+
+</DL>
+
+<P>
+
+changes the background color of colorset 3 to navy blue.  The
+foreground and pixmap are unchanged.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 3 AspectPixmap large_murky_dungeon.xpm
-</pre><p>causes depression.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+causes depression.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 3 bg Average
-</pre><p>Sets the background color and the relief colors to match the
-background pixmap. This is the default setting but it must be used
-if a background color was specified and is now not required.</p><pre class="programlisting">
+</PRE>
+
+</DL>
+
+<P>
+
+Sets the background color and the relief colors to match the
+background pixmap.  This is the default setting but it must be used
+if a background color was specified and is now not required.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 Colorset 3 YGradient 200 3 blue 1000 navy 1 blue 1000 navy
-</pre><p>Adds a Yin Yang gradient background pixmap to colorset 3.  If the
+</PRE>
+
+</DL>
+
+<P>
+
+Adds a Yin Yang gradient background pixmap to colorset 3.  If the
 background is set to average it is recomputed along with the
-foreground if that is set to contrast.</p><pre class="programlisting">
+foreground if that is set to contrast.
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
 #!/bin/sh
-<a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a> "Colorset 7 fg navy, bg gray"
+<B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B> &quot;Colorset 7 fg navy, bg gray&quot;
 while true
 do
-  <a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a> "Colorset 7 fg gray"
+  <B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B> &quot;Colorset 7 fg gray&quot;
   sleep 1
-  <a href="<?php echo conv_link_target('FvwmCommand.php');?>">FvwmCommand</a> "Colorset 7 fg navy"
+  <B><a href="<?php echo conv_link_target('./FvwmCommand.php');?>">FvwmCommand</a></B> &quot;Colorset 7 fg navy&quot;
   sleep 1
 done
-</pre><p>Makes colorset 7 blink.</p><p>The color names used in colorsets are saved as fvwm variables which
-can be substituted in any fvwm command. For example:</p><pre class="programlisting">
-<a href="#AddToFunc">AddToFunc</a> InitFunction
-+ I <a href="#Exec">Exec</a> exec xterm -fg $[fg.cs0] -bg $[bg.cs0]
-</pre><p>Where $[fg.cs0] is the foreground color of colorset zero. Please
+</PRE>
+
+</DL>
+
+<P>
+
+Makes colorset 7 blink.
+<P>
+
+The color names used in colorsets are saved as fvwm variables which
+can be substituted in any fvwm command.  For example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>AddToFunc</B> InitFunction
++ I <B>Exec</B> exec xterm -fg $[fg.cs0] -bg $[bg.cs0]
+</PRE>
+
+</DL>
+
+<P>
+
+Where $[fg.cs0] is the foreground color of colorset zero.  Please
 refer to the
-<a href="#command_expansion">Command Expansion</a>
-section for more information.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="CleanupColorsets"></a>31.14.2. CleanupColorsets</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">CleanupColorsets</code> </p></div><p>Resets a definition of all colorsets.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="color_gradients"></a>31.14.3. Color Gradients</h4></div></div></div><p>A color gradient is a background that changes its color gradually
+<B>Command Expansion</B>
+section for more information.
+</DL>
+
+<DT><B>CleanupColorsets</B><DD>
+<DL COMPACT><DT><DD>
+
+Resets a definition of all colorsets.
+</DL>
+
+<DT><B>Color Gradients</B>
+
+<DD>
+<DL COMPACT><DT><DD>
+
+A color gradient is a background that changes its color gradually
 from one hue to a different one.  Color gradients can be used by
 various commands and modules of fvwm.  There are eight types of
 gradients:
-<span class="emphasis"><em>HGradient</em></span>
+<B>HGradient</B>
 is a horizontal gradient,
-<span class="emphasis"><em>VGradient</em></span>
+<B>VGradient</B>
 is vertical,
-<span class="emphasis"><em>DGradient</em></span>
+<B>DGradient</B>
 is diagonal from top left to bottom right,
-<span class="emphasis"><em>BGradient</em></span>
+<B>BGradient</B>
 is backwards diagonal from bottom left to top right,
-<span class="emphasis"><em>SGradient</em></span>
+<B>SGradient</B>
 is concentric squares,
-<span class="emphasis"><em>CGradient</em></span>
+<B>CGradient</B>
 is concentric circles,
-<span class="emphasis"><em>RGradient</em></span>
+<B>RGradient</B>
 is a radar like pattern and
-<span class="emphasis"><em>YGradient</em></span>
-is a Yin Yang style (but without the dots).</p><p>The color gradient syntax has two forms:</p><div class="cmdsynopsis"><p><code class="option">?Gradient</code>  <em class="replaceable"><code>colors</code></em>   <em class="replaceable"><code>start-color</code></em>   <em class="replaceable"><code>end-color</code></em> </p></div><p>This form specifies a linear gradient.  The arguments denote the
-total number of <em class="replaceable"><code>colors</code></em>
+<B>YGradient</B>
+is a Yin Yang style (but without the dots).
+<P>
+
+The color gradient syntax has two forms:
+<DL COMPACT>
+<DT>
+<B>?Gradient</B> <I>colors</I> <I>start-color</I> <I>end-color</I>
+</DL>
+<P>
+
+<DD>This form specifies a linear gradient.  The arguments denote the
+total number of <I>colors</I>
 to allocate (between 2 and 1000), the initial color and the final
-color.</p><p>Example:</p><pre class="programlisting">
-<a href="#TitleStyle">TitleStyle</a> VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0
-</pre><div class="cmdsynopsis"><p><code class="option">?Gradient</code>  <em class="replaceable"><code>colors</code></em>   <em class="replaceable"><code>segments</code></em>   <em class="replaceable"><code>color</code></em>   <em class="replaceable"><code>length</code></em>   <em class="replaceable"><code>color</code></em>   [ <em class="replaceable"><code>length</code></em>   <em class="replaceable"><code>color</code></em> ]... </p></div><p>The second form specifies a nonlinear gradient.  The arguments are:
-the total number of <em class="replaceable"><code>colors</code></em>
+color.
+<P>
+
+Example:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>TitleStyle</B> VGradient 20 rgb:b8/ce/bc rgb:5b/85/d0
+</PRE>
+
+</DL>
+
+<DL COMPACT>
+<DT>
+<B>?Gradient</B> <I>colors</I> <I>segments</I> <I>color</I> <I>length</I> <I>color</I> [<I>length</I>&nbsp;<I>color</I>] ...
+</DL>
+<P>
+
+<DD>The second form specifies a nonlinear gradient.  The arguments are:
+the total number of <I>colors</I>
 to allocate (between 2 and 1000), then the number of
-<em class="replaceable"><code>segments</code></em>.
-For each segment, specify the starting <em class="replaceable"><code>color</code></em>,
-a relative <em class="replaceable"><code>length</code></em>,
+<I>segments</I>.
+For each segment, specify the starting <I>color</I>,
+a relative <I>length</I>,
 then the ending color.  Each subsequent segment begins with the
 second color of the last segment.  The lengths may be any
 non-negative integers.  The length of one segment divided by the
 sum of all segments lengths is the fraction of the colors that
-are used for the segment.</p><p>Examples:</p><pre class="programlisting">
-<a href="#MenuStyle">MenuStyle</a> * MenuFace DGradient 128 2 lightgrey 50 blue 50 white
+are used for the segment.
+<P>
+
+Examples:
+<P>
+<DL COMPACT><DT><DD>
+<PRE>
+<B>MenuStyle</B> * \
+        MenuFace DGradient 128 2 lightgrey 50 blue 50 white
 
 # 20% gradient from red to blue,
 # 30% from blue to black,
 # 50% from black to grey
-<a href="#MenuStyle">MenuStyle</a> * MenuFace DGradient 100 3 Red 20 Blue 30 Black 50 Grey
+<B>MenuStyle</B> * \
+        MenuFace DGradient 100 3 Red 20 Blue 30 Black 50 Grey
 
 # 50% from blue to green, then
 # 50% from yellow to red
-<a href="#Colorset">Colorset</a> 0 HGradient 128 3 Blue 1000 Green 1 Yellow 1000 Red
-</pre></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="environment"></a>32. Environment</h2></div></div></div>
+<B>Colorset</B> 0 HGradient 128 3 Blue 1000 Green 1 Yellow 1000 Red
+</PRE>
+
+</DL>
+
+</DL>
+
+</DL>
+<A NAME="lbCC">&nbsp;</A>
+<H2>ENVIRONMENT</H2>
+
+<P>
 The environment variables that have an effect on how fvwm operates
 are the following:
-<div class="variablelist"><dl><dt><span class="term"><code class="envar">DISPLAY</code></span></dt><dd><p>Fvwm starts on this display unless the <code class="option">-display</code>
-	option is given.</p></dd><dt><span class="term"><code class="envar">FVWM_MODULEDIR</code></span></dt><dd><p>Set by fvwm to the directory containing the standard fvwm
-	modules.</p></dd><dt><span class="term"><code class="envar">FVWM_USERDIR</code></span></dt><dd><p>Used to determine the user's data directory for reading and
-	sometimes writing personal files. If this variable is not already
-	set, it is set by fvwm to <code class="filename">$HOME/.fvwm</code>, which
-	is the default user's data directory.</p></dd><dt><span class="term"><code class="envar">SESSION_MANAGER</code></span></dt><dd><p>Fvwm tries to contact this session manager.</p></dd><dt><span class="term"><code class="envar">SESSION_MANAGER_NAME</code></span></dt><dd><p>This is used mainly to determine xsm running to work around its
-bug. If this variable is set to "xsm", DiscardCommand is set as
-xsm expects it and not as XSMP requires.  If you run fvwm under
-xsm, you should set this variable to "xsm", otherwise old state
-files are not removed.</p></dd><dt><span class="term"><code class="envar">SM_SAVE_DIR</code></span></dt><dd><p>If this is set, fvwm saves its session data in this
-directory. Otherwise it uses <code class="envar">$HOME</code>.
-Note, the state files are named <code class="filename">.fs-??????</code>
-and normally are removed automatically when not used anymore.</p></dd></dl></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="authors"></a>33. Authors</h2></div></div></div><p>Robert  Nation with help from many people, based on twm code, which was written by Tom LaStrange. After Robert Nation came Charles Hines, followed by Brady Montz. Currently fvwm is developed by a number of people on the fvwm-workers mailing list.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="copyright"></a>34. Copyright</h2></div></div></div><p>Fvwm and all the modules, scripts and other files coming with the  distribution  are  subject to the <acronym class="acronym">GNU</acronym> General Public License (GPL). Please refer to the COPYING file that came with fvwm for details.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bugs"></a>35. Bugs</h2></div></div></div><p>Known bugs can be found in the fvwm bug tracking system
-(accessible from the fvwm home page).</p><p>Bug reports can be sent to the fvwm-workers mailing list at
-<code class="email">&lt;<a class="email" href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</code>
-(see the <span class="emphasis"><em>FAQ</em></span>)
-or reported through the bug tracking system.</p><p>The official fvwm homepage is
-<a class="ulink" href="http://fvwm.org/" target="_top">http://fvwm.org/</a>.</p></div></div>
-<hr /><a name="toc"></a><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#boolean_args">25. Boolean Arguments</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">26. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">27. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">27.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">27.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">28. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">29. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">30. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">31. List of Fvwm Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">31.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">31.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">31.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">31.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">31.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">31.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">31.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">31.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">31.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">31.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">31.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">31.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">31.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">31.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">32. Environment</a></span></dt><dt><span class="section"><a href="#authors">33. Authors</a></span></dt><dt><span class="section"><a href="#copyright">34. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">35. Bugs</a></span></dt></dl></div><hr />
-<P>fvwm 2.5.30 (from cvs)</P>
+<P>
 
+<I>DISPLAY</I>
+<DL COMPACT><DT><DD>
+Fvwm starts on this display unless the
+<B>-display</B>
+option is given.
+</DL>
+
+<P>
+
+<I>FVWM_MODULEDIR</I>
+<DL COMPACT><DT><DD>
+Set by fvwm to the directory containing the standard fvwm modules.
+</DL>
+
+<P>
+
+<I>FVWM_USERDIR</I>
+<DL COMPACT><DT><DD>
+Used to determine the user's data directory for reading and sometimes writing personal files.  If this variable is not already set, it is set by fvwm to
+<I>$HOME/.fvwm</I>, which is the default user's data directory.
+</DL>
+
+<P>
+
+<I>SESSION_MANAGER</I>
+<DL COMPACT><DT><DD>
+Fvwm tries to contact this session manager.
+</DL>
+
+<P>
+
+<I>SESSION_MANAGER_NAME</I>
+<DL COMPACT><DT><DD>
+This is used mainly to determine xsm running to work around its bug.  If this variable is set to &quot;xsm&quot;, DiscardCommand is set as xsm expects it and not as XSMP requires.  If you run fvwm under xsm, you should set this variable to &quot;xsm&quot;, otherwise old state files are not removed.
+</DL>
+
+<P>
+
+<I>SM_SAVE_DIR</I>
+<DL COMPACT><DT><DD>
+If this is set, fvwm saves its session data in this directory.  Otherwise it uses
+<I>$HOME</I>.  Note, the state files are named
+<I>.fs-??????</I>
+and normally are removed automatically when not used anymore.
+</DL>
+
+<A NAME="lbCD">&nbsp;</A>
+<H2>AUTHORS</H2>
+
+<P>
+
+Robert Nation with help from many people, based on twm code, which was written by Tom LaStrange.  After Robert Nation came Charles Hines, followed by Brady Montz.  Currently fvwm is developed by a number of people on the fvwm-workers mailing list.
+<A NAME="lbCE">&nbsp;</A>
+<H2>COPYRIGHT</H2>
+
+<P>
+
+Fvwm and all the modules, scripts and other files coming with the distribution are subject to the GNU General Public License (GPL).  Please refer to the COPYING file that came with fvwm for details.
+<A NAME="lbCF">&nbsp;</A>
+<H2>BUGS</H2>
+
+<P>
+
+Known bugs can be found in the fvwm bug tracking system
+(accessible from the fvwm home page).
+<P>
+
+Bug reports can be sent to the fvwm-workers mailing list at
+&lt;<A HREF="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</A>&gt;
+(see the <I>FAQ</I>)
+or reported through the bug tracking system.
+<P>
+
+The official fvwm homepage is
+<I><A HREF="http://fvwm.org/">http://fvwm.org/</A></I>.
+<P>
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">ANATOMY OF A WINDOW</A><DD>
+<DT><A HREF="#lbAG">THE VIRTUAL DESKTOP</A><DD>
+<DT><A HREF="#lbAH">USE ON MULTI-SCREEN DISPLAYS</A><DD>
+<DT><A HREF="#lbAI">XINERAMA SUPPORT</A><DD>
+<DT><A HREF="#lbAJ">INITIALIZATION</A><DD>
+<DT><A HREF="#lbAK">COMPILATION OPTIONS</A><DD>
+<DT><A HREF="#lbAL">ICONS AND IMAGES</A><DD>
+<DL>
+<DT><A HREF="#lbAM">SVG rendering options</A><DD>
+</DL>
+<DT><A HREF="#lbAN">MODULES</A><DD>
+<DT><A HREF="#lbAO">ICCCM COMPLIANCE</A><DD>
+<DT><A HREF="#lbAP">GNOME COMPLIANCE</A><DD>
+<DT><A HREF="#lbAQ">EXTENDED WINDOW MANAGER HINTS</A><DD>
+<DT><A HREF="#lbAR">MWM COMPATIBILITY</A><DD>
+<DT><A HREF="#lbAS">OPEN LOOK AND XVIEW COMPATIBILITY</A><DD>
+<DT><A HREF="#lbAT">M4 PREPROCESSING</A><DD>
+<DT><A HREF="#lbAU">CPP PREPROCESSING</A><DD>
+<DT><A HREF="#lbAV">CONFIGURATION</A><DD>
+<DL>
+<DT><A HREF="#lbAW">Configuration Files</A><DD>
+<DT><A HREF="#lbAX">Supplied Configuration</A><DD>
+</DL>
+<DT><A HREF="#lbAY">FONTS</A><DD>
+<DL>
+<DT><A HREF="#lbAZ">Font names and font loading</A><DD>
+<DT><A HREF="#lbBA">Font and string encoding</A><DD>
+<DT><A HREF="#lbBB">Font Shadow Effects</A><DD>
+</DL>
+<DT><A HREF="#lbBC">BI-DIRECTIONAL TEXT</A><DD>
+<DT><A HREF="#lbBD">KEYBOARD SHORTCUTS</A><DD>
+<DT><A HREF="#lbBE">SESSION MANAGEMENT</A><DD>
+<DT><A HREF="#lbBF">BOOLEAN ARGUMENTS</A><DD>
+<DT><A HREF="#lbBG">BUILTIN KEY AND MOUSE BINDINGS</A><DD>
+<DT><A HREF="#lbBH">COMMAND EXECUTION</A><DD>
+<DL>
+<DT><A HREF="#lbBI">Module and Function Commands</A><DD>
+<DT><A HREF="#lbBJ">Delayed Execution of Commands</A><DD>
+</DL>
+<DT><A HREF="#lbBK">QUOTING</A><DD>
+<DT><A HREF="#lbBL">COMMAND EXPANSION</A><DD>
+<DT><A HREF="#lbBM">SCRIPTING &amp; COMPLEX FUNCTIONS</A><DD>
+<DT><A HREF="#lbBN">LIST OF FVWM COMMANDS</A><DD>
+<DL>
+<DT><A HREF="#lbBO">Menus</A><DD>
+<DT><A HREF="#lbBP">Miscellaneous Commands</A><DD>
+<DT><A HREF="#lbBQ">Window Movement and Placement</A><DD>
+<DT><A HREF="#lbBR">Focus &amp; Mouse Movement</A><DD>
+<DT><A HREF="#lbBS">Window State</A><DD>
+<DT><A HREF="#lbBT">Mouse, Key &amp; Stroke Bindings</A><DD>
+<DT><A HREF="#lbBU">Controlling Window Styles</A><DD>
+<DT><A HREF="#lbBV">Window Styles</A><DD>
+<DT><A HREF="#lbBW">Controlling the Virtual Desktop</A><DD>
+<DT><A HREF="#lbBX">User Functions and Shell Commands</A><DD>
+<DT><A HREF="#lbBY">Conditional Commands</A><DD>
+<DT><A HREF="#lbBZ">Module Commands</A><DD>
+<DT><A HREF="#lbCA">Session Management Commands</A><DD>
+<DT><A HREF="#lbCB">Colorsets</A><DD>
+</DL>
+<DT><A HREF="#lbCC">ENVIRONMENT</A><DD>
+<DT><A HREF="#lbCD">AUTHORS</A><DD>
+<DT><A HREF="#lbCE">COPYRIGHT</A><DD>
+<DT><A HREF="#lbCF">BUGS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 20:15:53 GMT, October 08, 2010
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 09-May-2010 -->
+<!-- Automatically generated by manpages2php on 08-Oct-2010 -->
