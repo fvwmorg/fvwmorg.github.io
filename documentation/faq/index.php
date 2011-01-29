@@ -142,6 +142,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_3.27"></a>    <a href="#3.27">3.27</a>  How can I define emacs type multi-keystroke fvwm bindings?
 <a name="toc_3.28"></a>    <a href="#3.28">3.28</a>  How do I remove all decorations from a window?
 <a name="toc_3.29"></a>    <a href="#3.29">3.29</a>  What's the best way to make on-the-fly config changes?
+<a name="toc_3.30"></a>    <a href="#3.30">3.30</a>  How can I toggle a window's layer?
 
 <a name="toc_4."></a><a href="#4.">4.</a> Modules
 
@@ -1761,6 +1762,34 @@ A:  Often is the case, one might want to make config changes to fvwm.
     satisfied that they're correct, then you can add them to your fvwm
     config file so that they're there the next time fvwm loads, thus
     reducing the need to restart fvwm.
+
+----------------------------------------------------------------------
+
+<a name="3.30"></a><a href="#toc_3.30">3.30</a>  How can I toggle a window's layer?
+
+A:  Usually what people want from this, is a means of making a window
+    stay on top for a time, and then putting it back in the layer it
+    was in originally.
+
+    This is best achieved with a function, as in:
+
+    DestroyFunc ToggleLayer
+    AddToFunc   ToggleLayer
+    + I ThisWindow (Layer 6) Layer
+    + I TestRc (NoMatch) Layer 0 6
+
+    This function first of all checks to see if the window that's going
+    to be toggled is in layer 6 (which in this context is assumed to be
+    the layer which is used for the style StaysOnTop -- see the
+    DefaultLayers command for more information), and if it is, to put it
+    in the layer it was previously in.
+
+    Otherwise, if we didn't do it (because the window in question was in
+    any other layer), the window is put in layer 6.
+
+    This function can be bound in the usual way, either via the Pick
+    command to some key/mouse binding, or bound to a button on the
+    titlebar, etc.
 
 ======================================================================
 <a name="4."></a>                             <a href="#toc_4.">4</a> - Modules
