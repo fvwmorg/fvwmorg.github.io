@@ -89,9 +89,6 @@ and support is excellent.  Check it out!
                       "faq",
                       "windowdecors",
 
-                      array("Bug Reporting",
-                            "http://www.fvwm.org/cgi-bin/fvwm-bug",
-                            "fvwm_bug_reporting"),
                       "screenshots_desks",
 
                       "mailing_lists",

@@ -1989,8 +1989,7 @@ A: If you plan to write a patch, <u>please</u>, first of all fetch the
 
    So if you have a suggestion (or a patch), please think of a way to
    make it as small and generic as possible if you feel it belongs in
-   the main module.  Please have a look at the enhancements that are
-   listed in our bug tracking system (see Q5.3).
+   the main module.
 
    If you plan to make a patch, please contact the fvwm-workers
    mailing list first.  From time to time we are changing the code in
@@ -2083,19 +2082,15 @@ A: First of all, please read the first section of the answer to Q5.1!
 
 <a name="5.3"></a><a href="#toc_5.3">5.3</a>  How do I submit a bug report?
 
-A: Please do not report any 'bugs' related to XMMS in the fvwm bug
-   tracking system or the fvwm mailing lists but send them to the XMMS
-   developers instead.
+A: Please do not report any 'bugs' related to XMMS to the fvwm the fvwm 
+   mailing lists but send them to the XMMS developers instead.
 
-   Please enter a DETAILED description of your problem in our
-   web-based bug-tracking system.  You can find a link on our web page
-   (see Q1.3). By detailed we mean more than just &quot;my window isn't
-   behaving right&quot; or &quot;I found a bug&quot;:
+   Please write a DETAILED description of your problem.  By detailed we
+   mean more than just &quot;my window isn't behaving right&quot; or
+   &quot;I found a bug&quot;:
 
-        - First of all: use our bug tracking system! You will find
-          a link to it on our main web page (see Q1.3).  If for some
-          reason the bug tracking system doesn't work for you, please
-          use the fvwm-bug shell script that comes with fvwm.
+        - If you want a template for a bug report, see the &quot;fvwm-bug&quot;
+          shell script that comes with fvwm.
         - Describe the problem as best you can, preferably with
           suggestions on how to reproduce it easily
         - If applicable, include information from:
@@ -2112,6 +2107,8 @@ A: Please do not report any 'bugs' related to XMMS in the fvwm bug
         - What settings do you have in your config file that may be
           pertinent.
 
+   This should be sent to the fvwm-workers mailing list.
+
 ----------------------------------------------------------------------
 
 <a name="5.4"></a><a href="#toc_5.4">5.4</a>  I have a window that is behaving unexpectedly under fvwm, but
@@ -2124,8 +2121,8 @@ A: First, check your rc file and your .Xdefaults to make sure that
    pages.  Finally, check the official WWW page and the mailing list
    archives (which have a search facility) stored there.
 
-   If you still can't figure it out, report your problem to our bug
-   tracking system (see Q5.3).
+   If you still can't figure it out, report your problem as a bug
+   (see Q5.3).
 
 ----------------------------------------------------------------------
 
