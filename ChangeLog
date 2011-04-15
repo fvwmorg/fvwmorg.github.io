@@ -1,3 +1,13 @@
+2011-04-15  Thomas Ada, <thomas@fvwm.org>
+	* screenshots/desktops/screenshot_db.inc:
+	* screenshots/desktops/Christine-blackandgrey-1600x1200:
+	* screenshots/desktops/Christine-fukation-1400x1050:
+	* screenshots/desktops/Christine-glassy-1024x768:
+	* screenshots/desktops/Christine-international-1400x1050:
+	* screenshots/desktops/Christine-toogrey-1024x768:
+	* screenshots/desktops/Christine-untitled-1600x1200:
+	Added screenshots from Christine.
+
 2011-04-15  Thomas Adam <thomas@fvwm.org>
 	* documentation/manpages/manpages2php:
 	* documentation/manpages/stable:
