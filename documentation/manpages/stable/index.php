@@ -42,12 +42,12 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for index in stable branch (2.7.1)"); ?>
+<?php decoration_window_start("Manual page for index in stable branch (2.6.0)"); ?>
 
 	<h1>Index</h1>
 	<hr>
 	These pages were last generated on 15-Apr-2011 by n6tadam,
-	from the 2.6.x man pages.<!-- in directory ../../../fvwm. -->
+	from the 2.6.x man pages.<!-- in directory ../../../fvwm-2.6.0. -->
 
 	<hr>
 	Start of man pages in section 1.

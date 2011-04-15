@@ -1,3 +1,9 @@
+2011-04-15  Thomas Adam <thomas@fvwm.org>
+	* documentation/manpages/stable:
+	Regenerate against a stable source tree, and not unstable.
+
+	This corrects any version numbers on the generated files.
+
 2011-04-15  Thomas Ada, <thomas@fvwm.org>
 	* screenshots/desktops/screenshot_db.inc:
 	* screenshots/desktops/Christine-blackandgrey-1600x1200:
