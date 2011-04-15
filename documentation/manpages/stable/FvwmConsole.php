@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmConsole";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmConsole in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmConsole in stable branch (2.7.1)"); ?>
 
 <H1>FvwmConsole</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -53,12 +53,15 @@ Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This pag
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmConsole - an FVWM command input interface
+FvwmConsole - an fvwm command input interface
 <P>
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-FvwmConsole is spawned by fvwm, so no command line invocation will work.
+Module FvwmConsole [options]
+<P>
+<I>FvwmConsole</I> can only be invoked by fvwm.
+Command line invocation of the <I>FvwmConsole</I> module will not work.
 <P>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
@@ -72,20 +75,18 @@ implementing temporary changes to your environment.
 <H2>INVOCATION</H2>
 
 FvwmConsole must be spawned as a module by fvwm.  FvwmConsole takes all
-<I><A HREF="http://localhost/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1) options.
+<I><A HREF="/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1) options.
 <P>
 
 FvwmConsole can be invoked by inserting the line 'Module FvwmConsole' in
 the .fvwm2rc file.  This can be placed on a line by itself, if
 FvwmConsole is to be spawned during fvwm's initialization, or can be
-bound to a menu or mouse button or keystroke to invoke it later.  Fvwm
-will search directory specified in the ModulePath configuration option
-to attempt to locate FvwmConsole.
+bound to a menu or mouse button or keystroke to invoke it later.
 <P>
 <A NAME="lbAF">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS</H2>
 
-FvwmConsole uses <I><A HREF="http://localhost/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1).  All resources set for xterm are
+FvwmConsole uses <I><A HREF="/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1).  All resources set for xterm are
 inherited unless overridden by command line options.
 <P>
 <DL COMPACT><DT><DD>
@@ -147,6 +148,7 @@ Module FvwmConsole -e FvwmConsoleC.pl
 <P>
 If neither one is installed, a simple input reading function which
 doesn't have editing capabilities is used.
+<P>
 
 GNU readline and FvwmConsoleC.pl have some frequent used commands
 in common as default.
@@ -157,27 +159,27 @@ FvwmConsoleC.pl man page.
 <DL COMPACT><DT><DD>
 
 <DL COMPACT>
-<DT>Cntl-A<DD>
+<DT>Ctrl-A<DD>
 - beginning of line
-<DT>Cntl-B<DD>
+<DT>Ctrl-B<DD>
 - previous char
-<DT>Cntl-D<DD>
+<DT>Ctrl-D<DD>
 - delete char
-<DT>Cntl-E<DD>
+<DT>Ctrl-E<DD>
 - end of line
-<DT>Cntl-F<DD>
+<DT>Ctrl-F<DD>
 - next char
-<DT>Cntl-H<DD>
+<DT>Ctrl-H<DD>
 - backspace
-<DT>Cntl-K<DD>
+<DT>Ctrl-K<DD>
 - erase to the end of line
-<DT>Cntl-N<DD>
+<DT>Ctrl-N<DD>
 - next line
-<DT>Cntl-P<DD>
+<DT>Ctrl-P<DD>
 - previous line
-<DT>Cntl-R<DD>
+<DT>Ctrl-R<DD>
 - search reverse
-<DT>Cntl-U<DD>
+<DT>Ctrl-U<DD>
 - delete line
 <DT>Meta-B<DD>
 - previous word
@@ -203,21 +205,14 @@ FvwmConsole can be stopped by entering the EOF character (usually CTRL-D).
 typing &quot;quit&quot; at the FvwmConsole command line will cause fvwm to exit.
 <P>
 <A NAME="lbAI">&nbsp;</A>
-<H2>COPYRIGHTS</H2>
-
-Copyright 1996, Toshi Isogai. No guarantees or warranties are provided.
-Use this program at your own risk. Permission to use this program for
-any purpose is given, as long as the copyright is kept intact.
-<P>
-<A NAME="lbAJ">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<I><A HREF="http://localhost/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1), <I><a href="<?php echo conv_link_target('./FvwmConsoleC.pl.php');?>">FvwmConsoleC.pl</a></I>(1), GNU Readline library
+<I><A HREF="/cgi-bin/man/man2html/1+xterm">xterm</A></I>(1), <I><a href="<?php echo conv_link_target('./FvwmConsoleC.pl.php');?>">FvwmConsoleC.pl</a></I>(1), GNU Readline library
 <P>
-<A NAME="lbAK">&nbsp;</A>
+<A NAME="lbAJ">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-Toshi Isogai
+FvwmConsole is the original work of Toshi Isogai.
 <P>
 
 <HR>
@@ -230,17 +225,16 @@ Toshi Isogai
 <DT><A HREF="#lbAF">CONFIGURATION OPTIONS</A><DD>
 <DT><A HREF="#lbAG">COMMAND EDITING</A><DD>
 <DT><A HREF="#lbAH">EXITING</A><DD>
-<DT><A HREF="#lbAI">COPYRIGHTS</A><DD>
-<DT><A HREF="#lbAJ">SEE ALSO</A><DD>
-<DT><A HREF="#lbAK">AUTHOR</A><DD>
+<DT><A HREF="#lbAI">SEE ALSO</A><DD>
+<DT><A HREF="#lbAJ">AUTHOR</A><DD>
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:36 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

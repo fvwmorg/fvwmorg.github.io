@@ -20,8 +20,8 @@ my $parentDir = $subdir eq "."? ".": "..";
 
 # currently hardcoded
 my %versionInfo = (
-	stable   => [ '../../../fvwm-2.4.x', '2.4.x' ],
-	unstable => [ '../../../fvwm',       '2.5.x' ],
+	stable   => [ '../../../fvwm-2.6.0', '2.6.x' ],
+	unstable => [ '../../../fvwm',       '2.7.x' ],
 );
 
 my $branch = exists $versionInfo{$subdir || "none"}? $subdir: "unstable";

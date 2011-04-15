@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmDebug";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,79 +42,120 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmDebug in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmDebug in stable branch (2.7.1)"); ?>
 
 <H1>FvwmDebug</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
+
+
+
+
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmDebug - the FVWM module debugger
+FvwmDebug - the fvwm module debugger
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-FvwmDebug is spawned by fvwm, so no command line invocation will work.
+
+
+FvwmDebug should be spawned by <I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1) for normal functionality.
 <P>
+
+To run this module, place this command somewhere in the configuration:
+<P>
+
+<blockquote><pre>    Module FvwmDebug [optional-params]</pre></blockquote>
+<P>
+
+To stop this module, execute:
+<P>
+
+<blockquote><pre>    KillModule FvwmDebug</pre></blockquote>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
-The FvwmDebug captures the stream of module packets coming from
-fvwm, and displays them on stderr.
-<P>
+
+
+This module persistently dumps all fvwm event details and optionally some other information into the standard error stream or a file, good for debugging purposes. The output may be optionally redirected to <I>xconsole</I> or similar window.
 <A NAME="lbAE">&nbsp;</A>
-<H2>COPYRIGHTS</H2>
-
-The FvwmDebug program, and the concept for
-interfacing this module to the Window Manager, are all original work
-by Robert Nation
-<P>
-Copyright 1994, Robert Nation. No guarantees or warranties or anything
-are provided or implied in any way whatsoever. Use this program at your
-own risk. Permission to use this program for any purpose is given,
-as long as the copyright is kept intact. 
-<P>
-<P>
-<A NAME="lbAF">&nbsp;</A>
-<H2>INITIALIZATION</H2>
-
-During initialization, the FvwmDebug requests that fvwm dump a
-complete window list into its pipe. These packets are terminated with
-and &quot;end Send_WindowList&quot; message.
-<P>
-<A NAME="lbAG">&nbsp;</A>
 <H2>INVOCATION</H2>
 
-FvwmDebug can be invoked by inserting the line 'Module FvwmDebug' in
-the .fvwm2rc file. This can be placed on a line by itself, if FvwmDebug
-is to be spawned during fvwm's initialization, or can be bound to a
-menu or mouse button or keystroke to invoke it later. Fvwm will search
-directory specified in the ModulePath configuration option to attempt
-to locate FvwmDebug.
-<P>
-You may optionally use the following arguments when invoking FvwmDebug:
-<P>
-<DL COMPACT>
-<DT>-v<DD>
-Enables verbose output of window flag data
-<P>
-<DT>filename<DD>
-Sends output to an arbitrary file instead of stderr
-<P>
-</DL>
-<A NAME="lbAH">&nbsp;</A>
-<H2>CONFIGURATION OPTIONS</H2>
 
-There are no configuration options.
+
+There are several command line switches:
 <P>
+
+<B><u>FvwmDebug</u></B> [ <B>--args</B>|<B>--noargs</B> ] [ <B>--events</B>|<B>--noevents</B> ] [ <B>--log</B> <I>file</I> ] [ <B>--xconsole</B> ] [ <B>--mask</B> <I>mask</I> ] [ <B>--xmask</B> <I>mask</I> ] [ <B>--debug</B> <I>level</I> ] [ <B>--track</B> <I>tracker-name</I> ] [ <B>--send-configinfo</B> ] [ <B>--send-windowlist</B> ]
 <P>
-<A NAME="lbAI">&nbsp;</A>
+
+Long switches may be abbreviated to shorter switches.
+<P>
+
+<B>--noargs</B> - do not print all arguments of the event, just its name. <B>--args</B> is the default.
+<P>
+
+<B>--noevents</B> - do not print even event names, implies <B>--noargs</B>. It is similar in effect to setting both <B>--mask</B> and <B>--xmask</B> to 0, but the events are actually received by the module, they are just not printed.
+<P>
+
+This option may be useful if <B>--track</B> or/and <B>--debug</B> is used.
+<P>
+
+The default is <B>--events</B> normally, and <B>--noevents</B> if one or more <B>--track</B> options specified.
+<P>
+
+<B>-l</B>|<B>--log</B> <I>file</I> - specify the log file name instead of the standard error stream. If the log file can't be open for writting, the default standard error stream is used.
+<P>
+
+The <I>file</I> may start with a pipe '|', this is similar to the usual meaning of a pipe, the output is piped to the specified command. See also <B>--xconsole</B> option.
+<P>
+
+<B>-xc</B>|<B>--xconsole</B> - this is a shortcut for:
+<P>
+
+<blockquote><pre>    FvwmDebug --log '|xconsole -file /dev/stdin -geometry 600x400 -notify'</pre></blockquote>
+<P>
+
+That shows the module output in the <I>xconsole</I> window rather than the standard error stream.
+<P>
+
+<B>-m</B>|<B>--mask</B> <I>mask</I> - set the module mask, 31 bit integer. By default almost all events are monitored (except for some flood events like <I></I><FONT><I>CONFIGURE_WINDOW</I></FONT><I></I> or <I></I><FONT><I>FOCUS_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal mask.
+<P>
+
+<B>-x</B>|<B>--xmask</B> <I>mask</I> - set the module extended mask, 31 bit integer. By default almost all events are monitored (except for some flood events like <I></I><FONT><I>ENTER_WINDOW</I></FONT><I></I> or <I></I><FONT><I>LEAVE_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal extended mask.
+<P>
+
+<B>-d</B>|<B>--debug</B> <I>level</I> - use the Perl library debugging mechanism. The useful <I>level</I>s are 2 to 4.
+<P>
+
+<B>-t</B>|<B>--track</B> <I>tracker-name</I> - create the given Perl library tracker and observe its main observable. This option may be specified multiple times. This options implies <B>--noevents</B> unless explicitely overwritten. You may optionally try <B>--debug</B>, for example:
+<P>
+
+<blockquote><pre>    FvwmDebug -xc --track PageInfo --track GlobalConfig --debug 3</pre></blockquote>
+<P>
+
+Run ``fvwm-perllib man'' to get the names of all existing trackers in your installed Perl library.
+<P>
+
+<B>-sc</B>|<B>--send-configinfo</B> - send <B>Send_ConfigInfo</B> command to <I>fvwm</I> on startup, this results in a lot of events received.
+<P>
+
+<B>-sw</B>|<B>--send-windowlist</B> - send <B>Send_WindowList</B> command to <I>fvwm</I> on startup, this results in a lot of events received.
+<A NAME="lbAF">&nbsp;</A>
+<H2>SEE ALSO</H2>
+
+
+
+See also FvwmGtkDebug.
+<A NAME="lbAG">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-Robert Nation
-<P>
+
+
+Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
 <P>
 
 <HR>
@@ -123,19 +164,17 @@ Robert Nation
 <DT><A HREF="#lbAB">NAME</A><DD>
 <DT><A HREF="#lbAC">SYNOPSIS</A><DD>
 <DT><A HREF="#lbAD">DESCRIPTION</A><DD>
-<DT><A HREF="#lbAE">COPYRIGHTS</A><DD>
-<DT><A HREF="#lbAF">INITIALIZATION</A><DD>
-<DT><A HREF="#lbAG">INVOCATION</A><DD>
-<DT><A HREF="#lbAH">CONFIGURATION OPTIONS</A><DD>
-<DT><A HREF="#lbAI">AUTHOR</A><DD>
+<DT><A HREF="#lbAE">INVOCATION</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">AUTHOR</A><DD>
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:36 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

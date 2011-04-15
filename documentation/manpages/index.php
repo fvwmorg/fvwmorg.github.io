@@ -45,8 +45,8 @@ if(!isset($site_has_been_loaded)) {
 
 <p>Please choose the branch you are interesting in:
 <ul>
-  <li><a href="<?php echo conv_link_target('stable/');?>">2.4.x (stable)</a>
-  <li><a href="<?php echo conv_link_target('unstable/');?>">2.5.x (unstable)</a>
+  <li><a href="<?php echo conv_link_target('stable/');?>">2.6.x (stable)</a>
+  <li><a href="<?php echo conv_link_target('unstable/');?>">2.7.x (unstable)</a>
 </ul>
 
 <hr>

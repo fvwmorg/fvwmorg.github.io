@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_fvwm-menu-xlock";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,61 +42,59 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm-menu-xlock in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for fvwm-menu-xlock in stable branch (2.7.1)"); ?>
 
-<H1>FVWM-MENU-XLOCK</H1>
-Section: FVWM Utilities (1)<BR>Updated: 2003-03-15<BR><A HREF="#index">This page contents</A>
+<H1>fvwm-menu-xlock</H1>
+Section: Fvwm Utilities (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
+
+
+
+
+
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-fvwm-menu-xlock - builds xlock menu definition for FVWM
+fvwm-menu-xlock - builds xlock menu definition for fvwm
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-<A NAME="ixAAC"></A>
-<B><u>fvwm-menu-xlock</u></B>
-[ <B>--help</B>|<B>-h</B>|<B>-?</B> ]
-[ <B>--version</B>|<B>-V</B> ]
-[ <B>--name</B>|<B>-n</B> name ]
-[ <B>--title</B>|<B>-t</B> title ]
-[ <B>--item</B> format ]
-[ <B>--icon-title</B> icon ]
-[ <B>--icon-item</B> icon ]
-[ <B>--special-first</B>|<B>-s</B> ]
-[ --- xlock params ]
+
+
+<B><u>fvwm-menu-xlock</u></B> [ <B>--help</B>|<B>-h</B>|<B>-?</B> ] [ <B>--version</B>|<B>-V</B> ] [ <B>--name</B>|<B>-n</B> name ] [ <B>--title</B>|<B>-t</B> title ] [ <B>--item</B> format ] [ <B>--icon-title</B> icon ] [ <B>--icon-item</B> icon ] [ <B>--special-first</B>|<B>-s</B> ] [ --- xlock params ]
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
-<A NAME="ixAAD"></A>
-A simple perl script which parses xlock's output to build an fvwm
-menu definition of all xlock's modes.
+
+
+A simple perl script which parses xlock's output to build an fvwm menu definition of all xlock's modes.
 <A NAME="lbAE">&nbsp;</A>
 <H2>OPTIONS</H2>
 
-<A NAME="ixAAE"></A>
+
+
 <DL COMPACT>
 <DT><B>--help</B><DD>
-<A NAME="ixAAF"></A>
+
+
 show the help and exit
 <DT><B>--version</B><DD>
-<A NAME="ixAAG"></A>
+
+
 show the version and exit
 <DT><B>--name</B> name<DD>
-<A NAME="ixAAH"></A>
-define menu name in the following argument.
-Default is ``XLockMenu''
+
+
+define menu name in the following argument. Default is ``XLockMenu''
 <DT><B>--title</B> title<DD>
-<A NAME="ixAAI"></A>
-define menu title in the following argument.
-Default is ``XLock Modes''.
+
+
+define menu title in the following argument. Default is ``XLock Modes''.
 <DT><B>--item</B> format<DD>
-<A NAME="ixAAJ"></A>
-define menu item format in the following argument,
-default is '%n\t(%d)'.
-<FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double
-backslash or a real <FONT>TAB</FONT>.
+
+
+define menu item format in the following argument, default is '%n\t(%d)'. <FONT>TAB</FONT> can be specified as '\t', but in .fvwm2rc you should specify a double backslash or a real <FONT>TAB</FONT>.
 
 
 <P>
@@ -116,46 +114,39 @@ Format specifiers:
 <P>
 
 
-These specifiers can receive an optional integer size, positive for right
-adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional
-*num or *-num, which means to leave only the first or last (if minus) num of
-chars, the num must be greater than 3, since the striped part is replaced
-with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to
-get only the 20 last characters, but if the length is less then 10 - to fill
-with up to 10 spaces on the right.
+These specifiers can receive an optional integer size, positive for right adjusted string or negative for left adjusted, example: <TT>%8x</TT>; and optional *num or *-num, which means to leave only the first or last (if minus) num of chars, the num must be greater than 3, since the striped part is replaced with ``...'', example: %*30x. Both can be combined: %-10*-20x, this instructs to get only the 20 last characters, but if the length is less then 10 - to fill with up to 10 spaces on the right.
 <DT><B>--icon-title</B> icon<DD>
-<A NAME="ixAAK"></A>
+
+
 
 <DT><B>--icon-item</B> icon<DD>
-<A NAME="ixAAL"></A>
 
-define menu icon for title and regular item accordingly.
-Default is no menu icons (equivalent to an empty icon argument).
+
+
+define menu icon for title and regular item accordingly. Default is no menu icons (equivalent to an empty icon argument).
 <DT><B>--wm-icons</B><DD>
-<A NAME="ixAAM"></A>
-define icon names suitable for use with wm-icons package.
-Currently this is equivalent to: --icon-title '' --icon-item
-menu/lock.xpm.
+
+
+define icon names suitable for use with wm-icons package. Currently this is equivalent to: --icon-title '' --icon-item menu/lock.xpm.
 <DT><B>--special-first</B><DD>
-<A NAME="ixAAN"></A>
+
+
 instructs to include special modes (usually black, bomb and random) first.
 </DL>
 <P>
 
-Option parameters can be specified either using '=' or in the next argument.
-Short options are ok if not ambiguous: -h, -t; but be careful with
-short options, what is now unambiguous, can became ambiguous in the next
-versions.
+Option parameters can be specified either using '=' or in the next argument. Short options are ok if not ambiguous: -h, -t; but be careful with short options, what is now unambiguous, can became ambiguous in the next versions.
 <P>
 
 Additional arguments (after <B>--</B>) will be passed to xlock.
 <P>
 
-Please see the <B><A HREF="http://localhost/cgi-bin/man/man2html/1+xlock">xlock</A></B>(1) man page for the xlock options.
+Please see the <B><A HREF="/cgi-bin/man/man2html/1+xlock">xlock</A></B>(1) man page for the xlock options.
 <A NAME="lbAF">&nbsp;</A>
 <H2>USAGE</H2>
 
-<A NAME="ixAAO"></A>
+
+
 Add these lines to your fvwm configuration file:
 <P>
 
@@ -168,7 +159,8 @@ Add these lines to your fvwm configuration file:
 <A NAME="lbAG">&nbsp;</A>
 <H2>AUTHORS</H2>
 
-<A NAME="ixAAP"></A>
+
+
 Charles K. Hines &lt;<A HREF="mailto:chuck_hines@vnet.ibm.com">chuck_hines@vnet.ibm.com</A>&gt;, initial version.
 <P>
 
@@ -176,15 +168,15 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 <A NAME="lbAH">&nbsp;</A>
 <H2>COPYING</H2>
 
-<A NAME="ixAAQ"></A>
-The script is distributed by the same terms as fvwm itself.
-See <FONT>GNU</FONT> General Public License for details.
+
+
+The script is distributed by the same terms as fvwm itself. See <FONT>GNU</FONT> General Public License for details.
 <A NAME="lbAI">&nbsp;</A>
 <H2>BUGS</H2>
 
-<A NAME="ixAAR"></A>
-Depends on the output of xlock. Will produce an empty menu if the structure
-of the output is changed.
+
+
+Depends on the output of xlock. Will produce an empty menu if the structure of the output is changed.
 <P>
 
 Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
@@ -204,11 +196,11 @@ Report bugs to <A HREF="mailto:fvwm-bug@fvwm.org">fvwm-bug@fvwm.org</A>.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:38 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

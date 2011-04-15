@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmForm";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmForm in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmForm in stable branch (2.7.1)"); ?>
 
 <H1>FvwmForm</H1>
-Section: User Commands  (1)<BR>Updated: 6 October 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 <A NAME="lbAB">&nbsp;</A>
@@ -77,6 +77,11 @@ with a very flexible layout.
 <P>
 A text label only serves the purpose of explanation.
 It cannot accept any input.
+<P>
+A timeout entry provides a mechanism for timing out the form
+and performing a certain action when the timeout occurs.  The countdown
+is displayed similar to a text label except that it updates with the
+amount of time left.
 <P>
 A text input field can be used to edit a single-line string.
 FvwmForm accepts Emacs-style cursor movement keys.
@@ -126,7 +131,7 @@ When the file &quot;.FvwmForm&quot; is read,  it is done  by sending the command
 &quot;Read .FvwmForm  Quiet&quot;   to fvwm.  Because of  the   way the  &quot;read&quot;
 command works, the file can  reside in your personal fvwm user directory,
 or be in the fvwm data directory.  See the description of the read
-command in the fvwm2 man page for more information about the environment
+command in the fvwm man page for more information about the environment
 variable $FVWM_USERDIR.
 <P>
 Then FvwmForm reads the rest of the configuration fvwm has stored
@@ -182,6 +187,7 @@ An example of what this file might contain after a save is:
   *FvwmFormDefault: Font 10x20
   *FvwmFormDefault: InputFont 8x13bold
   *FvwmFormDefault: ButtonFont 10x20
+  *FvwmFormDefault: TimeoutFont 10x20
   *FvwmFormDefault: Fore white
   *FvwmFormDefault: Back cornflowerblue
   *FvwmFormDefault: Colorset -1
@@ -195,8 +201,8 @@ An example of what this file might contain after a save is:
   *FvwmFormDefault: ButtonPointerBack gray
   *FvwmFormDefault: ButtonInPointerFore gray
   *FvwmFormDefault: ButtonInPointerBack blue
-  *FvwmFormDefault: InputPointerFore 
-  *FvwmFormDefault: InputPointerBack </PRE></blockquote>
+  *FvwmFormDefault: InputPointerFore
+  *FvwmFormDefault: InputPointerBack</PRE></blockquote>
 <P>
 
 
@@ -291,14 +297,16 @@ InputPointer
 ItemBack
 ItemColorset
 ItemFore
-InputPointerFore 
-InputPointerBack 
+InputPointerFore
+InputPointerBack
 Line
 Message
 PadVText
 Position
 Selection
 Text
+Timeout
+TimeoutFont
 Title
 UseData
 WarpPointer</PRE></blockquote>
@@ -347,7 +355,7 @@ This feature is useful for things like logout verification.
 
 <DD>
 This option makes FvwmForm warp the mouse pointer into its window on startup.
-It saves the user some mouse-traveling.
+It saves the user some mouse-travelling.
 <DT><B>*FvwmForm: Geometry </B><I>geometry</I>
 
 <DD>
@@ -388,7 +396,7 @@ Tells the module to use colorset <I>n</I> for items. See FvwmTheme.
 <DD>
 Specifies the background color for the text input windows, and
 the buttons.
-Buttons are displayed as 3D depressible buttons.
+Buttons are displayed as 3D depressable buttons.
 Inputs are displayed as 3D indented fields.
 Medium shade background colors work best.
 Switches off the ItemColorset option.
@@ -409,10 +417,15 @@ See DEFAULTS.
 <DD>
 Specifies the font for text in the action buttons.
 See DEFAULTS.
-<DT><B>*FvwmForm: Inputfont </B><I>font</I>
+<DT><B>*FvwmForm: InputFont </B><I>font</I>
 
 <DD>
-Specifies the font for text input.  This font must have fixed width.
+Specifies the font for text input.
+See DEFAULTS.
+<DT><B>*FvwmForm: TimeoutFont </B><I>font</I>
+
+<DD>
+Specifies the font for display the timeout counter and related text.
 See DEFAULTS.
 <DT><B>*FvwmForm: Line </B><I>justification</I>
 
@@ -508,7 +521,7 @@ input value.
 Control-h moves backward in an input field erasing a character.
 Control-d and Delete delete the next character in an input field.
 Control-k erases for the cursor to the end of an input field.
-Control-U erases the entire input field.
+Control-u erases the entire input field.
 <P>
 When a form executes a command, all the input values are saved in
 a ring of input history 50 items deep.
@@ -535,7 +548,7 @@ This is a multiple-choice selection.
 <DT><B>*FvwmForm: Choice </B><I>name</I> <I>value</I> on | off <I>string</I>
 
 <DD>
-Specifies a choice for a preceeding selection.
+Specifies a choice for a proceeding selection.
 The choice item has a <I>name</I> and a <I>value</I> these are used in
 commands.  See *FvwmForm: Command.
 The <I>string</I> is displayed to the right of the choice button
@@ -578,6 +591,7 @@ FvwmForm quits after sending the commands.
 
 <DD>
 This option specifies an Fvwm command associated with the current button.
+There can be more than one command attached to a button.
 Commands that appear before any *FvwmForm: Button option are executed
 at start-up time.  This is usually a beep that gets the user's attention.
 <P>
@@ -620,7 +634,7 @@ The same as the above, except that the converse conditions are taken.
 <P>
 When using the &quot;?&quot; and &quot;!&quot; forms to pass a string, the string is delimited
 by a right parenthesis.  If you need to put a right parenthesis in a string,
-preceed the right parenthesis with a backslash.
+precede the right parenthesis with a backslash.
 <P>
 <DT><B>*FvwmForm: UseData </B><I>datafile</I> <I>leading</I>
 
@@ -688,6 +702,17 @@ Change the default mouse pointer foreground and background colors
 used while the pointer is over a text field.
 See DEFAULTS.
 <P>
+<DT><B>*FvwmForm: Timeout </B><I>seconds</I> <I>command</I> <I>text</I>
+
+<DD>
+Set up FvwmForm to time out after the amount of <I>seconds</I>
+specified.  When the timer hits zero, <I>command</I> executes.  The
+<I>text</I> field is displayed much like a <I>Text</I>
+field, except that a '%%' in the line is replaced automatically by
+the amount of time left on the timer.  The value gets updated every
+second as the timer counts down.
+There can only be one timeout field per form.
+<P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
 <H2>EXAMPLES</H2>
@@ -716,7 +741,8 @@ AddToMenu Forms &quot;&amp;T. Talk&quot;       Module FvwmForm FvwmForm-Talk</PR
 <H2>EXAMPLE 1 - Quit Verify</H2>
 
 This example simulates the mwm way of confirming logout.
-Return does the logout, Escape cancels logout.
+Return does the logout, Escape cancels logout.  It times out after 20
+seconds and performs the equivalent of the 'Logout' button.
 
 
 <P>
@@ -734,7 +760,8 @@ Return does the logout, Escape cancels logout.
 *FvwmForm-QuitVerify: Button      restart   &quot;Restart&quot; ^R
 *FvwmForm-QuitVerify: Command     Restart
 *FvwmForm-QuitVerify: Button      quit &quot;Cancel&quot; ^[
-*FvwmForm-QuitVerify: Command     Nop</PRE></blockquote>
+*FvwmForm-QuitVerify: Command     Nop
+*FvwmForm-QuitVerify: Timeout     20 Quit &quot;Automatic logout will occur in %% seconds.&quot;</PRE></blockquote>
 <P>
 
 
@@ -765,7 +792,7 @@ and opens an xterm window from the remote host.
 *FvwmForm-Rlogin: Input        UserName        10      &quot;&quot;
 *FvwmForm-Rlogin: Line         expand
 *FvwmForm-Rlogin: Button       quit    &quot;Login&quot;         ^M
-*FvwmForm-Rlogin: Command      Exec exec rsh $(Custom?-l $(UserName)) $(HostName) xterm -T xterm@$(HostName) -display $HOSTDISPLAY &amp;
+*FvwmForm-Rlogin: Command      Exec exec ssh $(Custom?-l $(UserName)) $(HostName) xterm -T xterm@$(HostName) -display $HOSTDISPLAY &amp;
 # Before saving the data, remove any previously saved data:
 *FvwmForm-Rlogin: Command DestroyModuleConfig FvwmForm-RloginDefault: *
 # The &quot;Login&quot; button causes a login and a saving of the current data:
@@ -921,7 +948,7 @@ Report bugs to the fvwm-workers list.
 FvwmForm is original work of Thomas Zuwei Feng
 (<A HREF="mailto:ztfeng@math.princeton.edu">ztfeng@math.princeton.edu</A>).
 <P>
-Copyright Feb 1995, Thomas Zuwei Feng.  No guarantees or warrantees are
+Copyright Feb 1995, Thomas Zuwei Feng.  No guarantees or warranties are
 provided or implied in any way whatsoever.  Use this program at your own
 risk.  Permission to use, modify, and redistribute this program is hereby
 given, provided that this copyright is kept intact.
@@ -960,11 +987,11 @@ No additional copyright is imposed.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:36 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

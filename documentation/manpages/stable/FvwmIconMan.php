@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmIconMan";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,17 +42,17 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmIconMan in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmIconMan in stable branch (2.7.1)"); ?>
 
 <H1>FvwmIconMan</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmIconMan - an Fvwm Icon Manager
+FvwmIconMan - an fvwm icon manager
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
@@ -110,11 +110,14 @@ window list, then pass Transient as an argument. The invocation &quot;Module
 FvwmIconMan Transient&quot; will do nicely. In this mode, FvwmIconMan will pop up
 one manager window directly under the cursor. When the mouse button is
 released, it will execute the appropriate action, and then exit.  Things are
-somewhat complicated by the fact that you can specify that FvwmIconMan create
+somewhat complicated by the fact that you can specify that FvwmIconMan creates
 multiple manager windows, behavior which is unsuitable when running
 transiently. So, when running transiently, FvwmIconMan will only create one
 manager window. Use the manager id 'transient' to specify options for this
 manager window.
+<P>
+FvwmIconMan may accept an alias name as an argument.
+For example, &quot;Module FvwmIconMan FvwmIconMan-Variant2&quot;.
 <P>
 <A NAME="lbAG">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS REFERENCE CHART</H2>
@@ -128,40 +131,56 @@ described in more detail in the next section.
 <PRE>
 Name            Description                Default
 
-nummanagers     number of managers         1
-action          binds command to event     Mouse 0 N sendcommand Iconify
-background      default background         gray
-buttongeometry  size of button in pixels
-colorset        default colorset
-dontshow        list of windows to ignore
-drawicons       use mini icons             false
-focusandselectbutton                       flat grey black
-focusandselectcolorset
-focusbutton     style for focused buttons  up grey black
-focuscolorset
-followfocus     show which win has focus   false
-font                                       8x13
-foreground      default text color         white
-format          describes button label     &quot;%c: %i&quot;
-iconname        manger icon name           FvwmIconMan
-iconbutton      style for icon buttons     up black grey
-iconcolorset
-managergeometry size of manager in buttons 0x1
-noiconaction    animate iconification      NOP
-plainbutton     style for normal buttons   up black grey
-plaincolorset
-resolution      global/desk/page/screen    page
-reverse         normal, icon or none       none
-selectbutton    style for selected buttons flat black grey
-selectcolorset
-shape           use shape extension        false
-show            list of windows to show
-showonlyicons   only icons visible         false
-sort            keep managers sorted       name
-title           manager title              FvwmIconMan
-titlebutton     style for title button     raisededge black grey
-titlecolorset
-usewinlist      honor WinListSkip?         true
+NumManagers     number of managers         1
+Action          binds command to event     Mouse 0 N sendcommand Iconify
+Background      default background         gray
+ButtonGeometry  size of button in pixels
+Colorset        default colorset
+DontShow        list of windows to ignore
+DrawIcons       use mini icons             false
+FocusAndSelectButton                       flat grey black
+FocusAndSelectColorset
+FocusButton     style for focused buttons  up grey black
+FocusColorset
+FollowFocus     show which win has focus   false
+Font                                       8x13
+Foreground      default text color         white
+Format          describes button label     &quot;%c: %i&quot;
+IconName        manager icon name          FvwmIconMan
+IconButton      style for icon buttons     up black grey
+IconColorset
+ManagerGeometry size of manager in buttons 0x1
+MaxButtonWidth  max width of a button
+MaxButtonWidthByColumns
+NoIconAction    animate iconification      NOP
+PlainButton     style for normal buttons   up black grey
+PlainColorset
+ReliefThickness size of button relief      2
+Resolution      global/desk/page/screen    page
+Reverse         normal, icon or none       none
+SelectButton    style for selected buttons flat black grey
+SelectColorset
+Shape           use shape extension        false
+Show            list of windows to show
+ShowOnlyIcons   only icons visible         false
+ShowNoIcons     icons are not displayed    false
+ShowTransient   transient windows visible  false
+ShowOnlyFocused only focused visible       false
+Sort            keep managers sorted       name
+SortWeight      weight for sorting
+Tips            Tool Tips mode             none
+TipsDelays      Tool Tips mapping delays   1000 300
+TipsFont        Font for Tool Tips         default fvwm font
+TipsColorset    Tool Tips Colorset         0
+TipsFormat      describes Tips label       the Format value
+TipsBorderWidth Tool Tips border size      1
+TipsPlacement   Tips placement vs button   updown
+TipsJustification Tips Just vs button      leftup
+TipsOffsets     Tips placement Offsets     3 2
+Title           manager title              FvwmIconMan
+TitleButton     style for title button     raisededge black grey
+TitleColorset
+UseWinList      honor WinListSkip?         true
 
 </PRE>
 
@@ -175,18 +194,18 @@ manager with a red foreground, and his xterm manager with a blue one. A
 configuration line may therefore have one of two forms:
 <P>
 <DL COMPACT>
-<DT>*FvwmIconMan: optionname optionvalue<DD>
-To specify that the <I>optionname</I> takes the value <I>optionvalue</I>
+<DT>*FvwmIconMan: OptionName OptionValue<DD>
+To specify that the <I>OptionName</I> takes the value <I>OptionValue</I>
 for all managers.
-<DT>*FvwmIconMan: managerid optionname optionvalue<DD>
-To specify that the option <I>optionname</I> takes the value <I>optionvalue</I>
-for manager <I>managerid</I>. <I>Mangerid</I> may either be a positive integer,
+<DT>*FvwmIconMan: ManagerId OptionName OptionValue<DD>
+To specify that the option <I>OptionName</I> takes the value <I>OptionValue</I>
+for manager <I>ManagerId</I>. <I>ManagerId</I> may either be a positive integer,
 or the string &quot;transient&quot;. An integer id refers to managers which FvwmIconMan
 creates when running normally, and an id of &quot;transient&quot; refers to the single
 manager which FvwmIconMan creates when running transiently.
 <P>
 The old syntax, that uses an asterisk instead of white spaces
-before <I>managerid</I> and <I>optionname</I>, is supported too,
+before <I>ManagerId</I> and <I>OptionName</I>, is supported too,
 but it is obsolete now.
 <P>
 </DL>
@@ -195,81 +214,81 @@ but it is obsolete now.
 The following options may be specified:
 <P>
 <DL COMPACT>
-<DT>*FvwmIconMan: nummanagers <I>num</I><DD>
+<DT>*FvwmIconMan: NumManagers <I>num</I><DD>
 <I>num</I> is a positive integer specifying the total number of icon managers.
 Since FvwmIconMan would like to know how many managers there are before
 handling any manager specific options, this should come first. The default
 is 1.
 <P>
-<DT>*FvwmIconMan: [id] action <I>type</I> <I>binding</I><DD>
+<DT>*FvwmIconMan: [id] Action <I>type</I> <I>binding</I><DD>
 Binds an FvwmIconMan command to an event. <I>Type</I> may be one of the values:
 Key, Mouse, or Select. Actions are described in the following section ACTIONS.
 <P>
-<DT>*FvwmIconMan: [id] background <I>background</I><DD>
+<DT>*FvwmIconMan: [id] Background <I>background</I><DD>
 Specifies the default background color.
 <P>
-<DT>*FvwmIconMan: [id] buttongeometry <I>geometry</I><DD>
+<DT>*FvwmIconMan: [id] ButtonGeometry <I>geometry</I><DD>
 Specifies the initial geometry of an individual button in pixels. If the
 specified height is 0, then the button height is determined from the font
 size. X and Y coordinates are ignored.
 <P>
-<DT>*FvwmIconMan: [id] colorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] Colorset <I>colorset</I><DD>
 The default colorset used. Overrides background and foreground. See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] drawicons <I>value</I><DD>
+<DT>*FvwmIconMan: [id] DrawIcons <I>value</I><DD>
 If your version of fvwm is capable of using mini icons, then this option
 determines if FvwmIconMan displays the mini icons. Otherwise, it generates
 an error message.  &quot;true&quot; means that mini icons are shown for iconified
 windows, &quot;false&quot; that mini icons are never shown, and &quot;always&quot; that mini icons
 are shown for all windows.
 <P>
-<DT>*FvwmIconMan: [id] focusandselectbutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] FocusAndSelectButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Same as the plainbutton option, but specifies the look of buttons which are
 both selected, and have the keyboard focus.
 <P>
-<DT>*FvwmIconMan: [id] focusandselectcolorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] FocusAndSelectColorset <I>colorset</I><DD>
 Works like focusandselectbutton but uses colorsets instead.  The style setting can
 still only be applied with focusandselectbutton.  See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] focusbutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] FocusButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Same as the plainbutton option, but specifies the look of buttons whose
 windows have the keyboard focus.
 <P>
-<DT>*FvwmIconMan: [id] focuscolorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] FocusColorset <I>colorset</I><DD>
 Works like focusbutton but uses colorsets instead.  The style setting can still
 only be applied with focusbutton.  See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] followfocus <I>boolean</I><DD>
+<DT>*FvwmIconMan: [id] FollowFocus <I>boolean</I><DD>
 If <I>true</I>, then the button appearance reflects
 which window currently has focus.  Default is false.
 <P>
-<DT>*FvwmIconMan: [id] font <I>font</I><DD>
+<DT>*FvwmIconMan: [id] Font <I>font</I><DD>
 Specifies the font to be used for labeling the buttons. The default is 8x13.
 <P>
-<DT>*FvwmIconMan: [id] foreground <I>foreground</I><DD>
+<DT>*FvwmIconMan: [id] Foreground <I>foreground</I><DD>
 Specifies the default foreground color.
 <P>
-<DT>*FvwmIconMan: [id] format <I>formatstring</I><DD>
+<DT>*FvwmIconMan: [id] Format <I>formatstring</I><DD>
 A printf like format string which describes the string to be printed in the
 manager window for each managed window. Possible flags are: %t, %i, %c, and
 %r for the window's title, icon, class, or resource name, respectively.
 The default is &quot;%c: %i&quot;. <B>Warning</B>: m4 reserves the word <I>format</I>,
 so if you use m4, take appropriate action.
 <P>
-<DT>*FvwmIconMan: [id] iconname <I>iconstring</I><DD>
+<DT>*FvwmIconMan: [id] IconName <I>iconstring</I><DD>
 Specifies the window icon name for that manager window. <I>Iconstring</I>
 may either be a single word, or a string enclosed in quotes. The default is
 &quot;FvwmIconMan&quot;.
 <P>
-<DT>*FvwmIconMan: [id] iconbutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] IconButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Same as the plainbutton option, but specifies the look of buttons whose
 windows are iconified.
 <P>
-<DT>*FvwmIconMan: [id] iconcolorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] IconColorset <I>colorset</I><DD>
 Works like iconbutton but uses colorsets instead.  The style setting can still
 only be applied with iconbutton.  See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] managergeometry <I>geometry</I><DD>
+<DT>*FvwmIconMan: [id] ManagerGeometry <I>geometry</I><DD>
 Specifies the initial geometry of the manager, in units of buttons. If
 <I>height</I> is 0, then the manager will use <I>width</I> columns, and will
 grow vertically once it has more than <I>width</I> windows. Likewise, if
@@ -279,31 +298,59 @@ that way. As columns are created, the buttons will narrow to accommodate.  If
 the geometry is specified with a negative y coordinate, then the window
 manager will grow upwards. Otherwise, it will grow downwards.
 <P>
-<DT>*FvwmIconMan: [id] noiconaction  <I>action</I><DD>
+<DT>*FvwmIconMan: [id] MaxButtonWidth <I>width</I><DD>
+Defines a maximum for the width of a button (in pixels). By default there
+is no maximum. A value of 0 resets the default. The maximum is only used
+with a non growing manager (the ManagerGeometry option
+specifies non zero width and height).
+<P>
+<DT>*FvwmIconMan: [id] MaxButtonWidthByColumns <I>col</I><DD>
+This is another way to set the button width.
+col is the number of columns of icons.
+The button width is determined by dividing
+the total width of FvwmIconMan
+by the number of columns.
+For example if the
+width of FvwmIconMan manager is 1024, MaxButtonWidthByColumns is 4
+then MaxButtonWidth is 256.
+This is useful when you do not
+know, at config time, the width of the manager, for example,
+for a swallowed FvwmIconMan.
+<P>
+<DT>*FvwmIconMan: [id] NoIconAction  <I>action</I><DD>
 Tells FvwmIconMan to do <I>action</I> when a NoIcon style window is
 iconified or de-iconified. Relevant coordinates are appended to <I>action</I> so
 that the icon can be traced to an FvwmIconMan button. An example action
-is &quot;*FvwwmIconMan: NoIconAction SendToModule FvwmAnimate animate&quot;. A blank or null
-action turns this feature off.
+is &quot;*FvwwmIconMan: NoIconAction SendToModule FvwmAnimate animate&quot;. A blank or
+null action turns this feature off.
 <P>
-<DT>*FvwmIconMan: [id] plainbutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] PlainButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Specifies how normal buttons look. <I>style</I> may be one of <I>flat</I>,
 <I>up</I>, <I>down</I>, <I>raisededge</I>, or <I>sunkedge</I>, and describes how
 the button is drawn. The color options are both optional, and if not set, then
 the default colors are used. If on a monochrome screen, then the <I>style</I>
 option is ignored, but must still be set.
 <P>
-<DT>*FvwmIconMan: [id] plaincolorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] PlainColorset <I>colorset</I><DD>
 Works like plainbutton but uses colorsets instead.  The style setting can
 still only be applied with plainbutton.  See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] resolution <I>resolution</I><DD>
+<DT>*FvwmIconMan: [id] ReliefThickness <I>num</I><DD>
+<I>num</I> is an integer specifying the number of pixels thick
+that the relief at the edge of non-flat buttons should be.  Setting
+this to 0 will produce flat buttons, as if the values for
+<I>FocusAndSelectButton</I>, <I>FocusButton</I>, <I>IconButton</I>,
+<I>PlainButton</I>, <I>SelectButton</I>, and <I>TitleButton</I> were
+all set to <I>flat</I>.  If <I>num</I> is negative, the button
+will be inverted as if you had used <I>Reverse</I> for all classes.
+<P>
+<DT>*FvwmIconMan: [id] Resolution <I>resolution</I><DD>
 Specifies when the manager will display an entry for a certain
 window. <I>resolution</I> may take one of the following values:
 global, desk, page, screen, !desk, !page, or !screen. If global,
 then all windows of the appropriate type (see the show and
 dontshow options below) will be shown. If desk, then only those
-windows on the current desk are down. If page, then only those
+windows on the current desk are shown. If page, then only those
 windows on the current page are shown. If screen, then only those
 windows on the current Xinerama screen are shown. !desk reverses
 the sense of desk, displaying only those windows not on the
@@ -313,46 +360,78 @@ current Xinerama screen. The default is page. If Xinerama is not
 active or only a single screen is used, page and screen are
 equivalent.
 <P>
-<DT>*FvwmIconMan: [id] reverse <I>class</I><DD>
+This configuration line is respected when FvwmIconMan is running
+as well, the resolution is changed dynamically.
+<P>
+<DT>*FvwmIconMan: [id] Reverse <I>class</I><DD>
 Causes certain classes of buttons to have their relief lines reversed so that
 up and down styles are reversed. This has no affect on flat buttons. The class
 can be icon, normal or none. The default is none.
 <P>
-<DT>*FvwmIconMan: [id] selectbutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] SelectButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Same as the plainbutton option, but specifies the look of buttons when the
 mouse is over them.
 <P>
-<DT>*FvwmIconMan: [id] selectcolorset <I>colorset</I><DD>
+<DT>*FvwmIconMan: [id] SelectColorset <I>colorset</I><DD>
 Works like selectbutton but uses colorsets instead.  The style setting can
 still only be applied with selectbutton.  See FvwmTheme.
 <P>
-<DT>*FvwmIconMan: [id] shape <I>boolean</I><DD>
+<DT>*FvwmIconMan: [id] Shape <I>boolean</I><DD>
 If <I>True</I>, then use make the window shaped. Probably only useful if you
 have multiple columns or rows. If FvwmIconMan wasn't compiled to support the
 Shape extension, this generates an error message. When using shaped windows,
 it's recommended that a fvwm style is made for FvwmIconMan that has no borders.
 Otherwise, fvwm will get confused.
 <P>
-<DT>*FvwmIconMan: [id] sort <I>value</I><DD>
+<DT>*FvwmIconMan: [id] Sort <I>value</I><DD>
 If <I>name</I>, then the manager list is sorted by name. If <I>namewithcase</I>,
 then it is sorted by name sensitive to case. If <I>id</I>, then
 the manager list is sorted by the window id, which never changes after the
-window is created. Or it can be set to <I>none</I>, which results in no sorting.
-Default is <I>name</I>.
+window is created. If <I>weighted</I>, then the manager list is sorted by
+weight (see the description of <I>sortweight</I> below). Or it can be set to
+<I>none</I>, which results in no sorting. Default is <I>name</I>.
 <P>
-<DT>*FvwmIconMan: [id] title <I>titlestring</I><DD>
+<DT>*FvwmIconMan: [id] SortWeight <I>weight</I> <I>pattern-list</I><DD>
+Assigns the specified <I>weight</I> to windows that match <I>pattern-list</I>.
+The list is made up of patterns of the form <I>type=pattern</I>, where type
+is one of <I>class</I>, <I>resource</I>, <I>title</I>, or <I>icon</I>, and pattern
+is an expression of the same format used in the fvwm style command
+(minimalistic shell pattern matching). Multiple sort weights can be given.
+Each window is matched against the list of sort weights, in order, and is
+given the weight from the first match. Lower-weighted windows are placed
+first in the manager list. For example:
+
+
+<P>
+
+
+<blockquote><PRE>*FvwmIconMan: Sort       weighted
+*FvwmIconMan: SortWeight 1 class=XTerm title=special*
+*FvwmIconMan: SortWeight 10 class=XTerm
+*FvwmIconMan: SortWeight 5</PRE></blockquote>
+<P>
+
+
+
+In this example, xterm windows whose titles start with &quot;special&quot; (weight 1)
+are listed first, followed by everything but other xterms (weight 5), and the
+other xterms (weight 10) are listed last. If no default weight (empty pattern
+list) is given, the default weight is 0. Only relevant if the sort type is
+set to <I>weighted</I>.
+<P>
+<DT>*FvwmIconMan: [id] Title <I>title-string</I><DD>
 Specifies the window title string for that manager window. <I>Titlestring</I>
 may either be a single word, or a string enclosed in quotes. The default is
 &quot;FvwmIconMan&quot;. This will be drawn in the title bar of the manager window, if
 any, and in the title button, which is the button drawn when the manager is
 empty.
 <P>
-<DT>*FvwmIconMan: [id] titlebutton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
+<DT>*FvwmIconMan: [id] TitleButton <I>style</I> [<I>forecolor</I> <I>backcolor</I>]<DD>
 Same as the plainbutton option, but specifies the look of the title button
 (the button drawn when the manager is empty). The manager's title is drawn
 in the title button.
 <P>
-<DT>*FvwmIconMan: [id] usewinlist <I>boolean</I><DD>
+<DT>*FvwmIconMan: [id] UseWinList <I>boolean</I><DD>
 If <I>true</I>, then honor the WinListSkip style flag. Otherwise, all windows
 are subject to possible management according to the show and dontshow lists.
 <P>
@@ -362,10 +441,10 @@ are subject to possible management according to the show and dontshow lists.
 The two following options control which windows get handled by which
 managers. A manager can get two lists, one of windows to show, and one of
 windows to ignore. If only the <I>show</I> list is given, then that manager
-will show only the windows in the list. If only the <I>dontshow</I> list is
+will show only the windows in the list. If only the <I>DontShow</I> list is
 given, then the manager will show all windows except those in the list. If
 both lists are given, then a window will be shown if it is not in the
-<I>dontshow</I> list, and in the <I>show</I> list. And finally, if neither list
+<I>DontShow</I> list, and in the <I>Show</I> list. And finally, if neither list
 is given, then the manager will handle all windows. Each list is made up of
 patterns of the form <I>type=pattern</I>, where type is one of <I>class</I>,
 <I>resource</I>, <I>title</I>, or <I>icon</I>, and pattern is an expression of
@@ -375,20 +454,90 @@ expression. If a window could be handled by more than one manager, then the
 manager with the lowest id gets it.
 <P>
 <DL COMPACT>
-<DT>*FvwmIconMan: [id] show <I>pattern list</I><DD>
+<DT>*FvwmIconMan: [id] Show <I>pattern list</I><DD>
 If a window matches one of the patterns in the list, then it may be handled
 by this manager.
 <P>
-<DT>*FvwmIconMan: [id] show <I>pattern list</I><DD>
-If a window matches one of the patterns in the list, then it may be handled
-by this manager.
-<P>
-<DT>*FvwmIconMan: [id] dontshow <I>pattern list</I><DD>
+<DT>*FvwmIconMan: [id] DontShow <I>pattern list</I><DD>
 If a window matches one of the patterns in the list, then it may not be
 handled by this manager.
 <P>
-<DT>*FvwmIconMan: [id] showonlyicons <I>boolean</I><DD>
+<DT>*FvwmIconMan: [id] ShowTransient <I>boolean</I><DD>
+Show transient windows in the list (default false).
+<P>
+<DT>*FvwmIconMan: [id] ShowOnlyIcons <I>boolean</I><DD>
 Only iconified windows are shown if <I>boolean</I> is true.
+<P>
+<DT>*FvwmIconMan: [id] ShowNoIcons <I>boolean</I><DD>
+Only windows that are not iconified are shown if <I>boolean</I> is true.
+<P>
+<DT>*FvwmIconMan: [id] ShowOnlyFocused <I>boolean</I><DD>
+Only window with the focus is shown if <I>boolean</I> is true.
+<P>
+<P>
+</DL>
+<P>
+
+The following two options control tips.
+<P>
+<DL COMPACT>
+<DT>*FvwmIconMan: [id] Tips <I>value</I><DD>
+where <I>value</I> can be always, needed or false. Default is false,
+no tips are displayed. With always, tips are enabled. With needed,
+a tip is displayed only if either the button string is truncated or
+the tip string is not equal to the button string.
+This configuration line is respected when FvwmIconMan is running
+as well.
+<P>
+<DT>*FvwmIconMan: [id] TipsDelays <I>delay</I> [<I>mappeddelay</I>]<DD>
+where <I>delay</I> and <I>mappeddelay</I> are time out values in milliseconds.
+If no <I>mappeddelay</I> is given <I>delay</I> is assumed. Default is
+1000 300. When the cursor is on a button, FvwmIconMan wait <I>delay</I>
+milliseconds before displaying the tip. In the case where a tip is
+already mapped and the cursor goes to an other button, FvwmIconMan
+waits <I>mappeddelay</I> milliseconds before displaying the new tip.
+<P>
+<DT>*FvwmIconMan: [id] TipsFont <I>fontname</I><DD>
+Specifies the font to be used for tips. Default is the default fvwm
+font.
+<P>
+<DT>*FvwmIconMan: [id] TipsColorset <I>colorset</I><DD>
+Specifies the colors for tips window. Default is colorset 0.
+See  FvwmTheme.
+<P>
+<DT>*FvwmIconMan: [id] TipsFormat <I>formatstring</I><DD>
+Similar to the Format option but for the tips window. The default is
+the format string from the Format option.
+<P>
+<DT>*FvwmIconMan: [id] TipsBorderWidth <I>pixels</I><DD>
+Specifies the border width (in pixels) of the tips window. Default is 1.
+<P>
+<DT>*FvwmIconMan: [id] TipsPlacement <I>value</I><DD>
+where <I>value</I> can be up, down, right, left, updown or
+leftright. This value specifies the position of the tips window
+relative to its button.
+Default is updown where buttons on the top half of the screen
+get tips below the button, otherwise the tips
+are above the button.
+<P>
+<DT>*FvwmIconMan: [id] TipsJustification <I>value</I><DD>
+where <I>value</I> can be leftup, rightdown or center.
+Specifies
+the justification (direction) of the tips window relative to its button after
+the tips window has been placed.
+Default is leftup which means that if a tip is placed above or below
+its button, then the left border of the tip and of the button are
+aligned.
+If the tip is placed on the left or on the right of its button, leftup
+aligns the top borders. rightdown and center work like leftup but in
+different directions.
+The alignment is adjusted by the TipsOffset option.
+See next option.
+<P>
+<DT>*FvwmIconMan: [id] TipsOffsets <I>placementoffset</I> <I>justoffset</I><DD>
+where <I>placementoffset</I> and <I>justoffset</I> are offsets in pixels
+for the TipsPlacement and TipsJustification configuration option.
+Default is 3 2.
 <P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
@@ -501,11 +650,27 @@ to do so.)
 <DT>print <I>String</I><DD>
 Prints <I>String</I> to the console. Useful for debugging actions.
 <P>
+<DT>printdebug<DD>
+Prints defined actions to the console. Should only be used by developers.
+To enable this command, set CONFIG and FUNCTIONS variables to '1' in the
+modules/FvwmIconMan/debug.h and recompile this module.
+<P>
 <DT>quit<DD>
 Quits FvwmIconMan.
 <P>
+<DT>refresh<DD>
+Causes all manager windows to redraw themselves.
+<P>
 <DT>ret<DD>
 Stop executing the entire action.
+<P>
+<DT>searchback <I>String</I><DD>
+Sets button to button before the current one whose printed string in the
+manager window matches specified <I>String</I>, which may contain wildcards.
+<P>
+<DT>searchforward <I>String</I><DD>
+Sets button to button after the current one whose printed string in the
+manager window matches specified <I>String</I>, which may contain wildcards.
 <P>
 <DT>select<DD>
 Selects the current button, if any. If a select action has been specified,
@@ -536,7 +701,7 @@ Warps cursor to current button, if any.
 
 Selects the button below the currently selected button. Since the
 current button is already initialized to the selected button, this may be
-shortened to &quot;gotobutton Down , select&quot;.
+shortened to &quot;gotobutton Down, select&quot;.
 <P>
 
 
@@ -672,13 +837,13 @@ Style &quot;FvwmIconMan&quot; HandleWidth 5, Handles, BorderWidth 5
 ##############################################################
 #Definitions used by the modules
 
-*FvwmIconMan: nummanagers        1
-*FvwmIconMan: resolution         global
-*FvwmIconMan: background         slategrey
-*FvwmIconMan: foreground         white
-*FvwmIconMan: font               7x13
-*FvwmIconMan: buttongeometry     100x0
-*FvwmIconMan: managergeometry    1x0-0+0
+*FvwmIconMan: NumManagers        1
+*FvwmIconMan: Resolution         global
+*FvwmIconMan: Background         slategrey
+*FvwmIconMan: Foreground         white
+*FvwmIconMan: Font               7x13
+*FvwmIconMan: ButtonGeometry     100x0
+*FvwmIconMan: ManagerGeometry    1x0-0+0
 
 </PRE>
 
@@ -705,49 +870,49 @@ Key F9 A N SendToModule FvwmIconMan bif select Select, bif focus Focus, \
   gotobutton focus, select, sendcommand WarpToWindow, ret, label Select, \
   gotobutton next, select, sendcommand WarpToWindow
 
-*FvwmIconMan: numManagers 2
+*FvwmIconMan: NumManagers 2
 *FvwmIconMan: Resolution  page
-*FvwmIconMan: background  steelblue
-*FvwmIconMan: foreground  white
-*FvwmIconMan: font        7x13
-*FvwmIconMan: usewinlist  true
-*FvwmIconMan: drawicons   true
-*FvwmIconMan: shape      true
-*FvwmIconMan: followfocus true
-*FvwmIconMan: sort       name
-*FvwmIconMan: plainbutton          up white steelblue
-*FvwmIconMan: selectbutton         down white steelblue
-*FvwmIconMan: focusbutton          up white brown
-*FvwmIconMan: focusandselectButton down white brown
-*FvwmIconMan: titleButton          raisededge white steelblue
+*FvwmIconMan: Background  steelblue
+*FvwmIconMan: Foreground  white
+*FvwmIconMan: Font        7x13
+*FvwmIconMan: UseWinList  true
+*FvwmIconMan: DrawIcons   true
+*FvwmIconMan: Shape       true
+*FvwmIconMan: FollowFocus true
+*FvwmIconMan: Sort        name
+*FvwmIconMan: PlainButton          up white steelblue
+*FvwmIconMan: SelectButton         down white steelblue
+*FvwmIconMan: FocusButton          up white brown
+*FvwmIconMan: FocusAndSelectButton down white brown
+*FvwmIconMan: TitleButton          raisededge white steelblue
 *FvwmIconMan: NoIconAction         &quot;SendToModule FvwmAnimate animate&quot;
 
-*FvwmIconMan: 1 title           &quot;Emacs windows&quot;
-*FvwmIconMan: 1 iconname        &quot;FvwmIconMan: Emacs&quot;
-*FvwmIconMan: 1 format          &quot;%i&quot;
-*FvwmIconMan: 1 show            resource=emacs resource=gemacs
-*FvwmIconMan: 1 managergeometry 1x0-400+0
-*FvwmIconMan: 1 buttongeometry  200x0
+*FvwmIconMan: 1 Title           &quot;Emacs windows&quot;
+*FvwmIconMan: 1 IconName        &quot;FvwmIconMan: Emacs&quot;
+*FvwmIconMan: 1 Format          &quot;%i&quot;
+*FvwmIconMan: 1 Show            resource=emacs resource=gemacs
+*FvwmIconMan: 1 ManagerGeometry 1x0-400+0
+*FvwmIconMan: 1 ButtonGeometry  200x0
 
-*FvwmIconMan: 2 title           &quot;All windows&quot;
-*FvwmIconMan: 2 iconname        &quot;FvwmIconMan: all&quot;
-*FvwmIconMan: 2 format          &quot;%c: %i&quot;
-*FvwmIconMan: 2 dontshow        icon=Untitled
-*FvwmIconMan: 2 managergeometry 2x4-0+0
-*FvwmIconMan: 2 buttongeometry  200x0
+*FvwmIconMan: 2 Title           &quot;All windows&quot;
+*FvwmIconMan: 2 IconName        &quot;FvwmIconMan: all&quot;
+*FvwmIconMan: 2 Format          &quot;%c: %i&quot;
+*FvwmIconMan: 2 DontShow        icon=Untitled
+*FvwmIconMan: 2 ManagerGeometry 2x4-0+0
+*FvwmIconMan: 2 ButtonGeometry  200x0
 
-*FvwmIconMan: transient geometry 194x100
-*FvwmIconMan: transient dontshow icon=Untitled
-*FvwmIconMan: transient action   Mouse 0 A sendcommand select select Iconify
+*FvwmIconMan: transient Geometry 194x100
+*FvwmIconMan: transient DontShow icon=Untitled
+*FvwmIconMan: transient Action   Mouse 0 A sendcommand select select Iconify
 
-*FvwmIconMan: action    Mouse   1 N sendcommand Iconify
-*FvwmIconMan: action    Mouse   2 N sendcommand WarpToWindow
-*FvwmIconMan: action    Mouse   3 N sendcommand &quot;Module FvwmIdent FvwmIdent&quot;
-*FvwmIconMan: action    Key     Left  N gotobutton Left, select
-*FvwmIconMan: action    Key     Right N gotobutton Right, select
-*FvwmIconMan: action    Key     Up    N gotobutton Up, select
-*FvwmIconMan: action    Key     Down  N gotobutton Down, select
-*FvwmIconMan: action    Key     q     N quit
+*FvwmIconMan: Action    Mouse   1 N sendcommand Iconify
+*FvwmIconMan: Action    Mouse   2 N sendcommand WarpToWindow
+*FvwmIconMan: Action    Mouse   3 N sendcommand &quot;Module FvwmIdent FvwmIdent&quot;
+*FvwmIconMan: Action    Key     Left  N gotobutton Left, select
+*FvwmIconMan: Action    Key     Right N gotobutton Right, select
+*FvwmIconMan: Action    Key     Up    N gotobutton Up, select
+*FvwmIconMan: Action    Key     Down  N gotobutton Down, select
+*FvwmIconMan: Action    Key     q     N quit
 
 </PRE>
 
@@ -802,11 +967,11 @@ for contributing either code or truly keen ideas.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:37 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

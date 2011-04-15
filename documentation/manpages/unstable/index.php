@@ -47,7 +47,7 @@ if(!isset($site_has_been_loaded)) {
 	<h1>Index</h1>
 	<hr>
 	These pages were last generated on 15-Apr-2011 by n6tadam,
-	from the 2.5.x man pages.<!-- in directory ../../../fvwm. -->
+	from the 2.7.x man pages.<!-- in directory ../../../fvwm. -->
 
 	<hr>
 	Start of man pages in section 1.

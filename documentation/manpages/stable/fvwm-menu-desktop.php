@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_fvwm-menu-desktop";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,29 +42,29 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm-menu-desktop in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for fvwm-menu-desktop in stable branch (2.7.1)"); ?>
 
 <H1>fvwm-menu-desktop</H1>
-Section: FVWM Utilities (1)<BR>Updated: 30 November 2002<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-fvwm-menu-desktop - builds Gnome and KDE menus and style commands for FVWM
+fvwm-menu-desktop - builds GNOME and KDE menus and style commands for fvwm
 <P>
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
 <P>
 <u>fvwm-menu-desktop</u>
-[ <B>--help</B> ]
-[ <B>--version</B> ]
+[ <B>--help</B>|<B>-h</B>|<B>-?</B> ]
+[ <B>--version</B>|<B>-v</B>|<B>-V</B> ]
 [ <B>--install-prefix</B> <I>DIR</I> ]
 [ <B>--desktop</B> <I>NAME</I> ]
 [ <B>--type</B> NAME ]
-[ <B>--fvwmgtk-alias</B> NAME ]
+[ <B>--fvwmgtk-alias</B> <I>NAME</I> ]
 [ <B>--title</B> <I>NAME</I> ]
 [ <B>--name</B> <I>NAME</I> ]
 [ <B>--merge-user-menu</B> ]
@@ -103,15 +103,12 @@ fvwm-menu-desktop - builds Gnome and KDE menus and style commands for FVWM
 <H2>DESCRIPTION</H2>
 
 This is a perl script which parses GNOME or KDE menus definitions to build
-corresponding FVWM or FvwmGtk menus. The script can also
+corresponding fvwm or FvwmGtk menus. The script can also
 build icon and mini-icon style commands for the applications.
 <P>
 <A NAME="lbAE">&nbsp;</A>
 <H2>USAGE</H2>
 
-If the script is not installed in your path you will find it in the
-utils directory of the fvwm distribution.
-<P>
 There are a lot of options. However the defaults are, I hope, good
 enough.
 If you want the KDE system menu in the menu &quot;Utilities&quot; add the
@@ -131,9 +128,9 @@ PipeRead 'fvwm-menu-desktop --desktop kde-sys'</PRE></blockquote>
 
 For KDE2 you may have to add --utf8 or --uniconv &quot;charset&quot; (see below).
 Moreover, with KDE2 you can add --merge-user-menu.
-If you use KDE version 1 (see below for KDE2) and you want mini-icons 
+If you use KDE version 1 (see below for KDE2) and you want mini-icons
 in the menu and if the KDE mini-icons are in &quot;mini/&quot;
-relative to your FVWM ImagePath add the option --enable-mini-icons.
+relative to your fvwm ImagePath add the option --enable-mini-icons.
 (if the KDE mini-icons are in some other place
 use the --mini-icons-path option, e.g., they are in your
 ImagePath plus --mini-icons-path). If you want to build Icon and
@@ -170,16 +167,16 @@ the --mini-icons-path option, respectively).
 
 
 <blockquote><PRE>Module FvwmGtk
-*FvwmGtkDestroy gnome-all
-*FvwmGtkMenu gnome-all
-*FvwmGtkTitle &quot;Gnome Menus&quot;
-*FvwmGtkSeparator
-*FvwmGtkDestroy gnome-sys
-*FvwmGtkSubmenu &quot;System&quot; gnome-sys
-*FvwmGtkDestroy gnome-user
-*FvwmGtkSubmenu &quot;User&quot; gnome-user
-*FvwmGtkDestroy gnome-redhat
-*FvwmGtkSubmenu &quot;RedHat&quot; gnome-redhat
+*FvwmGtk: Destroy gnome-all
+*FvwmGtk: Menu gnome-all
+*FvwmGtk: Title &quot;Gnome Menus&quot;
+*FvwmGtk: Separator
+*FvwmGtk: Destroy gnome-sys
+*FvwmGtk: Submenu &quot;System&quot; gnome-sys
+*FvwmGtk: Destroy gnome-user
+*FvwmGtk: Submenu &quot;User&quot; gnome-user
+*FvwmGtk: Destroy gnome-redhat
+*FvwmGtk: Submenu &quot;RedHat&quot; gnome-redhat
 
 PipeRead 'fvwm-menu-desktop --type gtk --enable-mini-icons --icon-folder :re --icon-app :re --icon-title :re --icon-toptitle :re'
 
@@ -198,13 +195,13 @@ You can specify FvwmGtk alias: Module FvwmGtk MyGnomeMenu.
 In this case you must pass an additional parameter to fvwm-menu-desktop:
 --fvwmgtk-alias MyGnomeMenu.
 <P>
-Of course you can build FVWM (i.e., no FvwmGtk) GNOME menus.
-GNOME and KDE2 use PNG icons which are not suported by FVWM menu.
-However, if you have XPM version of the GNOME or of the KDE2 (mini-)icons 
-you can build FVWM menus and style commands with these icons using the 
+Of course you can build fvwm (i.e., no FvwmGtk) GNOME menus.
+GNOME and KDE2 use PNG icons which are not supported by fvwm menu.
+However, if you have XPM version of the GNOME or of the KDE2 (mini-)icons
+you can build fvwm menus and style commands with these icons using the
 option --enable-tran-mini-icons and --enable-tran-style. The
-FVWM Themes package (<A HREF="http://fvwm-themes.sourceforge.net/)">http://fvwm-themes.sourceforge.net/)</A> conatins
-an utility, fvwm-themes-images, which can convert automatically 
+Fvwm Themes package (<A HREF="http://fvwm-themes.sourceforge.net/)">http://fvwm-themes.sourceforge.net/)</A> contains
+an utility, fvwm-themes-images, which can convert automatically
 (with the help of ImageMagick) all GNOME and KDE2 icons to XPM
 icons.
 <P>
@@ -217,7 +214,7 @@ redirection to see the submenu names.
 <P>
 If you think that fvwm-menu-desktop slows your startup too much do
 not use PipeRead.  Instead run  fvwm-menu-desktop
-and 
+and
 redirect the menu to a file and Read that file in
 your .fvwm2rc file.
 Another possibility is to use DynamicPopupAction
@@ -249,13 +246,13 @@ I PipeRead 'fvwm-menu-desktop \
 
 
 <P>
-fvwm-menu-desktop takes into account your $LANG environement variable,
+fvwm-menu-desktop takes into account your $LANG environment variable,
 which may be overwritten using the --lang option.
 <P>
 Hint, if you need a different menu font or item format from the ones used
 in the default MenuStyle, you may use the --menus-style option to assign
 a non-default MenuStyle name to menus built by this script.
-Don't forget to create a new menu style in your fvwmrc, using CopyMenuStyle
+Don't forget to create a new menu style in your .fvwm2rc, using CopyMenuStyle
 and MenuStyle commands.
 <P>
 <A NAME="lbAF">&nbsp;</A>
@@ -278,23 +275,27 @@ to use this option.
 Use gnome-sys for the GNOME system menu (this is the default),
 gnome-user for
 the GNOME user menu, gnome-redhat for the AnotherLevel
-menu of Red Hat, kde-sys for the KDE system menu and kde-user for
+menu of Red Hat,
+gnome-mandriva for Mandriva menudrake menus,
+kde-sys for the KDE system menu and kde-user for
 the KDE user menu. It may be useful to use KDE or GNOME as a flag with
 the --dir option.
 <DT><B>--type</B> <I>NAME</I><DD>
-If NAME is fvwm, a native FVWM menu will be built (this is
+If NAME is fvwm, a native fvwm menu will be built (this is
 the default). If NAME is gtk, a FvwmGtk menu will be built.
 <DT><B>--fvwmgtk-alias</B> <I>NAME</I><DD>
 The name for then FvwmGtk module to use instead of default FvwmGtk.
 <DT><B>--title</B> <I>NAME</I><DD>
 Define the menu title of the top menu. Default
 is &quot;Gnome System Menu&quot; for gnome-sys, &quot;Gnome User Menu&quot; for
-gnome-user, &quot;Gnome Red Hat Menu&quot; for gnome-redhat. For KDE the
+gnome-user, &quot;Gnome Red Hat Menu&quot; for gnome-redhat,
+&quot;Gnome Mandriva Menu&quot; for gnome-mandriva. For KDE the
 default is given by KDE itself (or are similar to GNOME title).
 <DT><B>--name</B> <I>NAME</I><DD>
 Define the menu name of the top menu. Default is the --desktop
 name if you use one above.
 <DT><B>--merge-user-menu</B><DD>
+this option tries to merge the user menu
 with the system menu (gnome-sys or kde-sys, based on the --desktop option)
 and takes into account changes to the system menu that it is now
 possible to do in the &quot;user directory&quot; (at least with KDE version 2
@@ -314,7 +315,7 @@ the --mini-icons-path and the --png-icons-path to specify
 the good paths. By using the --icon-* options below you
 can control mini-icons in menus.
 <DT><B>--enable-tran-mini-icons</B><DD>
-This option applies only to fvwm menus and is useful to build GNOME or KDE2 
+This option applies only to fvwm menus and is useful to build GNOME or KDE2
 menus with mini-icons (and if you have XPM version of the GNOME or KDE2
 PNG icons).
 If this option is used any
@@ -337,7 +338,7 @@ a good way).
 Where PATH is a list of directories with &quot;:&quot; as a separator. Then,
 fvwm-menu-desktop checks that the mini icons actually exist in one of
 these directories (this check is not done for the translated mini icons).
-<BR>&nbsp;
+<P>
 <DT>Comments<DD>
 <P>
 To control  mini-icons in menus you can use the 4 following options
@@ -357,7 +358,7 @@ or --tran-mini-icons-path (i.e., you just have to
 specify the icon, the path is computed). For the sidepic you need to
 give the complete relative path from your ImagePath.
 <P>
-Note that for the FVWM menu (without the --enable-tran-mini-icons option)
+Note that for the fvwm menu (without the --enable-tran-mini-icons option)
 a .png icon hint is
 considered as an empty hint, so for the system menu use no=dh and re=ow
 (you may use .xpm icons in a user menu). If
@@ -377,7 +378,7 @@ containing the sidepic picture.
 <P>
 When you use an option below, if an icon, a law ...etc is not
 specified (i.e., empty) the default is used (e.g, if you want,
-for an FVWM menu, the icon folder.xpm on the left of the top title
+for an fvwm menu, the icon folder.xpm on the left of the top title
 and the sidepic fvwm2.xpm on the left of this menu
 use the following: --icon-toptitle :ow::fvwm2.xpm).
 <P>
@@ -394,8 +395,7 @@ Default for fvwm menus: folder.xpm:dh:left::.
 Default for fvwm menus with --enable-tran-mini-icons:
 gnome-folder.xpm:dh:left::.
 Default for gtk menus: gnome-folder.png:dh
-<DT><B>--icon-folder</B><DD>
-<I>micon</I>:<I>law</I>:<I>place</I>:<I>sidepic</I>:<I>color</I>&quot;
+<DT><B>--icon-folder</B> <I>micon</I>:<I>law</I>:<I>place</I>:<I>sidepic</I>:<I>color</I><DD>
 Mini-icons for pop up item.
 Default for fvwm menus: folder.xpm:dh:left.
 Default for fvwm menus with --enable-tran-mini-icons: gnome-folder.xpm:dh:left.
@@ -409,7 +409,7 @@ Default for gtk menus: gnome-default.png:dh
 <P>
 <DT><B>--wm-icons</B><DD>
 This is a shortcut, which can be used if you plan to use icons from the
-wm-icons package. Currently this is equavalent to:
+wm-icons package. Currently this is equivalent to:
 --enable-mini-icons
 --mini-icons-path ''
 --icon-toptitle menu/folder-open.xpm:ow
@@ -440,7 +440,7 @@ are gnome-default.xpm.
 The paths to mini-icons are the same as those for the menus. The
 path to the icons is computed from the mini-icons path: they are one
 directory up to the corresponding mini-icons path (so the &quot;defaults&quot;
-are &quot;&quot; and this is consistent with KDE1 and XPM icons builded by 
+are &quot;&quot; and this is consistent with KDE1 and XPM icons builded by
 fvwm-themes-images).
 <DT><B>--icons-path</B> <I>DIR</I><DD>
 Not useful in a normal situation.
@@ -477,11 +477,12 @@ Note that if this option is not set, the description directory is
 install-prefix/share/gnome/apps if --desktop is gnome-sys,
 $HOME/.gnome/apps  if --desktop is gnome-user,
 $HOME/.gnome/apps-redhat  if --desktop is gnome-redhat,
+$HOME/.gnome/apps-mdk  if --desktop is gnome-mandriva,
 $KDEDIR/share/applink if --desktop is kde-sys and
 $HOME/.kde/share/applnk if--desktop is sys-user.
 <DT><B>--destroy-type</B> <I>flag</I><DD>
-flag may be &quot;y(es)&quot;, &quot;no&quot;, &quot;d(ynamic)&quot;. Default is &quot;yes&quot; with FVWM menus,
-&quot;no&quot; with FvwmGtk menus and dynamic applies only with FVWM menus.
+flag may be &quot;y(es)&quot;, &quot;no&quot;, &quot;d(ynamic)&quot;. Default is &quot;yes&quot; with fvwm menus,
+&quot;no&quot; with FvwmGtk menus and dynamic applies only with fvwm menus.
 If &quot;yes&quot; is used the top menu will be destroyed (DestroyMenu &quot;name&quot;),
 if &quot;no&quot; is used the top menu will not be destroyed (useful for FvwmGtk
 menus called by another menu via FvwmGtkSubMenu or to give the same
@@ -499,7 +500,7 @@ language. Also useful if fvwm-menu-desktop gives bad result with your language.
 <DT><B>--utf8</B><DD>
 Assume that the desktop entries used UTF-8 encoding. This is the case
 with KDE version 2 and will be probably the case with GNOME version 2.
-At the present time this option work only if you have perl version 5.6 
+At the present time this option work only if you have perl version 5.6
 or better and if your language use latin-1 font. If one of these conditions
 is not satisfied, then this option is equivalent to --lang en. For other
 languages/charsets use the --uniconv option. The advantage of this option
@@ -514,14 +515,14 @@ appropriate font using the MenuStyle command. Also, $LANG (or --lang xx)
 must be compatible with the charset. Note, if you don't use an internal
 method, fvwm-menu-desktop is very slow with this option: you probably need
 to use the --time-limit option and you should redirect the result into a
-file and read this file in your FVWM configuration.
+file and read this file in your fvwm configuration.
 <DT><B>--uniconv-exec</B> <I>exec</I><DD>
 Where exec is either iconv or uniconv or internal. Allows to choose the
 program which perform the UTF8 translation in the case of the --uniconv
 option. The internal method is only available with perl 5.8.0 and better.
 The default is either internal (if available) or iconv.
 <DT><B>--menu-style</B> <I>name</I><DD>
-By default the generated FVWM menus use the default MenuStyle (i.e., the
+By default the generated fvwm menus use the default MenuStyle (i.e., the
 MenuStyle &quot;*&quot;). You can specify another MenuStyle name using this option.
 <DT><B>--[no]check-app</B><DD>
 Either check or don't check that applications to execute are in your path.
@@ -551,7 +552,7 @@ Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt
 <A NAME="lbAI">&nbsp;</A>
 <H2>COPYING</H2>
 
-The script is distributed by the same terms as FVWM itself.
+The script is distributed by the same terms as fvwm itself.
 See GNU General Public License for details.
 <P>
 
@@ -569,11 +570,11 @@ See GNU General Public License for details.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:38 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

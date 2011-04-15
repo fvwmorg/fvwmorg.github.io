@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmScript";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmScript in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmScript in stable branch (2.7.1)"); ?>
 
 <H1>FvwmScript</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -79,16 +79,16 @@ widget and Escape &quot;cancels&quot; for Menu and PopupMenu.
 <H2>INVOCATION</H2>
 
 FvwmScript can be invoked by inserting the line `Module
-FvwmScript name_of_script' in the .fvwmrc file.
+FvwmScript name_of_script' in the .fvwm2rc file.
 The file &quot;name_of_script&quot; can start with a slash, in which case, it's
 a fully qualified path, and the file is read.
 If &quot;name_of_script&quot; does not start with a slash, FvwmScript will look
 in a few different places.
-If  the   .fvwmrc contained   the  command  line  `*FvwmScript: Path
+If  the   .fvwm2rc contained   the  command  line  `*FvwmScript: Path
 path_of_the_script_directory', FvwmScript will try that directory.
 If that doesn't work, FvwmScript tries the system configuration directory
 and the user configuration directory as described under the &quot;Read&quot;
-command in the fvwm2 man page.
+command in the fvwm man page.
 <P>
 The command to start FvwmScript can be placed on a line by itself,
 if FvwmScript is to be spawned during
@@ -98,8 +98,8 @@ button or keystroke to invoke it later.
 <A NAME="lbAF">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS</H2>
 
-The following commands can be used in the config file (see 
-<I><a href="<?php echo conv_link_target('./fvwm2.php');?>">fvwm2</a></I>(1),
+The following commands can be used in the config file (see
+<I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1),
 
 section
 <B>MODULE COMMANDS</B>
@@ -179,7 +179,26 @@ This option sets the default shadow color for all widgets.
 This option sets the default colorset for all widgets.
 <P>
 <DT>Font {<I>font</I>}<DD>
-This option sets the default font color for all widgets.
+This option sets the default font for all widgets.
+<P>
+<DT>UseGettext  [<I>locale_path</I>]<DD>
+Enable the use of the gettext mechanism which is used by the
+WindowLocaleTitle, LocaleTitle, ChangeLocaleTitle instructions and
+the Gettext function.
+If no argument is given, the default FvwmScript locale catalog is used.
+This catalog is under the locale fvwm installation directory and the text
+domain is FvwmScript (install_prefix/share/locale/*/LC_MESSAGES/FvwmScript.mo).
+You can reset this catalog or add some catalogs exactly in the same way
+than with the
+<B>LocalePath</B>
+
+fvwm command (see the fvwm manual page).
+This instruction should be placed before the WindowLocaleTitle
+instruction.
+<P>
+<DT>WindowLocaleTitle <I>string</I><DD>
+This option sets the window title, but use the locale catalog(s) defined
+with UseGettext.
 <P>
 </DL>
 <A NAME="lbAI">&nbsp;</A>
@@ -215,7 +234,7 @@ second.  For example:
 <P>
 
 
-<blockquote><PRE>Periodic Task
+<blockquote><PRE>PeriodicTasks
  Begin
   If (RemainderOfDiv (GetTime) 10)==0 Then
    Do {Exec xcalc}
@@ -231,7 +250,7 @@ This example shows how to launch xcalc every 10 seconds.
 
 This part of the script contains instructions that are executed when
 the script exits (after the Quit instruction or if you close the window with
-the Close, Delete or Destroy fvwm2 command). For Example
+the Close, Delete or Destroy fvwm command). For Example
 
 
 <P>
@@ -245,10 +264,10 @@ the Close, Delete or Destroy fvwm2 command). For Example
 
 
 
-Be aware that if you used the KillModule fvwm2 command to close the script,
+Be aware that if you used the KillModule fvwm command to close the script,
 some instructions or functions which rely on the existence of a
-communication link between the script and fvwm2 will not be executed
-(for example the Do command). To smoothly kill a script with an fvwm2 command
+communication link between the script and fvwm will not be executed
+(for example the Do command). To smoothly kill a script with an fvwm command
 see the
 <B>COMMANDS</B>
 
@@ -312,7 +331,7 @@ specifies if strings are drawn with relief or not.
 
 specifies if the widget can get the keyboard focus or not.
 By default all widgets take focus, except Rectangle, HDipstick and VDipstick
-which cannot. Moreover, the NoFocus widgets are skipped when you 
+which cannot. Moreover, the NoFocus widgets are skipped when you
 circulate around the widgets with the (Shift-)Tab short cut.
 <I>Left</I> / <I>Center</I> / <I>Right</I>
 
@@ -323,7 +342,10 @@ PopupMenu and PushButton. The default is
 for ItemDraw and PushButton and
 <I>Left</I>
 
-for the others widgets.
+for the other widgets.
+<P>
+LocaleTitle can be used in place of Title, for using the locale catalog(s)
+defined with UseGettext.
 <P>
 The position of every widget must be specified.
 <P>
@@ -334,7 +356,7 @@ The syntax for the second part is:
 
 
 <blockquote><PRE>Main
- Case Message of
+ Case message of
   SingleClic:
   Begin
    # list of instructions which will be
@@ -545,6 +567,15 @@ Set the minimum value of the widget numbered <I>id1</I> to <I>id2</I>.
 <DT>ChangeTitle <I>id1 id2</I><DD>
 Set the title of the widget numbered <I>id1</I> to <I>id2</I>.
 <P>
+<DT>ChangeWindowTitle <I>string</I><DD>
+Set the title of the window to <I>string</I>.
+<P>
+<DT>ChangeWindowTitleFromArg <I>numarg</I><DD>
+Set the title of the window to the value of the <I>numarg</I>-th script argument.
+<P>
+<DT>ChangeLocaleTitle <I>id1 id2</I><DD>
+As ChangeTitle but use the locale catalog(s) defined with UseGettext.
+<P>
 <DT>ChangeIcon <I>id1 id2</I><DD>
 Set the icon of the widget numbered <I>id1</I> to <I>id2</I>.
 <P>
@@ -574,9 +605,13 @@ Warp the mouse pointer into the widget numbered <I>id</I>.
 Write to the file <I>filename</I> the string which is the concatenation of all
 arguments <I>str1</I>, <I>str2</I>, etc.
 <P>
-<DT>Do {<I>str1</I>} {<I>str2</I>} etc<DD>
-Execute the command which is the concatenation of all arguments <I>str1</I>,
-<I>str2</I>, etc.
+<DT>Do {<I>command args</I>}<DD>
+Execute the fvwm command inside the Do block.
+Any fvwm command as described in the fvwm2
+man page can be used.
+Commands are sent from this module to the fvwm
+main program for processing.
+The length of the command and arguments can not exceed 988 characters.
 <P>
 <DT>Set $<I>var</I>={<I>str</I>1} {<I>str2</I>} etc<DD>
 Concatenate all arguments to a string and set the variable $<I>var</I> to this
@@ -607,7 +642,7 @@ The
 and
 <I>Modifiers</I>
 
-fields are defined as in the fvwm2 Key command.
+fields are defined as in the fvwm Key command.
 <P>
 </DL>
 <A NAME="lbAO">&nbsp;</A>
@@ -716,6 +751,14 @@ This function returns the time in seconds.
 <DD>
 This function returns the process id of the script.
 <P>
+<DT>(Gettext {<I>str</I>})
+
+<DD>
+This function return the translation of
+<I>str</I>
+
+by using the locale catalog(s) defined with UseGettext.
+<P>
 <DT>(SendMsgAndGet {<I>comId</I>} {<I>cmd</I>} <I>bool</I>)
 
 <DD>
@@ -739,7 +782,7 @@ If
 is 1, then FvwmScript waits for an answer from the external program
 and the return value is this answer (a line of no more
 than 32000 characters). If the communication fails, the returned value is 0.
-See the section 
+See the section
 <B>A COMMUNICATION PROTOCOL</B>
 
 for a description of the communication protocol used.
@@ -846,7 +889,7 @@ End</PRE></blockquote>
 <A NAME="lbAR">&nbsp;</A>
 <H2>COMMANDS</H2>
 
-The following FVWM command may be executed at any time
+The following fvwm command may be executed at any time
 <P>
 SendToModule <I>ScriptName</I> SendString <I>id</I> <I>sig</I> <I>str</I>
 
@@ -859,7 +902,7 @@ the string
 SendString <I>id</I> <I>sig</I> <I>str</I>
 
 <P>
-When an FvwmScript recieves such a message it sends to the Widget
+When an FvwmScript receives such a message it sends to the Widget
 <I>id</I>
 
 the signal numbered
@@ -881,7 +924,7 @@ Property
  Title {Quit}
  ...
 Main
-Case Message of
+Case message of
 
   SingleClic:
   Begin
@@ -915,6 +958,41 @@ Then the command
 
 forces MyScript to exit if str is equal to &quot;Quit&quot; and if not it changes
 the title of Widget 33 to str.
+<P>
+<P>
+This command can be used to change the window title
+<P>
+SendToModule <I>ScriptName</I> ChangeWindowTitle  <I>newTitle</I> <I>[oldTitle]</I>
+
+<P>
+it causes that any module with alias or name which matches
+<I>ScriptName</I>
+
+changes its associated window title to <I>newTitle</I>. The optional argument
+<I>oldTitle</I> makes sense when there are several instances of
+the same script. It permits to avoid changing the name  of all these instances
+by specifying the name of the window associated to the target script (see the
+example below).
+<P>
+
+
+<P>
+
+
+<blockquote><PRE>+ I Module FvwmScript FvwmStorageSend &quot;/dev/hda6&quot;
++ I Wait FvwmStorageSend
++ I SendToModule FvwmStorageSend ChangeWindowTitle HDA6
++ I Module FvwmScript FvwmStorageSend &quot;/dev/hda1&quot;
++ I Wait FvwmStorageSend
++ I SendToModule FvwmStorageSend ChangeWindowTitle HDA1 FvwmStorageSend</PRE></blockquote>
+<P>
+
+
+
+<P>
+Without the FvwmStorageSend argument in the last case, the SendToModule command would
+have changed to HDA1 the name of both instances of FvwmStorageSend.
+<P>
 <P>
 <A NAME="lbAS">&nbsp;</A>
 <H2>EXAMPLES</H2>
@@ -986,11 +1064,11 @@ for a good implementation of the protocol (use the GetPid function and
 pass the
 <I>comId</I>
 
-via an option to the program). The protocol uses two fifos, in the FVWM user
+via an option to the program). The protocol uses two fifos, in the fvwm user
 directory, named:
 .tmp-com-in-<I>comId</I> and .tmp-com-out-<I>comId</I>.
 
-The program should create and listen on the 
+The program should create and listen on the
 .tmp-com-in-<I>comId</I>
 
 fifo. Then, when FvwmScript executes a function of the form:
@@ -1011,7 +1089,7 @@ to support multi-communications). If
 
 is 0, FvwmScript does not wait for an answer from the program and
 return 1 if the previous actions succeed and 0 if they failed
-(then the program should &quot;go back&quot; to the in fifo). 
+(then the program should &quot;go back&quot; to the in fifo).
 If
 <I>bool</I>
 
@@ -1032,7 +1110,7 @@ function to handle multiple lines as one line).
 A simple way to understand this protocol and to write scripts and
 programs that use it is to take a look at
 the (not useful) example FvwmScript-ComExample and
-fvwm-script-ComExample.pl (that can found in the FVWM data
+fvwm-script-ComExample.pl (that can found in the fvwm data
 directory). Moreover, this implementation of the protocol solves
 questions as: What to do if the script exits for a bad reason?
 What to do if the program exits for a bad reason? ...etc.
@@ -1081,11 +1159,11 @@ FvwmScript crashes if widgets are accessed that have not been defined.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:37 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

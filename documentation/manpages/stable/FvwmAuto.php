@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmAuto";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,23 +42,38 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmAuto in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmAuto in stable branch (2.7.1)"); ?>
 
 <H1>FvwmAuto</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-<I>FvwmAuto</I> - the FVWM auto-raise module
+<I>FvwmAuto</I> - the fvwm auto-raise module
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-<I>FvwmAuto</I> is spawned by fvwm, so no command line invocation will work.
+<PRE>
+Module FvwmAuto Timeout [-passid] [-menter|-menterleave|-mfocus] [EnterCommand [LeaveCommand]]
+</PRE>
+
+<I>FvwmAuto</I> can only be invoked by fvwm.
+Command line invocation of the <I>FvwmAuto</I> will not work.
+<P>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+The <I>FvwmAuto</I> module is most often used to automatically raise
+focused windows.
+<P>
+<A NAME="lbAE">&nbsp;</A>
+<H2>INVOCATION</H2>
+
 The correct syntax is:
-<blockquote><PRE>Module FvwmAuto Timeout [EnterCommand [LeaveCommand]]
+<blockquote><PRE>Module FvwmAuto Timeout [-passid] [-menter|-menterleave|-mfocus] [EnterCommand [LeaveCommand]]
 
 AddToMenu Modules
 + &quot;Auto Raise (300 ms)&quot;  Module FvwmAuto 300
@@ -68,10 +83,49 @@ AddToMenu Modules
 
 
 
-The <I>Timeout</I> argument is required. It specifies how long a window must
-retain the keyboard input focus before the command is executed. The
-delay is measured in milliseconds, and any integer 0 or greater is
-acceptable.
+The <I>Timeout</I> argument is required. It specifies how long a
+window must retain the keyboard input focus before the command is
+executed. The delay is measured in milliseconds, and any integer
+greater than zero is valid.
+<P>
+If the literal option <I>-passid</I> is given, the window id of the
+window just entered or left is appended to the command that is
+sent to fvwm.  This can be used with the <B>WindowId</B> command of
+fvwm.
+<P>
+The options <I>-menter</I>, <I>-menterleave</I> and <I>-mfocus</I>
+influence the actions FvwmAuto reacts to.  No more than one of the
+options can be chosen.  In
+<I>-mfocus</I>
+
+mode, FvwmAuto raises the window that has the focus.  In
+<I>-menter</I>
+
+mode, FvwmAuto raises the window under the pointer when the
+pointer enters a window.  The
+<I>LeaveCommand</I>
+
+is executed on the window that was below the pointer before it
+entered the new window.  When the pointer leaves a window and
+enters the root window, the
+<I>EnterCommand</I>
+
+is executed too, but without a window to operate on.  In
+<I>-menterleave</I>
+
+mode, FvwmAuto works just like in
+<I>-menter</I>
+
+mode, but the
+<I>LeaveCommand</I>
+
+is also executed if the pointer moves out of a window but does not
+enter a new window.  The latter two modes of operation are useful
+with windows that do not accept the focus.
+<P>
+Note: -menterleave mode can interfere with popup windows of some
+applications.  One example is the zoom menu of Ghostview.  Please
+do not complain about this to us - it is a bug in Ghostview.
 <P>
 <I>EnterCommand</I> and <I>LeaveCommand</I> are optional.
 <I>EnterCommand</I> is executed <I>Timeout</I> milliseconds after a
@@ -95,6 +149,42 @@ Module FvwmAuto 0 Nop &quot;Silent Iconify&quot;</PRE></blockquote>
 
 
 <P>
+An example for auto raising windows with ClickToFocus:
+<blockquote><PRE>Style * ClickToFocus
+FvwmAuto 0 -menter &quot;Silent Raise&quot;</PRE></blockquote>
+<P>
+
+
+
+<P>
+An example for auto raising and lowering only some windows:
+<PRE>
+To start FvwmAuto:
+
+
+<blockquote>
+FvwmAuto 0 -passid -menter \
+&quot;Silent selective_raiselower raise&quot; \
+&quot;Silent selective_raiselower lower&quot;</PRE></blockquote>
+<P>
+
+
+
+And put this in your .fvwm2rc:
+
+
+<P>
+
+
+<blockquote><PRE>AddToFunc selective_raiselower
++ I WindowId $1 (FvwmIconMan) $0
++ I WindowId $1 (FvwmButtons) $0
++ I WindowId $1 (xclock) $0</PRE></blockquote>
+<P>
+
+
+
+<P>
 More complex example (three FvwmAuto's are running):
 <blockquote><PRE>DestroyFunc RestoreIconified
 AddToFunc   RestoreIconified
@@ -102,11 +192,11 @@ AddToFunc   RestoreIconified
 
 DestroyFunc RegisterFocus
 AddToFunc   RegisterFocus
-+ I Exec echo &quot;`date +%T` $n focussed&quot; &gt;&gt;/tmp/focus-stats.txt
++ I Exec date +&quot;%T $n focused&quot; &gt;&gt;/tmp/focus-stats.txt
 
 DestroyFunc RegisterUnfocus
 AddToFunc   RegisterUnfocus
-+ I Exec echo &quot;`date +%T` $n unfocussed&quot; &gt;&gt;/tmp/focus-stats.txt
++ I Exec date +&quot;%T $n unfocused&quot; &gt;&gt;/tmp/focus-stats.txt
 
 KillModule FvwmAuto
 Module FvwmAuto 250 Raise Nop
@@ -117,21 +207,24 @@ Module FvwmAuto   0 RegisterFocus RegisterUnfocus</PRE></blockquote>
 
 
 <P>
-<A NAME="lbAD">&nbsp;</A>
+<A NAME="lbAF">&nbsp;</A>
 <H2>NOTES</H2>
 
 <P>
 There is a special Raise/Lower support in FvwmAuto. It was added to improve
 Raise/Lower callbacks, since most of FvwmAuto usages is auto-raising or
-auto-lowering. This imrovement includes locking on M_RAISE_WINDOW and
-M_LOWER_WINDOW packets and not raising/lowering explicitely raised windows.
+auto-lowering. This improvement includes locking on M_RAISE_WINDOW and
+M_LOWER_WINDOW packets and not raising/lowering explicitly raised windows.
 The special Raise/Lower support is enabled only when either
 <I>EnterCommand</I> or <I>LeaveCommand</I> contain substring &quot;Raise&quot; or
 &quot;Lower&quot;. You can use this fact to enable/disable any special support by
 renaming these commands, if FvwmAuto does not automatically do want you
 expect it to do.
 <P>
-<A NAME="lbAE">&nbsp;</A>
+Using <I>FvwmAuto</I> in conjunction with <I>EdgeCommand</I> can be even
+more powerful. There is a short example in the <I>fvwm</I> man page.
+<P>
+<A NAME="lbAG">&nbsp;</A>
 <H2>AUTHOR</H2>
 
 <PRE>
@@ -144,16 +237,18 @@ FvwmAuto was simply rewritten 09/96, nobody knows by whom.
 <DL>
 <DT><A HREF="#lbAB">NAME</A><DD>
 <DT><A HREF="#lbAC">SYNOPSIS</A><DD>
-<DT><A HREF="#lbAD">NOTES</A><DD>
-<DT><A HREF="#lbAE">AUTHOR</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">INVOCATION</A><DD>
+<DT><A HREF="#lbAF">NOTES</A><DD>
+<DT><A HREF="#lbAG">AUTHOR</A><DD>
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:35 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

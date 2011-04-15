@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmConsoleC.pl";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,10 +42,10 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmConsoleC.pl in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmConsoleC.pl in stable branch (2.7.1)"); ?>
 
 <H1>FvwmConsoleC.pl</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
@@ -53,18 +53,18 @@ Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This pag
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmConsoleC.pl - Command editor for FVWM command input interface 
+FvwmConsoleC.pl - Command editor for fvwm command input interface
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
-FvwmConsole -e /usr/X11/lib/fvwm2/FvwmConsoleC.pl
+FvwmConsole -e /usr/X11/lib/fvwm/FvwmConsoleC.pl
 <P>
 <A NAME="lbAD">&nbsp;</A>
 <H2>COPYRIGHT</H2>
 
 Copyright 1996, Toshi Isogai. No guarantees or warranties are provided.
 Use this program at your own risk. Permission to use this program for
-any purpose is given, as long as the copyright is kept intact. 
+any purpose is given, as long as the copyright is kept intact.
 <P>
 <P>
 <A NAME="lbAE">&nbsp;</A>
@@ -72,7 +72,7 @@ any purpose is given, as long as the copyright is kept intact.
 
 FvwmConsoleC.pl offers editing capabilities  while  the  user  is
 entering  the line.  By default, the line editing commands
-are similar to those of emacs. It also offers 
+are similar to those of emacs. It also offers
 <B>substitution</B>
 
 , which replaces a pattern to a string before it sends the command.
@@ -86,7 +86,7 @@ default key bindings.
 <DL COMPACT><DT><DD>
 <DL COMPACT>
 <DT><B>bind</B><DD>
-<I>Meta-k, Cntl-x Cntl-b</I>
+<I>Meta-k, Ctrl-x Ctrl-b</I>
 <BR>
 
 
@@ -101,16 +101,16 @@ Move to the beginning of history.
 Move to the beginning of history. If it is in search mode,
 continue.
 <DT><B>bol</B><DD>
-<I>Home, Cntl-a</I>
+<I>Home, Ctrl-a</I>
 <BR>
 
 Move cursor to the beginning of the line.
-<DT><B>bs[(n)]</B> <I>BackSpace, Cntl-h</I><DD>
+<DT><B>bs[(n)]</B> <I>BackSpace, Ctrl-h</I><DD>
 <BR>
 
 Backspace n times. default of n is 1.
 <DT><B>cancel</B><DD>
-<I>Cntl-x Cntl-k</I>
+<I>Ctrl-x Ctrl-k</I>
 <BR>
 
 Cancel the current input.
@@ -118,14 +118,14 @@ Cancel the current input.
 <BR>
 
 Delete the line from the beginning to the cursor.
-<DT><B>del_back_word</B> <I>Cntl-w</I><DD>
+<DT><B>del_back_word</B> <I>Ctrl-w</I><DD>
 <BR>
 
 Delete the word from the beginning to the cursor.
-<DT><B>del_char [(n)]</B> <I>Delete, Cntl-d</I><DD>
+<DT><B>del_char [(n)]</B> <I>Delete, Ctrl-d</I><DD>
 Delete n characters from the cursor to the right. Default of n
 is 1.
-<DT><B>del_forw_line</B> <I>Cntl-k</I><DD>
+<DT><B>del_forw_line</B> <I>Ctrl-k</I><DD>
 <BR>
 
 Delete the line from the cursor to the end.
@@ -133,19 +133,19 @@ Delete the line from the cursor to the end.
 <BR>
 
 Delete the word from the cursor to the end.
-<DT><B>del_line</B> <I>Cntl-u</I><DD>
+<DT><B>del_line</B> <I>Ctrl-u</I><DD>
 <BR>
 
 Delete the entire line.
 <DT><B>enter</B><DD>
-<I>Enter, Cntl-j, Cntl-m</I>
+<I>Enter, Ctrl-j, Ctrl-m</I>
 <BR>
 
-Perform substitution if applicable and send the line to Fvwm.
+Perform substitution if applicable and send the line to fvwm.
 <DT><B>enter_wo_subst</B> <I>Meta-Enter</I><DD>
 <BR>
 
-Send the line to Fvwm without any substitution.
+Send the line to fvwm without any substitution.
 <DT><B>eoh</B><DD>
 <BR>
 
@@ -155,7 +155,7 @@ Move to the end of history.
 
 Move to the end of history. If it is in search mode, continue.
 <DT><B>eol</B><DD>
-<I>End, Cntl-e</I>
+<I>End, Ctrl-e</I>
 <BR>
 
 Move the cursor to the end of line.
@@ -175,11 +175,11 @@ Insert the n-th argument of the previous command at the cursor.
 <BR>
 
 List up available editing functions.
-<DT><B>next_char</B> <I>Right, Cntl-f</I><DD>
+<DT><B>next_char</B> <I>Right, Ctrl-f</I><DD>
 <BR>
 
 Move the cursor to the next character.
-<DT><B>next_line</B> <I>Down, Cntl-n</I><DD>
+<DT><B>next_line</B> <I>Down, Ctrl-n</I><DD>
 <BR>
 
 Move to the next line in history.
@@ -190,12 +190,12 @@ Move the cursor to the next word.
 <DT><B>prefix</B><DD>
 <BR>
 
-Wait for the next character typed in  for multi-key binding. 
-<DT><B>prev_char</B> <I>Left, Cntl-b</I><DD>
+Wait for the next character typed in  for multi-key binding.
+<DT><B>prev_char</B> <I>Left, Ctrl-b</I><DD>
 <BR>
 
 Move the cursor to the previous character.
-<DT><B>prev_line</B> <I>Up, Cntl-p</I><DD>
+<DT><B>prev_line</B> <I>Up, Ctrl-p</I><DD>
 <BR>
 
 Move to the previous line in history.
@@ -204,16 +204,16 @@ Move to the previous line in history.
 
 Move the cursor to the previous word.
 <DT><B>quote</B><DD>
-<I>Cntl-q</I>
+<I>Ctrl-q</I>
 <BR>
 
 Insert the next character  typed  into  the  buffer literally.
 <DT><B>search</B><DD>
-<I>Cntl-s</I>
+<I>Ctrl-s</I>
 <BR>
 
 Search pattern in history.
-<DT><B>search_rev</B> <I>Cntl-r</I><DD>
+<DT><B>search_rev</B> <I>Ctrl-r</I><DD>
 <BR>
 
 Search pattern in history in reverse order.
@@ -223,7 +223,7 @@ Search pattern in history in reverse order.
 
 Substitute all patterns to strings and reprint the line.
 The substitutions are not nested and performed in the order
-that they are defined. 
+that they are defined.
 </DL>
 </DL>
 
@@ -247,7 +247,7 @@ In order to undefine, omit the last argument.
 </DL>
 
 <P>
-Note that non-meta character is case sensitive. 
+Note that non-meta character is case sensitive.
 \c means control key, \e means escape, and \m is alt key.
 <BR>
 
@@ -260,13 +260,13 @@ string. Example:
 </DL>
 
 <P>
-Typing 'bigx&lt;return&gt;' in FvwmConsole will launch xterm. '^' denotes 
-the beginning of line in 
-<B>regular expression. </B>
+Typing 'bigx&lt;return&gt;' in FvwmConsole will launch xterm. '^' denotes
+the beginning of line in
+<B>regular expression.</B>
 
 'pl' in the middle
 of the command will not be replaced. Although the format looks different,
-it takes Perl regular expression. 
+it takes Perl regular expression.
 It just uses single or double quote as the delimiter.
 Single or double quotes have no difference, although they have to match,
 and cannot include itself in the string.
@@ -286,12 +286,12 @@ FvwmConsoleC.pl should be invoked by FvwmConsole.
 <A NAME="lbAI">&nbsp;</A>
 <H2>SEE ALSO</H2>
 
-<A HREF="http://localhost/cgi-bin/man/man2html/1x+FvwmConsole">FvwmConsole</A>(1x), <A HREF="http://localhost/cgi-bin/man/man2html/1+perlre">perlre</A>(1)
+<A HREF="/cgi-bin/man/man2html/1x+FvwmConsole">FvwmConsole</A>(1x), <A HREF="/cgi-bin/man/man2html/1+perlre">perlre</A>(1)
 <P>
 <A NAME="lbAJ">&nbsp;</A>
 <H2>AUTHOR</H2>
 
-Toshi Isogai  
+Toshi Isogai
 <P>
 
 <HR>
@@ -309,11 +309,11 @@ Toshi Isogai
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:36 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

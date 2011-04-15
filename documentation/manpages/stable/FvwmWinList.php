@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmWinList";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,17 +42,17 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmWinList in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmWinList in stable branch (2.7.1)"); ?>
 
 <H1>FvwmWinList</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-FvwmWinList - the FVWM window list module
+FvwmWinList - the fvwm window list module
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
@@ -64,7 +64,7 @@ FvwmWinList is spawned by fvwm, so no command line invocation will work.
 <H2>DESCRIPTION</H2>
 
 The FvwmWinList module provides a window list made up of buttons, each
-corresponding to a window that FVWM is managing.  Clicking on the buttons
+corresponding to a window that fvwm is managing.  Clicking on the buttons
 with any of the three mouse buttons will either do a default action or
 can be user configured.  Like the other modules, FvwmWinList only works
 when fvwm is used as the window manager.
@@ -82,9 +82,9 @@ as the copyright is kept intact.
 <A NAME="lbAF">&nbsp;</A>
 <H2>INITIALIZATION</H2>
 
-During initialization, <I>FvwmWinList</I> gets config info from <B>fvwm</B>'s
-module configuration database (see 
-<I><a href="<?php echo conv_link_target('./fvwm2.php');?>">fvwm2</a></I>(1),
+During initialization, <I>FvwmWinList</I> gets config info from <B><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></B>'s
+module configuration database (see
+<I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1),
 
 section
 <B>MODULE COMMANDS</B>).
@@ -95,14 +95,11 @@ Available options are discussed in a later section.
 <H2>INVOCATION</H2>
 
 FvwmWinList can be invoked by fvwm during initialization by inserting the
-line 'Module FvwmWinList' in the .fvwmrc file.
+line 'Module FvwmWinList' in the .fvwm2rc file.
 <P>
 FvwmWinList can also be bound to a keystroke, mouse button, or menu option to
 be invoked later, in this case using 'Transient' as an argument will cause
 FvwmWinList to resemble the built in window list.
-<P>
-FvwmWinList must reside in a directory that is listed in the ModulePath option
-of FVWM for it to be executed by FVWM.
 <P>
 <A NAME="lbAH">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS</H2>
@@ -134,12 +131,12 @@ has the input focus. Defaults to 1.
 <P>
 <DT>*FvwmWinList: FocusFore <I>color</I><DD>
 Specifies the color to use for the button names for the window that
-has the input focus. If omitted, the color from <B>FvwmWinListFore</B>
+has the input focus. If omitted, the color from <B>*FvwmWinList: Fore</B>
 is used. Cancels *FvwmWinList: FocusColorset.
 <P>
 <DT>*FvwmWinList: FocusBack <I>color</I><DD>
 Specifies the color to use for the button for the window that
-has the input focus. If omitted, the color from <B>FvwmWinListBack</B>
+has the input focus. If omitted, the color from <B>*FvwmWinList: Back</B>
 is used. Cancels *FvwmWinList: FocusColorset.
 <P>
 <DT>*FvwmWinList: IconColorset <I>n</I><DD>
@@ -148,12 +145,12 @@ are iconified. Defaults to 0.
 <P>
 <DT>*FvwmWinList: IconFore <I>color</I><DD>
 Specifies the color to use for the button names for windows that
-are iconified. If omitted, the color from <B>FvwmWinListFore</B>
+are iconified. If omitted, the color from <B>*FvwmWinList: Fore</B>
 is used. Cancels *FvwmWinList: IconColorset.
 <P>
 <DT>*FvwmWinList: IconBack <I>color</I><DD>
 Specifies the color to use for the button for windows that
-are iconified. If omitted, the color from <B>FvwmWinListBack</B>
+are iconified. If omitted, the color from <B>*FvwmWinList: Back</B>
 is used. Cancels *FvwmWinList: IconColorset.
 <P>
 <DT>*FvwmWinList: DontDepressFocus<DD>
@@ -164,8 +161,8 @@ input focus as pressed in. This option disables that feature.
 Specify the width of the 3D borders around the buttons in FvwmWinList.
 <P>
 <DT>*FvwmWinList: FollowWindowList<DD>
-Specifies that FvwmWinList will keep its list in the same order as FVWM.
-This is the order displayed by the &quot;WindowList NoDeskSort&quot; FVWM command.
+Specifies that FvwmWinList will keep its list in the same order as fvwm.
+This is the order displayed by the &quot;WindowList NoDeskSort&quot; fvwm command.
 This is not the default as it is more visually disturbing when the focus
 changes.
 <P>
@@ -201,7 +198,7 @@ values.  Setting them identically will fix the size of the buttons.
 Setting Max &lt; Min will have unpredictable results.
 <P>
 <DT>*FvwmWinList: TruncateLeft<DD>
-If names get truncated because of the setting of <B>FvwmWinListMaxWidth</B>,
+If names get truncated because of the setting of <B>FvwmWinList: MaxWidth</B>,
 they will normally get truncated on the right, so only the start of the names
 are visible. Setting this resource will cause them to get truncated on the left,
 so that the end of names are visible. This is useful when the window title
@@ -230,7 +227,7 @@ null action turns this feature off.
 <A NAME="lbAI">&nbsp;</A>
 <H2>SAMPLE CONFIGURATION</H2>
 
-The following are excepts from a .fvwmrc file which describe FvwmWinList
+The following are excepts from a .fvwm2rc file which describe FvwmWinList
 initialization commands:
 <P>
 <PRE>
@@ -297,11 +294,11 @@ Various Patches by
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:38 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->

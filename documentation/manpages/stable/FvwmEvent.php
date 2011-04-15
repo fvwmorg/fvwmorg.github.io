@@ -30,7 +30,7 @@ $link_picture   = "pictures/icons/doc_manpages";
 $parent_site    = "documentation";
 $child_sites    = array();
 $requested_file = basename(my_get_global("PHP_SELF", "SERVER"));
-$this_site      = "manpages";
+$this_site      = "manpages_stable_FvwmEvent";
 
 //--------------------------------------------------------------------
 // load the layout file
@@ -42,17 +42,17 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for FvwmEvent in stable branch (2.4.16)"); ?>
+<?php decoration_window_start("Manual page for FvwmEvent in stable branch (2.7.1)"); ?>
 
 <H1>FvwmEvent</H1>
-Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This page contents</A>
+Section: Fvwm Modules (1)<BR>Updated: (not released yet) (2.7.1)<BR><A HREF="#index">This page contents</A>
  - <a href="<?php echo conv_link_target('./');?>">Return to main index</A><HR>
 
 
 <A NAME="lbAB">&nbsp;</A>
 <H2>NAME</H2>
 
-<I>FvwmEvent</I> - the FVWM Event module
+<I>FvwmEvent</I> - the fvwm event module
 <A NAME="lbAC">&nbsp;</A>
 <H2>SYNOPSIS</H2>
 
@@ -60,7 +60,7 @@ Section: User Commands  (1)<BR>Updated: 3 July 2001<BR><A HREF="#index">This pag
 It can in general be used to hook any <I>fvwm</I> function or program to any
 window manager event. E.g: Delete unwanted Netscape Pop ups or
 application error pop ups as they appear, play sounds, log events to a
-file and the like. Be creative, You'll find a use for it.
+file and the like. Be creative, you'll find a use for it.
 <P>
 <I>FvwmEvent</I> is spawned by <I>fvwm</I>, so no command line invocation will
 work.  From within the <I>.fvwm2rc</I> file, <I>FvwmEvent</I> is spawned as
@@ -125,9 +125,9 @@ creating a symlink) enables FvwmAudio compatibility mode.
 <A NAME="lbAF">&nbsp;</A>
 <H2>CONFIGURATION OPTIONS</H2>
 
-<I>FvwmEvent</I> gets config info from <B>fvwm</B>'s module configuration
+<I>FvwmEvent</I> gets config info from <B><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></B>'s module configuration
 database (see
-<I><a href="<?php echo conv_link_target('./fvwm2.php');?>">fvwm2</a></I>(1),
+<I><a href="<?php echo conv_link_target('./fvwm.php');?>">fvwm</a></I>(1),
 
 section
 <B>MODULE COMMANDS</B>),
@@ -219,16 +219,19 @@ e.g. for audio-events:
 
         *FvwmEvent: new_page beam_trek.au
         *FvwmEvent: new_desk beam_trek.au
-        *FvwmEvent: add_window drip.au
+        *FvwmEvent: old_add_window drip.au
         *FvwmEvent: raise_window swoosh.au
         *FvwmEvent: lower_window swoosh.au
-        *FvwmEvent: configure_window hammer.au
+        *FvwmEvent: old_configure_window hammer.au
         *FvwmEvent: focus_change boing.au
+        *FvwmEvent: enter_window boing.au
+        *FvwmEvent: leave_window boing.au
         *FvwmEvent: destroy_window explosion.au
         *FvwmEvent: iconify ploop.au
         *FvwmEvent: deiconify ploop.au
         *FvwmEvent: window_name huh.au
         *FvwmEvent: icon_name beep.au
+        *FvwmEvent: visible_icon_name beep.au
         *FvwmEvent: res_class beep.au
         *FvwmEvent: res_name beep.au
         *FvwmEvent: end_windowlist twang.au
@@ -241,10 +244,20 @@ e.g. for audio-events:
         *FvwmEvent: icon_file beep.au
         *FvwmEvent: default_icon beep.au
         *FvwmEvent: string plapper.au
-
         *FvwmEvent: mini_icon beep.au
         *FvwmEvent: windowshade beep.au
         *FvwmEvent: dewindowshade beep.au
+
+        *FvwmEvent: visible_name beep.au
+        *FvwmEvent: sendconfig beep.au
+        *FvwmEvent: restack beep.au
+        *FvwmEvent: add_window beep.au
+        *FvwmEvent: configure_window beep.au
+
+        *FvwmEvent: visible_icon_name beep.au
+        *FvwmEvent: enter_window beep.au
+        *FvwmEvent: leave_window beep.au
+        *FvwmEvent: property_change beep.au
 
 </PRE>
 
@@ -252,6 +265,16 @@ The window related event handlers are executed within a window
 context.  Previously PassId was used for this purpose, but now using
 PassId is not needed.
 <P>
+Note: The enter_window event is generated when the pointer enters
+a window.  With the -passid option, that window's id is passed to
+fvwm.  An enter_window event is generated too when the pointer
+leaves a window and moves into the root window.  In this case, the
+id passed is 0.
+<P>
+Note: When the shutdown event arrives, FvwmEvent may be killed
+before it can trigger the associated action.
+<P>
+
 Provided <I>fvwm</I> supports it (not yet), there's an additional event to
 replace all <I>fvwm</I> beeps with a sound:
 <PRE>
@@ -337,7 +360,7 @@ You can use FvwmEvent: StartDelay to fix this problem.
 This module has evolved of <I>FvwmAudio</I>, which in term is heavily based
 on a similar Fvwm module called <I>FvwmSound</I> by Mark
 Boyns. <I>FvwmAudio</I> simply took Mark's original program and
-extended it to make it generic enough to work with any Audio
+extended it to make it generic enough to work with any audio
 player. Due to different requests to do specific things on specific events,
 <I>FvwmEvent</I> took this one step further and now calls any
 <I>fvwm</I> function, or builtin-rplay. If <I>fvwm</I>'s Exec function
@@ -380,11 +403,11 @@ program for any purpose is given, as long as the copyright is kept intact.
 </DL>
 <HR>
 This document was created by
-man2html,
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
 using the manual pages.<BR>
-Time: 17:47:36 GMT, May 30, 2003
+Time: 16:22:47 GMT, April 15, 2011
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-May-2003 -->
+<!-- Automatically generated by manpages2php on 15-Apr-2011 -->
