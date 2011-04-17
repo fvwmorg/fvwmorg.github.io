@@ -1,3 +1,7 @@
+2011-04-17  Thomas Adam <thomas@fvwm.org>
+	* download/index.php:
+	Remove reference to bug tracker.
+
 2011-04-16  Thomas Adam <thomas@fvwm.org>
 	* documentation/manpages/stable:
 	* index.php:

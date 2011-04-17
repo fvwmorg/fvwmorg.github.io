@@ -92,11 +92,7 @@ if(!isset($site_has_been_loaded)) {
 
   Just click on the links above to download them.
   <p>
-    If you find any bugs, you can enter them into the
-    <a href="http://www.fvwm.org/cgi-bin/fvwm-bug">FVWM
-      Bug Tracking System</a>. If possible, please try searching to see if someone
-    else has already reported this bug. If you have more or better information,
-    feel free to add a note!
+    If you find any bugs, you can email the fvwm-workers mailing list.
   </p>
 
   <p>
