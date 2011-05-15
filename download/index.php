@@ -66,14 +66,6 @@ if(!isset($site_has_been_loaded)) {
     </li>
 
     <li>Direct CVS access: see below</li>
-
-    <li>
-      RPM packages:
-      <a href="http://fvwm-themes.sourceforge.net/rpm/">here</a>
-
-    <li>
-      DEB packages:
-      <a href="http://fvwm-themes.sourceforge.net/deb/">here</a>
   </ul>
   
   <h4>Obsolete packages:</h4>
