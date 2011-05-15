@@ -72,7 +72,7 @@ if(!isset($site_has_been_loaded)) {
   <ul>
     <li>
       Older 2.x.x versions: <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/">here</a>
-      (<b>Note!</b> Versions prior to 2.4.0 are no longer supported.)</li>
+      (<b>Note!</b> Versions <strong>prior to 2.6.0 are no longer supported.)</strong></li>
     
     <li>
       Last 1.xx Version: <a href="ftp://ftp.fvwm.org/pub/fvwm/version-1/fvwm-1.24r.tar.gz">1.24r</a>
@@ -83,6 +83,11 @@ if(!isset($site_has_been_loaded)) {
   </ul>
 
   Just click on the links above to download them.
+
+  <p><em>If you happen to be using OpenBSD, and think also that the default version of FVWM which comes
+     with OpenBSD is supported, it isn't.  Please use 2.6.X -- it should be in ports.
+  </em></p>
+
   <p>
     If you find any bugs, you can email the fvwm-workers mailing list.
   </p>

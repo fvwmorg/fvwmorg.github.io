@@ -1,5 +1,13 @@
 2011-05-15  Thomas Adam <thomas@fvwm.org>
 	* download/index.php:
+	Deprecate 2.4.X officially now that 2.6.X has been out long enough for
+	most packagers to migrate.   Also, mention rather loudly for those
+	people on OpenBSD, that the version of FVWM which ships with it, is not
+	supported at all.  No matter how hard they might try and argue
+	otherwise.
+
+2011-05-15  Thomas Adam <thomas@fvwm.org>
+	* download/index.php:
 	Remove any mention of RPM/DEB packages.  They've not been updated  in
 	ages, and doing so is pointless given downstream's packaging techniques.
 
