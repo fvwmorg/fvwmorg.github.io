@@ -72,7 +72,7 @@ if(!isset($site_has_been_loaded)) {
   </p>
 
   <h4 class="cats">Niniel</h4>
-  <h5 class="cats">(full name: Niniel Nienor), female, * 13th of September 1998</h5>
+    <h5 class="cats">(full name: Niniel Nienor), female, * 13th of September 1998, + passed away in peace on 20th of May 2011</h5>
   <p class="cats">
     <a href="<?php echo conv_link_target('niniel.php');?>"><img src="small_niniel.jpg" border="1" alt=""></a>
       The smallest and cutest of my three cats. A saucy little whirlwind that loves
