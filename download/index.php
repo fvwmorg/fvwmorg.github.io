@@ -44,15 +44,9 @@ if(!isset($site_has_been_loaded)) {
   <h4>Current packages:</h4>
   <ul>
     <li>
-      Latest Stable Release (<b><a href="/news/#<?php echo $latest_stable_release; ?>"><?php echo $latest_stable_release; ?></a></b>):
+      Latest Release (<b><a href="/news/#<?php echo $latest_stable_release; ?>"><?php echo $latest_stable_release; ?></a></b>):
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.gz">tar.gz</a>,
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.bz2">tar.bz2</a>
-    </li>
-  
-    <li>
-      Latest Unstable Release (<b><a href="/news/#<?php echo $latest_unstable_release; ?>"><?php echo $latest_unstable_release; ?></a></b>):
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.gz">tar.gz</a>,
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_unstable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
 
     <li>
@@ -110,22 +104,6 @@ if(!isset($site_has_been_loaded)) {
   marks a release as a stable release (even number like 2.2.x) or as a development
   (i.e. alpha or beta) release (odd number like 2.3.4).
   
-  <h4>Stable release:</h4>
-  <p>
-    Use it if you have no specific reason to use one of the other
-    packages.  Questions about the stable releases should be asked on
-    our <a href="<?php echo conv_link_target('../contact/index.php');?>">Mailing List</a>.
-  </p>
-
-  <strong>If you use anything else but the latest stable release we will make
-    no promises that anything works.</strong>
-
-  <h4>Unstable release:</h4>
-  <p>
-    Use them if you can tolerate some bugs and really need one of the new
-    features.
-  </p>
-
   <h4>Older 2.x.x and 1.x versions:</h4>
   <p>
     Don't use them. If you encounter a problem we will most likely ask you

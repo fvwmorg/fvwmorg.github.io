@@ -52,14 +52,9 @@ and support is excellent.  Check it out!
 
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
   <tr>
-    <td class="windowcontents">Latest Stable Release: &nbsp; </td>
+    <td class="windowcontents">Latest Release: &nbsp; </td>
     <td class="windowcontents"><b><?php mylink("download", $latest_stable_release); ?> </b></td>
     <td class="windowcontents"><!-- img src="pictures/new.gif" width="28" height="12" hspace="5"--></td>
-  </tr>
-  <tr>
-    <td class="windowcontents">Latest Unstable Release: &nbsp; </td>
-    <td class="windowcontents"><b><?php mylink("download", $latest_unstable_release); ?> </b></td>
-    <td class="windowcontents"><img src="pictures/new.gif" width="28" height="12" hspace="5"></td>
   </tr>
 </table>
 <hr>
@@ -69,7 +64,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-    <b>News:</b> fvwm 2.6.0 has been released.
+    <b>News:</b> fvwm 2.6.1 has been released.
 <hr>
 <?php
 //--------------------------------------------------------------------

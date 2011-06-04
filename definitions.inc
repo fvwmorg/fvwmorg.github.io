@@ -274,6 +274,5 @@ $navgen_url      = $rel_path."/navgen.php";
 // release information
 //--------------------------------------------------------------------
 $latest_stable_release = "2.6.1";
-$latest_unstable_release = "2.7.0";
 
 ?>
