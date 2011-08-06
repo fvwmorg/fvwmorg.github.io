@@ -46,7 +46,6 @@ decoration_window_start("Latest News");
 <center>
 <table border="0" width="100%" cellspacing="2" summary="">
 <tr>
-<td><a href="#2.7.0" style="font-weight:normal;">&nbsp;2.7.0&nbsp;</a></td>
 <td><a href="#2.6.1" style="font-weight:normal;">&nbsp;2.6.1&nbsp;</a></td>
 <td><a href="#2.6.0" style="font-weight:normal;">&nbsp;2.6.0&nbsp;</a></td>
 <td><a href="#2.5.31" style="font-weight:normal;">&nbsp;2.5.31&nbsp;</a></td>
@@ -55,9 +54,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.28" style="font-weight:normal;">&nbsp;2.5.28&nbsp;</a></td>
 <td><a href="#2.5.27" style="font-weight:normal;">&nbsp;2.5.27&nbsp;</a></td>
 <td><a href="#2.5.26" style="font-weight:normal;">&nbsp;2.5.26&nbsp;</a></td>
+<td><a href="#2.5.25" style="font-weight:normal;">&nbsp;2.5.25&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.5.25" style="font-weight:normal;">&nbsp;2.5.25&nbsp;</a></td>
 <td><a href="#2.5.24" style="font-weight:normal;">&nbsp;2.5.24&nbsp;</a></td>
 <td><a href="#2.5.23" style="font-weight:normal;">&nbsp;2.5.23&nbsp;</a></td>
 <td><a href="#2.5.22" style="font-weight:normal;">&nbsp;2.5.22&nbsp;</a></td>
@@ -66,9 +65,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.19" style="font-weight:normal;">&nbsp;2.5.19&nbsp;</a></td>
 <td><a href="#2.5.18" style="font-weight:normal;">&nbsp;2.5.18&nbsp;</a></td>
 <td><a href="#2.5.17" style="font-weight:normal;">&nbsp;2.5.17&nbsp;</a></td>
+<td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.5.16" style="font-weight:normal;">&nbsp;2.5.16&nbsp;</a></td>
 <td><a href="#2.5.15" style="font-weight:normal;">&nbsp;2.5.15&nbsp;</a></td>
 <td><a href="#2.5.14" style="font-weight:normal;">&nbsp;2.5.14&nbsp;</a></td>
 <td><a href="#2.5.13" style="font-weight:normal;">&nbsp;2.5.13&nbsp;</a></td>
@@ -77,9 +76,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.10" style="font-weight:normal;">&nbsp;2.5.10&nbsp;</a></td>
 <td><a href="#2.5.9" style="font-weight:normal;">&nbsp;2.5.9&nbsp;</a></td>
 <td><a href="#2.5.8" style="font-weight:normal;">&nbsp;2.5.8&nbsp;</a></td>
+<td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.5.7" style="font-weight:normal;">&nbsp;2.5.7&nbsp;</a></td>
 <td><a href="#2.5.6" style="font-weight:normal;">&nbsp;2.5.6&nbsp;</a></td>
 <td><a href="#2.5.5" style="font-weight:normal;">&nbsp;2.5.5&nbsp;</a></td>
 <td><a href="#2.5.4" style="font-weight:normal;">&nbsp;2.5.4&nbsp;</a></td>
@@ -88,9 +87,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.5.1" style="font-weight:normal;">&nbsp;2.5.1&nbsp;</a></td>
 <td><a href="#2.5.0" style="font-weight:normal;">&nbsp;2.5.0&nbsp;</a></td>
 <td><a href="#2.4.20" style="font-weight:normal;">&nbsp;2.4.20&nbsp;</a></td>
+<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.4.19" style="font-weight:normal;">&nbsp;2.4.19&nbsp;</a></td>
 <td><a href="#2.4.18" style="font-weight:normal;">&nbsp;2.4.18&nbsp;</a></td>
 <td><a href="#2.4.17" style="font-weight:normal;">&nbsp;2.4.17&nbsp;</a></td>
 <td><a href="#2.4.16" style="font-weight:normal;">&nbsp;2.4.16&nbsp;</a></td>
@@ -99,9 +98,9 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.13" style="font-weight:normal;">&nbsp;2.4.13&nbsp;</a></td>
 <td><a href="#2.4.12" style="font-weight:normal;">&nbsp;2.4.12&nbsp;</a></td>
 <td><a href="#2.4.11" style="font-weight:normal;">&nbsp;2.4.11&nbsp;</a></td>
+<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.4.10" style="font-weight:normal;">&nbsp;2.4.10&nbsp;</a></td>
 <td><a href="#2.4.9" style="font-weight:normal;">&nbsp;2.4.9&nbsp;</a></td>
 <td><a href="#2.4.8" style="font-weight:normal;">&nbsp;2.4.8&nbsp;</a></td>
 <td><a href="#2.4.7" style="font-weight:normal;">&nbsp;2.4.7&nbsp;</a></td>
@@ -110,26 +109,22 @@ decoration_window_start("Latest News");
 <td><a href="#2.4.4" style="font-weight:normal;">&nbsp;2.4.4&nbsp;</a></td>
 <td><a href="#2.4.3" style="font-weight:normal;">&nbsp;2.4.3&nbsp;</a></td>
 <td><a href="#2.4.2" style="font-weight:normal;">&nbsp;2.4.2&nbsp;</a></td>
+<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 </tr>
 <tr>
-<td><a href="#2.4.1" style="font-weight:normal;">&nbsp;2.4.1&nbsp;</a></td>
 <td><a href="#2.4.0" style="font-weight:normal;">&nbsp;2.4.0&nbsp;</a></td>
 </tr>
 </table>
 </center>
-<a name="2.7.1"></a>
-<h4>Changes in beta release 2.7.1 (not yet released) <a href="#top">[top]</a></h4>
+<a name="2.6.2"></a>
+<h4>Changes in stable release 2.6.2 (06-Aug-2011) <a href="#top">[top]</a></h4>
 <ul>
   <li> New features:</li>
+  <li> New MenuStyle &quot;UniqueHotkeyActivatesImmediate&quot; and its    negation &quot;!UniqueHotkeyActivatesImmediate&quot; to retain the menu    until the user presses one of the menu keybindings to enact    that change in the case where there's only one item defined in    the menu at the specified hotkey.</li>
   <li> Bug fixes:</li>
-</ul>
-
-
-<a name="2.7.0"></a>
-<h4>Changes in beta release 2.7.0 (15-Apr-2011) <a href="#top">[top]</a></h4>
-<ul>
-  <li> New features:</li>
-  <li> Bug fixes:</li>
+  <li> Fix infinite loop crash when FvwmButtons quits/restarts with    RootTransparent colorsets.</li>
+  <li> Fix setting window states across FVWM restarts where those    windows do not set WM_COMMAND.</li>
+  <li> Windows are now correctly restored when coming out of    fullscreen mode.</li>
 </ul>
 
 
