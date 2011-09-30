@@ -42,9 +42,9 @@ if(!isset($site_has_been_loaded)) {
 }
 ?>
 
-<?php decoration_window_start("Manual page for fvwm in stable branch (2.6.2)"); ?>
+<?php decoration_window_start("Manual page for fvwm in stable branch (2.6.4)"); ?>
 
-<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="idm2829240"></a>Fvwm 2.6.2</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
+<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="idm2829240"></a>Fvwm 2.6.4 (from cvs)</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
 memory consumption, provide a 3D look to window frames, and a
 virtual desktop.</p><p>Note that there are several window managers around that have
 "fvwm" in their name.  In the past, version 2.x of fvwm was
@@ -1349,7 +1349,10 @@ command can be used:</p><pre class="programlisting">
 	the selected window.  If the pointer is not on the screen, the
 	window is shaded or iconified or no window is selected, these
 	variables are not expanded.
-      </p></dd><dt><span class="term">$[screen]</span></dt><dd><p>
+      </p></dd><dt><span class="term">$[pointer.screen]</span></dt><dd><p>
+        The screen number the pointer is currently on.  Returns 0 if
+        Xinerama is not enabled.
+    </p></dd><dt><span class="term">$[screen]</span></dt><dd><p>
 	The screen number fvwm is running on.  Useful for setups with
 	multiple screens.
       </p></dd><dt><span class="term">
@@ -3519,10 +3522,10 @@ only in its layer.  To bring a window to the absolute bottom, use</p><pre class=
 <a href="#AddToFunc">AddToFunc</a> lower-to-bottom
  + I <a href="#Layer">Layer</a> 0 0
  + I Lower
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Move"></a>31.3.5. Move</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [[screen <em class="replaceable"><code>screen</code></em>]  [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]...   [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>]...  [Warp]] |  [pointer] </p></div><p>Allows the user to move a window.  If called from somewhere in a
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Move"></a>31.3.5. Move</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Move</code>   [[screen <em class="replaceable"><code>screen</code></em>]  [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>x</code></em>[<span class="optional">  p  |   w  </span>]...   [<span class="optional">  w  |   m  </span>]<em class="replaceable"><code>y</code></em>[<span class="optional">  p  |   w  </span>]...  [Warp]] |  [pointer] |  [ewmhiwa] </p></div><p>Allows the user to move a window.  If called from somewhere in a
 window or its border, then that window is moved.  If called from
 the root window then the user is allowed to select the target
-window.</p><p>If the literal option <a name="Move_screen"></a><font class="fvwmopt">screen</font> followed by a
+window.  By default, the EWMH working area is honoured.</p><p>If the literal option <a name="Move_screen"></a><font class="fvwmopt">screen</font> followed by a
 <em class="replaceable"><code>screen</code></em>
 argument is specified, the coordinates are interpreted as relative
 to the given screen.  The width and height of the screen are used
@@ -3539,7 +3542,11 @@ argument
 is given, the top left corner of the window is moved to the
 pointer position before starting the operation; this is mainly
 intended for internal use by modules like
-<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or any mouse
+<a href="<?php echo conv_link_target('FvwmPager.php');?>">FvwmPager</a>.
+If the optional argument
+<a name="Move_ewmhiwa"></a><font class="fvwmopt">ewmhiwa</font>
+is given, then the window position will ignore the working area
+(such as ignoring any values set via <a href="#EwmhBaseStruts">EwmhBaseStruts</a>).</p><p>The operation can be aborted with <span class="keysym">Escape</span> or any mouse
 button not set to place the window. By default mouse button 2 is set to cancel
 the move operation. To change this you may use the
 <a href="#Mouse">Mouse</a>
@@ -3722,7 +3729,8 @@ it is obscured by any window (except for its own transients when
 <a href="#Style_RaiseTransient">RaiseTransient</a>
 style is used; see the
 <a href="#Style">Style</a>
-command) otherwise it is lowered.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Resize"></a>31.3.14. Resize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Resize</code>    [<span class="optional">[frame] [direction <em class="replaceable"><code>dir</code></em> [warptoborder]] [fixeddirection]  [<span class="optional">w</span>]<em class="replaceable"><code>width</code></em>[<span class="optional">  p  |   c  </span>]   [<span class="optional">w</span>]<em class="replaceable"><code>height</code></em>[<span class="optional">  p  |   c  </span>] </span>]</p></div><p>Allows for resizing a window.  If called from somewhere in a window
+command) otherwise it is lowered.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Resize"></a>31.3.14. Resize</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Resize</code>    [<span class="optional">[frame] [direction <em class="replaceable"><code>dir</code></em>] [warptoborder
+                <em class="replaceable"><code>automatic</code></em>] [fixeddirection]  [<span class="optional">w</span>]<em class="replaceable"><code>width</code></em>[<span class="optional">  p  |   c  </span>]   [<span class="optional">w</span>]<em class="replaceable"><code>height</code></em>[<span class="optional">  p  |   c  </span>] </span>]</p></div><p>Allows for resizing a window.  If called from somewhere in a window
 or its border, then that window is resized.  If called from the
 root window then the user is allowed to select the target window.</p><p>The operation can be aborted with <span class="keysym">Escape</span> or by pressing
 any mouse button (except button 1 which confirms it).</p><p>If the optional arguments
@@ -3766,12 +3774,17 @@ opposite border.  The
 <a name="Resize_direction"></a><font class="fvwmopt">direction</font>
 option must be followed by a direction name such as "NorthWest",
 "South" or "East" (you get the idea).  Resizing is started
-immediately, even if the pointer is not on a border.  The
-<a name="Resize_warptoborder"></a><font class="fvwmopt">warptoborder</font>
-option changes the behaviour of the
-<span class="emphasis"><em>direction</em></span>
-option so that the pointer is automatically warped to the border
-in the given direction before starting to resize.  Also, if
+immediately, even if the pointer is not on a border.   If the special option
+<a name="Resize_automatic"></a><font class="fvwmopt">automatic</font> is given as a direction argument, then
+the direction to resize is calculated based on the position of the pointer in
+the window.  If the pointer is in the middle of the window, then no direction is
+calculated.
+
+The <a name="Resize_warptoborder"></a><font class="fvwmopt">warptoborder</font>
+option can be used to warp the pointer to the direction indicated.  As with the
+<a name="Resize_automatic"></a><font class="fvwmopt">automatic</font> option for
+<a name="Resize_direction"></a><font class="fvwmopt">direction</font>, the border to warp to is
+calculated based on the pointer's proximity to a given border.  Also, if
 resizing is started by clicking on the window border, the pointer
 is warped to the outer edge of the border.</p><pre class="programlisting">
 <a href="#AddToFunc">AddToFunc</a> ResizeSE I Resize <a href="#Direction">Direction</a> SE
@@ -4730,7 +4743,7 @@ slashes ('/').  The last style in these groups is the default.
 <span class="emphasis"><em>StippledIconTitle</em></span> / <span class="emphasis"><em>!StippledIconTitle</em></span>,
 <span class="emphasis"><em>IndexedWindowName</em></span> / <span class="emphasis"><em>ExactWindowName</em></span>,
 <span class="emphasis"><em>IndexedIconName</em></span> / <span class="emphasis"><em>ExactIconName</em></span>,
-<span class="emphasis"><em>!Borders</em></span> / <span class="emphasis"><em>Borders</em></span>,
+<span class="emphasis"><em>TitleFormat</em></span> / <span class="emphasis"><em>IconTitleFormat</em></span> / <span class="emphasis"><em>!Borders</em></span> / <span class="emphasis"><em>Borders</em></span>,
 <span class="emphasis"><em>!Handles</em></span> / <span class="emphasis"><em>Handles</em></span>,
 <span class="emphasis"><em>WindowListSkip</em></span> / <span class="emphasis"><em>WindowListHit</em></span>,
 <span class="emphasis"><em>CirculateSkip</em></span> / <span class="emphasis"><em>CirculateHit</em></span>,
@@ -5158,7 +5171,7 @@ the
 command is used.  To revert back to the default, use the style
 without the name argument.  These styles replace the older
 <a href="#WindowFont">WindowFont</a> and <a name="Style_IconFont"></a><font class="fvwmopt">IconFont</font>
-commands.</p><p>The
+commands.</p><p>The deprecated
 <a name="Style_IndexedWindowName"></a><font class="fvwmopt">IndexedWindowName</font>
 style causes fvwm to use window titles in the form</p><pre class="programlisting">
 name (i)
@@ -5170,17 +5183,39 @@ is an integer which represents the
 <span class="emphasis"><em>i th</em></span>
 window with
 <span class="emphasis"><em>name</em></span>
-as window name.
-<a name="Style_ExactWindowName"></a><font class="fvwmopt">ExactWindowName</font>
-restores the default which is to use the exact window name.
-<a name="Style_IndexedIconName"></a><font class="fvwmopt">IndexedIconName</font>
+as window name.  This has been replaced with:</p><pre class="programlisting">
+TitleFormat %n (%t)
+</pre><p><a name="Style_ExactWindowName"></a><font class="fvwmopt">ExactWindowName</font>
+restores the default which is to use the exact window name.  Deprecated in
+favour of:</p><pre class="programlisting">
+    TitleFormat %n
+</pre><p><a name="Style_IndexedIconName"></a><font class="fvwmopt">IndexedIconName</font>
 and
 <a name="Style_ExactIconName"></a><font class="fvwmopt">ExactIconName</font>
 work the same as
 <span class="emphasis"><em>IndexedWindowName</em></span>
 and
 <span class="emphasis"><em>ExactWindowName</em></span>
-styles but for the icon titles.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="title_buttons"></a>31.7.5.4. Title buttons</h5></div></div></div><p><a name="Style_Button"></a><font class="fvwmopt">Button</font> and !<a name="Style_Button"></a><font class="fvwmopt">Button</font>
+styles but for the icon titles.  Both are deprecated in favour of:</p><pre class="programlisting">
+IconTitleFormat %n (%t)
+IconTitleFormat %n
+</pre><p><a name="Style_TitleFormat"></a><font class="fvwmopt">TitleFormat</font> describes what the visible
+name of a window should look like, with the following placeholders being
+valid:</p><div class="variablelist"><dl><dt><span class="term"><span class="emphasis"><em>%n</em></span></span></dt><dd><p>Insert the window's name.</p></dd><dt><span class="term"><span class="emphasis"><em>%i</em></span></span></dt><dd><p>Insert the window's icon name.</p></dd><dt><span class="term"><span class="emphasis"><em>%c</em></span></span></dt><dd><p>Insert the window's class name.</p></dd><dt><span class="term"><span class="emphasis"><em>%r</em></span></span></dt><dd><p>Insert the window's resource name.</p></dd><dt><span class="term"><span class="emphasis"><em>%t</em></span></span></dt><dd><p>Insert the window count.</p></dd><dt><span class="term"><span class="emphasis"><em>%I</em></span></span></dt><dd><p>Insert the window ID.</p></dd><dt><span class="term"><span class="emphasis"><em>%%</em></span></span></dt><dd><p>Insert a literal '%' character.</p></dd></dl></div><p>Any amount of whitespace may be used, along with other characters to
+    make up the string -- but a valid <a name="Style_TitleFormat"></a><font class="fvwmopt">TitleFormat</font>
+    string must contain at least one of the placeholders mentioned.  No
+    quote stripping is performed on the string, so for example the following
+    is printed verbatim:</p><pre class="programlisting">
+    TitleFormat " %n " -&gt; [%t] -&gt;      [%c]
+</pre><p>Note:  It's perfectly possible to use a
+<a name="Style_TitleFormat"></a><font class="fvwmopt">TitleFormat</font> which can result in wiping out the
+visible title altogether.  For example:</p><pre class="programlisting">
+    TitleFormat %z
+</pre><p>Simply because the placeholder '%z' isn't supported.  This is not a bug
+but rather a facet of how the formatting parser works.</p><p><a name="Style_IconTitleFormat"></a><font class="fvwmopt">IconTitleFormat</font> describes what the visible
+icon name of a window should look like, with the options being the same as
+<a name="Style_TitleFormat"></a><font class="fvwmopt">TitleFormat</font>.
+</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h5 class="title"><a name="title_buttons"></a>31.7.5.4. Title buttons</h5></div></div></div><p><a name="Style_Button"></a><font class="fvwmopt">Button</font> and !<a name="Style_Button"></a><font class="fvwmopt">Button</font>
 take a numeric argument which is the number of the title-bar
 button which is to be shown or omitted.
 <a name="Style_NoButton"></a><font class="fvwmopt">NoButton</font>
@@ -9051,10 +9086,10 @@ and normally are removed automatically when not used anymore.</p></dd></dl></div
 <code class="email">&lt;<a class="email" href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</code></p><p>The official fvwm homepage is
 <a class="ulink" href="http://fvwm.org/" target="_top">http://fvwm.org/</a>.</p></div></div>
 <hr /><a name="toc"></a><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#boolean_args">25. Boolean Arguments</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">26. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">27. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">27.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">27.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">28. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">29. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">30. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">31. List of Fvwm Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">31.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">31.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">31.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">31.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">31.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">31.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">31.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">31.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">31.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">31.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">31.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">31.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">31.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">31.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">32. Environment</a></span></dt><dt><span class="section"><a href="#authors">33. Authors</a></span></dt><dt><span class="section"><a href="#copyright">34. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">35. Bugs</a></span></dt></dl></div><hr />
-<P>fvwm 2.6.2</P>
+<P>fvwm 2.6.4 (from cvs)</P>
 
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 06-Aug-2011 -->
+<!-- Automatically generated by manpages2php on 30-Sep-2011 -->

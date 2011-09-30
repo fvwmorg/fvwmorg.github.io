@@ -64,7 +64,7 @@ and support is excellent.  Check it out!
 // -- begin news section
 //--------------------------------------------------------------------
 ?>
-    <b>News:</b> fvwm 2.6.2 has been released.
+    <b>News:</b> fvwm 2.6.3 has been released.
 <hr>
 <?php
 //--------------------------------------------------------------------
