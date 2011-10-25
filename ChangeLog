@@ -1,3 +1,12 @@
+2011-10-25  Thomas Adam <thomas@fvwm.org>
+	* freenode.txt:
+	Added Freenode verification file for group registrations
+
+	"As part of the verification process for your GRF-f request, please
+	upload a static plain-text file to http://www.fvwm.org/freenode.txt with
+	the contents "aoisenfto3ib45i3ub&T*T&", and let me know when you've done
+	so."
+
 2011-10-07  Thomas Adam <thomas@fvwm.org>
 	* links.php:
 	Corrected link to zensites.
