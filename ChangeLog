@@ -1,3 +1,7 @@
+2011-10-26  Thomas Adam <thomas@fvwm.org>
+	* freenode.txt:
+	Removed now that group verification complete.
+
 2011-10-25  Thomas Adam <thomas@fvwm.org>
 	* freenode.txt:
 	Added Freenode verification file for group registrations
