@@ -44,7 +44,7 @@ if(!isset($site_has_been_loaded)) {
 
 <?php decoration_window_start("Manual page for fvwm in stable branch (2.6.4)"); ?>
 
-<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="idm2829240"></a>Fvwm 2.6.4 (from cvs)</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
+<div class="article" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="idm2829240"></a>Fvwm 2.6.4</h1></div><div><div class="author"><h3 class="author"></h3></div></div></div><a href="#toc">This page contents</a> - <a href="<?php echo conv_link_target('./');?>">Return to main index</a><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="name"></a>1. Name</h2></div></div></div><p>Fvwm - F? Virtual Window Manager for X11</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="synopsis"></a>2. Synopsis</h2></div></div></div><div class="cmdsynopsis"><p><code class="command">fvwm</code>  [<code class="option">-c</code>  <em class="replaceable"><code>config-command</code></em> ] [<code class="option">-d</code>  <em class="replaceable"><code>displayname</code></em> ] [<code class="option">-f</code>  <em class="replaceable"><code>config-file</code></em> ] [<code class="option">-r</code>] [<code class="option">-s</code> [<em class="replaceable"><code>screen_num</code></em>]] [<code class="option">-V</code>] [ <code class="option">-C</code>  <em class="replaceable"><code>visual-class</code></em>   |   <code class="option">-I</code>  <em class="replaceable"><code>visual-id</code></em>  ] [<code class="option">-l</code>  <em class="replaceable"><code>colors</code></em>  [<code class="option">-L</code>] [<code class="option">-A</code>] [<code class="option">-S</code>] [<code class="option">-P</code>]] [<code class="option">-D</code>] [<code class="option">-h</code>] [<code class="option">-i</code>  <em class="replaceable"><code>client-id</code></em> ] [<code class="option">-F</code>  <em class="replaceable"><code>state-file</code></em> ] [<code class="option">--debug-stack-ring</code>] [<code class="option">-blackout</code>]</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="description"></a>3. Description</h2></div></div></div><p>Fvwm is a window manager for X11.  It is designed to minimize
 memory consumption, provide a 3D look to window frames, and a
 virtual desktop.</p><p>Note that there are several window managers around that have
 "fvwm" in their name.  In the past, version 2.x of fvwm was
@@ -1395,7 +1395,10 @@ command can be used:</p><pre class="programlisting">
 	locale catalogs. If no translation is found
 	<em class="replaceable"><code>str</code></em> is returned as is.  See the
 	<a href="#LocalePath">LocalePath</a> command.
-      </p></dd><dt><span class="term">$[...]</span></dt><dd><p>
+      </p></dd><dt><span class="term">$[infostore.<em class="replaceable"><code>key</code></em>]</span></dt><dd><p>Return the value of the item stored in the
+              InfoStore at the given <em class="replaceable"><code>key</code></em>.
+                If no key is present, the unexpanded string is returned.
+            </p></dd><dt><span class="term">$[...]</span></dt><dd><p>
 	If the string within the braces is neither of the above, fvwm
 	tries to find an environment variable with this name and replaces
 	its value if one is found (e.g. "$[PAGER]" could be replaced by
@@ -3203,11 +3206,14 @@ can be 1 or 2.</p><p><a name="PrintInfo_nls"></a><font class="fvwmopt">nls</font
 which prints information on the locale catalogs that fvwm used</p><p><a name="PrintInfo_style"></a><font class="fvwmopt">style</font>
 which prints information on fvwm styles.
 <em class="replaceable"><code>verbose</code></em>
-can be 1.</p><p><a name="_bindings"></a><font class="fvwmopt">bindings</font>
+can be 1.</p><p><a name="PrintInfo_bindings"></a><font class="fvwmopt">bindings</font>
 which prints information on all the bindings fvwm has:  key, mouse and
 stroke bindings.
 <em class="replaceable"><code>verbose</code></em>
-has no effect with this option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Repeat"></a>31.2.26. Repeat</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Repeat</code> </p></div><p>When the
+has no effect with this option.</p><p><a name="PrintInfo_infostore"></a><font class="fvwmopt">infostore</font>
+which prints information on all entries in the infostore, listing the key and
+its value.
+<em class="replaceable"><code>verbose</code></em> has no effect with this option.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Repeat"></a>31.2.26. Repeat</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Repeat</code> </p></div><p>When the
 <span class="emphasis"><em>Repeat</em></span>
 command is invoked, the last command that was executed by fvwm is
 executed again.  This happens regardless of whether it was
@@ -7613,14 +7619,48 @@ pressed in a window's title-bar.</p><pre class="programlisting">
 may be omitted if
 <em class="replaceable"><code>FunctionName</code></em>
 does not coincide with an fvwm command.</p><p>Warning:  Please read the comments on executing complex functions
-in the section <a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Nop"></a>31.10.9. Nop</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Nop</code> </p></div><p>Does nothing.  This is used to insert a blank line or separator in
+in the section <a href="#scripting_and_complex_functions">Scripting and Complex Functions</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="InfoStoreAdd"></a>31.10.9. InfoStoreAdd</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">InfoStoreAdd</code>   
+            <em class="replaceable"><code>key</code></em>
+           
+            <em class="replaceable"><code>value</code></em>
+         </p></div><p>Stores the <em class="replaceable"><code>value</code></em> at the given
+    <em class="replaceable"><code>key</code></em>.  This is useful to store generic
+    information used in the lifetime of an fvwm config file.  For example
+    storing program preferences for opening video files.
+</p><p>The purpose of this command is to store internal information to fvwm
+    which can be used bu fvwm functions, or when opening programs of a
+    certain type.  Previous to this command the only way to do this was
+    via <a href="#SetEnv">SetEnv</a> but this is discouraged because it places
+    such information in the environment, which pollutes it and makes the
+    information global to other processes started by fvwm which may then
+    modify them which might not be what's wanted.  Hence the point of
+    <a href="#InfoStoreAdd">InfoStoreAdd</a> is to still allow for such information to
+    be stored, but kept internal to fvwm.
+</p><p>In this way, one can build up as many key/value pairs as needed.
+    Recalling the value of a given key happens through fvwm's usual expansion
+    mechanism.  See the
+    <a href="#command_expansion">Command Expansion</a> section for more details.  For example:
+</p><pre class="programlisting">
+    InfoStoreAdd teddybearprog xteddy
+
+    # Echo the value of teddybearprog
+    Echo $[infostore.teddybearprog]
+</pre><p>Removing an entry from the InfoStore is done with the
+    <a href="#InfoStoreRemove">InfoStoreRemove</a> command.
+</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="InfoStoreREmove"></a>31.10.10. InfoStoreRemove</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">InfoStoreRemove</code>   
+            <em class="replaceable"><code>key</code></em>
+         </p></div><p>Removes an entry at the given
+    <em class="replaceable"><code>key</code></em> from the InfoStore.  Example:
+</p><pre class="programlisting">
+InfoStoreRemove teddybearprog
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Nop"></a>31.10.11. Nop</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Nop</code> </p></div><p>Does nothing.  This is used to insert a blank line or separator in
 a menu.  If the menu item specification is</p><pre class="programlisting">
 <a href="#AddToMenu">AddToMenu</a> MyMenu " " Nop
 </pre><p>then a blank line is inserted.  If it looks like</p><pre class="programlisting">
 + "" Nop
 </pre><p>then a separator line is inserted.  Can also be used as the
 double-click action for
-<a href="#Menu">Menu</a> or <span class="emphasis"><em>Popup</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PipeRead"></a>31.10.10. PipeRead</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
+<a href="#Menu">Menu</a> or <span class="emphasis"><em>Popup</em></span>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="PipeRead"></a>31.10.12. PipeRead</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">PipeRead</code>   <em class="replaceable"><code>command</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the output of the
 <em class="replaceable"><code>command</code></em>.
 This
 <em class="replaceable"><code>command</code></em>
@@ -7658,7 +7698,7 @@ instead of being read as a sequence of commands by fvwm.
 returns 1 if the given command could be executed or -1 if not
 (see the section
 <a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Read"></a>31.10.11. Read</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Read</code>   <em class="replaceable"><code>filename</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the file named
+for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Read"></a>31.10.13. Read</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Read</code>   <em class="replaceable"><code>filename</code></em>  [quiet]</p></div><p>Causes fvwm to read commands from the file named
 <em class="replaceable"><code>filename</code></em>.
 If the keyword
 <a name="Read_Quiet"></a><font class="fvwmopt">Quiet</font>
@@ -7674,7 +7714,7 @@ set to any other directory.  The
 command returns 1 if the given file could be read or -1 if not
 (see the section
 <a href="#conditional_commands">Conditional Commands</a>
-for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetEnv"></a>31.10.12. SetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetEnv</code>   <em class="replaceable"><code>variable</code></em>   <em class="replaceable"><code>value</code></em> </p></div><p>Set an environment variable to a new value, similar to the shell's
+for the meaning of return codes).</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="SetEnv"></a>31.10.14. SetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">SetEnv</code>   <em class="replaceable"><code>variable</code></em>   <em class="replaceable"><code>value</code></em> </p></div><p>Set an environment variable to a new value, similar to the shell's
 export or setenv command.  The
 <em class="replaceable"><code>variable</code></em>
 and its
@@ -7692,7 +7732,7 @@ If
 <em class="replaceable"><code>value</code></em>
 includes whitespace, you should enclose it in quotes.  If no
 <em class="replaceable"><code>value</code></em>
-is given, the variable is deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Silent"></a>31.10.13. Silent</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Silent</code>   <em class="replaceable"><code>command</code></em> </p></div><p>A number of commands require a window to operate on.  If
+is given, the variable is deleted.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Silent"></a>31.10.15. Silent</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Silent</code>   <em class="replaceable"><code>command</code></em> </p></div><p>A number of commands require a window to operate on.  If
 no window was selected when such a function is invoked the user is
 asked to select a window.  Sometimes this behavior is unwanted,
 for example if the function was called by a module and the window
@@ -7722,11 +7762,11 @@ Silent <a href="#Move">Move</a> 0 0
 Silent User_defined_function
 # do not complain on keyboards without "Help" key
 Silent <a href="#Key">Key</a> Help R A <a href="#Popup">Popup</a> HelpMenu
-</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UnsetEnv"></a>31.10.14. UnsetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UnsetEnv</code>  [<em class="replaceable"><code>variable</code></em>]</p></div><p>Unset an environment variable, similar to shell's export or
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="UnsetEnv"></a>31.10.16. UnsetEnv</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">UnsetEnv</code>  [<em class="replaceable"><code>variable</code></em>]</p></div><p>Unset an environment variable, similar to shell's export or
 unsetenv command. The
 <em class="replaceable"><code>variable</code></em>
 then is removed from the environment array inherited by processes
-started directly by fvwm.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Wait"></a>31.10.15. Wait</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Wait</code>   <em class="replaceable"><code>window</code></em> </p></div><p>This command is intended to be used in fvwm functions only.  It
+started directly by fvwm.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="Wait"></a>31.10.17. Wait</h4></div></div></div><div class="cmdsynopsis"><p><code class="command">Wait</code>   <em class="replaceable"><code>window</code></em> </p></div><p>This command is intended to be used in fvwm functions only.  It
 causes execution of a function to pause until a new window matching
 <em class="replaceable"><code>window</code></em>
 appears.  This can be a window's name, class, or resource string.
@@ -9086,10 +9126,10 @@ and normally are removed automatically when not used anymore.</p></dd></dl></div
 <code class="email">&lt;<a class="email" href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</code></p><p>The official fvwm homepage is
 <a class="ulink" href="http://fvwm.org/" target="_top">http://fvwm.org/</a>.</p></div></div>
 <hr /><a name="toc"></a><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="section"><a href="#name">1. Name</a></span></dt><dt><span class="section"><a href="#synopsis">2. Synopsis</a></span></dt><dt><span class="section"><a href="#description">3. Description</a></span></dt><dt><span class="section"><a href="#Options">4. Options</a></span></dt><dt><span class="section"><a href="#anatomy_of_a_window">5. Anatomy of a Window</a></span></dt><dt><span class="section"><a href="#virtual_desktop">6. The Virtual Desktop</a></span></dt><dt><span class="section"><a href="#use_on_multiscreen_displays">7. Use on Multi-Screen Displays</a></span></dt><dt><span class="section"><a href="#xinerama_support">8. Xinerama Support</a></span></dt><dt><span class="section"><a href="#initialization">9. Initialization</a></span></dt><dt><span class="section"><a href="#compilation">10. Compilation Options</a></span></dt><dt><span class="section"><a href="#icons_and_images">11. Icons and Images</a></span></dt><dd><dl><dt><span class="section"><a href="#svg_rendering_options">11.1. SVG rendering options</a></span></dt></dl></dd><dt><span class="section"><a href="#modules">12. Modules</a></span></dt><dt><span class="section"><a href="#icccm_compliance">13. ICCCM Compliance</a></span></dt><dt><span class="section"><a href="#gnome">14. Gnome Compliance</a></span></dt><dt><span class="section"><a href="#extended_window_manager_hints">15. Extended Window Manager Hints</a></span></dt><dt><span class="section"><a href="#mwm_compatibility">16. MWM Compatibility</a></span></dt><dt><span class="section"><a href="#open_look_and_xview_compatibility">17. Open Look and XView Compatibility</a></span></dt><dt><span class="section"><a href="#m4_preprocessing">18. M4 Preprocessing</a></span></dt><dt><span class="section"><a href="#cpp_preprocessing">19. CPP Preprocessing</a></span></dt><dt><span class="section"><a href="#configuration">20. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="#configuration_files">20.1. Configuration Files</a></span></dt><dt><span class="section"><a href="#supplied_configuration">20.2. Supplied Configuration</a></span></dt></dl></dd><dt><span class="section"><a href="#fonts">21. Fonts</a></span></dt><dd><dl><dt><span class="section"><a href="#font_names_and_font_loading">21.1. Font names and font loading</a></span></dt><dt><span class="section"><a href="#font_and_string_encoding">21.2. Font and string encoding</a></span></dt><dt><span class="section"><a href="#font_shadow_effects">21.3. Font Shadow Effects</a></span></dt></dl></dd><dt><span class="section"><a href="#bidirectional_text">22. Bi-directional Text</a></span></dt><dt><span class="section"><a href="#keyboard_shortcuts">23. Keyboard Shortcuts</a></span></dt><dt><span class="section"><a href="#session_management">24. Session Management</a></span></dt><dt><span class="section"><a href="#boolean_args">25. Boolean Arguments</a></span></dt><dt><span class="section"><a href="#builtin_key_and_mouse_bindings">26. Builtin Key and Mouse Bindings</a></span></dt><dt><span class="section"><a href="#command_execution">27. Command Execution</a></span></dt><dd><dl><dt><span class="section"><a href="#module_and_function_commands">27.1. Module and Function Commands</a></span></dt><dt><span class="section"><a href="#delayed_execution_of_commands">27.2. Delayed Execution of Commands</a></span></dt></dl></dd><dt><span class="section"><a href="#quoting">28. Quoting</a></span></dt><dt><span class="section"><a href="#command_expansion">29. Command Expansion</a></span></dt><dt><span class="section"><a href="#scripting_and_complex_functions">30. Scripting &amp; Complex Functions</a></span></dt><dt><span class="section"><a href="#list_of_fvwm_commands">31. List of Fvwm Commands</a></span></dt><dd><dl><dt><span class="section"><a href="#menus">31.1. Menus</a></span></dt><dt><span class="section"><a href="#miscellaneous_commands">31.2. Miscellaneous Commands</a></span></dt><dt><span class="section"><a href="#window_movement_and_placement">31.3. Window Movement and Placement</a></span></dt><dt><span class="section"><a href="#focus_and_mouse_movement">31.4. Focus &amp; Mouse Movement</a></span></dt><dt><span class="section"><a href="#window_state">31.5. Window State</a></span></dt><dt><span class="section"><a href="#mouse_key_and_stroke_bindings">31.6. Mouse, Key &amp; Stroke Bindings</a></span></dt><dt><span class="section"><a href="#controlling_window_styles">31.7. Controlling Window Styles</a></span></dt><dt><span class="section"><a href="#window_styles">31.8. Window Styles</a></span></dt><dt><span class="section"><a href="#virtual_desktop_commands">31.9. Controlling the Virtual Desktop</a></span></dt><dt><span class="section"><a href="#user_functions_and_shell_commands">31.10. User Functions and Shell Commands</a></span></dt><dt><span class="section"><a href="#conditional_commands">31.11. Conditional Commands</a></span></dt><dt><span class="section"><a href="#module_commands">31.12. Module Commands</a></span></dt><dt><span class="section"><a href="#session_management_commands">31.13. Session Management Commands</a></span></dt><dt><span class="section"><a href="#colorsets">31.14. Colorsets</a></span></dt></dl></dd><dt><span class="section"><a href="#environment">32. Environment</a></span></dt><dt><span class="section"><a href="#authors">33. Authors</a></span></dt><dt><span class="section"><a href="#copyright">34. Copyright</a></span></dt><dt><span class="section"><a href="#bugs">35. Bugs</a></span></dt></dl></div><hr />
-<P>fvwm 2.6.4 (from cvs)</P>
+<P>fvwm 2.6.4</P>
 
 
 
 <?php decoration_window_end(); ?>
 
-<!-- Automatically generated by manpages2php on 30-Sep-2011 -->
+<!-- Automatically generated by manpages2php on 01-Feb-2012 -->

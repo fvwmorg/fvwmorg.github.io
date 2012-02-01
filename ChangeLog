@@ -1,3 +1,11 @@
+2011-09-30  Thomas Adam <thomas@fvwm.org>
+	* authors/index.php:
+	* news/index.php:
+	* doc/stable:
+	* index.php:
+	* documentation/manpages/stable:
+	Regenerated for 2.6.4 releae.
+
 2011-12-10  Thomas Adam <thomas@fvwm.org>
 	* screenshots/desktops/Axelle-Apvrille-1024x640:
 	Added screenshot.
