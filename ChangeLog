@@ -1,4 +1,8 @@
-2011-09-30  Thomas Adam <thomas@fvwm.org>
+2012-02-02  Thomas Adam <thomas@fvwm.org>
+	* index.php:
+	Auto-generate NEWS section.
+
+2012-02-01  Thomas Adam <thomas@fvwm.org>
 	* authors/index.php:
 	* news/index.php:
 	* doc/stable:
