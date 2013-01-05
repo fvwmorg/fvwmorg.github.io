@@ -218,6 +218,7 @@ if (strlen($site_has_been_loaded) == 0) {
 <a name="toc_6.8"></a>     <a href="#6.8">6.8</a>  I just got a mouse with 57 buttons.  How do I make Fvwm
           use them?
 <a name="toc_6.9"></a>     <a href="#6.9">6.9</a>  Why does fvwm change my X Cursor theme?
+<a name="toc_6.10"></a>     <a href="#6.10">6.10</a> I'm having problems giving Wine windows focus.
 
 <a name="toc_7."></a><a href="#7.">7.</a> Hints and Examples from the Developers
 
@@ -2687,6 +2688,16 @@ using cursors that do not match your theme, you should use
 CursorStyle to change to a cursor that is available, or find a
 more complete theme.  Note that fvwm does not control what cursors
 your applications request.
+
+----------------------------------------------------------------------
+
+<a name="6.10"></a><a href="#toc_6.10">6.10</a>  I'm having problems giving Wine windows focus.
+
+A: Yep, known issue.  The ICCCM states that windows that take input
+should indicate so in their WM hints.  Wine windows don't do this.
+To work around this issue try:
+
+Style &quot;*&quot; Lenience
 
 ======================================================================
 <a name="7."></a>              <a href="#toc_7.">7</a> - Hints and Examples from the Developers

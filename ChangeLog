@@ -1,3 +1,8 @@
+2013-01-05  Dan Espen  <despen@verizon.net>
+
+	* documentation/faq/faq2php: Add emacs compile-command that works on my setup.
+	* index.php: Regenerate for Wine issue.
+
 2012-02-01  Thomas Adam <thomas@fvwm.org>
 	* authors/index.php:
 	* news/index.php:

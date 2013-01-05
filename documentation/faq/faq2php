@@ -123,4 +123,7 @@ END {
 	}
 }
 
+# Local Variables:
+# compile-command: "./faq2php <../../../version-2_6_6/docs/FAQ >index.php"
+# End:
 ## end of file
