@@ -1,3 +1,7 @@
+2013-04-15  Thomas Adam <thomas@xteddy.org>
+	* documentation/dev_cvs.php:
+	Remove redundant CVS-specific information.
+
 2013-01-05  Dan Espen  <despen@verizon.net>
 
 	* documentation/faq/faq2php: Add emacs compile-command that works on my setup.

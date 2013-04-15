@@ -160,7 +160,7 @@ cvs -q
   </p>
 
   <ul>
-    <li> The latest code is always available at the tip of the main branch.</li>
+    <li> The latest code is on branch-2_6.</li>
 
     <li> All branches are labeled as <code>branch-ver</code>.
       So, for example, as development of the 2.3.x (latest) code continues on
@@ -187,45 +187,11 @@ cvs -q
   </p>
 
   <p class="cmdline">
-    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout fvwm
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout -r branch-2_6 fvwm
   </p>
 
   <p> 
-    This will create a new directory <code>fvwm</code> in your current
-    directory, containing the latest, up-to-the-minute code.
-  </p>
-
-  <p> 
-    If you want to work on the latest code in the 2.2.x branch of the
-    code, you can use the branch label on the checkout command line:
-  </p>
-
-  <p class="cmdline">
-    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 fvwm
-  </p>
-
-  <p> 
-    This will put a copy of the very latest code on the 2.2.x branch
-    into a subdirectory <code>fvwm</code>.  If you're going to be working on
-    multiple branches at the same time, or just feel like it, you can tell
-    CVS to use a different name for the directory with the 
-    <code>checkout -d</code> option:
-  </p>
-
-  <p class="cmdline">
-    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm co -r branch-2_2 -d fvwm-2.2.x fvwm
-  </p>
-
-  <p> 
-    Now the code will be checked out into a directory
-    <code>fvwm-2.2.x</code> rather than <code>fvwm</code>.  In this way you
-    can keep multiple copies of the source around and "active"
-    simultaneously.  (It is also permissible to just checkout into
-    <code>fvwm</code> and rename the directory yourself.)
-  </p>
-
-  <p> 
-    Finally, if you want to see a particular version of the sources you
+    If you want to see a particular version of the sources you
     can use a version label instead of a branch label on the checkout
     command:
   </p>
