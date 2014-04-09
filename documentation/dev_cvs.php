@@ -638,15 +638,6 @@ XpmImage    my_image = {0};  /* testing */
   </p>
 
   <p>
-    <!--
-    You can check to see what your changes will look like before a commit,
-    by using a "file:" URL to look at your changes with your browser.  If you
-    have the fvwm-web source in <code>/home/my/fvwm-web</code>, your browser
-    should be able to view the source with the URL
-    <code>file:/home/my/fvwm-web</code>.
-    (This is one of the reasons you want to use relative URLs to link
-    one page to another.)
-    -->
     Since Fvwm web pages are PHP based, you need a web server supporting
     PHP to test your changes before doing a commit.
     If you can't do that, check the Fvwm web site after commits in
