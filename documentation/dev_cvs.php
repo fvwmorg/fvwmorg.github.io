@@ -527,7 +527,7 @@ XpmImage    my_image = {0};  /* testing */
     `<code>newmod.c</code>':
   </p>
 
-  <pre class="cmdline">
+  <pre class="cvs">
     cvs add -m "New directory for ..." newdir<br>
     cd newdir<br>
     cvs add -m "File newmod.c is a module that ..." newmod.c
@@ -620,8 +620,7 @@ XpmImage    my_image = {0};  /* testing */
 
   <p>
     The source code for Fvwm is in the "fvwm" source tree.
-    At the time this sentence was written, (September, 1999), there
-    were 1 more source tree, "fvwm-web".
+    Source code for the Fvwm web site is in the "fvwm-web" source tree.    
   </p>
   
   <p>
@@ -629,8 +628,6 @@ XpmImage    my_image = {0};  /* testing */
     source trees and create new source trees.
   </p>
 
-  <!--  dje Unfinished: -->
-  <!-- Insert examples here -->
   <a name="fvwm-web"></a>
   <h3>Working on the fvwm-web Source Tree <a href="#top">[top]</a></h3>
 
@@ -641,6 +638,7 @@ XpmImage    my_image = {0};  /* testing */
   </p>
 
   <p>
+    <!--
     You can check to see what your changes will look like before a commit,
     by using a "file:" URL to look at your changes with your browser.  If you
     have the fvwm-web source in <code>/home/my/fvwm-web</code>, your browser
@@ -648,6 +646,11 @@ XpmImage    my_image = {0};  /* testing */
     <code>file:/home/my/fvwm-web</code>.
     (This is one of the reasons you want to use relative URLs to link
     one page to another.)
+    -->
+    Since Fvwm web pages are PHP based, you need a web server supporting
+    PHP to test your changes before doing a commit.
+    If you can't do that, check the Fvwm web site after commits in
+    a timely manner.  (Don't go on vacation before checking.)
   </p>
 
   <p>
@@ -657,10 +660,10 @@ XpmImage    my_image = {0};  /* testing */
     to only work on one directory or sub-directory by using the <code>-l</code>
     argument.
   </p>
-  <!--  dje Unfinished: -->
-  <!--  For example, to do an initial checkout of the root: -->
-  <!--  To check out a sub-branch: -->
-
+    For example, to do an initial checkout of the root:
+<pre class="cvs">
+    cvs -d :pserver:anonymous@cvs.fvwm.org:/home/cvs/fvwm checkout  fvwm-web
+</pre>
   <p>
     Some parts of the fvwm-web tree are generated from
     fvwm tree source files.

@@ -1,3 +1,11 @@
+2014-04-08  Dan.Espen  <despen@verizon.net>
+
+	* documentation/dev_cvs.php: Fix "<pre class=" in Adding Directories and Files.
+	Add example for checking out fvwm-web.
+	Replace testing instructions,
+	the old "file:" trick won't work since we're all PHP.
+
+
 2013-04-15  Thomas Adam <thomas@xteddy.org>
 	* documentation/dev_cvs.php:
 	Remove redundant CVS-specific information.
