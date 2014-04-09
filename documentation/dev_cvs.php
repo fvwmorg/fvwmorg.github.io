@@ -1,4 +1,4 @@
-<?php
+?php
 //--------------------------------------------------------------------
 //-  File          : dev_cvs.php
 //-  Project       : FVWM Home page
@@ -413,7 +413,6 @@ C fvwm/icons.c
 &lt;&lt;&lt;&lt;&lt;&lt;&lt; icons.c
 XpmImage    my_image = {0};  /* testing */
 &#61;&#61;&#61;&#61;&#61;&#61;&#61;
-&eq;&eq;&eq;&eq;&eq;&eq;&eq;
 &gt;&gt;&gt;&gt;&gt;&gt;&gt; 1.6
 </pre>
   
