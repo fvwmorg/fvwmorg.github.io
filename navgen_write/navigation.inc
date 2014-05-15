@@ -177,13 +177,6 @@ $this->nav_array["dev_modules"]["link_picture"] = "pictures/icons/doc_developers
 $this->nav_array["dev_modules"]["parent_site"] = "developers"; 
 $this->nav_array["dev_modules"]["child_sites"] = array(); 
 
-$this->nav_array["dev_downloadbugs"]["file"] = "documentation/dev_downloadbugs.php"; 
-$this->nav_array["dev_downloadbugs"]["rel_path"] = "./.."; 
-$this->nav_array["dev_downloadbugs"]["link_name"] = "Downloading Bug Reports"; 
-$this->nav_array["dev_downloadbugs"]["link_picture"] = "pictures/icons/doc_developers_download_bugs"; 
-$this->nav_array["dev_downloadbugs"]["parent_site"] = "developers"; 
-$this->nav_array["dev_downloadbugs"]["child_sites"] = array(); 
-
 $this->nav_array["dev_creating_rpms"]["file"] = "documentation/dev_creating_rpms.php"; 
 $this->nav_array["dev_creating_rpms"]["rel_path"] = "./.."; 
 $this->nav_array["dev_creating_rpms"]["link_name"] = "Creating RPM Packages "; 

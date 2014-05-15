@@ -10,7 +10,6 @@ elseif( strpos($request,"cvs") )                   $file = "/documentation/dev_c
 elseif( strpos($request,"developers") )            $file = "/documentation/developers.php";
 elseif( strpos($request,"manpages") )              $file = "/documentation/manpages/index.php";
 elseif( strpos($request,"donations") )             $file = "/donations.php";
-elseif( strpos($request,"downloadbugs") )          $file = "/documentation/dev_downloadbugs.php";
 elseif( strpos($request,"download") )              $file = "/download/index.php";
 elseif( strpos($request,"features") )              $file = "/features.php";
 elseif( strpos($request,"ftp") )                   $file = "/contact/index.php";
