@@ -49,13 +49,13 @@ if(!isset($site_has_been_loaded)) {
       <a href="ftp://ftp.fvwm.org/pub/fvwm/version-2/fvwm-<?php echo $latest_stable_release; ?>.tar.bz2">tar.bz2</a>
     </li>
 
-    <li>
-      Latest snapshot:
-      <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/snapshots/">here</a>
-    </li>
+//    <li>
+//      Latest snapshot:
+//      <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/snapshots/">here</a>
+//    </li>
 
     <li>
-      Latest CVS sources via ftp:
+      Latest released CVS sources via ftp:
       <a href="ftp://ftp.fvwm.org/pub/fvwm/devel/sources/">here</a>
     </li>
 

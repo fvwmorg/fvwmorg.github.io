@@ -46,8 +46,8 @@ decoration_window_start("Welcome to FVWM");
 
 <p>
 FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
-window manager for the X&nbsp; Window system.  Development is active,
-and support is excellent.  Check it out!
+window manager for the X&nbsp; Window system.  
+Support is excellent.  Check it out!
 </p>
 
 <table border=0 cellpadding=0 cellspacing=0 summary="versions">
