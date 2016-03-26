@@ -19,12 +19,18 @@
       <td class="fvwm_button2"></td>
     </tr>
     </table>
-    <div style="padding: 15px;">
-      {% if page.title %}
-        {{ page.title }}
-      {% else %}
-        FVWM - Home Page
-      {% endif %}
+    <div style="padding: 0px;">
+      <table border="0" cellpadding="0" width="100%">
+      <tr><td style="width: 300px; text-align: left;">
+        <img src="{{ "/img/fvwm-logo-gradient-small.png" | prepend: site.baseurl }}">
+      </td><td style="text-align: left; vertical-align: middle;">
+        {% if page.title %}
+          {{ page.header-title }}
+        {% else %}
+          FVWM - Home Page
+        {% endif %}
+      </td></tr>
+      </table>
     </div>
   </td>
   <td class="fvwm_right_border"></td>

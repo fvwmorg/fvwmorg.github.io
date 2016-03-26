@@ -67,12 +67,13 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-  color: #2a7ae2;
-  text-decoration: none; }
+  color: #d9d915;
+  text-decoration: underline; }
   a:visited {
-    color: #1756a9; }
-  a:hover {
-    color: #fff;
+    color: #f8f8b3; }
+  a:hover, a:focus {
+    color: #003c3c;
+    background-color: #f8f8b3;
     text-decoration: underline; }
 
 /**
@@ -113,17 +114,11 @@ pre {
  */
 .wrapper {
   width: 90%;
-  min-width: 700px;
+  min-width: 800px;
   margin-right: auto;
   margin-left: auto;
   padding-right: 30px;
   padding-left: 30px; }
-  @media screen and (max-width: 800px) {
-    .wrapper {
-      max-width: -webkit-calc(800px - (30px));
-      max-width: calc(800px - (30px));
-      padding-right: 15px;
-      padding-left: 15px; } }
 
 /**
  * Clearfix
@@ -625,5 +620,25 @@ a.fvwm_submenu {
   text-align: left;
   text-decoration: none; }
 
-a.fvwm_menu:hover {
+a.fvwm_menu:hover, a.fvwm_submenu:hover {
   background-color: #111; }
+
+h2.cats {
+  text-decoration: underline;
+  font-size: xx-large;
+  color: #ffff33; }
+
+h3.cats {
+  font-size: xx-large;
+  color: #8888ff; }
+
+h4.cats {
+  margin: 0pt;
+  font-size: x-large;
+  color: #ff3333; }
+
+h5.cats {
+  font-size: large;
+  font-weight: normal;
+  color: #ffff99;
+  margin: 0pt; }
