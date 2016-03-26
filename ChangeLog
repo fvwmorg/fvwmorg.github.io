@@ -1,3 +1,7 @@
+2016-03-27 Jaimos Skriletz <jaimosskriletz@boisestate.edu>
+
+	* *: Created new framework for website. Replaced old website files.
+
 2015-12-17  Dan Espen  <despen@verizon.net>
 
 	* index.php: Remove "Development is active".
