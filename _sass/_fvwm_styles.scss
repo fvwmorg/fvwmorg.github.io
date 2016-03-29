@@ -1,0 +1,118 @@
+// Cats
+.cats h2, h3, h4, hr {
+	clear: both;
+}
+
+.cats h2 {
+        text-decoration: underline;
+        font-size: xx-large;
+        color: #ffff33;
+}
+
+.cats h3 {
+        font-size: xx-large;
+}
+
+.cats h4 {
+        margin: 0pt;
+        font-size: x-large;
+        color: #51b1fe;
+}
+
+.cats h5 {
+        font-size: large;
+        font-weight: normal;
+        color: #ffff99;
+        margin: 0pt;
+}
+
+.cats img {
+	display: inline-block;
+	float: left;
+	padding: 5px 15px 10px 5px;
+}
+
+.cats strong {
+	font-size: large;
+	font-weight: bold;
+	color: #ffff99;
+	width: 100%;
+}
+
+
+
+// Authors Pictures
+.authors_pic {
+        display: block;
+	margin: 0 auto;
+        width: 620px;
+}
+
+.authors_pic div {
+        display: inline-block;
+        float: left;
+        width: 200px;
+        height: 200px;
+        text-align: center;
+}
+
+// Screenshots
+.scrot {
+	display: inline-flex;
+	padding: 15px;
+	float: left;
+	width: 180px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.scrot_desc {
+	min-height: 150px;
+}
+
+// Man Pages
+dt {
+        color: #d9d915;
+}
+
+dd {
+        padding-left: 35px;
+}
+
+.manpage-wrapper {
+        font-size: 85%;
+}
+
+// Logos
+.logo-wrapper a:hover {
+	background: none;
+}
+
+.logo-wrapper span.place {
+	font-size: 150%;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	width: 35px;
+}
+.logo-wrapper span.place:before {
+	content: "#";
+}
+
+.logo-wrapper span.votes {
+	font-size: 150%;
+	color: #d9d915;
+	display: inline-block;
+	text-align: right;
+	width: 35px;
+}
+
+.logo-wrapper span.overall {
+	font-size: 80%;
+	font-style: italic;
+        display: inline-block;
+        text-align: center;
+        width: 35px;
+	color: #f8f8b3;
+}
+	

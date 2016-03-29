@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+     FVWM - Man Page - fvwm-config
+    
+  </title>
+  <meta name="description" content="FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop window manager for the X  Window system.
+">
+
+  <link rel="stylesheet" href="/fvwm.org/css/main.css">
+  <link rel="canonical" href="http://fvwm.org/fvwm.org/documentation/manpages/fvwm-config.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+<table class="fvwm_header" cellpadding="0">
+<tr>
+  <td class="fvwm_top_left_border"></td>
+  <td class="fvwm_top_border"></td>
+  <td class="fvwm_top_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_left_border"></td>
+  <td class="fvwm_window">
+    <table border="0" cellpadding="0" width="100%" style="border-spacing: 0;">
+    <tr>
+      <td class="fvwm_button1"></td>
+      <td class="fvwm_title">The Offical FVWM Home Page</td>
+      <td class="fvwm_button4"></td>
+      <td class="fvwm_button2"></td>
+    </tr>
+    </table>
+    <div style="padding: 0px;">
+      <table border="0" cellpadding="0" width="100%">
+      <tr><td style="width: 300px; text-align: left;">
+        <img src="/fvwm.org/img/fvwm-logo-gradient-small.png">
+      </td><td style="text-align: left; vertical-align: middle;">
+        
+          fvwm-config
+        
+      </td></tr>
+      </table>
+    </div>
+  </td>
+  <td class="fvwm_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_bottom_left_border"></td>
+  <td class="fvwm_bottom_border"></td>
+  <td class="fvwm_bottom_right_border"></td>
+</tr>
+<tr>
+</table>
+
+
+  </div>
+
+</header>
+
+
+
+
+    <div class="wrapper">
+
+<ul class="fvwm_menu">
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/">FVWM</a>
+      <ul>
+	<li><a class="fvwm_submenu" href="/fvwm.org/features">Features</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/history">History</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/fvwm-logos">FVWM Logos</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/authors">Authors</a></li>
+	<li><a class="fvwm_submenu" href="/fvwm.org/fvwm-cats">Cats</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/documentation">Documentation</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/faq">FAQ</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/manpages">Man Pages</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/developers">Developer Information</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/changelog">ChangeLog</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/download">Download</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/screenshots">Screenshots</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/support">Support</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#lists">Mailing Lists</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#irc">IRC</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/links">Links</a>
+  </li>
+</ul>
+
+</div>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="manpage-wrapper">
+
+<H1>fvwm-config</H1>
+Section: Fvwm Modules (1)<BR>Updated: 15 March 2016 (2.6.6)<BR><A HREF="#index">Table of Contents</A>
+<A HREF="index.html">Return to Man Page Index</A><HR>
+
+
+<A NAME="lbAB"></A>
+<H2>NAME</H2>
+
+fvwm-config - query an existing fvwm installation
+<A NAME="lbAC"></A>
+<H2>SYNOPSIS</H2>
+
+<B>fvwm-config</B>
+
+[<I>--help</I>]
+
+[<I>--version</I>]
+
+[<I>--info</I>]
+
+[<I>--prefix</I>]
+
+[<I>--exec-prefix</I>]
+
+[<I>--bindir</I>]
+
+[<I>--datadir</I>]
+
+[<I>--libexecdir</I>]
+
+[<I>--sysconfdir</I>]
+
+[<I>--mandir</I>]
+
+[<I>--localedir</I>]
+
+[<I>--fvwm-moduledir</I>]
+
+[<I>--fvwm-datadir</I>]
+
+[<I>--fvwm-perllibdir</I>]
+
+[<I>--default-imagepath</I>]
+
+[<I>--default-userdir</I>]
+
+[<I>--fvwm-exe</I>]
+
+[<I>--supports</I>]
+
+[<I>--supports-&lt;feature&gt;</I>]
+
+<A NAME="lbAD"></A>
+<H2>DESCRIPTION</H2>
+
+<B>fvwm-config</B>
+
+is a shell script that provides an information about the fvwm version,
+installation directories, built-in paths and supported features.
+<A NAME="lbAE"></A>
+<H2>OPTIONS</H2>
+
+<B>fvwm-config</B>
+
+prints to the standard output in all options.
+Both short and long GNU-like option names may be used.
+<DL COMPACT>
+<DT><B>-h --help -?</B>
+
+<DD>
+prints the short usage
+<DT><B>-v --version -V</B>
+
+<DD>
+prints the version
+<DT><B>-i --info</B>
+
+<DD>
+prints the full info page
+<DT><B>-P --prefix</B>
+
+<DD>
+prints the installation prefix
+<DT><B>-E --exec-prefix</B>
+
+<DD>
+prints the installation exec-prefix
+<DT><B>-B --bindir</B>
+
+<DD>
+prints the installation bindir
+<DT><B>-D --datadir</B>
+
+<DD>
+prints the installation datadir
+<DT><B>-L --libexecdir</B>
+
+<DD>
+prints the installation libexecdir
+<DT><B>-S --sysconfdir</B>
+
+<DD>
+prints the installation sysconfdir
+<DT><B>-M --mandir</B>
+
+<DD>
+prints the installation mandir
+<DT><B>-O --localedir</B>
+
+<DD>
+prints the installation localedir
+<DT><B>-m --fvwm-moduledir</B>
+
+<DD>
+prints FVWM_MODULEDIR, where the modules are installed
+<DT><B>-d --fvwm-datadir</B>
+
+<DD>
+prints FVWM_DATADIR, where the system wide configs are installed
+<DT><B>-p --fvwm-perllibdir</B>
+
+<DD>
+prints FVWM_PERLLIBDIR, where the perl library is installed
+<DT><B>-I --default-imagepath</B>
+
+<DD>
+prints the built-in ImagePath
+<DT><B>-U --default-userdir</B>
+
+<DD>
+prints the default FVWM_USERDIR, note: $HOME is not expanded
+<DT><B>-e --fvwm-exe</B>
+
+<DD>
+prints the fvwm executable name (in bindir)
+<DT><B>-s --supports</B>
+
+<DD>
+lists all supported features, one per line
+<DT><B>--supports-</B><I>&lt;feature&gt;</I>
+
+<DD>
+prints nothing, returns: 0 if the
+<I>&lt;feature&gt;</I>
+
+is supported, 100 if not, 200 if unknown.
+All or supported feature names may be found using
+<I>--info</I> or <I>--supports</I>
+
+respectively.
+<DT></DL>
+<A NAME="lbAF"></A>
+<H2>USAGE</H2>
+
+<DD>
+Here are some real life usages.
+<P>
+Checks for xft support:
+
+
+<P>
+
+
+<PRE>
+if fvwm-config --supports-xft;
+  then echo 1; else echo 0; fi
+
+</PRE>
+
+
+<P>
+
+
+
+<P>
+<I>fvwm-themes</I>
+
+package checks for the correct
+<I>fvwm</I>
+
+version installed using:
+
+
+<P>
+
+
+<PRE>
+fvwm-config --version
+
+</PRE>
+
+
+<P>
+
+
+
+and tries to use the same installation directories:
+
+
+<P>
+
+
+<PRE>
+fvwm-config --bindir --mandir --fvwm-datadir
+
+</PRE>
+
+
+<P>
+
+
+
+<P>
+A way to find the full path to the fvwm executable:
+
+
+<P>
+
+
+<PRE>
+echo `fvwm-config --bindir`/`fvwm-config --fvwm-exe`
+
+</PRE>
+
+
+<P>
+
+
+
+<P>
+A way to start modules in perl:
+
+
+<P>
+
+
+<PRE>
+use lib `fvwm-config -p | tr -d '`;
+use FVWM::Module;
+
+</PRE>
+
+
+<P>
+
+
+
+<P>
+For a more human readable output, try:
+
+
+<P>
+
+
+<PRE>
+fvwm-config --info
+
+</PRE>
+
+
+<P>
+
+
+
+<A NAME="lbAG"></A>
+<H2>COPYING</H2>
+
+<B>fvwm-config</B>
+
+is a part of fvwm package and distributed by the same terms, see GNU GPL.
+<A NAME="lbAH"></A>
+<H2>AUTHOR</H2>
+
+Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;
+<P>
+
+<HR>
+<A NAME="index"></A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">USAGE</A><DD>
+<DT><A HREF="#lbAG">COPYING</A><DD>
+<DT><A HREF="#lbAH">AUTHOR</A><DD>
+</DL>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper" style="text-align: right;">
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

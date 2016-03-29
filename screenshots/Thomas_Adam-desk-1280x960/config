@@ -1,0 +1,822 @@
+#This is a comment
+#Fvwm configuration
+
+# Set the ImagePath
+ImagePath /usr/share/icons/wm-icons/:$[HOME]/.fvwm/icons:+
+
+# Set the main colorset
+Colorset 0 fg black, bg #60a0c0
+Colorset 1 fg white, bg #c06077
+Colorset 2 fg white, bg rgb:00/50/00, Plain, NoShape
+Colorset 3 fg black, bg darkgreen
+
+# Other colorsets are defined in ~/.fvwm/colorsets, and are used for the
+# dynamic menu.
+
+ColorMapFocus  FollowsMouse
+
+# Variables for Fvwm's use
+SetEnv RCount 0
+SetEnv RXVT "rxvt +sb -ls -bg white -fg black"
+
+# Default styles common to all windows created.
+Style "**"  Icon mini-teddy.png
+Style "*"   BorderWidth 5, HandleWidth 5
+Style "*"   FvwmBorder, FirmBorder, SloppyFocus
+Style "*"   Colorset 0
+Style "*"   HilightColorset 1
+Style "*"   UseDecor fDecor
+Style "*"   Button 1, Button 2, Button 4, Button 6
+Style "*"   MWMButtons  
+Style "*"   MWMDecor, MWMFunctions, HintOverride, MinOverLapPlacement
+Style "*"   NoPPosition
+Style "*"   WindowShadeSteps 200, WindowShadeScrolls
+Style "*"   DecorateTransient, ResizeOpaque
+Style "*" Font	-adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+
+#Application specific styles.
+Style Fvwm*  Sticky, WindowListSkip, !Title, CirculateSkip, !Handles
+Style FvwmConsole Title, Handles
+Style Vim* Title, Handles
+Style gaim Title, Handles, BorderWidth 5, HandleWidth 5
+Style xloadtime !Title, Handles, Sticky
+Style xbuffy !Title, Sticky
+Style xlassie !title, Sticky
+Style "Terminal Emulation"  StartsOnPage 0 0 0, SkipMapping
+Style xmcd    StartsOnPage 0 0 0, SkipMapping
+Style rxvt_a  StartsOnPage 0 1 1, SkipMapping
+Style rxvt_b  StartsOnPage 0 1 1, SkipMapping
+Style irc     StartsOnPage 0 1 1, SkipMapping
+Style mutt    StartsOnPage 1 2, SkipMapping
+Style rxvtc   StartsOnPage 1 2, SkipMapping
+Style rxvtd   StartsOnPage 1 2, SkipMapping
+Style Mozilla-bin StartsOnPage 0 1 0, SkipMapping
+Style *Firefox* StartsOnPage 0 1 0, SkipMapping
+
+#BorderStyle Simple
+
+SetAnimation  10  -.01 0 .01 .03 .08 .18 .3 .45 .6 .75 .85 .90 .94 .97 .99 1.0
+
+IconFont -adobe-helvetica-bold-r-*-*-20-*-*-*-*-*-*-*
+IconTitleRelief -50
+TitleStyle Height 18
+Emulate Fvwm
+DesktopName 0 Main
+EdgeScroll 0 0
+EdgeResistance 500 1
+EdgeThickness 1
+HideGeometryWindow never
+
+# AddToDecor allows for things like vector buttons to be defined. This is
+# deprecated and plans for it to be re-written are long overdue. :)
+AddToDecor   fDecor
++ BorderStyle Simple
++ TitleStyle  -- Raised
++ ButtonStyle All -- Raised
++ AddButtonStyle 1 Vector 5 25x40@1 25x60@1 75x60@0 75x40@0 25x40@1
++ AddButtonStyle 2 Vector 4 50x25@1 75x75@0 25x75@0 50x25@1
++ AddButtonStyle 4 Vector 4 50x75@1 25x25@1 75x25@1 50x75@0
++ ButtonStyle 1 - Clear MWMDecorMenu
+#+ ButtonStyle 2 - Clear
++ ButtonStyle 2 - Clear MWMDecorMax
++ ButtonStyle 4 - Clear MWMDecorMin
+
+#################
+ClickTime 310
+
+#####
+# Use 9 pages per desktop, arranged in a square, like this:
+#
+#   +-----+-----+-----+
+#   |     |     |     |
+#   +-----+-----+-----+
+#   |     |     |     |
+#   +-----+-----+-----+
+#   |     |     |     |
+#   +-----+-----+-----+
+#################
+DeskTopSize 3x3
+
+######
+# Use an arrow rather than the `X` cursor on the root window.
+#################
+CursorStyle root top_left_arrow
+
+#####
+# OpaqueMoveSize allows you to stop Large windows from being moved opaquely,
+# I like the effect.
+# SnapAttraction lets nearby windows snap together, or snap to edges so 
+# that they
+# are easier to align on your desktop, The default is off, if you set it 
+# too large  it's annoying as hell, 3 pixels is just right.
+#################
+OpaqueMoveSize -1
+SnapAttraction 4 SameType
+SnapGrid 1 1
+MoveThreshold 3
+BugOpts FlickeringMoveWorkAround On
+
+# Handle some Mouse bindings now...
+# Recall that mouse formats look like this:
+#
+# +------------+
+# | ||  ||  || |
+# |	           |
+# +------------+
+#   1   3   2
+
+# Binding Functions
+#
+# "I" stands for Immediate
+# "M" stands for Motion
+# "C" stands for Click
+# "H" stands for Hold
+# "D" stands for Double Click
+
+# ---------------------------------------------------------------------------
+# Contexts:
+#     R = Root Window                 rrrrrrrrrrrrrrrrrrrrrr
+#     W = Application Window          rIrrrrFSSSSSSSSSFrrrrr
+#     F = Frame Corners               rrrrrrS13TTTT642Srrrrr
+#     S = Frame Sides                 rIrrrrSwwwwwwwwwSrrrrr
+#     T = Title Bar                   rrrrrrSwwwwwwwwwSrrrrr
+#     I = Icon                        rIrrrrFSSSSSSSSSFrrrrr
+#                                     rrrrrrrrrrrrrrrrrrrrrr
+# Numbers are buttons: 1 3 5 7 9   0 8 6 4 2
+#
+# Modifiers: (A)ny, (C)ontrol, (S)hift, (M)eta, (N)othing
+# ---------------------------------------------------------------------------
+
+
+# click in the root menu
+Mouse 1           R       A       Menu FvwmMenuRoot
+Mouse 2 	R       A               WindowList
+Mouse 3 	RFT     A               Menu FvwmMenuWindowOps
+
+Mouse 1         SFT     A       FuncFvwmMoveOrRaiseOrShade
+Mouse 1         SF      A       FuncFvwmResizeOrRaiseOrShade Maximize
+Mouse 1		I	A	FuncIconifyDeIconify
+Mouse 3		I	A	Menu FvwmMenuWindowOps
+Mouse 3		FS	A	Menu FvwmMenuWindowOps
+
+Mouse 0		1	A	FuncWindowOpsOrClose
+Mouse 0		4	A	FuncIconifyDeIconify
+Mouse 0		2	A	FuncFvwmMaximizeFullScreen
+
+# Now some keyboard shortcuts.
+
+# Arrow Keys
+# press arrow + control anywhere, and scroll by 1 page
+
+# Now using the 'PageScroll' function
+Key Left	A	CM	Scroll -100 0
+Key Right	A	CM	Scroll +100 +0
+Key Up		A	CM	Scroll +0 -100
+Key Down	A	CM	Scroll +0 +100
+
+#Key Left	A	CM	PageScroll left
+#Key Right	A	CM	PageScroll right
+#Key Up		A	CM	PageScroll up
+#Key Down	A	CM	PageScroll down
+
+# press arrow + meta key, and scroll by 1/10 of a page
+Key Left	A	SM	Scroll -10 +0
+Key Right	A	SM	Scroll +10 +0
+Key Up		A	SM	Scroll +0 -10
+Key Down	A	SM	Scroll +0 +10
+
+# press shift arrow + control anywhere, and move the pointer by 1% of a page
+Key Left	A	SC	CursorMove -1 0
+Key Right	A	SC	CursorMove +1 +0
+Key Up		A	SC	CursorMove +0 -1
+Key Down	A	SC	CursorMove +0 +1
+
+#Application keybindings.
+Key L		A	CM	Exec xscreensaver-command -lock
+Key X   A 3   Function FvwmTitleRxvt
+Key S   A 3   Stick
+Key Tab A 3   SendToModule FvwmProxy ShowToggle
+Key Menu A N  Popup FvwmMenuRoot
+Key Tab		A	M	-
+Key Up      WTSF    C3  PackWrapperUp
+Key Down    WTSF    C3  PackWrapperDown
+Key Left    WTSF    C3  PackWrapperLeft
+Key Right   WTSF    C3  PackWrapperRight
+Key Up      WTSF    3   WindowShade North
+Key Down    WTSF    3   WindowShade South
+Key Left    WTSF    3   WindowShade West
+Key Right   WTSF    3   WindowShade East
+
+# Menu styles...
+MenuStyle MWM
+MenuStyle * Font  -adobe-helvetica-bold-r-*-*-12-*-*-*-*-*-*-*
+##############################################################
+#These taken from fvwm-themes 'default' theme.
+MenuStyle * Hilight3DThickness 2
+MenuStyle * PopupDelayed, PopupDelay 150, PopdownDelayed, PopdownDelay 150
+MenuStyle * PopupOffset -15 100, TitleWarpOff
+MenuStyle * TitleUnderlines2, SeparatorsLong, TrianglesRelief
+MenuStyle * Animation, AutomaticHotkeysOff, DoubleClickTime
+MenuStyle * BorderWidth 2, SidePic, SideColor
+MenuStyle * PopupAsSubmenu, HoldSubmenus, SubmenusRight
+MenuStyle * ItemFormat "%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3>%1|"
+MenuStyle * VerticalItemSpacing, VerticalTitleSpacing
+BusyCursor  DynamicMenu True
+
+##-misc-fixed-*--14-*-my_utf8-36/iso10646-1
+
+# functions
+DestroyFunc FuncFvwmMoveOrRaiseOrShade
+AddToFunc   FuncFvwmMoveOrRaiseOrShade
++ H     Move
++ M     Move
++ C     Raise
++ D     WindowShade $[func.context]
+
+DestroyFunc FuncFvwmResizeOrRaiseOrShade
+AddToFunc   FuncFvwmResizeOrRaiseOrShade
++ H     Resize $0
++ M     Resize $0
++ C     Raise
++ D     WindowShade $[func.context]
+
+DestroyFunc FuncFvwmMoveOrRaiseLower
+AddToFunc   FuncFvwmMoveOrRaiseLower
++ H     Move
++ M     Move
++ C     RaiseLower
+
+DestroyFunc FuncFvwmMoveOrIconify
+AddToFunc   FuncFvwmMoveOrIconify
++ M     Move
++ D     Iconify
+
+DestroyFunc FuncFvwmMaximizeFullScreen
+AddToFunc   FuncFvwmMaximizeFullScreen
++ I Maximize 100 100 
+
+DestroyFunc FuncFvwmWindowOpsOrAction
+AddToFunc   FuncFvwmWindowOpsOrAction
++ I Menu MenuFvwmWindowOps2 $*
+
+DestroyFunc FuncIconifyDeIconify
+AddToFunc   FuncIconifyDeIconify
++ C ThisWindow (!Iconic) Iconify
++ D ThisWindow (Iconic) Iconify
+
+DestroyFunc FuncWindowOpsOrClose
+AddToFunc FuncWindowOpsOrClose
++ H Menu FvwmMenuWindowOps
++ C Menu FvwmMenuWindowOps
++ D Close
+
+DestroyFunc FuncFvwmMenuDirectory
+AddToFunc   FuncFvwmMenuDirectory
++ I PipeRead 'fvwm-menu-directory -d "$0" --exec-file ^launcher --exec-title ^rox --check-subdir --links'
+
+#DestroyFunc  FuncFvwmMenuColorset
+AddToFunc    FuncFvwmMenuColorset
++ I DestroyMenu recreate FvwmMenuColorset
++ I PipeRead 'echo "AddToMenu FvwmMenuColorset Colorsets Title"'
++ I PipeRead 'echo \+ \\"Reset\\" Function ChangeStyle "1 fg white, bg #c06077";  echo \\+ \\"\\" Nop'
++ I PipeRead 'while read l; do echo +\"${l/*bg /\ }\" Function ChangeStyle "$l"; done < ~/.fvwm/colorsets'
+
+DestroyFunc  FuncViewManPage
+AddToFunc FuncViewManPage
++ I Exec exec xterm -fg $[fg.cs2] -bg $[bg.cs2] -g 80x40 -fn 7x14 -fb 7x14bold -n "Manual Page - $0" -T "Manual Page - $0" -e man "$0"
+
+DestroyMenu "FvwmMenuWindowOps"
+AddToMenu "FvwmMenuWindowOps" "WindowOps" Title
++              "&Move" Pick Move 
++		Function FvwmFuncMoveOrRaiseLower
++              "&Resize" Pick Resize 
++		Function FuncFvwmResizeOrRaiseOrShade
++              "R&aise" Raise
++              "&Lower" Lower
++              "(De)&Iconify" Iconify
++              "(Un)&Stick" Stick
++              "(Un)Ma&ximize" Function FuncFvwmMaximizeFullScreen
++              "" Nop
++	       "&Identify" Module FvwmIdent
++	       "" Nop
++	       "&Close"	Close
++              "&Delete" Delete 
++              "D&estroy" Destroy
++              "" Nop
++              "Re&fresh Screen" Refresh
+
+DestroyMenu "FvwmMenuWindowOps2" 
+AddToMenu "FvwmMenuWindowOps2" 
++	       "Move" Pick Move 
+#+		Function  FvwmFuncMoveOrRaiseLower
++              "Resize" Pick Resize 
+#+		Function FuncFvwmResizeOrRaiseOrShade
++              "Raise" Raise
++              "Lower" Lower
++              "Iconify" Iconify
++              "(Un)Stick" Stick
++              "" Nop
++	       "Identify"  Module FvwmIdent
++	       "" Nop
++	       "Close"  Close
++              "Destroy" Destroy
++              "Delete" Delete
++              "" Nop
++              "ScrollBar" Module FvwmScroll 2 2
+
+DestroyMenu "FvwmMenuRoot"
+AddToMenu "FvwmMenuRoot" "Root Menu" Title
++ MissingSubmenuFunction Beep
++ "&Shells" Popup FvwmMenuShellsPopup
++ "&Editors" Popup FvwmMenuEditorsPopup
++ "&Internet" Popup FvwmMenuInternetPopup
++ "&Games"   Popup FvwmMenuGamesPopup
++ "&Drawing" Popup FvwmMenuDrawingPopup
++ "S&ystem"  Popup FvwmMenuSystemPopup
++ "Musi&c" Popup FvwmMenuMusicPopup
++ "" Nop
++ "&File Management" Popup FvwmMenuFilePopup
++ "&Change Colorsets" Popup FvwmMenuColorset
++ "" Nop
++ "&Window Operations" Popup FvwmMenuWindowOps2
++ "&Modules" Popup FvwmMenuModulesPopup
++ "&Help" Popup FvwmMenuHelpPopup
++ "" Nop
++ "E&xit Fvwm" Popup FvwmExitFvwmPopup
+
+DestroyMenu "FvwmMenuMusicPopup"
+AddToMenu "FvwmMenuMusicPopup" "Music" Title
++ "X&mcd" Exec exec xmcd
++ "&Xmms" Exec exec xmms
++ "&Cplay (screen)" Function FvwmTitleRxvt -T "Cplay" -e "screen -T -RS cplay cplay"
+
+DestroyMenu "FvwmMenuShellsPopup" 
+AddToMenu "FvwmMenuShellsPopup" "Shells" Title
++ "&rxvt (normal)" Function FvwmTitleRxvt
++ "" Nop
++ "&xterm (normal)" Exec exec xterm -ls
++ "x&term (blue)"  Exec exec xterm -ls -bg blue -fg white
++ "" Nop
+
+DestroyMenu "FvwmMenuSystemPopup" 
+AddToMenu   "FvwmMenuSystemPopup" "System Utilities" Title
++ "&xloadtime" Exec exec xloadtime -bg darkgrey -update 1 -cpu -label -geometry 130x91+1033+859
+ "xlassie.&sh"  Exec exec xlassie.sh
++ "x&buffy" Function FvwmStartXBuffy
++ "" Nop
++ "&qps" Exec exec qps
+
+DestroyMenu "FvwmMenuDrawingPopup"
+AddTomenu "FvwmMenuDrawingPopup"
++ "&Dia" Exec exec dia
+
+DestroyMenu "FvwmMenuEditorsPopup"
+AddToMenu "FvwmMenuEditorsPopup"
++ MissingSubmenuFunction Beep
++ "&X11"  Popup FvwmSubEditorsX11
++ "&Console" Popup FvwmSubEditorsConsole
++ "&Office" Popup FvwmSubEditorsOffice
+
+DestroyMenu "FvwmSubEditorsConsole"
+AddToMenu "FvwmSubEditorsConsole" "Editors - Console" Title
++ MissingSubmenuFunction Beep
++ "&vi" Exec exec xterm -bg white -fg black -e vim 
++ "&nano" Exec exec xterm -bg white -fg black -e nano
+	DestroyMenu "FvwmSubEditorsX11" 
+
+AddToMenu "FvwmSubEditorsX11" "Editors - X11" Title 
++ MissingSubmenuFunction Beep
++ "&gvim" Exec exec gvim
++ "g&cream" Exec exec gcream
++ "x&less" Exec exec xless
++ "X&emacs" Exec exec xemacs
++ "G&V" Exec exec gv
++ "x&pdf" Exec exec xpdf
++ "" Nop
++ "L&yx" Exec exec lyx
++ "&Texmacs" Exec exec texmacs
+
+DestroyMenu "FvwmSubEditorsOffice"
+AddToMenu "FvwmSubEditorsOffice" "Office" Title
++ MissingSubMenuFunction Beep
++ "&OpenOffice" Popup FvwmMenuOOSubMenu
++ "&AbiWord" Exec exec abiword
+
+DestroyMenu "FvwmMenuOOSubMenu"
+AddToMenu "FvwmMenuOOSubMenu" "OpenOffice" Title
++ "&OpenOffice" Exec exec openoffice
++ "" Nop
++ "&Writer" Exec exec oowriter
++ "&Spreadsheet" Exec exec oocalc
++ "&Impress"   Exec exec ooimpress
++ "&Drawer"  Exec exec oodraw
++ "&Formulae"  Exec exec oomath
+
+DestroyMenu "FvwmMenuGamesPopup"
+AddToMenu "FvwmMenuGamesPopup" "Games - Console" Title
++ "&moon-buggy" Function FvwmTitleRxvt -e 'moon-buggy'
++ "Games - X11" Title
++ "x&teddy" Exec exec xteddy
++ "xt&artan" Exec exec xtartan
++ "&vectoroids" Exec exec vectoroids
+
+DestroyMenu "FvwmMenuInternetPopup"
+AddToMenu "FvwmMenuInternetPopup"
++ "&Browsers" Popup FvwmSubInternetBrowsers
++ "&Mail" Popup FvwmSubInternetMail
++ "&IRC" Popup FvwmSubInternetIRC
+
+DestroyMenu "FvwmSubInternetBrowsers"
+AddToMenu "FvwmSubInternetBrowsers" "Console Browsers" Title
++ "&links" Function FvwmTitleRxvt -e 'links'
++ "l&ynx" Function FvwmTitleRxvt -e 'lynx'
++ "&elinks" Function FvwmTitleRxvt -e 'elinks'
++ "X11 Browsers" Title
++ "&Netscape" Exec exec netscape
++ "&Mozilla"  Exec exec mozilla
++ "&Firefox"  Exec exec firefox
++ "&Dillo" Exec exec dillo
++ "&XLinks" Exec exec links -g
+
+DestroyMenu "FvwmSubInternetMail"
+AddToMenu "FvwmSubInternetMail" "Console Mail Clients" Title 
++ "&mutt" Function FvwmTitleRxvt -e 'mutt'
++ "&cone" Function FvwmTitleRxvt -e 'cone'
++ "X11 Mail Clients" Title
++ "&Sylpheed-claws" Exec exec sylpheed-claws 
++ "Syl&pheed" Exec exec sylpheed
++ "&xmh" Exec exec xmh
+
+DestroyMenu "FvwmSubInternetIRC"
+AddToMenu "FvwmSubInternetIRC" "Console IRC" Title
++ "&Irssi" Exec Function FvwmTitleRxvt -e 'irssi'
++ "&epic" Exec  Function FvwmTitleRxvt -e 'epic'
++ "&ircII" Exec Function FvwmTitleRxvt -e 'ircii'
++ "X11 IRC" Title
++ "&Xchat" Exec exec xchat
++ "xi&rssi" Exec exec xirssi
+
+DestroyMenu "FvwmMenuFilePopup"
+AddToMenu   "FvwmMenuFilePopup" 
++ MissingSubMenuFunction FuncFvwmMenuDirectory
++ "/" Popup /
++ "/etc" Popup /etc
++ "Home Directory" Popup $[HOME]
+
+DestroyMenu "FvwmMenuColorset"
+AddToMenu   "FvwmMenuColorset" DynamicPopupAction FuncFvwmMenuColorset
+
+DestroyMenu "FvwmMenuHelpPopup"
+AddToMenu   "FvwmMenuHelpPopup" "Fvwm Manpages" Title
++ "&Fvwm"		FuncViewManPage fvwm
++ "Fvwm&Animate"		FuncViewManPage FvwmAnimate
++ "FvwmA&uto"		FuncViewManPage FvwmAuto
++ "Fvwm&Backer"		FuncViewManPage FvwmBacker
++ "FvwmB&anner"		FuncViewManPage FvwmBanner
++ "FvwmB&uttons"		FuncViewManPage FvwmButtons
++ "Fvwm&Command"		FuncViewManPage FvwmCommand
++ "FvwmC&onsole"         FuncViewManPage FvwmConsole
++ "FvwmConsoleC.pl"     FuncViewManPage FvwmConsoleC.pl
++ "FvwmCpp"             FuncViewManPage FvwmCpp
++ "FvwmDebug"           FuncViewManPage FvwmDebug
++ "FvwmDragWell"        FuncViewManPage FvwmDragWell
++ "FvwmEvent"           FuncViewManPage FvwmEvent
++ "FvwmForm"            FuncViewManPage FvwmForm
++ "FvwmGtk"             FuncViewManPage FvwmGtk
++ "FvwmGtkDebug"        FuncViewManPage FvwmGtkDebug
++ "FvwmIconBox"         FuncViewManPage FvwmIconBox
++ "FvwmIconMan"         FuncViewManPage FvwmIconMan
++ "FvwmIdent"           FuncViewManPage FvwmIdent
++ "FvwmM4"              FuncViewManPage FvwmM4
++ "FvwmPager"           FuncViewManPage FvwmPager
++ "FvwmPerl"            FuncViewManPage FvwmPerl
++ "FvwmProxy"           FuncViewManPage FvwmProxy
++ "FvwmRearrange"       FuncViewManPage FvwmRearrange
++ "FvwmSave"            FuncViewManPage FvwmSave
++ "FvwmSaveDesk"        FuncViewManPage FvwmSaveDesk
++ "FvwmScript"          FuncViewManPage FvwmScript
++ "FvwmScroll"          FuncViewManPage FvwmScroll
++ "FvwmTaskBar"         FuncViewManPage FvwmTaskBar
++ "FvwmTheme"           FuncViewManPage FvwmTheme
++ "FvwmWharf"           FuncViewManPage FvwmWharf
++ "FvwmWinList"         FuncViewManPage FvwmWinList
++ "FvwmWindowMenu"      FuncViewManPage FvwmWindowMenu
++ "" Nop
++ "fvwm-config"         FuncViewManPage fvwm-config
++ "fvwm-perllib"        FuncViewManPage fvwm-perllib
++ "fvwm-root"           FuncViewManPage fvwm-root
++ "fvwm-bug"            FuncViewManPage fvwm-bug
++ "fvwm-convert-2.2"    FuncViewManPage fvwm-convert-2.2
++ "fvwm-convert-2.4"    FuncViewManPage fvwm-convert-2.4
++ "" Nop
++ "fvwm-menu-desktop"   FuncViewManPage fvwm-menu-desktop
++ "fvwm-menu-directory" FuncViewManPage fvwm-menu-directory
++ "fvwm-menu-headlines" FuncViewManPage fvwm-menu-headlines
++ "fvwm-menu-xlock"     FuncViewManPage fvwm-menu-xlock
+
+DestroyMenu "FvwmMenuModulesPopup"
+AddToMenu "FvwmMenuModulesPopup" "Modules" Title
++ Audio        Module FvwmAudio
++ Auto         Module FvwmAuto 200
++ Buttons      Module FvwmButtons
++ Console      Module FvwmConsole
++ Event	       Module FvwmEvent
++ Proxy	       Module FvwmProxy
++ Ident        Module FvwmIdent
++ Banner       Module FvwmBanner
++ Pager        Module FvwmPager 0 0
+
+DestroyMenu "FvwmExitFvwmPopup"
+AddToMenu FvwmExitFvwmPopup "Exit Fvwm?" Title
++ "&Restart"   Restart fvwm -f ~/.fvwm2rc
++ "&Quit"      Module FvwmForm FvwmForm-QuitVerify
+
+#Stroke support
+Mouse 3 R A     StrokeFunc DrawMotion FeedBack StrokeWidth 1
+#Stroke 0 0 R N     Menu MenuFvwmRoot
+
+# Down, Then Up.
+Stroke 25852 0 R N  Refresh
+
+# Directions...
+Stroke 456 0 R N    GotoPage +1p 0p
+Stroke 654 0 R N    GotoPage -1p 0p
+Stroke 852 0 R N    GotoPage 0p -1p
+Stroke 258 0 R N    GotoPage 0p +1p
+
+# Diagonal...
+Stroke 159 0 R N    GotoPage +1p +1p
+Stroke 951 0 R N    GotoPage -1p -1p
+Stroke 357 0 R N    GotoPage -1p +1p
+Stroke 753 0 R N    GotoPage +1p -1p
+
+
+
+# Module Configs
+
+DestroyModuleConfig FvwmPager: *
+*FvwmPagerFont -adobe-helvetica-bold-r-*-*-10-*-*-*-*-*-*-*
+*FvwmPagerSmallFont none
+*FvwmPagerBack darkgrey
+#*FvwmPagerBack #5c54c0
+*FvwmPagerFore Black
+*FvwmPagerHilight orchid
+*FvwmPagerGeometry 0x0+715+514
+*FvwmPagerDeskTopScale 29
+*FvwmPagerSloppyFocus
+*FvwmPagerUseSkipList
+*FvwmPagerBalloons All
+
+Style FvwmButtons !Title, !Handles, CirculateSkip, NeverFocus, Sticky, \
+      WindowListSkip
+Style Buttons-Slider NoTitle, NoHandles, !Borders
+Style *bar*   !Handles, !Borders, SloppyFocus
+
+DestroyModuleConfig termbar: *
+*termbar: Rows 1
+*termbar: Back gray66
+*termbar: (2x1,Swallow(UseOld, NoHints, Respawn) "terme" \
+          "Exec exec rxvt -T terme -bg darkgrey -fg black +sb -e bash --rcfile \
+          /home/n6tadam/.bashrc2")
+*termbar: Geometry 379x80+199+870
+#*termbar: Geometry 274x80+304+870
+
+DestroyModuleConfig bar: *
+*bar: Rows 1
+*bar: Columns 11
+*bar: Back gray66
+*bar: Geometry 1253x80+15+880
+#*bar: geometry 900x80+361+870
+#*bar: geometry 684x80+586+870
+*bar: (5x1,Swallow(UseOld, NoHints, Respawn) "xbuffy" FvwmStartXBuffy
+*bar: (3x1,Swallow "termbar" 'Module FvwmButtons -g 379x80+199+870 termbar')
+*bar: (3x1,Swallow "mpdbar" 'Module FvwmButtons mpdbar')
+*bar: (1x1,Title 'Mutt',Swallow(UseOld, NoHints, Respawn) "xlassie" \
+"Exec xlassie -offline -command 'fetchmail -s' -imap edulinux.homeunix.org -username n6tadam -password ask < ~/.mailpass -bg darkgrey -fg black -update 5 -geometry 79x89+928+861")      
+*bar: (1x1,Title 'station',Swallow(UseOld, NoHints, Respawn) "xloadtime" \
+      "Exec exec xloadtime -cpu -update 1 -bg darkgrey")
+*bar: (1x1,Title 'gateway',Swallow "xloadtime" "Exec ssh -X gateway xloadtime -fg blue -bg darkgrey -cpu -update 1 &")
+*bar: (1x1,Swallow "FvwmPager" "Module FvwmPager 0 0")
+
+DestroyModuleConfig Buttons-Slider: *
+*Buttons-Slider: Back gray66
+*Buttons-Slider: Rows 1
+*Buttons-Slider: Frame 1
+*Buttons-Slider: Padding 0 0
+*Buttons-Slider: (Panel(NoBorder, Nohints, left, steps 15, delay 6, indicator 10) "bar" \
+                  'Module FvwmButtons bar')
+DestroyModuleConfig mpdbar: *
+*mpdbar: Back darkgrey
+*mpdbar: Columns 5
+*mpdbar: Rows 2 
+*mpdbar: (1x1, Action (Mouse 1) 'Exec mpc play &>/dev/null', Icon \
+          $[HOME]/.fvwm/icons/play.png)
+*mpdbar: (1x1, Action (Mouse 1) 'Exec mpc pause &>/dev/null', Icon \
+          $[HOME]/.fvwm/icons/pause.png)
+*mpdbar: (1x1, Action (Mouse 1) 'Exec mpc stop &>/dev/null', Icon \
+          $[HOME]/.fvwm/icons/stop.png)
+*mpdbar: (1x1, Action (Mouse 1) 'Exec mpc prev &>/dev/null', Icon \
+          $[HOME]/.fvwm/icons/prev.png)
+*mpdbar: (1x1, Action (Mouse 1) 'Exec mpc next &>/dev/null', Icon \
+          $[HOME]/.fvwm/icons/next.png)
+*mpdbar: (5x1)
+
+
+*LoginGrabServer
+*LoginWarpPointer
+*LoginFont         *helvetica*m*r*n*14*
+*LoginButtonFont   *helvetica*m*o*n*14*
+*LoginInputFont    *cour*m*r*n*14*
+*LoginFore         White
+#Bisque
+*LoginBack         Blue4
+#*LoginItemFore     Bisque
+*LoginItemBack     Gray50
+
+# begin items
+*LoginLine         center
+*LoginText         "Start Options:"
+*LoginLine         center
+*LoginButton	   quit " Quick  Start " ^[
+*LoginLine         center
+*LoginButton       quit "All Programs" ^M
+*LoginCommand 	   RunProgs
+
+Style "Login" !Title, !Handles, BorderWidth 10
+
+DestroyModuleConfig FvwmEvent-count: *
+*FvwmEvent-count: Cmd
+*FvwmEvent-count: PassId
+*FvwmEvent-count: add_window FvwmCountDestroyWindows
+*FvwmEvent-count: destroy_window FvwmCountDestroyWindows
+
+DestroyModuleConfig FvwmEvent-decrxvt: *
+*FvwmEvent-decrxvt: Cmd
+*FvwmEvent-decrxvt: PassId
+*FvwmEvent-decrxvt: destroy_window FvwmDecrementRCount
+
+#Specific to FvwmEvent-count
+DestroyFunc  FvwmCountDestroyWindows
+AddToFunc  FvwmCountDestroyWindows
++ I SetEnv WinNum 0
++ I All (CurrentDesk !Transient) \
+    PipeRead 'echo SetEnv WinNum $$$$(($$$$WinNum + 1))'
+#+ I Echo $[WinNum]
++ I DesktopName 0 Main ($[WinNum])
+
+AddToFunc FvwmTitleRxvt
++ I PipeRead 'letters=($(eval echo {e..z})); \
+    echo SetEnv lookup $$$$(echo $$$${letters[RCount]})'
++ I PipeRead 'echo SetEnv RCount $$$$(($$$$RCount + 1))'
++ I Exec exec $[RXVT] -T rxvt_$[lookup] $*
+
+AddToFunc FvwmDecrementRCount
++ I PipeRead "test $[RCount] -le 0 && echo SetEnv RCount 1 \
+    || echo SetEnv RCount $$$$(($$$$RCount - 1))"
+
+AddToFunc FvwmStartXbuffy
++ I Exec exec xbuffy -bg darkgrey -fg black -poll 5 -header 0 -nobeep -horiz -geometry 461x88+457+862 -mail ~/Mail{/dorset,/fvwm,/fvwm-workers,/glost,/hants,/inbox,/lgang,/sussex,/tag,/wilts,/hants-wiki,/cream,/xemacs,/cedet}
+
+DestroyFunc ChangeStyle
+AddToFunc   ChangeStyle
++ I ColorSet $* 
++ I Style * HilightColorSet $0 $*
++ I UpdateStyles
+
+DestroyFunc PackWindowUp
+AddToFunc PackWindowUp
++ I SetEnv low_w 0
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test `expr $[w.y] + $[w.height]` -gt $[low_w] \
+        -a `expr $[w.y] + $[w.height]` -lt $0 \
+        -a \\( \\( $[w.x] -gt $1 -a $[w.x] -lt `expr $1 + $2` \\) \
+            -o \\( $1 -gt $[w.x] -a $1 -lt `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $1 -le $[w.x] -a `expr $1 + $2` -ge `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $[w.x] -lt $1 -a `expr $[w.x] + $[w.width]` -gt `expr $1 + $2` \\) \
+        \\) \
+        && echo SetEnv low_w `expr $[w.y] + $[w.height]` \
+        || echo Nop"
++ I WindowId $3 AnimatedMove keep $[low_w]p
+#+ I WindowId $3 RefreshWindow
+
+AddToFunc PackWrapperUp I NoWindow PackWindowUp $[w.y] $[w.x] $[w.width] $[w.id]
+
+#####
+# Name:     PackWindowDown
+# Bound:    Alt+Shift+Down When a window is active.
+# Purpose:  See PackWindowUp.
+#
+#################
+DestroyFunc PackWindowDown
+AddToFunc PackWindowDown
++ I SetEnv high_w $[vp.height]
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test $[w.y] -lt $[high_w] \
+        -a $[w.y] -gt `expr $0 + $4`  \
+        -a \\( \\( $[w.x] -gt $1 -a $[w.x] -lt `expr $1 + $2` \\) \
+            -o \\( $1 -gt $[w.x] -a $1 -lt `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $1 -le $[w.x] -a `expr $1 + $2` -ge `expr $[w.x] + $[w.width]` \\) \
+            -o \\( $[w.x] -lt $1 -a `expr $[w.x] + $[w.width]` -gt `expr $1 + $2` \\) \
+        \\) \
+        && echo SetEnv high_w $[w.y] \
+        || echo Nop"
++ I PipeRead "echo WindowId $3 AnimatedMove keep `expr $[high_w] - $4`p"
+#+ I WindowId $3 RefreshWindow
+
+AddToFunc PackWrapperDown I NoWindow PackWindowDown $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+
+#####
+# Name:     PackWindowLeft
+# Bound:    Alt+Shift+Left When a window is active
+# Purpose:  See PackWindowUp.
+#
+# The Logic works likes this:
+#   1. Set Destination to the Left Edge
+#   2. For every window, Run these tests:
+#               + Is the Window's Right edge further _Right_ than furthest edge seen yet?
+#       And:    + Is it's Right edge Further _Left_ than Target Windows Left edge? (ie,
+#in the way)
+#           Yes:
+#                   + Does the window start inside Target Window, and end below?
+#               Or  + Does it start above, and end inside?
+#               Or  + Is it the same vertical position/height/size, or start inside and 
+#end inside?
+#               Or  + Does it start above, and end below?
+#                   Yes:
+#                       This is the new Destination.
+#                   No:
+#                       Nop
+#           No:
+#               Nop
+#   3. Move to Destination.
+#
+#################
+DestroyFunc PackWindowLeft
+AddToFunc PackWindowLeft
++ I SetEnv left_w 0
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test `expr $[w.x] + $[w.width]` -gt $[left_w] \
+        -a `expr $[w.x] + $[w.width]` -lt $1 \
+        -a \\( \\( $[w.y] -gt $0 -a $[w.y] -lt `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt $0 \\) \
+            -o \\( $[w.y] -ge $0 -a `expr $[w.y] + $[w.height]` -le `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt `expr $0 + $4` \\) \
+        \\) \
+        && echo SetEnv left_w `expr $[w.x] + $[w.width]`  \
+        || echo Nop"
++ I WindowId $3 AnimatedMove $[left_w]p keep
+#+ I WindowId $3 RefreshWindow
+
+AddToFunc PackWrapperLeft I NoWindow PackWindowLeft $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+
+DestroyFunc PackWindowRight
+AddToFunc PackWindowRight
++ I SetEnv right_w $[vp.width]
++ I WindowId $3 Raise
++ I All (CurrentPage !Iconic AcceptsFocus \
+        !Shaded) PipeRead "test $[w.x] -lt $[right_w] \
+        -a $[w.x] -gt `expr $1 + $2` \
+        -a \\( \\( $[w.y] -gt $0 -a $[w.y] -lt `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt $0 \\) \
+            -o \\( $[w.y] -ge $0 -a `expr $[w.y] + $[w.height]` -le `expr $0 + $4` \\) \
+            -o \\( $[w.y] -lt $0 -a `expr $[w.y] + $[w.height]` -gt `expr $0 + $4` \\) \
+        \\) \
+        && echo SetEnv right_w $[w.x] \
+        || echo Nop"
++ I PipeRead "echo WindowId $3 AnimatedMove `expr $[right_w] - $2`p keep"
+#+ I WindowId $3 RefreshWindow
+
+AddToFunc PackWrapperRight I NoWindow PackWindowRight $[w.y] $[w.x] $[w.width] $[w.id] $[w.height]
+
+# 
+AddToFunc StartFunction
++ I Exec exec xsetroot -solid gray66
++ I Test (Init) Module FvwmForm Login
++ I Test (Init) Exec exec unclutter -noevents -notclass TeXmacs
++ I Module FvwmButtons -g 13x80+1268+880 Buttons-Slider
++ I Module FvwmEvent FvwmEvent-count
++ I Module FvwmEvent FvwmEvent-decrxvt
++ I Module FvwmCommandS
++ I Module FvwmAnimate
++ I Module FvwmProxy
+
+DestroyFunc RunProgs
+AddToFunc RunProgs
++ I Exec exec xsetroot -solid gray66
++ I Exec exec rxvt -T "Terminal Emulation" -geometry 135x41+161+189 +sb -ls
++ I Exec exec xmcd -geometry 360x135+460+1
+#+ I Exec exec xterm -ls -iconic -e "xlassie.sh"
++ I Exec exec $[RXVT] -n rxvt_a -T rxvt_a -geometry 90x24+1+482
++ I Exec exec $[RXVT] -n rxvt_b -T rxvt_b -geometry 88x24+645+482
++ I Exec exec xterm -T "irc" -geometry 140x30+0+0 -ls -e "ssh -X gateway 'screen -RS irssi irssi'"
++ I Exec exec xsetroot -solid darkgrey
++ I Exec exec screen -d -S mutt -m "mutt -Z" 
++ I Exec exec $[RXVT] -T "mutt" -n mutt -geometry 101x59+0+0  -e screen -R -S mutt
++ I Exec exec $[RXVT] -T "rxvt_c" -n rxvt_c -geometry 78x29+720+0
++ I Exec exec $[RXVT] -T "rxvt_d" -n rxvt_d -geometry 78x28+721+438
+
+AddToFunc ExitFunction I Nop
+#Maybe something will go here one day.

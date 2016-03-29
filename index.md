@@ -1,6 +1,6 @@
 ---
 layout : default
-title : The Offical FVWM Home Page
+page-title : The Offical FVWM Home Page
 header-title : The Offical Home Page
 ---
 

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+     FVWM - Man Page - FvwmDebug
+    
+  </title>
+  <meta name="description" content="FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop window manager for the X  Window system.
+">
+
+  <link rel="stylesheet" href="/fvwm.org/css/main.css">
+  <link rel="canonical" href="http://fvwm.org/fvwm.org/documentation/manpages/FvwmDebug.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+<table class="fvwm_header" cellpadding="0">
+<tr>
+  <td class="fvwm_top_left_border"></td>
+  <td class="fvwm_top_border"></td>
+  <td class="fvwm_top_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_left_border"></td>
+  <td class="fvwm_window">
+    <table border="0" cellpadding="0" width="100%" style="border-spacing: 0;">
+    <tr>
+      <td class="fvwm_button1"></td>
+      <td class="fvwm_title">The Offical FVWM Home Page</td>
+      <td class="fvwm_button4"></td>
+      <td class="fvwm_button2"></td>
+    </tr>
+    </table>
+    <div style="padding: 0px;">
+      <table border="0" cellpadding="0" width="100%">
+      <tr><td style="width: 300px; text-align: left;">
+        <img src="/fvwm.org/img/fvwm-logo-gradient-small.png">
+      </td><td style="text-align: left; vertical-align: middle;">
+        
+          FvwmDebug
+        
+      </td></tr>
+      </table>
+    </div>
+  </td>
+  <td class="fvwm_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_bottom_left_border"></td>
+  <td class="fvwm_bottom_border"></td>
+  <td class="fvwm_bottom_right_border"></td>
+</tr>
+<tr>
+</table>
+
+
+  </div>
+
+</header>
+
+
+
+
+    <div class="wrapper">
+
+<ul class="fvwm_menu">
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/">FVWM</a>
+      <ul>
+	<li><a class="fvwm_submenu" href="/fvwm.org/features">Features</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/history">History</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/fvwm-logos">FVWM Logos</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/authors">Authors</a></li>
+	<li><a class="fvwm_submenu" href="/fvwm.org/fvwm-cats">Cats</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/documentation">Documentation</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/faq">FAQ</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/manpages">Man Pages</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/developers">Developer Information</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/changelog">ChangeLog</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/download">Download</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/screenshots">Screenshots</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/support">Support</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#lists">Mailing Lists</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#irc">IRC</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/links">Links</a>
+  </li>
+</ul>
+
+</div>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="manpage-wrapper">
+
+<H1>FvwmDebug</H1>
+Section: Fvwm Modules (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">Table of Contents</A>
+<A HREF="index.html">Return to Man Page Index</A><HR>
+
+
+
+
+
+
+<A NAME="lbAB"></A>
+<H2>NAME</H2>
+
+FvwmDebug - the fvwm module debugger
+<A NAME="lbAC"></A>
+<H2>SYNOPSIS</H2>
+
+
+
+FvwmDebug should be spawned by <I><A HREF="fvwm">fvwm</A></I>(1) for normal functionality.
+<P>
+
+To run this module, place this command somewhere in the configuration:
+<P>
+
+
+
+<PRE>
+    Module FvwmDebug [optional-params]
+
+</PRE>
+
+
+<P>
+
+To stop this module, execute:
+<P>
+
+
+
+<PRE>
+    KillModule FvwmDebug
+
+</PRE>
+
+
+<A NAME="lbAD"></A>
+<H2>DESCRIPTION</H2>
+
+
+
+This module persistently dumps all fvwm event details and optionally some other information into the standard error stream or a file, good for debugging purposes. The output may be optionally redirected to <I>xconsole</I> or similar window.
+<A NAME="lbAE"></A>
+<H2>INVOCATION</H2>
+
+
+
+There are several command line switches:
+<P>
+
+<B>FvwmDebug</B> [ <B>--args</B>|<B>--noargs</B> ] [ <B>--events</B>|<B>--noevents</B> ] [ <B>--log</B> <I>file</I> ] [ <B>--xconsole</B> ] [ <B>--mask</B> <I>mask</I> ] [ <B>--xmask</B> <I>mask</I> ] [ <B>--debug</B> <I>level</I> ] [ <B>--track</B> <I>tracker-name</I> ] [ <B>--send-configinfo</B> ] [ <B>--send-windowlist</B> ]
+<P>
+
+Long switches may be abbreviated to shorter switches.
+<P>
+
+<B>--noargs</B> - do not print all arguments of the event, just its name. <B>--args</B> is the default.
+<P>
+
+<B>--noevents</B> - do not print even event names, implies <B>--noargs</B>. It is similar in effect to setting both <B>--mask</B> and <B>--xmask</B> to 0, but the events are actually received by the module, they are just not printed.
+<P>
+
+This option may be useful if <B>--track</B> or/and <B>--debug</B> is used.
+<P>
+
+The default is <B>--events</B> normally, and <B>--noevents</B> if one or more <B>--track</B> options specified.
+<P>
+
+<B>-l</B>|<B>--log</B> <I>file</I> - specify the log file name instead of the standard error stream. If the log file can't be open for writing, the default standard error stream is used.
+<P>
+
+The <I>file</I> may start with a pipe '|', this is similar to the usual meaning of a pipe, the output is piped to the specified command. See also <B>--xconsole</B> option.
+<P>
+
+<B>-xc</B>|<B>--xconsole</B> - this is a shortcut for:
+<P>
+
+
+
+<PRE>
+    FvwmDebug --log '|xconsole -file /dev/stdin -geometry 600x400 -notify'
+
+</PRE>
+
+
+<P>
+
+That shows the module output in the <I>xconsole</I> window rather than the standard error stream.
+<P>
+
+<B>-m</B>|<B>--mask</B> <I>mask</I> - set the module mask, 31 bit integer. By default almost all events are monitored (except for some flood events like <I></I><FONT SIZE="-1"><I>CONFIGURE_WINDOW</I></FONT><I></I> or <I></I><FONT SIZE="-1"><I>FOCUS_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal mask.
+<P>
+
+<B>-x</B>|<B>--xmask</B> <I>mask</I> - set the module extended mask, 31 bit integer. By default almost all events are monitored (except for some flood events like <I></I><FONT SIZE="-1"><I>ENTER_WINDOW</I></FONT><I></I> or <I></I><FONT SIZE="-1"><I>LEAVE_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal extended mask.
+<P>
+
+<B>-d</B>|<B>--debug</B> <I>level</I> - use the Perl library debugging mechanism. The useful <I>level</I>s are 2 to 4.
+<P>
+
+<B>-t</B>|<B>--track</B> <I>tracker-name</I> - create the given Perl library tracker and observe its main observable. This option may be specified multiple times. This options implies <B>--noevents</B> unless explicitly overwritten. You may optionally try <B>--debug</B>, for example:
+<P>
+
+
+
+<PRE>
+    FvwmDebug -xc --track PageInfo --track GlobalConfig --debug 3
+
+</PRE>
+
+
+<P>
+
+Run ``fvwm-perllib man'' to get the names of all existing trackers in your installed Perl library.
+<P>
+
+<B>-sc</B>|<B>--send-configinfo</B> - send <B>Send_ConfigInfo</B> command to <I>fvwm</I> on startup, this results in a lot of events received.
+<P>
+
+<B>-sw</B>|<B>--send-windowlist</B> - send <B>Send_WindowList</B> command to <I>fvwm</I> on startup, this results in a lot of events received.
+<A NAME="lbAF"></A>
+<H2>SEE ALSO</H2>
+
+
+
+See also FvwmGtkDebug.
+<A NAME="lbAG"></A>
+<H2>AUTHOR</H2>
+
+
+
+Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
+<P>
+
+<HR>
+<A NAME="index"></A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">INVOCATION</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">AUTHOR</A><DD>
+</DL>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper" style="text-align: right;">
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

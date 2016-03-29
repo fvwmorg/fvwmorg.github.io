@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>
+     FVWM - Man Page - FvwmGtkDebug
+    
+  </title>
+  <meta name="description" content="FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop window manager for the X  Window system.
+">
+
+  <link rel="stylesheet" href="/fvwm.org/css/main.css">
+  <link rel="canonical" href="http://fvwm.org/fvwm.org/documentation/manpages/FvwmGtkDebug.html">
+</head>
+
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+<table class="fvwm_header" cellpadding="0">
+<tr>
+  <td class="fvwm_top_left_border"></td>
+  <td class="fvwm_top_border"></td>
+  <td class="fvwm_top_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_left_border"></td>
+  <td class="fvwm_window">
+    <table border="0" cellpadding="0" width="100%" style="border-spacing: 0;">
+    <tr>
+      <td class="fvwm_button1"></td>
+      <td class="fvwm_title">The Offical FVWM Home Page</td>
+      <td class="fvwm_button4"></td>
+      <td class="fvwm_button2"></td>
+    </tr>
+    </table>
+    <div style="padding: 0px;">
+      <table border="0" cellpadding="0" width="100%">
+      <tr><td style="width: 300px; text-align: left;">
+        <img src="/fvwm.org/img/fvwm-logo-gradient-small.png">
+      </td><td style="text-align: left; vertical-align: middle;">
+        
+          FvwmGtkDebug
+        
+      </td></tr>
+      </table>
+    </div>
+  </td>
+  <td class="fvwm_right_border"></td>
+</tr>
+<tr>
+  <td class="fvwm_bottom_left_border"></td>
+  <td class="fvwm_bottom_border"></td>
+  <td class="fvwm_bottom_right_border"></td>
+</tr>
+<tr>
+</table>
+
+
+  </div>
+
+</header>
+
+
+
+
+    <div class="wrapper">
+
+<ul class="fvwm_menu">
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/">FVWM</a>
+      <ul>
+	<li><a class="fvwm_submenu" href="/fvwm.org/features">Features</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/history">History</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/fvwm-logos">FVWM Logos</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/authors">Authors</a></li>
+	<li><a class="fvwm_submenu" href="/fvwm.org/fvwm-cats">Cats</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/documentation">Documentation</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/faq">FAQ</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/manpages">Man Pages</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/developers">Developer Information</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/documentation/changelog">ChangeLog</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/download">Download</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/screenshots">Screenshots</a>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/support">Support</a>
+      <ul>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#lists">Mailing Lists</a></li>
+        <li><a class="fvwm_submenu" href="/fvwm.org/support#irc">IRC</a></li>
+      </ul>
+  </li>
+  <li class="fvwm_menu">
+    <a class="fvwm_menu" href="/fvwm.org/links">Links</a>
+  </li>
+</ul>
+
+</div>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="manpage-wrapper">
+
+<H1>FvwmGtkDebug</H1>
+Section: Fvwm Modules (1)<BR>Updated: 2009-03-22<BR><A HREF="#index">Table of Contents</A>
+<A HREF="index.html">Return to Man Page Index</A><HR>
+
+
+
+
+
+
+<A NAME="lbAB"></A>
+<H2>NAME</H2>
+
+FvwmGtkDebug - graphical interactive fvwm module debugger
+<A NAME="lbAC"></A>
+<H2>SYNOPSIS</H2>
+
+
+
+FvwmGtkDebug should be spawned by <I><A HREF="fvwm">fvwm</A></I>(1).
+<P>
+
+To run this module, place this command somewhere in the configuration:
+<P>
+
+
+
+<PRE>
+    Module FvwmGtkDebug
+
+</PRE>
+
+
+<P>
+
+To stop this module, just close the <FONT SIZE="-1">GUI</FONT> window, the usual KillModule works too.
+<P>
+
+You may also run this application as a regular program from the command line shell. But the communication with <I>fvwm</I> is not established in this dummy mode, so commands are not really sent and there are no real events received. However certain activity is emulated using dummy events.
+<A NAME="lbAD"></A>
+<H2>DESCRIPTION</H2>
+
+
+
+This module monitors all fvwm event information and shows it nicely in the interactive gtk+ application. Good for debugging and educational purposes.
+<P>
+
+Among the features: command console with history and auto command help, requesting to send back ConfigInfo (configuration of <I>fvwm</I> and all modules), WindowList (information about all windows) or custom Reply.
+<P>
+
+The fvwm commands may be executed within the context of some window. The context window may be optionally set on invocation, like: ``Next (Navigator) FvwmGtkDebug'', and be set/unset interactively at any time.
+<A NAME="lbAE"></A>
+<H2>INVOCATION</H2>
+
+
+
+There are several command line switches:
+<P>
+
+<B>FvwmGtkDebug</B> [ <B>--mask</B> <I>mask</I> ] [ <B>--xmask</B> <I>mask</I> ] [ <B>--debug</B> <I>level</I> ]
+<P>
+
+Long switches may be abbreviated to shorter switches.
+<P>
+
+<B>-m</B>|<B>--mask</B> <I>mask</I> - set the initial module mask, 31 bit integer. This mask may be changed interactively at any time. By default almost all events are monitored (except for some flood events like <I></I><FONT SIZE="-1"><I>CONFIGURE_WINDOW</I></FONT><I></I> or <I></I><FONT SIZE="-1"><I>FOCUS_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal mask.
+<P>
+
+<B>-x</B>|<B>--xmask</B> <I>mask</I> - set the initial module extended mask, 31 bit integer. This mask may be changed interactively at any time. By default almost all events are monitored (except for some flood events like <I></I><FONT SIZE="-1"><I>ENTER_WINDOW</I></FONT><I></I> or <I></I><FONT SIZE="-1"><I>LEAVE_WINDOW</I></FONT><I></I>. The special value of <I>-1</I> sets the maximal extended mask.
+<P>
+
+<B>-d</B>|<B>--debug</B> <I>level</I> - use the Perl library debugging mechanism. The useful <I>level</I>s are 2 to 4.
+<A NAME="lbAF"></A>
+<H2>SEE ALSO</H2>
+
+
+
+See also FvwmDebug, ``fvwm-perllib man events''.
+<A NAME="lbAG"></A>
+<H2>AUTHOR</H2>
+
+
+
+Mikhael Goikhman &lt;<A HREF="mailto:migo@homemail.com">migo@homemail.com</A>&gt;.
+<P>
+
+<HR>
+<A NAME="index"></A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">INVOCATION</A><DD>
+<DT><A HREF="#lbAF">SEE ALSO</A><DD>
+<DT><A HREF="#lbAG">AUTHOR</A><DD>
+</DL>
+
+</div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper" style="text-align: right;">
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
