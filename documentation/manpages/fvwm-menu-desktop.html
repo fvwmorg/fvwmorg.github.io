@@ -1,0 +1,451 @@
+---
+layout : default
+title : Man Page - fvwm-menu-desktop
+header-title : fvwm-menu-desktop
+---
+<div class="manpage-wrapper">
+
+<H1>fvwm-menu-desktop</H1>
+Section: Fvwm Modules (1)<BR>Updated: 15 March 2016 (2.6.6)<BR><A HREF="#index">Table of Contents</A>
+<A HREF="index.html">Return to Man Page Index</A><HR>
+
+
+<A NAME="lbAB"></A>
+<H2>NAME</H2>
+
+fvwm-menu-desktop - Reads XDG menu files and creates Fvwm menus
+<P>
+<A NAME="lbAC"></A>
+<H2>SYNOPSIS</H2>
+
+fvwm-menu-desktop
+[ <B>--help</B>|<B>-h</B> ]
+[ <B>--version</B>|<B>-v</B> ]
+[ <B>--install-prefix</B> <I>DIR</I> ]
+[ <B>--desktop</B> <I>NAME</I> ]
+[ <B>--menu-type</B> <I>NAME</I> ]
+[ <B>--theme</B> <I>NAME</I> ]
+[ <B>--with-titles</B>|<B>-w</B> ]
+[ <B>--enable-mini-icons</B> ]
+[ <B>--size</B>|<B>-s</B> <I>NUM</I> ]
+[ <B>--mini-icon-dir</B>|<B>-t</B> <I>DIR</I> ]
+[ <B>--title</B>|<B>-t</B> <I>NAME</I> ]
+[ <B>--insert-in-menu</B> <I>NAME</I> ]
+[ <B>--get-menus</B> <I>all</I>|<I>desktop</I> ]
+[ <B>--set-menus</B> <I>menu_paths</I> ]
+[ <B>--verbose</B> ]
+<P>
+<P>
+<A NAME="lbAD"></A>
+<H2>DESCRIPTION</H2>
+
+This is a python script which parses XDG menus definitions to build 
+corresponding fvwm menus.
+<P>
+<A NAME="lbAE"></A>
+<H2>OPTIONS</H2>
+
+<P>
+<DL COMPACT>
+<DT>Main Options<DD>
+<P>
+<DT><B>--help</B><DD>
+Show the help and exit.
+<P>
+<DT><B>--version</B><DD>
+Show the version and exit.
+<P>
+<DT><B>--install-prefix</B> <I>DIR</I><DD>
+Optional parameter to override the standard locations for XDG menu
+definitions. The standard locations are
+/etc/xdg/menus (and $HOME/.config/menus if it exists).
+<P>
+<DT><B>--desktop</B> <I>NAME</I><DD>
+Optional parameter to override the <I>NAME</I> of the main desktop
+environment installed on the system. If a system offers multiple
+desktop environments $XDG_MENU_PREFIX is typically set and is
+ignored if --desktop is denoted. Possible names are: <I>gnome</I>,
+<I>kde</I>, <I>xfce</I>, <I>lxde</I>, <I>debian</I>, etc.
+<P>
+<DT><B>--menu-type</B> <I>NAME</I><DD>
+Defines which type of menus should be found. Possible <I>NAME</I> types
+could be: <I>applications</I>, <I>settings</I>, <I>preferences</I>, etc.
+<P>
+Note that if the specified menu type doesn't exist the generated menu
+is empty!
+<P>
+<DT><B>--theme</B> <I>NAME</I><DD>
+Defines the used icon theme. Default is <I>gnome</I> but all others
+found in /usr/share/icons could be used except the <I>hicolor</I> theme
+because it's the default fallback theme if no icon is found.
+<P>
+<DT><B>--with-titles</B>|<B>-w</B><DD>
+If this option is set menus are generated with titles. Default is no
+titles.
+<P>
+<DT><B>--title</B>|<B>-t</B> <I>NAME</I> <DD>
+Option to define the menu title <I>NAME</I> of the top menu used by Fvwm's
+<B>Popup</B> command. Default is &quot;FvwmMenu&quot;.
+<P>
+<DT><B>--insert-in-menu</B> <I>NAME</I><DD>
+Option to insert generated menu(s) <B>IN</B> a menu <I>NAME</I> (its
+top title).
+<P>
+Note that this option does not work correctly with the
+Regnerate Menus menu entry in a normal built menu since items inserted 
+into such a menu cannot be removed (currently). If you use this option
+there and want to update your menus, you have to restart fvwm. A better
+way is to use dynamic menus (see the example in the USAGE section).
+<P>
+<DT><B>--get-menus</B> <I>all</I>|<I>desktop</I><DD>
+Prints a space separated list of full menu paths. <I>all</I> is all menus
+on the system except empty ones. <I>desktop</I> is desktop related menus.
+No menu generation is done.
+<P>
+This option is meant for use with the configuration tool.
+<P>
+<DT><B>--set-menus</B> <I>menu_paths</I><DD>
+Expects a space separated list of full menu paths to generate user
+specified menus
+<P>
+This option is meant for use with the configuration tool.
+<P>
+<DT><B>--verbose</B><DD>
+Enables additional information printouts on STDERR.
+<P>
+<DT>Icons Options<DD>
+<P>
+By default, fvwm-menu-desktop builds menus without mini-icons. To enable
+mini-icons use:
+<P>
+<DT><B>--enable-mini-icons</B><DD>
+This option enables mini-icons in the menus. If set, 24x24 mini-icons
+are used. If the specified icon isn't that size it will be converted
+if <B>ImageMagick</B> is installed and saved in $HOME/.fvwm/icons or to
+the directory specified with --mini-icon-dir option. Otherwise no icon
+appears in the menu for that entry.
+With most distributions, all the menu entries will have mini-icons
+appropriate to the application.
+<P>
+<DT><B>--size</B>|<B>-s</B> <I>NUM</I><DD>
+If --enable-mini-icons is used the <I>size</I> of the icons can
+changed with this parameter. Default is 24.
+<P>
+<DT><B>--mini-icon-dir</B> <I>DIR</I><DD>
+When the right size mini-icon isn't available,
+fvwm-menu-desktop creates icons with the right size in $HOME/.fvwm/icons.
+If you don't want to use the default directory, $HOME/.fvwm/icons,
+use this option to specify a different folder.
+<P>
+</DL>
+<A NAME="lbAF"></A>
+<H2>USAGE</H2>
+
+Without any parameters <B>fvwm-menu-desktop</B> creates a menu named
+&quot;FvwmMenu&quot; with sub menus found for the main desktop environment
+installed on the system.
+<P>
+To add the default generated menu to the &quot;Root&quot; menu add the following
+to your fvwm config file (~/.fvwm/config or ~/.fvwm/.fvwm2rc). This
+generates the menu each time you pop it up:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot &quot;XDG Menus&quot; Popup FvwmMenu
+PipeRead 'fvwm-menu-desktop'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+This is likely to be too slow and is not recommended.
+<P>
+Another possibility is to use <B>DynamicPopupAction</B>,
+the menu will be built only if you pop up the menu. The following
+creates a &quot;KDE Menus&quot; menu which contains all Kde menus found on the
+system which is built only the first time you pop it up:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot &quot;KDE Menus&quot; Popup FvwmKde
+ ...
+
+AddToMenu FvwmKde
++ DynamicPopupAction PipeRead 'fvwm-menu-desktop --desktop kde \
+                                                 --title FvwmKde \
+                                                 --enable-mini-icons \
+                                                 [other options]'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+The example above generates a menu with the Xdg menus as sub menus. If
+the sub menus should appear one level higher do this:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot &quot;Root Menu&quot; Title
++ PipeRead 'fvwm-menu-desktop --insert-in-menu MenuRoot'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+To generate single menus like <I>preferences</I>:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+fvwm-menu-desktop --desktop kde --menu-type preferences --title FvwmPref \
+                  --enable-mini-icons -size 16 --with-titles
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+This generates a single KDE Preferences menu with top title
+&quot;FvwmPref&quot;, mini icons with a size of 16x16 pixels and titles for each
+sub menu. But only if a menu with the name <I>preferences</I>
+exists in the users or system wide Xdg directories. Else it's empty!
+<P>
+To add the generated menu to the &quot;Utilities&quot; menu for example put the
+following to your fvwm config file (~/.fvwm/config or ~/.fvwm/.fvwm2rc):
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu Utilities &quot;Preferences Menu&quot; Popup FvwmPref
+PipeRead 'fvwm-menu-desktop --desktop kde --menu-type preferences \
+                            --title FvwmPref [other options]'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+If you think that <B>fvwm-menu-desktop</B> slows down your menu startup too
+much do not use <B>PipeRead</B>. Instead run <B>fvwm-menu-desktop</B> and
+redirect the menu to a file and read that file in your .fvwm2rc file.  
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot &quot;XDG Menus&quot; Popup FvwmMenu
+ ...
+
+AddToMenu FvwmMenu
++ DynamicPopupAction Function FuncRecreateXdgMenus
+ ...
+
+DestroyFunc FuncRecreateXdgMenus
+AddToFunc   FuncRecreateXdgMenus
++ I Test (f  $[FVWM_USERDIR]/.menu) Read $[FVWM_USERDIR]/.menu
++ I TestRC (!Match) PipeRead 'fvwm-menu-desktop &gt; $[FVWM_USERDIR]/.menu \
+                              &amp;&amp;  echo &quot;Read $[FVWM_USERDIR]/.menu&quot;'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+or if you want to show the menus directly in a normal &quot;Root&quot; menu use
+this:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot &quot;Root Menu&quot; Title
++ FuncXdgMenusInRoot
+ ...
+
+DestroyFunc FuncXdgMenusInRoot
+AddToFunc   FuncXdgMenusInRoot
++ I Test (f  $[FVWM_USERDIR]/.menu) Read $[FVWM_USERDIR]/.menu
++ I TestRC (!Match) PipeRead 'fvwm-menu-desktop --insert-in-menu MenuRoot \
+                              &gt; $[FVWM_USERDIR]/.menu \
+                              &amp;&amp; echo &quot;Read $[FVWM_USERDIR]/.menu&quot;'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+The problem here is, that you have to restart fvwm because items insserted 
+into such a menu cannot be removed. For that BOTH menus must be regenerated:
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+AddToMenu MenuRoot DynamicPopupAction FuncMenuRoot
+
+DestroyFunc FuncMenuRoot
+AddToFunc FuncMenuRoot
++ I DestroyMenu MenuRoot
++ I AddToMenu MenuRoot DynamicPopupAction FuncMenuRoot
++ I AddToMenu MenuRoot &quot;Root Menu&quot; Title
++ I Popup XdgMenus
+
+AddToMenu XdgMenus DynamicPopupAction FuncXdgMenusInRoot
+
+DestroyFunc FuncXdgMenusInRoot
+AddToFunc FuncXdgMenusInRoot
++ I AddToMenu XdgMenus DynamicPopupAction FuncXdgMenusInRoot
++ I Test (f  $[FVWM_USERDIR]/.menu) Read $[FVWM_USERDIR]/.menu
++ I TestRC (!Match) PipeRead 'fvwm-menu-desktop --insert-in-menu MenuRoot \
+                              &gt; $[FVWM_USERDIR]/.menu \
+                              &amp;&amp; echo &quot;Read $[FVWM_USERDIR]/.menu&quot;'
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+<P>
+<A NAME="lbAG"></A>
+<H2>GUI</H2>
+
+There's a <B>FvwmForm</B> GUI to setup the menu generation manually. It
+is found in the root of the generated menu called &quot;Regenerate XDG Menu(s)&quot;.
+<P>
+Or it can be started from within <B>FvwmConsole</B> with
+<P>
+<DL COMPACT><DT><DD>
+
+
+<P>
+
+
+<PRE>
+Module FvwmPerl -l fvwm-menu-desktop-config.fpl
+
+</PRE>
+
+
+<P>
+
+
+
+</DL>
+
+<P>
+<A NAME="lbAH"></A>
+<H2>BUGS</H2>
+
+The whole process of creating menus from files is slow.
+Otherwise report bugs to the
+fvwm-workers mailing list &lt;<A HREF="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</A>&gt;.
+<P>
+<P>
+<A NAME="lbAI"></A>
+<H2>AUTHORS</H2>
+
+This script is based on fvwm-xdg-menu.py written by Piotr Zielinski
+(<A HREF="http://www.cl.cam.ac.uk/~pz215/)">http://www.cl.cam.ac.uk/~pz215/)</A> who assigned Licence: GPL 2 Date:
+03.12.2005.
+<P>
+The script was reworked to replace the existing fvwm-menu-desktop perl
+script by the fvwm-workers.
+<P>
+<P>
+<A NAME="lbAJ"></A>
+<H2>COPYING</H2>
+
+The script is distributed by the same terms as fvwm itself. See GNU
+General Public License for details.
+<P>
+
+<HR>
+<A NAME="index"></A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">OPTIONS</A><DD>
+<DT><A HREF="#lbAF">USAGE</A><DD>
+<DT><A HREF="#lbAG">GUI</A><DD>
+<DT><A HREF="#lbAH">BUGS</A><DD>
+<DT><A HREF="#lbAI">AUTHORS</A><DD>
+<DT><A HREF="#lbAJ">COPYING</A><DD>
+</DL>
+
+</div>
