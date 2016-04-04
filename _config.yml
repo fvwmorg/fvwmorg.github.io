@@ -11,8 +11,8 @@ email: fvwm-owner@fvwm.org
 description: > # this means to ignore newlines until "baseurl:"
   FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
   window manager for the X  Window system.
-baseurl: "/fvwm.org" # the subpath of your site, e.g. /blog
-url: "http://fvwm.org" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://fvwmorg.github.io" # the base hostname & protocol for your site
 github_username: fvwm
 
 # Build settings
