@@ -170,8 +170,6 @@ Installation
 
 #### I'm trying to use fvwm under CDE/COSE, but encountering difficulties. Any suggestions?
 
-  __OLD__
-
   Sure - here's one from Graeme McCaffery:
 
      Finally I have found out how to run fvwm properly from CDE 8-))
@@ -204,63 +202,6 @@ Installation
 
         http://twirl.mcc.ac.uk/~zzassgl/wm.html
 
-#### I'm trying to compile fvwm under SunOS using cc, but the compiler is having lots of problems. What gives?
-
-  __OLD__
-
-  cc under SunOS is not an ANSI C compiler.  Try using acc or gcc
-  instead.
-
-#### I want colored icons, but they won't work. Why not? When I run configure, it reports "no" to "Have XPM support?" How can I get XPM support?
-
-  __OLD__
-
-  Fvwm uses the XPM (X PixMap) library to provide support for colored
-  and shaped icons.  XPM doesn't ship with the basic X distribution
-  as provided by The Open Group or XFree86.  However, many vendors
-  will bundle it as a standard component anyway.  If not, you can get
-  a copy of the source from ftp://ftp.x.org/contrib/libraries/ and
-  build it yourself.
-
-  If you have XPM on your system, there are a number of ways
-  configure could still decide not to use it.
-
-  First, if you've installed XPM in a non-standard place (not in the
-  normal system or X11 directories--say in /opt/xpm or /usr/local or
-  similar) then you need to tell configure where to look.  Use the
-  --with-xpm-library and --with-xpm-includes options (see
-  INSTALL.fvwm).  Typically configure will say "Xpm library or header
-  not found" if this is the problem.
-
-  Second, your version of XPM may be too old.  Fvwm requires XPM 3.4g
-  or better.  Typically configure will say "Xpm library version is
-  too old!" if this is the problem.  In that case, you'll need to
-  install a newer version.
-
-  Third, XPM may be mis-installed on your system.  If configure says
-  " Xpm library version and header file version don't match!" then
-  this may be the problem.  Either use the --with-xpm-library and
-  --with-xpm-includes options to specify more precisely what you
-  want, or try re-installing XPM.
-
-  Last, there could be a linker error.  This is especially common on
-  systems where XPM may be built as a shared library and installed in
-  a non-standard directory (Solaris is a good example).  There are
-  some notes about building using shared libraries in the
-  INSTALL.fvwm file.
-
-  If you can't figure it out, contact the fvwm mailing list.  Please
-  be sure to provide the type of hardware and operating system you're
-  using, how you invoked configure, and extract the lines dealing
-  with XPM from the config.log file and include that.
-
-#### I'm a sysadmin, and if I wanted to force fvwm to read a system rc file and then the user's rc file, how would I do that?
-
-  Well, you could probably do something like this.  Have the first
-  line of everyone's ~/.fvwm/config or ~/.fvwm/.fvwm2rc files be
-  'Read global.config' and have global.config reside in
-  "$datadir"/fvwm (the value of $datadir is set on ./configure step).
-
 #### I'm a sysadmin, and if I wanted fvwm to look for all of its rc files in a hidden directory, say ~/.fvwm, much like CDE does, how could I do that?
 
   Fvwm now supports ~/.fvwm search directory by default.
@@ -281,67 +222,8 @@ Installation
   in case the user was missing one of them and you wanted to supply
   defaults.
 
-#### How can I use fvwm with GNOME version >= 2 or KDE version >= 2?
-
-  __OLD__
-
-  Most standard applications work as any other application with
-  fvwm. However, some features and special applications such as
-  panels, pagers, taskbars and desktops need a special
-  support. Interaction between the window manager, the desktop
-  environment and applications is standardized in the Extended Window
-  Manager Hints specification. fvwm supports this specification since
-  the 2.5.x series (GNOME, GTK, KDE and QT since their version
-  2). See the "Extended Window Manager Hints" section of the fvwm
-  manual page and the commands and styles which start with "EWMH" for
-  more details.
-
-  You can use fvwm as the GNOME window manager. For this, start GNOME
-  (gnome-session). The game is to replace the running window manager
-  (sawfish or metacity by default) by fvwm. You may try to type "fvwm
-  --replace&" in a terminal. If this does not work kill fvwm and open
-  the session properties dialog (run "gnome-session-properties&" in a
-  terminal) and change, in the second tab, the metacity (or sawfish)
-  Style value from "Restart" to "Normal" (do not forget to "Apply"
-  this change), so that gnome-session won't restart it when you kill
-  it. Then, run "killall metacity; sleep 1; fvwm &" in a
-  terminal. After you have succeeded starting fvwm you just have to
-  save your session (say via GNOME session logout). The next time you
-  start gnome-session, fvwm will be used (and you do not need to save
-  the session again at logout). Note that if you use gnome-smproxy,
-  and run an FvwmButtons which swallows some applications which use
-  the old session protocol these applications are restarted by
-  gnome-session and FvwmButtons at session restart which can cause
-  trouble.
-
-  You can also use fvwm as the KDE window manager.  KDE is started by
-  a shell script called "startkde". This script starts ksmserver
-  which starts the window manager (kwin by default). To start fvwm
-  you should add the option "-w fvwm" to the ksmserver command line
-  (close to the end of the script). You may copy startkde to
-  startkde_fvwm somewhere in your path, edit startkde_fvwm and
-  finally replace startkde by startkde_fvwm in your X startup script
-  (e.g., ~/.xinitrc, ~/.Xclients or ~/.xsession). Note that ksmserver
-  does not support the fvwm Restart command. You should use "Restart
-  fvwm" for restarting fvwm. But if you do that it is a bad idea to
-  save the session later.
-
-* * *
-
 Features, configuration, functions & commands
 =============================================
-
-#### I use fvwm on a RedHat Linux system and can't figure out how to change my fvwm configuration.  I've read the fvwm man page but when I edit my .fvwm2rc nothing seems to happen.  What's going on?
-
-  __OLD__
-
-  RedHat Linux installs the X server accompanied (by default) by a
-  configuration management system.  In earlier releases it was called
-  TheNextLevel and in more recent releases it's called
-  AnotherLevel. For further information about TheNextLevel, consult
-  RedHat's documentation in /usr/doc/TheNextLevel/.  For information
-  about AnotherLevel, do a 'man AnotherLevel'.
-
 
 #### Is it possible to raise a window when I click into the window itself, not just the border?
 
@@ -512,37 +394,6 @@ Features, configuration, functions & commands
 
   [thanks to Erik Fortune (erik@westworld.engr.sgi.com), 6/96]
 
-#### I'd like to bind a key to paste/use the current selection, how can I do that?
-
-  You can't directly with fvwm, but there may be a solution that is
-  more generally applicable - use the program 'xcb' available at
-  ftp://ftp.x.org/contrib/utilities/ or from your favorite mirror.
-  It could probably be used to get the desired effect or close to
-  it. This is most useful for running programs and passing the
-  selection to them (e.g. - invoke your favorite browser with the
-  current selection as the URL).  To get a semi-generic paste
-  facility to work, you'll probably need to use 'xse' (see Q3.5).  If
-  anyone comes up with a good example of this, please send it to the
-  fvwm mailing list for inclusion here.
-
-#### Will fvwm ever support a separate colormap for each desktop?
-
-  Doubtful, although I'd like to see it too.  I believe that it'd be
-  possible to change the default colormap whenever you switch desks,
-  which would give programs started when that desk is active that
-  colormap, how would you deal with windows being moved across desks?
-
-  Plus fvwm itself needs certain colormap entries for all of its
-  drawing (borders, menus, etc), so these colors would have to be
-  pre-allocated in all of the colormaps, or something like that.
-
-  While this all *might* be technically possible, I don't feel that
-  it's really feasible right now (too much code bloat and
-  complexity), especially since most color hog programs
-  (i.e. Netscape) allow you to have them install private colormaps.
-
-  I may explore this a little at some point in the future though.
-
 #### I really like the horizontal bars that appear on the title bars of sticky windows.  Can I get those on other windows as well?
 
   Yes.  For release 2.3.14 and after, put the line
@@ -582,184 +433,7 @@ Features, configuration, functions & commands
   available from ftp.x.org) to find out what the keysym for whatever
   key you want REALLY is, and use that for binding fvwm commands.
 
-#### My .fvwmrc from version 1.xx no longer works. What do I do?
-
-  __OLD__
-
-  Start with a new one or convert your old one.  This can be done by
-  hand or with a little help from the 'fvwm-convert-2.2' in the
-  utils directory.
-
-  And here is a list of rc file command changes compiled by Makoto
-  'MAR_kun' MATSUSHITA <matusita@ics.es.osaka-u.ac.jp>.  It may or
-  may not be 100% accurate or complete, especially as changes evolve,
-  but it's a good start.
-
-  Note that there have been some changes in 2.1.x and up that are not
-  reflected in the conversion script yet.
-
-    ** Fvwm-1.xx commands **                   ** Fvwm-2.0.x equivalent **
-
-    AppsBackingStore                           (obsoleted)
-    AutoRaise delay                            (obsoleted, use FvwmAuto)
-    BackingStore                               (obsoleted)
-    BoundaryWidth Width                        Style (BorderWidth width)
-    ButtonStyle button# WidthxHeight           <-
-    CenterOnCirculate                          (obsoleted)
-    CirculateSkip windowname                   Style (CirculateSkip)
-    CirculateSkipIcons                         Style (CirculateSkipIcon)
-    ClickTime delay                            <-
-    ClickToFocus                               Style (ClickToFocus)
-    Cursor  cursor_num cursor_type             CursorStyle context cursornum
-    DecorateTransients                         Style (DecorateTransient)
-    DeskTopScale Scale                         (obsoleted, use FvwmPager)
-    DeskTopSize HorizontalxVertical            <-
-    DontMoveOff                                (obsoleted)
-    EdgeResistance scrolling moving            <-
-    EdgeScroll horizontal vertical             <-
-    Font fontname                              MenuStyle (arg4)
-    Function FunctionName                      AddToFunc (not compatible)
-    HiBackColor colorname                      Style (HilightFore color)
-    HiForeColor colorname                      Style (HilightFore color)
-    Icon windowname bitmap-file                Style (Icon iconname-file)
-    IconBox left top right bottom              Style (IconBox l t r b)
-    IconFont fontname                          Style (IconFont fontname)
-    IconPath path                              ImagePath path
-    Key keyname Context Modifiers Function     <-
-    Lenience                                   Style (Lenience)
-    MenuBackColor colorname                    MenuStyle (arg2)
-    MenuForeColor colorname                    MenuStyle (arg1)
-    MenuStippleColor colorname                 MenuStyle (arg3)
-    Module ModuleName                          <-
-    ModulePath path                            <-
-    Mouse Button Context Modifiers Function    <-
-    MWMBorders                                 Style (MWMBorder)
-    MWMButtons                                 Style (MWMButtons)
-    MWMDecorHints                              Style (MWMDecor)
-    MWMFunctionHints                           Style (MWMFunctions)
-    MWMHintOverride                            Style (HintOverride)
-    MWMMenus                                   MenuStyle (arg5)
-    NoBorder windowname                        Style (NoBorder)
-    NoBoundaryWidth Width                      Style (HandleWidth width)
-    NoPPosition                                Style (NoPPosition)
-    NoTitle windowname                         Style (NoTitle)
-    OpaqueMove percentage                      OpaqueMoveSize percentage
-    OpaqueResize                               (obsoleted)
-    Pager  X_Location Y_Location               (obsoleted, use FvwmPager)
-    PagerForeColor colorname                   (obsoleted, use FvwmPager)
-    PagerBackColor colorname                   (obsoleted, use FvwmPager)
-    PagerFont fontname                         (obsoleted, use FvwmPager)
-    PagingDefault pagingdefaultvalue           (obsoleted)
-    PixmapPath                                 ImagePath path
-    Popup PopupName                            AddToMenu (not compatible)
-    RandomPlacement                            Style (RandomPlacement)
-    SaveUnders                                 (obsoleted)
-    SloppyFocus                                Style (SloppyFocus)
-    SmartPlacement                             Style (SmartPlacement)
-    StartsOnDesk windowname desk-number        Style (StartsOnDesk desk-number)
-    StaysOnTop windowname                      Style (StaysOnTop)
-    StdBackColor colorname                     Style (BackColor color)
-    StdForeColor colorname                     Style (ForeColor color)
-    StickyBackColor colorname                  (obsoleted)
-    StickyForeColor colorname                  (obsoleted)
-    Sticky windowname                          Style (Sticky)
-    StickyIcons                                Style (StickyIcon)
-    StubbornIcons                              (obsoleted)
-    StubbornIconPlacement                      (obsoleted)
-    StubbornPlacement                          (obsoleted)
-    Style windowname options                   <-
-    SuppressIcons                              Style (NoIcon)
-    WindowFont fontname                        Style (Font fontname)
-    WindowListSkip windowname                  Style (WindowListSkip)
-    XORvalue number                            <-
-
-    ** fvwm-1 built-in functions **
-
-    Beep                                       <-
-    CirculateDown [ name window_name ]         Next (not compatible)
-    CirculateUp [ name window_name ]           Prev (not compatible)
-    Close                                      <-
-    CursorMove horizontal vertical             <-
-    Delete                                     <-
-    Desk arg1 arg2                             <-
-    Destroy                                    <-
-    Exec name command                          <-
-    Focus                                      <-
-    Function                                   <-
-    GotoPage  x y                              <-
-    Iconify [ value ]                          <-
-    Lower                                      <-
-    Maximize [  horizontal vertical ]          <-
-    Module name ModuleName                     Module ModuleName
-    Move [ x y ]                               <-
-    Nop                                        <-
-    Popup                                      <-
-    Quit                                       <-
-    Raise                                      <-
-    RaiseLower                                 <-
-    Refresh                                    <-
-    Resize [ x y ]                             <-
-    Restart  name WindowManagerName            <-
-    Stick                                      <-
-    Scroll horizonal vertical                  <-
-    Title                                      <-
-    TogglePage                                 (obsoleted)
-    Wait name                                  <-
-    Warp [ name window_name ]                  Next or Prev (not compatible)
-    WindowsDesk new_desk                       (obsoleted, use MoveToDesk)
-    WindowList arg1 arg2                       <-
- 
-    ** New in fvwm-2 **
-
-    All
-    AnimatedMove
-    BugOpts
-    BusyCursor
-    DefaultColors
-    DefaultColorset
-    DefaultFont
-    DefaultIcon
-    DefaultLayers
-    Destroy
-    DestroyMenu
-    EdgeThickness
-    Emulate
-    EscapeFunc
-    ExecUseShell
-    HideGeometryWindow
-    KillModule
-    Layer
-    Menu menu-name double-click-action
-    MoveToDesk
-    MoveToPage
-    Next (conditions) command
-    None (arguments) command
-    Pick
-    PointerKey
-    Prev (conditions) command
-    QuitSession
-    Read filename
-    Recapture
-    RecaptureWindow
-    SaveQuitSession
-    SaveSession
-    Silent
-    SnapAttraction
-    SnapGrid
-    StrokeFunc
-    XORPixmap
-    +
-    (more functions are being added from time to time, so please check
-    the man page and the NEWS file too).
-
-#### What happened to the fvwm 1.xx 'include' command?
-
-  __OLD__
-
-  It was actually part of the M4 preprocessing.  You can use the
-  'Read' builtin to get the same effect, or use the FvwmM4 module.
-
-####  How do I get window titles on sub windows of ... (e.g. Netscape)?
+####  How do I get window titles on sub windows of ... (e.g. Firefox)?
 
   These windows are known as 'transient' windows because of their
   short lived nature.  To get the window decorations for transient
@@ -771,19 +445,7 @@ Features, configuration, functions & commands
 
      Style * NakedTransient
 
-#### I just upgraded to version >= 2.3.2, and my configuratios settings disappeared!  How do I get them back?
-
-  __OLD__
-
-  The directory for system-wide configuration files changed from
-  ${sysconfdir} (/usr/local/etc, unless set otherwise at configure
-  time) to a subdirectory, ${sysconfdir}/fvwm.  Move your config
-  files by hand and restart fvwm.
-
-  This change was made because fvwm now installs several files into
-  this directory.
-
-#### Some applications (e.g. Eterm) don't use the icon I defined for them. Why?
+#### Some applications don't use the icon I defined for them. Why?
 
   Eterm provides its own icon and fvwm does not know if it is a plain
   icon or if Eterm wants to draw into it (like xbiff does when you
@@ -1387,20 +1049,6 @@ Modules
 
   See the man page for more details.
 
-#### I heard about this FvwmFileMgr module.  Where can I find it?
-
- The FvwmFileMgr module disappeared because a file manager doesn't
- need to be integrated with a window manager and something like xfm
- does a much better job.  I recommend you pick that up instead (from
- ftp.x.org or your favorite mirror).
-
-#### I used to use GoodStuff in fvwm 1.xx, but it's not in the 2.xx distribution. What do I use now?
-
-  __OLD__
-
-  GoodStuff was renamed to FvwmButtons.  Same module, new name (that
-  fits in with the other modules naming convention).
-
 #### I want to have the sub panels in FvwmButtons not at their default position near the button but somewhere else on the screen. Is this possible?
 
   Yes, but not with the current implementation of the panels.  Please
@@ -1467,163 +1115,6 @@ Modules
 
 Development, known problems & bug reports
 =========================================
-
-#### I'd really like to see neat feature XYZ in fvwm. Wouldn't that be cool?  I even have a patch.  When can it be added?
-
-  If you plan to write a patch, *please*, first of all fetch the
-  latest development release from our web site or better yet use CVS
-  as described in http://fvwm.org/documentation/dev_cvs.php.  It is
-  also a good idea to contact the fvwm-workers list.  At times,
-  patches for older releases may prove completely worthless, e.g.
-  because the fix has already been integrated, a feature already
-  added or removed or simply because the code is very different to
-  the code you patches.  You will do yourself and us a great favor.
-  Otherwise all your hard work may be wasted.
-
-  People are always requesting or suggesting new features (many of
-  which are great ideas and where a lot of the current features came
-  from).  One of the more common ones for example is Windows 95 look
-  and feel (although since this was first written, that particular
-  feature has actually been indirectly implemented via several
-  appearance-affecting features).
-
-  I'd like to make a statement about this.  fvwm is supposed to be
-  small, fast, powerful, and flexible, and sometimes tradeoffs have
-  to be made here.  The module interface helps here, as a lot of
-  features that not everyone wants or needs don't have to be in the
-  main module consuming resources for those people that don't want or
-  need them.
-
-  So if you have a suggestion (or a patch), please think of a way to
-  make it as small and generic as possible if you feel it belongs in
-  the main module.
-
-  If you plan to make a patch, please contact the fvwm-workers
-  mailing list first.  From time to time we are changing the code in
-  a very disruptive way and if you create a patch to a version before
-  such changes were made we will all have a hard time to integrate
-  the patch.  Most of the time we will ask you to update the patch
-  for the current code anyway.
-
-  Bear in mind that we make no guarantees that we'll add any
-  requested feature or apply any submitted patches to the official
-  version, but please don't let this dissuade you from submitting
-  them.  We like to get new ideas and we're always curious to see how
-  someone would implement a given feature, even if we never plan to
-  put it in fvwm. Also, we may choose to re-implement any patches
-  submitted, which may change the syntax, functionality, etc.  Please
-  don't take offense from that, as we mean no offense and we
-  generally have a good reason (at least by our way of thinking) for
-  our actions...
-
-#### How do I create/submit/apply patches?
-
-  First of all, please read the first section of the answer to Q5.1!
-
-  Please add proper entries to the ChangeLog file(s) and possibly to
-  NEWS and AUTHORS files whenever you submit a patch.  The ChangeLog
-  lists *all* changed files and functions along with a useful
-  explanation of the change details.  The NEWS file mentions all
-  user-visible changes, including bug fixes.  Also, do not forget to
-  write a section for the man page if the patch includes new
-  features.
-
-  You can find more detailed instructions for working with the
-  fvwm sources in the files doc/DEVELOPERS and doc/CONVENTIONS in
-  CVS or the tarballs.
-
-  Creating a patch against CVS sources (preferable) -
-
-    1. Execute "cvs update -AdP" to ensure there are no conflicts
-       with the most recent sources.
-    2. Don't forget to update the ChangeLog file (see below) and
-       all manual pages if needed.
-    3. In the base cvs directory run: cvs diff -u >myfeature.patch
-
-  Creating a patch against released sources -
-
-    1. Copy the original file(s) to the same name with the
-       additional extension of .orig (or something like that).
-    2. Update the ChangeLog file.  If you use (x)emacs, move the
-       cursor into the function you changed and hit <ctrl>-x 4 a.
-       This will generate an empty ChangeLog entry in the right
-       file (there are several ChangeLogs).  Add a description of
-       what you did.  Do this each time you change a function or
-       file (for changes outside of functions).  You should update
-       the AUTHORS and NEWS files too if appropriate.
-       Please take the time to add the ChangeLog entries, it makes
-       our work a lot easier.
-    3. Run diff with either the -c (context) or -u (unified)
-       switch on the sets of files, with the .orig file FIRST.  I
-       prefer unified diff's because they are smaller, but
-       sometimes they aren't as readable (and some diff versions
-       don't support unified diffs), so either context or unified
-       diffs are fine (but please, no "plain" diffs).
-
-        ex: cp fvwm.c fvwm.c.orig ; <edit> ; diff -u fvwm.c.orig fvwm.c
-
-  Submitting a patch -
-
-        Mail it to the fvwm-workers mailing list
-        <fvwm-workers@fvwm.org>.
-
-        If your patch is large you should compress it (preferably with
-        gzip).  Should it still be larger than 25k you might want to
-        to place it on a web page and email the URL to the mailing
-        list or ask on the fvwm-workers list first.
-
-        Be sure to read the answer to Q5.1.
-
-        Don't forget the ChangeLog and the documentation.
-
-   Applying a patch -
-
-        Get a copy of the program 'patch' from your favorite source,
-        such as ftp://ftp.gnu.org/gnu/patch/, compile it, and then
-        follow its directions (generally just cd into the appropriate
-        directory and run 'patch < patchfile').
-
-#### How do I submit a bug report?
-
-  Please do not report any 'bugs' related to XMMS to the fvwm mailing
-  lists but send them to the XMMS developers instead.
-
-  Please write a DETAILED description of your problem.  By detailed we
-  mean more than just "my window isn't behaving right" or
-  "I found a bug":
-
-    + If you want a template for a bug report, see the "fvwm-bug"
-      shell script that comes with fvwm.
-    + Describe the problem as best you can, preferably with
-      suggestions on how to reproduce it easily
-    + If applicable, include information from:
-      xwininfo (preferably w/ the -all option)
-
-                xprop
-                FvwmIdent
-                xdpyinfo (maybe)
-
-    + What exact version of fvwm you are running.
-    + What OS & version you are running under
-    + What version of X11 are you running under, and is it an MIT
-      server or a vendor specific server (e.g. the OpenWindow X
-      server under SunOS)
-    + How was fvwm compiled (compiler & version, options, etc)
-    + What settings do you have in your config file that may be
-      pertinent.
-
-  This should be sent to the fvwm-workers mailing list.
-
-#### I have a window that is behaving unexpectedly under fvwm, but just fine under (whatever other window manager), or I have just some random bug. What do I do?
-
-  First, check your rc file and your .Xdefaults to make sure that
-  something blatantly obvious in there isn't causing the problem.
-  Second, *PLEASE PLEASE PLEASE* check the FAQ, BUGS, TODO, and man
-  pages.  Finally, check the official WWW page and the mailing list
-  archives (which have a search facility) stored there.
-
-  If you still can't figure it out, report your problem as a bug
-  (see Q5.3).
 
 #### Why do NumLock, CapsLock and ScrollLock interfere with ClickToFocus and/or my mouse bindings?
 
@@ -1710,13 +1201,13 @@ Development, known problems & bug reports
      MenuStyle <stylename> Hilight3DOff, HilightBackOff
      MenuStyle <Stylename> ActiveFore <preferred color>
 
-#### Why won't the StartIconic style work with {Netscape, etc.}?
+#### Why won't the StartIconic style work with some applications?
 
   The application won't allow it.  This has only been observed with
-  Netscape.  When Netscape starts up, fvwm starts the main window in
-  the iconic state.  Netscape immediately issues another MapRequest,
+  Firefox.  When Firefox starts up, fvwm starts the main window in
+  the iconic state.  Firefox immediately issues another MapRequest,
   to which the window manager must respond by de-iconifying the
-  window, according to the ICCCM rules.  (Netscape can be persuaded
+  window, according to the ICCCM rules.  (Firefox can be persuaded
   to start iconic, however, by invoking it with the -iconic command
   line flag.)
 
@@ -1809,73 +1300,6 @@ Development, known problems & bug reports
 
   This problem will only occur on slow machines or high system load
   (many open windows).
-
-
-#### I'm running Rational Rose and fvwm ignores its windows.
-
-  This problem might occur on other applications besides the one
-  mentioned.
-
-  The symptoms as reported by Raymond Toy are:
-
-     I've been using fvwm for ages and it's always worked for me just
-     fine.  However, I've started using Rational Rose for Solaris.  fvwm
-     seems to get completely confused.
-
-     o Fvwm doesn't draw any frames around the Rose window like it
-       does for all other windows (except for those I explicit said
-       not to).
-
-     o The Rose window is always on top.  Nothing I do can bring
-       another window above the Rose window.
-
-     o Using fvwm's identify window module shows nothing.  No identify
-       window pops up showing the window info.
-
-     o Focus sometimes seems to be lost.  (I have focus follows
-       mouse).  I have to move the mouse out of the window and back in
-       to get focus. Sometimes I also have to click in the window to
-       get focus.
-
-     The annoying thing is that this all seems to work with CDE and
-     dtwm. I don't want to have to switch to dtwm so any hints or
-     pointers on where to look to get fvwm to understand this window
-     would help me a lot.
-
-
-  Heres what we found out:
-
-  Rational Rose uses software from Mainsoft that lets MS Windows
-  applications be recompiled to run on UNIX.
-
-  There are 2 Mainsoft Knowledgebase pages that relate to UNIX
-  window managers:
-
-        http://www.mainsoft.com/kb_mainwin/kbmw0027.html
-        http://dev.mainsoft.com/Default.aspx?tabid=58 [KBMW0034]
-
-  These pages suggest that you export MWWM=allwm or MWWM=MWM before
-  starting the application. The first page is missing, but can be
-  found using http://web.archive.org.
-
-  Raymond reports:
-
-     This works just fine!   Setting MWWM=allwm, Rose  comes
-     up like a normal X app where  the WM draws the borders.
-     With MWWM=MWM, it works ok too except that for the main
-     window,  no borders are drawn  by the WM and Rose draws
-     its own  borders (I  have  fvwm respecting   MWM decor
-     hints).  (This   is     correct  as mentioned by    the
-     Knowledgebase pages above.)   I don't  recall what Rose
-     looks like with dtwm, but I suspect it's quite close to
-     all MWWM=MWM.
-
-  Next we had Klaus Zeitler report that the Rational Rose official
-  startup script is explicitly setting ALLWM to nothing.  This makes
-  it more difficult for an individual user to set this variable.
-  If you can, you can just modify the script, otherwise, your other
-  alternative is to copy the script somewhere where you can modify it
-  and run it from there.
 
 #### Although I use the WindowListSkip style for my modules they still show up in FvwmIconMan, FvwmWinList etc.
 
@@ -1992,6 +1416,7 @@ Miscellaneous
   You may want to take a look at the
 
         http://wm-icons.sourceforge.net/
+
 #### Linux XF86 virtual screen size & fvwm interaction...
 
   Turn off the Linux Virtual Screen stuff in your XF86Config file if
@@ -2071,7 +1496,7 @@ Miscellaneous
   command to further reduce color use.
 
   Other things you may want to do:
-    + Always run Netscape with the "-install" argument.
+    + Always run Firefox with the "-install" argument.
     + If you use an image on your screen background, reduce the number
       of colors it uses.  For xv add the "-nc nn" argument.  For
       xli use the "-colors nn" argument.
@@ -2203,13 +1628,13 @@ Hints and examples from the developers
 
   Use the 'StartsOnDesk' or 'StartsOnPage' style in your config:
 
-     Style Netscape* StartsOnPage 0 1
+     Style Firefox* StartsOnPage 0 1
 
   or
 
-     Style Netscape* StartsOnDesk 1
+     Style Firefox* StartsOnDesk 1
 
-  Any window with a title that begins with 'Netscape' will be placed
+  Any window with a title that begins with 'Firefox' will be placed
   on page 0 1 (desk 1).  You will probably want to use these options
   too:
 
@@ -2219,13 +1644,13 @@ Hints and examples from the developers
   background without switching to this page, use the 'SkipMapping'
   style:
 
-     Style Netscape* StartsOnPage 0 1, SkipMapping
+     Style Firefox* StartsOnPage 0 1, SkipMapping
 
 #### How to start applications on a page or desk other than the current without moving the viewport to the new page or desk.
 
   Use the SkipMapping style:
 
-     Style Netscape* StartsOnPage 0 1, SkipMapping
+     Style Firefox* StartsOnPage 0 1, SkipMapping
 
 #### A more efficient MWM menu style.
 
@@ -2754,9 +2179,4 @@ Taming problematic application windows
   this.  To work around this issue try:
 
     Style "*" Lenience
-
-#### I use XMMS, but it ignores some window styles.
-
-  Please refer to Q0.2.
-
 
