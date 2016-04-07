@@ -18,6 +18,3 @@ github_username: somiaj
 # Build settings
 markdown: kramdown
 
-kramdown:
-  input: GFM
-

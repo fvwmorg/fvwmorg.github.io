@@ -115,4 +115,59 @@ dd {
         width: 35px;
 	color: #f8f8b3;
 }
-	
+
+// FAQ
+
+// TOC category links
+#markdown-toc {
+	list-style-type: square;
+	color: #d9d915;
+	margin-left: 20px;
+}
+#markdown-toc li a {
+	font-size: 22px;
+	color: #41a1ee;
+}
+
+// TOC question links
+#markdown-toc ul {
+	list-style-type: disc;
+        color: #41a1ee;
+	margin-left: 20px;
+}
+#markdown-toc li li a {
+	font-size: 16px;
+	color: #d9d915;
+}
+
+// Question header
+.faq h4 {
+	font-size: 18px;
+	color: #d9d915;
+}
+
+// Inline code
+code.highlighter-rouge {
+	background-color: #eeeeee;
+	border-color: #d9d915;
+	border-width: 2px;
+	color: #2d2d2d;
+}
+
+// Blocked code
+.faq .highlight {
+	margin-left: 55px;
+	background-color: #eeeeee;
+	color: #2d2d2d;
+	border-color: #d9d915;
+	border-width: 2px;
+	border-radius: 7px;
+	display: inline-block;
+}
+
+.faq p {
+	margin-left: 25px;
+}
+.faq ul {
+	margin-left: 45px;
+}

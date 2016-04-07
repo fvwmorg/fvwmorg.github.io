@@ -1,11 +1,6 @@
 Most Asked Questions
 ====================
 
-{:.no_toc}
-
-* Build table of contents
-{:toc}
-
 #### A few minutes after fvwm is started my keyboard and mouse bindings stop working.  What can I do?
 
 Probably your NumLock, CapsLock or ScrollLock key is pressed.
@@ -104,7 +99,7 @@ mailing lists.  Check the support page for more details:
 <http://fvwm.org/support>
 
 + You can ask questions to other fvwm users on the forums:
-<http://fvwmforums.org>
+  <http://fvwmforums.org>
 
 + You can also ask questions on `#fvwm` on `freenode`.
 
@@ -134,7 +129,7 @@ Very easily, using the `--prefix` flag at configure time.
 Suppose your home directory is `/home/sam`.  After unpacking the
 fvwm sources, do:
 
-`./configure --prefix=/home/sam`
+    ./configure --prefix=/home/sam
 
 Now, after building, `make`, and installing, `make
 install`, you will find the binaries in `/home/sam/bin`, the
@@ -168,14 +163,10 @@ seconds.
 
 Finally you have to quit with
 
-`/usr/dt/bin/dtaction ExitSession`
+    /usr/dt/bin/dtaction ExitSession
 
 Now you can happily use CDE programs and fvwm.
 
-On the other hand, here is a link to a web page that describes
-how to add multiple window managers to the CDE login menu:
-
-    http://twirl.mcc.ac.uk/~zzassgl/wm.html
 
 #### I'm a sysadmin, and if I wanted fvwm to look for all of its rc files in a hidden directory, say ~/.fvwm, much like CDE does, how could I do that?
 
@@ -811,7 +802,7 @@ Some applications have transparent theme, e.g. gkrellm and xmms.
 Some applications may show text on the root image, e.g. root-tail.
 
 There are a lot of other applications supporting transparency not
-listed here, search in FreshMeat, http://freshmeat.net/.
+listed here, search in FreshMeat, <http://freshmeat.net/>.
 
 Xcompmgr can also be used to give windows transparency.
 
@@ -1360,14 +1351,14 @@ good job of producing these appearances.
 
 You may want to take a look at the
 
-      http://fvwm-themes.sourceforge.net/
++ <http://fvwm-themes.sourceforge.net/>
 
 #### Where can I get more XPMs for icons?
 
 If you want more color icons, grab the ones out of the ctwm
 distribution (also at ftp.x.org) which has a lot of nice ones.  You
 can also find more in other distributions at ftp.x.org, and at
-http://www.sct.gu.edu.au/~anthony/icons/ (which has a lot, I
+<http://www.sct.gu.edu.au/~anthony/icons/> (which has a lot, I
 believe).
 
 Icons used to be distributed along with fvwm.  Now there is a basic
@@ -1376,13 +1367,13 @@ links at the fvwm web site to other sources of icons.
 
 You may want to take a look at the
 
-      http://wm-icons.sourceforge.net/
++ <http://wm-icons.sourceforge.net/>
 
 #### I know this question doesn't have to do with fvwm, but what happened to to rxvt and rclock which Rob Nation used to support? Where can I find them now?
 
 The official home for rxvt is:
 
-   http://www.rxvt.org/
++ <http://www.rxvt.org/>
 
 and rclock can be found in that rxvt distribution as well.
 
@@ -1423,7 +1414,7 @@ formats must be converted before they can be used in fvwm.
 
 If you want to set a different background per screen (i.e., you're
 using Xinerama), then the program "Nitrogen" can be used to do
-that.  See:  http://projects.l3ib.org/nitrogen/
+that.  See:  <http://projects.l3ib.org/nitrogen/>
 
 #### When I use Fvwm, my XYZ isn't the right color.  Whats wrong?
 
@@ -1438,7 +1429,7 @@ it at once.
 
 This is explained in excruciating detail in the
 
-      http://www.sunhelp.org/faq/FrameBuffer.html
++ <http://www.sunhelp.org/faq/FrameBuffer.html>
 
 If your display can support more than 256 colors, that's the way to
 go.  Look up the documentation for your X server.  You may want to
@@ -2064,7 +2055,7 @@ other applications with similar features.
 Assuming you want application thumbnails as icons provided by fvwm,
 you need fvwm 2.5.8 or later, as this solution requires the
 WindowStyle command, and you should have the ImageMagick utilities
-available in your $PATH -- http://www.imagemagick.org.
+available in your $PATH -- <http://www.imagemagick.org>.
 
 The function below provides a Replacement for the Iconify command
 called Thumbnail, which you can use in your bindings and raises
