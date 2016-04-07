@@ -23,6 +23,7 @@ body {
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
+    padding-top: 205px;
 }
 
 
@@ -160,7 +161,7 @@ pre {
     width: 90%;
     min-width: $content-width;
     margin-right: auto;
-    margin-left: auto;
+    margin-left: 15px;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
     @extend %clearfix;

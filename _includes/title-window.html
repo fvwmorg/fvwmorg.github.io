@@ -1,8 +1,4 @@
-<header class="site-header">
-
-  <div class="wrapper">
-
-<table class="fvwm_header" cellpadding="0">
+<table class="fvwm_window" cellpadding="0">
 <tr>
   <td class="fvwm_top_left_border"></td>
   <td class="fvwm_top_border"></td>
@@ -13,14 +9,19 @@
   <td class="fvwm_window">
     <table border="0" cellpadding="0" width="100%" style="border-spacing: 0;">
     <tr>
-      <td class="fvwm_button1"></td>
-      <td class="fvwm_title">The Offical FVWM Home Page</td>
-      <td class="fvwm_button4"></td>
-      <td class="fvwm_button2"></td>
+      <td class="fvwm_button1" onClick="FvwmWindowStick()"></td>
+      <td class="fvwm_title">
+        {% if page.page-title %}{{ page.page-title }}
+        {% elsif page.title %} FVWM - {{ page.title }}
+        {% else %}{{ site.title }}
+        {% endif %}
+      </td>
+      <td class="fvwm_button4" onClick="FvwmWindowShade(true)"></td>
+      <td class="fvwm_button2" onClick="FvwmWindowShade(false)"></td>
     </tr>
     </table>
     <div style="padding: 0px;">
-      <table border="0" cellpadding="0" width="100%">
+      <table border="0" cellpadding="0" width="100%" id="window-content">
       <tr><td style="width: 300px; text-align: left;">
         <img src="{{ "/img/fvwm-logo-gradient-small.png" | prepend: site.baseurl }}">
       </td><td style="text-align: left; vertical-align: middle;">
@@ -44,10 +45,4 @@
 </tr>
 <tr>
 </table>
-
-
-  </div>
-
-</header>
-
 

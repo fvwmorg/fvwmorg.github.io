@@ -1,4 +1,10 @@
-table.fvwm_header {
+#fvwm_header {
+	position: absolute;
+	top: 0px;
+}
+
+table.fvwm_window {
+	margin-top: 15px;
 	border: 0;
 	padding: 0;
 	border-spacing: 0;
