@@ -1,14 +1,28 @@
-#fvwm_header {
-	position: absolute;
-	top: 0px;
-}
-
+/**
+ * Main Window Decor Styles
+ */
 table.fvwm_window {
-	margin-top: 15px;
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 25px;
+	margin-bottom: 25px;
 	border: 0;
 	padding: 0;
 	border-spacing: 0;
-	width: 100%;
+	min-width: 750px;
+	width: 90%;
+}
+
+table.fvwm_window_max {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 0;
+        padding: 0;
+        border-spacing: 0;
+        min-width: 750px;
+        width: 100%;
 }
 
 td.fvwm_top_border {
@@ -64,7 +78,7 @@ td.fvwm_left_border {
         background-image: url("../img/header/left.gif");
         background-repeat: repeat-y;
         background-position: top;
-        width: 6px;
+	min-width: 6px;
 }
 
 td.fvwm_right_border {
@@ -72,7 +86,7 @@ td.fvwm_right_border {
         background-image: url("../img/header/right.gif");
         background-repeat: repeat-y;
         background-position: top;
-        width: 6px;
+        min-width: 6px;
 }
 
 td.fvwm_button1 {
@@ -82,6 +96,7 @@ td.fvwm_button1 {
         background-position: top;
         width: 20px;
 	height: 20px;
+	cursor: pointer;
 }
 
 td.fvwm_button2 {
@@ -91,6 +106,7 @@ td.fvwm_button2 {
         background-position: top;
         width: 20px;
         height: 20px;
+	cursor: pointer;
 }
 
 td.fvwm_button4 {
@@ -100,6 +116,8 @@ td.fvwm_button4 {
         background-position: top;
         width: 20px;
         height: 20px;
+	cursor: pointer;
+
 }
 
 td.fvwm_title {
@@ -114,15 +132,114 @@ td.fvwm_title {
 	height: 20px;
 }
 
-td.fvwm_window {
-        text-align: center;
-	font-size: 32px;
+.fvwm_content {
+	padding-left: 15px;
+	padding-right: 15px;
+	padding-top: 35px;
+	padding-bottom: 15px;
 	color: #ffffff;
-	font-weight: 700;
-	vertical-align: middle;
+	background-color: #003c3c;
+	vertical-align: top;
+	overflow-y: auto;
+	height: calc(100vh - 190px);
+}
+
+.fvwm_content_max {
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 35px;
+        padding-bottom: 15px;
+        color: #ffffff;
         background-color: #003c3c;
-        background-image: url("../img/header/title.gif");
-        background-repeat: repeat-x;
-        background-position: top;
+        vertical-align: top;
+        overflow-y: auto;
+        height: calc(100vh - 137px);
+}
+
+
+/**
+ * Navagation Menu Styles
+ */
+ul.fvwm_menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #223c3c;
+	border-style: solid;
+	border-width: 0px 0px 3px 0px;
+	border-color: #1a6e99;
+	height: 52px;
+}
+
+li.fvwm_menu {
+	display: inline-block;
+	font-weight: 600;
+	float: left;
+	cursor: pointer;
+	position: relative;
+}
+li.fvwm_menu a {
+	height: 24px;
+	vertical-align: middle;
+}
+
+li.fvwm_menu ul {
+	list-style-type: none;
+	padding: 0;
+	position: absolute;
+	left: -30px;
+	min-width: 90px;
+	white-space: nowrap;
+	display: none;
+        background-color: #223c3c;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #1a6e99;
+}
+
+li.fvwm_menu ul li {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+li.fvwm_menu ul li:hover {
+	background: #111;
+}
+
+ul.fvwm_menu li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+a.fvwm_menu {
+	display: block;
+	padding: 14px 16px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.fvwm_submenu {
+        display: block;
+        padding: 0px;
+        color: white;
+        text-align: left;
+        text-decoration: none;
+}
+
+a.fvwm_menu:hover, a.fvwm_submenu:hover {
+	background-color: #111;
+}
+
+.fvwm_menu.fvwm_menu_logo {
+        background-image: url("../img/fvwm-logo-menu.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+	width: 175px;
+	height: 52px;
+	padding: 0;
 }
 

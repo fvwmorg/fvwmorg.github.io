@@ -14,16 +14,20 @@ dl, dd, ol, ul, figure {
  * Basic styling
  */
 body {
-    font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-    color: $text-color;
-    background-color: $background-color;
+    font: 400 16px sans-serif, "Times New Roman", "Helvetica Neue";
+    color: #2d2d2d;
+    background-color: #ffffff;
+    background-image: url("../img/fvwm-logo-gradient.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 80%;
     -webkit-text-size-adjust: 100%;
     -webkit-font-feature-settings: "kern" 1;
     -moz-font-feature-settings: "kern" 1;
     -o-font-feature-settings: "kern" 1;
     font-feature-settings: "kern" 1;
     font-kerning: normal;
-    padding-top: 205px;
+    height: calc(100vh - 30px);
 }
 
 
@@ -35,7 +39,7 @@ h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 15px;
 }
 
 
@@ -49,36 +53,6 @@ img {
 }
 
 
-
-/**
- * Figures
- */
-figure > img {
-    display: block;
-}
-
-figcaption {
-    font-size: $small-font-size;
-}
-
-
-
-/**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
 /**
  * Headings
  */
@@ -87,6 +61,19 @@ h1, h2, h3, h4, h5, h6 {
     color: #41a1ee;
 }
 
+/**
+ * Lists
+ */
+ul, ol {
+    margin-left: 30px;
+}
+
+li {
+    > ul,
+    > ol {
+         margin-bottom: 0;
+    }
+}
 
 
 /**
@@ -110,30 +97,12 @@ a {
 
 
 /**
- * Blockquotes
- */
-blockquote {
-    color: $grey-color;
-    border-left: 4px solid $grey-color-light;
-    padding-left: $spacing-unit / 2;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-
-    > :last-child {
-        margin-bottom: 0;
-    }
-}
-
-
-
-/**
  * Code formatting
  */
 pre,
 code {
     font-size: 12px;
-    border: 1px solid $grey-color-light;
+    border: 1px solid #e8e8e8;
     border-radius: 3px;
 }
 
@@ -152,51 +121,3 @@ pre {
     }
 }
 
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    width: 90%;
-    min-width: $content-width;
-    margin-right: auto;
-    margin-left: 15px;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
-
-/**
- * Icons
- */
-.icon {
-
-    > svg {
-        display: inline-block;
-        width: 16px;
-        height: 16px;
-        vertical-align: middle;
-
-        path {
-            fill: $grey-color;
-        }
-    }
-}

@@ -5,22 +5,54 @@
 
   <body>
 
-    <div class="wrapper" id="fvwm_header">
-    {% include title-window.html %}
+    <table class="fvwm_window" cellpadding="0" id="fvwm_full_window">
+    <tbody>
+    <tr>
+      <td class="fvwm_top_left_border"></td>
+      <td class="fvwm_top_border" colspan="4"></td>
+      <td class="fvwm_top_right_border"></td>
+    </tr>
+    <tr>
+      <td class="fvwm_left_border"></td>
+      <td class="fvwm_button1" onClick="FvwmWindowMaximize();"></td>
+      <td class="fvwm_title">
+          {% if page.page-title %}{{ page.page-title }}
+          {% elsif page.title %} FVWM - {{ page.title }}
+          {% else %}{{ site.title }}
+          {% endif %}
+      </td>
+      <td class="fvwm_button4" onClick="FvwmWindowShade(true);"></td>
+      <td class="fvwm_button2" onClick="FvwmWindowShade(false);"></td>
+      <td class="fvwm_right_border"></td>
+    </tr>
+    <tr id="fvwm_menu_row">
+      <td class="fvwm_left_border"></td>
+      <td colspan="4">
+        {% include menu.html %}
+      </td>
+      <td class="fvwm_right_border"></td>
+    </tr>
+    <tr id="fvwm_content_row">
+      <td class="fvwm_left_border"></td>
+      <td colspan="4">
+      <div class="fvwm_content" id="fvwm_content_div">
 
-    {% include menu.html %}
-    </div>
+        <script type="text/javascript">FvwmStartFunction();</script>
 
-    <script type="text/javascript">FvwmStartFunction();</script>
+            {{ content }}
 
-    <div class="page-content">
-      <div class="wrapper">
-        {{ content }}
       </div>
-    </div>
+      </td>
+      <td class="fvwm_right_border"></td>
+    </tr>
+    <tr>
+      <td class="fvwm_bottom_left_border"></td>
+      <td class="fvwm_bottom_border" colspan="4"></td>
+      <td class="fvwm_bottom_right_border"></td>
+    </tr>
 
-    {% include footer.html %}
+    </tbody>
+    </table>
 
   </body>
-
 </html>
