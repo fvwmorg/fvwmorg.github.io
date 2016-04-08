@@ -1,30 +1,32 @@
+function FvwmWindowMaximize() {
+	if ( document.querySelector("#fvwm_full_window").classList.contains("fvwm_window_max") ) {
+                document.querySelector("#fvwm_full_window").classList.remove("fvwm_window_max");
+                document.querySelector("#fvwm_content_div").classList.remove("fvwm_content_max");
+                window.localStorage.setItem('FvwmWindowMaximized', false);
+	} else {
+		document.querySelector("#fvwm_full_window").classList.add("fvwm_window_max");
+		document.querySelector("#fvwm_content_div").classList.add("fvwm_content_max");
+                window.localStorage.setItem('FvwmWindowMaximized', true);
+	}
+}
+
 function FvwmWindowShade(state) {
 	if (state) {
-		document.getElementById('window-content').style.display='none';
-		document.getElementsByTagName('body')[0].style.paddingTop='116px';
+		document.getElementById('fvwm_menu_row').style.display='none';
+		document.getElementById('fvwm_content_row').style.display='none';
 		window.localStorage.setItem('FvwmWindowShade', true);
 	} else {
-		document.getElementById('window-content').style.display='block';
-		document.getElementsByTagName('body')[0].style.paddingTop='205px';
+                document.getElementById('fvwm_menu_row').style.display='table-row';
+                document.getElementById('fvwm_content_row').style.display='table-row';
 		window.localStorage.setItem('FvwmWindowShade', false);
 	}
 }
 
-function FvwmWindowStick() {
-	if ( document.getElementById('fvwm_header').style.position == 'fixed' ) {
-		document.getElementById('fvwm_header').style.position='absolute';
-		window.localStorage.setItem('FvwmWindowStick', false);
-	} else {
-		document.getElementById('fvwm_header').style.position='fixed';
-                window.localStorage.setItem('FvwmWindowStick', true);
-	}
-}
-
 function FvwmStartFunction() {
+	maximized = window.localStorage.getItem('FvwmWindowMaximized');
 	shade = window.localStorage.getItem('FvwmWindowShade');
-	stick = window.localStorage.getItem('FvwmWindowStick');
-	if ( stick == 'true' ) {
-		document.getElementById('fvwm_header').style.position='fixed';
+	if ( maximized == 'true' ) {
+		FvwmWindowMaximize(true);
 	}
 
 	if ( shade == 'true' ) {
