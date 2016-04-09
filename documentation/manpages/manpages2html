@@ -56,7 +56,7 @@ while( $manfiles =~ /(.+)$/mg) {
 
 # Index Page
 print "Creating Index Page.\n";
-open FILE, ">index.md";
+open FILE, ">index_page.md";
 print FILE $index_page;
 close FILE
 
