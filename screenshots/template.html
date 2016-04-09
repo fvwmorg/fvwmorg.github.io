@@ -1,0 +1,70 @@
+<h2>FVWM Desktop Screenshots</h2>
+
+{% assign start = page.page_number | minus:'1' | times:site.count %}
+{% assign end = start | plus:site.count %}
+{% assign count = '0' %}
+{% assign ordered_list = site.static_files | reverse %}
+
+<div class="scrot_page_links">
+{% for i in (1..site.max_page) %}
+  {% if i == page.page_number %}
+    <b>{{ i | minus:'1' | times:site.count }} - 
+    {{ i | times:site.count | minus:'1' }}</b>
+  {% elsif i == 1 %}
+    <a href="index.html">1 - {{i | times:site.count }}</a>
+  {% else %}
+    <a href="index{{ i }}.html">
+    {{ i | minus:'1' | times:site.count | plus:'1' }} - 
+    {{ i | times:site.count }}
+    </a>
+  {% endif %}
+{% endfor %}
+</div>
+
+
+{% for file in ordered_list %}
+  {% if file.path contains 'screenshot.' %}
+
+  {% assign count = count | plus:'1' %}
+  {% if count >= start and count < end %}
+
+    {% assign dummy_list = file.path | split:'/' %}
+    {% assign scrot = dummy_list[2] | replace_first:'_','/' | split:'/' %}
+
+    <hr>
+    <div class="scrot">
+      <a href="{{ file.path }}">
+      <img src="{{ dummy_list[2] | append:'/preview.png' }}" alt="preview">
+      </a>
+      <b>{{ scrot[0] | date: "%b %d, %Y" }}</b>
+    </div>
+
+    <div class="scrot_desc">
+      {% assign desc = dummy_list[2] | append:'/description.inc' %}
+      {% include_relative {{ desc }} %}
+    </div><br>
+
+  {% endif %}
+  {% endif %}
+{% endfor %}
+
+
+<hr>
+<div class="scrot_page_links">
+{% for i in (1..site.max_page) %}
+  {% if i == page.page_number %}
+    <b>{{ i | minus:'1' | times:site.count }} - 
+    {{ i | times:site.count | minus:'1' }}</b>
+  {% elsif i == 1 %}
+    <a href="index.html">1 - {{i | times:site.count }}</a>
+  {% else %}
+    <a href="index{{ i }}.html">
+    {{ i | minus:'1' | times:site.count | plus:'1' }} - 
+    {{ i | times:site.count }}
+    </a>
+  {% endif %}
+{% endfor %}
+</div>
+
+
+

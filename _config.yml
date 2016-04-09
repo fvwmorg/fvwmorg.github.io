@@ -18,3 +18,7 @@ github_username: somiaj
 # Build settings
 markdown: kramdown
 
+# Screenshot Pages
+max_page: 7
+count: 10
+
