@@ -11,8 +11,13 @@ one) that have FVWM info:
 
   + [The FVWM Wiki Pages](http://fvwmforums.org/wiki/):
     A shared collection of FVWM related stuff.
-  + [The FVWM Forums](http://fvwmforums.org/phpBB3/):
-    A collection of user questions and answers.
+  + [In the beginning was ...](http://www.xteddy.org/fvwm/user_enumerate.html):
+    A short article on why FVWM is best configured by a text-based config file.
+  + [FVWM and Session Management](http://linuxgazette.net/100/adam.html):
+    An article on how to use session management with FVWM. Note the info
+    about Gnome-Session is outdated, but xsm(1) is still an option.
+  + [How Styles are Applied](http://linuxgazette.net/127/adam.html):
+    An article describing how styles applied to different windows.
   + [FVWM Beginners Gude](http://fvwmforums.org/beginnersguide/):
     A good read when you start with FVWM.
 
