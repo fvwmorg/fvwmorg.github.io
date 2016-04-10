@@ -3,8 +3,9 @@ README file for screenshot database
 
 The screenshots are now generated though Jekyll (using Liquid).
 
-To configure the number of screen shots per page and the number of
-pages modify the _config.yml file and adjust max_page and count.
+All pages are built using template.html. Modify the template to
+change the formatting, the number of pages, or the number of items
+per page.
 
 There needs to be an indexN.html file for each page.
 
@@ -19,8 +20,6 @@ The template.html file is the page template. Edit this to edit
 the layout of each page. This page uses the Liquid language.
 
  + <https://github.com/Shopify/liquid/wiki/Liquid-for-Designers>
-
-Adjust the template to adjust the layout of each page.
 
 Adding a new shot
 =================
@@ -47,6 +46,13 @@ If any file is missing it will break the build.
 
 * * *
 
-Note: The script looks file files that contain the name 'screenshot.',
-so if there are files with this name in other parts of the site it
-could break the build.
+The build works by looking for any path that contains 'screenshot.'
+in the whole site. Once it finds a file screenshot.* it then creates
+the html entry using the three files mentioned above.
+
+You can disable/remove a screenshot from the wepbages by renaming
+the screenshot.* to 'screenshot-.*'.
+
+If there are other files/paths that contain 'screenshot.' outside
+of /screenshots or a screenshot directory doesn't contain the other two
+files it will break the build of these pages and the site.
