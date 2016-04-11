@@ -1,0 +1,34 @@
+<table class="fvwm_window inner_window" cellpadding="0" id="fvwm_inner_window">
+<tbody>
+  <tr>
+    <td class="fvwm_top_left_border"></td>
+    <td class="fvwm_top_border" colspan="3"</td>
+    <td class="fvwm_top_right_border"></td>
+  </tr>
+  <tr>
+    <td class="fvwm_left_border"></td>
+    <td class="fvwm_button2" onClick="FvwmWindowShade(false,'inner');"></td>
+    <td class="fvwm_title" id="fvwm_inner_titlebar"></td>
+    <td class="fvwm_button4" onClick="FvwmWindowShade(true,'inner');"></td>
+    <td class="fvwm_right_border"></td>
+  </tr>
+  <tr id="fvwm_inner_title_row">
+    <td class="fvwm_left_border"></td>
+    <td colspan="3">
+
+      <img style="margin: 7px;"
+      src="{{ "/img/fvwm-logo-menu.png" | prepend: site.baseurl }}">
+
+      <span id="fvwm_inner_title">{{ page.inner-title }}</span>
+
+    </td>
+    <td class="fvwm_right_border"></td>
+  </tr>
+  <tr>
+    <td class="fvwm_bottom_left_border"></td>
+    <td class="fvwm_bottom_border" colspan="3"></td>
+    <td class="fvwm_bottom_right_border"></td>
+  </tr>
+
+</tbody>
+</table>
