@@ -141,7 +141,7 @@ td.fvwm_title {
 	background-color: #003c3c;
 	vertical-align: top;
 	overflow-y: auto;
-	height: calc(100vh - 190px);
+	height: calc(100vh - 166px);
 }
 
 .fvwm_content_max {
@@ -153,7 +153,7 @@ td.fvwm_title {
         background-color: #003c3c;
         vertical-align: top;
         overflow-y: auto;
-        height: calc(100vh - 137px);
+        height: calc(100vh - 113px);
 }
 
 
@@ -168,7 +168,7 @@ ul.fvwm_menu {
 	border-style: solid;
 	border-width: 0px 0px 3px 0px;
 	border-color: #1a6e99;
-	height: 52px;
+	height: 28px;
 }
 
 li.fvwm_menu {
@@ -176,11 +176,11 @@ li.fvwm_menu {
 	font-weight: 600;
 	float: left;
 	cursor: pointer;
+	vertical-align: top;
 	position: relative;
 }
 li.fvwm_menu a {
-	height: 24px;
-	vertical-align: middle;
+	height: 20px;
 }
 
 li.fvwm_menu ul {
@@ -216,7 +216,7 @@ ul.fvwm_menu li:hover ul {
 
 a.fvwm_menu {
 	display: block;
-	padding: 14px 16px;
+	padding: 4px 16px 4px 16px;
 	color: white;
 	text-align: center;
 	text-decoration: none;
@@ -232,14 +232,5 @@ a.fvwm_submenu {
 
 a.fvwm_menu:hover, a.fvwm_submenu:hover {
 	background-color: #111;
-}
-
-.fvwm_menu.fvwm_menu_logo {
-        background-image: url("../img/fvwm-logo-menu.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-	width: 175px;
-	height: 52px;
-	padding: 0;
 }
 
