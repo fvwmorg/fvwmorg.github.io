@@ -1,6 +1,7 @@
 ---
 layout : default
 title : Downloads
+inner-title: Downloads
 ---
 
 #### Current Release

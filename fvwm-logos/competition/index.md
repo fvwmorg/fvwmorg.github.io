@@ -1,9 +1,9 @@
 ---
 layout : default
-title : Logo Competition
+title : Logo Competition Enteries
+inner-title: Logo Competition
 ---
-FVWM Logo Competition
-=====================
+
   + [FVWM Logo](../)
   + [FVWM Old Logos](../old-logos)
   + __FVWM Logo Competition Enteries__

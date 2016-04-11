@@ -13,6 +13,14 @@ table.fvwm_window {
 	width: 90%;
 }
 
+table.fvwm_window.inner_window {
+	margin-top: 5px;
+	margin-bottom: 25px;
+	font-size: 32px;
+	font-weight: 700;
+	min-width: 250px;
+}
+
 table.fvwm_window_max {
         margin-left: 0;
         margin-right: 0;
@@ -135,25 +143,25 @@ td.fvwm_title {
 .fvwm_content {
 	padding-left: 15px;
 	padding-right: 15px;
-	padding-top: 35px;
+	padding-top: 15px;
 	padding-bottom: 15px;
 	color: #ffffff;
 	background-color: #003c3c;
 	vertical-align: top;
-	overflow-y: auto;
-	height: calc(100vh - 166px);
+	overflow-y: scroll;
+	height: calc(100vh - 143px);
 }
 
 .fvwm_content_max {
         padding-left: 15px;
         padding-right: 15px;
-        padding-top: 35px;
+        padding-top: 15px;
         padding-bottom: 15px;
         color: #ffffff;
         background-color: #003c3c;
         vertical-align: top;
-        overflow-y: auto;
-        height: calc(100vh - 113px);
+        overflow-y: scroll;
+        height: calc(100vh - 93px);
 }
 
 

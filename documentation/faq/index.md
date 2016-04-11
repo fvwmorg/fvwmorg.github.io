@@ -1,14 +1,10 @@
 ---
 layout : default
 title : Frequently Asked Questions
+inner-title: Frequently Asked Quesitons
 ---
 {::options parse_block_html="true" /}
 <div class="faq">
-
-
-Frequently Asked Questions
-==========================
-{:.no_toc}
 
 * Build table of contents
 {:toc}

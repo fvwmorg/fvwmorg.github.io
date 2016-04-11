@@ -1,9 +1,9 @@
 ---
 layout : default
 title : The FVWM Logo
+inner-title : Logo Competition
 ---
-FVWM Logo Competition
-=====================
+
   + __FVWM Logo__
   + [FVWM Old Logos](old-logos)
   + [FVWM Logo Competition Enteries](competition)

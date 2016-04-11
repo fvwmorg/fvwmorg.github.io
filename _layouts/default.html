@@ -16,13 +16,12 @@
       <td class="fvwm_left_border"></td>
       <td class="fvwm_button1" onClick="FvwmWindowMaximize();"></td>
       <td class="fvwm_title">
-          {% if page.page-title %}{{ page.page-title }}
-          {% elsif page.title %} FVWM - {{ page.title }}
-          {% else %}{{ site.title }}
+          {% if page.main-window-title %}{{ page.main-window-title }}
+          {% else %} The Official FVWM Home Page
           {% endif %}
       </td>
-      <td class="fvwm_button4" onClick="FvwmWindowShade(true);"></td>
-      <td class="fvwm_button2" onClick="FvwmWindowShade(false);"></td>
+      <td class="fvwm_button4" onClick="FvwmWindowShade(true, 'main');"></td>
+      <td class="fvwm_button2" onClick="FvwmWindowShade(false, 'main');"></td>
       <td class="fvwm_right_border"></td>
     </tr>
     <tr id="fvwm_menu_row">
@@ -37,9 +36,13 @@
       <td colspan="4">
       <div class="fvwm_content" id="fvwm_content_div">
 
+        {% if page.inner-title %}
+          {% include inner_window.html %}
+        {% endif %}
+
         <script type="text/javascript">FvwmStartFunction();</script>
 
-            {{ content }}
+          {{ content }}
 
       </div>
       </td>

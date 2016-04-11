@@ -1,6 +1,7 @@
 ---
 layout : default
 title : Documentation
+inner-title: Documentation
 ---
 
 FVWM Documentation

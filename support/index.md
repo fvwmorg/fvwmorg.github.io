@@ -1,6 +1,7 @@
 ---
 layout : default
 title : Support
+inner-title: Support
 ---
 
 ## <a name="lists"></a>The mailing list addresses are:

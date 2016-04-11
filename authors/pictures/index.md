@@ -1,6 +1,7 @@
 ---
 layout : default
 title : Developer's Pictures
+inner-title: Developer's Pictures
 ---
 {::options parse_block_html="true" /}
 <div class="authors_pic">

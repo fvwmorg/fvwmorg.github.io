@@ -1,6 +1,7 @@
 ---
 layout : default
 title : Links
+inner-title: Links
 ---
 
 ## Other FVWM-related sites

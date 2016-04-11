@@ -1,8 +1,8 @@
 ---
 layout : default
 title : Man Pages
+inner-title: Man Page Index
 ---
-# FVWM Man Page Index
 
  + [__fvwm__](fvwm.html)
    + [NAME](fvwm.html#lbAB)

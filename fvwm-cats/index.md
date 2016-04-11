@@ -1,12 +1,10 @@
 ---
 layout : default
 title : FelineVWM Home Page
+inner-title: FelineVWM Cats
 ---
 {::options parse_block_html="true" /}
 <div class="cats">
-
-FelineVWM Cats
-==============
 
 FVWM would not have been possible without  the  tails,  ears  and  the
 little  paws  of  the  coziest  beings  in  the world: our cats. Well,
