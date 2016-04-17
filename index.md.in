@@ -1,0 +1,10 @@
+---
+layout : default
+title : The Official FVWM Home Page
+inner-title : Home Page
+---
+
+FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop window manager for the X  Window system. Support is excellent. Check it out!
+
++ Latest Release: [%%RELEASE%%](https://github.com/fvwmorg/fvwm/releases/download/version-%%RELEASE%%/fvwm-%%RELEASE%%.tar.gz)
++ You can find the latest release and release archive at [GitHub](https://github.com/fvwmorg/fvwm/releases)
