@@ -6,7 +6,7 @@ inner-title: Downloads
 
 #### Current Release
 
-  + The latest stable release is [2.6.6](https://github.com/fvwmorg/fvwm/releases/download/version-2_6_6/fvwm-2.6.6.tar.gz)
+  + The latest stable release is [{{fvwm-version}}](https://github.com/fvwmorg/fvwm/releases/download/version-{{fvwm-version}}/fvwm-{{fvwm-version}}.tar.gz)
   + You can find the latest release and release archive at [GitHub](https://github.com/fvwmorg/fvwm/releases)
 
 #### fvwmorg on GitHub
