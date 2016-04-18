@@ -18,5 +18,5 @@ github_username: somiaj
 # Build settings
 markdown: kramdown
 
-# FVWM Version Variable
+# FVWM release version
 fvwm-version: 2.6.6
