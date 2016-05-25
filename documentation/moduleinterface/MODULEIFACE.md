@@ -465,43 +465,43 @@ time stamp received from the X server, which is expressed in milliseconds.
 The body information is packet specific, as described below.
 
 ```
-#define M\_NEW_PAGE       		(1 << 0)
-#define M\_NEW\_DESK             	(1 << 1)
-#define M\_OLD\_ADD\_WINDOW       	(1 << 2)
-#define M\_RAISE\_WINDOW         	(1 << 3)
-#define M\_LOWER\_WINDOW         	(1 << 4)
-#define M\_OLD\_CONFIGURE\_WINDOW 	(1 << 5)
-#define M\_FOCUS\_CHANGE         	(1 << 6)
-#define M\_DESTROY\_WINDOW       	(1 << 7)
-#define M\_ICONIFY              	(1 << 8)
-#define M\_DEICONIFY            	(1 << 9)
-#define M\_WINDOW\_NAME          	(1 << 10)
-#define M\_ICON\_NAME            	(1 << 11)
-#define M\_RES\_CLASS            	(1 << 12)
-#define M\_RES\_NAME             	(1 << 13)
-#define M\_END\_WINDOWLIST       	(1 << 14)
-#define M\_ICON\_LOCATION        	(1 << 15)
-#define M\_MAP                  	(1 << 16)
-#define M\_ERROR                	(1 << 17)
-#define M\_CONFIG\_INFO          	(1 << 18)
-#define M\_END\_CONFIG\_INFO      	(1 << 19)
-#define M\_ICON\_FILE            	(1 << 20)
-#define M\_DEFAULTICON          	(1 << 21)
-#define M\_STRING               	(1 << 22)
-#define M\_MINI\_ICON            	(1 << 23)
-#define M\_WINDOWSHADE          	(1 << 24)
-#define M\_DEWINDOWSHADE        	(1 << 25)
-#define M\_VISIBLE\_NAME         	(1 << 26)
-#define M\_SENDCONFIG           	(1 << 27)
-#define M\_RESTACK              	(1 << 28)
-#define M\_ADD\_WINDOW           	(1 << 29)
-#define M\_CONFIGURE\_WINDOW     	(1 << 30)
-#define M\_EXTENDED\_MSG         	(1 << 31)
-#define MX\_VISIBLE\_ICON\_NAME   	(1 << 0 + M\_EXTENDED\_MSG)
-#define MX\_ENTER\_WINDOW        	(1 << 1 + M\_EXTENDED\_MSG)
-#define MX\_LEAVE\_WINDOW        	(1 << 2 + M\_EXTENDED\_MSG)
-#define MX\_PROPERTY\_CHANGE     	(1 << 3 + M\_EXTENDED\_MSG)
-#define MX\_REPLY               	(1 << 4 + M\_EXTENDED\_MSG)
+#define M_NEW_PAGE       	(1 << 0)
+#define M_NEW_DESK             	(1 << 1)
+#define M_OLD_ADD_WINDOW       	(1 << 2)
+#define M_RAISE_WINDOW         	(1 << 3)
+#define M_LOWER_WINDOW         	(1 << 4)
+#define M_OLD_CONFIGURE_WINDOW 	(1 << 5)
+#define M_FOCUS_CHANGE         	(1 << 6)
+#define M_DESTROY_WINDOW       	(1 << 7)
+#define M_ICONIFY              	(1 << 8)
+#define M_DEICONIFY            	(1 << 9)
+#define M_WINDOW_NAME          	(1 << 10)
+#define M_ICON_NAME            	(1 << 11)
+#define M_RES_CLASS            	(1 << 12)
+#define M_RES_NAME             	(1 << 13)
+#define M_END_WINDOWLIST       	(1 << 14)
+#define M_ICON_LOCATION        	(1 << 15)
+#define M_MAP                  	(1 << 16)
+#define M_ERROR                	(1 << 17)
+#define M_CONFIG_INFO          	(1 << 18)
+#define M_END_CONFIG_INFO      	(1 << 19)
+#define M_ICON_FILE            	(1 << 20)
+#define M_DEFAULTICON          	(1 << 21)
+#define M_STRING               	(1 << 22)
+#define M_MINI_ICON            	(1 << 23)
+#define M_WINDOWSHADE          	(1 << 24)
+#define M_DEWINDOWSHADE        	(1 << 25)
+#define M_VISIBLE_NAME         	(1 << 26)
+#define M_SENDCONFIG           	(1 << 27)
+#define M_RESTACK              	(1 << 28)
+#define M_ADD_WINDOW           	(1 << 29)
+#define M_CONFIGURE_WINDOW     	(1 << 30)
+#define M_EXTENDED_MSG         	(1 << 31)
+#define MX_VISIBLE_ICON_NAME   	(1 << 0 + M\_EXTENDED\_MSG)
+#define MX_ENTER_WINDOW        	(1 << 1 + M\_EXTENDED\_MSG)
+#define MX_LEAVE_WINDOW        	(1 << 2 + M\_EXTENDED\_MSG)
+#define MX_PROPERTY_CHANGE     	(1 << 3 + M\_EXTENDED\_MSG)
+#define MX_REPLY               	(1 << 4 + M\_EXTENDED\_MSG)
 ```
 
 ### M\_NEW\_PAGE
@@ -540,6 +540,7 @@ fields may change in the future and has changed in the past, thus breaking any
 module relying on the exact position of the value in the packet. Instead, use
 the structures defined in libs/vpacket.h.
 
+|-------|------|
 |0	|ID of the application's top level window |
 |1	|ID of the fvwm frame window |
 |2	|Pointer to the fvwm database entry (not useful) |
@@ -594,6 +595,7 @@ now has the focus is not a window which fvwm recognizes, only the ID of the
 affected application's top level window is passed. Zeros are passed for the
 other values.
 
+|-------|------|
 |0	|ID of the application's top level window |
 |1	|ID of the fvwm frame window |
 |2	|Focus change type |
@@ -608,6 +610,7 @@ table. An M\_ICON\_LOCATION packet will be sent when an icon is created or moved
 and when the icon window is changed via the XA_WM_HINTS in a property notify
 event.
 
+|-------|------|
 |0	|ID of the application's top level window |
 |1	|ID of the fvwm frame window |
 |2	|Pointer to the fvwm database entry (not useful) |
@@ -633,6 +636,7 @@ this case.
 If a window has the NoIcon style the width and height of the icon window are
 set to 0 and the location is meaningless.
 
+|-------|------|
 |0	|ID of the application's top level window |
 |1	|ID of the fvwm frame window |
 |2	|Pointer to the fvwm database entry |
