@@ -19,7 +19,7 @@ one) that have FVWM info:
     about Gnome-Session is outdated, but xsm(1) is still an option.
   + [How Styles are Applied](http://linuxgazette.net/127/adam.html):
     An article describing how styles applied to different windows.
-  + [FVWM Beginners Gude](http://fvwmforums.org/beginnersguide/):
+  + [FVWM Beginners Guide](http://fvwmforums.org/beginnersguide/):
     A good read when you start with FVWM.
 
 ## Prebuilt Configs and Resources
@@ -48,7 +48,7 @@ one) that have FVWM info:
     http://www.twobarleycorns.net/fvwm-decors.html):
     An impressive collection of window decors showing off FVWM 2.6's
     visual versatility. All the config files are downloadable.
-  + [The Window Manger Icons Project](http://wm-icons.sourceforge.net/):
+  + [The Window Manager Icons Project](http://wm-icons.sourceforge.net/):
     An older xpm icon distribution to use with FVWM.
 
 ## ICCCM
