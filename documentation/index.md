@@ -11,3 +11,4 @@ FVWM Documentation
   + #### [Man Pages](manpages)
   + #### [Developer's Information](developers)
   + #### [Module Interface](moduleinterface)
+  + #### [Vectors](vectors)
