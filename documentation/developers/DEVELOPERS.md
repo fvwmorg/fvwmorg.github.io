@@ -9,6 +9,12 @@ with the FVWM source code.
 The FVWM source conforms to the [Linux kernel style
 guide](https://www.kernel.org/doc/Documentation/CodingStyle).
 
+Command Parsing
+===============
+
+The internal representation of how fvwm parses commands in undergoing a
+rewrite.  [Some notes on how fvwm parses commands exists](PARSING.md).
+
 Branch Workflows / Submitting Code Changes
 ==========================================
 
@@ -90,6 +96,26 @@ work that needs to appear on `master`---including the release
 process---**MUST** go via a separate topic-branch, with a PR (pull-request).
 Not even fvwmorg owners are an exception to this.
 
+### Merging changes / Pull Requests
+
+The history of `master` should be as linear as possible, therefore when
+merging changes to it the branch(es) in question should be rebased against
+master first of all.  This will stop a merge commit from happening.
+
+If using github this process is easy, since the `Merge pull request` button
+has an option to `Rebase and Merge`.  This is what should be used.  See also
+[the documentation on Github](https://github.com/blog/2243-rebase-and-merge-pull-requests)
+
+If this is manual (which will only work when the Travis-CI checks have
+passed), then:
+
+```
+git checkout topic/branch
+git rebase origin/master
+git checkout master
+git merge topic/branch
+git push
+```
 Conventions
 ==========
 
