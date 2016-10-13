@@ -24,6 +24,10 @@ one) that have FVWM info:
 
 ## Prebuilt Configs and Resources
 
+  + [Janon's Configuration](http://ultharine.ninthgate.se/fvwm/)
+    This configuration is inspired to be educational (which it is!) as well as
+    bare bones, allowing greater customisation for self-contained
+    configurations.
   + [FVWM Nightshade](http://fvwm-nightshade.github.io/Fvwm-Nightshade/):
     This project aims to be a lightweight but feature rich and good
     looking configuration of FVWM. It contains many useful things to
