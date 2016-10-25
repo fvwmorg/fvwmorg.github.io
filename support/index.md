@@ -44,14 +44,14 @@ body of a message to the appropriate *-request address.
   
   The mailing lists are archived:
 
-   + [fvwm](http://www.mail-archive.com/fvwm@lists.math.uh.edu/)
-   + [fvwm-workers](http://www.mail-archive.com/fvwm-workers@lists.math.uh.edu/)
+   + [fvwm](http://www.mail-archive.com/fvwm@fvwm.org/)
+   + [fvwm-workers](http://www.mail-archive.com/fvwm-workers@fvwm.org/)
 
   <p><form method="GET" action="http://www.mail-archive.com/search">
   <b>Search the fvwm mail archive: </b>
     <input type="text" value="" name="q" size="30">
     <input type="hidden" name="num" value="100">
-    <input type="hidden" name="l" value="fvwm@lists.math.uh.edu">
+    <input type="hidden" name="l" value="fvwm@fvwm.org">
     <input type="submit" name="btnG" value="Search Archives">
   </form></p>
 
@@ -59,7 +59,7 @@ body of a message to the appropriate *-request address.
   <b>Search the fvwm workers mail archive: </b>
     <input type="text" value="" name="q" size="30">
     <input type="hidden" name="num" value="100">
-    <input type="hidden" name="l" value="fvwm-workers@lists.math.uh.edu">
+    <input type="hidden" name="l" value="fvwm-workers@fvwm.org">
     <input type="submit" name="btnG" value="Search Archives">
   </form></p>
 
@@ -83,4 +83,3 @@ fvwm developers maintain them, but there is a chance to meet some
 of the developers there:
 
   + `#fvwm` on freenode.net
-
