@@ -1,4 +1,4 @@
-RELEASE:= 2.6.6
+RELEASE:= 2.6.7
 SED != command -v gsed 2>/dev/null || echo sed
 
 all:

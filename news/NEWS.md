@@ -2,29 +2,37 @@ Note, the changes for the last STABLE release start with release
 2.6.0.
 
 -------------------------------------------------------------------
-Changes in stable release 2.6.7 (UNRELEASED)
+Changes in stable release 2.6.8 (UNRELEASED)
+-------------------------------------------------------------------
+Changes in stable release 2.6.7 (06-Mar-2016)
 
 * New fvwm features:
 
+  - A new default configuration which is available when fvwm
+    doesn't detect a configuration file to load.
+  - A new conitional command "Desk n" can restrict matching
+    windows to a specific desk.
+  - A new conditional command "Screen n" to restrict matching
+    windows on a given Xinerama screen.
+  - New expansion variable "w.screen" to ascertain the Xineram
+    screen number a window is on.
+  - New command "InfoStoreClear" to remove all items in the
+    InfoStore.
+
+* Removed features:
+
   - The old and unmaintained debian/and rpm/ directories have
     been remmoved; use the maintainers' copies where available.
-  - FvwmButtons learned a new option 'Colorset' to its ChangeButton
-    command.
-  - A new conitional command 'Desk n' can restrict matching windows
-    to a specific desk.
-  - A new conditional command 'Screen n' to restrict matching windows
-    on a given Xinerama screen.
-  - New expansion variable 'w.screen' to ascertain the Xineram screen
-    number a window is on.
-  - New command 'InfoStoreClear' to remove all items in the InfoStore.
+  - VMS support has been removed.
+  - GTK1.x support has been removed.
+  - GNOME-specific window hints (pre-EWMH) have been removed.
   - Some fvwm modules have been removed:
-    
       - FvwmDragWell   (no replacement)
       - FvwmGTK        (no replacement)
       - FvwmSave       (no replacement)
       - FvwmSaveDesk   (no replacement)
       - FvwmScroll     (no replacement)
-      - FvwmTabs       (no replacement)
+      - FvwmTabs       (no replacement, never worked anyway)
       - FvwmTaskBar    (use FvwmButtons)
       - FvwmTheme      (in core of fvwm as colorsets)
       - FvwmWharf      (use FvwmButtons)
@@ -32,9 +40,29 @@ Changes in stable release 2.6.7 (UNRELEASED)
       - FvwmWindowMenu (use WindowList command)
       - FvwmIconBox    (use the IconBox style instead)
 
-  - VMS support has been removed.
-  - GTK1.x support has been removed.
-  - GNOME-specific window hints (pre-EWMH) have been removed.
+* New module features:
+
+  - FvwmButtons learned a new option "Colorset" to its
+    ChangeButton command.
+
+* fvwm-menu-desktop updated:
+
+  - Renamed default menu to XDGMenu and changed the name
+    of the FvwmForm to FvwmForm-XDGMenu-Config to not conflict
+    with someone already using FvwmMenu.
+  - fvwm-menu-desktop will now load defaults from the
+    FvwmForm-XDGMenu-Config data file.
+  - Improved dynamic menus by regenerating them on-the-fly.
+  - Added new options: --regen-cmd, --dynamic, and more.
+
+* Bug fixes:
+
+  - A bug introduced in 2.6.6 could cause applications with
+    negative coordinates to be placed at strange positions.  This
+    affected for example acroread when switching to fullscreen
+    mode.  This has been fixed.
+  - FvwmButtons "Silent" option for dynamic ChangeButton commands
+    no longer loops infinitely.
 
 Changes in stable release 2.6.6 (15-Mar-2016)
 
