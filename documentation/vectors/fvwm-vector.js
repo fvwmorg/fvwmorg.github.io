@@ -15,7 +15,7 @@ cfg.version = "0.11";
 cfg.verbose = 2;
 cfg.author = 'Alexander Gromnitsky &lt;alexander.gromnitsky.at.gmail.com&gt;';
 cfg.licence = 'http://www.opensource.org/licenses/mit-license.php';
-cfg.zoom = 4;
+cfg.zoom = 2;
 
 /**
  * @addon
@@ -194,9 +194,9 @@ Fvwm.prototype.populate = function () {
 				   "<option>50%</option>\n" +
 				   "<option>80%</option>\n" +
 				   "<option>100%</option>\n" +
-				   "<option>200%</option>\n" +
+				   "<option selected>200%</option>\n" +
 				   "<option>300%</option>\n" +
-				   "<option selected>400%</option>\n"+
+				   "<option>400%</option>\n"+
 				   "</select>\n"+
 				   " Input mode:\n" +
 				   "<input type='radio' name='variant' value='strict' checked onclick='fvwm.convert();' />strict\n" +
@@ -205,7 +205,7 @@ Fvwm.prototype.populate = function () {
 				   "<input type='button' value='Help' onclick='fvwm.help();' />\n" +
 				   "<br />\n" +
 				   "<textarea name='src' id='src' onchange='fvwm.canvas_border(false);' accesskey='i' rows='3' cols='80'>"+
-				   "ButtonStyle 1 7 70-1px15-1p@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0\n"+
+				   "Vector 7 70-1px15-1p@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0\n"+
 				   "</textarea>\n" +
 				   "</form>\n" +
 				   "</p>\n"
@@ -213,13 +213,13 @@ Fvwm.prototype.populate = function () {
 
 	// axes
 	document.write("<img src='x.png' alt='X' /><br />\n"+
-				   "<img src='y.png' alt='Y' />\n\n");
+				   "<img src='y.png' alt='Y' style=\"vertical-align: top;\" />\n\n");
 
 	document.write("<canvas id='viewer' width='"+this.cn.pwidth()+
 				   "' height='"+this.cn.pheight()+"'></canvas>\n\n");
 
 	// result for .fvwm2rc
-	document.write("<div id='result_box'>\n<p>For .fvwm2rc:<br /></p>\n" +
+	document.write("<div id='result_box'>\n\n" +
 				   "<p id='result_src'></p>\n" +
 				   "</div>\n\n");
 
@@ -269,8 +269,8 @@ Fvwm.prototype.canvas_border = function(is_uptodate) {
 			
 	var e = this.utils.get_element_byid('viewer');
 	if (!e) return;
-	if (this.cn.uptodate) e.style.border = '1px solid blue';
-	else e.style.border = '1px solid red';
+	if (this.cn.uptodate) e.style.border = '3px solid #d9d915';
+	else e.style.border = '3px solid red';
 };
 
 /**

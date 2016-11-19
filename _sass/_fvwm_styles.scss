@@ -198,3 +198,23 @@ dd {
 .faq ul {
 	margin-left: 45px;
 }
+
+
+// Vectors
+#vector-wrapper {
+	margin-left: 35px;
+}
+
+#vector-wrapper canvas {
+	border: 3px solid #d9d915;
+	background-color: white;
+}
+
+#result_src {
+        margin-left: 55px;
+        margin-top: 15px;
+        background-color: #eeeeee;
+        color: #2d2d2d;
+        padding: 10px;
+        display: inline-block;
+}
