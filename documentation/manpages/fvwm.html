@@ -1,12 +1,12 @@
 ---
 layout : default
 title : Man Page - fvwm
-header-title : fvwm
+inner-title : fvwm
 ---
 <div class="manpage-wrapper">
 
 <H1>FVWM</H1>
-Section: Fvwm 2.6.6 (1)<BR>Updated: 15-Mar-2016<BR><A HREF="#index">Table of Contents</A>
+Section: Fvwm 2.6.7 (1)<BR>Updated: 06-Nov-2016<BR><A HREF="#index">Table of Contents</A>
 <A HREF="index.html">Return to Man Page Index</A><HR>
 
 
@@ -944,7 +944,7 @@ might look something like this:
 By default, SVG images are rendered as the image creator intended
 them to.  But since SVG is a vector graphics format, the images can
 be rendered at any chosen size and rotation, e.g. making it possible
-to use the same icon file rendered at diffrent sizes for the
+to use the same icon file rendered at different sizes for the
 <I>Icon</I> and <I>MiniIcon</I>
 styles.
 <P>
@@ -1084,7 +1084,7 @@ image.svg:@57.3
 
 <I>factor</I> specifes a scaling of the actual
 image (not the rendering area).  Scaling it up results in a cropped
-image.  Floting point values are recognized.  Division by zero is
+image.  Floating point values are recognized.  Division by zero is
 ignored.  If <I>factor</I> is directly followed
 by a 'x' or a 'y', the scaling
 is horizontal or vertical respectively.  Otherwise the scaling is
@@ -1532,20 +1532,14 @@ sense for run-time.
 <P>
 
 A sample configuration file,
-<I>system.fvwm2rc</I>,
 is supplied with the fvwm distribution.  It is well commented and
 can be used as a source of examples for fvwm configuration.
-It may be copied to <I>/usr/local/share/fvwm/config</I> file.
+It may be copied from <I>/usr/local/share/fvwm/config</I> file.
 <P>
 
 Alternatively, the built-in menu (accessible when no
 configuration file is found) has options to create an initial
 config file for the user.
-<P>
-
-If you are new to fvwm, try
-<I>fvwm-themes</I>[]
-package demonstrating the powerful fvwm functionality.
 <A NAME="lbAY"></A>
 <H2>FONTS</H2>
 
@@ -2554,6 +2548,13 @@ The number of the desk on which the window is shown.  If the window is sticky th
 $[w.layer]
 <DL COMPACT><DT><DD>
 The layer of the window.
+</DL>
+
+<P>
+
+$[w.screen]
+<DL COMPACT><DT><DD>
+The screen number the window is on.  If Xinerama is not present, this returns the number 0.
 </DL>
 
 <P>
@@ -5098,7 +5099,7 @@ The <I>TransliterateUtf8</I> option
 enables transliteration during conversions from utf-8 strings.  By
 default fvwm will not transliterate during conversion, but will fall
 back to alternate strings provided by the clients if conversion from
-utf-8 fails due to characters which have no direct correspondance in
+utf-8 fails due to characters which have no direct correspondence in
 the target charecter set.  Some clients however neglect to set non utf-8
 properties correctly in which case this option may help.
 </DL>
@@ -8082,26 +8083,6 @@ that border virtual pages.  If a screen edge has a command bound
 to it, the pan frame is always created on that edge.
 </DL>
 
-<DT><B>GnomeButton</B><DD>
-<DL COMPACT><DT><DD>
-
-Used in conjunction with
-<B>Mouse</B>
-to pass mouse button presses on the root window to a
-GNOME
-program (such as GMC).  The following example passes presses of
-mouse buttons 1 and 3 to such a program.
-<P>
-<DL COMPACT><DT><DD>
-<PRE>
-<B>Mouse</B> 1 R A GnomeButton
-<B>Mouse</B> 3 R A GnomeButton
-</PRE>
-
-</DL>
-
-</DL>
-
 <DT><B>Key</B> [(<I>window</I>)] <I>Keyname</I> <I>Context</I> <I>Modifiers</I> <I>Function</I><DD>
 <DL COMPACT><DT><DD>
 
@@ -9110,7 +9091,7 @@ The latter is the default for
 The styles
 <I>FPClickRaisesFocused</I>, <I>FPClickDecorRaisesFocused</I> and
 <I>FPClickIconRaisesFocused</I>
-allow to raise the window when the interior or the decorations or
+allow one to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is already
 focused.
 <P>
@@ -9118,7 +9099,7 @@ focused.
 The styles
 <I>FPClickRaisesUnfocused</I>, <I>FPClickDecorRaisesUnfocused</I> and
 <I>FPClickIconRaisesUnfocused</I>
-allow to raise the window when the interior or the decorations or
+allow one to raise the window when the interior or the decorations or
 the icon of the window is clicked while the window is not yet
 focused.
 <P>
@@ -9815,7 +9796,7 @@ Style * IconBox -80 240 -1 -1, \
 
 A Style command with the IconBox option replaces any icon box
 defined previously by another Style command for the same style.
-Thats why the backslash in the previous example is required.
+That's why the backslash in the previous example is required.
 <P>
 
 Note: The geometry for the icon box command takes the additional
@@ -12437,7 +12418,7 @@ argument after the
 <I>Height</I>
 keyword.  The
 <I>MinHeight</I>
-height is reseted by
+height is reset by
 <I>Height</I>
 or if given with no argument.
 Example:
@@ -14672,6 +14653,7 @@ directly in front of its name.
 <I>CurrentPage</I>,
 <I>CurrentPageAnyDesk</I>,
 <I>CurrentScreen</I>,
+<I>Desk</I>,
 <I>FixedPosition</I>,
 <I>FixedSize</I>,
 <I>Focused</I>,
@@ -14823,6 +14805,16 @@ conditions matches only windows that are on the current page of any
 desk.  If Xinerama support is enabled, they only match windows
 that are at least partially on the Xinerama screen containing the
 mouse pointer.
+<P>
+
+The
+<I>Screen [n]</I>
+condition matches only windows which are on the specified Xinerama screen.
+<P>
+
+The
+<I>Desk [n]</I>
+condition matches only windows which are on the specified desk.
 <P>
 
 The

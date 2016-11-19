@@ -1,12 +1,12 @@
 ---
 layout : default
 title : Man Page - FvwmConsole
-header-title : FvwmConsole
+inner-title : FvwmConsole
 ---
 <div class="manpage-wrapper">
 
 <H1>FvwmConsole</H1>
-Section: Fvwm Modules (1)<BR>Updated: 15 March 2016 (2.6.6)<BR><A HREF="#index">Table of Contents</A>
+Section: Fvwm Modules (1)<BR>Updated: 06 November 2016 (2.6.7)<BR><A HREF="#index">Table of Contents</A>
 <A HREF="index.html">Return to Man Page Index</A><HR>
 
 
@@ -57,7 +57,9 @@ Module FvwmConsole -g 40x10 -fg black -bg green3
 <P>
 A different terminal emulator can be specified with the -terminal
 option.  However, only terminal programs that understand the options
--name, -title and -e can be used.
+-name, -title and -e can be used. Debian specific: hardcoded xterm is
+changed to x-terminal-emulator. To be policy compliant -name option is
+removed from default options and -title is changed to -T.
 <P>
 <DL COMPACT><DT><DD>
 Module FvwmConsole -terminal rxvt

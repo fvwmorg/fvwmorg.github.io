@@ -1,32 +1,72 @@
 #!/usr/bin/perl
+#
+# This will convert the man pages for fvwm, Fvwm*, fvwm-* located
+# in $manpath = /usr/share/man/man1 into .html files using man2html
+# and create an index.html page from them.
+#
+# You will need man2html installed (using version 1.6g here).
+#
+# Update $manpath to be the location of manpages on your system
+# such as /usr/local/share/man/man1
 
 use strict;
 
-# List of full paths to manpages (currently must gziped .gz)
-#my $manfiles = `ls /usr/share/man/man1/*Fvwm*  /usr/share/man/man1/*fvwm*`;
-my $manfiles = `ls /home/jaimos/tmp/fvwm-2.6.6/tmp/share/man/man1/*`;
+# Base path of manpages (update to /usr/local/share/man/man1 if needed)
+my $manpath = "/usr/share/man/man1";
+
+# Move *.html manpages to *.html.old
+my $oldmanpage;
+my $oldmanpages = `ls *.html`;
+while ( $oldmanpages =~ /(.+)$/mg) { rename($1, "$1.old"); }
 
 # Index Page Header.
 my $index_page = q(---
 layout : default
 title : Man Pages
+inner-title : Man Page Index
 ---
-# FVWM Man Page Index
 
-* * * 
-);
+<ul>);
 
-my $manpage, my $mantitle, my $manfile, my $body, my $header;
-while( $manfiles =~ /(.+)$/mg) {
-	$manpage = $1;
-	($mantitle = $manpage) =~ s!.*1/(.*).1$!$1!;
-	$index_page = "$index_page\n + [__${mantitle}__](${mantitle}.html)";
+
+# Generate manpage for fvwm
+buildmanpage("${manpath}/fvwm.1.gz");
+$index_page = "${index_page}\n</ul>";
+
+
+# Generate manpages for Fvwm* (modules)
+$index_page = "${index_page}\n\n<HR><H2>Fvwm Modules</H2>\n<ul>";
+my $manfiles = `ls $manpath/Fvwm*gz`;
+while( $manfiles =~ /(.+)$/mg) { buildmanpage($1); }
+$index_page = "${index_page}\n</ul>";
+
+# Generate manpages for fvwm-*
+$index_page = "${index_page}\n\n<HR><H2>Additional Fvwm binaries</H2>\n<ul>";
+$manfiles = `ls $manpath/fvwm-*gz`;
+while( $manfiles =~ /(.+)$/mg) { buildmanpage($1); }
+$index_page = "${index_page}\n</ul>";
+
+
+# Index Page
+print "Creating Index Page.\n";
+open FILE, ">index.html";
+print FILE $index_page;
+close FILE;
+
+print "\nManpage creation complete. You still need to remove the .old manpages\n";
+
+# Build manpage with man2html
+sub buildmanpage{
+        my $manpage, my $mantitle, my $manfile, my $body, my $header;
+
+        $manpage = $_[0];
+	($mantitle = $manpage) =~ s!.*1/(.*).1.gz$!$1!;
 
 	# Man Page Header
-	$header = "---\nlayout : default\ntitle : Man Page - $mantitle\nheader-title : $mantitle\n---\n";
+	$header = "---\nlayout : default\ntitle : Man Page - $mantitle\ninner-title : $mantitle\n---\n";
 
 	# Man Page Body
-	local $_ = `cat $manpage | man2html -p`;
+	local $_ = `zcat $manpage | man2html -p`;
 
 	# Trim html header and footer
 	s!^.*?<body>(.*)</body>.*$!$1!si;
@@ -46,17 +86,21 @@ while( $manfiles =~ /(.+)$/mg) {
 	$manfile = "$mantitle.html";
 	open FILE, '>'.$manfile;
 	
-        print FILE $header;
+	print FILE $header;
 	print FILE $body;
 
 	close FILE;
 
-    print "Created html manpage for: $mantitle\n";
-}
+	# Add To Index page
+	$index_page = "${index_page}\n<li><a href=\"${mantitle}.html\"><b>${mantitle}</b></a>";
 
-# Index Page
-print "Creating Index Page.\n";
-open FILE, ">index_page.md";
-print FILE $index_page;
-close FILE
+        $body =~ s/.*<H2>Index<\/H2>(.*)<\/div>/$1/s;
+        $body =~ s/DL/UL/g;
+        $body =~ s/DT/LI/g;
+        $body =~ s/DD/\/LI/g;
+        $body =~ s/HREF="/HREF="$manfile/g;
+        $index_page = "${index_page}${body}</li>";
+
+	print "Created html manpage for: $mantitle\n";
+}
 
