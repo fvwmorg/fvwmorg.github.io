@@ -19,8 +19,6 @@ one) that have FVWM info:
     about Gnome-Session is outdated, but xsm(1) is still an option.
   + [How Styles are Applied](http://linuxgazette.net/127/adam.html):
     An article describing how styles applied to different windows.
-  + [FVWM Beginners Guide](http://fvwmforums.org/beginnersguide/):
-    A good read when you start with FVWM.
 
 ## Prebuilt Configs and Resources
 
