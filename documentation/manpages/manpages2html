@@ -1,122 +1,67 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 #
 # Converts fvwm manpages to html using man2html.
 # Ussage: manpages2html [path]
-#
-# path is either the top level path of the fvwm source tree
-# or the path of the man page directory. If no path is given
-# the script will look for manpages in /usr/local/share/man/man1
-# and /usr/share/man/man1.
+
+# This entire script should really use Template::Toolkit.
 
 use strict;
+use warnings;
 
-# Base path of manpages (update to /usr/local/share/man/man1 if needed)
-my $manpath;
-my $mantype = "man";
-
-if(defined $ARGV[0]){
-	$manpath = $ARGV[0];
-	if( -f "$manpath/doc/fvwm/fvwm.1" ) { $mantype = "src"; }
-        elsif( glob("$manpath/fvwm.1*") ) { $mantype = "man"; }
-        else {
-		print "Error: no manfiles found at basepath $manpath\n";
-		exit(1);
-	}
-} elsif( glob("/usr/local/share/man/man1/fvwm.1*") ) {
-	$manpath = "/usr/local/share/man/man1";
-} elsif( glob("/usr/share/man/man1/fvwm.1*") ) {
-	$manpath = "/usr/share/man/man1";
-} else {
-	print "Error: no fvwm manpages found on system.\n";
-	print "Use: manpages2html full_path_to_fvwm_src\n";
-	exit(1);
+unless (defined $ARGV[0]) {
+	die "Path to man page not given\n";
 }
-print "Fvwm manpages found at $manpath\n";
 
-# Move *.html manpages to *.html.old
-my $oldmanpage;
-my $oldmanpages = `ls *.html`;
-while ( $oldmanpages =~ /(.+)$/mg) { rename($1, "$1.old"); }
+my @cmd_files = @ARGV;
 
 # Index Page Header.
-my $index_page = q(---
+my $index_page = <<EOF;
+---
 layout : default
 title : Man Pages
 inner-title : Man Page Index
 ---
 
-<ul>);
+<ul>
+EOF
 
-
-# Generate manpage for fvwm
-if ($mantype eq "src") {
-	build_man2html("${manpath}/doc/fvwm/fvwm.1");
-} elsif (-e "${manpath}/fvwm.1") {
-	build_man2html("${manpath}/fvwm.1");
-} elsif (-e "${manpath}/fvwm.1.gz") {
-	build_man2html("${manpath}/fvwm.1.gz");
+foreach my $fpath (@cmd_files) {
+	foreach (glob($fpath)) {
+		unless (-e $_) {
+			warn "$_ not found, skipping...\n";
+			next;
+		}
+		build_man2html($_);
+	}
 }
-$index_page = "${index_page}\n</ul>";
-
-
-# Generate manpages for Fvwm* (modules)
-$index_page = "${index_page}\n\n<HR><H2>Fvwm Modules</H2>\n<ul>";
-my $manfiles;
-if ($mantype eq "src") {
-	$manfiles = `ls $manpath/modules/*/*.1`;
-} else {
-	$manfiles = `ls $manpath/Fvwm*`;
-}
-while( $manfiles =~ /(.+)$/mg) { build_man2html($1); }
-$index_page = "${index_page}\n</ul>";
-
-# Generate manpages for fvwm-*
-$index_page = "${index_page}\n\n<HR><H2>Additional Fvwm binaries</H2>\n<ul>";
-if ($mantype eq "src") {
-	$manfiles = `ls $manpath/bin/*.1`;
-} else {
-	$manfiles = `ls $manpath/fvwm-*`;
-}
-while( $manfiles =~ /(.+)$/mg) { build_man2html($1); }
-$index_page = "${index_page}\n</ul>";
-
+$index_page .= "\n</ul>";
 
 # Index Page
 print "Creating Index Page.\n";
-open FILE, ">index.html";
-print FILE $index_page;
-close FILE;
-
-print "\nManpage creation complete. You still need to remove the .old manpages\n";
+open (my $fh, ">", "index.html") or die $!;
+print $fh $index_page;
+close $fh;
 
 # Build manpage with man2html
-sub build_man2html{
-        my $manpage, my $mantitle, my $manfile, my $body, my $header, my $ziptype;
+sub build_man2html
+{
+	my ($manpage) = @_;
 
-        $manpage = $_[0];
-	if ( $manpage =~ /.gz$/ ) {
-		$ziptype = "gz"; 
-		($mantitle = $manpage) =~ s!.*/(.*)\.1\.gz$!$1!;
-	} else {
-		$ziptype = "none";
-		($mantitle = $manpage) =~ s!.*/(.*)\.1$!$1!;
-	}
+	my ($title, $file, $body, $header);
+
+	($title = $manpage) =~ s!.*/(.*)\.1$!$1!;
 
 	# Man Page Header
-	$header = qq(---
-layout : default
-title : Man Page - $mantitle
-inner-title : $mantitle
+	$header = <<EOF;
 ---
-);
+layout : default
+title : Man Page - $title
+inner-title : $title
+---
+EOF
 
 	# Man Page Body
-	local $_;
-	if ($ziptype eq "gz") {
-		$_ = `zcat $manpage | man2html -p`;
-	} else {
-		$_ = `cat $manpage | man2html -p`;
-	}
+	$_ = `man $manpage | man2html`;
 
 	# Trim html header and footer
 	s!^.*?<body>(.*)</body>.*$!$1!si;
@@ -133,24 +78,22 @@ inner-title : $mantitle
 
         $body = "<div class=\"manpage-wrapper\">\n$_\n</div>";
 
-	$manfile = "$mantitle.html";
-	open FILE, '>'.$manfile;
-	
-	print FILE $header;
-	print FILE $body;
+	$file = "$title.html";
 
-	close FILE;
+	open my $fh, ">", $file or die $!;
+	print $fh $header;
+	print $fh $body;
+	close $fh;
 
 	# Add To Index page
-	$index_page = "${index_page}\n<li><a href=\"${mantitle}.html\"><b>${mantitle}</b></a>";
+	$index_page .= "\n<li><a href=\"${title}.html\"><b>${title}</b></a>";
 
         $body =~ s/.*<H2>Index<\/H2>(.*)<\/div>/$1/s;
         $body =~ s/DL/UL/g;
         $body =~ s/DT/LI/g;
         $body =~ s/DD/\/LI/g;
-        $body =~ s/HREF="/HREF="$manfile/g;
-        $index_page = "${index_page}${body}</li>";
+        $body =~ s/HREF="/HREF="$file/g;
+        $index_page .= "${body}</li>";
 
-	print "Created html manpage for: $mantitle\n";
+	print "Created html manpage for: $title\n";
 }
-
