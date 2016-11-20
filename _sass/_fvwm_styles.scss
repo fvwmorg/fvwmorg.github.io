@@ -98,16 +98,17 @@
 }
 
 // Man Pages
-dt {
+.manpage-wrapper dt {
         color: #d9d915;
 }
-
-dd {
+.manpage-warpper dd {
         padding-left: 35px;
 }
-
 .manpage-wrapper {
         font-size: 85%;
+}
+.manpage-index ul { 
+	margin-bottom: 0px;
 }
 
 // Logos
