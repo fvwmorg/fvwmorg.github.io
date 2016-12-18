@@ -1,0 +1,85 @@
+@media only screen and (min-width: 650px) {
+/**
+ * Navagation Menu Styles
+ */
+.menu-buttonX {
+	display: none;
+}
+
+ul.fvwm_menu {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	background-color: #223c3c;
+	border-style: solid;
+	border-width: 0px 0px 3px 0px;
+	border-color: #1a6e99;
+	height: 28px;
+}
+
+li.fvwm_menu {
+	display: inline-block;
+	font-weight: 600;
+	float: left;
+	cursor: pointer;
+	vertical-align: top;
+	position: relative;
+}
+li.fvwm_menu a {
+	height: 20px;
+}
+
+li.fvwm_menu ul {
+	list-style-type: none;
+	padding: 0;
+	position: absolute;
+	left: -30px;
+	min-width: 90px;
+	white-space: nowrap;
+	display: none;
+        background-color: #223c3c;
+        border-style: solid;
+        border-width: 3px;
+        border-color: #1a6e99;
+	z-index: 999;
+}
+
+li.fvwm_menu ul li {
+	padding-top: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 10px;
+}
+
+li.fvwm_menu ul li:hover {
+	background: #111;
+}
+
+ul.fvwm_menu li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+a.fvwm_menu {
+	display: block;
+	padding: 4px 16px 4px 16px;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+}
+
+a.fvwm_submenu {
+        display: block;
+        padding: 0px;
+        color: white;
+        text-align: left;
+        text-decoration: none;
+}
+
+a.fvwm_menu:hover, a.fvwm_submenu:hover {
+	background-color: #111;
+}
+
+
+}
