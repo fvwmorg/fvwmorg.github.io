@@ -2,7 +2,37 @@ Note, the changes for the last STABLE release start with release
 2.6.0.
 
 -------------------------------------------------------------------
-Changes in stable release 2.6.8 (UNRELEASED)
+Changes in stable release 2.6.9 (UNRELEASED)
+
+* Bug fixes:
+
+  - Fix handling of configure's --enable-mandoc/--enable-htmldoc
+
+* New fvwm features:
+
+-------------------------------------------------------------------
+Changes in stable release 2.6.8 (31-Mar-2018)
+
+* Bug fixes:
+
+  - Various DESTDIR fixes (especially around the default-config
+    Makefile)
+  - fvwm-perllib pod2man fixes.
+  - FvwmIconMan no longer triggers a warning about bad size hints
+    in the fvwm core.
+  - VMware windows do not disapper when switching between
+    fullscreen and normal state.
+  - Fix (de)installation with the configure options
+    --program-prefix, --program-suffix and
+    --program-transform-name.
+  - Remove further references to obsolete modules from man page(s).
+
+* New fvwm features:
+  
+  - fvwm-menu-desktop(1) now requires python3 as an explicit
+    dependency.
+  - Add a 'fullscreen' option to the 'Maximize' command.
+
 -------------------------------------------------------------------
 Changes in stable release 2.6.7 (06-Mar-2016)
 
