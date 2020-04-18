@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+
+    <link rel="stylesheet" href="{{ "/css/wiki.css" | prepend: site.baseurl }}">
+
+  </head>
+
+  <body>
+
+    {% capture header %}
+<header class="site-header">
+
+  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <h2 class="page-title">
+  {% assign cur_link = site.baseurl %}
+  {% if page.url == "/" %}
+    <a href="{{ cur_link }}">Fvwm</a>
+  {% else %}
+    {% assign links = page.url | split: '/' %}
+    {% for link in links %}
+      {% assign cur_link = cur_link | append: link | append: "/" %}
+      {% if link == "" %}
+        <a href="{{ cur_link }}">Fvwm</a>
+      {% else %}
+        <b>/</b><a href="{{ cur_link }}">{{ link }}</a>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  </h2>
+
+  <div style="float: right; padding: 5px 25px 5px 5px;">
+  <a href="http://fvwm.org">
+  <img src="{{ "/img/fvwm-logo_sml.png" | prepend: site.baseurl }}"></a>
+
+</header>
+    {% endcapture %}
+
+    {{ header | strip_newlines | remove: "  " }}
+
+    <div class="page-content">
+      <div class="wrapper">
+
+        {{ content }}
+
+      </div>
+    </div>
+
+<footer class="site-footer">
+
+  <div class="wrapper">
+    <div style="float: right;">
+    <a href="https://github.com/fvwmorg">
+    <span class="icon icon--github">{% include icon-github.svg %}</span>
+    <span class="username">fvwmorg</span></a>
+    </div>
+  </div>
+
+</footer>
+
+  </body>
+
+</html>
