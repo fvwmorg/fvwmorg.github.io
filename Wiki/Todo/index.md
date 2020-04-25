@@ -6,7 +6,8 @@ title : Todo List
 # FvwmWiki Todo List
 
 The source for the wiki can be found at
-<https://github.com/somiaj/fvwmwiki>.
+<https://github.com/fvwmorg/fvwmorg.github.io>,
+under the Wiki directory.
 
 The wiki is written mostly in [Markdown](
 https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet),
@@ -30,24 +31,31 @@ This is a list of things that are still left unfinished.
 
 These are pages that are places holders.
 
-+ [/DefaultConfig](/wiki/DefaultConfig) -- Currently just a copy of the config file.
-  Intended to give an overview of how the config works in terms of bindings, menu ops, etc.
-+ [/Config/Conditionals](/wiki/Config/Conditionals) -- Intended to be a guide into how
++ [/DefaultConfig]({{ "/DefaultConfig" | prepend: site.wikibaseurl }})
+  -- Currently just a copy of the config file.
+  Intended to give an overview of how the config works in terms of bindings,
+  menu ops, etc.
++ [/Config/Conditionals]({{ "/Config/Conditionals" | prepend: site.wikibaseurl }})
+  -- Intended to be a guide into how
   to use conditional statements, both in the config and in complex functions.
-+ [/Config/Modules](/wiki/Config/Modules) -- Intended to describe module alias
++ [/Config/Modules]({{ "/Config/Modules" | prepend: site.wikibaseurl }})
+  -- Intended to describe module alias
   configuration syntax, \*Foo, and how to configure, start and stop them.
-  Then point at [/Modules](/wiki/Modules) for specifics for each module.
+  Then point at [/Modules]({{ "/Modules" | prepend: site.wikibaseurl }})
+  for specifics for each module.
 
 ## Updates
 
 Pages that need to be updated
 
-+ [/NewToFvwm](/wiki/NewToFvwm) -- Idea: include a description of the default config
++ [/NewToFvwm]({{ "/NewToFvwm" | prepend: site.wikibaseurl }})
+  -- Idea: include a description of the default config
   and maybe point to some of the pages that would be useful to someone starting
   with the default config and editing it.
-+ [/WindowManager](/wiki/WindowManager)
-+ [/Modules/\*](/wiki/Modules) -- Most the modules don't have much more than a
++ [/WindowManager]({{ "/WindowManager" | prepend: site.wikibaseurl }})
++ [/Modules/\*]({{ "/Modules" | prepend: site.wikibaseurl }})
+  -- Most the modules don't have much more than a
   description. These need to all be updated and include some examples of different
-  pannels and things that can be done with modules.
+  panels and things that can be done with modules.
 
 
