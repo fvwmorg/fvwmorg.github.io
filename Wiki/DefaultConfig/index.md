@@ -18,6 +18,7 @@ man page for a more exhaustive discussion of all available options.
 6: Decor
 7: Modules
 
+
 # Functions
 
 There is already a more elaborate page on functions:  
@@ -39,7 +40,7 @@ entering the window with the mouse pointer.
 
 {% highlight fvwm %}
 Style * ClickToFocus
-% endhighlight %}
+{% endhighlight %}
 
 
 ## Focus by putting mouse pointer in window
@@ -67,12 +68,15 @@ e.g., the window doesn't lose focus. This is the default in the default config.
 This config  can make sense if you like to keep on writing in a window, but move 
 the pointer far out of sight, possibly even to another screen altogether.
 
-Unless you click to focus, the window is only focused, it is not raised to the top,
+Unless you click to focus, the window is only focused, it is not _raised_ to the top,
 so you might end up with a focused window of which you only see small areas because 
 other windows cover it. Here, you can add _ClickToRaise_ to the style. This will
 then raise the window to the top (i.e. make it wholly visible on top of all other 
-windows) once you click somewhere in it. This is the default in the default config.
+windows) once you click somewhere in it. This is the default in the default config:
 
+{% highlight fvwm %}
+Style * SloppyFocus, MouseFocusClickRaises
+{% endhighlight %}
 
 # Default Config
 
