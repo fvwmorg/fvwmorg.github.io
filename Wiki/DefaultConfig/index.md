@@ -24,6 +24,15 @@ man page for a more exhaustive discussion of all available options.
 There is already a more elaborate page on functions:  
 <a href="/wiki/Config/Functions">Functions</a>
 
+The StartFunction can also be used an elegant autostart section.
+You can, e.g., add
+
+{% highlight fvwm %}
++ I Test (Init) exec conky
+{% endhighlight %}
+
+to start your standard conky right at startup.
+
 # Styles
 
 Styles are settings that, broadly speaking, influence everything that is
@@ -77,6 +86,34 @@ windows) once you click somewhere in it. This is the default in the default conf
 {% highlight fvwm %}
 Style * SloppyFocus, MouseFocusClickRaises
 {% endhighlight %}
+
+## OpaqueMove
+
+The default config sets the behaviour of windows that are moved or resized to the
+values we know from other window managers, a kind of what you see is what you get.
+Fvwm has another mode, in which the window and its contents are not dynamically moved 
+or resized, but only after the window as been put in its new place or its new shape
+respectively. When moving or resizing, you see what the comments in the default config 
+call "a wired frame" and the man page "rubber-band". 
+This behaviour can be achieved by:
+
+{% highlight fvwm %}
+XORValue 0
+OpaqueMoveSize 0
+Style * ResizeOutline, SnapAttraction 15 SameType ScreenAll, SnapGrid
+{% endhighlight %}
+
+XORValue influences the colour of the wire or rubber band, play with values as you like
+until you're happy with the outcome, you cannot break anything.
+
+
+# Menus
+
+The default config tests for some typical programs that might be found on the average machine.
+Once you are happy with your config, you can safely remove any line _Programs Menu_ that
+refers to a program you haven't installed - and you can remove the "Test (x program)" bit, too.
+
+
 
 # Default Config
 
