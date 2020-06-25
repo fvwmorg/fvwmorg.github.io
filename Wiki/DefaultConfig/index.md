@@ -114,6 +114,11 @@ Once you are happy with your config, you can safely remove any line _Programs Me
 refers to a program you haven't installed - and you can remove the "Test (x program)" bit, too.
 
 
+# Decor
+
+There are already elaborate pages in this Wiki that deal with decor, start here, e.g.:
+<a href="/wiki/Config/Decor">Decor</a>
+
 
 # Default Config
 
