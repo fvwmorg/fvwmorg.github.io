@@ -68,7 +68,7 @@ span.window-inner-title {
 	left: 6px;
 	height: 6px;
 	width: calc(100% - 12px);
-	background-image: url("/img/header/top.gif");
+	background-image: url("#{$baseurl}/img/header/top.gif");
 	background-repeat: repeat-x;
 	background-position: top;
 }
@@ -79,7 +79,7 @@ span.window-inner-title {
 	left: 6px;
 	height: 6px;
 	width: calc(100% - 12px);
-	background-image: url("/img/header/bottom.gif");
+	background-image: url("#{$baseurl}/img/header/bottom.gif");
 	background-repeat: repeat-x;
 	background-position: bottom;
 }
@@ -91,7 +91,7 @@ span.window-inner-title {
 	height: calc(100% - 12px);
 	min-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/left.gif");
+        background-image: url("#{$baseurl}/img/header/left.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -103,7 +103,7 @@ span.window-inner-title {
 	height: calc(100% - 12px);
 	min-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/right.gif");
+        background-image: url("#{$baseurl}/img/header/right.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -116,7 +116,7 @@ span.window-inner-title {
 	min-width: 6px;
 	max-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/top_right.gif");
+        background-image: url("#{$baseurl}/img/header/top_right.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -129,7 +129,7 @@ span.window-inner-title {
 	min-width: 6px;
 	max-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/top_left.gif");
+        background-image: url("#{$baseurl}/img/header/top_left.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -142,7 +142,7 @@ span.window-inner-title {
 	min-width: 6px;
 	max-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/bottom_right.gif");
+        background-image: url("#{$baseurl}/img/header/bottom_right.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -155,7 +155,7 @@ span.window-inner-title {
 	min-width: 6px;
 	max-width: 6px;
         background-color: #36648b;
-        background-image: url("/img/header/bottom_left.gif");
+        background-image: url("#{$baseurl}/img/header/bottom_left.gif");
         background-repeat: repeat-y;
         background-position: top;
 }
@@ -175,7 +175,7 @@ span.window-inner-title {
 	font-size: 13px;
 	font-weight: 700;
         background-color: #1a6e99;
-        background-image: url("/img/header/title.gif");
+        background-image: url("#{$baseurl}/img/header/title.gif");
         background-repeat: repeat-x;
         background-position: top;
 	height: 20px;
@@ -198,7 +198,7 @@ span.window-inner-title {
 	top: 6px;
 	left: 0px;
         background-color: #36648b;
-        background-image: url("../img/header/button_1.gif");
+        background-image: url("#{$baseurl}/img/header/button_1.gif");
         background-repeat: no-repeat;
         background-position: top;
         width: 20px;
@@ -211,7 +211,7 @@ span.window-inner-title {
 	top: 6px;
 	left: 0px;
         background-color: #36648b;
-        background-image: url("../img/menu.png");
+        background-image: url("#{$baseurl}/img/menu.png");
         background-repeat: no-repeat;
         background-position: top;
         width: 20px;
@@ -219,7 +219,7 @@ span.window-inner-title {
 	cursor: pointer;
 }
 .window-inner-button1 {
-	background-image: url("../img/header/button_4.gif");
+	background-image: url("#{$baseurl}/img/header/button_4.gif");
 }
 
 .window-button2 {
@@ -227,7 +227,7 @@ span.window-inner-title {
 	top: 6px;
 	right: 0px;
         background-color: #36648b;
-        background-image: url("../img/header/button_2.gif");
+        background-image: url("#{$baseurl}/img/header/button_2.gif");
         background-repeat: no-repeat;
         background-position: top;
         width: 20px;
@@ -240,7 +240,7 @@ span.window-inner-title {
 	top: 6px;
 	right: 20px;
         background-color: #36648b;
-        background-image: url("../img/header/button_4.gif");
+        background-image: url("#{$baseurl}/img/header/button_4.gif");
         background-repeat: no-repeat;
         background-position: top;
         width: 20px;

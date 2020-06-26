@@ -17,7 +17,7 @@ body {
     font: 400 16px sans-serif, "Times New Roman", "Helvetica Neue";
     color: #2d2d2d;
     background-color: #ffffff;
-    background-image: url("../img/fvwm-logo-gradient.png");
+    background-image: url("#{$baseurl}/img/fvwm-logo-gradient.png");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 80%;

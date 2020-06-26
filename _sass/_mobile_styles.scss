@@ -51,7 +51,7 @@
 
 @media screen and (max-aspect-ratio: 1/1) {
 	body {
-		background-image: url("../img/fvwm-logo-gradient-rot.png");
+		background-image: url("#{$baseurl}/img/fvwm-logo-gradient-rot.png");
 		background-size: auto 80%;
 	}
 }
