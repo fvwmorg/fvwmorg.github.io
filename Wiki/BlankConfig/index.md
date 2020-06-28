@@ -12,7 +12,7 @@ description : |
 
 # Starting Fvwm3 with a Blank Config File
 
-Fvwm has been written with literally hundreds of options for most (if not all) aspects of window management.
+Fvwm3 has been written with literally hundreds of options for most (if not all) aspects of window management.
 
 In order for windows to appear in the first place, there needs to be a root area (which, in turn, needs to "look like something"); a window needs to either have decorations or no decorations; if it has decorations, they need to be defined and styled; once a window is opened, it needs to open with some kind of geometry somewhere over the root area, etc...
 
