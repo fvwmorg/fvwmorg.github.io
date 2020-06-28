@@ -4,7 +4,7 @@ title : BlankConfig
 type : config
 weight : 500
 description : |
-  This is a description of how to configure Fvwm3 from scratch with a blank config file
+  This is a description of how to configure Fvwm3 _from scratch_ with a blank config file
 ---
 
 * TOC
