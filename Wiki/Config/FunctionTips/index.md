@@ -16,7 +16,7 @@ description : |
 
 ## Introduction
 
-Writing [/Config/ComplexFunctions]({{ "/Config/ComplexFunctions" | prepend: site.wikibaseurl }})
+Writing [/Config/ComplexFunctions]({{ "/Config/ComplexFunctions" | prepend: site.wikiurl }})
 is not always that easy.  Indeed, one of the biggest problems tends to be the sequencing
 of events -- and knowing when it is appropriate to specify any conditional
 commands.
@@ -70,12 +70,12 @@ Welcome to the use of conditional commands.
 
 ## Current, ThisWindow, etc.
 
-[/Config/FunctionContext]({{ "/Config/FunctionContext" | prepend: site.wikibaseurl }})
+[/Config/FunctionContext]({{ "/Config/FunctionContext" | prepend: site.wikiurl }})
 is everything when it comes to operating on windows.  Indeed, ensuring a
 functions runs within a window context is tricker than many think.  In continuing
 with our example though, we'll soon see that we need be specific.   What do we
 do when need to specify a specific window to be moved, and to ignore all others?
-This is where the [/Config/Conditionals]({{ "/Config/Conditionals" | prepend: site.wikibaseurl }})
+This is where the [/Config/Conditionals]({{ "/Config/Conditionals" | prepend: site.wikiurl }})
 command ThisWindow comes in useful.
 
 ThisWindow is a command more or less guaranteed to place a window within a

@@ -12,6 +12,7 @@ description : |
 Here is the list of tips:
 
 {% assign pages = site.pages | where:"type","tip" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -19,3 +20,7 @@ Here is the list of tips:
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-tips-pages"
+title="FvwmWiki Tips Pages" content=fvwmtxt
+color="yellow-green" %}

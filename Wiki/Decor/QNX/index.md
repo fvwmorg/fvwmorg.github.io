@@ -21,7 +21,7 @@ called ‘qnx’. Put the directory your ImagePath. If unsure you can copy
 put the directory in $HOME/.fvwm.
 
 To use this decor first configure the 
-[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
 #   1 - Inactive Windows 
@@ -34,7 +34,7 @@ Colorset 3 fg rgb:00/00/00, bg rgb:80/80/80
 Colorset 4 fg rgb:00/00/00, bg rgb:90/90/90
 {% endhighlight %}
 
-Next [Bind]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons. This decor uses
 use locations 1, 6, 4 and 2
 

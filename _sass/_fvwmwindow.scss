@@ -1,0 +1,399 @@
+/**
+ * Fvwm Window Decor Styles.
+ */
+.fvwmwindow {
+        position: relative;
+        margin: 1rem 1rem;
+        padding: 0px;
+        vertical-align: top;
+        min-height: 32px;
+}
+// Increase Margins for Larger Screens
+@media (min-width: 768px ) {
+  .fvwmwindow { margin: 1rem 2rem; }
+}
+@media (min-width: 992px ) {
+  .fvwmwindow { margin: 1rem 3rem; }
+}
+.fvwmwindow-max {
+        margin: 0px;
+}
+.fvwmwindow-min {
+	display: none;
+}
+.fvwmwindow-main {
+        position: relative;
+        margin: 0px 6px 0px 6px;
+        padding: 0;
+        color: #ffffff;
+        vertical-align: top;
+        overflow: hidden;
+}
+.fvwmwindow-mainpadding {
+	padding: 32px 12px 12px 12px;
+}
+.fvwmwindow-maincontent {
+        padding: 32px 12px 12px 12px;
+	margin: 0;
+	vertical-align: top;
+	overflow: hidden;
+        color: $fwin-color !important;
+        background-color: $fwin-bgcolor !important;
+}
+.fvwmwindow-maincontent a {
+	color: $fwinlink-color !important;
+	background-color: $fwinlink-bgcolor !important;
+	&:hover, &:active {
+		color: $fwinhilink-color !important;
+		background-color: $fwinhilink-bgcolor !important;
+	}
+}
+.fwin-focus { color: #ffffff !important; }
+.fwin-alpine { background: #90a0d5; }
+.fwin-arizona { background: #d88c59; }
+.fwin-blue { background: #31658b; }
+.fwin-blue-green { background: #90a0d5; }
+.fwin-broica { background: #ca8951; }
+.fwin-crimson { background: #93325b; }
+.fwin-gray { background: #606060; }
+.fwin-green { background: #25693b; }
+.fwin-neptune { background: #83c3a6; }
+.fwin-orange { background: #695125; }
+.fwin-pink { background: #69254f; }
+.fwin-purple { background: #5e2569; }
+.fwin-red { background: #692f25; }
+.fwin-yellow { background: #696625; }
+.fwin-yellow-green { background: #4b6925; }
+
+
+/**
+ * Decor Styles for the borders and buttons.
+ */
+.fvwmwindow-top {
+        position: absolute;
+        top: 0px;
+        left: 6px;
+        height: 6px;
+        width: calc(100% - 12px);
+        background-repeat: repeat-x;
+        background-position: top;
+	z-index: 5;
+}
+.fwin-top-alpine { background-image: url("#{$baseurl}/img/win/alpine/top.gif"); }
+.fwin-top-arizona { background-image: url("#{$baseurl}/img/win/arizona/top.gif"); }
+.fwin-top-blue { background-image: url("#{$baseurl}/img/win/blue/top.gif"); }
+.fwin-top-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/top.gif"); }
+.fwin-top-broica { background-image: url("#{$baseurl}/img/win/broica/top.gif"); }
+.fwin-top-crimson { background-image: url("#{$baseurl}/img/win/crimson/top.gif"); }
+.fwin-top-gray { background-image: url("#{$baseurl}/img/win/gray/top.gif"); }
+.fwin-top-green { background-image: url("#{$baseurl}/img/win/green/top.gif"); }
+.fwin-top-neptune { background-image: url("#{$baseurl}/img/win/neptune/top.gif"); }
+.fwin-top-orange { background-image: url("#{$baseurl}/img/win/orange/top.gif"); }
+.fwin-top-pink { background-image: url("#{$baseurl}/img/win/pink/top.gif"); }
+.fwin-top-purple { background-image: url("#{$baseurl}/img/win/purple/top.gif"); }
+.fwin-top-red { background-image: url("#{$baseurl}/img/win/red/top.gif"); }
+.fwin-top-yellow { background-image: url("#{$baseurl}/img/win/yellow/top.gif"); }
+.fwin-top-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/top.gif"); }
+
+.fvwmwindow-bottom {
+        position: absolute;
+        bottom: 0px;
+        left: 6px;
+        height: 6px;
+        width: calc(100% - 12px);
+        background-repeat: repeat-x;
+        background-position: bottom;
+        z-index: 5;
+}
+.fwin-bottom-alpine { background-image: url("#{$baseurl}/img/win/alpine/bottom.gif"); }
+.fwin-bottom-arizona { background-image: url("#{$baseurl}/img/win/arizona/bottom.gif"); }
+.fwin-bottom-blue { background-image: url("#{$baseurl}/img/win/blue/bottom.gif"); }
+.fwin-bottom-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/bottom.gif"); }
+.fwin-bottom-broica { background-image: url("#{$baseurl}/img/win/broica/bottom.gif"); }
+.fwin-bottom-crimson { background-image: url("#{$baseurl}/img/win/crimson/bottom.gif"); }
+.fwin-bottom-gray { background-image: url("#{$baseurl}/img/win/gray/bottom.gif"); }
+.fwin-bottom-green { background-image: url("#{$baseurl}/img/win/green/bottom.gif"); }
+.fwin-bottom-neptune { background-image: url("#{$baseurl}/img/win/neptune/bottom.gif"); }
+.fwin-bottom-orange { background-image: url("#{$baseurl}/img/win/orange/bottom.gif"); }
+.fwin-bottom-pink { background-image: url("#{$baseurl}/img/win/pink/bottom.gif"); }
+.fwin-bottom-purple { background-image: url("#{$baseurl}/img/win/purple/bottom.gif"); }
+.fwin-bottom-red { background-image: url("#{$baseurl}/img/win/red/bottom.gif"); }
+.fwin-bottom-yellow { background-image: url("#{$baseurl}/img/win/yellow/bottom.gif"); }
+.fwin-bottom-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/bottom.gif"); }
+
+.fvwmwindow-left {
+        position: absolute;
+        left: 0px;
+        top: 6px;
+        height: calc(100% - 12px);
+        min-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+}
+.fwin-left-alpine { background-image: url("#{$baseurl}/img/win/alpine/left.gif"); }
+.fwin-left-arizona { background-image: url("#{$baseurl}/img/win/arizona/left.gif"); }
+.fwin-left-blue { background-image: url("#{$baseurl}/img/win/blue/left.gif"); }
+.fwin-left-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/left.gif"); }
+.fwin-left-broica { background-image: url("#{$baseurl}/img/win/broica/left.gif"); }
+.fwin-left-crimson { background-image: url("#{$baseurl}/img/win/crimson/left.gif"); }
+.fwin-left-gray { background-image: url("#{$baseurl}/img/win/gray/left.gif"); }
+.fwin-left-green { background-image: url("#{$baseurl}/img/win/green/left.gif"); }
+.fwin-left-neptune { background-image: url("#{$baseurl}/img/win/neptune/left.gif"); }
+.fwin-left-orange { background-image: url("#{$baseurl}/img/win/orange/left.gif"); }
+.fwin-left-pink { background-image: url("#{$baseurl}/img/win/pink/left.gif"); }
+.fwin-left-purple { background-image: url("#{$baseurl}/img/win/purple/left.gif"); }
+.fwin-left-red { background-image: url("#{$baseurl}/img/win/red/left.gif"); }
+.fwin-left-yellow { background-image: url("#{$baseurl}/img/win/yellow/left.gif"); }
+.fwin-left-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/left.gif"); }
+
+.fvwmwindow-right {
+        position: absolute;
+        right: 0px;
+        top: 6px;
+        height: calc(100% - 12px);
+        min-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+        z-index: 5;
+}
+.fwin-right-alpine { background-image: url("#{$baseurl}/img/win/alpine/right.gif"); }
+.fwin-right-arizona { background-image: url("#{$baseurl}/img/win/arizona/right.gif"); }
+.fwin-right-blue { background-image: url("#{$baseurl}/img/win/blue/right.gif"); }
+.fwin-right-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/right.gif"); }
+.fwin-right-broica { background-image: url("#{$baseurl}/img/win/broica/right.gif"); }
+.fwin-right-crimson { background-image: url("#{$baseurl}/img/win/crimson/right.gif"); }
+.fwin-right-gray { background-image: url("#{$baseurl}/img/win/gray/right.gif"); }
+.fwin-right-green { background-image: url("#{$baseurl}/img/win/green/right.gif"); }
+.fwin-right-neptune { background-image: url("#{$baseurl}/img/win/neptune/right.gif"); }
+.fwin-right-orange { background-image: url("#{$baseurl}/img/win/orange/right.gif"); }
+.fwin-right-pink { background-image: url("#{$baseurl}/img/win/pink/right.gif"); }
+.fwin-right-purple { background-image: url("#{$baseurl}/img/win/purple/right.gif"); }
+.fwin-right-red { background-image: url("#{$baseurl}/img/win/red/right.gif"); }
+.fwin-right-yellow { background-image: url("#{$baseurl}/img/win/yellow/right.gif"); }
+.fwin-right-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/right.gif"); }
+
+.fvwmwindow-top-right {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        height: 6px;
+        min-width: 6px;
+        max-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+        z-index: 5;
+}
+.fwin-top-right-alpine { background-image: url("#{$baseurl}/img/win/alpine/top_right.gif"); }
+.fwin-top-right-arizona { background-image: url("#{$baseurl}/img/win/arizona/top_right.gif"); }
+.fwin-top-right-blue { background-image: url("#{$baseurl}/img/win/blue/top_right.gif"); }
+.fwin-top-right-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/top_right.gif"); }
+.fwin-top-right-broica { background-image: url("#{$baseurl}/img/win/broica/top_right.gif"); }
+.fwin-top-right-crimson { background-image: url("#{$baseurl}/img/win/crimson/top_right.gif"); }
+.fwin-top-right-gray { background-image: url("#{$baseurl}/img/win/gray/top_right.gif"); }
+.fwin-top-right-green { background-image: url("#{$baseurl}/img/win/green/top_right.gif"); }
+.fwin-top-right-neptune { background-image: url("#{$baseurl}/img/win/neptune/top_right.gif"); }
+.fwin-top-right-orange { background-image: url("#{$baseurl}/img/win/orange/top_right.gif"); }
+.fwin-top-right-pink { background-image: url("#{$baseurl}/img/win/pink/top_right.gif"); }
+.fwin-top-right-purple { background-image: url("#{$baseurl}/img/win/purple/top_right.gif"); }
+.fwin-top-right-red { background-image: url("#{$baseurl}/img/win/red/top_right.gif"); }
+.fwin-top-right-yellow { background-image: url("#{$baseurl}/img/win/yellow/top_right.gif"); }
+.fwin-top-right-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/top_right.gif"); }
+
+.fvwmwindow-top-left {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        height: 6px;
+        min-width: 6px;
+        max-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+        z-index: 5;
+}
+.fwin-top-left-alpine { background-image: url("#{$baseurl}/img/win/alpine/top_left.gif"); }
+.fwin-top-left-arizona { background-image: url("#{$baseurl}/img/win/arizona/top_left.gif"); }
+.fwin-top-left-blue { background-image: url("#{$baseurl}/img/win/blue/top_left.gif"); }
+.fwin-top-left-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/top_left.gif"); }
+.fwin-top-left-broica { background-image: url("#{$baseurl}/img/win/broica/top_left.gif"); }
+.fwin-top-left-crimson { background-image: url("#{$baseurl}/img/win/crimson/top_left.gif"); }
+.fwin-top-left-gray { background-image: url("#{$baseurl}/img/win/gray/top_left.gif"); }
+.fwin-top-left-green { background-image: url("#{$baseurl}/img/win/green/top_left.gif"); }
+.fwin-top-left-neptune { background-image: url("#{$baseurl}/img/win/neptune/top_left.gif"); }
+.fwin-top-left-orange { background-image: url("#{$baseurl}/img/win/orange/top_left.gif"); }
+.fwin-top-left-pink { background-image: url("#{$baseurl}/img/win/pink/top_left.gif"); }
+.fwin-top-left-purple { background-image: url("#{$baseurl}/img/win/purple/top_left.gif"); }
+.fwin-top-left-red { background-image: url("#{$baseurl}/img/win/red/top_left.gif"); }
+.fwin-top-left-yellow { background-image: url("#{$baseurl}/img/win/yellow/top_left.gif"); }
+.fwin-top-left-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/top_left.gif"); }
+
+.fvwmwindow-bottom-right {
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+        height: 6px;
+        min-width: 6px;
+        max-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+        z-index: 5;
+}
+.fwin-bottom-right-alpine { background-image: url("#{$baseurl}/img/win/alpine/bottom_right.gif"); }
+.fwin-bottom-right-arizona { background-image: url("#{$baseurl}/img/win/arizona/bottom_right.gif"); }
+.fwin-bottom-right-blue { background-image: url("#{$baseurl}/img/win/blue/bottom_right.gif"); }
+.fwin-bottom-right-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/bottom_right.gif"); }
+.fwin-bottom-right-broica { background-image: url("#{$baseurl}/img/win/broica/bottom_right.gif"); }
+.fwin-bottom-right-crimson { background-image: url("#{$baseurl}/img/win/crimson/bottom_right.gif"); }
+.fwin-bottom-right-gray { background-image: url("#{$baseurl}/img/win/gray/bottom_right.gif"); }
+.fwin-bottom-right-green { background-image: url("#{$baseurl}/img/win/green/bottom_right.gif"); }
+.fwin-bottom-right-neptune { background-image: url("#{$baseurl}/img/win/neptune/bottom_right.gif"); }
+.fwin-bottom-right-orange { background-image: url("#{$baseurl}/img/win/orange/bottom_right.gif"); }
+.fwin-bottom-right-pink { background-image: url("#{$baseurl}/img/win/pink/bottom_right.gif"); }
+.fwin-bottom-right-purple { background-image: url("#{$baseurl}/img/win/purple/bottom_right.gif"); }
+.fwin-bottom-right-red { background-image: url("#{$baseurl}/img/win/red/bottom_right.gif"); }
+.fwin-bottom-right-yellow { background-image: url("#{$baseurl}/img/win/yellow/bottom_right.gif"); }
+.fwin-bottom-right-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/bottom_right.gif"); }
+
+.fvwmwindow-bottom-left {
+        position: absolute;
+        left: 0px;
+        bottom: 0px;
+        height: 6px;
+        min-width: 6px;
+        max-width: 6px;
+        background-repeat: repeat-y;
+        background-position: top;
+        z-index: 5;
+}
+.fwin-bottom-left-alpine { background-image: url("#{$baseurl}/img/win/alpine/bottom_left.gif"); }
+.fwin-bottom-left-arizona { background-image: url("#{$baseurl}/img/win/arizona/bottom_left.gif"); }
+.fwin-bottom-left-blue { background-image: url("#{$baseurl}/img/win/blue/bottom_left.gif"); }
+.fwin-bottom-left-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/bottom_left.gif"); }
+.fwin-bottom-left-broica { background-image: url("#{$baseurl}/img/win/broica/bottom_left.gif"); }
+.fwin-bottom-left-crimson { background-image: url("#{$baseurl}/img/win/crimson/bottom_left.gif"); }
+.fwin-bottom-left-gray { background-image: url("#{$baseurl}/img/win/gray/bottom_left.gif"); }
+.fwin-bottom-left-green { background-image: url("#{$baseurl}/img/win/green/bottom_left.gif"); }
+.fwin-bottom-left-neptune { background-image: url("#{$baseurl}/img/win/neptune/bottom_left.gif"); }
+.fwin-bottom-left-orange { background-image: url("#{$baseurl}/img/win/orange/bottom_left.gif"); }
+.fwin-bottom-left-pink { background-image: url("#{$baseurl}/img/win/pink/bottom_left.gif"); }
+.fwin-bottom-left-purple { background-image: url("#{$baseurl}/img/win/purple/bottom_left.gif"); }
+.fwin-bottom-left-red { background-image: url("#{$baseurl}/img/win/red/bottom_left.gif"); }
+.fwin-bottom-left-yellow { background-image: url("#{$baseurl}/img/win/yellow/bottom_left.gif"); }
+.fwin-bottom-left-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/bottom_left.gif"); }
+
+.fvwmwindow-title-bar {
+        position: absolute;
+        margin-right: 6px;
+        margin-left: 6px;
+        padding-top: 6px;
+        width: calc(100% - 12px);
+        z-index: 5;
+}
+.fvwmwindow-title {
+        margin-right: 40px;
+        margin-left: 20px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #000000;
+        background-repeat: repeat-x;
+        background-position: top;
+        height: 20px;
+        cursor: pointer;
+        user-select: none;
+}
+.fwin-title-alpine { background-image: url("#{$baseurl}/img/win/alpine/title.gif"); }
+.fwin-title-arizona { background-image: url("#{$baseurl}/img/win/arizona/title.gif"); }
+.fwin-title-blue { background-image: url("#{$baseurl}/img/win/blue/title.gif"); }
+.fwin-title-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/title.gif"); }
+.fwin-title-broica { background-image: url("#{$baseurl}/img/win/broica/title.gif"); }
+.fwin-title-crimson { background-image: url("#{$baseurl}/img/win/crimson/title.gif"); }
+.fwin-title-gray { background-image: url("#{$baseurl}/img/win/gray/title.gif"); }
+.fwin-title-green { background-image: url("#{$baseurl}/img/win/green/title.gif"); }
+.fwin-title-neptune { background-image: url("#{$baseurl}/img/win/neptune/title.gif"); }
+.fwin-title-orange { background-image: url("#{$baseurl}/img/win/orange/title.gif"); }
+.fwin-title-pink { background-image: url("#{$baseurl}/img/win/pink/title.gif"); }
+.fwin-title-purple { background-image: url("#{$baseurl}/img/win/purple/title.gif"); }
+.fwin-title-red { background-image: url("#{$baseurl}/img/win/red/title.gif"); }
+.fwin-title-yellow { background-image: url("#{$baseurl}/img/win/yellow/title.gif"); }
+.fwin-title-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/title.gif"); }
+
+.fvwmwindow-button1 {
+        position: absolute;
+        top: 6px;
+        left: 0px;
+        background-repeat: no-repeat;
+        background-position: top;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+}
+.fwin-button1-alpine { background-image: url("#{$baseurl}/img/win/alpine/button_1.gif"); }
+.fwin-button1-arizona { background-image: url("#{$baseurl}/img/win/arizona/button_1.gif"); }
+.fwin-button1-blue { background-image: url("#{$baseurl}/img/win/blue/button_1.gif"); }
+.fwin-button1-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/button_1.gif"); }
+.fwin-button1-broica { background-image: url("#{$baseurl}/img/win/broica/button_1.gif"); }
+.fwin-button1-crimson { background-image: url("#{$baseurl}/img/win/crimson/button_1.gif"); }
+.fwin-button1-gray { background-image: url("#{$baseurl}/img/win/gray/button_1.gif"); }
+.fwin-button1-green { background-image: url("#{$baseurl}/img/win/green/button_1.gif"); }
+.fwin-button1-neptune { background-image: url("#{$baseurl}/img/win/neptune/button_1.gif"); }
+.fwin-button1-orange { background-image: url("#{$baseurl}/img/win/orange/button_1.gif"); }
+.fwin-button1-pink { background-image: url("#{$baseurl}/img/win/pink/button_1.gif"); }
+.fwin-button1-purple { background-image: url("#{$baseurl}/img/win/purple/button_1.gif"); }
+.fwin-button1-red { background-image: url("#{$baseurl}/img/win/red/button_1.gif"); }
+.fwin-button1-yellow { background-image: url("#{$baseurl}/img/win/yellow/button_1.gif"); }
+.fwin-button1-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/button_1.gif"); }
+
+.fvwmwindow-button2 {
+        position: absolute;
+        top: 6px;
+        right: 0px;
+        background-repeat: no-repeat;
+        background-position: top;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+}
+.fwin-button2-alpine { background-image: url("#{$baseurl}/img/win/alpine/button_2.gif"); }
+.fwin-button2-arizona { background-image: url("#{$baseurl}/img/win/arizona/button_2.gif"); }
+.fwin-button2-blue { background-image: url("#{$baseurl}/img/win/blue/button_2.gif"); }
+.fwin-button2-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/button_2.gif"); }
+.fwin-button2-broica { background-image: url("#{$baseurl}/img/win/broica/button_2.gif"); }
+.fwin-button2-crimson { background-image: url("#{$baseurl}/img/win/crimson/button_2.gif"); }
+.fwin-button2-gray { background-image: url("#{$baseurl}/img/win/gray/button_2.gif"); }
+.fwin-button2-green { background-image: url("#{$baseurl}/img/win/green/button_2.gif"); }
+.fwin-button2-neptune { background-image: url("#{$baseurl}/img/win/neptune/button_2.gif"); }
+.fwin-button2-orange { background-image: url("#{$baseurl}/img/win/orange/button_2.gif"); }
+.fwin-button2-pink { background-image: url("#{$baseurl}/img/win/pink/button_2.gif"); }
+.fwin-button2-purple { background-image: url("#{$baseurl}/img/win/purple/button_2.gif"); }
+.fwin-button2-red { background-image: url("#{$baseurl}/img/win/red/button_2.gif"); }
+.fwin-button2-yellow { background-image: url("#{$baseurl}/img/win/yellow/button_2.gif"); }
+.fwin-button2-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/button_2.gif"); }
+
+.fvwmwindow-button4 {
+        position: absolute;
+        top: 6px;
+        right: 20px;
+        background-repeat: no-repeat;
+        background-position: top;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+}
+.fwin-button4-alpine { background-image: url("#{$baseurl}/img/win/alpine/button_4.gif"); }
+.fwin-button4-arizona { background-image: url("#{$baseurl}/img/win/arizona/button_4.gif"); }
+.fwin-button4-blue { background-image: url("#{$baseurl}/img/win/blue/button_4.gif"); }
+.fwin-button4-blue-green { background-image: url("#{$baseurl}/img/win/blue-green/button_4.gif"); }
+.fwin-button4-broica { background-image: url("#{$baseurl}/img/win/broica/button_4.gif"); }
+.fwin-button4-crimson { background-image: url("#{$baseurl}/img/win/crimson/button_4.gif"); }
+.fwin-button4-gray { background-image: url("#{$baseurl}/img/win/gray/button_4.gif"); }
+.fwin-button4-green { background-image: url("#{$baseurl}/img/win/green/button_4.gif"); }
+.fwin-button4-neptune { background-image: url("#{$baseurl}/img/win/neptune/button_4.gif"); }
+.fwin-button4-orange { background-image: url("#{$baseurl}/img/win/orange/button_4.gif"); }
+.fwin-button4-pink { background-image: url("#{$baseurl}/img/win/pink/button_4.gif"); }
+.fwin-button4-purple { background-image: url("#{$baseurl}/img/win/purple/button_4.gif"); }
+.fwin-button4-red { background-image: url("#{$baseurl}/img/win/red/button_4.gif"); }
+.fwin-button4-yellow { background-image: url("#{$baseurl}/img/win/yellow/button_4.gif"); }
+.fwin-button4-yellow-green { background-image: url("#{$baseurl}/img/win/yellow-green/button_4.gif"); }
+
+
+

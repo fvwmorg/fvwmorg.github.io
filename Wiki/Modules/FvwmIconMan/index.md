@@ -95,7 +95,7 @@ through a combination of:
   fixed size and not grow/shrink.
 
   Note: If swallowing FvwmIconMan in
-  [FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikibaseurl }})
+  [FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikiurl }})
   and FvwmIconMan is configured to grow/shrink, it will grow beyond
   the boundary of the Button if there are enough windows in the list.
 
@@ -176,7 +176,7 @@ which can be disabled with
 
 The other actions then bind a custom Iconfiy like function to a left click
 and opens a [Window Operations Menu](
-{{ "/Menus/WindowOps" | prepend: site.wikibaseurl }}) when right clicked to
+{{ "/Menus/WindowOps" | prepend: site.wikiurl }}) when right clicked to
 preform various operations.
 
 The custom function used, which will bring make a window Visable if it is not,

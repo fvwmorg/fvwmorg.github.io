@@ -110,7 +110,7 @@ DestroyModuleConfig FE-Dock: *
 {% endhighlight %}
 
 Once we have the functions defined, we can use them to build our dock. In this case
-I am going to recreate [SimpleButtons]({{ "/Panels/SimpleButtons" | prepend: site.wikibaseurl }}),
+I am going to recreate [SimpleButtons]({{ "/Panels/SimpleButtons" | prepend: site.wikiurl }}),
 but using the HoverButton Functions. Using the same calculations I will put the first button
 at 60x60+780-50 and then move each button 70 pixels to the right.
 
@@ -135,4 +135,4 @@ LaunchDock
 {% endhighlight %}
 
 To get these to load when fvwm runs, add the LaunchDock function to your
-[StartFunction]({{ "/Config/StartFunction" | prepend: site.wikibaseurl }}).
+[StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}).

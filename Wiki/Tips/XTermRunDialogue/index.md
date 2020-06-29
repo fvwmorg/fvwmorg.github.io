@@ -12,7 +12,7 @@ description : |
 # An xterm based run dialog with tab completion 
 
 What if you want to do [Tips/RxvtRunDialogue](
-{{ "/Tips/RxvtRunDialogue" | prepend: site.wikibaseurl }}), but only have xterm
+{{ "/Tips/RxvtRunDialogue" | prepend: site.wikiurl }}), but only have xterm
 available?  All is not lost.  Good old xterm does not have the
 ``--keysym`` option, but you can assign actions in a similar way using X
 resources.

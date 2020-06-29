@@ -29,7 +29,7 @@ called ‘redmondxp’. Put the directory your ImagePath. If unsure you can copy
 put the directory in $HOME/.fvwm.
 
 To use this decor first configure the 
-[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
 #   1 - Inactive Windows 
@@ -42,7 +42,7 @@ Colorset 3 fg white, bg #c3c3c3
 Colorset 4 fg white, bg #c3c3c3
 {% endhighlight %}
 
-Next [Bind]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons. This decor uses
 use locations 1, 6, 4 and 2
 

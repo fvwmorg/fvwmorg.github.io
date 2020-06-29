@@ -13,6 +13,7 @@ description : |
 <p>Here is the list of pages about Fvwm configuration:</p>
 
 {% assign pages = site.pages | where:"type","config" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -20,3 +21,7 @@ description : |
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-config-pages"
+title="FvwmWiki Config Pages" content=fvwmtxt
+color="neptune" %}

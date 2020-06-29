@@ -15,11 +15,11 @@ description : |
 
 The RightPanel is a taskbar like panel along the right edge of the screen
 for a now more common widescreen setup. This panel contains [FvwmPager](
-{{ "/Moduels/FvwmPager" | prepend: site.wikibaseurl }}) for moving around
+{{ "/Moduels/FvwmPager" | prepend: site.wikiurl }}) for moving around
 the virtual desktops, [FvwmIconMan](
-{{ "/Modules/FvwmIconMan" | prepend: site.wikibaseurl }}) to list the running
+{{ "/Modules/FvwmIconMan" | prepend: site.wikiurl }}) to list the running
 applications and then uses [FvwmScript-DateTime](
-{{ "/Modules/FvwmScript" | prepend: site.wikibaseurl }}) to display and update
+{{ "/Modules/FvwmScript" | prepend: site.wikiurl }}) to display and update
 the time and date.
 
 ## FvwmButtons Configuration
@@ -87,7 +87,7 @@ DestroyModuleConfig EventNewDesk:*
 {% endhighlight %}
 
 To run SensorDock add both the FvwmButtons and FvwmEvent modules
-to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikibaseurl }}):
+to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}):
 
 {% highlight fvwm %}
 AddToFunc StartFunction I Module FvwmButtons SensorDock
@@ -139,9 +139,9 @@ DestroyModuleConfig FvwmIconMan:*
 {% endhighlight %}
 
 This configuration requires the function [IconManClick](
-{{ "/Modules/FvwmIconMan/#button-actions" | prepend: site.wikibaseurl }})
+{{ "/Modules/FvwmIconMan/#button-actions" | prepend: site.wikiurl }})
 and the menu [MenuIconOps](
-{{ "/Menus/WindowOps" | prepend: site.wikibaseurl }}).
+{{ "/Menus/WindowOps" | prepend: site.wikiurl }}).
 
 Note: FvwmIconMan is set to grow. One problem with this is FvwmIconMan
 will grow bigger than the Button that is put in. If you have troubles
@@ -149,7 +149,7 @@ with this due to the size and number of windows you can change the
 Resolution to desk or page to limit the number of windows shown.
 
 Or better yet, configure [FvwmIconMan](
-{{ "/Modules/FvwmIconMan/#manager-size" | prepend: site.wikibaseurl }})
+{{ "/Modules/FvwmIconMan/#manager-size" | prepend: site.wikiurl }})
 to be a fixed size. 
 
 ## Dynamic Configuration

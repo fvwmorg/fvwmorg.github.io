@@ -136,10 +136,10 @@ selected and give you a way to switch between the color themes.
 
 Once CdeColorMenu is built you can open it with Menu CdeColorMenu or add it to your
 current menus as a submenu with Popup. See [/Config/Menus](
-{{ "/Config/Menus" | prepend: site.wikibaseurl }}).
+{{ "/Config/Menus" | prepend: site.wikiurl }}).
 
 Using these Colorsets themes works best with a decor setup that relies on Colorsets
-over images such as [/Decor/CDE]({{ "/Decor/CDE" | prepend: site.wikibaseurl }}).
+over images such as [/Decor/CDE]({{ "/Decor/CDE" | prepend: site.wikiurl }}).
 
 ## Additional Options
 

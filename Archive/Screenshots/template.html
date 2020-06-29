@@ -1,0 +1,73 @@
+{% assign max_page = 7 %}
+{% assign page_count = 10 %}
+
+
+{% if page.page_number <= max_page %}
+
+  {% assign start = page.page_number | minus:'1' | times:page_count %}
+  {% assign end = start | plus:page_count %}
+  {% assign count = '0' %}
+  {% assign ordered_list = site.static_files | reverse %}
+
+  <div class="scrot_page_links">
+  {% for i in (1..max_page) %}
+    {% if i == page.page_number %}
+      <b>{{ i | minus:'1' | times:page_count | plus:'1'}} - 
+      {{ i | times:page_count }}</b>
+    {% elsif i == 1 %}
+      <a href="index.html">1 - {{i | times:page_count }}</a>
+    {% else %}
+      <a href="index{{ i }}.html">
+        {{ i | minus:'1' | times:page_count | plus:'1' }} - 
+        {{ i | times:page_count }}
+      </a>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+
+  {% for file in ordered_list %}
+    {% if file.path contains 'screenshot.' %}
+
+    {% assign count = count | plus:'1' %}
+    {% if count >= start and count < end %}
+
+      {% assign dummy_list = file.path | split:'/' %}
+      {% assign scrot = dummy_list[3] | replace_first:'_','/' | split:'/' %}
+
+      <hr>
+      <div class="scrot">
+        <a href="{{ site.baseurl }}{{ file.path }}">
+        <img src="{{ dummy_list[3] | append:'/preview.png' }}" alt="preview">
+        </a>
+        <b>{{ scrot[0] | date: "%b %d, %Y" }}</b>
+      </div>
+
+      <div class="scrot_desc">
+        {% assign desc = dummy_list[3] | append:'/description.inc' %}
+        {% include_relative {{ desc }} %}
+      </div><br>
+
+    {% endif %}
+    {% endif %}
+  {% endfor %}
+
+  <hr>
+  <div class="scrot_page_links">
+  {% for i in (1..max_page) %}
+    {% if i == page.page_number %}
+      <b>{{ i | minus:'1' | times:page_count | plus:'1'}} - 
+      {{ i | times:page_count }}</b>
+    {% elsif i == 1 %}
+      <a href="index.html">1 - {{i | times:page_count }}</a>
+    {% else %}
+      <a href="index{{ i }}.html">
+        {{ i | minus:'1' | times:page_count | plus:'1' }} - 
+        {{ i | times:page_count }}
+      </a>
+    {% endif %}
+  {% endfor %}
+  </div>
+
+{% endif %}
+

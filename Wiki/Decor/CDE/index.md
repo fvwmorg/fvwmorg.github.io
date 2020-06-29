@@ -12,13 +12,13 @@ description : |
 
 This example will configure your windows to look like the CDE desktop.
 
-|![image](scrot.png)|
+![image](scrot.png){:.mx-auto .d-block}
 
 This is a Decor that doesn't require any images and can be done with
 the effects built into Fvwm.
 
 To use this decor first configure the 
-[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
 #   1 - Inactive Windows 
@@ -31,7 +31,7 @@ Colorset 3 fg white, bg #afbdc07ac200
 Colorset 4 fg white, bg #cc0068006f00
 {% endhighlight %}
 
-Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 4 and 2
 
@@ -80,6 +80,6 @@ Style * Colorset 1, HilightColorset 2, \
 
 This Decor was adopted from fvwm-themes which contained many color themes
 that went with it. These themes can be found [here](
-{{ "/Config/Colorsets/#color-themes" | prepend: site.wikibaseurl }}). Follow
+{{ "/Config/Colorsets/#color-themes" | prepend: site.wikiurl }}). Follow
 those instructions to create a menu that can change between the different
 color themes.

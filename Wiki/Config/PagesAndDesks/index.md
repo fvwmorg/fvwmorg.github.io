@@ -87,6 +87,6 @@ Additionally you can move around with
 GotoDeskAndPage desk Xpage yPage
 {% endhighlight %}
 
-Or use [/Modules/FvwmPager]({{ "/Modules/FvwmPager" | prepend: site.wikibaseurl }})
+Or use [/Modules/FvwmPager]({{ "/Modules/FvwmPager" | prepend: site.wikiurl }})
 to give a miniature view of your Desks, Pages and Windows.
 

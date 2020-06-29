@@ -65,7 +65,7 @@ Note the first point 70-1px15-1p describes a point offset one pixel from 70x15
 in both directions.
 
 Once you have a Vector button you want to use, you can add it to your
-[/Config/Decor]({{ "/Config/Decor" | prepend: site.wikibaseurl }}) by the
+[/Config/Decor]({{ "/Config/Decor" | prepend: site.wikiurl }}) by the
 use of ButtonStyle or AddButtonStyle:
 
 {% highlight fvwm %}

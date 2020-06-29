@@ -69,7 +69,7 @@ or copy it to your $HOME as
 Once you have a config file in place you can start to edit it with the text
 editor of your choice. For a more detailed explination of what happens
 after Fvwm finds a config file and Reads it see [/Tips/FvwmStartup](
-{{ "/Tips/FvwmStartup" | prepend: site.wikibaseurl }}).
+{{ "/Tips/FvwmStartup" | prepend: site.wikiurl }}).
 
 
 ## Syntax history
@@ -95,7 +95,7 @@ EndFunction
     
 Thankfully though things have moved on since then, in that such stringent
 quoting and ordering rules have been resolved. See [/Config/Syntax](
-{{ "/Config/Syntax" | prepend: site.wikibaseurl }}) for the basics on
+{{ "/Config/Syntax" | prepend: site.wikiurl }}) for the basics on
 the current syntax.
 
 ## FVWM 2.X.Y and beyond
@@ -130,7 +130,7 @@ goes, the sub-ordering of them does.  So for instance:
    them.
 2. The same principle applies for ''ImagePath'' from 1., above.
 3. The sub-ordering of Styles is important: [/Config/StyleTips](
-   {{ "/Config/StyleTips" | prepend: site.wikibaseurl }}).
+   {{ "/Config/StyleTips" | prepend: site.wikiurl }}).
 
 ### Multi-file approach
 

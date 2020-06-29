@@ -1,0 +1,49 @@
+/*
+ * Fvwm3 Carousel Styles for image carousel on main page.
+ */
+#FvwmCarousel {
+  margin: 0;
+}
+#FvwmCarousel img {
+  width: auto;
+  max-width: 900px;
+  height: 225px;
+  max-height: 225px;
+}
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.35);
+}
+#FvwmCarousel a {
+  background: transparent;
+  &:hover, &:focus {
+    color: #ffffff;
+    background: transparent;
+  }
+}
+
+
+/*
+ * Media Queries
+ */
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  #FvwmCarousel img {
+    height: 275px;
+    max-height: 275px;
+  }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  #FvwmCarousel img {
+    height: 450px;
+    max-height: 450px;
+  }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  #FvwmCarousel img {
+    height: 600px;
+    max-height: 600px;
+  }
+}
+

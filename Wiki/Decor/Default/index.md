@@ -9,8 +9,8 @@ description : |
 ---
 # Default Decoration
 
-This is an example of using [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
-and [Vector Buttons]({{ "/Config/VectorButtons" | prepend: site.wikibaseurl }}). The borders
+This is an example of using [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
+and [Vector Buttons]({{ "/Config/VectorButtons" | prepend: site.wikiurl }}). The borders
 have a 3D beveled look, while the titlebar and buttons are Flat.
 
 |![image](scrot.png)|
@@ -19,7 +19,7 @@ This is a Decor that doesn't require any images and can be done with
 the effects built into Fvwm.
 
 To use this decor first configure the 
-[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
 #   1 - Inactive Windows 
@@ -32,7 +32,7 @@ Colorset 3  fg black, bg #4d4d4d, hi #676767, sh #303030
 Colorset 4  fg black, bg #2d2d2d, hi #474747, sh #101010
 {% endhighlight %}
 
-Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 uses buttons 1, 6, 4 and 2.
 
@@ -97,6 +97,6 @@ Style * Colorset 1, HilightColorset 2, \
 ## Color Themes
 
 This decor can be used with the color themes found [here](
-{{ "/Config/Colorsets/#color-themes" | prepend: site.wikibaseurl }}). Follow
+{{ "/Config/Colorsets/#color-themes" | prepend: site.wikiurl }}). Follow
 those instructions to create a menu that can change between the different
 color themes.

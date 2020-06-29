@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+    <meta name="author" content="fvwmorg">
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico">
+    <link rel="canonical" href="http://fvwm.org/">
+
+    <title>
+      {% if page.title %} {{ page.title }}
+      {% else %} {{ site.title }}
+      {% endif %}
+    </title>
+
+    <!-- Bootstrap 4.5 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+    <!-- Syntax Highlighting Theme monokai -->
+    <link href="{{ site.baseurl }}/css/monokai.css" rel="stylesheet">
+
+    <!-- Custom styles for Fvwm pages -->
+    <link href="{{ site.baseurl }}/css/fvwm3.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <nav id="navbar-top" class="navbar fixed-top">
+      <div class="container-fluid">
+      <a href="{{ site.baseurl }}/" style="margin-bottom: auto;">
+      <img width="50px" src="{{ site.baseurl }}/img/fvwm-block-logo.png" alt="Fvwm block logo" style="border-radius: 5px;"></a>
+      
+      <div class="fvwmnav mr-auto ml-4">
+
+  {% assign cur_link = site.baseurl %}
+  {% if page.url == "/" %}
+    <span class="lgslash">/</span><a class="fvwmnav-link" href="{{ cur_link }}/">Fvwm</a>
+  {% else %}
+    {% assign links = page.url | split: '/' %}
+    {% for link in links %}
+      {% assign cur_link = cur_link | append: link | append: "/" %}
+      {% unless link == "" or link contains ".html" %}
+        <span class="lgslash">/</span><a class="fvwmnav-link" href="{{ cur_link }}">{{ link }}</a>
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+      </div>
+
+      <button class="navbar-toggler navbar-dark navbtn collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation" style="margin-bottom: auto;">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+
+        {% comment %} 
+        <a href="https://github.com/fvwmorg" title="fvwmorg on GitHub">
+        <svg height="20" fill="#1a6e99" class="float-right d-block" alt="GitHub" viewBox="0 0 16 16" version="1.1" width="20" aria-hidden="true">
+        <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z">
+        </path></svg></a>
+        {% endcomment %}
+
+        <ul class="navbar-nav ml-auto">
+          {% for navlink in site.nav %}
+          <li class="nav-item">
+            {% if navlink.url contains "http" %}
+            <a class="fvwmnav-link" href="{{ navlink.url }}">{{ navlink.name }}</a>
+            {% else %}
+            <a class="fvwmnav-link" href="{{ site.baseurl | append: navlink.url }}">{{ navlink.name }}</a>
+            {% endif %}
+          </li>
+          {% endfor %}
+        </ul>
+
+
+      </div>
+      </div>
+    </nav>
+
+    <main class="container">
+
+      <div id="maincontent">
+
+      {% if page.showtitle %}
+      <h1>{{ page.title }}</h1>
+      {% endif %}
+
+      {{ content }}
+
+      </div>
+
+    </main><!-- /.container -->
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="{{ site.baseurl }}/js/fvwm_window.js"></script>
+  </body>
+</html>

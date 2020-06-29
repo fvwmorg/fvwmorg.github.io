@@ -220,7 +220,7 @@ AddToFunc   FuncSomeFunction
 You might expect these commands to run one after the other.  They do,
 although there are times when that might not always be the case.  FVWM
 performs no [/Config/FunctionSynchronisation](
-{{ "/Config/FunctionSynchronisation" | prepend: site.wikibaseurl }})
+{{ "/Config/FunctionSynchronisation" | prepend: site.wikiurl }})
 as to the ordering of the commands -- or rather it makes no guarantees.
 If a strict set of synchronised commands is needed, it is recommended to
 use PipeRead -- since FVWM will wait for the PipeRead to return before

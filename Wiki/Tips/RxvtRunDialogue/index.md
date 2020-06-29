@@ -18,7 +18,7 @@ What follows is the description of a very simple way to realize a run dialog (a
 little dialog where the user can enter the name of an executable to start) using
 an RXVT (a terminal emulator as e.g. xterm). The trick is to bind the string
 ``"&\nexit\n"`` to the return key.  See [Tips/XTermRunDialogue](
-{{ "/Tips/XTermRunDialogue" | prepend: site.wikibaseurl }})
+{{ "/Tips/XTermRunDialogue" | prepend: site.wikiurl }})
 on how to do this with xterm.
 
 The following script, starts the dialog:

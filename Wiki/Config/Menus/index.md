@@ -24,7 +24,7 @@ etc.
 
 ## MenuStyles
 
-MenuStyles are similar to [/Config/Styles]({{ "/Config/Styles" | prepend: site.wikibaseurl }})
+MenuStyles are similar to [/Config/Styles]({{ "/Config/Styles" | prepend: site.wikiurl }})
 and can be used with wild cards '\*' to set up the style so all your menus look the same
 or can be used to make different menus use different MenuStyles.
 

@@ -10,7 +10,7 @@ description : |
 # Resizing a Window, in the centre
 
 You will also need the function CenterWindow from [Tips/CenterPlacement](
-{{ "/Tips/CenterPlacement" | prepend: site.wikibaseurl }})
+{{ "/Tips/CenterPlacement" | prepend: site.wikiurl }})
 for this way of solving the problem.  This function allows you to resize a
 window, and then have it moved to the centre of the screen, afterwards.
 
