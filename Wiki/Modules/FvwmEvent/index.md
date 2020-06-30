@@ -18,7 +18,7 @@ description : |
 
 **Note:** The example of maximizing when it is loaded via FvwmEvent can be
 achieved with [InitialMapCommand](
-{{ "/CookBook/InitialMapCommand" | prepend: site.wikibaseurl }}).
+{{ "/CookBook/InitialMapCommand" | prepend: site.wikiurl }}).
 
 ## Introduction
 

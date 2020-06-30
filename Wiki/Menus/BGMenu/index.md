@@ -22,7 +22,7 @@ we will need to write a script that will put all the files in that
 directory into a menu.
 
 To do this the script needs to export the correct syntax for [/Config/Menus](
-{{ "/Config/Menus" | prepend: site.wikibaseurl }}) which can be done via
+{{ "/Config/Menus" | prepend: site.wikiurl }}) which can be done via
 the echo command. Then just use the bash for statement to loop through
 all files in the backgrounds directory.
 

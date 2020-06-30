@@ -1,0 +1,30 @@
+// Sets the Variables for the CSS generation
+@charset "utf-8";
+
+// Base url -- must be manually set until someone figures out how
+// to use Liquid variables {{ site.baseurl }} on GitHub.
+$baseurl: "";
+
+// Default Colors:
+$text-color: #000000;
+$bg-color: #ffffff;
+$border-color: #1a6e99;
+// Link Colors (bootstrap's are too light):
+$link-color: #002bff;
+$link-bgcolor: $bg-color;
+$link-button-pressed-color: #797907;
+$hilink-color: #000000;
+$hilink-bgcolor: #d9d915;
+// Navbar Link Colors:
+$navlink-color: #003c3c;
+$navlink-bgcolor: #ffffff;
+$navhilink-color: $border-color;
+// Fvwmwindow Colors:
+$fwin-color: #ffffff;
+$fwin-bgcolor: #003c3c;
+$fwinlink-color: #d9d915;
+$fwinlink-bgcolor: $fwin-bgcolor;
+$fwinhilink-color: #000000;
+$fwinhilink-bgcolor: #f8f8b3;
+
+

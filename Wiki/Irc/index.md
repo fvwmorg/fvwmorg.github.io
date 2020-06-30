@@ -11,10 +11,18 @@ description : |
 
 # \#fvwm on irc.freenode.net
 
+A community of Fvwm users and developers can be found on the
+`#fvwm` IRC channel on freenode (`irc.freenode.net`). Please
+stop by if you have questions about Fvwm or just want to talk
+about the fantastic window manager.
+
+If you need help with `#fvwm`, [see this FAQ answer](
+HashFvwmFAQ/#who-do-i-ask-for-help-about-fvwm).
+
 ## HashFvwmFAQ
 
-[/Irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikibaseurl }})
-is an FAQ created by users of #fvwm.
+[/Irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikiurl }})
+is an FAQ created by users of `#fvwm`.
 
 ## Conversations
 

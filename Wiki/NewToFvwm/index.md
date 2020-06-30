@@ -20,13 +20,13 @@ environment comes with a collection of preconfigured settings and
 software (file managers, docks/panels, and so on) all integrated
 together.
 
-FVWM is a [WindowManager]({{ "/WindowManager" | prepend: site.wikibaseurl }})
+FVWM is a [WindowManager]({{ "/WindowManager" | prepend: site.wikiurl }})
 that gives the user the choice of expression. Details such as the
 appearance of windows, which program will act as your file manager,
 etc., are defined by the user. FVWM won't make that choice for you.
 
 All of these choices are put into a very extensive [Config file](
-{{ "/Config/Fvwm2rc" | prepend: site.wikibaseurl }}). This config
+{{ "/Config/Fvwm2rc" | prepend: site.wikiurl }}). This config
 file configures not only FVWM but how it interacts with your
 additional software. In order to configure FVWM to fit your
 needs you will have to dive into the config file.
@@ -54,7 +54,7 @@ generally feel as though they have learnt a lot from the process.
 
 Of course, you may not have the time or want to start out with a
 blank config. Starting with FVWM 2.6.7 a [DefaultConfig]({{
-"/DefaultConfig" | prepend: site.wikibaseurl }}) is provided as a starting
+"/DefaultConfig" | prepend: site.wikiurl }}) is provided as a starting
 point for users. A user can copy this config then edit, add and remove
 stuff until they have a setup that suits their needs.
 
@@ -84,29 +84,29 @@ your needs, based on the starter config you've chosen.
 
 Good question. This depends entirely on the problem you have, or
 the next feature you wish to add. If you find reading ''man fvwm''
-is not sufficient, then maybe this [Wiki]({{ "/" | prepend: site.wikibaseurl }})
+is not sufficient, then maybe this [Wiki]({{ "/" | prepend: site.wikiurl }})
 can help you out.
 
 To start with check out the [/Config](
-{{ "/Config" | prepend: site.wikibaseurl }}) pages, which will provide
+{{ "/Config" | prepend: site.wikiurl }}) pages, which will provide
 information about the different parts of the configuration file.
 
 If you are looking for an answer to a specific question maybe it is
 covered in the [FVWM FAQ](http://fvwm.org/documentation/faq/) or the
-[/irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikibaseurl }}).
+[/irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikiurl }}).
 
 Looking for examples to achieve different effects, maybe you can find
-them in the [/CookBook]({{ "/CookBook" | prepend: site.wikibaseurl }})
-or [/Tips]({{ "/Tips" | prepend: site.wikibaseurl }}) pages.
+them in the [/CookBook]({{ "/CookBook" | prepend: site.wikiurl }})
+or [/Tips]({{ "/Tips" | prepend: site.wikiurl }}) pages.
 
-[/Decor]({{ "/Decor" | prepend: site.wikibaseurl }}) and [/Panels](
-{{ "/Panels" | prepend: site.wikibaseurl }}) pages provide examples
+[/Decor]({{ "/Decor" | prepend: site.wikiurl }}) and [/Panels](
+{{ "/Panels" | prepend: site.wikiurl }}) pages provide examples
 of different window looks and panels/docks.
 
 You might,of course, still have a question to ask. You can ask on the
 [Mailing Lists](http://fvwm.org/support/), as well as the [FVWM
 Forums](http://fvwmforums.org/), or the [/Irc](
-{{ "/Irc" | prepend: site.wikibaseurl }}) Channel.
+{{ "/Irc" | prepend: site.wikiurl }}) Channel.
 
 
 

@@ -7,12 +7,12 @@ title : FvwmWiki
 This is the home of the __FvwmWiki__, a collection of user
 pages, tips, etc., focusing on [Fvwm](http://www.fvwm.org).
 Fvwm is a very flexible and configurable [window manager](
-{{ "/WindowManager" | prepend: site.wikibaseurl }}).
-Here are some [testimonials]({{ "/Testimonials" | prepend: site.wikibaseurl }})
+{{ "/WindowManager" | prepend: site.wikiurl }}).
+Here are some [testimonials]({{ "/Testimonials" | prepend: site.wikiurl }})
 from Fvwm users.
 
 If you are new to Fvwm,
-[Read me]({{ "/NewToFvwm" | prepend: site.wikibaseurl }}) first.
+[Read me]({{ "/NewToFvwm" | prepend: site.wikiurl }}) first.
 
 ## About the Wiki
 
@@ -26,13 +26,14 @@ https://jekyllrb.com/). The source to build the wiki
 can be found at <https://github.com/fvwmorg/fvwmorg.github.io>.
 
 A list of things left unfinished can be found on the [/Todo](
-{{ "/Todo" | prepend: site.wikibaseurl }}) list.
+{{ "/Todo" | prepend: site.wikiurl }}) list.
 
 ## List of main pages
 
 This wiki is divided into the following main collections of pages:
 
 {% assign pages = site.pages | where:"type","main" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -40,4 +41,9 @@ This wiki is divided into the following main collections of pages:
   {{ mypage.description }}
 </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-main-pages"
+title="FvwmWiki Main Pages" content=fvwmtxt
+color="crimson" %}
+
 

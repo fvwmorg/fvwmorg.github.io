@@ -31,29 +31,29 @@ This is a list of things that are still left unfinished.
 
 These are pages that are places holders.
 
-+ [/DefaultConfig]({{ "/DefaultConfig" | prepend: site.wikibaseurl }})
++ [/DefaultConfig]({{ "/DefaultConfig" | prepend: site.wikiurl }})
   -- Currently just a copy of the config file.
   Intended to give an overview of how the config works in terms of bindings,
   menu ops, etc.
-+ [/Config/Conditionals]({{ "/Config/Conditionals" | prepend: site.wikibaseurl }})
++ [/Config/Conditionals]({{ "/Config/Conditionals" | prepend: site.wikiurl }})
   -- Intended to be a guide into how
   to use conditional statements, both in the config and in complex functions.
-+ [/Config/Modules]({{ "/Config/Modules" | prepend: site.wikibaseurl }})
++ [/Config/Modules]({{ "/Config/Modules" | prepend: site.wikiurl }})
   -- Intended to describe module alias
   configuration syntax, \*Foo, and how to configure, start and stop them.
-  Then point at [/Modules]({{ "/Modules" | prepend: site.wikibaseurl }})
+  Then point at [/Modules]({{ "/Modules" | prepend: site.wikiurl }})
   for specifics for each module.
 
 ## Updates
 
 Pages that need to be updated
 
-+ [/NewToFvwm]({{ "/NewToFvwm" | prepend: site.wikibaseurl }})
++ [/NewToFvwm]({{ "/NewToFvwm" | prepend: site.wikiurl }})
   -- Idea: include a description of the default config
   and maybe point to some of the pages that would be useful to someone starting
   with the default config and editing it.
-+ [/WindowManager]({{ "/WindowManager" | prepend: site.wikibaseurl }})
-+ [/Modules/\*]({{ "/Modules" | prepend: site.wikibaseurl }})
++ [/WindowManager]({{ "/WindowManager" | prepend: site.wikiurl }})
++ [/Modules/\*]({{ "/Modules" | prepend: site.wikiurl }})
   -- Most the modules don't have much more than a
   description. These need to all be updated and include some examples of different
   panels and things that can be done with modules.

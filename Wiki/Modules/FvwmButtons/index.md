@@ -15,7 +15,7 @@ description : |
 ## Module Description
 
 The FvwmButtons module provides a window of buttons which can be used
-to build different type of [/Panels]({{ "/Panels" | prepend: site.wikibaseurl }}).
+to build different type of [/Panels]({{ "/Panels" | prepend: site.wikiurl }}).
 The window is rectangular and can be split into different rectangular
 buttons of varying sizes. Each button can contain text, icons, and even
 Swallow other applications.

@@ -25,7 +25,9 @@ the colors in fly, to name a few.
 Here are the active and incative windows of the original Sawfish Crux-theme.
 
 
-|![image](crux-orig-ac.png) ![image](crux-orig-inac.png)|
+![image](crux-orig-ac.png){:.mx-auto .d-block}
+
+![image](crux-orig-inac.png){:.mx-auto .d-block}
 
 Looking at the above pictures, we can see that we will only be needing two
 external image-files. One for the active window title, and one for inactive.
@@ -56,7 +58,7 @@ Colorset 4 VGradient 32 3 grey80 80 grey70 70 grey62 10 black, \
 {% endhighlight %}
 
 Note: For recommended use of colorsets, see
-[/Config/Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }}).
+[/Config/Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }}).
 
 Next, we need to tell Fvwm to use those Colorsets for every window.
 

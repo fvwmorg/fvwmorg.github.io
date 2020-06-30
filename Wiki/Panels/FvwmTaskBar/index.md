@@ -16,8 +16,8 @@ description : |
 FvwmTaskBar is similar to the classic windows taskbar along the
 bottom of the screen. In older versions of fvwm there was a module
 FvwmTaskBar, but this was removed in 2.6.7 in favor of using
-[FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikibaseurl }})
-and [FvwmIconMan]({{ "/Modules/FvwmIconMan" | prepend: site.wikibaseurl }}),
+[FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikiurl }})
+and [FvwmIconMan]({{ "/Modules/FvwmIconMan" | prepend: site.wikiurl }}),
 for a more configurable panel. 
 
 Here is an example FvwmTaskBar panel created using FvwmButtons and
@@ -89,7 +89,7 @@ These buttons will span the whole screen and be placed along the bottom.
   from the bottom of the screen.
 + The quick-launch buttons run xterm, firefox and xteddy with an Icon
   for each. Icons need to be located in the [ImagePath](
-  {{ "/Config/ImagePath" | prepend: site.wikibaseurl }}).
+  {{ "/Config/ImagePath" | prepend: site.wikiurl }}).
 + The Time button is given the id TaskTime and a placeholder Title
   "Time". Setting the id for this Button allows one to change the
   Title to the current time by using SendToModule (see below).
@@ -100,7 +100,7 @@ These buttons will span the whole screen and be placed along the bottom.
 ### FvwmIconMan Configuration
 
 The configuration of [FvwmIconMan](
-{{ "/Modules/FvwmIconMan" | prepend: site.wikibaseurl }}) needs to set
+{{ "/Modules/FvwmIconMan" | prepend: site.wikiurl }}) needs to set
 a fixed size, configure the look of different button types, and
 configure what happens when when a button is clicked.
 
@@ -155,12 +155,12 @@ DestroyModuleConfig TaskBarIcons: *
   the colors with Background and Foreground works.
 
 + The mouse is then configured to run the function [IconManClick](
-{{ "/Modules/FvwmIconMan/#button-actions" | prepend: site.wikibaseurl }})
+{{ "/Modules/FvwmIconMan/#button-actions" | prepend: site.wikiurl }})
   which either brings the window into view, or if it is in view the
   window is iconified.
 
   On a right click it opens the menu [MenuIconOps](
-{{ "/Menus/WindowOps" | prepend: site.wikibaseurl }}) which can be used 
+{{ "/Menus/WindowOps" | prepend: site.wikiurl }}) which can be used 
   to preform different actions on the selected window.
 
 ### Additional Styles
@@ -196,7 +196,7 @@ FvwmButtons ChangeButton TaskTime Title \"`date +%R`\""'
 
 To load the FvwmTaskBar when fvwm loads add the Module
 command and Schedule command to your [StartFunction](
-{{ "/Config/StartFunction" | prepend: site.wikibaseurl }}).
+{{ "/Config/StartFunction" | prepend: site.wikiurl }}).
 
 
 ## Stalonetray Example

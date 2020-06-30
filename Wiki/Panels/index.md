@@ -20,16 +20,16 @@ Like everything else in Fvwm these need to be configured. Fvwm provides
 lots of choice of how to configure the panels you want to use.
 
 First Fvwm provides many Modules that can be used to build panels:
-+ [FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikibaseurl }})
++ [FvwmButtons]({{ "/Modules/FvwmButtons" | prepend: site.wikiurl }})
   -- This is one of the main panel building modules that lays out
   a panel into a series of buttons which can each be configured to be
   anything from text/icons to swallowing other applications.
-+ [FvwmIconMan]({{ "/Modules/FvwmIconMan" | prepend: site.wikibaseurl }})
++ [FvwmIconMan]({{ "/Modules/FvwmIconMan" | prepend: site.wikiurl }})
   -- This is a list of running applications that can be used to control
   them, the main part of a taskbar for example.
-+ [FvwmPager]({{ "/Modules/FvwmPager" | prepend: site.wikibaseurl }})
++ [FvwmPager]({{ "/Modules/FvwmPager" | prepend: site.wikiurl }})
   -- This module gives a graphical representation of the virtual
-  [Pages and Desks]({{ "/Config/PagesAndDesks" | prepend: site.wikibaseurl }}).
+  [Pages and Desks]({{ "/Config/PagesAndDesks" | prepend: site.wikiurl }}).
 
 In addition to just Fvwm Modules, there is additional third party software
 that can be used in panels, such as:
@@ -51,6 +51,7 @@ and used with Fvwm. Some examples are
 Here is the list of example panels:
 
 {% assign pages = site.pages | where:"type","panel" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -58,3 +59,7 @@ Here is the list of example panels:
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-pannels-pages"
+title="FvwmWiki Panels" content=fvwmtxt
+color="pink" %}

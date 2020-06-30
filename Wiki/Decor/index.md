@@ -18,12 +18,13 @@ setup. Most of these decors were adopted from
 as examples along with the images with any images needed.
 
 These are only examples, for configuration descriptions see
-+ [/Config/Decor]({{ "/Config/Decor" | prepend: site.wikibaseurl }})
-+ [/Config/VectorButtons]({{ "/Config/VectorButtons" | prepend: site.wikibaseurl }})
++ [/Config/Decor]({{ "/Config/Decor" | prepend: site.wikiurl }})
++ [/Config/VectorButtons]({{ "/Config/VectorButtons" | prepend: site.wikiurl }})
 
 ## Decors
 
 {% assign pages = site.pages | where:"type","decor" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -31,3 +32,7 @@ These are only examples, for configuration descriptions see
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-decor-pages"
+title="FvwmWiki Decor Pages" content=fvwmtxt
+color="alpine" %}

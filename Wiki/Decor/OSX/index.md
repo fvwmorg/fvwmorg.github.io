@@ -20,7 +20,7 @@ a directory called 'osx'. Put the directory your ImagePath. If unsure
 you can copy put the directory in $HOME/.fvwm.
 
 To use this decor first configure the 
-[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+[Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
 #   1 - Inactive Windows 
@@ -33,7 +33,7 @@ Colorset 3 fg black, bg rgb:98/B0/C8
 Colorset 4 fg black, bg rgb:98/B0/C8
 {% endhighlight %}
 
-Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 3, 5 and 2.
 

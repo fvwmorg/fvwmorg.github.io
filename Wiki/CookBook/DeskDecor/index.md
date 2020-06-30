@@ -79,7 +79,7 @@ AddToFunc   RestoreDecor
 {% endhighlight %}
 
 And you could do other things with these functions. You could incorporate it
-into [StickyDecor]({{ "/CookBook/StickyDecor" | prepend: site.wikibaseurl }})
+into [StickyDecor]({{ "/CookBook/StickyDecor" | prepend: site.wikiurl }})
 so that you selectively flagged different sticky windows. Or you could (as
 the title of this question alludes to) use these functions to change decors,
 and so forth. All good fun... :)

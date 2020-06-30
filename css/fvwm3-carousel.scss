@@ -1,0 +1,10 @@
+---
+# Front matter needed to generate .css from .scss
+---
+
+@charset "utf-8";
+
+// Import partials from `_sass`
+@import
+        "fvwm3-carousel"
+;

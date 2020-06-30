@@ -5,7 +5,7 @@ type : config
 weight : 450
 description : |
   This gives an overview of how to configure window decorations.
-  See <a href="{{ "/Decor" | prepend: site.wikibaseurl }}">/Decor</a>
+  See <a href="{{ "/Decor" | prepend: site.wikiurl }}">/Decor</a>
   for example decors.
 
 ---
@@ -25,25 +25,25 @@ different meanings of Window Decor that could get used.
 When talking about the window decor in general, this is the collection
 of the following config options:
 
-1. [/Config/Colorsets]({{ "/Config/Colorsets" | prepend: site.wikibaseurl }})
+1. [/Config/Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
    -- Default Colorsets of the windows.
-2. [/Config/Bindings]({{ "/Config/Bindings" | prepend: site.wikibaseurl }})
+2. [/Config/Bindings]({{ "/Config/Bindings" | prepend: site.wikiurl }})
    -- Bindings to the buttons, titlebar and border to interact with the window.
 3. [WindowStyles](#window-styles)
    -- The Window Styles which includes ButtonStyles, TitleStyles and
    BorderStyles.
-4. [/Config/Style]({{ "/Config/Style" | prepend: site.wikibaseurl }})
+4. [/Config/Style]({{ "/Config/Style" | prepend: site.wikiurl }})
    -- The window Styles that affect looks.
 
 Below is a description of the basics behind configuring a Decor. See
-[/Decor]({{ "/Decor" | prepend:site.wikibaseurl }}) for examples.
+[/Decor]({{ "/Decor" | prepend:site.wikiurl }}) for examples.
 
 ## Colorsets
 
 There are four basic default Colorsets for windows. The Titlebar/Buttons and the Borders
 for both Active and Inactive windows.
 Using the Style command we can set these [Colorsets](
-{{ "/Config/Colorsets" | prepend: site.wikibaseurl }}) to the convention:
+{{ "/Config/Colorsets" | prepend: site.wikiurl }}) to the convention:
 
 {% highlight fvwm %}
 #   1 - Inactive Windows
@@ -249,7 +249,7 @@ ButtonStyle Button State Style -- Flag
   the given state. These styles are similar to the ones for TitleStyle
   + __Colorset__ - Sets the colorset of the button.
   + __Vector__ - Configures a [VectorButton](
-    {{ "/Config/VectorButtons" | prepend: site.wikibaseurl }}) for the button.
+    {{ "/Config/VectorButtons" | prepend: site.wikiurl }}) for the button.
   + __?Gradient__ - Uses a gradient for the button.
   + __Pixmap__ - Sets a pixmap, can also use AdjustedPixmap, ShrunkPixmap,
     StretchedPixmap and TiledPixmap.
@@ -346,32 +346,32 @@ Here are some additional styles that affect window looks.
 ## Examples
 
 You can find a collection of examples in the [/Decor](
-{{ "/Decor" | prepend: site.wikibaseurl }}) page. These examples
+{{ "/Decor" | prepend: site.wikiurl }}) page. These examples
 range from simple Vector and Colorset examples to ones that use Pixmaps.
 Here are some links to the example decors:
 
 __Vector Examples__:
-+ [/Decor/Default]({{ "/Decor/Default" | prepend: site.wikibaseurl }})
++ [/Decor/Default]({{ "/Decor/Default" | prepend: site.wikiurl }})
   -- Flat Decor for the default config.
-+ [/Decor/CDE]({{ "/Decor/CDE" | prepend: site.wikibaseurl }})
++ [/Decor/CDE]({{ "/Decor/CDE" | prepend: site.wikiurl }})
   -- CDE looking decor.
-+ [/Decor/Vectors]({{ "Decor/Vectors" | prepend: site.wikibaseurl }})
++ [/Decor/Vectors]({{ "Decor/Vectors" | prepend: site.wikiurl }})
   -- Basic Vector decor showing the Raised/Sunk effects.
 
 __Pixmap Examples__:
-+ [/Decor/OSX]({{ "/Decor/OSX" | prepend: site.wikibaseurl }})
++ [/Decor/OSX]({{ "/Decor/OSX" | prepend: site.wikiurl }})
   -- Mac OSX look-a-like.
-+ [/Decor/Redmond98]({{ "/Decor/Redmond98" | prepend: site.wikibaseurl }})
++ [/Decor/Redmond98]({{ "/Decor/Redmond98" | prepend: site.wikiurl }})
   -- Windows 98 look-a-like.
-+ [/Decor/RedmondXP]({{ "/Decor/RedmondXP" | prepend: site.wikibaseurl }})
++ [/Decor/RedmondXP]({{ "/Decor/RedmondXP" | prepend: site.wikiurl }})
   -- Windows XP look-a-like.
-+ [/Decor/QNX]({{ "/Decor/QNX" | prepend: site.wikibaseurl }})
++ [/Decor/QNX]({{ "/Decor/QNX" | prepend: site.wikiurl }})
   -- Custom pixmap decor.
-+ [/Decor/Mech]({{ "/Decor/Mech" | prepend: site.wikibaseurl }})
++ [/Decor/Mech]({{ "/Decor/Mech" | prepend: site.wikiurl }})
   -- Another custom pixmap decor.
 
 __Mixed Example__:
-+ [/Decor/Crux]({{ "/Decor/Crux" | prepend: site.wikibaseurl }})
++ [/Decor/Crux]({{ "/Decor/Crux" | prepend: site.wikiurl }})
   -- An example of the sawfish crux theme only uses two images along with
   gradients and colorsets. This is a nice write up of mixing the different
   styles together.

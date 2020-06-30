@@ -18,6 +18,7 @@ converted and live on in the wiki.
 Here is the list of recipes:
 
 {% assign pages = site.pages | where:"type","recipe" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -25,3 +26,7 @@ Here is the list of recipes:
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-cookbook-pages"
+title="FvwmWiki CookBook Pages" content=fvwmtxt
+color="broica" %}

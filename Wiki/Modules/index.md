@@ -15,6 +15,7 @@ description : |
 Here is the list of modules:
 
 {% assign pages = site.pages | where:"type","module" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   <p class="title-indent">
   <a href="{{ mypage.url | prepend: site.baseurl }}">
@@ -22,3 +23,7 @@ Here is the list of modules:
   {{ mypage.description }}
   </p>
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="wiki-module-pages"
+title="FvwmWiki Module Pages" content=fvwmtxt
+color="orange" %}

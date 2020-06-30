@@ -1,23 +1,39 @@
-# Welcome to Jekyll!
+# Welcome to Fvwm's Jekyll Config!
 #
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+#   These settings set site defaults and site
+#   site variables, {{ site.variablename }}
 
 # Site settings
 title: The Offical FVWM Home Page
 email: fvwm-owner@fvwm.org
 description: > # this means to ignore newlines until "baseurl:"
   FVWM is an extremely powerful ICCCM-compliant multiple virtual desktop
-  window manager for the X  Window system.
-baseurl: "" # the subpath of your site, e.g. /blog
-wikibaseurl: "/Wiki"
+  window manager for the X Window system.
+baseurl: "" # The subpath site is hosted
+wikiurl: "/Wiki" # The wiki subpath (must include $basepath)
 url: "http://fvwm.org" # the base hostname & protocol for your site
-github_username: somiaj
-
-# Build settings
-markdown: kramdown
 
 # FVWM release version
-fvwm-version: 2.6.9
+fvwm2-version: 2.6.9
+fvwm3-version: alpha
+
+# Navigation Menu
+nav:
+  - name: Wiki
+    url: "/Wiki/"
+  - name: Community
+    url: "/Community/"
+  - name: Forums
+    url: "https://fvwmforums.org/"
+  - name: GitHub
+    url: "https://github.com/fvwmorg/"
+  - name: Archive
+    url: "/Archive/"
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+ 

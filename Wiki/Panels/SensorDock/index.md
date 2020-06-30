@@ -16,9 +16,9 @@ description : |
 # SensorDock
 
 SensorDock is a dock which uses [FvwmButtons](
-{{ "/Modules/FvwmButtons" | prepend: site.wikibaseurl }}) to Swallow
+{{ "/Modules/FvwmButtons" | prepend: site.wikiurl }}) to Swallow
 different apps such as [FvwmPager](
-{{ "/Modules/FvwmPager" | prepend: site.wikibaseurl }}), xosview,
+{{ "/Modules/FvwmPager" | prepend: site.wikiurl }}), xosview,
 stalonetray, and some system output using FvwmScript.
 
 Here is a screenshot of the Dock, which I put in the upper right corner
@@ -89,7 +89,7 @@ DestroyModuleConfig EventNewDesk:*
 {% endhighlight %}
 
 To run SensorDock add both the FvwmButtons and FvwmEvent modules
-to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikibaseurl }}):
+to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}):
 
 {% highlight fvwm %}
 AddToFunc StartFunction I Module FvwmButtons SensorDock

@@ -25,7 +25,7 @@ Style stylename Style1, Style2, Style3, ...
 
 A Style is applied to all windows whose name, title, class or resource
 matches the stylename (the module [/Modules/FvwmIdent](
-{{ "/Modules/FvwmIdent" | prepend: site.wikibaseurl }}) can be used to find this
+{{ "/Modules/FvwmIdent" | prepend: site.wikiurl }}) can be used to find this
 info). Stylenames can include the wildcards * and ? to match differnt
 groups of windows. After the stylename, list as many styles
 as you want to apply separating them with commas.
@@ -69,6 +69,6 @@ for the style names. These usually will not change like a title or name can.
 If you have multiple conflicting stylenames that match the same window,
 the last one read will be the one that used. In this case you should
 always generalize (list the * styles first) before you specialize. See
-[/Config/StyleTips/]({{ "/Config/StyleTips" | prepend: site.wikibaseurl }})
+[/Config/StyleTips/]({{ "/Config/StyleTips" | prepend: site.wikiurl }})
 for a more details on working with styles.
 

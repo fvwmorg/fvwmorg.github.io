@@ -22,11 +22,11 @@ of a line is \\, the line is extended to the next. Once a command is
 Read, the configuration is changed or action is executed. Most the
 time Fvwm will not wait for a command to complete to move on. This can
 sometimes lead to race conditions -- [/Config/FunctionSynchronisation](
-{{ "/Config/FunctionSynchronisation" | prepend: site.wikibaseurl }}).
+{{ "/Config/FunctionSynchronisation" | prepend: site.wikiurl }}).
 
 Commands can be sent to Fvwm while it is running though [/Modules/FvwmConsole](
-{{ "/Modules/FvwmConsole" | prepend: site.wikibaseurl }}) or [/Modules/FvwmCommandS](
-{{ "/Modules/FvwmCommandS" | prepend: site.wikibaseurl }}). This gives one
+{{ "/Modules/FvwmConsole" | prepend: site.wikiurl }}) or [/Modules/FvwmCommandS](
+{{ "/Modules/FvwmCommandS" | prepend: site.wikiurl }}). This gives one
 the ability to test out commands before saving them to the configuration file
 and not having to Restart Fvwm as often.
 
@@ -58,7 +58,7 @@ preference, though there are some exceptions. Variables need to
 be set with InfoStoreAdd or SetEnv before they are used. Functions and
 Menus need to be fully read before the point at which you
 call them. If there are conflicting Styles (see [/Config/StyleTips](
-{{ "/Config/StyleTips" | prepend: site.wikibaseurl }})) that match the same
+{{ "/Config/StyleTips" | prepend: site.wikiurl }})) that match the same
 window, the most recent (last) Style is used.
 
 Fvwm commands can run system applications, configuring a setting,
@@ -74,10 +74,10 @@ though the manpage for it to find more info. You can also find the manpage
 online [here](http://fvwm.org/documentation/manpages/). The online version
 contains a table of contents to make finding info in the manpage a little easier.
 
-The [FvwmWiki]({{ "/" | prepend: site.wikibaseurl }}) contains a collection of config
+The [FvwmWiki]({{ "/" | prepend: site.wikiurl }}) contains a collection of config
 examples and their descriptions. Here is a starting point: [/Config](
-{{ "/Config" | prepend: site.wikibaseurl }})
+{{ "/Config" | prepend: site.wikiurl }})
 
-Fvwm 2.6.7 comes with a [/DefaultConfig]({{ "/DefaultConfig" | prepend: site.wikibaseurl }})
+Fvwm 2.6.7 comes with a [/DefaultConfig]({{ "/DefaultConfig" | prepend: site.wikiurl }})
 that can be used as an example or starting point when building your own config.
 

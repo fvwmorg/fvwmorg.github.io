@@ -21,7 +21,7 @@ FvwmIconMan buttons and operate directly on the selected window.
 ## Default Config
 
 Here are the WindowOps menus from the [DefaultConfig](
-{{ "/DefaultConfig" | prepend: site.wikibaseurl }}). The different variations
+{{ "/DefaultConfig" | prepend: site.wikiurl }}). The different variations
 of the Menu are used for different bindings. A small menu which opens up
 if you click the Menu button on a window, a longer form from a right click
 on the root window and a modified form for icons and FvwmIconMan.
@@ -121,10 +121,10 @@ Mouse 3 I A Menu MenuIconOps
 Here is a variation of the WindowOps menu that is dynamic in the sense
 it will put a checkmark near an option the window currently has.
 You will first need a [checkmark](check.png) icon for the menu
-in your [ImagePath]({{ "/Config/ImagePath" | prepend: site.wikibaseurl }}).
+in your [ImagePath]({{ "/Config/ImagePath" | prepend: site.wikiurl }}).
 
 Then a function to build the menu that uses [Conditionals](
-{{ "/Config/Conditionals" | prepend: site.wikibaseurl }}) to test for
+{{ "/Config/Conditionals" | prepend: site.wikiurl }}) to test for
 the different window states and then put a checkmark next to
 the states it finds.
 

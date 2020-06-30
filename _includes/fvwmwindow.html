@@ -1,0 +1,65 @@
+{% comment %}
+# Fvwmwindow Options
+
+  * title: Title bar text of window.
+  * content: Content (in HTML) of the window.
+  * color: Color of window decor.
+  * bgcolor: Background color of window (defaults to color)
+  * id: Unique ID string for window.
+  * logo: Adds the Fvwm logo in the window content if set.
+  * max: Defaults window to maximum size (no margins) if set.
+  * shade: Defaults window to be shaded (hidden content) if set.
+  * nocss: Remove the div wrapper that sets colors for window if set.
+
+{% endcomment %}
+{% if include.id %}
+{% assign id=include.id | replace: " ","-" %}
+{% elsif include.title %}
+{% assign id=include.title | replace: " ","-" %}
+{% else %}
+{% assign id="noid" %}
+{% endif %}
+{% if include.color %}{% assign fvwmcolor=include.color %}
+{% else %}{% assign fvwmcolor="blue" %}{% endif %}
+{% if include.bgcolor %}{% assign fvwmbgcolor=include.bgcolor %}
+{% else %}{% assign fvwmbgcolor=fvwmcolor %}{% endif %}
+
+<div class="fvwmwindow{% if include.max %} fvwmwindow-max{% endif %}" id="fvwmwindow-{{ id }}"
+     onMouseOver="$( '#fvwmwindow-title-{{ id }}' ).addClass( 'fwin-focus' )"
+     onMouseOut="$( '#fvwmwindow-title-{{ id }}' ).removeClass( 'fwin-focus' )">
+  <div class="fvwmwindow-top fwin-top-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-bottom fwin-bottom-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-left fwin-left-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-right fwin-right-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-top-left fwin-top-left-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-bottom-left fwin-bottom-left-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-top-right fwin-top-right-{{ fvwmcolor }}"></div>
+  <div class="fvwmwindow-bottom-right fwin-bottom-right-{{ fvwmcolor }}"></div>
+
+  <div class="fvwmwindow-title-bar">
+    <div class="fvwmwindow-button1 fwin-button1-{{ fvwmcolor }}"
+         onClick="$( '#fvwmwindow-{{ id }}' ).toggleClass( 'fvwmwindow-max' )"></div>
+    <div id="fvwmwindow-title-{{ id }}"
+         class="fvwmwindow-title fwin-title-{{ fvwmcolor }} fwin-{{ fvwmcolor }}"
+         ondblclick="$( '#fvwmwindow-main-{{ id }}' ).toggleClass( 'fvwmwindow-min' )">
+      {{ include.title }}
+    </div>
+    <div class="fvwmwindow-button2 fwin-button2-{{ fvwmcolor }}"
+     onClick="$( '#fvwmwindow-main-{{ id }}' ).removeClass( 'fvwmwindow-min' )"></div>
+    <div class="fvwmwindow-button4 fwin-button4-{{ fvwmcolor }}"
+     onClick="$( '#fvwmwindow-main-{{ id }}' ).addClass( 'fvwmwindow-min' )"></div> 
+  </div>
+
+  <div id="fvwmwindow-main-{{ id }}" class="fvwmwindow-main fwin-{{ fvwmbgcolor }}{% if include.shade %} fvwmwindow-min{% endif %}">
+  <div class="{% if include.nocss %}fvwmwindow-mainpadding{% else %}fvwmwindow-maincontent{% endif %}">
+
+    {% if include.logo %}
+    <img class="float-left p-2" src="{{ site.baseurl }}/img/fvwm-logo-menu.png">
+    {% endif %}
+
+    {{ include.content }}
+
+  </div></div>
+</div>
+
+
