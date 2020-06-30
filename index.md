@@ -173,7 +173,7 @@ environment using Fvwm, check out the following:
 
 {% include fvwmwindow.html  id=fvwmcarousel
 title="Built using Fvwm" color="neptune"
-content=fvwmtxt nocss=1 %}
+content=fvwmtxt %}
 
 
 <div style="height:57px;"></div>

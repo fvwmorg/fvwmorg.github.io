@@ -92,28 +92,28 @@ windows use something like the following:
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex1"
 title="Example Window 1"
-color="arizona" content="Arizona" nocss=1
+color="arizona" content="Arizona"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex2"
 title="Example Window 2"
-color="crimson" content="cimson" nocss=1
+color="crimson" content="Cimson"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex3"
 title="Example Window 3"
-color="neptune" content="Neptune" nocss=1
+color="neptune" content="Neptune"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex4"
 title="Example Window 4"
-color="alpine" content="Alpine" nocss=1
+color="alpine" content="Alpine"
 logo=1 max=1 %}
 </div>
 
@@ -136,37 +136,39 @@ full width, while on medium screens each div uses
 finally on extra large screens, use 3 (of 12) columns
 allow 4 windows per row.
 
-The above code creates the following.
-Make your browser narrower and wider to see how the
-columns adjust.
+By default the windows will use the sites dark
+background as showcased in the windows below, which
+are created using the above example. To see how
+the responsiveness works, adjust your browsers width
+between narrow and wide to see the various breakpoints.
 
 
 <div class="row">
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex1"
 title="Example Window 1"
-color="arizona" content="Arizona" nocss=1
+color="arizona" content="Arizona"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex2"
 title="Example Window 2"
-color="crimson" content="cimson" nocss=1
+color="crimson" content="Cimson"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex3"
 title="Example Window 3"
-color="neptune" content="Neptune" nocss=1
+color="neptune" content="Neptune"
 logo=1 max=1 %}
 </div>
 
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="ex4"
 title="Example Window 4"
-color="alpine" content="Alpine" nocss=1
+color="alpine" content="Alpine"
 logo=1 max=1 %}
 </div>
 </div>
@@ -191,22 +193,23 @@ max=1 %}
 {% endfor %}
 </div>
 
-It is even possible to mix and match colors by setting
-the `bgcolor="color"` and `nocss=1` in the include tag.
-Here are some examples of mixing and matching.
+It is possible to use windows (like above) without the
+default background, to do so you need to first set
+`nocss=1` and then choose the color with `bgcolor="color"`.
+Here is some examples of mixing and matching.
 
 
 <div class="row">
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="mixex1"
-title="Example Window 5" color="blue" bgcolor="alpine"
-content="Border: blue<br>Background: alpine"
+title="Example Window 5" color="neptune" bgcolor="blue"
+content="Border: neptune<br>Background: blue"
 nocss=1 max=1 %}
 </div>
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="mixex2"
-title="Example Window 4" color="arizona" bgcolor="orange"
-content="Border: arizona<br>Background: orange"
+title="Example Window 4" color="arizona" bgcolor="yellow"
+content="Border: arizona<br>Background: yellow"
 nocss=1 max=1 %}
 </div>
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
@@ -217,8 +220,8 @@ nocss=1 max=1 %}
 </div>
 <div class="col-md-6 col-lg-4 col-xl-3 mb-1 p-1">
 {% include fvwmwindow.html id="mixex4"
-title="Example Window 8" color="green" bgcolor="neptune"
-content="Border: green<br>Background: neptune"
+title="Example Window 8" color="green" bgcolor="gray"
+content="Border: green<br>Background: gray"
 nocss=1 max=1 %}
 </div>
 </div>

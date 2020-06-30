@@ -14,9 +14,9 @@
   background: rgba(0, 0, 0, 0.35);
 }
 #FvwmCarousel a {
-  background: transparent;
+  background: transparent !important;
   &:hover, &:focus {
-    color: #ffffff;
+    color: #ffffff !important;
     background: transparent;
   }
 }
