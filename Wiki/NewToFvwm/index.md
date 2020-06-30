@@ -1,6 +1,7 @@
 ---
 layout : wiki
 title : NewToFvwm
+version : fvwm2
 ---
 * TOC
 {:toc}
@@ -51,6 +52,7 @@ You could, if you had a few months, start with a blank config file,
 sit down and do nothing but read the man page for FVWM and attempt
 to piece everything together. Some people have done this, and they
 generally feel as though they have learnt a lot from the process.
+Hence there is this: [Wiki/BlankConfig]({{  "/BlankConfig" | prepend: site.wikiurl }})
 
 Of course, you may not have the time or want to start out with a
 blank config. Starting with FVWM 2.6.7 a [DefaultConfig]({{
@@ -58,24 +60,26 @@ blank config. Starting with FVWM 2.6.7 a [DefaultConfig]({{
 point for users. A user can copy this config then edit, add and remove
 stuff until they have a setup that suits their needs.
 
+
 Besides the default config there are some additional configurations
 that can be used as a starting point:
 
-+ [Janon's Simple Portable Configuration](http://ultharine.ninthgate.se/fvwm/)
-  -- A starting point for a minimal setup.
-+ [FVWM Forums User Configs](
-  http://www.fvwmforums.org/phpBB3/viewforum.php?f=39) -- 
-  Examples and screenshots of various users configs.
-+ [Taviso's fvwm2rc](
-  http://fvwm.org/screenshots/2004-01-24_Tavis_Ormandy-desk-1152x864/fvwmrc)
-  -- An older example used as a basis for many users.
++ [FVWM Forums User Configs (Archived)](
+https://fvwmforums.org/c/fvwm-themes/config-archive/) -- 
+  Examples and screenshots of various users configs
+  pre- June 2020.
++ [FVWM Forums User Configs (new)](
+https://fvwmforums.org/c/fvwm-themes/) -- 
+  Examples and screenshots of various users configs
+  from June 2020.
 
-In addition here are two more feature rich setups for FVWM that not
+In addition here are three more feature rich setups for FVWM that not
 only provide a configuration file but additional scripts and tools
 to function more as a desktop environment.
 
 + [FVWM Nightshade](http://fvwm-nightshade.github.io/Fvwm-Nightshade/)
 + [FVWM Crystal](http://fvwm-crystal.sourceforge.net/)
++ [NsCDE] (https://github.com/NsCDE/NsCDE)
 
 After choosing a default config, it's a case of customizing FVWM to suit
 your needs, based on the starter config you've chosen.
@@ -92,7 +96,7 @@ To start with check out the [/Config](
 information about the different parts of the configuration file.
 
 If you are looking for an answer to a specific question maybe it is
-covered in the [FVWM FAQ](http://fvwm.org/documentation/faq/) or the
+covered in the [FVWM FAQ]({{ "/Archive/Faq" | prepend: site.baseurl }} ) or the
 [/irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikiurl }}).
 
 Looking for examples to achieve different effects, maybe you can find
@@ -104,7 +108,7 @@ or [/Tips]({{ "/Tips" | prepend: site.wikiurl }}) pages.
 of different window looks and panels/docks.
 
 You might,of course, still have a question to ask. You can ask on the
-[Mailing Lists](http://fvwm.org/support/), as well as the [FVWM
+[Mailing Lists]({{"/Community/#fvwm-mailing-lists" | prepend: site.baseurl }}), as well as the [FVWM
 Forums](http://fvwmforums.org/), or the [/Irc](
 {{ "/Irc" | prepend: site.wikiurl }}) Channel.
 
