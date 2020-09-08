@@ -100,7 +100,7 @@ content=fvwmtxt max=1 %}
   + This version is in a feature freeze and only receives
     serious bugfixes.
 
-+ __Fvwm3__ version {{ site.fvwm3-version }} is under development:
++ __Fvwm3__ version {{ site.fvwm3-version }}:
 
   + __Users wanted__ to use, test, and report bugs for Fvwm3.
   + Use the current master branch of [Fvwm3 on github](
