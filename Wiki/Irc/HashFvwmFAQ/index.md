@@ -76,11 +76,19 @@ more busy.
 
 ## Who do I ask for help about \#fvwm?
 
-The current channel maintainer is ThomasAdam -- if you have any question
+The current channel maintainer is `thomas_adam` -- if you have any question
 specifically about the channel in general, ask him.
 
 If you have a genuine problem about #fvwm, or any of its members, you can
 message one of the following people:
+
+* `thomas_adam`
+* `somiaj`
+* `theBlackDragon`
+
+Historically when this channel was on Freenode (no longer true as of May
+2021), the following users had ops, but no longer.  This is left here as a
+sidenote in history
 
 * awol
 * somiaj
