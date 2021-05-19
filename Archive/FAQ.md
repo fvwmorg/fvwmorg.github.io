@@ -109,7 +109,7 @@ mailing lists.  Check the support page for more details:
 
 + You can ask questions to other fvwm users on the forums:
   <http://fvwmforums.org>
-+ You can also ask questions on `#fvwm` on `freenode`.
++ You can also ask questions on `#fvwm` on `libera.chat`.
 
 #### What should I name my config file (config or .fvwm2rc)?
 

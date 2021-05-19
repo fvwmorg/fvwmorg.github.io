@@ -87,10 +87,10 @@ answers and discussions from the users of Fvwm. Use the forums to search
 for answers to previous questions or ask new ones. Share your configurations
 and screenshots.
 
-## \#fvwm on Freenode
+## \#fvwm on IRC
 
 You can find various members of the Fvwm community in the IRC channel
-`#fvwm` on irc.freenode.net. Stop by to ask questions or just to say hello.
+`#fvwm` on `irc.libera.chat`. Stop by to ask questions or just to say hello.
 
 ## Fvwm Mailing Lists
 

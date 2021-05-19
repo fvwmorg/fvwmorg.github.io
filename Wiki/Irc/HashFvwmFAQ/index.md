@@ -48,10 +48,10 @@ intelligent questions based on the answer.
 
 ## Why can't I join \#fvwm?
 
-Sometimes, the freenode gods, or ops of #fvwm (see [:HashFvwmIrcFaq#4:FAQ 4]
+Sometimes, the IRC gods, or ops of #fvwm (see [:HashFvwmIrcFaq#4:FAQ 4]
 may well decide to limit the type of users who's allowed to join a channel.
 In the best case, this will just be to restrict those people who do not have
-registered nicks.  To register your nickname on freenode, the following
+registered nicks.  To register your nickname on IRC, the following
 should suffice:
 
      /msg nickserv register <your-password>
@@ -91,7 +91,7 @@ message one of the following people:
 
 (The list gets longer and longer...)
 
-You can also ask in #freenode, if none of the above people respond to you.
+You can also ask in #libera, if none of the above people respond to you.
 
 ## Who is Wombat?
 
@@ -182,7 +182,7 @@ continues to annoy, the ops can help, at their discretion.
 
 ## Are the conversations that take place in \#fvwm logged?  If so, are they available for viewing?
 
-Any public channel on freenode is potentially logged.  That is to say, it's
+Any public channel on IRC is potentially logged.  That is to say, it's
 either the intent of the channel from the outset that the entire
 conversation is logged and made publicly available, or, as is the case for
 \#fvwm, individuals log conversations.

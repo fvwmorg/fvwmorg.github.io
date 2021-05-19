@@ -4,15 +4,15 @@ title : Irc
 type : main
 weight : 300
 description : |
-  #fvwm on irc.freenode.net has been a gathering place for Fvwm users.
+  #fvwm on irc.libera.chat has been a gathering place for Fvwm users.
   Here is the channel FAQ and a few conversations that occurred on irc.
 
 ---
 
-# \#fvwm on irc.freenode.net
+# \#fvwm on irc.libera.chat
 
 A community of Fvwm users and developers can be found on the
-`#fvwm` IRC channel on freenode (`irc.freenode.net`). Please
+`#fvwm` IRC channel on libera (`irc.libera.chat`). Please
 stop by if you have questions about Fvwm or just want to talk
 about the fantastic window manager.
 
