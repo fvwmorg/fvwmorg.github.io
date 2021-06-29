@@ -11,11 +11,11 @@ description: > # this means to ignore newlines until "baseurl:"
   window manager for the X Window system.
 baseurl: "" # The subpath site is hosted
 wikiurl: "/Wiki" # The wiki subpath (must include $basepath)
-url: "http://fvwm.org" # the base hostname & protocol for your site
+url: "https://www.fvwm.org" # the base hostname & protocol for your site
 
 # FVWM release version
 fvwm2-version: 2.6.9
-fvwm3-version: 1.0.2
+fvwm3-version: 1.0.3
 
 # Navigation Menu
 nav:
