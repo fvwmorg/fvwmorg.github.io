@@ -10,7 +10,14 @@ description : |
 ---
 <h1>FVWM Config</h1>
 
-<p>Here is the list of pages about Fvwm configuration:</p>
+<p>FVWM is a <a href="{{ '/Config/Commands' | prepend: site.wikiurl }}">
+command</a> driven window manager. In short once FVWM starts it listens
+for commands, and then process the actions of the commands issued.
+Commands do all things from setting/changing configuration options, to
+preforming actions such as moving/resizing/changing windows or moving
+between virtual pages and desks.</p>
+
+<p>Here is the list of pages about Fvwm configuration commands:</p>
 
 {% assign pages = site.pages | where:"type","config" | sort:"weight" %}
 {% capture fvwmtxt %}
