@@ -147,7 +147,8 @@ related to the style of the buttons are
   Note: Due to a bug in 2.6.7, the background of the manager which
   has no buttons on it will not honor the Colorset setting. Use
   Foreground and Background instead and PlainColorset to control
-  the default button colorset.
+  the default button colorset. This bug has been fixed in the newest
+  version of fvwm2 in git, and in fvwm3.
 
 ### Button Actions
 
@@ -192,4 +193,32 @@ AddToFunc   IconManClick
 + I ThisWindow (Iconic) Iconify
 + I ThisWindow (AcceptsFocus) FlipFocus
 {% endhighlight %}
+
+## Resolution (fvwm3)
+
+New in fvwm3, the resolution setting (which configures which windows are shown)
+has been changed into a set of filters. There are four filters:
+
+{% highlight fvwm %}
+*FvwmIconMan: Resolution [!]desk [n]
+*FvwmIconMan: Resolution [!]page [x] [y]
+*FvwmIconMan: Resolution [!]screen [S]
+*FvwmIconMan: Resolution invert
+{% endhighlight %}
+
+These filters will either show (or not show) windows on the stated
+desk, page, or screen. If no parameters are provided the current
+desk, or page are used. Multiple filters can be given to
+control which desk, page, and screen are shown. The invert filter
+inverts the whole filter.
+
+No filters will show all windows (equivalent to `global` in fvwm2).
+You can then list up to one of each of the filters to control which
+windows are shown. For example:
+
+{% highlight fvwm %}
+*FvwmIconMan: Resolution screen p desk 1 !page 0 2
+{% endhighlight %}
+
+Shows all windows on the primary monitor, on desk 1, and not on page 0 2.
 

@@ -13,6 +13,11 @@ description : |
 
 # FvwmCommand
 
+**Note:** In fvwm3, a new module `FvwmPrompt` exists that is a combination
+of FvwmCommand and FvwmConsole. Though due to golang dependencies, this new
+module is not in wide use yet. FvwmConsole and FvwmCommandS are currently
+still available until FvwmPrompt is more widely used.
+
 ## Description
 
 FvwmCommand lets you monitor fvwm transaction and issue fvwm commands

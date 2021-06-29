@@ -11,6 +11,8 @@ description : |
 
 # FvwmBanner
 
+**Note:** This module has been removed from fvwm3.
+
 ## Module Descrpition
 
 Displays an Fvwm Logo in the center of the screen for 3 seconds.
