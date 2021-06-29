@@ -89,7 +89,8 @@ content=fvwmtxt max=1 %}
 ## Getting Fvwm
 
 + The stable frozen release is __Fvwm2__
-  version {{ site.fvwm2-version }}:
+  version [{{ site.fvwm2-version }}](
+  https://github.com/fvwmorg/fvwm/releases/tag/{{ site.fvwm2-version }}):
 
   + Many operating systems provide fvwm packages
     to install Fvwm2.
@@ -100,7 +101,8 @@ content=fvwmtxt max=1 %}
   + This version is in a feature freeze and only receives
     serious bugfixes.
 
-+ __Fvwm3__ version {{ site.fvwm3-version }}:
++ __Fvwm3__ version [{{ site.fvwm3-version }}](
+  https://github.com/fvwmorg/fvwm3/releases/tag/{{ site.fvwm3-version }}):
 
   + __Users wanted__ to use, test, and report bugs for Fvwm3.
   + Use the current master branch of [Fvwm3 on github](
