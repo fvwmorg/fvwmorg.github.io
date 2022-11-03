@@ -132,7 +132,7 @@ the states it finds.
 DestroyFunc GenWindowOps
 AddToFunc GenWindowOps
 + I AddToMenu DynamicWindowOps
-+ I ThisWindow (Iconified) + "Iconify%check.png%" Iconify
++ I ThisWindow (Iconic) + "Iconify%check.png%" Iconify
 + I TestRc (NoMatch) + "Iconify" Iconify
 + I ThisWindow (Maximized) + "Maximize%check.png%" Maximize
 + I TestRc (NoMatch) + "Maximize" Maximize
