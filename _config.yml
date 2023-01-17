@@ -14,8 +14,8 @@ wikiurl: "/Wiki" # The wiki subpath (must include $basepath)
 url: "https://www.fvwm.org" # the base hostname & protocol for your site
 
 # FVWM release version
-fvwm2-version: 2.6.9
-fvwm3-version: 1.0.4
+fvwm2-version: 2.7.0
+fvwm3-version: 1.0.6a
 
 # Navigation Menu
 nav:
