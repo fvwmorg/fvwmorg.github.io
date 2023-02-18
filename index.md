@@ -43,8 +43,8 @@ the fantastic, fabulous, famous, flexible,
 <a href="{{ site.baseurl }}/Archive/Faq#what-does-fvwm-stand-for">
 and so on</a>, window manager we have today.</p>
 
-<p>Fvwm is ICCCM-compliant and highly configurable. Starting from
-a <a href="{{ site.baseurl }}/Wiki/Config/BlankConfig/">minimal
+<p>Fvwm is ICCCM-compliant and highly configurable. Starting from the
+<a href="{{ site.baseurl }}/Wiki/DefaultConfig/">default
 configuration</a>, Fvwm can be configured with both internal tools
 and third party software to customize most aspects of a desktop.</p>
 
