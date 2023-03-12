@@ -96,3 +96,31 @@ gets confused -- so the delay via the Schedule commands ensures this isn't
 the case.  The caveat being that switching windows can be ever so slightly
 slow.
 
+# Troubleshooting
+When tyring out this configuration with FVWM 2.6.8 on Ubuntu 22.04.2 LTS it didn't work as expected. Eventually, I found that the shell command
+
+```
+[ "$[DIR]" == "Prev" ]
+``` 
+
+led to errors in `/var/log/syslog` like this:
+
+```
+Mar 12 16:46:07 <hostname> /usr/libexec/gdm-x-session[7300]: sh: 1: [: Next: unexpected operator
+```
+
+By default the command is carried out with `/bin/sh` and testing string equality is done with a single `=`.
+
+Therefore, the correct FVWM function should be:
+
+{% highlight fvwm %}
+...
+AddToFunc SwitchWindow
++ I $[DIR] (CurrentPage, !Iconic, !Sticky) FocusRaiseAndStuff
++ I Deschedule 134000
++ I PipeRead `[ "$[DIR]" = "Prev" ] && \
+    echo 'SetEnv NDIR Next' || \
+    echo 'SetEnv NDIR Prev'`
++ I Schedule 700 134000 SetEnv DIR $[NDIR]
+...
+{% endhighlight %}
