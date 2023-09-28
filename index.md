@@ -11,8 +11,6 @@ helpnav:
         url: /Wiki/
       - name: Frequently Asked Questions
         url: /Archive/Faq/
-      - name: Fvwm 2.6.x Manpages
-        url: /Archive/Manpages/
   - title: Development Information
     color: arizona
     links:
