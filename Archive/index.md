@@ -11,8 +11,6 @@ archivenav:
         url: Features/
       - name: News
         url: News/
-      - name: Fvwm 2.6.x Manpages
-        url: Manpages/
       - name: Developer Information
         url: Developers/
       - name: Module Interface
