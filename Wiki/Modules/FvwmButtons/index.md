@@ -26,7 +26,7 @@ with use of SendToModule, buttons can be changed by other aspects
 of Fvwm.
 
 For a full list of FvwmButtons configuration options see the
-[manpage](http://fvwm.org/documentation/manpages/FvwmButtons.html)
+FvwmButtons manpage.
 
 ## Layout
 

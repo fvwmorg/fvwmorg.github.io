@@ -13,9 +13,8 @@ description : |
 
 Styles are options that can be applied to one, many or all windows.
 Fvwm has hundreds of Styles, and this page is only going to describe
-the syntax. See the [manpage](
-http://fvwm.org/documentation/manpages/fvwm.html#lbBU) for a list
-and description of all the different Styles.
+the syntax. See the manpage for a list and description of all the
+different Styles.
 
 The syntax for Styles is:
 
