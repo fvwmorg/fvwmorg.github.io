@@ -715,11 +715,9 @@ sent to the fvwm-workers mailing list.
 
 Although the answer to this is much like #c7, there is efforts underway to
 improve this aspect of FVWM.  Whilst it isn't to everyone's preference; the
-canonical reference for FVWM is its
-[man page](http://www.fvwm.org/documentation/manpages/unstable/fvwm.php).  As
-of January 2006, ThomasAdam is heading up efforts to seriously revamp the
-FvwmWiki -- a task that has attracted some attention.  So it is worth
-looking there.
+canonical reference for FVWM is its manpage.  As of January 2006, ThomasAdam
+is heading up efforts to seriously revamp the FvwmWiki -- a task that has
+attracted some attention.  So it is worth looking there.
 
 Code examples are usually somewhat trickier to come by.  Indeed, the best
 resource is the [Fvwm Forums](http://fvwmforums.org).  If you're specific

@@ -70,9 +70,7 @@ shell scripts.
 
 The most complete resource for information about a command, its syntax
 and capabilities is the man page. If you know the command you can search
-though the manpage for it to find more info. You can also find the manpage
-online [here](http://fvwm.org/documentation/manpages/). The online version
-contains a table of contents to make finding info in the manpage a little easier.
+though the manpage for it to find more info.
 
 The [FvwmWiki]({{ "/" | prepend: site.wikiurl }}) contains a collection of config
 examples and their descriptions. Here is a starting point: [/Config](

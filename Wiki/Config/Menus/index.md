@@ -40,8 +40,7 @@ MenuStyle * Font "xft:Sans:Bold:size=8:antialias=True"
 {% endhighlight %}
 
 
-Refer to the [manpage](http://fvwm.org/documentation/manpages/fvwm.html#lbBO)
-for a descriptoin of what each option does.
+Refer to the manpage for a description of what each option does.
 If you want different menus to look and act differentially you can replace '\*' with the
 menu name your interested. For example you could use
 

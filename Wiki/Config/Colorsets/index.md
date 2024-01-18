@@ -159,7 +159,5 @@ effects are available.
 + Shape, TiledShape, AspectShape - Set a shape mask (can be used to make rounded
   corners on FvwmButtons).
 
-All the details about these options can be found in the [manpage](
-http://fvwm.org/documentation/manpages/fvwm.html#lbCB). 
-
+All the details about these options can be found in the manpage.
 

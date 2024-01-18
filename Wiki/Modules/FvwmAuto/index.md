@@ -39,9 +39,8 @@ milliseconds after receiving and maintaining focus:
 
 You can also use FvwmAuto to do a lot of other things.  One power of
 FvwmAuto is the ability to schedule events when a window (essentially)
-receives and loses focus [1].  The
-[man page](http://www.fvwm.org/documentation/manpages/FvwmAuto.html)
-has more examples about that.
+receives and loses focus [1].  The FvwmAuto manpage has more examples
+about that.
 
 -------
 [1] This is not how EnterFocus and LeaveFocus operate, but from an explanation point of view, it suffices.

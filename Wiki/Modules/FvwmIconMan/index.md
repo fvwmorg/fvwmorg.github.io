@@ -27,8 +27,7 @@ to Iconify them.
 Here is an example configuration which lists running windows in a
 vertical list whose window grows and shrinks with the number of running
 apps. Below is a brief description of what the various parts configure.
-For a full list of options see the [FvwmIconMan manpage](
-http://fvwm.org/documentation/manpages/FvwmIconMan.html).
+For a full list of options see the FvwmIconMan manpage.
 
 {% highlight fvwm %}
 DestroyModuleConfig FvwmIconMan: *

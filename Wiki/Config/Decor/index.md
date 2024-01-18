@@ -93,8 +93,7 @@ TitleStyles, and BorderStyles. Each of these styles controls the look
 of the associated piece.
 
 These styles have lots of options, so only the most common are given below.
-Use the [manpage](http://fvwm.org/documentation/manpages/fvwm.html#lbBV)
-to get a complete description of all possibilities.
+Use the manpage to get a complete description of all possibilities.
 
 ### TitleStyle
 
