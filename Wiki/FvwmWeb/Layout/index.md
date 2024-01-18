@@ -28,11 +28,11 @@ Some site variables are configured in the
   location to host the site.
 
   For example to host the site
-  at `http://mydomain.com/my/path/`, set the following:
+  at `https://mydomain.com/my/path/`, set the following:
 
   + `baseurl: /my/path`
   + `wikiurl: /my/path/Wiki`
-  + `url: http://mydomain.com`
+  + `url: https://mydomain.com`
 
   In addition you need to manually set `$baseurl` in
   `_sass/_fvwmvars.scss` to match the baseurl above.

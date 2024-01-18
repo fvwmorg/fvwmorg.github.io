@@ -39,7 +39,7 @@ Launcher XV   xv.xpm    xv   "-g +0+100"
 Also, GNOME and KDE have desktop icon applications gmc and kfm,
 which enable this functionality.  These applications may be run under FVWM.
 Another solution is using the pinboard (desktop with icons) of
-[ROX Filer](http://rox.sourceforge.net).
+[ROX Filer](https://rox.sourceforge.net).
 
 There is another solution which is very much easy to use:
-[Idesk](http://idesk.sourceforge.net/) lucky.
+[Idesk](https://idesk.sourceforge.net/) lucky.

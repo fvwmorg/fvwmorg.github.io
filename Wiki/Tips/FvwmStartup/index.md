@@ -10,7 +10,7 @@ description : |
 # How FVWM starts applications                                                  
 
 *This is a direct transpose of a mailing list post by Thomas Adam, found
-[here](http://www.mail-archive.com/fvwm@lists.math.uh.edu/msg16494.html).*
+[here](https://www.mail-archive.com/fvwm@lists.math.uh.edu/msg16494.html).*
 
 * TOC
 {:toc #toc-full }

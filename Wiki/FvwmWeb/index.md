@@ -8,7 +8,7 @@ title: Fvwm website development
 * TOC
 {:toc}
 
-The Fvwm website (<http://fvwm.org/>) is hosted using
+The Fvwm website (<https://fvwm.org/>) is hosted using
 [GitHub pages](https://help.github.com/en/github/working-with-github-pages).
 The website is a static site built form markdown files using
 [Jekyll](https://jekyllrb.com/). This page explains the
@@ -70,7 +70,7 @@ a local copy of the site on localhost. Use the
 link provided by Jekyll to view the local copy.
 
 If you need to change the location of the site
-to `http://mydomain.com/mypath`, you need to update
+to `https://mydomain.com/mypath`, you need to update
 the configuration variables `baseurl:` and `wikiurl:`
 in the Jekyll configuration file `_confi.yml` and
 update the SCSS variable `$baseurl:` in `_sass/_fvwmvars.scss`
@@ -85,8 +85,8 @@ before committing them.
 All pages should be named by their full path and use an
 [index file](https://en.wikipedia.org/wiki/Web_indexing),
 such as `Path/To/Page/index.md`. This way all links are of
-the form `http://fvwmorg/Path/To/Page/`. For example this page
-(<http://fvwm.org/Wiki/FvwmWeb/>) is generated from the
+the form `https://fvwmorg/Path/To/Page/`. For example this page
+(<https://fvwm.org/Wiki/FvwmWeb/>) is generated from the
 file `Wiki/FvwmWeb/index.md`.
 
 All page names should use the Fvwm2 configuration syntax
@@ -181,7 +181,7 @@ portability of the site.
 ### Links
 
 In order to ensure that the site can be built and used
-in other locations, such as `http://mysite.com/fvwmorg/`,
+in other locations, such as `https://mysite.com/fvwmorg/`,
 all links need to be relative or need to prepend the liquid
 variable {% raw %}`{{ site.wikiurl }}`{% endraw %}.
 Examples of valid links are:

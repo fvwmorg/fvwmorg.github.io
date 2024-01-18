@@ -123,7 +123,7 @@ DestroyModuleConfig FvwmPager:*
 
 ## Xosview Configuration
 
-[Xosview](http://www.pogo.org.uk/~mark/xosview) is a program
+[Xosview](https://www.pogo.org.uk/~mark/xosview) is a program
 that can show various system stats in graphical bars. What I like
 about xosivew is being able to turn off everything except the
 graphical bar and when swallowed it becomes the size of the Button.
@@ -208,7 +208,7 @@ will also have to install and configure lm-sensors for this to work.
 
 ## stalonetray Configuration
 
-The systemtray is [stalonetray](http://stalonetray.sourceforge.net/manpage.html)
+The systemtray is [stalonetray](https://kolbusa.github.io/stalonetray/manpage.html)
 and needs to be configured to work with FvwmButtons. This is the
 $HOME/.stalonetrayrc file used for SensorDock
 

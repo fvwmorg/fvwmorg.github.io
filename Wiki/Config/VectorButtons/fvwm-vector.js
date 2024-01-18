@@ -14,7 +14,7 @@ var cfg = {};
 cfg.version = "0.11";
 cfg.verbose = 2;
 cfg.author = 'Alexander Gromnitsky &lt;alexander.gromnitsky.at.gmail.com&gt;';
-cfg.licence = 'http://www.opensource.org/licenses/mit-license.php';
+cfg.licence = 'https://www.opensource.org/licenses/mit-license.php';
 cfg.zoom = 2;
 
 /**

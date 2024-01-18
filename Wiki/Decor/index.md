@@ -14,7 +14,7 @@ description : |
 A Decor is a collection of configurations for the looks of the windows.
 These pages are a collection of example decors that can be used in your
 setup. Most of these decors were adopted from
-[fvwm-themes](http://fvwm-themes.sourceforge.net) and are available here
+[fvwm-themes](https://fvwm-themes.sourceforge.net) and are available here
 as examples along with the images with any images needed.
 
 These are only examples, for configuration descriptions see

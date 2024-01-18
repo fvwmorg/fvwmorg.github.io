@@ -205,7 +205,7 @@ Another feature of a taskbar is the systemtray. A systemtray is a place
 some applications put an icon to interact with it. Fvwm does not have
 a built in systemtray. If a system tray is needed one solution is to
 use the stand-alone systemtray [stalonetray](
-http://stalonetray.sourceforge.net/).
+https://stalonetray.sourceforge.net/).
 
 This tray can be swallowed inside of FvwmButtons and added to the taskbar.
 

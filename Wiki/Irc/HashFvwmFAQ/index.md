@@ -107,38 +107,21 @@ Wombat was awol's bot before his unfortunate death; he helps in
 administering the channel in delegating access rights, and spewing trivia.
 He's often a great source of amusement.
 
-He has his own homepage too.  :)  http://awol.no-ip.org/~wombat/
-
-## Who is xteddy?
-
-<http://www.itn.liu.se/~stegu/xteddy/xteddy_info.html>
-
-xteddy is the channel plushy -- who looks after everyone, offering hugs.  He
-also provides drinks and snacks for everyone, and whizzes around the room
-after having drunk too much espresso.  He also keeps track of any
-screenshots posted.  Hug him, and find out. :)
-
-He also has his own homepage:  <http://www.starshine.org/xteddy/>
-
-xteddy can also refer to the wiki's parent host:  <http://www.xteddy.org>
-which is the homepage of ThomasAdam.
-
 ## I'm new to FVWM -- any cool links?
 
-* [FVWM main site](http://www.fvwm.org) 
-* [FVWM FAQ](http://fvwm.org/documentation/faq)
-* [Intoduction to FvwmButtons](http://forums.gentoo.org/viewtopic.php?t=162177)
-* [FVWM Session Management](http://linuxgazette.net/100/adam.html)
-* [FVWM Forums](http://fvwmforums.org)
-* [FVWM Themes](http://fvwm-themes.sf.net)
+* [FVWM main site](https://www.fvwm.org) 
+* [FVWM FAQ](https://fvwm.org/Archive/Faq)
+* [Intoduction to FvwmButtons](https://forums.gentoo.org/viewtopic.php?t=162177)
+* [FVWM Session Management](https://linuxgazette.net/100/adam.html)
+* [FVWM Forums](https://fvwmforums.org)
 
 ## FVWM can't feed the cat for me, what gives?
 
 OK, so FVWM cannot do everything.  You came here expecting it did?  And now
 you want the moon on a stick as well?  Sorry, but that's not how things
-work.  I'm sure it _can_ [feed](http://www.fvwm.org/fvwm-cats/) the cat
-for you, but you probably haven't explained things correctly (see
-[:HashFvwmIrcFaq#10:Q10]).  FVWM is a very subjective and almost personal
+work.  I'm sure it _can_ [feed](https://www.fvwm.org/Community/Cats/) the cat
+for you, but you probably haven't explained things correctly.
+FVWM is a very subjective and almost personal
 window manager, that it's often the minutiae that people want to configure.
 That's fine, and we're prepared to help you with that, but you have to show
 some signs that you're at least trying to help yourself as well.  You have
@@ -169,13 +152,13 @@ know the best way to ask your question.  That's fine.  If you have a
 question which involves someone possibly having to look at some config --
 upload it to the web somewhere.  If you have a site yourself, all well and
 good.  If not, the next best solution is to use a
-[pastebin](http://fvwm.pastey.net) and reference that in your question.
+pastebin and reference that in your question.
 
 Use of appropriate language is also important, and whilst I sympathise with
 those who's native language is not English, using lazy English demonstrates
 laziness on your part -- an assumption that would suggest you aren't
 prepared to try to do anything suggested.  That also means that the person
-helping you is wasting his/her time (see: [:HashFvwmIrcFaq:Q8]).
+helping you is wasting his/her time.
  
 If none of this helps you, the canonical reference for all this is best
 summed up in ESR's 
@@ -210,7 +193,7 @@ the logs.
 
 ## Where's the GUI config tool for FVWM?
 
-See this page:  <http://xteddy.org/fvwm/user_enumerate.html>
+See this page:  <https://xteddy.org/fvwm/user_enumerate.html>
 
 ## Can I use JPGs as Wallpaper? -- or -- How do I set the wallpaper in FVWM?
 
@@ -264,9 +247,7 @@ and then set:
 
     xteddy -wm -geometry $[offset]x654
 
-But you can see that this is a lot of work.  For more information see the following thread:
-
-<http://fvwmforums.org/phpBB3/viewtopic.php?t=405>
+But you can see that this is a lot of work.
 
 ## How do I change the colour of the GeometryWindow that appears when I move or resize a window?
 
@@ -338,11 +319,9 @@ SetEnv fvwm_home $[HOME]/.fvwm
 
 Again, FVWM already has this environment variable set as $[FVWM\_USERDIR].
 
-For more specific instances, please see: <http://fvwm.lair.be/viewtopic.php?f=40&t=1505>
-
 ## Argh, my style lines aren't being applied, or they're being applied randomly even though the window has loaded.   What's going on?
 
-See the following page:  <http://linuxgazette.net/127/adam.html>
+See the following page:  <https://linuxgazette.net/127/adam.html>
 
 ## What's the difference between IconBox and FvwmIconBox? -or- How do I tell FVWM where to place my icons?
 
@@ -522,7 +501,7 @@ not to be allowed via the ``!Maximizable`` Style condition in FVWM 2.5.X)
 however this command will just fail.
 
 The following is also recommended reading:
-<http://linuxgazette.net/127/adam1.html>
+<https://linuxgazette.net/127/adam1.html>
 
 ## How do I turn off the rubber-band effect when I try to resize/move windows? 
 
@@ -720,7 +699,7 @@ is heading up efforts to seriously revamp the FvwmWiki -- a task that has
 attracted some attention.  So it is worth looking there.
 
 Code examples are usually somewhat trickier to come by.  Indeed, the best
-resource is the [Fvwm Forums](http://fvwmforums.org).  If you're specific
+resource is the [Fvwm Forums](https://fvwmforums.org).  If you're specific
 enough in using appropriate search items, you'll likely find it there.  Then
 of course, there is also the [[Cookbook]],
 which details specific examples of how to apply a given task -- the overall

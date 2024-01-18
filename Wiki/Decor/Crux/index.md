@@ -14,8 +14,8 @@ Often when new Window Managers pop up, among the first things the users and
 developers do, is to create a familiar look mimicing other Window Managers.
 And such is the intention of this example.
 
-[Sawfish](http://sawmill.sf.net) was once a popular Window Manager used by
-earlier versions of [Gnome](http://www.gnome.org). It includes a theme called
+[Sawfish](https://sawmill.sf.net) was once a popular Window Manager used by
+earlier versions of [Gnome](https://www.gnome.org). It includes a theme called
 **Crux**. This example shows how to mimic the Crux-look using the Fvwm
 features to streamline the look, and to minimize the use of external
 image-files. As often is the case, other Window Managers cannot be mimiced
@@ -37,7 +37,7 @@ Those would be these: ![image](crux-fvwm-ac.png) and
 
 We'll begin by defining Colorsets using the knowledge from
 ColorGradients.  To find out which colors to use,
-one can use [Gimp](http://www.gimp.org) info-window to find out the exact
+one can use [Gimp](https://www.gimp.org) info-window to find out the exact
 colors in hexadecimal format.
 
 {% highlight fvwm %}
