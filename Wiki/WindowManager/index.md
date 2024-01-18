@@ -22,8 +22,3 @@ Many people ask this question, and of course there is no answer, other than a ve
 
 But since then, and of late, I myself (ThomasAdam) have noticed a sudden increase of FVWM users.  I attribute this to some sort of 'born-again' effect;  people are waking up as to how they can configure this beast.  :)
 
-
-
-## Other Links
-
-* [xwinman.org](http://xwinman.org/) -- X11 Window Manager/Desktop Environment list.
