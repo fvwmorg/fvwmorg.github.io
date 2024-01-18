@@ -154,7 +154,7 @@ environment using Fvwm, check out the following:
     <div class="carousel-item">
       <img src="{{ site.baseurl }}/img/fvwm-nightshade.jpg" class="d-block mx-auto" alt="Screen shot of Fvwm Nightshade.">
       <div class="carousel-caption d-block small p-1">
-        <h4><a href="http://fvwm-nightshade.github.io/Fvwm-Nightshade/">Fvwm Nightshade</a></h4>
+        <h4><a href="https://fvwm-nightshade.github.io/Fvwm-Nightshade/">Fvwm Nightshade</a></h4>
         <p>This project aims to be a lightweight but feature rich and good
         looking configuration of Fvwm.</p>
       </div>

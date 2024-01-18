@@ -5,7 +5,7 @@ title : FvwmWiki
 # Welcome to the FvwmWiki
 
 This is the home of the __FvwmWiki__, a collection of user
-pages, tips, etc., focusing on [Fvwm](http://www.fvwm.org).
+pages, tips, etc., focusing on [Fvwm](https://www.fvwm.org).
 Fvwm is a very flexible and configurable [window manager](
 {{ "/WindowManager" | prepend: site.wikiurl }}).
 Here are some [testimonials]({{ "/Testimonials" | prepend: site.wikiurl }})

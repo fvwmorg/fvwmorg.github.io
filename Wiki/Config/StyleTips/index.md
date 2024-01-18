@@ -5,7 +5,7 @@ type : config
 weight : 850
 description : |
   Here is some tips for configuring different windows using Styles.
-  This is taken from <a href="http://linuxgazette.net/127/adam.html">
+  This is taken from <a href="https://linuxgazette.net/127/adam.html">
   This article</a> by Thomas Adam.
 
 ---
@@ -15,7 +15,7 @@ description : |
 # FVWM: How Styles are Applied
 
 *This is a copy of the following article by Thomas Adam:
-<http://linuxgazette.net/127/adam.html>*
+<https://linuxgazette.net/127/adam.html>*
 
 ## Introduction
 

@@ -61,21 +61,19 @@ stuff until they have a setup that suits their needs.
 Besides the default config there are some additional configurations
 that can be used as a starting point:
 
-+ [Janon's Simple Portable Configuration](http://ultharine.ninthgate.se/fvwm/)
-  -- A starting point for a minimal setup.
 + [FVWM Forums User Configs](
-  http://www.fvwmforums.org/phpBB3/viewforum.php?f=39) -- 
+  https://fvwmforums.org/c/fvwm-themes/27) --
   Examples and screenshots of various users configs.
 + [Taviso's fvwm2rc](
-  http://fvwm.org/screenshots/2004-01-24_Tavis_Ormandy-desk-1152x864/fvwmrc)
+  https://fvwm.org/Archive/Screenshots/2004-01-24_Tavis_Ormandy-desk-1152x864/fvwmrc)
   -- An older example used as a basis for many users.
 
 In addition here are two more feature rich setups for FVWM that not
 only provide a configuration file but additional scripts and tools
 to function more as a desktop environment.
 
-+ [FVWM Nightshade](http://fvwm-nightshade.github.io/Fvwm-Nightshade/)
-+ [FVWM Crystal](http://fvwm-crystal.sourceforge.net/)
++ [FVWM Nightshade](https://fvwm-nightshade.github.io/Fvwm-Nightshade/)
++ [FVWM Crystal](https://fvwm-crystal.sourceforge.net/)
 
 After choosing a default config, it's a case of customizing FVWM to suit
 your needs, based on the starter config you've chosen.
@@ -92,7 +90,7 @@ To start with check out the [/Config](
 information about the different parts of the configuration file.
 
 If you are looking for an answer to a specific question maybe it is
-covered in the [FVWM FAQ](http://fvwm.org/documentation/faq/) or the
+covered in the [FVWM FAQ](https://fvwm.org/Archive/Faq/) or the
 [/irc/HashFvwmFAQ]({{ "/Irc/HashFvwmFAQ" | prepend: site.wikiurl }}).
 
 Looking for examples to achieve different effects, maybe you can find
@@ -104,9 +102,7 @@ or [/Tips]({{ "/Tips" | prepend: site.wikiurl }}) pages.
 of different window looks and panels/docks.
 
 You might,of course, still have a question to ask. You can ask on the
-[Mailing Lists](http://fvwm.org/support/), as well as the [FVWM
-Forums](http://fvwmforums.org/), or the [/Irc](
+[Mailing Lists](https://www.fvwm.org/Community/#fvwm-mailing-lists),
+as well as the [FVWM Forums](https://fvwmforums.org/), or the [/Irc](
 {{ "/Irc" | prepend: site.wikiurl }}) Channel.
-
-
 

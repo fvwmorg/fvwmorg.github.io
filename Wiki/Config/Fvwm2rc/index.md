@@ -22,7 +22,7 @@ locations are still supported).
 ## Why use a config file?
 
 This is best explained by [In the beginning was ...](
-http://www.xteddy.org/fvwm/user_enumerate.html).
+https://www.xteddy.org/fvwm/user_enumerate.html).
 
 In short Fvwm has hundreds of options available. The most efficient way to configure
 them and build a custom setup is to use a configuration file. Fvwm now comes with

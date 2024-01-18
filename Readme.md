@@ -1,7 +1,7 @@
 # FvwmWeb (fvwm.org) at GitHub
 
-This is the source to build the Fvwm website, <http://fvwm.org/>,
-including the wiki located at <http://fvwm.org/Wiki/>.
+This is the source to build the Fvwm website, <https://fvwm.org/>,
+including the wiki located at <https://fvwm.org/Wiki/>.
 
 The site is built from Markdown files with front matter using Jekyll:
 <https://jekyllrb.com>.
@@ -20,6 +20,6 @@ request against this repo.
 
 More information about the layout and contributing
 to the fvwm.org website and wiki can be found at
-<http://fvwm.org/Wiki/FvwmWeb/>.
+<https://fvwm.org/Wiki/FvwmWeb/>.
 
 

@@ -14,7 +14,7 @@ description : |
 # FvwmEvent
 
 *This page was originally written by Thomas Adam, and published in the          
-[Linux Gazete](http://linuxgazette.net/127/adam1.html){:target="_blank"},
+[Linux Gazete](https://linuxgazette.net/127/adam1.html){:target="_blank"},
 June 2006.*   
 
 **Note:** The example of maximizing when it is loaded via FvwmEvent can be
@@ -25,7 +25,7 @@ achieved with [InitialMapCommand](
 
 Most window managers have some form of automation that allows the user to
 'script' various aspects of its operation. Indeed, the '[kahakai](
-http://kahakai.sourceforge.net/)' window manager has long since defined
+https://kahakai.sourceforge.net/)' window manager has long since defined
 Python as way of scripting its capabilities.
 
 In FVWM, there are a few ways of scripting events. The use of FvwmPerl is
@@ -309,7 +309,7 @@ to select an appropriate operand window at the time the event is triggered.
       in a 'withdrawn' state.
 
 [^2]: Inter-client Communications Convention Manual
-      (<http://tronche.com/gui/x/icccm/>)
+      (<https://tronche.com/gui/x/icccm/>)
 
 [^3]: In FVWM 2.4.X, one would have to use: `Style "name of window"
       NoTitle, NoBorder, HandleWidth 0, BorderWidth 0`
