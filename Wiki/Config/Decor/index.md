@@ -354,7 +354,7 @@ __Vector Examples__:
   -- Flat Decor for the default config.
 + [/Decor/CDE]({{ "/Decor/CDE" | prepend: site.wikiurl }})
   -- CDE looking decor.
-+ [/Decor/Vectors]({{ "Decor/Vectors" | prepend: site.wikiurl }})
++ [/Decor/Vectors]({{ "/Decor/Vectors" | prepend: site.wikiurl }})
   -- Basic Vector decor showing the Raised/Sunk effects.
 
 __Pixmap Examples__:
