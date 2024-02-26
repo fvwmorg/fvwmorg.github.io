@@ -18,7 +18,7 @@ In the #fvwm IrcChannel I (ThomasAdam) quite often see people asking
 questions along the lines of "Why are my commands in FuncSomeFunc not
 loading in the order I list them."   The answer to this is relatively
 straight-forward once one understands what's happening within a
-[/Config/ComplexFunction]({{ "/Config/ComplexFunction" | prepend: site.wikiurl}}).
+[/Config/ComplexFunctions]({{ "/Config/ComplexFunctions" | prepend: site.wikiurl}}).
 
 ## Walkthrough Example
 
