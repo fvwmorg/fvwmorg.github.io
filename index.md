@@ -38,31 +38,35 @@ system. It was originally a feeble fork of TWM
 by Robert Nation in 1993 (<a href="{{ site.wikiurl }}/FvwmHistory/">fvwm
 history</a>), and has evolved into
 the fantastic, fabulous, famous, flexible,
-<a href="{{ site.baseurl }}/Archive/Faq#what-does-fvwm-stand-for">
+<a href="{{ site.baseurl }}/Archive/Faq/#what-does-fvwm-stand-for">
 and so on</a>, window manager we have today.</p>
 
-<p>Fvwm is ICCCM-compliant and highly configurable. Starting from the
-<a href="{{ site.baseurl }}/Wiki/DefaultConfig/">default
-configuration</a>, Fvwm can be configured with both internal tools
-and third party software to customize most aspects of a desktop.</p>
+<p>Fvwm is a ICCCM/EWMH compliant and highly configurable floating window
+manager built primarily using Xlib.  Fvwm is configured using a
+<a href="{{ site.wikiurl }}/Config/Fvwm2rc/">configuration file</a>,
+which is used to configure most aspects of the window manager including
+window looks, key bindings, menus, window behavior, additional
+<a href="{{ site.wikiurl }}/Modules/">modules</a>, and more.  There is a
+<a href="{{ site.wikiurl }}/DefaultConfig/">default configuration</a> file
+that can be used as a starting point for writing one's own configuration file.</p>
 
-<p>This site is an <a href="{{ site.baseurl }}/Archive/">archive</a>
-of documentation for Fvwm version 2.6.x,
-which is the current frozen release. For information
-about the development of Fvwm version 3, check out
-<a href="https://github.com/fvwmorg/fvwm3">fvwmorg/fvwm3</a> on GitHub.</p>
+<p>Fvwm is a light weight window manager and can be configured to be anything from
+a small sleek window manager to a full featured desktop environment.  To get the most
+out of fvwm, one should be willing to read the documents, and take the time
+to write a custom configuration file that suites their needs.  The manual pages and
+the <a href="{{ site.wikiurl }}/">fvwm wiki</a> can be used to help learn how to
+configure fvwm.</p>
+
 {% endcapture %}
 
 {% include fvwmwindow.html id="titlewindow"
 title="F? Virtual Window Manager"
 content=fvwmtxt logo=1 %}
 
-
 ## Need Help?
 
 Looking for help configuring, using, or developing
 Fvwm, check out the following options:
-
 
 <div class="row">
 
@@ -86,37 +90,38 @@ content=fvwmtxt max=1 %}
 
 ## Getting Fvwm
 
-+ The stable frozen release is __Fvwm2__
-  version [{{ site.fvwm2-version }}](
-  https://github.com/fvwmorg/fvwm/releases/tag/{{ site.fvwm2-version }}):
+__Fvwm3__ is the currently supported release of fvwm, and fvwm version 2
+is no longer supported. Fvwm3's key new feature is full RandR support for
+multihead setups, along with a new DesktopConfiguration that allows independent
+virtual desktops for each monitor. Here is a
+[list of key differences between fvwm2 and fvwm3](
+https://github.com/fvwmorg/fvwm3/discussions/878)
+along with tips to upgrade an fvwm2 config to an fvwm3 config.
 
-  + Many operating systems provide fvwm packages
-    to install Fvwm2.
-  + Only newer versions (2.6.7 or newer) are supported.
-  + OpenBSD users can install a newer version from ports.
-  + The source for [Fvwm2 is on github](
-    https://github.com/fvwmorg/fvwm/).
-  + This version is in a feature freeze and only receives
-    serious bugfixes.
+The current release of fvwm3 is version __{{ site.fvwm3-version }}__.
+Fvwm3 can be installed in one of the following ways:
 
-+ __Fvwm3__ version [{{ site.fvwm3-version }}](
-  https://github.com/fvwmorg/fvwm3/releases/tag/{{ site.fvwm3-version }}):
++ Many operating systems provide a "fvwm3" package. Note, the
+  "fvwm" package most likely refers to fvwm version 2.
++ Build the current release [fvwm3 version {{ site.fvwm3-version }}](
+  https://github.com/fvwmorg/fvwm3/releases/tag/{{ site.fvwm3-version }})
+  from the source tarball.
++ Clone and build the [fvwm3 main branch](
+  https://github.com/fvwmorg/fvwm3).
++ [Build a Debian .deb package](
+  https://github.com/somiaj/fvwm3-debian) from the fvwm3 source.
 
-  + __Users wanted__ to use, test, and report bugs for Fvwm3.
-  + Use the current master branch of [Fvwm3 on github](
-    https://github.com/fvwmorg/fvwm3/) to build and install.
-  + Report bugs using the [github issue tracker](
-    https://github.com/fvwmorg/fvwm3/issues).
-
+Report fvwm3 bugs using the [github issues](
+https://github.com/fvwmorg/fvwm3/issues) tracker.
 
 ## Configuring Fvwm
 
 Fvwm starts from a [minimal configuration](
-{{ site.baseurl }}/Wiki/Config/BlankConfig/)
+{{ site.wikiurl }}/Config/BlankConfig/)
 and allows users to configure as much or little
 of their desktop as desired. Starting with
 Fvwm 2.6.7 a [default configuration](
-{{ site.baseurl }}/Wiki/DefaultConfig/) is provided
+{{ site.wikiurl }}/DefaultConfig/) is provided
 to give users a starting point that can be edited
 instead of configuring from scratch.
 
@@ -130,13 +135,12 @@ environment using Fvwm, check out the following:
   <ol class="carousel-indicators">
     <li data-target="#FvwmCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#FvwmCarousel" data-slide-to="1"></li>
-    <li data-target="#FvwmCarousel" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="{{ site.baseurl }}/img/fvwm-crystal.jpg" class="d-block mx-auto" alt="Screen shot of Fvwm Crystal.">
       <div class="carousel-caption d-block small p-1">
-        <h4><a href="https://fvwm-crystal.sourceforge.io/">Fvwm Crystal</a></h4>
+        <h3><a href="https://fvwm-crystal.sourceforge.io/">Fvwm Crystal</a></h3>
         <p>Fvwm-Crystal aims to create an easy to use, eye-candy but also powerful
         desktop environment for Linux or other Unix-like operating systems built
         using Fvwm.</p>
@@ -145,18 +149,10 @@ environment using Fvwm, check out the following:
     <div class="carousel-item">
       <img src="{{ site.baseurl }}/img/NsCDE.png" class="d-block mx-auto" alt="Screen shot of NsCDE.">
       <div class="carousel-caption d-block small p-1">
-        <h4><a href="https://github.com/NsCDE/NsCDE">NsCDE</a></h4>
+        <h3><a href="https://github.com/NsCDE/NsCDE">NsCDE</a></h3>
         <p>The Not so Common Desktop Environment (NsCDE) is a retro looking
         UNIX desktop environment which resembles CDE look (and partially feel)
-        built using Fvwm. </p>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img src="{{ site.baseurl }}/img/fvwm-nightshade.jpg" class="d-block mx-auto" alt="Screen shot of Fvwm Nightshade.">
-      <div class="carousel-caption d-block small p-1">
-        <h4><a href="https://fvwm-nightshade.github.io/Fvwm-Nightshade/">Fvwm Nightshade</a></h4>
-        <p>This project aims to be a lightweight but feature rich and good
-        looking configuration of Fvwm.</p>
+        built using Fvwm.</p>
       </div>
     </div>
   </div>
@@ -174,6 +170,5 @@ environment using Fvwm, check out the following:
 {% include fvwmwindow.html  id=fvwmcarousel
 title="Built using Fvwm" color="neptune"
 content=fvwmtxt %}
-
 
 <div style="height:57px;"></div>
