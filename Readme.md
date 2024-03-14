@@ -1,4 +1,4 @@
-# FvwmWeb (fvwm.org) at GitHub
+# FvwmWeb (fvwm.org) at GitHub Test
 
 This is the source to build the Fvwm website, <https://fvwm.org/>,
 including the wiki located at <https://fvwm.org/Wiki/>.
