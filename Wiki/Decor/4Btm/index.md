@@ -54,6 +54,9 @@ Then define the Decor:
 AddToDecor 4BTMDecor
 + TitleStyle Active MultiPixmap \
         Main     4btm/title-wood-active.png
+## Untag for inactive window with image
+#+ TitleStyle Inactive MultiPixmap \
+        Main     4btm/title-grey-inactive.png
 + ButtonStyle All -- UseTitleStyle
 + BorderStyle Simple -- HiddenHandles !NoInset Raised
 + TitleStyle LeftJustified -- Flat
