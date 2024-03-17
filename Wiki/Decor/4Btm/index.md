@@ -3,13 +3,14 @@ layout : wiki
 title : 4Btm Decor Example
 type : decor
 description : |
-  A MultiPixmap Decor with 4 buttons and a wood image title bar.
+  A MultiPixmap Decor with 4 buttons and a image title bar.
 
 ---
 # 4Btm Decoration Example
 
-This example will configure your windows' title bar to look like the following with 4 buttons
-on the right side and one on the left side. The active window title bar has a wood color image.
+This example will configure your window title bar to look like the following with 4 buttons
+on the right side and one on the left side. The active window has a wood color image and
+the inactive a gradient grey image.
 
 |![image](scrot.png)|
 
@@ -54,8 +55,7 @@ Then define the Decor:
 AddToDecor 4BTMDecor
 + TitleStyle Active MultiPixmap \
         Main     4btm/title-wood-active.png
-## Untag for inactive window with image
-#+ TitleStyle Inactive MultiPixmap \
++ TitleStyle Inactive MultiPixmap \
         Main     4btm/title-grey-inactive.png
 + ButtonStyle All -- UseTitleStyle
 + BorderStyle Simple -- HiddenHandles !NoInset Raised
