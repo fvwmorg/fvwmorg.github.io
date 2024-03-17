@@ -3,16 +3,16 @@ layout : wiki
 title : 4Btm Decor Example
 type : decor
 description : |
-  A MultiPixmap Decor with 4 buttons and a image title bar.
+  A MultiPixmap Decor with 4 buttons and color or image title bar.
 
 ---
 # 4Btm Decoration Example
 
-This example will configure your window title bar to look like the following with 4 buttons
-on the right side and one on the left side. The active window has a wood color image and
-the inactive a gradient grey image.
+This example will configure your window with a simple and modern look. With a flat color
+title bar and 4 buttons on the right side and one on the left side. The 4th button is assigned
+to a specific function or your favorite application.
 
-|![image](scrot.png)|
+|![image](scrot1.png)|
 
 This decor makes use of the MultiPixmap option to place transitional images between the button
 locations and titles to get the above effect.
@@ -21,7 +21,7 @@ This decor requires a collection of images for the buttons you can [download her
 This will be extracted into a directory called ‘4btm’. Put the directory in your ImagePath.
 If unsure you can copy put the directory in $HOME/.fvwm.
 
-To use this decor first configure the 
+To use this decor, first configure the 
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
@@ -29,10 +29,10 @@ To use this decor first configure the
 #   2 - Active Window
 #   3 - Active Windows Borders
 #   4 - Inactive Windows Borders
-Colorset 1 fg #ffffff, bg #7194a6, hi, sh, Plain, NoShape
-Colorset 2 fg #000000, bg #2b4e5e, hi, sh, Plain, NoShape
-Colorset 3 fg #000000, bg #d5902f
-Colorset 4 fg #ffffff, bg #000000
+Colorset 1 fg #ffffff, bg #7a9eb0, hi, sh, Plain, NoShape
+Colorset 2 fg #ffffff, bg #2b4e5e, hi, sh, Plain, NoShape
+Colorset 3 fg #2b4e5e, bg #2b4e5e, hi #2b4e5e, sh #2b4e5e
+Colorset 4 fg #7a9eb0, bg #7a9eb0, hi #7194a6, sh #7194a6
 {% endhighlight %}
 
 Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
@@ -49,14 +49,10 @@ Mouse 1 1 A Menu MenuWindowOps
 
 {% endhighlight %}
 
-Then define the Decor:
+Then define the Decor :
 
 {% highlight fvwm %}
 AddToDecor 4BTMDecor
-+ TitleStyle Active MultiPixmap \
-        Main     4btm/title-wood-active.png
-+ TitleStyle Inactive MultiPixmap \
-        Main     4btm/title-grey-inactive.png
 + ButtonStyle All -- UseTitleStyle
 + BorderStyle Simple -- HiddenHandles !NoInset Raised
 + TitleStyle LeftJustified -- Flat
@@ -78,6 +74,28 @@ AddToDecor 4BTMDecor
         Inactive   (Pixmap 4btm/tile-inactive.png   -- flat)
 + ButtonStyle All - Clear
 + TitleStyle Height 26
+{% endhighlight %}
+
+To add an image to your window title bar with the same buttons. The active window with a wood image
+and the inactive window with a gradient grey image.
+
+|![image](scrot2.png)|
+
+Change the color of Colorset 3 and 4.
+
+{% highlight fvwm %}
+Colorset 3 fg #000000, bg #d5902f
+Colorset 4 fg #ffffff, bg #000000
+{% endhighlight %}
+
+To define the Decor with the image, add this between "AddToDecor 4BTMDecor" and
+"+ ButtonStyle All -- UseTitleStyle" :
+
+{% highlight fvwm %}
++ TitleStyle Active MultiPixmap \
+        Main     4btm/title-wood-active.png
++ TitleStyle Inactive MultiPixmap \
+        Main     4btm/title-grey-inactive.png
 {% endhighlight %}
 
 Last we need the Styles for the windows to use 4BtmDecor, the
