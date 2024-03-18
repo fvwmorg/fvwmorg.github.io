@@ -8,9 +8,11 @@ description : |
 ---
 # 4Btm Decoration Example
 
-This example will configure your window with a simple and modern look. With a flat color
-title bar and 4 buttons on the right side and one on the left side. The 4th button is assigned
-to a specific function or your favorite application.
+This example will configure your window with a simple and modern look. Either with a flat color
+title bar or with an image. The bar has 4 buttons on the right side and one on the left side.
+The 4th button is assigned to a specific function or your favorite application.
+
+This will configure your windows to look like the following :
 
 |![image](scrot1.png)|
 
@@ -78,6 +80,8 @@ AddToDecor 4BTMDecor
 
 To add an image to your window title bar with the same buttons. The active window with a wood image
 and the inactive window with a gradient grey image.
+
+Your windows to look like the following :
 
 |![image](scrot2.png)|
 
