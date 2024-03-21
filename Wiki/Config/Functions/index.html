@@ -7,11 +7,11 @@ description: |
   Functions are a way to string a series of commands together
   to preform a given task. There are multiple pages about
   functions including:
-  <a href="/Wiki/Config/ComplexFunctions">ComplexFunctions</a>,
-  <a href="/Wiki/Config/FunctionContext">FunctionContext</a>,
-  <a href="/Wiki/Config/FunctionSynchronisation">FunctionSynchronisation</a>,
-  <a href="/Wiki/Config/FunctionTips">FunctionTips</a>, and
-  <a href="/Wiki/Config/StartFunction">StartFunction</a>.
+  <a href="/Wiki/Config/Functions/ComplexFunctions">ComplexFunctions</a>,
+  <a href="/Wiki/Config/Functions/FunctionContext">FunctionContext</a>,
+  <a href="/Wiki/Config/Functions/FunctionSynchronisation">FunctionSynchronisation</a>,
+  <a href="/Wiki/Config/Functions/FunctionTips">FunctionTips</a>, and
+  <a href="/Wiki/Config/Functions/StartFunction">StartFunction</a>.
 
 ---
 <h1>FVWM Functions</h1>
@@ -35,9 +35,5 @@ basic syntax for a function is:</p>
 
 {% assign pages = site.pages | where:"type","function" | sort:"weight" %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: "/Wiki/Config" | remove: "/" }}</a><br>
-  {{ mypage.description }}
-  </p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}

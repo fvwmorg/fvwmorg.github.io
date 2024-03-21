@@ -2,6 +2,9 @@
 layout: wiki
 title: AltTab
 type: recipe
+tags:
+  - Binding
+  - Function
 description: |
   Alt-Tab is a common key binding to switch between windows. In Fvwm
   there are lots of different variations on how to do this.

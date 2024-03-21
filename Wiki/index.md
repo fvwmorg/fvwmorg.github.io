@@ -35,11 +35,7 @@ This wiki is divided into the following main collections of pages:
 {% assign pages = site.pages | where:"type","main" | sort:"weight" %}
 {% capture fvwmtxt %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: 'Wiki' | remove: '/' }}</a><br>
-  {{ mypage.description }}
-</p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
 {% endcapture %}
 {% include fvwmwindow.html id="wiki-main-pages"

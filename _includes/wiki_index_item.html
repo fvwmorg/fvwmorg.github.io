@@ -1,0 +1,9 @@
+<p class="title-indent">
+  <a href="{{ mypage.url | prepend: site.baseurl }}">
+  {{ mypage.url | remove: page.url | remove: "/" }}</a>
+  {% for tag in mypage.tags %}
+    <span class="badge badge-light" style="text-indent: 0px;">{{ tag }}</span>
+  {% endfor %}<br>
+  {{ mypage.description }}
+</p>
+
