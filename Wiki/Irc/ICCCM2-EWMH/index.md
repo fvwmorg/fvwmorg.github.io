@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Applications
-type : irc
-description : |
+layout: wiki
+title: Applications
+type: irc
+description: |
   Here is a conversation that describes the ICCCM, EWMH and how some
   applications just don't play nicely.
 

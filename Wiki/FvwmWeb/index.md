@@ -151,11 +151,11 @@ Then include the following front matter at the top of the file:
 
 ```yaml
 ---
-title : MyRecipe
-version : fvwm2
-type : recipe
-weight : 250
-description : |
+title: MyRecipe
+version: fvwm2
+type: recipe
+weight: 250
+description: |
   This is a multiline
   description of MyRecipe.
 ---

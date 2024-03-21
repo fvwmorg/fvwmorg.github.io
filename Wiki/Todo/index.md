@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : Todo List
+layout: wiki
+title: Todo List
 ---
 
 # FvwmWiki Todo List

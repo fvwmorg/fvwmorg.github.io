@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Swallow Xload inside FvwmButtons
-type : tip
-description : |
+layout: wiki
+title: Swallow Xload inside FvwmButtons
+type: tip
+description: |
   This describes how to build a system monintor by Swallowing
   xload inside of FvwmButtons.
 
@@ -41,7 +41,7 @@ remote machines (named machineA, machineB, and machineC).
 Before setting up your fvwm configuration, you will need to make some changes to your remote machines.
 
 * Enable X11Forwarding in the /etc/ssh/sshd\_config files
-* Set up security so that you can ssh to the remote machines without being prompted for passwords.  
+* Set up security so that you can ssh to the remote machines without being prompted for passwords.
 * On machineA run 'ln -s /usr/X11R6/bin/xload /usr/X11R6/bin/xload.machineA' and make similar links on machineB and machineC.
 
 At this point, you should be able to run 'ssh machineA xload.machineA' on your local machine and see

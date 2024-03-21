@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : StartFunction
-type : function
-weight : 600
-description : |
+layout: wiki
+title: StartFunction
+type: function
+weight: 600
+description: |
   The StartFunction is run as soon as Fvwm is done Reading
   the config file. Similarly the ExitFunction is run when fvwm
   ends.

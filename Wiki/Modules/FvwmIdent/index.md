@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmIdent
-type : module
-description : |
+layout: wiki
+title: FvwmIdent
+type: module
+description: |
   FvwmIdent will create a window which contains information on the
   target window selected by the user.
 

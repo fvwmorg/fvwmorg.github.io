@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Pages and Desks
-type : config
-weight : 470
-description : |
+layout: wiki
+title: Pages and Desks
+type: config
+weight: 470
+description: |
   Fvwm supports multiple Virtual Desktops. And more you can also
   split each Desktop up into an nxm grid of Pages.
 

@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : TaskBar
-type : panel
-weight : 500
-description : |
+layout: wiki
+title: TaskBar
+type: panel
+weight: 500
+description: |
   This seems to be a common Panel asked about and with the
   removal of FvwmTaskBar here is a replacement.
 

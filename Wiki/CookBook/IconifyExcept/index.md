@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : IconifyExcept
-type : recipe
-description : |
+layout: wiki
+title: IconifyExcept
+type: recipe
+description: |
   This will Iconfiy every window except one.
 ---
 

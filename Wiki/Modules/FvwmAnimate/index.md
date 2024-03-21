@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmAnimate
-type : module
-description : |
+layout: wiki
+title: FvwmAnimate
+type: module
+description: |
   This module animates iconification and de-iconification on command.
 ---
 * TOC

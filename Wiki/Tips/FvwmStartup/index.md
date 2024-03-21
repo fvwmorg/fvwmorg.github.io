@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Fvwm Startup Procedure
-type : tip
-description : |
+layout: wiki
+title: Fvwm Startup Procedure
+type: tip
+description: |
   This describes how Fvwm Starts.
 
 ---

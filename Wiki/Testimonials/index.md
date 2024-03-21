@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : Testimonials
+layout: wiki
+title: Testimonials
 ---
 
 # Testimonials

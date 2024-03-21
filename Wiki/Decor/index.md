@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Decor
-type : main
-weight : 950
-description : |
+layout: wiki
+title: Decor
+type: main
+weight: 950
+description: |
   Here is a collection of different window Decors examples for Fvwm.
   They range from Vector decors using Fvwm built-ins to MultiPixmap
   Decors with the .png image files inlucded.

@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Syntax
-type : config
-weight : 950
-description : |
+layout: wiki
+title: Syntax
+type: config
+weight: 950
+description: |
   The basic syntax of the configuration file.
 
 ---

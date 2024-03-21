@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : SimpleButtons
-type : panel
-weight : 500
-description : |
+layout: wiki
+title: SimpleButtons
+type: panel
+weight: 500
+description: |
   This is a simple horizontal Buttons that holds 6 icons to show
   the basics of FvwmButtons.
 

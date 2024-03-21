@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Desktop Icons
-type : tip
-description : |
+layout: wiki
+title: Desktop Icons
+type: tip
+description: |
   Using FvwmButtons to put icons on the Desktop to launch
   applications.
 
@@ -30,7 +30,7 @@ AddToFunc Launcher
 + I Style $0Launch HandleWidth 0, NoTitle
 + I Module FvwmButtons $3 $0Launch
 + I UpdateStyles
-    
+
 # Examples:
 Launcher RXVT xterm.xpm "rxvt -bg black" "-g +0+0"
 Launcher XV   xv.xpm    xv   "-g +0+100"

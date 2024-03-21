@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmRearrange
-type : module
-description : |
+layout: wiki
+title: FvwmRearrange
+type: module
+description: |
   FvwmRearrange can be used to tile or cascade windows.
 
 ---

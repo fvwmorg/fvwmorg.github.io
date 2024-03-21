@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmButtons
-type : module
-description : |
+layout: wiki
+title: FvwmButtons
+type: module
+description: |
   FvwmButtons provides a method to build docks, panels, taskbars,
   and more.
 

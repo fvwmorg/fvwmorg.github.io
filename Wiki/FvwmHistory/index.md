@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Fvwm History
+layout: wiki
+title: Fvwm History
 showtitle: 1
-description : |
+description: |
   Here is a conversation that took place around 2005 about the history of Fvwm.
 
 ---

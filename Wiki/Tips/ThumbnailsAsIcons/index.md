@@ -1,14 +1,14 @@
 ---
-layout : wiki
-title : Thumbnails as Icons
-type : tip
-description : |
+layout: wiki
+title: Thumbnails as Icons
+type: tip
+description: |
   This will take a screenshot of your window before Iconifying
   it and use that as the Icon that is placed on the Desktop.
 
 ---
 
-# Thumbnails as Icons 
+# Thumbnails as Icons
 
 You will need imagemagick for this function to work.  The two functions take
 a snapshot of the window before it is iconified, and then assigns the icon
@@ -18,7 +18,7 @@ to the iconified window.
 DestroyFunc Thumbnail
 AddToFunc Thumbnail
 + I ThisWindow (Shaded) WindowShade toggle
-+ I Schedule 800 Raise 
++ I Schedule 800 Raise
 + I Raise
 + I Piperead "xwd -silent -id $[w.id] > $[HOME]/.fvwm/icon.tmp.$[w.id].xwd"
 + I Iconify

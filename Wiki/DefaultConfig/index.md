@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : DefaultConfig
+layout: wiki
+title: DefaultConfig
 ---
 
 # Default Config

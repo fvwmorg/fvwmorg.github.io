@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : TitleShade
-type : recipe
-description : |
+layout: wiki
+title: TitleShade
+type: recipe
+description: |
   WindowShade can be done an any direction, but if it is not in
   the direction of the TitleBar the window will collapse to just
   its borders. This recipe will rotate the TitleBar to the corresponding

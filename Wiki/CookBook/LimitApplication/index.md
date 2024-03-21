@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : LimitApplication
-type : recipe
-description : |
+layout: wiki
+title: LimitApplication
+type: recipe
+description: |
   When running an application this will check to see if it is already
   running. And if so instead of launching a new application, switch
   to the one that is currently running.

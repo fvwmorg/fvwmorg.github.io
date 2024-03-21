@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Center Placement of Windows
-type : tip
-description : |
+layout: wiki
+title: Center Placement of Windows
+type: tip
+description: |
   Various ways to center a window.
 
 ---

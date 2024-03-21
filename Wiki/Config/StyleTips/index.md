@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Style Tips
-type : config
-weight : 850
-description : |
+layout: wiki
+title: Style Tips
+type: config
+weight: 850
+description: |
   Here is some tips for configuring different windows using Styles.
   This is taken from <a href="https://linuxgazette.net/127/adam.html">
   This article</a> by Thomas Adam.

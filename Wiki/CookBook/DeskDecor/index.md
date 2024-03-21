@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : DeskDecor
-type : recipe
-description : |
+layout: wiki
+title: DeskDecor
+type: recipe
+description: |
   This recipe describes how to configure different Decors or
   Colorsets for different Pages and/or Desks. This is achieved
   by using FvwmEvent to trigger a function when the Page/Desk

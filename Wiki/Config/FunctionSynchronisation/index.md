@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FunctionsSynchronisation
-type : function
-weight : 800
-description : |
+layout: wiki
+title: FunctionsSynchronisation
+type: function
+weight: 800
+description: |
   This page describes how to ensure functions
   finish a command before running the next.
 
@@ -11,7 +11,7 @@ description : |
 * TOC
 {:toc}
 
-# Function Synchronisation 
+# Function Synchronisation
 
 ## Introduction
 In the #fvwm IrcChannel I (ThomasAdam) quite often see people asking
@@ -30,7 +30,7 @@ is called.
 DestroyFunc FuncMyFunction
 AddToFunc   FuncMyFunction
 + I Exec exec firefox
-+ I Exec exec xterm -name myTerminal -iconic 
++ I Exec exec xterm -name myTerminal -iconic
 + I Exec exec xteddy -wm
 {% endhighlight %}
 

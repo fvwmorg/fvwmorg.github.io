@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Window Decorations
-type : config
-weight : 450
-description : |
+layout: wiki
+title: Window Decorations
+type: config
+weight: 450
+description: |
   This gives an overview of how to configure window decorations.
   See <a href="{{ "/Decor" | prepend: site.wikiurl }}">/Decor</a>
   for example decors.

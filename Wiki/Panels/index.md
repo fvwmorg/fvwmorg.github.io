@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Panels/Docks
-type : main
-weight : 700
-description : |
+layout: wiki
+title: Panels/Docks
+type: main
+weight: 700
+description: |
   Panels/Docks are a broad term for various control panels, launchers,
   information displays, etc that are usually always visible -- such
   as a taskbar or pager. Fvwm provides various modules to help build

@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Mouse Gestures
-type : tip
-description : |
+layout: wiki
+title: Mouse Gestures
+type: tip
+description: |
   Running Fvwm commands with Mouse Gestures.
 
 ---

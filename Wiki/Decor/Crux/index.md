@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Crux Decor Example
-type : decor
-weight : 900
-description : |
+layout: wiki
+title: Crux Decor Example
+type: decor
+weight: 900
+description: |
   This decor is from the Sawfish theme Crux. It is a good example of
   mixing images, gradients and vector buttons for the final window look.
 
@@ -108,10 +108,10 @@ also to not draw a 3D-bevel around the buttons.
 ButtonStyle All Vector 3 75x25@1 25x25@1 25x75@1
 AddButtonStyle All Vector 5 20x20@0 20x80@0 80x80@0 80x20@0 20x20@0
 AddButtonStyle All Vector 3 30x85@2 85x85@2 85x20@2
- 
+
 AddButtonStyle 2 Vector 2 40x40@0 60x60@0
 AddButtonStyle 2 Vector 2 40x60@0 60x40@0
- 
+
 AddButtonStyle 4 Vector 5 35x35@0 35x65@0 65x65@0 65x35@0 35x35@0
 AddButtonStyle 4 Vector 2 35x45@0 65x45@0
 AddButtonStyle 4 Vector 2 35x40@0 65x40@0

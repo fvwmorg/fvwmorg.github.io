@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : StickyDecor
-type : recipe
-description : |
+layout: wiki
+title: StickyDecor
+type: recipe
+description: |
   This recipe gives a way to use a different Decor for Sticky windows.
   This effect can be extended to set the Colorset/Decor of a window
   based on its state.

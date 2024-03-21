@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : NewToFvwm
+layout: wiki
+title: NewToFvwm
 ---
 * TOC
 {:toc}

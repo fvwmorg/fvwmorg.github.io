@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : HashFvwm FAQ
+layout: wiki
+title: HashFvwm FAQ
 ---
 # \#fvwm FAQ
 
@@ -60,7 +60,7 @@ should suffice:
      to keep your email address private, rather than displaying it publicly,
      first mark it as hidden:
 
-     /msg nickserv set hide email on 
+     /msg nickserv set hide email on
 
      Then set the email address:
 
@@ -109,7 +109,7 @@ He's often a great source of amusement.
 
 ## I'm new to FVWM -- any cool links?
 
-* [FVWM main site](https://www.fvwm.org) 
+* [FVWM main site](https://www.fvwm.org)
 * [FVWM FAQ](https://fvwm.org/Archive/Faq)
 * [Intoduction to FvwmButtons](https://forums.gentoo.org/viewtopic.php?t=162177)
 * [FVWM Session Management](https://linuxgazette.net/100/adam.html)
@@ -159,9 +159,9 @@ those who's native language is not English, using lazy English demonstrates
 laziness on your part -- an assumption that would suggest you aren't
 prepared to try to do anything suggested.  That also means that the person
 helping you is wasting his/her time.
- 
+
 If none of this helps you, the canonical reference for all this is best
-summed up in ESR's 
+summed up in ESR's
 [smart questions FAQ](http://www.catb.org/~esr/faqs/smart-questions.html)
 
 ## PersonX is really annoying.  What do I do?
@@ -537,7 +537,7 @@ this to render XFT fonts.  If the command:
 ... doesn't have "XFT" listed in its options, then install the XFT header
 files (libxft-dev, if you're on Debian) and recompile FVWM.
 
-## I installed FVWM/fvwm-themes and I can't work out how to run them.  What do I do? 
+## I installed FVWM/fvwm-themes and I can't work out how to run them.  What do I do?
 
 You can learn a little bit about X11, I suppose.  Seriously, when most
 people ask this question what they're really asking is something like:

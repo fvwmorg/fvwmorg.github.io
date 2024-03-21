@@ -1,7 +1,7 @@
 ---
-layout : wiki
-title : Nano Gui Decor Example
-type : decor
+layout: wiki
+title: Nano Gui Decor Example
+type: decor
 description: |
   This is a MultiPixmap Decor that makes use of both the LeftEnd
   and RightEnd along with having a large number of window buttons.
@@ -20,11 +20,11 @@ Download the images [here](decor-nanogui.tar.gz). This will extract into
 a directory called 'nanogui'. Put the directory your ImagePath. If unsure
 you can copy put the directory in $HOME/.fvwm.
 
-To use this decor first configure the 
+To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders

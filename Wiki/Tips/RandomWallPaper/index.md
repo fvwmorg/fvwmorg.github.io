@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Random Wallpaper
-type : tip
-description : |
+layout: wiki
+title: Random Wallpaper
+type: tip
+description: |
   Setting random background images.
 
 ---

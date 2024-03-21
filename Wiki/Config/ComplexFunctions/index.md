@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : ComplexFunctions
-type : function
-weight : 1000
-description : |
+layout: wiki
+title: ComplexFunctions
+type: function
+weight: 1000
+description: |
   This page gives the basics about complex functions.
 
 ---

@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Irc
-type : main
-weight : 300
-description : |
+layout: wiki
+title: Irc
+type: main
+weight: 300
+description: |
   #fvwm on irc.libera.chat has been a gathering place for Fvwm users.
   Here is the channel FAQ and a few conversations that occurred on irc.
 

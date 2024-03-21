@@ -1,6 +1,6 @@
 ---
-layout : wiki
-title : FvwmWiki
+layout: wiki
+title: FvwmWiki
 ---
 * TOC
 {:toc}

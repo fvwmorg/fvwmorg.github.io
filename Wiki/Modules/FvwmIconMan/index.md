@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FvwmIconMan
-type : module
-weight : 500
-description : |
+layout: wiki
+title: FvwmIconMan
+type: module
+weight: 500
+description: |
   FvwmIconMan provides a list of running applications. You can run one or
   multiple managers and they can be configured to display different
   collections of windows.
@@ -72,7 +72,7 @@ DestroyModuleConfig FvwmIconMan: *
 
 + Short will short this list in this case by the window id. You can also
   set up Weights for windows to better control the sort order.
-  
+
 
 ### Manager Size
 

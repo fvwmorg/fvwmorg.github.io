@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Mech Decor Example
-type : decor
-weight : 700
+layout: wiki
+title: Mech Decor Example
+type: decor
+weight: 700
 description: |
   This is a MultiPixmap Decor that makes use of the LeftEnd,
   LeftOfText, RightOfText and RightEnd for the titlebar.
@@ -18,11 +18,11 @@ Download the images [here](decor-mech.tar.gz). This will extract into
 a directory called 'mech'. Put the directory your ImagePath. If unsure
 you can copy put the directory in $HOME/.fvwm.
 
-To use this decor first configure the 
+To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders

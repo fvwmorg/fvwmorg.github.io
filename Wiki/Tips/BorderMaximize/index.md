@@ -1,8 +1,8 @@
----                                                                             
-layout : wiki
-title : BorderMaximize
-type : tip
-description : |
+---
+layout: wiki
+title: BorderMaximize
+type: tip
+description: |
   When Maximizing windows, you may not want them to cover the full screen,
   so they don't cover panels. This tip shows how to configure Fvwm to
   not use the full screen when Maximizing windows.

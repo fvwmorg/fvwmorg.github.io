@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Vector Buttons
-type : config
-weight : 440
-description : |
+layout: wiki
+title: Vector Buttons
+type: config
+weight: 440
+description: |
   Vector Buttons are a built in method for drawing buttons for windows in Fvwm.
   This describes the syntax and provides a collection of examples.
 

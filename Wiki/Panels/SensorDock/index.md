@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : SensorDock
-type : panel
-weight : 300
-description : |
+layout: wiki
+title: SensorDock
+type: panel
+weight: 300
+description: |
   Here is an example of a SensorDock I use that that shows a Pager,
   uses xosview to show cpu, mem, disk, etc., uses FvwmScript to
   show the date/time and temperature outputs from lm-sensors

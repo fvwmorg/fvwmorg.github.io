@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmIconMan
-type : tip
-description : |
+layout: wiki
+title: FvwmIconMan
+type: tip
+description: |
   Some tips about the module FvwmIconMan.
 
 ---

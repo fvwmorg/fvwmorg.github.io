@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Background Menu Menu
-type : menu
-weight : 200
-description : |
+layout: wiki
+title: Background Menu Menu
+type: menu
+weight: 200
+description: |
   This generates a menu of all files in a background directory
   that can be used to switch backgrounds.
 

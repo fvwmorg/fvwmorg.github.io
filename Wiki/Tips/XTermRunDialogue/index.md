@@ -1,15 +1,15 @@
 ---
-layout : wiki
-title : XTerm Run Dialogue
-type : tip
-description : |
+layout: wiki
+title: XTerm Run Dialogue
+type: tip
+description: |
   This uses Rxvt to configure pop up a little dialog you can type a command
   to execute.
 
 ---
 
 
-# An xterm based run dialog with tab completion 
+# An xterm based run dialog with tab completion
 
 What if you want to do [Tips/RxvtRunDialogue](
 {{ "/Tips/RxvtRunDialogue" | prepend: site.wikiurl }}), but only have xterm
@@ -26,7 +26,7 @@ The ``~/.fvwm/run-dialog`` looks more like this:
 
 {% highlight shell %}
 #!/bin/sh
-xterm +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \  
+xterm +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \
 -e bash --init-file $HOME/.fvwm/run-dialog.bash-init
 {% endhighlight %}
 

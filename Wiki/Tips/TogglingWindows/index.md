@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Toggling Windows
-type : tip
-description : |
+layout: wiki
+title: Toggling Windows
+type: tip
+description: |
   This function will toggle windows from a Menu entry, FvwmButton,
   etc. If the window is not running it will launch it, if it is
   running on a different desk/page, it will move it to the current

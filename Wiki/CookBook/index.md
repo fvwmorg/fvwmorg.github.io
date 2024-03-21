@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : CookBook
-type : main
-weight : 900
-description : |
+layout: wiki
+title: CookBook
+type: main
+weight: 900
+description: |
   This is a collection of different recipes to get fvwm to achieve
   different effects. Some examples are a show desktop feature, give
   sticky windows their own decor, and many more.

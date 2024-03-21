@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Gradient Backgrounds
-type : tip
-description : |
+layout: wiki
+title: Gradient Backgrounds
+type: tip
+description: |
   This descibes how to get nice gradients on different fvwm desktops or pages.
 
 ---

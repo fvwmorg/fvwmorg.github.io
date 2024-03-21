@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Window Ops Menu
-type : menu
-weight : 500
-description : |
+layout: wiki
+title: Window Ops Menu
+type: menu
+weight: 500
+description: |
   This menu is just a collection of actions (Maximize, Iconify,
   Close, etc) that can be used to control windows.
 

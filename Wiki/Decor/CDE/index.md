@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : CDE Decor Example
-type : decor
-weight : 600
-description : |
+layout: wiki
+title: CDE Decor Example
+type: decor
+weight: 600
+description: |
   A Common Desktop Environment (CDE) Decor. This is a simple decor that
   uses no images and is built using Colorsets and Vector buttons.
 

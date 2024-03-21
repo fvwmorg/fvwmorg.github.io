@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Default Decor Example
-type : decor
-weight : 1000
-description : |
+layout: wiki
+title: Default Decor Example
+type: decor
+weight: 1000
+description: |
   This is the decor that comes with the default config.
 
 ---
@@ -18,11 +18,11 @@ have a 3D beveled look, while the titlebar and buttons are Flat.
 This is a Decor that doesn't require any images and can be done with
 the effects built into Fvwm.
 
-To use this decor first configure the 
+To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders

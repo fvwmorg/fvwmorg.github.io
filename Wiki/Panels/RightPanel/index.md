@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : RightPanel
-type : panel
-weight : 600
-description : |
+layout: wiki
+title: RightPanel
+type: panel
+weight: 600
+description: |
   This is a description of the RightPanel found in the
   default configuration.
 

@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : SaveState
-type : recipe
-description : |
+layout: wiki
+title: SaveState
+type: recipe
+description: |
   When a Maximized application is closed, this will save its state,
   and the next time that application is run, the application will be
   Maximized. This idea can be extended to other window states.

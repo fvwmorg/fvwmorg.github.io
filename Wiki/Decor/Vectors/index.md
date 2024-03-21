@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Vectors Decor Example
-type : decor
-weight : 800
-description : |
+layout: wiki
+title: Vectors Decor Example
+type: decor
+weight: 800
+description: |
   This example shows the 3D Raised look of windows and is configured
   from the tools built into fvwm.
 

@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Focus Stealing
-type : tip
-description : |
+layout: wiki
+title: Focus Stealing
+type: tip
+description: |
   Some applications want to steal focus when an event
   is trigered. This describes how to disable apps from
   stealing focus in Fvwm.
@@ -37,7 +37,7 @@ implementation looks like the following:
 
 {% highlight fvwm %}
 DestroyFunc EWMHActivateWindowFunc
-AddToFunc EWMHActivateWindowFunc 
+AddToFunc EWMHActivateWindowFunc
 + I Iconify Off
 + I Focus
 + I Raise

@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FvwmCommandS
-type : module
-weight : 300
-description : |
+layout: wiki
+title: FvwmCommandS
+type: module
+weight: 300
+description: |
   This is a server that runs in the background allow you to issue commands
   to fvwm via FvwmCommand on the command line (say inside a terminal like
   xterm).

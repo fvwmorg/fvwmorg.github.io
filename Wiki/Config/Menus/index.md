@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Menus
-type : config
-weight : 700
-description : |
+layout: wiki
+title: Menus
+type: config
+weight: 700
+description: |
   Fvwm can use Menus for lots of things. Menus items can run any
   Fvwm command or custom functions. They can even be built dynamically
   with scripts, such as wall paper menus, a menu that allows you to

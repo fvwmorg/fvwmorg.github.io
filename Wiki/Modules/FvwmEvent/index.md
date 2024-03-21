@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FvwmEvent
-type : module
-weight : 5
-description : |
+layout: wiki
+title: FvwmEvent
+type: module
+weight: 5
+description: |
   FvwmEvent can be configured to trigger on specific events. When
   the event is triggered, the module can run any command.
 

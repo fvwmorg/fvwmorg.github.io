@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Fvwm2rc
-type : config
-weight : 1000
-description : |
+layout: wiki
+title: Fvwm2rc
+type: config
+weight: 1000
+description: |
   Fvwm is configured through a configuration file located at ~/.fvwm/config
   (default), also known as the Fvwm2rc or .fvwm2rc file. This page is
   an overview of the location of that file and how Fvwm starts.

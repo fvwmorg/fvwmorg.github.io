@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Resize a Window then Center It
-type : tip
-description : |
+layout: wiki
+title: Resize a Window then Center It
+type: tip
+description: |
   Describes how to resize a window and then center it.
 
 ---

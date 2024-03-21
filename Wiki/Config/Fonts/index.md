@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Fonts
-type : config
-weight : 750
-description : |
+layout: wiki
+title: Fonts
+type: config
+weight: 750
+description: |
   Fonts are used for titles, icon names, menus, modules, etc.
   Here is a brief description on how to configure fonts.
 

@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FunctionContext
-type : function
-weight : 900
-description : |
+layout: wiki
+title: FunctionContext
+type: function
+weight: 900
+description: |
   Functions are usually run in the context of the window in which
   they were run, but not always. Here are some pointers for ensuring
   commands are run in the correct context.
@@ -53,7 +53,7 @@ The same things can happen when functions are called from a menu.  Hence:
 {% highlight fvwm %}
 DestroyMenu MenuSomeMenu
 AddToMenu   MenuSomeMenu CallMyFunction FuncDisplayName
-    
+
 Popup MenuSomeMenu
 {% endhighlight %}
 

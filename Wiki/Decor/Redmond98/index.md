@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Redmond98 Decor Example
-type : decor
-weight : 250
-description : |
+layout: wiki
+title: Redmond98 Decor Example
+type: decor
+weight: 250
+description: |
   A Windows 98 Decor.
 
 ---
@@ -28,11 +28,11 @@ This decor requires a collection of images for the buttons you can
 called ‘redmondxp’. Put the directory your ImagePath. If unsure you can copy
 put the directory in $HOME/.fvwm.
 
-To use this decor first configure the 
+To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders

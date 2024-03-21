@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Commands
-type : config
-weight : 1200
-description : |
+layout: wiki
+title: Commands
+type: config
+weight: 1200
+description: |
   Fvwm is a command driven window manager. When Fvwm receives a command
   it processes the command to set/change settings, preform actions, and
   so on. This page is an overview of how Fvwm works and processes commands.

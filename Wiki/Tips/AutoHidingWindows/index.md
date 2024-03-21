@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Auto Hiding Windows
-type : tip
-description : |
+layout: wiki
+title: Auto Hiding Windows
+type: tip
+description: |
   This describes how to configure windows to hide themselves
   by using WindowShade and the FvwmAuto Module.
 

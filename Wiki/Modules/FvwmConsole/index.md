@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmConsole
-type : module
-description : |
+layout: wiki
+title: FvwmConsole
+type: module
+description: |
   FvwmConsole runs in a terminal (such as xterm) and allows one to send
   commands to the running instance of fvwm. This is a very useful module
   in testing new configurations.

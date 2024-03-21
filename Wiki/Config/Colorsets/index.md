@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Colorsets
-type : config
-weight : 800
-description : |
+layout: wiki
+title: Colorsets
+type: config
+weight: 800
+description: |
   Colorsets are used to define colors in Fvwm. A Colorset is a collection
   of colors that describe different aspects of an object. This includes
   the foreground and background color along with the shade and highlight

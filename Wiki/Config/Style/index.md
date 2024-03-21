@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Settings and Styles
-type : config
-weight : 900
-description : |
+layout: wiki
+title: Settings and Styles
+type: config
+weight: 900
+description: |
   Styles are per window settings that can be applied to all, different
   collections or a single window.
 

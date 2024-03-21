@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : FuncitonTips
-type : function
-weight : 700
-description : |
+layout: wiki
+title: FuncitonTips
+type: function
+weight: 700
+description: |
   Functions are usually run in the context of the window in which
   they were run, but not always. Here are some pointers for ensuring
   commands are run in the correct context.
@@ -35,7 +35,7 @@ it appears on screen.  Sounds simple enough, right?  First thing we have
 to solve is how we're going to do that.  FvwmEvent allows for certain
 actions to be listened for, and actioned upon where appropriate.  It's a
 very useful module, and when writing functions that depend on them, can be
-invaluable.  
+invaluable.
 
 ## Thinking it through
 

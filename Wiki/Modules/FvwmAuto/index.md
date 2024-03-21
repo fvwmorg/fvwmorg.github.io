@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : FvwmAuto
-type : module
-description : |
+layout: wiki
+title: FvwmAuto
+type: module
+description: |
   The FvwmAuto module allows you to define actions for when the pointer enters
   and leaves a window after a specified delay. A common use of this would be
   to automatically raise windows, which is in fact the module's default

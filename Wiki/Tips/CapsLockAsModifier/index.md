@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Auto Hiding Windows
-type : tip
-description : |
+layout: wiki
+title: Auto Hiding Windows
+type: tip
+description: |
   This describes how to configure CapsLock as a Modifier for Key and
   Mouse bindings.
 
@@ -37,7 +37,7 @@ After changing this you need to run:
 
 Now Caps Lock acts as a fourth modifier key.
 
-An other way is to place 
+An other way is to place
 
     Option "XkbOptions" "ctrl:nocaps"
 

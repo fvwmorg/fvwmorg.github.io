@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : MouseStroke
-type : config
-weight : 600
-description : |
+layout: wiki
+title: MouseStroke
+type: config
+weight: 600
+description: |
   This describes how to configure Mouse Stroke which allows
   you to run commands on different Mouse Stroke patterns.
 

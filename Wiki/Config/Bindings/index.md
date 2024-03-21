@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Bindings
-type : config
-weight : 650
-description : |
+layout: wiki
+title: Bindings
+type: config
+weight: 650
+description: |
   This describes how to configure Mouse and Key bindings.
 
 ---

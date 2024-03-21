@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : Fvwm Tips
-type : main
-weight : 800
-description : |
+layout: wiki
+title: Fvwm Tips
+type: main
+weight: 800
+description: |
   These are a collection of tips to deal with various tasks.
   
 ---

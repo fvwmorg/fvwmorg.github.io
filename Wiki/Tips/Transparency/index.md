@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Transparency
-type : tip
-description : |
+layout: wiki
+title: Transparency
+type: tip
+description: |
   A few tips about Transparent FvwmButtons.
 
 ---
@@ -14,9 +14,9 @@ If you want to make your swallowed FvwmPager transparent, you have to make the F
 
     Pixmap none
 
-will not work, you have to use: 
+will not work, you have to use:
 
-    Pixmap /path/to/transparent/image 
+    Pixmap /path/to/transparent/image
 
 for both modules.
 

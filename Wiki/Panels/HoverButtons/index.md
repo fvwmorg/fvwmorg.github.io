@@ -1,9 +1,9 @@
 ---
-layout : wiki
-title : HoverButton
-type : noshow
-weight : 500
-description : |
+layout: wiki
+title: HoverButton
+type: noshow
+weight: 500
+description: |
   HoverButton is a set of functions to create a FvwmButton
   with an Icon that will hover above the dock when the mouse
   is over the Button.

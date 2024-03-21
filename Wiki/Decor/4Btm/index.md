@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : 4Btm Decor Example
-type : decor
-description : |
+layout: wiki
+title: 4Btm Decor Example
+type: decor
+description: |
   A MultiPixmap Decor with 4 buttons and color or image title bar.
 
 ---
@@ -27,7 +27,7 @@ To use this decor, first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
 {% highlight fvwm %}
-#   1 - Inactive Windows 
+#   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Active Windows Borders
 #   4 - Inactive Windows Borders

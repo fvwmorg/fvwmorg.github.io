@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : Rxvt Run Dialogue
-type : tip
-description : |
+layout: wiki
+title: Rxvt Run Dialogue
+type: tip
+description: |
   This uses Rxvt to configure pop up a little dialog you can type a command
   to execute.
 
@@ -25,7 +25,7 @@ The following script, starts the dialog:
 
 {% highlight shell %}
 #!/bin/sh
-rxvt +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \  
+rxvt +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \
 --keysym.0xFF0D: " &\nexit\n" -e bash --init-file \
 $HOME/.fvwm/run-dialog.bash-init
 {% endhighlight %}
@@ -63,7 +63,7 @@ And I changed the script to read:
 
 {% highlight shell %}
 #!/bin/sh
-rxvt +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \  
+rxvt +sb -name fvwm-run-dialog -title "run" -geometry 80x1+224+360 \
 --keysym.0xFF0D: " &\n exit\n" -e bash --init-file \
 $HOME/.fvwm/run-dialog.bash-init
 {% endhighlight %}

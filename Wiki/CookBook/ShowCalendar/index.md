@@ -1,8 +1,8 @@
 ---
-layout : wiki
-title : ShowCalendar
-type : recipe
-description : |
+layout: wiki
+title: ShowCalendar
+type: recipe
+description: |
   A calendar popping up when the clock/date in a dock is clicked
   is a common feature. This is one way of doing it in Fvwm using a
   slightly modified FvwmScript-DateTime
