@@ -17,11 +17,7 @@ Here is the list of modules:
 {% assign pages = site.pages | where:"type","module" | sort:"weight" %}
 {% capture fvwmtxt %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: "Wiki/Modules" | remove: "/" }}</a><br>
-  {{ mypage.description }}
-  </p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
 {% endcapture %}
 {% include fvwmwindow.html id="wiki-module-pages"

@@ -26,11 +26,7 @@ These are only examples, for configuration descriptions see
 {% assign pages = site.pages | where:"type","decor" | sort:"weight" %}
 {% capture fvwmtxt %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: "Wiki/Decor" | remove: "/" }}</a><br>
-  {{ mypage.description }}
-  </p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
 {% endcapture %}
 {% include fvwmwindow.html id="wiki-decor-pages"

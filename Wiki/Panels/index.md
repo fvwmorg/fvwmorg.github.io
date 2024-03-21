@@ -53,11 +53,7 @@ Here is the list of example panels:
 {% assign pages = site.pages | where:"type","panel" | sort:"weight" %}
 {% capture fvwmtxt %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: "Wiki/Panels" | remove: "/" }}</a><br>
-  {{ mypage.description }}
-  </p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
 {% endcapture %}
 {% include fvwmwindow.html id="wiki-pannels-pages"

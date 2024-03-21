@@ -30,9 +30,5 @@ Here are the list of conversations:
 
 {% assign pages = site.pages | where:"type","irc" | sort:"weight" %}
 {% for mypage in pages reversed %}
-  <p class="title-indent">
-  <a href="{{ mypage.url | prepend: site.baseurl }}">
-  {{ mypage.url | remove: "Wiki/Irc" | remove: "/" }}</a><br>
-  {{ mypage.description }}
-  </p>
+  {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
