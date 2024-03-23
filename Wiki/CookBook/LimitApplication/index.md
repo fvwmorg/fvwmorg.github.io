@@ -2,6 +2,9 @@
 layout: wiki
 title: LimitApplication
 type: recipe
+tags:
+  - Function
+  - Binding
 description: |
   When running an application this will check to see if it is already
   running. And if so instead of launching a new application, switch

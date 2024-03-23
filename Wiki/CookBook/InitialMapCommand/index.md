@@ -2,6 +2,8 @@
 layout: wiki
 title: InitialMapCommand
 type: recipe
+tags:
+  - Style
 description: |
   Old recipes required using FvwmEvent to preform an action on a new
   window such as Maximizing it or moving it to the top right corner

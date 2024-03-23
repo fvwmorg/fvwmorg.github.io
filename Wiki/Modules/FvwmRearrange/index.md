@@ -27,4 +27,64 @@ current screen subject to certain constraints. Layering is performed
 so consecutive windows will have their window titles visible underneath
 the previous.
 
+## Configuration and Use
 
+FvwmRearrange is invoked from a menu, pop-up, or button. Several
+command line options can be used to constrain the layering. For a full
+list of FvwmRearrange configuration options see the FvwmRearrange manpage.
+
+Here is a sample configuration for tiling with 2 columns.
+
+{% highlight fvwm %}
+FvwmRearrange -tile -r -mn 2 -maximize 0 0
+{% endhighlight %}
+
+To restore the windows, FvwmRearrange doesn't reverse the options,
+use this for all.
+
+{% highlight fvwm %}
+All (CurrentPage, !Iconic, CirculateHit, !Sticky) Maximize Off
+{% endhighlight %}
+
+## Example
+
+This advanced example is attached to key binding (alt-t) with functions that
+do the tiling with 3 columns. With the same key binding, it restores all
+windows. The below screenshot, before and after tiling, and the following configuration demonstrates this :
+
+|![image](before-after-tile.png)|
+
+Tiling with 3 columns.
+
+{% highlight fvwm %}
+DestroyFunc 3Tile
+AddToFunc 3Tile
++ I FvwmRearrange -tile -r -mn 3 -maximize 1 3 92 92
+{% endhighlight %}
+
+Tile switch on and off.
+
+{% highlight fvwm %}
+InfoStoreAdd TileSwitch "ON"
+
+DestroyFunc Tile
+AddToFunc Tile
++ I Test (EnvMatch infostore.TileSwitch ON) TileOn
++ I TestRc (NoMatch) TileOff
+
+DestroyFunc TileOn
+AddToFunc TileOn
++ I 3Tile
++ I InfoStoreAdd TileSwitch OFF
+
+DestroyFunc TileOff
+AddToFunc TileOff
++ I All (CurrentPage, !Iconic, CirculateHit, !Sticky) Maximize Off
++ I InfoStoreAdd TileSwitch ON
+{% endhighlight %}
+
+Key binding (alt-t)
+
+{% highlight fvwm %}
+Key t A M Tile
+{% endhighlight %}
