@@ -2,6 +2,8 @@
 layout: wiki
 title: SaveState
 type: recipe
+tags:
+  - Function
 description: |
   When a Maximized application is closed, this will save its state,
   and the next time that application is run, the application will be

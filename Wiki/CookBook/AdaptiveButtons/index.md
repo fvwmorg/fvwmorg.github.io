@@ -2,6 +2,8 @@
 layout: wiki
 title: AdaptiveButtons
 type: recipe
+tags:
+  - Module
 description: |
   Through the SendToModule command, FvwmButtons can be configured
   to be more dynamic. You can change the Colorset, Icon, Title,

@@ -2,6 +2,8 @@
 layout: wiki
 title: DeskDecor
 type: recipe
+tags:
+  - Function
 description: |
   This recipe describes how to configure different Decors or
   Colorsets for different Pages and/or Desks. This is achieved

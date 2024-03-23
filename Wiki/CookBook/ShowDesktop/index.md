@@ -2,6 +2,8 @@
 layout: wiki
 title: ShowDesktop
 type: recipe
+tags:
+  - Function
 description: |
   This is the MS-Windows inspired feature that will show the desktop
   by Iconfiying all the windows on the current Page. Further it shows
