@@ -2,6 +2,8 @@
 layout: wiki
 title: TitleShade
 type: recipe
+tags:
+  - Function
 description: |
   WindowShade can be done an any direction, but if it is not in
   the direction of the TitleBar the window will collapse to just
