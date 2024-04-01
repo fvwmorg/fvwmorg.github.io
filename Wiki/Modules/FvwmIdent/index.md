@@ -2,6 +2,7 @@
 layout: wiki
 title: FvwmIdent
 type: module
+weight: 600
 description: |
   FvwmIdent will create a window which contains information on the
   target window selected by the user.

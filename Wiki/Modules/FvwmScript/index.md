@@ -2,6 +2,7 @@
 layout: wiki
 title: FvwmScript
 type: module
+weight: 380
 description: |
   FvwmScript allows one to build graphical applications such as
   desktop accessories which can just display system info or be interactive.

@@ -2,6 +2,7 @@
 layout: wiki
 title: FvwmAnimate
 type: module
+weight: 350
 description: |
   This module animates iconification and de-iconification on command.
 ---

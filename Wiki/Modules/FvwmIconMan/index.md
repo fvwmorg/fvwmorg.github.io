@@ -2,7 +2,7 @@
 layout: wiki
 title: FvwmIconMan
 type: module
-weight: 500
+weight: 850
 description: |
   FvwmIconMan provides a list of running applications. You can run one or
   multiple managers and they can be configured to display different

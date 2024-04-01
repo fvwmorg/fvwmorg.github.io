@@ -2,11 +2,11 @@
 layout: wiki
 title: FvwmBacker
 type: module
+weight: 430
 description: |
   This module will change the backgound/wallpaper when changing desktops.
   Any command can be executed when changing desktops so this module can
   be used for more than just switching the background.
-
 ---
 * TOC
 {:toc}

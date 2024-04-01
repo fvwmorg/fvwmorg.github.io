@@ -2,9 +2,9 @@
 layout: wiki
 title: FvwmRearrange
 type: module
+weight: 750
 description: |
   FvwmRearrange can be used to tile or cascade windows.
-
 ---
 * TOC
 {:toc}

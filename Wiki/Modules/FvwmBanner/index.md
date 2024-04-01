@@ -2,9 +2,9 @@
 layout: wiki
 title: FvwmBanner
 type: module
+weight: 50
 description: |
   Displays an Fvwm Logo in the center of the screen for a set amount of time.
-
 ---
 * TOC
 {:toc}

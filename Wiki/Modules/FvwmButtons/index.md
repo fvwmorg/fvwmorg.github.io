@@ -2,6 +2,7 @@
 layout: wiki
 title: FvwmButtons
 type: module
+weight: 800
 description: |
   FvwmButtons provides a method to build docks, panels, taskbars,
   and more.
