@@ -2,7 +2,7 @@
 layout: wiki
 title: FvwmPager
 type: module
-weight: 1
+weight: 900
 description: |
   FvwmPager shows a ininature view of the Fvwm Desktops and Pages.
   This can be configured to show only the Current Desktop or any

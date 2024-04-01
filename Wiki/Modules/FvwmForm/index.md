@@ -2,10 +2,10 @@
 layout: wiki
 title: FvwmForm
 type: module
+weight: 400
 description: |
   FvwmForm provides a way to build GUI forms that can be filled
   out and run custom commands.
-
 ---
 * TOC
 {:toc}

@@ -2,11 +2,10 @@
 layout: wiki
 title: FvwmEvent
 type: module
-weight: 5
+weight: 500
 description: |
   FvwmEvent can be configured to trigger on specific events. When
   the event is triggered, the module can run any command.
-
 ---
 * TOC
 {:toc}
