@@ -7,12 +7,13 @@ title: FvwmWiki
 This is the home of the __FvwmWiki__, a collection of user
 pages, tips, etc., focusing on [Fvwm](https://www.fvwm.org).
 Fvwm is a very flexible and configurable [window manager](
-{{ "/WindowManager" | prepend: site.wikiurl }}).
-Here are some [testimonials]({{ "/Testimonials" | prepend: site.wikiurl }})
-from Fvwm users.
+{{ "/NewToFvwm/WindowManager" | prepend: site.wikiurl }}).
 
-If you are new to Fvwm,
-[Read me]({{ "/NewToFvwm" | prepend: site.wikiurl }}) first.
+If you are new, check out the
+[New to Fvwm]({{ "/NewToFvwm" | prepend: site.wikiurl }})
+page and the [Why use Fvwm](
+{{ "/NewToFvwm/WhyFvwm" | prepend: site.wikiurl }})
+pages.
 
 ## About the Wiki
 
