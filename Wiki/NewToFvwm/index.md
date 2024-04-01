@@ -20,7 +20,7 @@ environment comes with a collection of preconfigured settings and
 software (file managers, docks/panels, and so on) all integrated
 together.
 
-FVWM is a [WindowManager]({{ "/WindowManager" | prepend: site.wikiurl }})
+FVWM is a [WindowManager]({{ "/NewToFvwm/WindowManager" | prepend: site.wikiurl }})
 that gives the user the choice of expression. Details such as the
 appearance of windows, which program will act as your file manager,
 etc., are defined by the user. FVWM won't make that choice for you.

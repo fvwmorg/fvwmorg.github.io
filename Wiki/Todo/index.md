@@ -48,14 +48,10 @@ These are pages that are places holders.
 
 Pages that need to be updated
 
-+ [/NewToFvwm]({{ "/NewToFvwm" | prepend: site.wikiurl }})
-  -- Idea: include a description of the default config
-  and maybe point to some of the pages that would be useful to someone starting
-  with the default config and editing it.
-+ [/WindowManager]({{ "/WindowManager" | prepend: site.wikiurl }})
 + [/Modules/\*]({{ "/Modules" | prepend: site.wikiurl }})
   -- Most the modules don't have much more than a
   description. These need to all be updated and include some examples of different
   panels and things that can be done with modules.
++ Probably others I haven't listed.
 
 
