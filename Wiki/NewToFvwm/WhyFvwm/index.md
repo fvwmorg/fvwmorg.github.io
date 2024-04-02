@@ -10,19 +10,27 @@ Fvwm is a very old project and at one time was a fairly
 popular window manager, and is now a tiny project still used
 by lots of core users. What is it about fvwm that users like?
 
-+ Fvwm is light weight and fast. Fvwm is built on top of X11,
+{% capture fvwmtxt %}
+<p><font size="3"><b>Fvwm is light weight and fast.</b></font> - Fvwm is built on top of X11,
   and doesn't use a lot of additional libraries or widget
   sets, as such it has a very small foot print on top of
-  the already running X server, making it quite sleek.
+  the already running X server, making it quite sleek.</p>
 
-+ Fvwm is very stable, and preforms its task as a window manager
-  very well. It is very rare fvwm crashes, and most instability
-  is the application itself.
+<p><font size="3"><b> - Fvwm is very stable and performs its task as a window manager
+  very well.</b></font> - It is very rare fvwm crashes, and most instability
+  is the application itself.</p>
 
-+ Fvwm is extremely configurable, and you can customize almost
-  every possible aspect of your desktop. Though this does take
+<p><font size="3"><b>Fvwm is extremely configurable.</b></font> - You can customize almost
+  every possible aspect of your desktop. However, this does take
   a lot of work to both learn how to configure fvwm and how
-  to put your dream configuration into practice.
+  to put your dream configuration into practice.</p>
+{% endcapture %}
+{% include fvwmwindow.html
+title="FVWM"
+color="no color"
+content=fvwmtxt %}
+
+## Fvwm features and capabilities:
 
 + Fvwm has the retro Motif look, similar to CDE. But fvwm doesn't
   need to look retro, and can be configured to have modern sleek
@@ -30,7 +38,7 @@ by lots of core users. What is it about fvwm that users like?
   configurable?
 
 + Fvwm has a wide range of modules that can be used to improve
-  the experience. These include a pager which shows all the
+  the experience. These include a pager that shows all the
   virtual pages and desktops. And modules to build panels,
   and even interactive forums. Even more configurability.
 
@@ -45,7 +53,7 @@ by lots of core users. What is it about fvwm that users like?
   while using modern software, and fvwm-crystal, which gives a
   nice sleek look.
 
-Fvwm is quite versatile, but in order to get the most out of
+**Fvwm is versatile**, but in order to get the most out of
 fvwm, you need to be willing to take the time to learn its
 command syntax (which is just the configuration file syntax).
 As you learn how to tell fvwm how to handle your windows,
@@ -53,7 +61,11 @@ you can tweak fvwm into your own dream window manager. Okay,
 there are limits as to what fvwm can do, but within its
 structure, there is a lot of power.
 
-# What are fvwm's weaknesses?
+<i><b>I like fvwm’s approach</b> - no defaults and everything is
+up to the user. I can hardly imagine myself using anything else.
+Even with my lame coding style, fvwm meets my needs perfectly.</i>
+
+## What are fvwm's weaknesses?
 
 If fvwm was so great, why isn't everyone using it? And though I
 agree with that, the reality is fvwm requires a lot of effort
@@ -66,17 +78,17 @@ be used as a starting point, such as the [DefaultConfig](
 {{ "/DefaultConfig" | prepend: site.wikiurl }}). But making
 changes to fvwm still requires reading through the config file and
 understanding what to change. There are no GUI tools for this
-(partly because an GUI tool couldn't reasonable hold all the
+(partly because a GUI tool couldn't reasonably hold all the
 options fvwm has) and learning what to change can take a little
 bit of trial and error.
 
-Fvwm's isn't built using any modern widget set or frame work, and
+Fvwm's isn't built using any modern widget set or framework, and
 though its modules can allow some building of interactive UI elements,
 they are a bit primitive and don't contain a lot of modern features.
-Though you can build tools using modern frame works that talk to
+Though you can build tools using modern frameworks that talk to
 fvwm.
 
-Fvwm isn't for everyone, but if a quick, fast, low memory use, and
+Fvwm isn't for everyone, but if a quick, fast, low-memory use and
 very customizable window manager sounds good to you, give it a try.
 I would start by using the [DefaultConfig](
 {{ "/DefaultConfig" | prepend: site.wikiurl }}),
