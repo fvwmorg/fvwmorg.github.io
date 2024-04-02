@@ -2,6 +2,7 @@
 layout: wiki
 title: ShowCalendar
 type: recipe
+weight: 450
 tags:
   - Module
 description: |

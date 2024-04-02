@@ -2,6 +2,7 @@
 layout: wiki
 title: StickyDecor
 type: recipe
+weight: 750
 tags:
   - Decor
 description: |

@@ -2,6 +2,7 @@
 layout: wiki
 title: AltTab
 type: recipe
+weight: 700
 tags:
   - Binding
   - Function

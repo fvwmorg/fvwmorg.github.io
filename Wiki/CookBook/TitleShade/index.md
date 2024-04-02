@@ -2,6 +2,7 @@
 layout: wiki
 title: TitleShade
 type: recipe
+weight: 400
 tags:
   - Function
 description: |

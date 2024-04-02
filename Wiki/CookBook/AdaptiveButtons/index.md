@@ -2,6 +2,7 @@
 layout: wiki
 title: AdaptiveButtons
 type: recipe
+weight: 850
 tags:
   - Module
 description: |

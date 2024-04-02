@@ -2,8 +2,9 @@
 layout: wiki
 title: IconifyExcept
 type: recipe
+weight: 600
 tags:
-  - Style
+  - Conditional
 description: |
   This will Iconfiy every window except one.
 ---

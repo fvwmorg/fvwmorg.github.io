@@ -2,6 +2,7 @@
 layout: wiki
 title: ShowDesktop
 type: recipe
+weight: 650
 tags:
   - Function
 description: |

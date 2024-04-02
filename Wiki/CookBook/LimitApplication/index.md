@@ -2,6 +2,7 @@
 layout: wiki
 title: LimitApplication
 type: recipe
+weight: 500
 tags:
   - Function
   - Binding

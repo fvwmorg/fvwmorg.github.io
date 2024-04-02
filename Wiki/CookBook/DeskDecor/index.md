@@ -2,6 +2,7 @@
 layout: wiki
 title: DeskDecor
 type: recipe
+weight: 800
 tags:
   - Function
 description: |
