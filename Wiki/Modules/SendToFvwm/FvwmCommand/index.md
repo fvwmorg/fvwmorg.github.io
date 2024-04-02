@@ -1,26 +1,18 @@
 ---
 layout: wiki
 title: FvwmCommand
-type: module
+type: sendtofvwm
 weight: 660
 description: |
   FvwmCommand is a python script which can send commands directly to to
   fvwm from any terminal or script, provided FvwmMFL is running.
 ---
-
 # FvwmCommand
-
-**Note:** In fvwm3, a new module [FvwmPrompt](
-{{ "/Modules/FvwmPrompt" | prepend: site.wikiurl }})
-exists that is a combination of FvwmCommand and [FvwmConsole](
-{{ "/Modules/FvwmConsole" | prepend: site.wikiurl }}).
-Though due to golang dependencies, this new module is not in wide use yet.
-If FvwmPrompt is installed, you should use it instead.
 
 FvwmCommand is a command line tool that allows you to send commands
 directly to fvwm from any terminal or shell by talking to the
-[FvwmMFL]({{ "/Modules/FvwmMFL" | prepend: site.wikiurl }}) socket.
-FvwmCommand then sends the command you give it directly to fvwm.
+[FvwmMFL]({{ "/Modules/SendToFvwm/FvwmMFL" | prepend: site.wikiurl }})
+socket. FvwmCommand then sends the command you give it directly to fvwm.
 For example to launch [FvwmPager](
 {{ "/Modules/FvwmPager" | prepend: site.wikiurl }}) from a terminal:
 
@@ -37,3 +29,8 @@ started FvwmMFL from your start function:
 AddToFunc StartFunction I Module FvwmMFL
 {% endhighlight %}
 
+**Note:** In fvwm3, if [FvwmPrompt](
+{{ "/Modules/SendToFvwm/FvwmPrompt" | prepend: site.wikiurl }})
+is installed, you should use that instead. FvwmPrompt can both send
+single commands exactly like FvwmCommand, it can also open an
+interactive shell that can be used to talk to fvwm.

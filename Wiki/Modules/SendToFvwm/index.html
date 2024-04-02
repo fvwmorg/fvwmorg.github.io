@@ -1,0 +1,53 @@
+---
+layout: wiki
+title: Functions
+type: module
+weight: 600
+description: |
+  There are various ways to send commands directly to fvwm from
+  the command line, a terminal, or even your own custom scripts.
+  The following modules can be used to send commands to fvwm:
+  <a href="/Wiki/Modules/SendToFvwm/FvwmPrompt">FvwmPrompt</a>,
+  <a href="/Wiki/Modules/SendToFvwm/FvwmConsole">FvwmConsole</a>,
+  <a href="/Wiki/Modules/SendToFvwm/FvwmCommand">FvwmCommand</a>, and
+  <a href="/Wiki/Modules/SendToFvwm/FvwmMFL">FvwmMFL</a>.
+---
+<h1>Sending commands to fvwm</h1>
+
+<p>It is possible to send commands directly to the running instance of fvwm
+from the command line, which are processed immediately. The following modules
+can be used to this, which is useful for testing new configuration ideas, or
+sending fvwm commands you haven't previously configured to a menu, button
+keybinding, etc in the configuration file.</p>
+
+<p>Starting with fvwm3, FvwmPrompt is the recommended tool for this.
+FvwmPrompt can be run from any terminal, and is both a command line tool that
+sends a single command to fvwm, like FvwmCommand, or an interactive shell
+that can send multiple commands to fvwm, like FvwmConsole.</p>
+
+{% assign pages = site.pages | where:"type","sendtofvwm" | sort:"weight" %}
+{% capture fvwmtxt %}
+{% for mypage in pages reversed %}
+  {% include wiki_index_item.html mypage=mypage %}
+{% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="sendtofvwm-pages"
+title="Modules to send commands to fvwm" content=fvwmtxt color="gray" %}
+
+<p><strong>Note:</strong> Only one of FvwmPrompt or FvwmConsole will be
+installed with fvwm, and although FvwmPrompt is recommended, due to its
+dependency on golang, may not always be built, most notably the Debian
+package still uses FvwmConsole. In order to deal with this, the following
+from the <a href="{{ "/DefaultConfig" | prepend: site.wikiurl }}">
+Default Configuration</a> adds the appropriate menu entry:
+
+{% highlight fvwm %}
+AddToMenu MenuFvwmRoot "Fvwm" Title
++ ...
+Test (x $[FVWM_MODULEDIR]/FvwmConsole) + "Fvwm&Console%icons/terminal.png%" \
+     Module FvwmConsole -terminal $[infostore.terminal]
+Test (x FvwmPrompt) + "&FvwmPrompt%icons/terminal.png%" \
+     Exec exec $[infostore.terminal] -title FvwmPrompt -e FvwmPrompt
++ ...
+{% endhighlight %}
+

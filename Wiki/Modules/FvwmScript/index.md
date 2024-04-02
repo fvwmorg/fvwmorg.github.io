@@ -8,12 +8,8 @@ description: |
   desktop accessories which can just display system info or be interactive.
 
 ---
-* TOC
-{:toc}
 
 # FvwmScript
-
-## Module Description
 
 The FvwmScript module allows you to build many graphical applications
 such as desktop accessories, button panel with pop up menus,

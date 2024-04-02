@@ -7,12 +7,7 @@ description: |
   FvwmForm provides a way to build GUI forms that can be filled
   out and run custom commands.
 ---
-* TOC
-{:toc}
-
 # FvwmForm
-
-## Module Description
 
 FvwmForm provides a mechanism to get user input and act accordingly.
 This is achieved by means of a form that the user can fill out,

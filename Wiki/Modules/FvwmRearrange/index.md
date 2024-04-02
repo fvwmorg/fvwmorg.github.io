@@ -6,12 +6,10 @@ weight: 750
 description: |
   FvwmRearrange can be used to tile or cascade windows.
 ---
-* TOC
-{:toc}
-
 # FvwmRearrange
 
-## Module Description
+* TOC
+{:toc}
 
 This module can be called to tile or cascade windows.
 
