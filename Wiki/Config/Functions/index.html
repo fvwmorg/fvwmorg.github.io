@@ -14,7 +14,7 @@ description: |
   <a href="/Wiki/Config/Functions/StartFunction">StartFunction</a>.
 
 ---
-<h1>FVWM Functions</h1>
+<h1>Fvwm Functions</h1>
 
 <p>Functions can be used to achieve lots of different tasks. The
 basic syntax for a function is:</p>
@@ -34,6 +34,10 @@ basic syntax for a function is:</p>
 <p>The following are a list of pages about Functions.</p>
 
 {% assign pages = site.pages | where:"type","function" | sort:"weight" %}
+{% capture fvwmtxt %}
 {% for mypage in pages reversed %}
   {% include wiki_index_item.html mypage=mypage %}
 {% endfor %}
+{% endcapture %}
+{% include fvwmwindow.html id="function-pages"
+title="Fvwm Functions" content=fvwmtxt color="green" %}

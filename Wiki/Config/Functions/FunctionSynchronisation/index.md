@@ -6,19 +6,19 @@ weight: 800
 description: |
   This page describes how to ensure functions
   finish a command before running the next.
-
 ---
+# Function Synchronisation
+
 * TOC
 {:toc}
 
-# Function Synchronisation
-
 ## Introduction
+
 In the #fvwm IrcChannel I (ThomasAdam) quite often see people asking
 questions along the lines of "Why are my commands in FuncSomeFunc not
 loading in the order I list them."   The answer to this is relatively
 straight-forward once one understands what's happening within a
-[/Config/ComplexFunctions]({{ "/Config/ComplexFunctions" | prepend: site.wikiurl}}).
+[ComplexFunctions]({{ "/Config/Functions/ComplexFunctions" | prepend: site.wikiurl}}).
 
 ## Walkthrough Example
 

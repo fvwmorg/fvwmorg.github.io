@@ -12,7 +12,7 @@ description: |
 # StartFunction
 
 The StartFunction is the function FVWM will run after it has completed
-reading [/Config/Fvwm2rc]({{ "/Config/Fvwm2rc" | prepend: site.wikiurl }}).
+reading [Fvwm2rc]({{ "/Config/Fvwm2rc" | prepend: site.wikiurl }}).
 In this function you can preform you basic
 'StartUp' actions after FVWM is fully configured. Note that in FVWM 2.4.x
 this was split up into three functions, 'StartFunction', 'InitFunction'
@@ -47,10 +47,10 @@ or being restarted, modules are loaded. Modules must be loaded each time
 Fvwm restarts because they loose their communication pipe when Fvwm shuts
 down and restarts.
 
-Due to [/Config/FunctionSynchronisation](
-{{ "/Config/FunctionSynchronisation" |prepend: site.wikiurl }})
+Due to [FunctionSynchronisation](
+{{ "/Config/Functions/FunctionSynchronisation" | prepend: site.wikiurl }})
 applications you launch from StartFunction may
-not finish loading in the same order. [/Tips/FvwmStartup](
+not finish loading in the same order. [FvwmStartup Tips](
 {{ "/Tips/FvwmStartup" | prepend: site.wikiurl }}) gives a more detailed
 look at this.
 

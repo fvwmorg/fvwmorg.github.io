@@ -5,12 +5,11 @@ type: function
 weight: 1000
 description: |
   This page gives the basics about complex functions.
-
 ---
+# ComplexFunctions
+
 * TOC
 {:toc}
-
-# ComplexFunction
 
 ## Introduction
 
@@ -219,8 +218,8 @@ AddToFunc   FuncSomeFunction
 
 You might expect these commands to run one after the other.  They do,
 although there are times when that might not always be the case.  FVWM
-performs no [/Config/FunctionSynchronisation](
-{{ "/Config/FunctionSynchronisation" | prepend: site.wikiurl }})
+performs no [FunctionSynchronisation](
+{{ "/Config/Functions/FunctionSynchronisation" | prepend: site.wikiurl }})
 as to the ordering of the commands -- or rather it makes no guarantees.
 If a strict set of synchronised commands is needed, it is recommended to
 use PipeRead -- since FVWM will wait for the PipeRead to return before

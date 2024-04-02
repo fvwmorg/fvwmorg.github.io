@@ -49,7 +49,7 @@ can do:
   create window [Decor]({{ "/Config/Decor" | prepend: site.wikiurl }}),
   set window [Styles]({{ "/Config/Style" | prepend: site.wikiurl }}),
   create [Menus]({{ "/Config/Menus" | prepend: site.wikiurl }}),
-  create [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikirul }}),
+  create [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }}),
   and configure all aspects of Fvwm.
 
 + **Actions:** move and/or resize windows, change virtual pages and desktops,
@@ -74,7 +74,7 @@ into a single command.
   `fvwm-menu-desktop` which creates menus from an XDG deskop menu.
 
 + A combination of both functions and scripts can be used, for example
-  [ThumbnailsAsIcons]({{ "/Tips/ThumbnailsAsIcons" | prepend: site.wikurl }})
+  [ThumbnailsAsIcons]({{ "/Tips/ThumbnailsAsIcons" | prepend: site.wikiurl }})
   is a function that runs an external script using imagemagick to create
   an icon from a screenshot of a window.
 
