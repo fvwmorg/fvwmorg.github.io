@@ -9,12 +9,10 @@ description: |
   to automatically raise windows, which is in fact the module's default
   behaviour. This can also be used to auto show/hide a panel/dock.
 ---
-* TOC
-{:toc}
-
 # FvwmAuto
 
-## Module Description
+* TOC
+{:toc}
 
 The FvwmAuto module allows you to define actions for when the pointer enters
 and leaves a window after a specified delay, assuming you are using either
@@ -83,5 +81,5 @@ have more control and respond to more events, use [FvwmEvent](
 -------
 [^1]: This is not how EnterFocus and LeaveFocus operate, but from an
       explanation point of view, it suffices. FvwmAuto also can be configured to
-      respond to `-menter`, -menterleave`, or `-mfocus` events. See the
+      respond to `-menter`, `-menterleave`, or `-mfocus` events. See the
       manual page for more details.

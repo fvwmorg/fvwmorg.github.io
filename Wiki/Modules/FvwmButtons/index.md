@@ -6,14 +6,11 @@ weight: 800
 description: |
   FvwmButtons provides a method to build docks, panels, taskbars,
   and more.
-
 ---
-* TOC
-{:toc}
-
 # FvwmButtons
 
-## Module Description
+* TOC
+{:toc}
 
 The FvwmButtons module provides a window of buttons which can be used
 to build different type of [/Panels]({{ "/Panels" | prepend: site.wikiurl }}).

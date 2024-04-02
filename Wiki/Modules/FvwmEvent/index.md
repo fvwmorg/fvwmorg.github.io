@@ -7,10 +7,10 @@ description: |
   FvwmEvent can be configured to trigger on specific events. When
   the event is triggered, the module can run any command.
 ---
+# FvwmEvent
+
 * TOC
 {:toc}
-
-# FvwmEvent
 
 *This page was originally written by Thomas Adam, and published in the          
 [Linux Gazete](https://linuxgazette.net/127/adam1.html){:target="_blank"},

@@ -7,14 +7,11 @@ description: |
   FvwmIconMan provides a list of running applications. You can run one or
   multiple managers and they can be configured to display different
   collections of windows.
-
 ---
-* TOC
-{:toc}
-
 # FvwmIconMan
 
-## Module Description
+* TOC
+{:toc}
 
 The FvwmIconMan module provides a grid of Icons (Buttons) that represent
 the running windows on the system. FvwmIconMan can be configured to

@@ -7,14 +7,11 @@ description: |
   FvwmPager shows a ininature view of the Fvwm Desktops and Pages.
   This can be configured to show only the Current Desktop or any
   selection of Desktops.
-
 ---
-* TOC
-{:toc}
-
 # FvwmPager
 
-## Module Description
+* TOC
+{:toc}
 
 The FvwmPager module shows a miniature view of the Fvwm desktops which are
 specified in the command line. This is a useful reminder of where your

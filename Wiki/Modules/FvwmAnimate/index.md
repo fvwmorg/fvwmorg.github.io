@@ -6,12 +6,10 @@ weight: 350
 description: |
   This module animates iconification and de-iconification on command.
 ---
-* TOC
-{:toc}
-
 # FvwmAnimate
 
-## Module Description
+* TOC
+{:toc}
 
 The FvwmAnimate module animates iconification and de-iconification or on command.  There are currently 6 different animation effects.
 
