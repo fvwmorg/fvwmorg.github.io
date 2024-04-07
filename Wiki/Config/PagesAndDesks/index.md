@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Virtual Pages and Desks
 type: config
 weight: 470

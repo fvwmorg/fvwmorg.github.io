@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Irc
 type: main
 weight: 300

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Crux Decor Example
 type: decor
 weight: 900

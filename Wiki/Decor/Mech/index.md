@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Mech Decor Example
 type: decor
 weight: 700

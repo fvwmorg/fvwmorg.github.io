@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: StickyDecor
 type: recipe
 weight: 750

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Thumbnails as Icons
 type: tip
 description: |

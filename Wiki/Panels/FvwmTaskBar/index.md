@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: TaskBar
 type: panel
 weight: 500

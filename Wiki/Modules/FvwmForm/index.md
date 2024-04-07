@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmForm
 type: module
 weight: 400

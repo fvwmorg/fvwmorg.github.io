@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fvwm Doesn't Support Wayland
 ---
 

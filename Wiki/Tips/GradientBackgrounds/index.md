@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Gradient Backgrounds
 type: tip
 description: |

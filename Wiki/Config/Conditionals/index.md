@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Conditional Commands
 type: config
 weight: 500

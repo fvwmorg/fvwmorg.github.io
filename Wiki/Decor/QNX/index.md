@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: QNX Decor Example
 type: decor
 description: |

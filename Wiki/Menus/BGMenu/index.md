@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Background Menu Menu
 type: menu
 weight: 200

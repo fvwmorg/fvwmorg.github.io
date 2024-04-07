@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Window Mangers
 ---
 

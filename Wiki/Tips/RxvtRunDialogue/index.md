@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Rxvt Run Dialogue
 type: tip
 description: |

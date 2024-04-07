@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmCommand
 type: sendtofvwm
 weight: 660

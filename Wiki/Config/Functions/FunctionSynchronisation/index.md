@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FunctionsSynchronisation
 type: function
 weight: 800

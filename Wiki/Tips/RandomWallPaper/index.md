@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Random Wallpaper
 type: tip
 description: |

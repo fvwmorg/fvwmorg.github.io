@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fvwm Startup Procedure
 type: tip
 description: |

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmConsole
 type: sendtofvwm
 weight: 650

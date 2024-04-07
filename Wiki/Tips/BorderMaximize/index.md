@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: BorderMaximize
 type: tip
 description: |

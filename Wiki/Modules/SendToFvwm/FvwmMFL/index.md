@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmMFL
 type: sendtofvwm
 weight: 600

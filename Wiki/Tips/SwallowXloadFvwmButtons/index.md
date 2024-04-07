@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Swallow Xload inside FvwmButtons
 type: tip
 description: |

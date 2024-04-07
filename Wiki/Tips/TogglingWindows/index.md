@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Toggling Windows
 type: tip
 description: |

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmAnimate
 type: module
 weight: 350

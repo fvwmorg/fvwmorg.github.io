@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Modules
 type: config
 weight: 400

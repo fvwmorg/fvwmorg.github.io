@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Redmond98 Decor Example
 type: decor
 weight: 250

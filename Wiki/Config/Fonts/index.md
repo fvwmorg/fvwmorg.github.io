@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fonts
 type: config
 weight: 750

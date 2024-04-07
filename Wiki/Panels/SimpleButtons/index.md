@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: SimpleButtons
 type: panel
 weight: 500

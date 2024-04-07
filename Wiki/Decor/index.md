@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Decor
 type: main
 weight: 950

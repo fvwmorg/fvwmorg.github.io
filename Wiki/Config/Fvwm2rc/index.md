@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fvwm2rc
 type: config
 weight: 1000

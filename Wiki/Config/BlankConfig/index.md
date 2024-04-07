@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Minimal Initial Configuration
 ---
 

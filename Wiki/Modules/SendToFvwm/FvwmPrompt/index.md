@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmPrompt
 type: sendtofvwm
 weight: 700

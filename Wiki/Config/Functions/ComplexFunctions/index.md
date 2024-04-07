@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: ComplexFunctions
 type: function
 weight: 1000

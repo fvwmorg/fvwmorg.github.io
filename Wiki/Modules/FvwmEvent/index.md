@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmEvent
 type: module
 weight: 500

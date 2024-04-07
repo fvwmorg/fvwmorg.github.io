@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: HoverButton
 type: noshow
 weight: 500

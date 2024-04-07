@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: DesktopConfiguration
 type: config
 weight: 460

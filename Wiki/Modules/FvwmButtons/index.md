@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmButtons
 type: module
 weight: 800

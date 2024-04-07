@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fvwm Tips
 type: main
 weight: 800

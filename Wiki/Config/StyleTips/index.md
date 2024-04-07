@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Style Tips
 type: config
 weight: 850

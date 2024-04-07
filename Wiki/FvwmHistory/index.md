@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Fvwm History
 showtitle: 1
 description: |

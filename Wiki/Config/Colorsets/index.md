@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Colorsets
 type: config
 weight: 800

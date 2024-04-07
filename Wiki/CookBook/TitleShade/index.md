@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: TitleShade
 type: recipe
 weight: 400

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmAuto
 type: module
 weight: 450

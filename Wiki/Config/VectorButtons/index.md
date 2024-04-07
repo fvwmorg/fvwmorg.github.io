@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Vector Buttons
 type: config
 weight: 440

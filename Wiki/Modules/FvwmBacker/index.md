@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmBacker
 type: module
 weight: 430

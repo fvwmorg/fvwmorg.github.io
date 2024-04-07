@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmScript
 type: module
 weight: 380

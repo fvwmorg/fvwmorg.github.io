@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: ShowDesktop
 type: recipe
 weight: 650

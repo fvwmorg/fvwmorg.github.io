@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Monitors
 type: config
 weight: 480

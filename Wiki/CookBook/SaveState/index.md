@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: SaveState
 type: recipe
 weight: 250

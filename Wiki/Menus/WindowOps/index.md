@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Window Ops Menu
 type: menu
 weight: 500

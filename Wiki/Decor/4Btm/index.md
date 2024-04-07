@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: 4Btm Decor Example
 type: decor
 description: |

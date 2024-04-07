@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Nano Gui Decor Example
 type: decor
 description: |

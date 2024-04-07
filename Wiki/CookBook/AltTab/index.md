@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: AltTab
 type: recipe
 weight: 700

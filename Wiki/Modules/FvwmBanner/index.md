@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmBanner
 type: module
 weight: 50

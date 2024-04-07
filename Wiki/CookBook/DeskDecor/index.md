@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: DeskDecor
 type: recipe
 weight: 800

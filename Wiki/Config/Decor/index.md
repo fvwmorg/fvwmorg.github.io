@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Window Decorations
 type: config
 weight: 450

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Transparency
 type: tip
 description: |

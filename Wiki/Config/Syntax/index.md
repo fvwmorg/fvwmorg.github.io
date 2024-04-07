@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Syntax
 type: config
 weight: 950

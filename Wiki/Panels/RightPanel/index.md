@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: RightPanel
 type: panel
 weight: 600

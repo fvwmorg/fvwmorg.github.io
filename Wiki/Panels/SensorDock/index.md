@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: SensorDock
 type: panel
 weight: 300

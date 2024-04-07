@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Modules
 type: main
 weight: 700

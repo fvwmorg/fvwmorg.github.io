@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Default Decor Example
 type: decor
 weight: 1000

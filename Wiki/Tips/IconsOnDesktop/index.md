@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Desktop Icons
 type: tip
 description: |

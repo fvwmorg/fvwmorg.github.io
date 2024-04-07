@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Vectors Decor Example
 type: decor
 weight: 800

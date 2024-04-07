@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Menus
 type: config
 weight: 700

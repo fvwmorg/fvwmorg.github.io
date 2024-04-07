@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: StartFunction
 type: function
 weight: 600

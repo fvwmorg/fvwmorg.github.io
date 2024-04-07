@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Center Placement of Windows
 type: tip
 description: |

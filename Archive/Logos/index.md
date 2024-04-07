@@ -1,5 +1,4 @@
 ---
-layout : default
 title : The FVWM Logo
 inner-title : Logo Competition
 ---

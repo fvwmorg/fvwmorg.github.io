@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: IconifyExcept
 type: recipe
 weight: 600

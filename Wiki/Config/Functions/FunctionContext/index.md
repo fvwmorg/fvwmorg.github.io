@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FunctionContext
 type: function
 weight: 900

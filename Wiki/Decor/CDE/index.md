@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: CDE Decor Example
 type: decor
 weight: 600

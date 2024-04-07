@@ -1,5 +1,4 @@
 ---
-layout : default
 title : Developer's Pictures
 inner-title: Developer's Pictures
 ---

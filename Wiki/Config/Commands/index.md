@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Commands
 type: config
 weight: 1200

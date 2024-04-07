@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: HashFvwm FAQ
 ---
 # \#fvwm FAQ

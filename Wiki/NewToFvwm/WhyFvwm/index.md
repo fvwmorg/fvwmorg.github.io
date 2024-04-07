@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Why Use Fvwm?
 ---
 

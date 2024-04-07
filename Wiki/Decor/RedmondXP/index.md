@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: RedmondXP Decor Example
 type: decor
 weight: 250

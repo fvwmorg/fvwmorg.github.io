@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Bindings
 type: config
 weight: 650

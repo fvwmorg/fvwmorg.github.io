@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: LimitApplication
 type: recipe
 weight: 500

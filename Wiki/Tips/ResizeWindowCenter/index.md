@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Resize a Window then Center It
 type: tip
 description: |

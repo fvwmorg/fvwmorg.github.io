@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Auto Hiding Windows
 type: tip
 description: |

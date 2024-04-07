@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmIconMan
 type: module
 weight: 850

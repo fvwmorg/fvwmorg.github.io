@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FuncitonTips
 type: function
 weight: 700

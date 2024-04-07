@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: MouseStroke
 type: config
 weight: 600

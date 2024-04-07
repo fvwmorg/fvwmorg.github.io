@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: OSX Decor Example
 type: decor
 weight: 250

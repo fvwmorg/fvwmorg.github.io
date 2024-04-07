@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Panels/Docks
 type: main
 weight: 700

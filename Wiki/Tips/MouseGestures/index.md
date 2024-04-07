@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Mouse Gestures
 type: tip
 description: |

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Focus Stealing
 type: tip
 description: |

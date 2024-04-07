@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: Settings and Styles
 type: config
 weight: 900

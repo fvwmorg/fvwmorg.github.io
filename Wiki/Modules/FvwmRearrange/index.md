@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmRearrange
 type: module
 weight: 750

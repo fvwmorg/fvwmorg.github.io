@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmIdent
 type: module
 weight: 730

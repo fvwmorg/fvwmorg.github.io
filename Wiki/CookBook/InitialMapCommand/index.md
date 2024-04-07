@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: InitialMapCommand
 type: recipe
 weight: 200

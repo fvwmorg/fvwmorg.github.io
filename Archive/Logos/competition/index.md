@@ -1,5 +1,4 @@
 ---
-layout : default
 title : Logo Competition Enteries
 inner-title: Logo Competition
 ---

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: CookBook
 type: main
 weight: 900

@@ -1,5 +1,4 @@
 ---
-layout: wiki
 title: FvwmPager
 type: module
 weight: 900
