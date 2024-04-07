@@ -15,7 +15,7 @@ helpnav:
     color: arizona
     links:
       - name: Fvwm3 Development Info
-        url: https://github.com/fvwmorg/fvwm3/blob/master/dev-docs/DEVELOPERS.md
+        url: https://github.com/fvwmorg/fvwm3/blob/main/dev-docs/DEVELOPERS.md
       - name: Fvwm2 Module Interface
         url: /Archive/ModuleInterface/
   - title: Community Support

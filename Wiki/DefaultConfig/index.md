@@ -23,7 +23,7 @@ options used that they can edit to start creating their own config.
 Here is a copy of the [fvwm2 default-config](
 https://github.com/fvwmorg/fvwm/blob/master/default-config/config)
 and the [fvwm3 default-confg](
-https://github.com/fvwmorg/fvwm3/blob/master/default-config/config).
+https://github.com/fvwmorg/fvwm3/blob/main/default-config/config).
 
 ## Anatomy of the Default Config
 
