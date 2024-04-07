@@ -11,16 +11,16 @@ popular window manager, and is now a tiny project still used
 by lots of core users. What is it about fvwm that users like?
 
 {% capture fvwmtxt %}
-<p><font size="3"><b>Fvwm is light weight and fast.</b></font> - Fvwm is built on top of X11,
+<p><strong>Fvwm is light weight and fast.</strong> - Fvwm is built on top of X11,
   and doesn't use a lot of additional libraries or widget
   sets, as such it has a very small foot print on top of
   the already running X server, making it quite sleek.</p>
 
-<p><font size="3"><b> - Fvwm is very stable and performs its task as a window manager
-  very well.</b></font> - It is very rare fvwm crashes, and most instability
+<p><strong>Fvwm is very stable and performs its task as a window manager
+  very well.</strong> - It is very rare fvwm crashes, and most instability
   is the application itself.</p>
 
-<p><font size="3"><b>Fvwm is extremely configurable.</b></font> - You can customize almost
+<p><strong>Fvwm is extremely configurable.</strong> - You can customize almost
   every possible aspect of your desktop. However, this does take
   a lot of work to both learn how to configure fvwm and how
   to put your dream configuration into practice.</p>
@@ -61,9 +61,9 @@ you can tweak fvwm into your own dream window manager. Okay,
 there are limits as to what fvwm can do, but within its
 structure, there is a lot of power.
 
-<i><b>I like fvwm’s approach</b> - no defaults and everything is
+<em><strong>I like fvwm’s approach</strong> - no defaults and everything is
 up to the user. I can hardly imagine myself using anything else.
-Even with my lame coding style, fvwm meets my needs perfectly.</i>
+Even with my lame coding style, fvwm meets my needs perfectly.</em>
 
 ## What are fvwm's weaknesses?
 
