@@ -43,7 +43,7 @@ for i in $[FVWM_USERDIR]/backgrounds/*; do echo "AddToMenu BGMenu \"`basename $i
 
 And now using PipeRead put this in a function to generate the menu
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc BuildBGMenu
 AddToFunc BuildBGMenu
 + I DestroyMenu BGMenu
@@ -56,7 +56,7 @@ AddToFunc BuildBGMenu
 
 # Call the function to build the menu
 BuildBGMenu
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This function builds the menu, and then appends an option
 at the end, Rebuild, which can be used to rerun this function
@@ -67,7 +67,7 @@ or include it in another menu using the PopUp command. In addition
 you will need a function SetBG to actually set the background. I use
 a tool called feh for this.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc SetBG
 AddToFunc SetBG
 + I Test (f "$[FVWM_USERDIR]/backgrounds/$0") Exec \
@@ -78,7 +78,7 @@ AddToFunc SetBG
 # To load last selected BG at start
 AddToFunc StartFunction I Exec exec \
 feh --bg-scale $[FVWM_USERDIR]/.defaultBG
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This function also creates a link to 
 

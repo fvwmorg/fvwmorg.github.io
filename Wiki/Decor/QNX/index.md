@@ -22,7 +22,7 @@ put the directory in $HOME/.fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -31,23 +31,23 @@ Colorset 1 fg rgb:00/00/00, bg rgb:80/80/80
 Colorset 2 fg rgb:00/00/00, bg rgb:90/90/90
 Colorset 3 fg rgb:00/00/00, bg rgb:80/80/80
 Colorset 4 fg rgb:00/00/00, bg rgb:90/90/90
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons. This decor uses
 use locations 1, 6, 4 and 2
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [1 Title 642]
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize
 Mouse 1 6 A Iconify
 Mouse 1 1 A Menu MenuWindowOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Then define the Decor:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToDecor QNXDecor
 + TitleStyle Active MultiPixmap \
         Main     qnx/title-main-active.png, \
@@ -83,16 +83,16 @@ AddToDecor QNXDecor
         ToggledInactive   (Pixmap qnx/maximize-inactive.png   -- flat)
 + ButtonStyle All - Clear
 + TitleStyle Height 20
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Last we need the Styles for the windows to use QNXDecor, the
 Colorsets and some other settings.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 4, HandleWidth 4, \
         FvwmBorder, FirmBorder, \
         MWMButtons, UseDecor QNXDecor
-{% endhighlight %}
+{% endfvwm2rc %}
 

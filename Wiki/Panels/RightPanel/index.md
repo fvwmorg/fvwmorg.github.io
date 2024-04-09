@@ -34,7 +34,7 @@ represent buttons used for padding:
 Use the layout to determine the size of each button and then put
 it together into a config, for example:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig RightPanel:*
 *RightPanel: Geometry 120x720-0+0
 *RightPanel: Colorset 10
@@ -62,7 +62,7 @@ DestroyModuleConfig RightPanel:*
 *RightPanel: (120x45, Swallow DateTime 'Module FvwmScript \
               FvwmScript-DateTime', Frame 0)
 *RightPanel: (120x5, Frame 0)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The buttons right above the Pager are used to switch between the first
 four Desktops and are setup so the current Desktop is a different color.
@@ -70,7 +70,7 @@ four Desktops and are setup so the current Desktop is a different color.
 To do this we need to use FvwmEvent and SendToModule to change the colorsets
 of the deskN Buttons each time the desktop is changed.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc ChangeDesk
 AddToFunc   ChangeDesk
 + I SendToModule FvwmButtons ChangeButton desk0 Colorset 10
@@ -82,22 +82,22 @@ AddToFunc   ChangeDesk
 DestroyModuleConfig EventNewDesk:*
 *EventNewDesk: PassID
 *EventNewDesk: new_desk ChangeDesk
-{% endhighlight %}
+{% endfvwm2rc %}
 
 To run SensorDock add both the FvwmButtons and FvwmEvent modules
 to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}):
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction I Module FvwmButtons SensorDock
 AddToFunc StartFunction I Module FvwmEvent EventNewDesk
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## FvwmPager Configuration
 
 The FvwmPager will be resized to fit the button so mostly need to configure
 looks:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FvwmPager:*
 *FvwmPager: Colorset * 10
 *FvwmPager: HilightColorset * 13
@@ -109,13 +109,13 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## FvwmIconMan Configuration
 
 FvwmIconMan is configured to list all the running apps
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: UseWinList true
 *FvwmIconMan: ButtonGeometry 120x20
@@ -134,7 +134,7 @@ DestroyModuleConfig FvwmIconMan:*
 *FvwmIconMan: Resolution global
 *FvwmIconMan: Tips needed
 *FvwmIconMan: Sort id
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This configuration requires the function [IconManClick](
 {{ "/Modules/FvwmIconMan/#button-actions" | prepend: site.wikiurl }})
@@ -161,7 +161,7 @@ to determine if stalonetray exists.
 As an example of a dynamic configuration here is the RightPanel from
 the default-config:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig RightPanel:*
 *RightPanel: Geometry 120x$[vp.height]-0+0
 *RightPanel: Colorset 10
@@ -195,4 +195,4 @@ Test (!x stalonetray) PipeRead 'echo "*RightPanel: (120x$(($[vp.height]-205)),\
 *RightPanel: (120x45, Swallow DateTime 'Module FvwmScript \
               FvwmScript-DateTime', Frame 0)
 *RightPanel: (120x5, Frame 0)
-{% endhighlight %}
+{% endfvwm2rc %}

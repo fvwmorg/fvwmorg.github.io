@@ -15,7 +15,7 @@ socket. FvwmCommand then sends the command you give it directly to fvwm.
 For example to launch [FvwmPager](
 {{ "/Modules/FvwmPager" | prepend: site.wikiurl }}) from a terminal:
 
-{% highlight sh %}
+{% highlight shell %}
 FvwmCommand Module FvwmPager 0 3
 {% endhighlight %}
 
@@ -24,9 +24,9 @@ order for FvwmCommand to function, FvwmMFL must be running to give
 FvwmCommand a socket to talk to fvwm though. So make sure you have
 started FvwmMFL from your start function:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction I Module FvwmMFL
-{% endhighlight %}
+{% endfvwm2rc %}
 
 **Note:** In fvwm3, if [FvwmPrompt](
 {{ "/Modules/SendToFvwm/FvwmPrompt" | prepend: site.wikiurl }})

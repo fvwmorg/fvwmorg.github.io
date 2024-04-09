@@ -20,7 +20,7 @@ you can copy put the directory in $HOME/.fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -29,23 +29,23 @@ Colorset 1 fg #aaaaaa, bg #eeeeee
 Colorset 2 fg #000000, bg #aaaaaa
 Colorset 3 fg #aaaaaa, bg #d0d0d0
 Colorset 4 fg #000000, bg #aaaaaa
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 3, 5 and 8 6 4 2.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [1 Title 642]
 Mouse 1 1 A Menu MenuWindowOps
 Mouse 1 6 A Iconify
 Mouse 1 4 A Maximize
 Mouse 1 2 A Close
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Now we can define the Decor:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyDecor MechDecor
 AddToDecor MechDecor
 + BorderStyle Simple -- HiddenHandles NoInset Raised
@@ -89,16 +89,16 @@ AddToDecor MechDecor
 + ButtonStyle 4 - MWMDecorMax
 + ButtonStyle 6 - MWMDecorMin
 + ButtonStyle 1 - MWMDecorMenu
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Last we need the Styles for the windows to use this decor, the
 Colorsets and some other settings.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 3, HandleWidth 3, \
         MWMBorder, FirmBorder, \
         MwmButtons, UseDecor MechDecor
-{% endhighlight %}
+{% endfvwm2rc %}
 

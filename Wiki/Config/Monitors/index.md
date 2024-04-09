@@ -64,12 +64,12 @@ respectively. These expansions can be used in place of a
 RandR name when sending fvwm monitor based commands.
 
 
-```fvwm2rc
+{% fvwm2rc %}
 # Move the primary monitor to the second desk,
 # while leaving the other monitors alone.
 DesktopConfiguration per-monitor 
 GotoDesk screen $[monitor.primary] 0 2
-```
+{% endfvwm2rc %}
 
 In addition fvwm numbers the monitors based on their
 position inside their combined view port. This numbering

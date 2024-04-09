@@ -21,7 +21,7 @@ you can copy put the directory in $HOME/.fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -30,23 +30,23 @@ Colorset 1 fg black, bg rgb:98/B0/C8
 Colorset 2 fg black, bg white
 Colorset 3 fg black, bg rgb:98/B0/C8
 Colorset 4 fg black, bg rgb:98/B0/C8
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 3, 5 and 2.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [135 Title 2]
 Mouse 1 1 A Close
 Mouse 1 3 A Iconify
 Mouse 1 5 A Maximize
 Mouse 1 2 A Menu MenuWindowOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Now we can define the Decor:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyDecor OSXDecor
 AddToDecor OSXDecor
 + TitleStyle AllActive TiledPixmap osx/title-active.png
@@ -72,16 +72,16 @@ AddToDecor OSXDecor
         ActiveDown (Pixmap osx/maximize-activedown.png -- flat) \
         Inactive   (Pixmap osx/inactive.png   -- flat)
 + ButtonStyle All - Clear
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Last we need the Styles for the windows to use OSXDecor, the
 Colorsets and some other settings.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 2, HandleWidth 2, \
         FvwmBorder, FirmBorder, \
         FvwmButtons, UseDecor OSXDecor
-{% endhighlight %}
+{% endfvwm2rc %}
 

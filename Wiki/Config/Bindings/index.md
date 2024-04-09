@@ -42,10 +42,10 @@ below FVWM divides the screen up into the following regions.
 Any Fvwm command (including custom functions) can be triggered by a
 binding. The configuration syntax for Key and Mouse bindings is
   
-{% highlight fvwm %}
+{% fvwm2rc %}
 Key Name Context Modifier Command
 Mouse Button Context Modifier Command
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The Context describes the current location of the mouse (as shown above).
 The Context can contain any number of possible locations such as
@@ -68,7 +68,7 @@ key must be pressed in addition to the binding. Below is a nice little
 ASCII diagram you can put in config file to keep look this info up when
 making bindings:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 ###########
 # Contexts:
 # R = Root Window             rrrrrrrrrrrrrrrrrrrrrr
@@ -86,14 +86,14 @@ making bindings:
 # Key {(window)} [key] [Context] [Modifier] [Action]
 # Mouse {(window)} [button] [Context] [Modifier] [Action]
 ####################
-{% endhighlight %}
+{% endfvwm2rc %}
 
 
 ## Example Bindings
 
 The following are some example key bindings:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Keybindings
 Key F1 A M Menu MenuFvwmRoot
 Silent Key Menu A A Menu MenuFvwmRoot
@@ -103,7 +103,7 @@ Key F2 A C GotoDesk 0 1
 Key F3 A C GotoDesk 0 2
 Key F4 A C GotoDesk 0 3
 Silent Key Super_R A A Exec exec xterm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 + The fist binding opens the menu MenuFvwmRoot with Alt-F1.
 + The second binding opens the menu MenuFvwmRoot with the Menu key.
@@ -118,20 +118,20 @@ Next is are some mouse bindings. Mouse bindings can be linkned with functions
 to control what happens if you Click, Hold, Move, or Double Click.
 So in these example bindings we make use of the following functions
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # MoveClickX MoveCommand ClickCommand DoubleClickCommand
 DestroyFunc MoveClickX
 AddToFunc MoveClickX
 + M $0
 + C $1
 + D $2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This function is useful because now we can bind things to moves (M), clicks
 (C) and double clicks (D) in the same Context (window button, title bar, etc).
 Now the mouse bindings.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [13579 Title 08642]
 Mouse 1 1 A Menu MenuWindowOps
 Mouse 1 2 A MoveClickX Nop Close Destroy
@@ -139,7 +139,7 @@ Mouse 1 4 A Maximize 100 100
 Mouse 2 4 A Maximize 0 100
 Mouse 3 4 A Maximize 100 0
 Mouse 1 6 A Iconify
-{% endhighlight %}
+{% endfvwm2rc %}
 
 + Button 1 (far left) opens MenuWindowOps that can act on the window.
 + Button 2 (far right) is the close button. This use a custom function
@@ -155,7 +155,7 @@ Next we also have to bind action for when grabing the title bar
 to move a window or the window border to Resize it. Notice how
 these bindings use different contextes for this.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Windows Other
 Mouse 1 T    A MoveClickX Move Raise Maximize
 Mouse 1 FS   A MoveClickX Resize Raise Nop
@@ -167,7 +167,7 @@ Mouse 3 R    A Menu MenuWindowOpsLong
 Mouse 1 I    A MoveClickX Move Nop Iconify
 Mouse 3 T    A Menu MenuWindowOps
 Mouse 3 I    A Menu MenuIconOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 + Clicking on the title bar allows you to move the window by holding
   the button and moving the mouse. Raises the window if you just click
