@@ -3,9 +3,7 @@
 ---
 
 
-// Import partials from `_sass`
-@import
-        "fvwmvars",
-        "fvwm3",
-	"fvwmwindow"
-;
+// Import partials from `_scss`
+@import "fvwmvars";
+@import "fvwm3";
+@import "fvwmwindow";

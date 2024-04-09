@@ -2,9 +2,6 @@
 # Front matter needed to generate .css from .scss
 ---
 
-
-// Import partials from `_sass`
-@import
-        "fvwmvars",
-	"monokai"
-;
+// Import partials from `_scss`
+@import "fvwmvars";
+@import "monokai";

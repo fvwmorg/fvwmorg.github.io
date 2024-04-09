@@ -1,6 +1,8 @@
 ---
 title: F? Virtual Window Manager
 showtitle: 1
+css:
+  - fvwm3-carousel.css
 helpnav:
   - title: User Documentation
     color: crimson
@@ -30,8 +32,6 @@ helpnav:
       - name: Mailing Lists
         url: "/Community/#fvwm-mailing-lists"
 ---
-<link href="{{ site.baseurl }}/css/fvwm3-carousel.css" rel="stylesheet">
-
 {% capture fvwmtxt %}
 <p>Fvwm is a virtual window manager for the X windows
 system. It was originally a feeble fork of TWM

@@ -24,6 +24,9 @@
     <!-- Custom styles/js for Fvwm pages -->
     <link href="{{ site.baseurl }}/css/fvwm3.css" rel="stylesheet">
     <script defer src="{{ site.baseurl }}/js/fvwmwindow.js"></script>
+    {% for file in page.css %}
+    <link href="{{ site.baseurl }}/css/{{ file }}" rel="stylesheet">
+    {% endfor %}
 </head>
 <body>
     <nav class="navbar fvwmnav sticky-top">
