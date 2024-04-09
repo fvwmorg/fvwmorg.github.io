@@ -1,12 +1,10 @@
 ---
 title: NewToFvwm
 ---
-* TOC
-{:toc}
-
 # New to FVWM
 
-## Introduction 
+* TOC
+{:toc}
 
 Welcome. So you're new to FVWM and you're wondering what it's all about.
 Perhaps you want some further information about FVWM but don't quite know

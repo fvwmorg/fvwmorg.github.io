@@ -8,12 +8,11 @@ description: |
   the foreground and background color along with the shade and highlight
   color (for 3D relief on borders). Colorsets can also use pixmaps
   and be transparent.
-
 ---
+# Colorsets
+
 * TOC
 {:toc}
-
-# Colorsets
 
 A Colorset is a collection of colors: foreground (fg), background (bg), hilight (hi),
 and shade (sh). The foreground is the color of the text, background is the color

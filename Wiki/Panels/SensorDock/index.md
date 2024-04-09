@@ -7,12 +7,11 @@ description: |
   uses xosview to show cpu, mem, disk, etc., uses FvwmScript to
   show the date/time and temperature outputs from lm-sensors
   and a systemtray.
-
 ---
+# SensorDock
+
 * TOC
 {:toc}
-
-# SensorDock
 
 SensorDock is a dock which uses [FvwmButtons](
 {{ "/Modules/FvwmButtons" | prepend: site.wikiurl }}) to Swallow

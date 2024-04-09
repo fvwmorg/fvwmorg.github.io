@@ -4,14 +4,11 @@ type: tip
 description: |
   This uses Rxvt to configure pop up a little dialog you can type a command
   to execute.
-
 ---
-* TOC
-{:toc}
-
 # An RXVT based run dialog with tab completion
 
-## Introduction
+* TOC
+{:toc}
 
 What follows is the description of a very simple way to realize a run dialog (a
 little dialog where the user can enter the name of an executable to start) using

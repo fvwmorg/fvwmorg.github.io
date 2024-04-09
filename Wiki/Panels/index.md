@@ -8,12 +8,11 @@ description: |
   as a taskbar or pager. Fvwm provides various modules to help build
   panels. This can also be mixed with third party software or even
   use a third party panel.
-
 ---
+# Panels and Docks
+
 * TOC
 {:toc}
-
-# Panels and Docks
 
 Like everything else in Fvwm these need to be configured. Fvwm provides
 lots of choice of how to configure the panels you want to use.

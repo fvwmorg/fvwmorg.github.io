@@ -5,12 +5,11 @@ weight: 500
 description: |
   This seems to be a common Panel asked about and with the
   removal of FvwmTaskBar here is a replacement.
-
 ---
+# FvwmTaskBar
+
 * TOC
 {:toc}
-
-# FvwmTaskBar
 
 FvwmTaskBar is similar to the classic windows taskbar along the
 bottom of the screen. In older versions of fvwm there was a module

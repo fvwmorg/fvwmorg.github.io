@@ -1,32 +1,10 @@
 /**
- * Fvwm3 Styles that adjust the bootstrap v4.5 framework.
- *
- * Styles must be responsive, design from the smallest screens
- * to the largest screens. Defaults should always be for the
- * smallest screens then use media queries for bigger screens.
- *
- * To match bootstrap, the break points are:
- *   @media (min-width: 576px ) {}
- *   @media (min-width: 768px ) {}
- *   @media (min-width: 992px ) {}
- *   @media (min-width: 1200px ) {}
+ * Fvwm3 Styles that adjust the bootstrap v5.3 framework.
  */
-
 
 /**
- * Bootstrap Overrides
+ * Ordered lists: Number -> lower-alpha -> lower-roman.
  */
-html { overflow-y: scroll; }
-.body { padding-top: 5rem; }
-// Full Width for larger sizes
-@media (min-width: 576px ) {
-  .container {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 95%;
-  }
-}
-// Ordered List Markers
 ol ol {
   list-style-type: lower-alpha;
 }
@@ -36,6 +14,7 @@ ol ol ol {
 ul, ol {
   margin-bottom: 1rem !important;
 }
+
 // Block Quotes
 blockquote {
   background: darken($bg-color, 5%);
@@ -43,7 +22,7 @@ blockquote {
   margin: 1rem 1rem;
   padding: 0.5rem 10px;
 }
-// Tables
+// Tables, since bootstrap doesn't style them without classes.
 table { margin-left: 1rem; }
 th {
   padding: 3px 15px 3px 15px;
@@ -54,14 +33,12 @@ td {
   padding: 3px 6px 3px 6px;
 }
 
-
 // Wiki Index Links
 p.title-indent
 {
 	text-indent: -20px;
 	margin-left: 40px;
 }
-
 
 /**
  * Rouge Line Number Tables
@@ -73,53 +50,62 @@ table.rouge-table { margin: 0; }
 /**
  * Top navigation bar and links
  */
-.navbar {
-  background-color: $bg-color !important;
-  border-bottom: solid 5px $border-color;
-}
 .navbtn {
-  border: 3px solid;
-  border-color: $border-color !important;
-  background-color: $link-button-pressed-color;
+    width: 44px;
+    height: 44px;
+    background-image: url("/img/fvwm-button-raised.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    border: solid 2px $border-color;
 }
-.navbtn.collapsed { background-color: $navlink-color; }
+.navbtn.show {
+    background-image: url("/img/fvwm-button-sunk.png");
+}
+#fvwmorg-main-nav {
+    top: 55px;
+    right: 15px;
+    left: auto;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    min-width: 0;
+    box-shadow: 3px 3px 1px $fwin-bgcolor;
+}
+#fvwmorg-main-nav a {
+    width: 100%;
+    display: block;
+    padding-left: 0.5em;
+    padding-right: 1em;
+}
 .fvwmnav {
-  max-width: calc(100vw - 250px);
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: left;
+    padding: 0;
+    margin: 0;
+    background-color: $bg-color;
+    border-bottom: solid 5px $border-color;
+}
+.fvwmnav-logo {
+    margin: 0;
 }
 .fvwmnav-link {
-  font-size: 28px;
-  font-weight: 700;
-  color: $navlink-color !important;
-  background-color: $navlink-bgcolor;
+    font-size: 130%;
+    font-weight: 700;
+    color: $navlink-color;
+    background-color: $navlink-bgcolor;
+    text-decoration: none;
 }
 .fvwmnav-link:hover {
-  text-decoration: none;
-  border-bottom: solid 3px $border-color;
-  color: $navhilink-color !important;
+    text-decoration: none;
+    color: $navlink-bgcolor;
+    background-color: $navlink-color;
 }
 .lgslash {
-  font-size: 14px;
-  font-weight: 600;
-  color: $navhilink-color;
+    font-size: 150%;
+    font-weight: 600;
+    color: $navhilink-color;
 }
-.fvwmnav .fvwmnav-link { font-size: 14px; }
-/*
- * Responsive Header Link Size
- */
-@media (min-width: 576px) {
-  .fvwmnav .fvwmnav-link { font-size: 20px; }
-  .lgslash { font-size: 20px; }
-}
-@media (min-width: 768px) {
-  .fvwmnav .fvwmnav-link { font-size: 26px; }
-  .lgslash { font-size: 26px; }
-}
-@media (min-width: 992px) {
-  .fvwmnav .fvwmnav-link { font-size: 32px; }
-  .lgslash { font-size: 32px; }
-}
-
-
 
 /**
  * Main Content Window
@@ -127,7 +113,6 @@ table.rouge-table { margin: 0; }
 #maincontent {
   font-size: 18px;
   margin-top: 15px;
-  padding: 5rem 3px 1.5rem 3px;
   text-align: left;
 }
 // Main Content Links
@@ -147,13 +132,9 @@ table.rouge-table { margin: 0; }
 #maincontent > h4,
 #maincontent > h5,
 #maincontent > h6 {
-  padding-top: 90px;
-  margin-top: -90px;
+  padding-top: 65px;
+  margin-top: -65px;
 }
-
-
-
-
 
 /**
  * Markdown TOC full
@@ -230,19 +211,4 @@ table.rouge-table { margin: 0; }
 @media print {
   #markdown-toc, #toc-full { display: none; }
 }
-
-
-
-// Increase Margins for Larger Screens
-@media (min-width: 768px ) {
-  table { margin-left: 2rem; }
-  #toc-full { margin: 3px 2rem; }
-  blockquote { margin: 1rem 2rem; }
-}
-@media (min-width: 992px ) {
-  table { margin-left: 3rem; }
-  #toc-full { margin: 3px 3rem; }
-  blockquote { margin: 1rem 3rem; }
-}
-
 

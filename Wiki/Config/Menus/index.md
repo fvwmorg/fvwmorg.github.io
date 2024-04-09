@@ -8,13 +8,11 @@ description: |
   with scripts, such as wall paper menus, a menu that allows you to
   see all files in $HOME, etc. This is the basics of configuring
   Menus.
-
 ---
+# Menus
+
 * TOC
 {:toc}
-
-Menus
-=====
 
 Menus are lists you can pop up from a binding or hook it to a start menu
 on a panel. Menus can be used to list programs or even be created dynamically

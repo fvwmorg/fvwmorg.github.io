@@ -4,14 +4,11 @@ type: config
 weight: 650
 description: |
   This describes how to configure Mouse and Key bindings.
-
 ---
+# Bindings
+
 * TOC
 {:toc}
-
-
-Bindings
-========
 
 Bindings are actions/functions that can be triggered by hitting a key
 (or key combination) or mouse buttons. These bindings can be used to

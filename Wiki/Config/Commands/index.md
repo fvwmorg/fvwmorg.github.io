@@ -7,11 +7,10 @@ description: |
   it processes the command to set/change settings, preform actions, and
   so on. This page is an overview of how Fvwm works and processes commands.
 ---
+# Fvwm Commands
 
 * TOC
 {:toc}
-
-# Fvwm Commands
 
 Fvwm is configured and controlled though an extensive list of commands.
 These commands control all aspects of Fvwm.

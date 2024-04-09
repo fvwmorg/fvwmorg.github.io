@@ -4,12 +4,11 @@ type: tip
 description: |
   This describes how to build a system monintor by Swallowing
   xload inside of FvwmButtons.
-
 ---
+# Using FvwmButtons to Swallow Xload
+
 * TOC
 {:toc}
-
-# Using FvwmButtons to Swallow Xload
 
 ## Simple Example
 

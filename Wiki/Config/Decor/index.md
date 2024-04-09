@@ -6,12 +6,11 @@ description: |
   This gives an overview of how to configure window decorations.
   See <a href="{{ "/Decor" | prepend: site.wikiurl }}">/Decor</a>
   for example decors.
-
 ---
+# Window Decor
+
 * TOC
 {:toc}
-
-# Window Decor
 
 A Window Decor defines how a window looks. There are two
 different meanings of Window Decor that could get used.

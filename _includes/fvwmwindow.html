@@ -24,9 +24,7 @@
 {% if include.bgcolor %}{% assign fvwmbgcolor=include.bgcolor %}
 {% else %}{% assign fvwmbgcolor=fvwmcolor %}{% endif %}
 
-<div class="fvwmwindow{% if include.max %} fvwmwindow-max{% endif %}" id="fvwmwindow-{{ id }}"
-     onMouseOver="$( '#fvwmwindow-title-{{ id }}' ).addClass( 'fwin-focus' )"
-     onMouseOut="$( '#fvwmwindow-title-{{ id }}' ).removeClass( 'fwin-focus' )">
+<div id="fvwmwindow-{{ id }}" class="fvwmwindow{% if include.max %} fvwmwindow-max{% endif %}" data-fvwmid="{{ id }}">
   <div class="fvwmwindow-top fwin-top-{{ fvwmcolor }}"></div>
   <div class="fvwmwindow-bottom fwin-bottom-{{ fvwmcolor }}"></div>
   <div class="fvwmwindow-left fwin-left-{{ fvwmcolor }}"></div>
@@ -37,17 +35,12 @@
   <div class="fvwmwindow-bottom-right fwin-bottom-right-{{ fvwmcolor }}"></div>
 
   <div class="fvwmwindow-title-bar">
-    <div class="fvwmwindow-button1 fwin-button1-{{ fvwmcolor }}"
-         onClick="$( '#fvwmwindow-{{ id }}' ).toggleClass( 'fvwmwindow-max' )"></div>
-    <div id="fvwmwindow-title-{{ id }}"
-         class="fvwmwindow-title fwin-title-{{ fvwmcolor }} fwin-{{ fvwmcolor }}"
-         ondblclick="$( '#fvwmwindow-main-{{ id }}' ).toggleClass( 'fvwmwindow-min' )">
+    <div class="fvwmwindow-button1 fwin-button1-{{ fvwmcolor }}" data-fvwmid="{{ id }}"></div>
+    <div id="fvwmwindow-title-{{ id }}" class="fvwmwindow-title fwin-title-{{ fvwmcolor }} fwin-{{ fvwmcolor }}" data-fvwmid="{{ id }}">
       {{ include.title }}
     </div>
-    <div class="fvwmwindow-button2 fwin-button2-{{ fvwmcolor }}"
-     onClick="$( '#fvwmwindow-main-{{ id }}' ).removeClass( 'fvwmwindow-min' )"></div>
-    <div class="fvwmwindow-button4 fwin-button4-{{ fvwmcolor }}"
-     onClick="$( '#fvwmwindow-main-{{ id }}' ).addClass( 'fvwmwindow-min' )"></div> 
+    <div class="fvwmwindow-button2 fwin-button2-{{ fvwmcolor }}" data-fvwmid="{{ id }}"></div>
+    <div class="fvwmwindow-button4 fwin-button4-{{ fvwmcolor }}" data-fvwmid="{{ id }}"></div>
   </div>
 
   <div id="fvwmwindow-main-{{ id }}" class="fvwmwindow-main fwin-{{ fvwmbgcolor }}{% if include.shade %} fvwmwindow-min{% endif %}">

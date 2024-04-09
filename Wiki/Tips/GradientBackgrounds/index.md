@@ -3,14 +3,13 @@ title: Gradient Backgrounds
 type: tip
 description: |
   This descibes how to get nice gradients on different fvwm desktops or pages.
-
 ---
+# Gradient Backgrounds
+
 * TOC
 {:toc}
 
-# Gradient Backgrounds
-
-This descibes how to get nice gradients on different fvwm desktops or pages.
+This describes how to get nice gradients on different fvwm desktops or pages.
 
 ## Create the Gradients
 

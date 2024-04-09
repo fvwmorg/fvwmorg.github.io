@@ -5,12 +5,11 @@ weight: 600
 description: |
   This is a description of the RightPanel found in the
   default configuration.
-
 ---
+# RightPanel
+
 * TOC
 {:toc}
-
-# RightPanel
 
 The RightPanel is a taskbar like panel along the right edge of the screen
 for a now more common widescreen setup. This panel contains [FvwmPager](
