@@ -131,11 +131,11 @@ environment from. If you want a preconfigured desktop
 environment using Fvwm, check out the following:
 
 {% capture fvwmtxt %}
-<div id="FvwmCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#FvwmCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#FvwmCarousel" data-slide-to="1"></li>
-  </ol>
+<div id="FvwmCarousel" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#FvwmCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Fvwm-Crystal Slide"></button>
+    <button type="button" data-bs-target="#FvwmCarousel" data-bs-slide-to="1" aria-label="NSCD Slide"></button>
+  </div>
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img src="{{ site.baseurl }}/img/fvwm-crystal.jpg" class="d-block mx-auto" alt="Screen shot of Fvwm Crystal.">
@@ -156,14 +156,14 @@ environment using Fvwm, check out the following:
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#FvwmCarousel" role="button" data-slide="prev">
+  <button class="carousel-control-prev" type="button" data-bs-target="#FvwmCarousel" data-bs-slide="prev">
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#FvwmCarousel" role="button" data-slide="next">
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#FvwmCarousel" data-bs-slide="next">
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
+    <span class="visually-hidden">Next</span>
+  </button>
 </div>
 {% endcapture %}
 

@@ -6,14 +6,11 @@ description: |
   Functions are usually run in the context of the window in which
   they were run, but not always. Here are some pointers for ensuring
   commands are run in the correct context.
-
 ---
-* TOC
-{:toc}
-
 # Function Context
 
-## Introduction
+* TOC
+{:toc}
 
 Under most circumstances, functions tend to be invoked within a window context.
 That means the set of commands within the function operate on a window.  More

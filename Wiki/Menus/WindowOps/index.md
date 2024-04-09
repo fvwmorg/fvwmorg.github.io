@@ -5,12 +5,11 @@ weight: 500
 description: |
   This menu is just a collection of actions (Maximize, Iconify,
   Close, etc) that can be used to control windows.
-
 ---
+# WindowOps Menu
+
 * TOC
 {:toc}
-
-# WindowOps Menu
 
 These are a collection of Menus that can be used to control windows.
 The menus can be accessed from a root menu in which you have to select

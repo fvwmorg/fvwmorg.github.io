@@ -8,15 +8,13 @@ description: |
   This article</a> by Thomas Adam.
 
 ---
+# FVWM: How Styles are Applied
+
 * TOC
 {:toc}
 
-# FVWM: How Styles are Applied
-
 *This is a copy of the following article by Thomas Adam:
 <https://linuxgazette.net/127/adam.html>*
-
-## Introduction
 
 Configuring FVWM can seem like a chore at times. Indeed, there are
 certain aspects of it that are easy - and some that are less so. I've been

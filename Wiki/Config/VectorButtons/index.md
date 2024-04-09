@@ -5,12 +5,11 @@ weight: 440
 description: |
   Vector Buttons are a built in method for drawing buttons for windows in Fvwm.
   This describes the syntax and provides a collection of examples.
-
 ---
+# Vector Buttons
+
 * TOC
 {:toc}
-
-# Vector Buttons
 
 Vectors are a method to draw window buttons in Fvwm. A Vector definition
 describes the button as a square. Position in the button is the X and Y

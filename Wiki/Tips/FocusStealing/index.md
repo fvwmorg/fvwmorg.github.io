@@ -5,14 +5,11 @@ description: |
   Some applications want to steal focus when an event
   is trigered. This describes how to disable apps from
   stealing focus in Fvwm.
-
 ---
-* TOC
-{:toc}
-
 # Stopping Applications Stealing Focus
 
-## Introduction
+* TOC
+{:toc}
 
 Many people are confused by some applications appearing to steal focus.
 Usually, the following isn't enough:

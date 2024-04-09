@@ -4,14 +4,11 @@ type: tip
 description: |
   This describes how to configure CapsLock as a Modifier for Key and
   Mouse bindings.
-
 ---
-* TOC
-{:toc}
-
 # Caps Lock as FVWM Key
 
-## Introduction
+* TOC
+{:toc}
 
 Many people think of Caps Lock as a very annoying key at an annoying
 position. Lots of us also know Windows, Amiga, or Macintosh keys, which are
