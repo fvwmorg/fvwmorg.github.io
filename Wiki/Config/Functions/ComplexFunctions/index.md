@@ -23,23 +23,23 @@ commands, external commands, etc.
 The formal declaration of a function is started with the AddToFunc
 keyword, its syntax being:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc [name [I | M | C | H | D action]]
-{% endhighlight %}
+{% endfvwm2rc %}
 
 To take an example, suppose we wanted to write a function (a useless one
 in this context, but serves for demonstrative purposes) called !RaiseMe
 which raises a window as soon as a function is called.  We would write:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc RaiseMe I Raise
-{% endhighlight %}
+{% endfvwm2rc %}
 
 We might decide we want to bind that function to the titlebar of a window:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Mouse 1 T A RaiseMe
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Such that when we then clicked on the titlebar with mouse button 1, the
 window is raised.  Now let's assume in addition to that we wanted to (at
@@ -48,9 +48,9 @@ the same time), move the window to the previous page as well.
 Since we have already declared the function !RaiseMe earlier on, we
 could continue to add to its definition as in:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc RaiseMe I MoveToPage prev
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The point being here is that each time a new definition is added to the
 function, the AddToFunc keyword does that, although it can be an issue at
@@ -58,11 +58,11 @@ times since it's somewhat harder to follow.   There is another way of
 declaring functions, and that is to list each operation of it below a
 single AddToFunc definition using the group operator *+*.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc RaiseMe
 + I Raise
 + I MoveToPage prev
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The plus operator just extends the definition of AddToFunc (but works in
 the same way with AddToDecor and AddToMenu), effectively grouping the
@@ -74,15 +74,15 @@ It would be quite annoying if we could only ever continue adding to a
 function without somehow being able to remove its definition.  Luckily
 though, FVWM has the DestroyFunc command to do this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc [name]
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Hence:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc RaiseMe
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ...would make FVWM forget the definition of that function.
 
@@ -120,13 +120,13 @@ parts of it.
 
 Here's an example:  FuncMoveOrRaiseLower
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc FuncMoveOrRaiseLower
 AddToFunc   FuncMoveOrRaiseLower
 + H Move
 + M Move
 + C RaiseLower
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... which says that when the function is called, if the mouse button is
 either held or the window is invoked to be moved by the mouse button, then
@@ -141,12 +141,12 @@ function's definition before you define it (irrespective of whether it is
 the fist time the function has been defined) is probably a good idea,
 hence:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc myFunction
 AddToFunc   myFunction
 + I ....
 + M ....
-{% endhighlight %}
+{% endfvwm2rc %}
 
 There is no agreed definition as to function naming conventions, other
 than to choose something and try and be consistent in its use.  I
@@ -163,7 +163,7 @@ $0, $1, $2, ..., $9. Use $\[n\] to access a parameter bigger
 than 9. Additionally you can use $\[n-m\], $\[n-\], $\* or $\[\*\]
 for different collections of the input(s). For example
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Function: MoveClickX $0 $1 $2
 #   $0 - Action on Mouse Hold + Move
 #   $1 - Action on Mouse Click
@@ -174,15 +174,15 @@ AddToFunc MoveClickX
 + M $0
 + C $1
 + D $2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This function can then be bound to window buttons, title bars, etc
 like
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Titlebar: Move or Raise on single click or Maximze on double
 Mouse 1 T A MoveClickX Move Raise Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Function Caveats
 
@@ -196,9 +196,9 @@ it.  However there is some programs (such as ''import'') which need the
 pointer to actively workout what screenshot it is going to take.  This
 won't therefore work the way it's intended from within a function such as:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I Exec exec import -window root ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 To alleviate such problems, one would have to use PipeRead to fork off a
 new process (away from the function).
@@ -207,13 +207,13 @@ Synchronisation is another important issue within function execution.  To
 take an example, suppose you have the following function that performs a
 series of operations:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc FuncSomeFunction
 AddToFunc   FuncSomeFunction
 + I Raise
 + I AnimatedMove 500 300
 + I Lower
-{% endhighlight %}
+{% endfvwm2rc %}
 
 You might expect these commands to run one after the other.  They do,
 although there are times when that might not always be the case.  FVWM

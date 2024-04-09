@@ -40,7 +40,7 @@ export HISTCONTROL="ignorespace"
 To bind the dialog to a key put for example the following lines in your
 FVWM configuration:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style fvwm-run-dialog FPGrabFocus, FPReleaseFocus
 Key R A 4 Exec exec $[FVWM_USERDIR]/run-dialog
-{% endhighlight %}
+{% endfvwm2rc %}

@@ -21,7 +21,7 @@ the effects built into Fvwm.
 To use this decor first configure the 
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #   1 - Inactive Windows 
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -30,23 +30,23 @@ Colorset 1 fg black, bg #3B553D
 Colorset 2 fg white, bg rgb:6e/9a/71
 Colorset 3 fg black, bg grey40
 Colorset 4 fg white, bg grey40
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 uses lots of buttons.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [1357 Title 08642]
 Mouse 1 4 A Iconify
 Mouse 1 2 A Maximize
 Mouse 1 1 A Menu MenuWindowOps
 ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Then define the Decor:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToDecor VectorsDecor
 + BorderStyle Simple
 + TitleStyle LeftJustified Height 22 -- Raised
@@ -67,17 +67,17 @@ AddToDecor VectorsDecor
                 60x50@0 60x75@0 40x75@0
 + ButtonStyle 7 Vector  8 40x25@1 40x50@1 25x50@1 50x75@1 75x50@0 \
                 60x50@0 60x25@0 40x25@0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Last we need the Styles
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 5, HandleWidth 6, \
         FvwmBorder, FirmBorder, \
         MWMButtons, UseDecor VectorDecor
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Color Themes
 

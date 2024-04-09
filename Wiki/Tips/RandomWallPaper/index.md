@@ -32,10 +32,10 @@ For this Task, you can use the following program:
 
 You can add the following to your fvwm configuration (for example)
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction
 + I Exec exec Esetroot -scale $(randomimage.lisp)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Where randomimage.lisp is the name of the executable file you named the
 above as. If you are not using clisp, you have to remove the first line in
@@ -47,19 +47,19 @@ the program and add the according interpreter call in front of
 From the ancient times [XV](http://www.trilon.com/xv/downloads.html) has been
 used for this purpose in the following way
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction
 + "I" Exec   xv -root -max -quit -random ~/.fvwm/images/*
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Using wmsetbg to set random background image
 
 wmsetbg has better support for pseudo transparency than xv. It can be used as follows:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction
 + I Exec exec wmsetbg -a `ls $FVWM_USERDIR/Background/*.jpg|sort -R|tail -1`
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Random background color from rgb.txt
 
@@ -78,7 +78,7 @@ echo $RNDCOLOR
 
 Then call it from FVWM
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction
 + I Exec xsetroot -solid $(randomcolor.sh)
-{% endhighlight %}
+{% endfvwm2rc %}

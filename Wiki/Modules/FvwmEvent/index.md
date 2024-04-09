@@ -62,12 +62,12 @@ A generic FvwmEvent configuration looks like the following (note that the
 line numbers have been added as a convenient reference point, and are not
 part of the configuration):
 
-{% highlight fvwm linenos %}
+{% fvwm2rc linenos %}
 DestroyModuleConfig FvwmEvent: *
 *FvwmEvent: <some_event_name> <some_action>
  
 Module FvwmEvent
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The very first thing that happens is that the module config is destroyed
 (Line 1). This might seem a little strange at first given that nothing has
@@ -93,9 +93,9 @@ different actions on the same event -   something you can't do with one
 alias. So the heuristic approach is to define a unique alias   to FvwmEvent,
 which isn't \*FvwmEvent. Any name can be used, as will become apparent.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 add_window event: maximising windows
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This is perhaps the most common event people use when they consider running
 commands on a window. This event is triggered whenever a window is mapped
@@ -114,13 +114,13 @@ themselves or via user interaction.
 
 The first thing to be done is setting up FvwmEvent:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FE-StartMaximised: *
 *FE-StartMaximised: Cmd Function
 *FE-StartMaximised: add_window StartAppMaximised
     
 Module FvwmEvent FE-StartMaximised
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This tells FvwmEvent a few things. One is that the alias we're using for it
 is \*FE-StartMaximised. Secondly, we've informed the module that the command
@@ -130,11 +130,11 @@ for is add\_window. Then the module is started.
 The function we'll declare is quite simple to start off with (again, line
 numbers are for point of reference only, and are not part of the syntax):
 
-{% highlight fvwm linenos %}
+{% fvwm2rc linenos %}
 DestroyFunc StartAppMaximised
 AddToFunc   StartAppMaximised
 + I Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Line 1 destroys the previous function definition. It's generally a good idea
 to do this when declaring functions, since it removes a previous definition
@@ -182,24 +182,24 @@ One can achieve this is in a number of ways, and a lot of it depends upon
 the situation the function is likely to be called in. Recall the definition
 for StartAppMaximised - at the moment the line looks like:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
  
 This already assumes a window context. But one can always make sure by using
 the   ThisWindow command, as in:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I ThisWindow Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ThisWindow is extremely useful to refer to windows directly without implying
 any   presumptions. Indeed, there are other conditional commands, such as
 Current, which is quite a common way to imply context:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I Current Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 However, its use implies that the window already has focus. Sometimes this
 is useful to refer to the specific window; however, in the case of the
@@ -217,11 +217,11 @@ likely to be desirable. One can conditionally place restrictions on
 windows by matching against their name, class or resource by using any of
 the conditional commands mentioned earlier:
 
-{% highlight fvwm %} 
+{% fvwm2rc %} 
 DestroyFunc StartAppMaximised 
 AddToFunc   StartAppMaximised 
 + I ThisWindow ("name of window") Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 What happens here is that only the window with the name 'name of window' is
 considered. If it matches the window just created, then it is maximised;
@@ -232,32 +232,32 @@ then the maximize command would have the opposite effect, "unmaximising" it.
 Luckily FVWM has a conditional test, Maximized that can be used to test if
 the window is maximised. The negation of this is !Maximized:
 
-{% highlight fvwm %} 
+{% fvwm2rc %} 
 DestroyFunc StartAppMaximised
 AddToFunc   StartAppMaximised
 + I ThisWindow ("name of window",!Maximized) Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Looking better, certainly. There's still room for improvement, though. In
 FVWM 2.5.X, one is able to specify multiple windows to match on, if more
 than one window need be considered:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartAppMaximised
 AddToFunc   StartAppMaximised
 + I ThisWindow ("name of window|another window", !Maximized) Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The '|' operator acts as a logical OR command, matching either of the titles
 and applying the maximized condition to the (possibly) matched window. In
 FVWM 2.4.X, one would have to use multiple lines one after the other:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartAppMaximised
 AddToFunc   StartAppMaximised
 + I ThisWindow ("name of window",!Maximized) Maximize
 + I ThisWindow ("some\_window",!Maximized) Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 There's still one more condition to consider: different window types. Up
 until now, the assumption has been that normal windows are considered.
@@ -270,11 +270,11 @@ not likely (due to their implementation) that one is going to be able to
 maximise them anyway, but it's worth excluding them. FVWM allows for this
 via the Transient conditional check, which can be negated to !Transient:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartAppMaximised
 AddToFunc   StartAppMaximised
 + I ThisWindow ("name of window|another window", !Maximized, !Transient) Maximize
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Full-screen mode
 
@@ -284,9 +284,9 @@ their title so that they appear to cover the entire viewport. In the
 simplest case, the window's name or class is known beforehand, and an
 appropriate style line can be set[^3]. For example:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style "name of window" !Title, !Borders, HandleWidth 0, BorderWidth 0, ResizeHintOverride
-{% endhighlight %}
+{% endfvwm2rc %}
 
 That line ought to be pretty self-explanatory. The
 `ResizeHintOverride` condition makes those applications which are column-sized

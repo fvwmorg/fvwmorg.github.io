@@ -25,13 +25,13 @@ Let's take an example.  Note that all of these examples have to assume an
 [I]mmediate context, that is commands that run as soon as the function
 is called.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc FuncMyFunction
 AddToFunc   FuncMyFunction
 + I Exec exec firefox
 + I Exec exec xterm -name myTerminal -iconic
 + I Exec exec xteddy -wm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 When FVWM is told to look at this function it does what it's told to
 -- it will read it line-by-line and, in this case, exec those commands one
@@ -50,7 +50,7 @@ the FuncMyFunction example, all of those commands produce ("map" to use
 Xlib parlance) windows, hence FVWM can be told to wait for their presence as
 in:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc FuncMyFunction
 AddToFunc   FuncMyFunction
 + I Exec exec firefox
@@ -59,7 +59,7 @@ AddToFunc   FuncMyFunction
 + I Wait myTerminal
 + I Exec exec xteddy -wm
 + I Wait xteddy
-{% endhighlight %}
+{% endfvwm2rc %}
 
 What this does is ensure that all processing stops until the specified window
 appears.  Note that this *is* order dependant now.  When the function
@@ -78,13 +78,13 @@ to run, and can crudely help in assuring that some commands run in order.  To
 take another example, assume the following function definition:
 
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc SomeExampleFunction
 AddToFunc   SomeExampleFunction
 + I Exec exec firefox
 + I Schedule 4000 Exec exec xterm -name myTerminal -iconic
 + I Schedule 5000 Exec exec xteddy -wm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Here, FVWM will read the function as it did before, and will start Firefox
 immediately.  It will then come across the two Schedule commands and wait four
@@ -94,13 +94,13 @@ block and so FVWM will then carry on doing whatever else it is told to do.
 An alternative method needed for older versions of Fvwm (2.4.X) was use
 sleep in a shell something like this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc SomeExampleFunction
 AddToFunc   SomeExampleFunction
 + I Exec exec firefox
 + I Exec exec sleep 4s && exec xterm -name myTerminal -iconic
 + I Exec exec sleep 5s && xteddy -wm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This the above takes place at the shell level, however there is no blocking on
 the commands as there would be when using the Wait command.
@@ -109,11 +109,11 @@ To ensure blocking synchronisation for commands that produce no windows, one
 would then have to use PipeRead, since FVWM blocks until the PipeRead
 processes has finished its processing.  As a very silly example:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc SomeExampleFunction
 AddToFunc   SomeExampleFunction
 + I Exec exec firefox
 + I PipeRead `sleep 4s && echo "Exec xterm -name myTerminal -iconic"`
 + I Exec exec sleep 5s && xteddy -wm
-{% endhighlight %}
+{% endfvwm2rc %}
 

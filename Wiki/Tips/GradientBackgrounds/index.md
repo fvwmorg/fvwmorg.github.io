@@ -26,17 +26,17 @@ Desktops, use the FvwmBacker module.
 
 Configure FvwmBacker in your config file:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmBacker: Command (Desk 0) Exec fvwm-root -r $[HOME]/pictures/gradient_green.xpm
 *FvwmBacker: Command (Desk 1) Exec fvwm-root -r $[HOME]/pictures/gradient_blue.xpm
 *FvwmBacker: Command (Desk 2) Exec fvwm-root -r $[HOME]/pictures/gradient_red.xpm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Start FvwmBacker Module on start and restart:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction  I Module FvwmBacker
-{% endhighlight %}
+{% endfvwm2rc %}
 
 After restarting fvwm your desktops having different gradient backgrounds.
 Which are small and changes quite fast when changing the desktop. The same

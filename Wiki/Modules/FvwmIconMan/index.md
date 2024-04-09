@@ -25,7 +25,7 @@ vertical list whose window grows and shrinks with the number of running
 apps. Below is a brief description of what the various parts configure.
 For a full list of options see the FvwmIconMan manpage.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: UseWinList true
 *FvwmIconMan: Resolution global
@@ -52,7 +52,7 @@ DestroyModuleConfig FvwmIconMan: *
 *FvwmIconMan: Action Mouse 0 N sendcommand Nop
 *FvwmIconMan: Action Mouse 1 A sendcommand IconManClick
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 + Here the first few options set some basics about which windows to show.
   UseWinList honors the WinListSkip style, Otherwise all windows will be
@@ -107,10 +107,10 @@ mouse or keyboard in the manager) and the various combinations of these.
 There are two related options to set these. For example for the Selected
 button you could use
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmIconMan: SelectButton style forecolor backcolor
 *FvwmIconMan: SelectColorset colorset
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Style is one of flat, up, down, raisededge or sunkedge and the forecolor
 and backcolor set the respective color. The color settings are optional
@@ -154,10 +154,10 @@ the buttons with a keyboard.
 
 The basic configuration settings are
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmIconMan: Action Mouse Button Modifier Command
 *FvwmIconMan: Action Key Key Modifier Command
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Here command are commands for FvwmIcon man. See the man page for a full
 list. The ones used in the example use sendcommand which will send
@@ -166,9 +166,9 @@ the command to Fvwm to act on the selected window.
 The default is to Iconify the window no matter what mouse button is pressed,
 which can be disabled with
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmIconMan: Action Mouse 0 N sendcommand Nop
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The other actions then bind a custom Iconfiy like function to a left click
 and opens a [Window Operations Menu](
@@ -178,7 +178,7 @@ preform various operations.
 The custom function used, which will bring make a window Visable if it is not,
 and Iconify it otherwise is
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc IconManClick
 AddToFunc   IconManClick
 + I ThisWindow (Raised, !Shaded, !Iconic, CurrentPage) Iconify
@@ -187,19 +187,19 @@ AddToFunc   IconManClick
 + I ThisWindow (Shaded) WindowShade
 + I ThisWindow (Iconic) Iconify
 + I ThisWindow (AcceptsFocus) FlipFocus
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Resolution (fvwm3)
 
 New in fvwm3, the resolution setting (which configures which windows are shown)
 has been changed into a set of filters. There are four filters:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmIconMan: Resolution [!]desk [n]
 *FvwmIconMan: Resolution [!]page [x] [y]
 *FvwmIconMan: Resolution [!]screen [S]
 *FvwmIconMan: Resolution invert
-{% endhighlight %}
+{% endfvwm2rc %}
 
 These filters will either show (or not show) windows on the stated
 desk, page, or screen. If no parameters are provided the current
@@ -211,9 +211,9 @@ No filters will show all windows (equivalent to `global` in fvwm2).
 You can then list up to one of each of the filters to control which
 windows are shown. For example:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *FvwmIconMan: Resolution screen p desk 1 !page 0 2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Shows all windows on the primary monitor, on desk 1, and not on page 0 2.
 

@@ -13,7 +13,7 @@ want to turn that around, and launch applications by clicking
 on icons we can't stop you.  Here's a way to do that using
 FvwmButtons:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # FvwmButtons icon launcher:
 DestroyFunc Launcher
 AddToFunc Launcher
@@ -33,7 +33,7 @@ AddToFunc Launcher
 # Examples:
 Launcher RXVT xterm.xpm "rxvt -bg black" "-g +0+0"
 Launcher XV   xv.xpm    xv   "-g +0+100"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Also, GNOME and KDE have desktop icon applications gmc and kfm,
 which enable this functionality.  These applications may be run under FVWM.

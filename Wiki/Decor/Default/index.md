@@ -20,7 +20,7 @@ the effects built into Fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -29,23 +29,23 @@ Colorset 1  fg #000000, bg #8f9f8f
 Colorset 2  fg #ffffff, bg #003c3c
 Colorset 3  fg black, bg #4d4d4d, hi #676767, sh #303030
 Colorset 4  fg black, bg #2d2d2d, hi #474747, sh #101010
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 uses buttons 1, 6, 4 and 2.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Button Locations [1 Title 642]
 Mouse 1 6 A Iconify
 Mouse 1 4 A Maximize
 Mouse 1 2 A Close
 Mouse 1 1 A Menu MenuWindowOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Then define the Decor:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToDecor   FvwmDecor
 + TitleStyle Centered Height 18 -- Flat
 
@@ -77,7 +77,7 @@ AddToDecor   FvwmDecor
 + ButtonStyle 1 - MwmDecorMenu
 + ButtonStyle 4 - MwmDecorMax
 + ButtonStyle 6 - MwmDecorMin
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The above Decor first Draws a square around all buttons (with a smaller square
 around pressed Down buttons). After that, AddButtonStyle adds the icon for each
@@ -85,13 +85,13 @@ button inside the square.
 
 Last we need the Styles
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 5, HandleWidth 5, \
         FvwmBorder, FirmBorder, \
         MWMButtons, UseDecor FvwmDecor
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Color Themes
 

@@ -24,24 +24,24 @@ This requires flagging the correct button within the FvwmButtons instance so
 that it can be 'referenced' from within FVWM itself -- via functions, menus,
 and so forth. Here's an example of a snippet of a FvwmButtons instance:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *OSXDock: (24x26+1100+0, Padding 1 0, Icon v4.png, ActionOnPress, \
     Action(Mouse 1) Menu MenuVol Rectangle +$left+25 0 0m)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... which works fine. In order for us to 'flag' it, we just need to add the
 "Id" command to it:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 *OSXDock: (24x26+1100+0, Id "A", Padding 1 0, Icon v4.png, ActionOnPress, \
     Action(Mouse 1) Menu MenuVol Rectangle +$left+25 0 0m)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Hence, we can now refer to this button as button A. Now we have to concentrate
 on changing the icon to reflect the state of the volume. The menu entries
 which hold the volume increments might be defined as the following:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyMenu MenuVol
 AddToMenu MenuVol
 + "100%%" Exec exec aumix -w 100
@@ -55,14 +55,14 @@ AddToMenu MenuVol
 + "20%%" Exec exec aumix -w 20
 + "10%%" Exec exec aumix -w 10
 + "0%%" Exec exec aumix -w 0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This is fine, and will work, but we have yet to connect the actions of the menu
 operations, and the changing of the icon. The continual duplication of the
 "Exec exec" lines for the same program (but with different parameters) can
 be smartened up into a function call:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyMenu MenuVol
 AddToMenu MenuVol
 + "100%%" ChangeSoundVolAndIcon 100
@@ -76,7 +76,7 @@ AddToMenu MenuVol
 + "20%%" ChangeSoundVolAndIcon 20
 + "10%%" ChangeSoundVolAndIcon 10
 + "0%%"  SoundChangeIcon
-{% endhighlight %}
+{% endfvwm2rc %}
 
 By separating out the functionality into a different function, we only then
 have to change one item, if any changes to the calling program need to be
@@ -84,18 +84,18 @@ made, hence the following will provide the same functionality as in the
 original version -- the only difference is that we're passing in the volume
 level as a parameter.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc ChangeSoundVolAndIcon
 AddToFunc ChangeSoundVolAndIcon
 + I Exec exec aumix -w $0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Added to which we can now add to that function the definition to change the
 FvwmButtons icon:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I SendToModule OSXDock ChangeButton "A" Icon v4.png
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The SendToModule command accepts some parameters -- the first one is the module
 alias of the module we're wishing to send the command to. In this case, it is
@@ -107,9 +107,9 @@ The sharp-eyed amongst you will have realized that for a volume of zero; we
 will need to change the icon to mute. We can do this by calling for that
 value only, a different function instance:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc SoundChangeIcon
 AddToFunc SoundChangeIcon
 + I Exec exec aumix -w 0
 + I SendToModule OSXDock ChangeButton "A" Icon mute.png
-{% endhighlight %}
+{% endfvwm2rc %}

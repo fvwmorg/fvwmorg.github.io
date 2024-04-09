@@ -17,9 +17,9 @@ different Styles.
 
 The syntax for Styles is:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style stylename Style1, Style2, Style3, ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 A Style is applied to all windows whose name, title, class or resource
 matches the stylename (the module [/Modules/FvwmIdent](
@@ -31,7 +31,7 @@ as you want to apply separating them with commas.
 To apply a style to all windows, use the wild card *. Here are some examples
 of styles applied to all windows I use in my config file.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Window Placement and Focus
 Style * SloppyFocus, MouseFocusClickRaises, !FPGrabFocus
 Style * MinOverlapPlacement, !UsePPosition
@@ -46,20 +46,20 @@ Style * WindowShadeScrolls, WindowShadeSteps 10
 # Window Colorset Defaults
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4
-{% endhighlight %}
+{% endfvwm2rc %}
 
 
 You can also apply styles to windows by matching their
 class/resource/name. For example the follow styles are for specific windows.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style FvwmButtons !Title, !Borders, !Handles, Sticky, \
                   WindowListSkip, NeverFocus
 Style ConfirmQuit !Title, PositionPlacement Center, \
                   WindowListSkip, Layer 6
 Style FvwmIdent WindowListSkip
 Style xterm MiniIcon icon/xterm.png
-{% endhighlight %}
+{% endfvwm2rc %}
 
 In general I try to use the class or resource of a window to match
 for the style names. These usually will not change like a title or name can.

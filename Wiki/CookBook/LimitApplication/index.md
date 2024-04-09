@@ -21,12 +21,12 @@ a screen session that I have active. Rather than reloading it and attaching
 it, I like to just warp to wherever the window is. If the window isn't
 active, then it is launched.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc LimitApplication
 AddToFunc   LimitApplication
 + I Next ($0, CurrentDesk, CirculateHit) FlipFocus
 + I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 So the above looks for the next window that is on the current desk, and if
 it is, the focus is sent to that window. Else, if there isn't (TestRc
@@ -38,11 +38,11 @@ As to how it is invoked, there's any number of ways. In the form as it is
 above, it can only match based on the function receiving parameters -- so
 this would suggest something along the lines of key-bindings, as in:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Key s A CM LimitApplication screen1
 Key x A CM LimitApplication xine
 Key d A CM LimitApplication irssi
-{% endhighlight %}
+{% endfvwm2rc %}
 
 So that "$0" in the function is expanded to whatever is passed into the
 function -- in this case, either "screen1", or, "xine", or "irssi". The
@@ -60,20 +60,20 @@ might be better to pass in two parameters -- the first one could be the Class
 of the window, and the remaining arguments could be how to start the application.
 Here's an example of that:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc LimitApplicationImproved
 AddToFunc   LimitApplicationImproved
 + I Next ($0, CurrentDesk, CirculateHit) FlipFocus
 + I TestRc (NoMatch) None ($0, CurrentDesk) Exec exec $[1-]
-{% endhighlight %}
+{% endfvwm2rc %}
 
 That way, we could then do the following:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Key s A CM LimitApplicationImproved screen1 xterm -T screen1 -e screen
 Key x A CM LimitApplicationImproved Xine xine
 Key d A CM LimitApplicationImproved irssi xterm -T irssi -e irssi
-{% endhighlight %}
+{% endfvwm2rc %}
 
 So that in the above example, FVWM would check for a window called "screen1",
 and if that didn't exist, FVWM would spawn an xterm with the title "screen1",

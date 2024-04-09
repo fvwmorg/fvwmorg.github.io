@@ -22,14 +22,14 @@ two vertical borders juxtaposed, and nothing more -- the TitleBar would have
 shaded inside it. The following function best shows this in action, as
 describing it takes far too many words:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc RaiseOrShade
 AddToFunc   RaiseOrShade
 + C     Raise
 + D     WindowShade $[func.context]
 
 Mouse 1         SF      A RaiseOrShade
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Clicking once with mouse button 1 on any of the window sides/frame would raise
 the window. Double-clicking on the window would shade the window in that
@@ -42,7 +42,7 @@ So, in order to move the TitleBar in the same direction, we just need to
 translate those symbols to directions, and set the TitleBar location. We'll
 need a helper function for that, though:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc FuncShadeMe
 AddToFunc FuncShadeMe
 + I PipeRead `case $[func.context] in "t") \
@@ -51,7 +51,7 @@ AddToFunc FuncShadeMe
     "]") echo 'ThisWindow (!Shaded) WindowStyle TitleAtRight' && echo 'WindowShade ]';; \
     "-") echo 'ThisWindow (!Shaded) WindowStyle TitleAtTop' && echo 'WindowShade -';; \
     "_") echo 'ThisWindow (!Shaded) WindowStyle TitleAtBottom' && echo 'WindowShade _';;esac`
-{% endhighlight %}
+{% endfvwm2rc %}
 
 So you can see from the above that when ``$[func.context]`` interpolates to
 a ``[`` that the window is shading to the left, and "]" to the right, etc.
@@ -59,12 +59,12 @@ Then knowing that means the style of the window to which the shade operation
 is being applied need just be told where to put the TitleBar. The last thing
 left to do is adapt the RaiseOrShade function to use this helper function:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc RaiseOrShade
 AddToFunc   RaiseOrShade
 + C     Raise
 + D     FuncShadeMe
 
 Mouse 1         SF      A RaiseOrShade
-{% endhighlight %}
+{% endfvwm2rc %}
 

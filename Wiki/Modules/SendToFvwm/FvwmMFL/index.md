@@ -20,9 +20,9 @@ and [FvwmCommand](
 and must be started for them to function correctly. FvwmMFL should be
 started from the `StartFunction` in your config file.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunction StartFunction I Module FvwmMFL
-{% endhighlight %}
+{% endfvwm2rc %}
 
 FvwmMFL provides a JSON socket to talk directly to fvwm and to receive
 information and events from the running instance of fvwm. This provides

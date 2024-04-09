@@ -32,7 +32,7 @@ and not having to Restart Fvwm as often.
 Here are some examples commands. Everything after
 a "#" is a comment and will be ignored by Fvwm.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # DefaultFont
 DefaultFont "xft:Sans:size=10:antialias=True"
 
@@ -49,7 +49,7 @@ Exec exec xterm
 
 # Iconfiy all windows except the one with focus
 All (CurrentPage, !Iconified, !Focused) Iconify
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Each line is read in order and changes the current setting
 of Fvwm. For the most part the order of the lines is personal

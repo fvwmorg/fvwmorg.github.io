@@ -15,7 +15,7 @@ small functions in fvwm that can hide any window you like:
 
 This approach only works in fvwm-2.5.8 or later:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc autohide
 AddToFunc autohide
 + I ThisWindow ($0) Deschedule $[w.id]
@@ -38,7 +38,7 @@ AddToFunc enter_handler
 #            |           |   |___  Shade direction (optional)
 #            |           |_______  Hide delay (milliseconds)
 #            |___________________  Unique window name/resource
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Simply add any windows you like to the enter\_handler function
 as in the example above.  The autohide function is called with

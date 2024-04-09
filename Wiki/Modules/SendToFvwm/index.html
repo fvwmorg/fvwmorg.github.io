@@ -40,7 +40,7 @@ package still uses FvwmConsole. In order to deal with this, the following
 from the <a href="{{ "/DefaultConfig" | prepend: site.wikiurl }}">
 Default Configuration</a> adds the appropriate menu entry:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToMenu MenuFvwmRoot "Fvwm" Title
 + ...
 Test (x $[FVWM_MODULEDIR]/FvwmConsole) + "Fvwm&Console%icons/terminal.png%" \
@@ -48,5 +48,5 @@ Test (x $[FVWM_MODULEDIR]/FvwmConsole) + "Fvwm&Console%icons/terminal.png%" \
 Test (x FvwmPrompt) + "&FvwmPrompt%icons/terminal.png%" \
      Exec exec $[infostore.terminal] -title FvwmPrompt -e FvwmPrompt
 + ...
-{% endhighlight %}
+{% endfvwm2rc %}
 

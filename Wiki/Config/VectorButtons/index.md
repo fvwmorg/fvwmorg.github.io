@@ -16,9 +16,9 @@ describes the button as a square. Position in the button is the X and Y
 location as a percentage between 0 and 100 from the top left corner of the button.
 The basic syntax of a Vector is
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Vector Num XxY@Color XxY@Color ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 A Vector statement gives the number of points followed by a list
 of that many points. Each point is listed as "XxY@Color" where X and Y
@@ -36,9 +36,9 @@ from the previous point. The valid numbers are
 
 For example to draw a line between the bottom left and top right corner use
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Vector 2 0x100@1 100x0@3
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Here the vector has 2 points, 0x100 (bottom left) and 100x0 (top right).
 The first color @1 is ignored, and the second color @3 says the line is
@@ -47,17 +47,17 @@ drawn using the background color.
 Draw a square inside the button using the hilight color for the top,
 foreground color for the sides and shade color for the bottom:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Vector 5 20x20@4 80x20@1 80x80@3 20x80@0 20x20@3
-{% endhighlight %}
+{% endfvwm2rc %}
 
 One can additionally define an offset from a position in pixels
 by including a +Xp or +Yp to the coordinates. An example of a vector
 that draws a lightning bolt is
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Vector 7 70-1px15-1p@0 30x55@1 50x55@0 40x85@1 80x45@0 60x45@1 70x15@0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Note the first point 70-1px15-1p describes a point offset one pixel from 70x15
 in both directions.
@@ -66,18 +66,18 @@ Once you have a Vector button you want to use, you can add it to your
 [/Config/Decor]({{ "/Config/Decor" | prepend: site.wikiurl }}) by the
 use of ButtonStyle or AddButtonStyle:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 ButtonStyle ButtonNumber ButtonState Vector Num XxY@Color XxY@color ...
 AddButtonStyle ButtonNumber ButtonState Vector Num XxY@Color XxY@color ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 For example to add the lightning bolt example to button 1 for the active
 windows use
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 ButtonStyle 1 Active Vector 7 70-1px15-1p@0 30x55@1 50x55@0 40x85@1 \
               80x45@0 60x45@1 70x15@0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Including 'Vector' in the above example is optional. Vector is the default
 ButtonStyle used and not needed. I still like to include Vector it to remind

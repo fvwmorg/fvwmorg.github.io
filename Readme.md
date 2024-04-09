@@ -1,25 +1,25 @@
 # FvwmWeb (fvwm.org) at GitHub
 
-This is the source to build the Fvwm website, <https://fvwm.org/>,
-including the wiki located at <https://fvwm.org/Wiki/>.
+This is the source to build the Fvwm website, <https://www.fvwm.org/>,
+including the wiki located at <https://www.fvwm.org/Wiki/>.
 
-The site is built from Markdown files with front matter using Jekyll:
-<https://jekyllrb.com>.
+The site is generated from markdown using Jekyll (including Jekyll's
+Kramdown flavor of markdown). See <https://www.fvwm.org/Wiki/FvwmWeb/>
+for information on how the site is organized, the styles and plugins used.
 
-To build and view the site locally, you can clone the
-repo, then use Jekyll to build the site:
+To build and view the site locally, clone the repo, then use Jekyll to
+serve the site:
 
-```
+```shell
 git clone https://github.com/fvwmorg/fvwmorg.github.io.git
 cd fvwmorg.github.io
-jekyll s
+jekyll serve
 ```
 
-To contribute to the website or wiki, make a pull
-request against this repo.
+By default the fvwm2rc syntax highlighter is disabled, as it increases
+build times drastically. To build or serve the site with syntax highlighting
+use the `--config` option:
 
-More information about the layout and contributing
-to the fvwm.org website and wiki can be found at
-<https://fvwm.org/Wiki/FvwmWeb/>.
-
-
+```shell
+jekyll serve --config _config.yml,_config-fvwm2rc.yml
+```
