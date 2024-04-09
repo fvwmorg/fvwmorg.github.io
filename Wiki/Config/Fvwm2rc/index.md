@@ -78,18 +78,18 @@ FVWM1 expected certain features to be in place.  The syntax was radically
 different as well.  For example, Style lines had to have the name of the
 window/class/resource quoted as in:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style "myApplication" Icon /some/icon/name.xpm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 In the same way, the declaration of Functions was quite specific:
 
-{% highlight fvwm %}    
+{% fvwm2rc %}    
 Function "Some-Function"
     Exec "I" some_program &
     Exec "I" some_other_program &
 EndFunction
-{% endhighlight %}
+{% endfvwm2rc %}
     
 Thankfully though things have moved on since then, in that such stringent
 quoting and ordering rules have been resolved. See [/Config/Syntax](
@@ -154,7 +154,7 @@ brackets):
 In that way, the only thing you would need to add to ~/.fvwm/config
 is lines which make read calls those files, hence:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Example ~/.fvwm/config file.
 #
 
@@ -171,7 +171,7 @@ AddToFunc   StartFunction
 Read $./options.fvwm2rc
 Read $./bindings.fvwm2rc
 # Etc ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ### Is there a "better" approach?
 

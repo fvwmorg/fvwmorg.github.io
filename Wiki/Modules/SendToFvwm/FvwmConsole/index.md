@@ -15,7 +15,7 @@ is particularly useful for testing new configuration ideas, or opening up
 a console to send fvwm commands without having previously configured a
 menu, button, keybinding, etc in the configuration file.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Launch FvwmConsole when fvwm starts.
 AddToFunc StartFunction Module FvwmConsole
 
@@ -23,7 +23,7 @@ AddToFunc StartFunction Module FvwmConsole
 AddToMenu MenuName
 ...
 + "Fvwm&Console" Module FvwmConsole -terminal xterm
-{% endhighlight %}
+{% endfvwm2rc %}
 
 On fvwm3 and newer installs, FvwmConsole may no longer be installed.
 If launching FvwmConsole fails, then it has been replaced[^1] by [FvwmPrompt](
@@ -41,13 +41,13 @@ default). You can append options to FvwmConsole to pass to the terminal to
 change the style of the terminal. You can also use the `-terminal` option
 to change the terminal FvwmConsole uses.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Change FvwmConsole's style
 Module FvwmConsole -g 40x10 -fg black -bg green3
 
 # Change FvwmConsole's terminal
 Module FvwmConsole -terminal rxvt 
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ---
 [^1]: Fvwm will only build and install one of FvwmConsole or FvwmPrompt

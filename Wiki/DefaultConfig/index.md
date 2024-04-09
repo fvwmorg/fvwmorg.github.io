@@ -144,7 +144,7 @@ FVWM uses [Colorsets](/Wiki/Config/Colorsets/) to configure the colors
 of window decors, menus, and modules. The default config defines the first
 fifteen colorsets (0-14) for use:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 #######
 # Colorset Convention
 #
@@ -165,7 +165,7 @@ fifteen colorsets (0-14) for use:
 #      13 - FvwmPager Active Page
 #      14 - FvwmIconMan Iconified Button
 ###########
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The colors used by the default config are based off the colors used
 on the [fvwm.org](/) website years ago (2000ish).

@@ -33,7 +33,7 @@ I split it up into columns and rows so that each buttons are
 From there I define the buttons, Swallowing the various apps
 to build the Dock.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig SensorDock: *
 *SensorDock: Geometry 120x235-5+5
 *SensorDock: Colorset 10
@@ -64,7 +64,7 @@ DestroyModuleConfig SensorDock: *
 *SensorDock: (2x4, Frame 0)
 *SensorDock: (20x4, Swallow(NoClose,UseOld) "stalonetray" 'Exec exec stalonetray', Frame 0)
 *SensorDock: (2x4, Frame 0)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 The buttons right above the Pager are used to switch between the first
 four Desktops and are setup so the current Desktop is a different color.
@@ -72,7 +72,7 @@ four Desktops and are setup so the current Desktop is a different color.
 To do this we need to use FvwmEvent and SendToModule to change the colorsets
 of the deskN Buttons each time the desktop is changed.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc ChangeDesk
 AddToFunc   ChangeDesk
 + I SendToModule FvwmButtons ChangeButton desk0 Colorset 10
@@ -84,15 +84,15 @@ AddToFunc   ChangeDesk
 DestroyModuleConfig EventNewDesk:*
 *EventNewDesk: PassID
 *EventNewDesk: new_desk ChangeDesk
-{% endhighlight %}
+{% endfvwm2rc %}
 
 To run SensorDock add both the FvwmButtons and FvwmEvent modules
 to the [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}):
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc StartFunction I Module FvwmButtons SensorDock
 AddToFunc StartFunction I Module FvwmEvent EventNewDesk
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Next all of the different apps that are used in the SensorDock need to be
 configured.
@@ -104,7 +104,7 @@ FvwmButtons, the pager is configured to only show the current
 desktop. Since the pager will be resized to fit the button, only
 the colorsets and visual options need to be configured:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FvwmPager:*
 *FvwmPager: Colorset * 10
 *FvwmPager: HilightColorset * 13
@@ -116,7 +116,7 @@ DestroyModuleConfig FvwmPager:*
 *FvwmPager: BallonYOffset +2
 *FvwmPager: Window3dBorders
 *FvwmPager: MiniIcons
-{% endhighlight %}
+{% endfvwm2rc %}
 
 
 ## Xosview Configuration

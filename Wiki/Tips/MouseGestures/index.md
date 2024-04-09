@@ -29,9 +29,9 @@ your keyboard, hence:
 For instance, if I wanted to drawn the letter "L" as a shape, to bind to an
 action, I would use the combination:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Stroke N74123 ...
-{% endhighlight %}
+{% endfvwm2rc %}
 
 It's the "N" in front of the numbers that denotes the fact I want to use the
 numeric layout of the keypad.  Else, by default the layout used is this:
@@ -44,7 +44,7 @@ numeric layout of the keypad.  Else, by default the layout used is this:
 
 To enable mouse gestures /stokes add the following lines to your config file
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # unbind the third mousebutton
 Mouse 3 R N -
 #Stroke <Sequence> <Button> <Context> <Modifiers> <Function>
@@ -60,5 +60,5 @@ Stroke N7895123 0 W N Close
 
 # use StrokeFunc to grab + echo gestures (to xsession-errors) + display
 Mouse 3 A M StrokeFunc EchoSequence DrawMotion FeedBack StrokeWidth 3
-{% endhighlight %}
+{% endfvwm2rc %}
 

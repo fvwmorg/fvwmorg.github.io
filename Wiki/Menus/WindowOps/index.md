@@ -24,7 +24,7 @@ of the Menu are used for different bindings. A small menu which opens up
 if you click the Menu button on a window, a longer form from a right click
 on the root window and a modified form for icons and FvwmIconMan.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyMenu MenuWindowOps
 AddToMenu   MenuWindowOps
 + "Move"      Move
@@ -88,13 +88,13 @@ AddToMenu   MenuSendToDesk
 + "Desk 1"	MoveToDesk 0 1
 + "Desk 2"	MoveToDesk 0 2
 + "Desk 3"	MoveToDesk 0 3
-{% endhighlight %}
+{% endfvwm2rc %}
 
 These Menus require the function ToggleTitle, which can be used
 to show or hide the title bar of a menu. Additionally these
 Menus are bound windows and FvwmIconMan as follows.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 # Function: ToggleTitle
 DestroyFunc ToggleTitle
 AddToFunc   ToggleTitle
@@ -112,7 +112,7 @@ Mouse 3 I A Menu MenuIconOps
 
 # FvwmIconMan
 *FvwmIconMan: Action Mouse 3 A sendcommand "Menu MenuIconOps"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ## Dynamic WindowOps
 
@@ -126,7 +126,7 @@ Then a function to build the menu that uses [Conditionals](
 the different window states and then put a checkmark next to
 the states it finds.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc GenWindowOps
 AddToFunc GenWindowOps
 + I AddToMenu DynamicWindowOps
@@ -147,24 +147,24 @@ AddToFunc GenWindowOps
 + I TestRc (NoMatch) + "StaysPut" Layer 0 4
 + I ThisWindow (Layer 2) + "StaysOnBottom%check.png%" Layer 0 4
 + I TestRc (NoMatch) + "StaysOnBottom" Layer 0 2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Now that we have a function to build the menu, we need to configure
 Fvwm to create the menu each time it is opened. To do this configure
 the DynamicPopUpAction and DynamicPopDownAction as follows.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyMenu DynamicWindowOps
 AddToMenu DynamicWindowOps DynamicPopUpAction GenWindowOps
 AddToMenu DynamicWindowOps DynamicPopDownAction \
           DestroyMenu recreate DynamicWindowOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Last bind the menu to a window. For example a right click anywhere on
 the title bar would be:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Mouse 3 T A Menu DynamicWindowOps
-{% endhighlight %}
+{% endfvwm2rc %}
 
 

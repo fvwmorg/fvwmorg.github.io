@@ -34,7 +34,7 @@ The following describes the situation:
 This is trying to be achieved through use of the StartFunction
 and InitFunction as follows:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartFunction
 AddToFunc StartFunction
 + I Module FvwmAnimate
@@ -46,7 +46,7 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This is not quite right for several reasons:
 
@@ -122,15 +122,15 @@ a parsing error of that line.
 I said earlier that FVWM will and can collate lines to run -- there's
 two instances on *initialisation* where this is true:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 InitFunction
 StartFunction
-{% endhighlight %}
+{% endfvwm2rc %}
 
 In that order.  Hence, now that you realise how FVWM parses its file,
 why it's possible to do this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Beep
@@ -138,7 +138,7 @@ AddToFunc   StartFunction
 Style foo !Icon
 
 AddToFunc StartFunction I Beep
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... AddToFunc is cumulative when used in successive calls with a known
 function.  So you can build up (in this case) StartFunction, and
@@ -159,7 +159,7 @@ restart).
 
 So to go back to your original example of the functions you had:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartFunction
 AddToFunc StartFunction
 + I Module FvwmAnimate
@@ -171,11 +171,11 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 You would now define the one function as the following:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Module FvwmAnimate
@@ -184,7 +184,7 @@ AddToFunc   StartFunction
 + I Module FvwmPager FourPager 0 3
 + I Test (Init) GotoPage 1 2
 + I Test (Init) Exec exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ### 3. Miscellaneous things
 
@@ -204,23 +204,23 @@ it's at init time or not makes sense.
 * The test for working out whether FVWM (at the time it reads the
 StartFunction) is in Init, is done via:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I Test (Init)
-{% endhighlight %}
+{% endfvwm2rc %}
 
 #### 3.3. Use Exec exec to prevent unnecessary dead shell processes
 
 * Unrelated to anything I've mentioned so far, you'll note I am using:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Exec exec foo
-{% endhighlight %}
+{% endfvwm2rc %}
 
 As opposed to:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Exec foo
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... this is so that we don't leave the shell around that FVWM used to
 spawn "foo" in the first place.  The double "Exec exec" takes care of
@@ -242,24 +242,24 @@ This is why the case is important for:  "Exec exec" -- the second
 
 ### 4. Don'ts
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc RestartFunction
 + I InitFunction
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Knowing what you do now, you should realise you don't need this.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc SessionInitFunction
 + I InitFunction
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Generally a "bad" idea -- especially if your InitFunction spawns terminals.
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc SessionRestartFunction
 + I RestartFunction
-{% endhighlight %}
+{% endfvwm2rc %}
 
 See above.
 
@@ -267,7 +267,7 @@ See above.
 
 OK.  So now on to your original question.  Here's what you have currently:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc InitFunction
 AddToFunc InitFunction
 + I exec xsetroot -solid SteelBlue
@@ -275,7 +275,7 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endhighlight %}
+{% endfvwm2rc %}
 
 But, you've already started your "login" xterm in ~/.xinitrc.  At the
 time InitFunction runs, several things could be happening here:
@@ -288,9 +288,9 @@ here.  You don't know at the point FVWM is running along with starting
 up everything else when things will come together.  There is only one
 way you can do this reliably:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I Schedule 5000 Next (login) MoveToPage 0 1 2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 I say "reliably" loosely here.  The Schedule command is here to give
 the window a chance to load, and ensure it really has done before FVWM
@@ -299,18 +299,18 @@ this application out of band from FVWM's own start-up, expecting FVWM
 to be able to do anything with the window, because it might not be
 mapped or if it is then move it, means you can't do things like this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 Style login StartsOnPage 0 1 2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... nor can you do something like this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 AddToFunc   StartFunction
 + I None (login) Exec exec xterm -T login
 + I Wait login
 + I Next (login) MoveToPage 0 1 2
-{% endhighlight %}
+{% endfvwm2rc %}
 
 (Well, you could, but you run the risk of doubling-up your original
 window, especially if it is just about to start when this does --
@@ -324,7 +324,7 @@ don't, c.f. SkipMapping -- but before that was introduced, one of the
 older idioms of making applications appear on the right page was to do
 just this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 + I GotoPage 0 0
 + I Exec xterm -T foo
 + I Wait foo
@@ -332,7 +332,7 @@ just this:
 + I Exec xterm -T foo2
 + I Wait foo2
 + I GotoPage 00
-{% endhighlight %}
+{% endfvwm2rc %}
 
 ... and so it goes on.  Generally though no longer used.  Given the
 caveat of using "Wait" which really will hang FVWM as it waits for a
@@ -347,8 +347,8 @@ string used with "Wait" for example, but I digress.
 You originally mentioned wanting this "login" window to survive the
 window manager.  Why not cheat?
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc ExitFunction
 AddToFunc   ExitFunction
 + I Test (Quit) Restart xterm -T login
-{% endhighlight %}
+{% endfvwm2rc %}

@@ -43,22 +43,22 @@ off as soon as a window is made to appear (mapped) on the screen.  We can
 tell it to call a function, the name of which we'll call MoveWindow,
 hence:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyModuleConfig FE-movewindow:*
 *Fe-movewindow: Cmd Function
 *FE-movewindow: add_window MoveWindow
 
 Module FvwmEvent FE-movewindow
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Sets up the listener that will call the function.  Our function might
 first of all look like this:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc MoveWindow
 AddToFunc   MoveWindow
 + I AnimatedMove -0 +0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Try it -- open a window.  Works fine, doesn't it?  As it should do -- the
 function is being called in an adequate context already.  However, there
@@ -83,11 +83,11 @@ given context.  So if you're ever unsure if the function is going to work
 without it -- but you always want to force a window context, use it.
 Hence:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc MoveWindow
 AddToFunc   MoveWindow
 + I ThisWindow AnimatedMove -0 +0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 And indeed, using ThisWindow to help specify a window name (to match
 against) is also a pretty good bet.  One thing ThisWindow as a conditional
@@ -95,11 +95,11 @@ command is good at, is providing context without any additional
 constraints (i.e. it will pretty much operate on a window, regardless).
 Compare of course, the following function instead:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc MoveWindow
 AddToFunc   MoveWindow
 + I Current AnimatedMove -0 +0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 Looks innocent enough, right?  The problem here though is that if one
 already has a window focused, it's that window which is moved, and not the
@@ -115,11 +115,11 @@ can make specific requirements as to the windows they operate on.  So,
 let's expand our function to say that we only want rxvt windows to be
 moved to the top-right:
 
-{% highlight fvwm %}
+{% fvwm2rc %}
 DestroyFunc MoveWindow
 AddToFunc   MoveWindow
 + I ThisWindow (rxvt) AnimatedMove -0 +0
-{% endhighlight %}
+{% endfvwm2rc %}
 
 This function can of course be expanded further.
 
