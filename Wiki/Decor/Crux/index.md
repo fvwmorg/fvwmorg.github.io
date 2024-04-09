@@ -39,7 +39,7 @@ ColorGradients.  To find out which colors to use,
 one can use [Gimp](https://www.gimp.org) info-window to find out the exact
 colors in hexadecimal format.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # InActive title right & text/bevel colors
 Colorset 1 VGradient 32 4 grey96 30 grey90 50 grey88 85 grey76 10 black, \
     fg grey50, bg grey50, sh grey50, hi grey100
@@ -54,26 +54,26 @@ Colorset 3 VGradient 32 3 #009a00 20 green4 50 darkslategrey 10 black, \
 # InActive title left
 Colorset 4 VGradient 32 3 grey80 80 grey70 70 grey62 10 black, \
     bg grey
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note: For recommended use of colorsets, see
 [/Config/Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }}).
 
 Next, we need to tell Fvwm to use those Colorsets for every window.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Colorset 1, HilightColorset 2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The only images we need to use are 19 pixels high. Thus, we need to define
 the desired titlebar height so that the images don't get streched. In
 addition to the height, we need to get the title text justified to the left,
 and tell Fvwm not to draw a 3D-bevel around the titlebar.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle LeftJustified Height 19
 TitleStyle -- Flat
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Now comes the magic for the titlebar, the very powerful Multipixmap-option.
 The syntax is: MultiPixmap section style arg
@@ -82,7 +82,7 @@ Possible sections include: Main, LeftMain, RightMain, UnderText, LeftOfText, Rig
 
 Possible styles include: Colorset, Solid, TiledPixmap, or AdjustedPixmap.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddTitleStyle Active MultiPixmap \
     LeftMain Colorset 3, \
     RightMain Colorset 2, \
@@ -94,7 +94,7 @@ AddTitleStyle InActive MultiPixmap \
     RightMain Colorset 1, \
     UnderText Colorset 4, \
     RightOfText AdjustedPixmap crux-fvwm-inac.png
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note: In the above code, Fvwm expects the .png files to be found from a directory defined in the ImagePath directive.
 
@@ -103,7 +103,7 @@ knowledge from [/Config/Vectors]. On the last line we
 instruct Fvwm to use the already-drawn titlebar gradient in the back, and
 also to not draw a 3D-bevel around the buttons.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ButtonStyle All Vector 3 75x25@1 25x25@1 25x75@1
 AddButtonStyle All Vector 5 20x20@0 20x80@0 80x80@0 80x20@0 20x20@0
 AddButtonStyle All Vector 3 30x85@2 85x85@2 85x20@2
@@ -119,13 +119,13 @@ AddButtonStyle 6 Vector 2 35x65@0 65x65@0
 AddButtonStyle 6 Vector 2 35x60@0 65x60@0
 
 ButtonStyle All -- UseTitleStyle Flat
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To actually see the buttons, there needs to be some action bound to them.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Mouse 1 1 A WindowList
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize
 Mouse 1 6 A Iconify
-{% endfvwm2rc %}
+{% endhighlight %}

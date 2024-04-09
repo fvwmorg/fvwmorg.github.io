@@ -30,30 +30,30 @@ configuration file which apply some specific style to a window. It could
 be, for instance, that one would want all windows called *foobar* to
 be sticky by default. Hence in one's .fvwm2rc file:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style foobar Sticky
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... would ensure that fact. One can also add multiple properties
 to a given window. For instance, it might be desirable that the same window [\[1\]](#1),
 *foobar*, have no visible title and a border width of eight pixels. This
 can be expressed as:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style foobar Sticky, !Title, BorderWidth 8
-{% endfvwm2rc %}
+{% endhighlight %}
 
 More style lines can then be added, line by line, with a
 specific window for each style. Here's an example:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style amble*  !Borders
 Style Login?  CenterPlacement
 Style Gvim    Title, !Sticky
 Style urlview StartsOnPage 1 1, SkipMapping, Icon wterm.xpm, !Closable
 Style irssi   StartsOnPage 1 1, SkipMapping, Icon 32x32-kde/chat.xpm, \
               !Closable, StickyAcrossDesks
-{% endfvwm2rc %}
+{% endhighlight %}
 
 FVWM also allows for the use of wildcards when matching a
 window's name as in the above example. The '*' matches for anything
@@ -64,10 +64,10 @@ What's even more important is that the matching of Style lines
 is *case sensitive*. This means that for the
 following, both are separate entities:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style Window1 BorderWidth 23
 Style WINdoW1 BorderWidth 23
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## How FVWM Interprets Styles
 
@@ -75,12 +75,12 @@ So far, everything's going great. Window names are being added as
 style options, and everything's working just fine - until you have a
 series of lines which look like the following:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style myapp* NoStick, NoTitle
 Style Fvwm* NoBorders, NoTitle, CirculateSkip, Sticky
 Style Mozilla* NoTitle
 Style Firefox* NoTitle
-{% endfvwm2rc %}
+{% endhighlight %}
 
 At first glance there's nothing wrong with them. Sure, FVWM is doing
 exactly what you asked for... except that '*' is a greedy match, which is
@@ -100,9 +100,9 @@ they often change as a tab or page loads in them.  Assuming that we're
 using the style lines from above, and that we're looking at, say, a webpage
 that has the title: *"Fvwm: my nice screenshot"*:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style Fvwm* NoBorders, NoTitle, CirculateSkip, Sticky
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ...this matches (in part) some of Firefox's title [<a href="#1">1</a>].
 If one were to then restart FVWM with this page still showing in Firefox
@@ -110,9 +110,9 @@ If one were to then restart FVWM with this page still showing in Firefox
 sticky - annoying, and certainly not what we want. Most people will also
 try something like this to remedy the situation:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style *Firefox* NoBorders
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ...which also has the same problems, and perhaps even more so,
 since that's matching 'Firefox' anywhere within the title of a
@@ -139,9 +139,9 @@ and *xprop* can also be used. Using the window class instead
 of the title, the previous style command would be replaced
 with:</p>
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style Gecko NoTitle
-{% endfvwm2rc %}
+{% endhighlight %}
 
 You can be fairly well assured that the Class of a window tends
 to be unique to that application (the exceptions are things like
@@ -169,10 +169,10 @@ account. Style lines are ANDed. That is, for successive lines that
 are specified one after the other for the same application, both
 lines are considered. So for the following:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style foo Sticky
 Style foo !Title
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The window 'foo' would be displayed without a title *and* would
 become sticky. Because of this, the ordering of style lines is VERY
@@ -198,10 +198,10 @@ Hence, if you wanted all windows to be sticky, and a window
 whose name is 'foofoo' to not be sticky and have no borders, the
 correct order to write that in would be:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Sticky
 Style foofoo !Sticky, !Borders
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note that because we had previously declared a global style in which
 all windows are sticky, it is necessary to negate that Sticky
@@ -211,10 +211,10 @@ condition for the specific application. Otherwise it would be
 Writing that the other way around, however, gets one into
 trouble:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style foofoo !Sticky, !Borders
 Style * Sticky
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The greedy match of "*" for all windows, irrespective of the
 specific condition for 'foofoo' above, means that the greedy match
@@ -226,10 +226,10 @@ that applies: given two contradictory Style
 statements, the latter one always wins. So, for example (and I see
 this a lot in people's configs), assume you had written this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * SloppyFocus
 Style * FocusFollowsMouse
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... because they're both focus policies being applied to all
 windows, FocusFollowsMouse would win because it was the last one

@@ -10,7 +10,7 @@ description: |
 
 A very easy function to center your window without any hardcoded screen height and width:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc CenterWindow
 AddToFunc   CenterWindow
 + I ThisWindow Piperead "echo Move \
@@ -18,24 +18,24 @@ AddToFunc   CenterWindow
     $(( $[vp.height]/2-$[w.height]/2 ))p"
 
 Key KP\_Begin A 4 CenterWindow
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note that in Fvwm >=2.5.12, one can use a default style ''CenterPlacement'', hence:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style myapp CenterPlacement
-{% endfvwm2rc %}
+{% endhighlight %}
 
 And with FVWM >=2.5.27, the CenterPlacement style was folded into the
 PositionPlacement style option, hence:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style myapp PositionPlacement center
-{% endfvwm2rc %}
+{% endhighlight %}
 
 If the window still doesn't follow correctly, try to disable PPosition and USPosition:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style myapp PositionPlacement center, NoPPosition, NoUSPosition
-{% endfvwm2rc %}
+{% endhighlight %}
 

@@ -16,7 +16,7 @@ sticky windows to have a different decor to any other window. The effect
 overall is quite interesting, and could easily be adapted. The first step is
 to define a decor for the sticky windows. Example:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToDecor StickyDecor
 + BorderStyle Simple
 + TitleStyle -- Raised
@@ -34,7 +34,7 @@ AddToDecor StickyDecor
 + ButtonStyle 2 InActive  Vector 17 20x20@1 30x20@1 50x40@1 70x20@1 80x20@1 \
   80x30@0 60x50@0 80x70@1 80x80@0 70x80@0 50x60@0 30x80@0 20x80@0 20x70@0 \
   40x50@1 20x30@0 20x20@1
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This looks more complex than it actually is -- and it's beyond the scope of
 this document to discuss how the decor works. Suffice it to say that with
@@ -49,7 +49,7 @@ ConfigureNotify event.  Lastly, we will also want to check the state of any
 windows that are mapped on the screen, since they might explicitly have a
 style line declaring them Sticky. Hence:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig FvwmEvent-Sticky: *
 *FvwmEvent-Sticky: Delay 1
 *FvwmEvent-Sticky: configure_window FvwmToggleStickyPixmap
@@ -58,19 +58,19 @@ DestroyModuleConfig FvwmEvent-Sticky: *
 
 # This line ensures that it starts up when FVWM does.
 AddToFunc StartFunction I Module FvwmEvent FvwmEvent-Sticky
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The last part, is of course, to define the action that is to be called when
 any one of those events occurs. It's simple. All that has to be done is a
 'toggle' effect, essentially testing whether a window is sticky, and if it
 is to change the decor, and vice-versa.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc FvwmToggleStickyPixmap
 AddToFunc   FvwmToggleStickyPixmap
 + I ThisWindow (Sticky)  ChangeDecor StickyDecor
 + I ThisWindow (!Sticky) ChangeDecor NormalDecor
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note that there's any number of things you could do with this, and it's not so
 much the application of what has been done, but what you _could_ do with it.

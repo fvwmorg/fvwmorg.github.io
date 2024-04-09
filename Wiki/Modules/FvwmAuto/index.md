@@ -38,9 +38,9 @@ windows after a set amount of time. In order to raise focus windows
 250 milliseconds after receiving and maintaining the focus, add the following
 to your config file to launch the module at start:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc StartFunction I Module FvwmAuto 250
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Advanced Features
 
@@ -49,9 +49,9 @@ gains or looses focus[^1]. This is done by first understanding that all
 options are passed to FvwmAuto when it is launched. The format to launch
 FvwmAuto when fvwm starts is:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc StartFunction I Module FvwmAuto TimeOut [options] EnterCommand LeaveCommand
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This will cause FvwmAuto to run EnterCommand TimeOut milliseconds after gaining
 focus, and LeaveCommand the same time out after leaving focus. If EnterCommand
@@ -61,7 +61,7 @@ commands or custom functions. Using the `-passid` option, FvwmAuto will append
 the window id as the last parameter sent to the function. The following example
 will only raise specific windows whose name/class/resource
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc SelectiveRaiseLower
 AddToFunc SelectiveRaiseLower
 + I WindowId $1 (FvwmIconMan) $0
@@ -70,7 +70,7 @@ AddToFunc SelectiveRaiseLower
 
 AddToFunc StartFunction Module FvwmAuto 250 -passid \
 "SelectiveRaiseLower Raise" "SelectiveRaiseLower Lower"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The FvwmAuto manual page provides more details and examples of the various
 options available, but FvwmAuto is a fairly limited module. To be able to

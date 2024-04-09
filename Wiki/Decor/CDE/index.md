@@ -19,7 +19,7 @@ the effects built into Fvwm.
 To use this decor first configure the 
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #   1 - Inactive Windows 
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -28,22 +28,22 @@ Colorset 1 fg white, bg #afbdc07ac200
 Colorset 2 fg white, bg #cc0068006f00
 Colorset 3 fg white, bg #afbdc07ac200
 Colorset 4 fg white, bg #cc0068006f00
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 4 and 2
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Window Button Locations [1 Title 42]
 Mouse 1 4 A Iconify
 Mouse 1 2 A Maximize
 Mouse 1 1 A Menu MenuWindowOps
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then define the Decor:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToDecor CDEDecor
 + TitleStyle    AllInactive -- Raised
 + TitleStyle    AllActive -- Raised
@@ -62,18 +62,18 @@ AddToDecor CDEDecor
 + AddButtonStyle 4 Vector 3 42x58@1 42x42@1 58x42@1
 
 + TitleStyle Height MinHeight 20
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Last we need the Styles for the windows to use CDEDecor, the
 Colorsets and some other settings.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 5, HandleWidth 5, \
         MWMBorder, DepressableBorder, \
         MWMButtons, UseDecor CDEDecor
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Color Themes
 

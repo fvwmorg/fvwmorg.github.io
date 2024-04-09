@@ -13,7 +13,7 @@ You will also need the function CenterWindow from [Tips/CenterPlacement](
 for this way of solving the problem.  This function allows you to resize a
 window, and then have it moved to the centre of the screen, afterwards.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ResizeCenter
 AddToFunc ResizeCenter
 + I Resize $*
@@ -25,15 +25,15 @@ Key KP_Left A S4 ResizeCenter br w-5 keep
 Key KP_Right A S4 ResizeCenter br w+5 keep
 Key KP_Up A S4 ResizeCenter br keep w-5
 Key KP_Down A S4 ResizeCenter br keep w+5
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Note though, that in FVWM version 2.5.X, there is also the style of "CenterPlacement" that you can use:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ResizeCenter
 AddToFunc ResizeCenter
 + I Resize $*
 + I ThisWindow WindowStyle CenterPlacement
 + I UpdateStyles
-{% endfvwm2rc %}
+{% endhighlight %}
 

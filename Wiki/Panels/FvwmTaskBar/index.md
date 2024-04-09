@@ -52,7 +52,7 @@ left for FvwmIconMan is then 1200 - 55\*2 - 25\*3 = 1015 pixels.
 Once the sizes are figured out, use them to build the buttons
 starting at the left end.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig FvwmTaskBar: *
 *FvwmTaskBar: Geometry 1200x24+0-0
 *FvwmTaskBar: Colorset 15
@@ -79,7 +79,7 @@ DestroyModuleConfig FvwmTaskBar: *
 
 # Time Button with id TaskTime
 *FvwmTaskBar: (55x1, id "TaskTime", ActiveColorset 16, Title "Time")
-{% endfvwm2rc %}
+{% endhighlight %}
 
 These buttons will span the whole screen and be placed along the bottom.
 
@@ -102,7 +102,7 @@ The configuration of [FvwmIconMan](
 a fixed size, configure the look of different button types, and
 configure what happens when when a button is clicked.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig TaskBarIcons: *
 *TaskBarIcons: IconName TaskBarIcons
 *TaskBarIcons: UseWinList true
@@ -134,7 +134,7 @@ DestroyModuleConfig TaskBarIcons: *
 *TaskBarIcons: Action Mouse 1 A sendcommand IconManClick
 *TaskBarIcons: Action Mouse 2 A sendcommand Nop
 *TaskBarIcons: Action Mouse 3 A sendcommand "Menu MenuIconOps Mouse 0 o100"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 + FvwmIconMan will list all windows that aren't on the WindowListSkip.
   Changing rthe Resolution to screen, page, or desk will limit the
@@ -168,7 +168,7 @@ no Borders, is on the WindowListSkip, StaysOnTop.
 Define the Colorsets and set up the Periodic task to update
 the time.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # FvwmTaskBar styles
 Style FvwmTaskBar !Borders, !Title, WindowListSkip, \
                   StaysOnTop, Sticky
@@ -190,7 +190,7 @@ TaskTime Title \"`date +%R`\""'
 # Schedule the time to update every 10 seconds
 Schedule Periodic 10000 PipeRead 'echo "SendToModule \
 FvwmButtons ChangeButton TaskTime Title \"`date +%R`\""'
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To load the FvwmTaskBar when fvwm loads add the Module
 command and Schedule command to your [StartFunction](
@@ -235,7 +235,7 @@ stalonetray manpage.
 Now that stalonetray is configured and the width of the button is calculated,
 update the FvwmTaskBar configuration to add this new button as follows.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig FvwmTaskBar: *
 *FvwmTaskBar: Geometry 1200x24+0-0
 *FvwmTaskBar: Colorset 15
@@ -257,5 +257,5 @@ DestroyModuleConfig FvwmTaskBar: *
 *FvwmTaskBar: (120x1, Swallow(NoClose, UseOld) stalonetray \
                'Exec exec stalonetray', Frame 0)
 *FvwmTaskBar: (55x1, id "TaskTime", ActiveColorset 16, Title "Time")
-{% endfvwm2rc %}
+{% endhighlight %}
 

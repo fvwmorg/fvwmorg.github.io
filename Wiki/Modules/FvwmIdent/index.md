@@ -13,9 +13,9 @@ description: |
 To launch FvwmIdent, you need to issue the following `Module` command
 to fvwm via a menu item, key binding, and so on.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Module FvwmIdent
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Once run, use the mouse to select a window and a new window will open
 containing information about the window that can be useful when configuring
@@ -36,6 +36,6 @@ a right click. Selecting identify from that menu will run FvwmIdent on
 the associated window. You can also identify windows using conditional
 commands. For example to identify the next xterm, use:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Next (xterm) Module FvwmIdent
-{% endfvwm2rc %}
+{% endhighlight %}

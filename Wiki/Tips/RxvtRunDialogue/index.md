@@ -36,10 +36,10 @@ export PS1=""
 To bind the dialog to a key put for example the following lines in your
 FVWM configuration:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style fvwm-run-dialog FPGrabFocus, FPReleaseFocus
 Key R A 4 Exec exec $[HOME]/.fvwm/run-dialog
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This allows you to start the dialog using "Win-R". Note that the dialog is not pretty
 but it's resource friendly and offers tab completion since it's based on a real

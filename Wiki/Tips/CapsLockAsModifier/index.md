@@ -44,11 +44,11 @@ Now we are going to make use of our new defined modifier. That is quite as
 easy as step one. In the modifier column of your keybinding-defining line
 just use 4 instead of C, M or S:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Key Left        A 4     Scroll -100 +0
 Key Up          A 4     Scroll +0 -100
 Key Right       A 4     Scroll +100 +0
 Key Down        A 4     Scroll +0 +100
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This lets you change your desktop pages using Caps+Arrow Keys

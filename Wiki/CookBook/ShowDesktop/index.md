@@ -22,9 +22,9 @@ Indeed, the application of this is probably best suited to a button inside
 an FvwmButtons instance -- and this is what we'll demonstrate here. In its
 simplest form one can iconify all windows with the following command:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 All (CurrentPage, !Iconic) Iconify
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... which would iconify windows on the current page. But the problem then
 arises of making sure that the toggle action restores the original windows
@@ -32,14 +32,14 @@ to their state, Now, FVWM allows for a window, or windows to be flagged via
 a number (anywhere between 0 - 31 inclusive). These states can the be used
 to flag the windows before they iconify so that they can be restored.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ShowDesktop
 AddToFunc   ShowDesktop
 + I All (CurrentPage, Iconic, State 1) RestoreDesktop
 + I TestRc (Match) Break
 + I All (CurrentPage, !Iconic, !State 1) ThisWindow State 1 True
 + I All (CurrentPage, !Iconic, State 1) Iconify
-{% endfvwm2rc %}
+{% endhighlight %}
 
 In many ways this function works backwards -- the very first thing it does is
 to look at all windows on the current page, that are iconic, and have a state
@@ -50,9 +50,9 @@ because the window state flags get cleared -- invalidating the windows in
 the first place.  The next line then checks the success of the first line.
 If:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + I All (CurrentPage, Iconic, State 1) RestoreDesktop
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... returns true (i.e. it matched some windows) then the rest of the
 function isn't executed. The remaining lines in that function flag all
@@ -62,19 +62,19 @@ and then iconify all windows with that state.
 Moving on to the RestoreDesktop, that does the reverse -- in that it
 deiconifies all windows with the state 1 bit on them, and then removes it:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc RestoreDesktop
 AddToFunc   RestoreDesktop
 + I All (CurrentPage, Iconic, State 1) Iconify off
 + I All (CurrentPage, State 1) ThisWindow State 1 False
-{% endfvwm2rc %}
+{% endhighlight %}
 
 I mentioned you might want to bind this operation to FvwmButtons. As an
 example, here's a part of a likely config:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 *MyPanel: (1x2, Icon showdesk.png, Action (Mouse 1) Function ShowDesktop)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 You might also bind that to a key binding, or some such.
 

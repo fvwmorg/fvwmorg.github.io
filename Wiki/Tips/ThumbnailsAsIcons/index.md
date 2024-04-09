@@ -13,7 +13,7 @@ You will need imagemagick for this function to work.  The two functions take
 a snapshot of the window before it is iconified, and then assigns the icon
 to the iconified window.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc Thumbnail
 AddToFunc Thumbnail
 + I ThisWindow (Shaded) WindowShade toggle
@@ -31,7 +31,7 @@ AddToFunc DeThumbnail
 + I DestroyWindowStyle
 + I Exec rm -f $HOME/.fvwm/icon.tmp.$[w.id].*
 + I deiconify-and-focus
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Now you have to change all your key- and mousebindings from Iconify to
 Thumbnail and deIconify to deThumbnail.  You could also use FvwmEvent to do

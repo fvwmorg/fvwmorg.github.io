@@ -239,36 +239,36 @@ adding the class `.no_toc` to the header as follows:
 
 ### Code Blocks and Syntax Highlighting
 
-Example code should be formatted using code blocks. Markdown uses
-single back ticks, `` `code` ``, for inline code and groups of three
-backticks, ```` ``` ````, to start and stop multiple lines of code.
-Multiple line blocks of code can also be colored using a syntax
-highlighting. How this is done depends on the type of code to highlight.
+Jekyll is configured to send code through the
+[rouge syntax highlighter](https://github.com/rouge-ruby/rouge)
+which is used to display code in code blocks.
+Code blocks can be used for Fvwm configurations,
+shell scripts, and so on. To get code blocks
+and syntax highlighting using the language
+`lang` use one of the following:
 
-Most common langauges are included with Jekyll and can be highlighted
-using `{% raw %}{% highlight language %}...{% endhighlight %}{% endraw %}`
-blocks. To highlight fvwm configuration syntax, use
-`{% raw %}{% fvwm2rc %}...{% endfvwm2rc %}{% endraw %}` blocks. We use a
-custom pygments syntax highlighter since one is not included in Jekyll.
-
-{% highlight liquid %}
+{% highlight markdown %}
 {% raw %}
-# Markdown code fence, no Syntax Highlighting
+## Markdown Code Fence No Syntax Highlighting
+
 ```
 place code here
 ```
 
-# Highlight fvwm config syntax
-{% fvwm2rc %}
-fvwm configuration
-{% endfvwm2rc %}
+## Markdown Code Fence Syntax Highlighting
 
-# Liquid Highlight Block Syntax
+```lang
+place code here
+```
+
+## Liquid Highlight Block Syntax
+
 {% highlight lang %}
 place code here
 {% endhighlight %}
 
-# Liquid Highlight Block Syntax With Line Numbers
+## Liquid Highlight Block Syntax With Line Numbers
+
 {% highlight lang linenos %}
 place code here
 {% endhighlight %}
@@ -277,6 +277,29 @@ place code here
 
 A following lists all of [rouge's supported languages](
 https://github.com/rouge-ruby/rouge/wiki/List-of-supported-languages-and-lexers).
+There are plans to write a Lexer for the Fvwm2
+configuration syntax for rogue so syntax highlighting will
+work on GitHub for Fvwm2 configuration syntax. Some inital
+attempts can be found at this outdated fork <https://github.com/somiaj/rouge>.
+
+To prepare for a day when there is syntax highlighting for Fvwm2
+configuration syntax, please use `fvwm2rc` as the language in all code
+blocks, for example:
+
+
+{% highlight markdown %}
+{% raw %}
+## Fvwm2 Config Syntax Highlighting
+
+```fvwm2rc
+place Fvwm2 config here
+```
+
+{% highlight fvwm2rc %}
+place Fvwm2 config here
+{% endhighlight %}
+{% endraw %}
+{% endhighlight %}
 
 
 ### FvwmWeb Window
@@ -315,4 +338,6 @@ id="fwin-ex"
 title="FvwmWindow Example"
 color="orange"
 content=fvwmtxt %}
+
+
 

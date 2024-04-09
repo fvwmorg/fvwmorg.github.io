@@ -18,7 +18,7 @@ this was split up into three functions, 'StartFunction', 'InitFunction'
 and 'RestartFunction'. This is no longer needed because though the 'Test'
 condition we can test if this is run after an 'Init' or 'Restart'.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #####
 # StartFunction
 ###########
@@ -32,7 +32,7 @@ AddToFunc   StartFunction
 + I Module FvwmBanner
 + I Module FvwmPager 0 2
 + I Module FvwmButtons MyButtons
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Upon startup this function will launch xscreensaver and vlc if we
 satisfy the 'Init' condition (the initial launch of fvwm). I also
@@ -59,11 +59,11 @@ The ExitFunction is run when fvwm Exits. By using the Quit and ToRestart
 conditions you can run commands depending on if you are quitting or
 restarting. A quick example would give
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ExitFunction
 AddToFunc ExitFunction
 + I Test (Quit) Echo Bye-bye
 + I KillModule MyBuggyModule
 + I Test (ToRestart) Beep
-{% endfvwm2rc %}
+{% endhighlight %}
 

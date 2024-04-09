@@ -33,7 +33,7 @@ that the current view is of a single page in this much larger
 virtual screen. The number of pages is configured with the
 `DesktopSize` command.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # 4 Desktops split into a 3x2 Grid.
 # Pages are identified using two numbers:
 # COLUMN ROW
@@ -43,7 +43,7 @@ virtual screen. The number of pages is configured with the
 #   |0 1|1 1|2 1|
 #   +---+---+---+
 DesktopSize 3x2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 That will give you a grid of 3x2 Pages where the numbers
 are the x and y coordinates of each page. You can move through
@@ -55,7 +55,7 @@ move you between pages when your mouse hits the edge of the screen.
 For example (note, in fvwm3 all of these commands can be configured per
 monitor by adding the `screen RandRname` option):
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # EdgeScroll Xpercent Ypercent
 # EdgeResistance - Timer before scrolling
 # EdgeThickness - size of border for mouse around edge of screen
@@ -66,14 +66,14 @@ EdgeScroll 100 100
 EdgeResistance 450
 EdgeThickness 1
 Style * EdgeMoveDelay 350, EdgeMoveResistance 350
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Additionally you can move around with
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 GotoPage screen RandRname xPage yPage
 GotoDeskAndPage screen RandRname desk xPage yPage
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Desktops
 
@@ -85,7 +85,7 @@ command (note `MoveToDesk`, for windows, as the same syntax).
 `GotoDesk` can be configured to go to a specific Desk or just cycle
 through them. Here are some examples:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # GotoDesk [step] [min] [max]
 # One Desk forward, max of 6
 GotoDesk 1 0 6
@@ -97,13 +97,13 @@ GotoDesk -1 0 6
 GotoDesk 0 5
 # GotoDesk 2
 GotoDesk 0 2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Additionally Desktops can be given names with:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DesktopName 0 Main
 DesktopName 1 Web
 ...
-{% endfvwm2rc %}
+{% endhighlight %}
 

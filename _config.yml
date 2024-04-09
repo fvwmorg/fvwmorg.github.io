@@ -17,9 +17,6 @@ url: "https://www.fvwm.org" # the base hostname & protocol for your site
 fvwm2-version: 2.7.0
 fvwm3-version: 1.1.0
 
-# Highlight fvwm2rc code
-fvwm2rc: False
-
 # Navigation Menu
 nav:
   - name: Wiki

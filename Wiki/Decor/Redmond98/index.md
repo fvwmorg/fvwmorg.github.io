@@ -18,9 +18,9 @@ icon on its windows. Additionally you can set the MiniIcon using
 Styles. Put the image, img.png, in your ImagePath and then set the
 MiniIcon with
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style AppClass MiniIcon "img.png"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This decor requires a collection of images for the buttons you can
 [download here](decor-redmond98.tar.gz). This will extract into a directory
@@ -30,7 +30,7 @@ put the directory in $HOME/.fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -39,23 +39,23 @@ Colorset 1 fg white, bg grey51
 Colorset 2 fg white, bg Blue3, hi #40B0F0
 Colorset 3 fg white, bg #c3c3c3
 Colorset 4 fg white, bg #c3c3c3
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons. This decor uses
 use locations 1, 6, 4 and 2
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Window Button Locations [1 Title 642]
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize
 Mouse 1 6 A Iconify
 Mouse 1 1 A Menu MenuWindowOps
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then define the Decor:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToDecor Redmond98Decor
 + TitleStyle AllInactive Solid grey51
 + TitleStyle Active      HGradient 128 Blue4 DeepSkyBlue
@@ -85,16 +85,16 @@ AddToDecor Redmond98Decor
 + ButtonStyle 6 - MwmDecorMin
 + ButtonStyle 4 - MwmDecorMax
 + TitleStyle Height 20
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Last we need the Styles for the windows to use this decor, the
 Colorsets and some other settings.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 5, HandleWidth 5, \
         FvwmBorder, FirmBorder, \
         MWMButtons, UseDecor Redmond98Decor
-{% endfvwm2rc %}
+{% endhighlight %}
 

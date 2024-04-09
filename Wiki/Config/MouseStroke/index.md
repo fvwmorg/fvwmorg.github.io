@@ -24,7 +24,7 @@ you can then describe the direction you move around the grid to crate different
 grid is describe. I have provided you with an ASCII comment block describing
 these two methods.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ###########
 # Stroke Grid:
 #   Telephone:  (N)umpad:
@@ -34,7 +34,7 @@ these two methods.
 #
 #  Stroke {(window)} [sequence] [button] [context] [modifiers] [action]
 ####################
-{% endfvwm2rc %}
+{% endhighlight %}
 
 For the most part a 'Stroke' is just like a mouse binding with the button, context
 and modifier just as above. The main part about the stroke is describing the sequence.
@@ -46,12 +46,12 @@ the mouse or key is pressed a sequence is recorded until you release the mouse b
 Any Stroke sequence using button '0' can be called though the StrokeFunc.
 The following is an example.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Mouse 3 A A StrokeFunc DrawMotion FeedBack StrokeWidth 2
 Stroke 75369 0 A N Refresh
 Stroke 1596357 0 W N Close
 Stroke 7415963 0 A N Exec exec firefox
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The first binding says that whenever you hold down the third mouse button it
 starts the StrokeFunc (and records the sequence until you release the button).

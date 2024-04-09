@@ -15,19 +15,19 @@ maximized with some free space at the bottom is an easy task, just use
 EwmhBaseStruts which reserves space along the edge of the screen when windows
 are maximized and placed:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # EmwhBaseStruts [left] [right] [top] [bottom]
 EwmhBaseStruts 0 0 27 0
-{% endfvwm2rc %}
+{% endhighlight %}
 
 An older Alternative was to write a customized MyMaximize function
 to do the work. This is done by using the Maximize function inputs
 to make the window to be 27 pixels less than the height of
 the screen, then Move the window down 27 pixels.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc MyMaximize
 + I Maximize 100 -27p
 + I Current (Maximized) Move 0p 27p
-{% endfvwm2rc %}
+{% endhighlight %}
 

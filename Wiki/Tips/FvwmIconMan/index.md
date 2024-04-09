@@ -20,7 +20,7 @@ replaces it. This way you have a very much TAB-like feeling but the titlebar
 buttons are covered. So we change our FvwmButtons configuration a bit.
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 *FvwmButtons-IB: Padding 0 0
 *FvwmButtons-IB: Geometry 1276x15+0+0
 *FvwmButtons-IB: BoxSize fixed
@@ -29,15 +29,15 @@ buttons are covered. So we change our FvwmButtons configuration a bit.
 *FvwmButtons-IB: (80x1, Swallow "FvwmIconMan" "Module FvwmIconMan")
 *FvwmButtons-IB: (1x1, Icon grow-rvb-black.png, Action Current Maximize 100 100)
 *FvwmButtons-IB: (1x1, Icon cross-rvb-black.png, Action Current Close)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Now there are titlebar buttons on the FvwmButtons module, but you have to
 select the window to act on. To change that behavior you can prevent
 FvwmButtons from receiving focus using
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style FvwmButtons-IB NeverFocus
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This way the buttons act on the focused window.
 

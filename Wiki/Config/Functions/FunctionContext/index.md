@@ -23,20 +23,20 @@ So for example, suppose you had a function that, when invoked, echoed the name o
 that window to FVWM's logfile (typically ''~/.xsession-errors'')
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc FuncDisplayName
 AddToFunc   FuncDisplayName
 + I Echo $[w.name]
-{% endfvwm2rc %}
+{% endhighlight %}
 
 If you had for example ''FocusFollowsMouse'' (which is the same as
 ''MouseFocus'') as the default focus policy, and you had the root-window
 "focused", then tried invoking ''!FuncDisplayName'', you'd realise that in the
 logfile you'd see:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 $[w.name]
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... instead of the actual window name.  This is because the function is being
 called outside of a window context -- it doesn't have an operand point to
@@ -46,12 +46,12 @@ it has been told verbatim.
 The same things can happen when functions are called from a menu.  Hence:
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyMenu MenuSomeMenu
 AddToMenu   MenuSomeMenu CallMyFunction FuncDisplayName
 
 Popup MenuSomeMenu
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The function (if invoked outside of a window context) would be trying to call
 a function itself not in a window context.
@@ -70,22 +70,22 @@ Current to force the window with the focus can be used to imply a window
 context, hence:
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc FuncDisplayName
 AddToFunc   FuncDisplayName
 + I Current Echo $[w.name]
-{% endfvwm2rc %}
+{% endhighlight %}
 
 But what if there were more commands in the function than just a simple Echo
 statement, such as:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc FuncDisplayName
 AddToFunc   FuncDisplayName
 + I Current Echo $[w.name]
 + I Raise
 + I Move
-{% endfvwm2rc %}
+{% endhighlight %}
 
 At each statement, the commands Raise and Move would need a given context.
 You could prepend Current in front of them, however, doing so could be
@@ -98,6 +98,6 @@ runs normally.  This is especially useful where (in the case of the
 !FuncDisplayName above) there's lots of commands each themselves requiring some
 form of context.  Hence:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Pick FuncDisplayName
-{% endfvwm2rc %}
+{% endhighlight %}

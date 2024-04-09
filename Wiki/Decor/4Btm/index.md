@@ -25,7 +25,7 @@ If unsure you can copy put the directory in $HOME/.fvwm.
 To use this decor, first configure the 
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Active Windows Borders
@@ -34,13 +34,13 @@ Colorset 1 fg #ffffff, bg #4b88a4, hi, sh, Plain, NoShape
 Colorset 2 fg #ffffff, bg #2b4e5e, hi, sh, Plain, NoShape
 Colorset 3 fg #2b4e5e, bg #2b4e5e, hi #2b4e5e, sh #2b4e5e
 Colorset 4 fg #4b88a4, bg #4b88a4, hi #4b88a4, sh #4b88a4
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Next [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons. This decor uses
 use locations 1, 8, 6, 4 and 2
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Window Button Locations [1 Title 8 6 4 2]
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize
@@ -48,11 +48,11 @@ Mouse 1 6 A Iconify
 Mouse 1 8 A <MyCustomFunction>
 Mouse 1 1 A Menu MenuWindowOps
 
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then define the Decor :
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToDecor 4BTMDecor
 + ButtonStyle All -- UseTitleStyle
 + BorderStyle Simple -- HiddenHandles !NoInset Raised
@@ -75,7 +75,7 @@ AddToDecor 4BTMDecor
         Inactive   (Pixmap 4btm/tile-inactive.png   -- flat)
 + ButtonStyle All - Clear
 + TitleStyle Height 26
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To add an image to your window title bar with the same buttons. The active window with a wood image
 and the inactive window with a gradient grey image.
@@ -86,27 +86,27 @@ Your windows to look like the following :
 
 Change the color of Colorset.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 1 fg #ffffff, bg #4b88a4
 Colorset 2 fg #000000, bg #2b4e5e
 Colorset 3 fg #000000, bg #d5902f
 Colorset 4 fg #ffffff, bg #000000
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To define the Decor with the image, add this between "AddToDecor 4BTMDecor" and
 "+ ButtonStyle All -- UseTitleStyle" :
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + TitleStyle Active MultiPixmap \
         Main     4btm/title-wood-active.png
 + TitleStyle Inactive MultiPixmap \
         Main     4btm/title-grey-inactive.png
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Last we need the Styles for the windows to use 4BtmDecor, the
 Colorsets, font size, and some other settings.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 4, HilightBorderColorset 3, \
         BorderWidth 2, HandleWidth 1, \
@@ -115,4 +115,4 @@ Style * Colorset 1, HilightColorset 2, \
         
 Style * Font "xft:Sans:size=12:minspace=False:antialias=True"
 
-{% endfvwm2rc %}
+{% endhighlight %}

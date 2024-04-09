@@ -23,15 +23,15 @@ To start all xterms in the top right of the screen we can use
 AnimatedMove when the window loads to move the xterm to the desired
 place. 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style XTerm InitialMapCommand AnimatedMove -0 +0
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To start chromium maximized just use the Maximze command.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style chromium InitialMapCommand Maximize
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This idea can be extended into various other applications of having a
 a window start in a specific state. Take note that there are some

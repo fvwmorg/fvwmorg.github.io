@@ -205,9 +205,9 @@ as in:
 
 Or, use an external program that can set wallpapers, such as ''feh'':
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc StartFunction I Exec exec feh --bg-scaled file.jpg
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Although many people tend to get confused about how to set the wallpaper in
 general under FVWM.   I (Thomas Adam) am not sure why since the process to
@@ -230,17 +230,17 @@ example, let's assume that you want to start 'xteddy' in the same location,
 find out his geometry via "xwininfo".  The first two numbers are the width
 and height, so you can use:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 $[vp.width] and $[vp.height]
-{% endfvwm2rc %}
+{% endhighlight %}
 
 to position him.  So for instance, assume xteddy had a -geometry of
 1021x754, then you can use PipeRead to set the geometry with mathematics, if
 you wish:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 PipeRead 'echo SetEnv offset $(($[vp.width]-22))'
-{% endfvwm2rc %}
+{% endhighlight %}
 
 and then set:
 
@@ -256,15 +256,15 @@ using ``Emulate Mwm`` is called the GeometryWindow.  It's possible to
 change the colour, font, etc in the usual way.  Just declare a Colorset for
 it, for instance:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 1 fg white, bg darkgrey
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... and then in your FVWM config file, use the command:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DefaultColorset 1
-{% endfvwm2rc %}
+{% endhighlight %}
 
 And in the same way, if you want the font to be different, you can use the:
 [[DefaultFont]] command.
@@ -278,20 +278,20 @@ become a problem is when people start to abuse it.
 Take for instance the ``Colorset`` command.  The correct definition is for
 people to do something like this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 0 fg black, bg darkgrey
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... yet, I have seen some people do this:
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 SetEnv hilight_colorset 0
 Colorset $[hilight_colorset] fg black, bg darkgrey
 
 SetEnv normal_colorset 1
 Colorset $[normal_colorset] fg white, bg blue
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... now stop and think for a moment.  What is it that's wrong with the
 above?  Not much, it's easy to see at a glance what colorset does what ---
@@ -301,20 +301,20 @@ What really needs to happen is for a comment (you know -- those things which
 are used to be really descriptive and meaningful?) to be used.  Here's the
 rewritten definition:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Colorset 0 is for hilighted windows (i.e. they have focus)
 Colorset 0 fg black, bg darkgrey
 # Colorset 1 is for inactive windows (i.e. they don't have focus)
 Colorset 1 fg white, bg blue
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... so much easier, and we're not having to do any interpolation of variables.  Lots of people try and argue the point that such declarations via the use of SetEnvs are there because they have separate files for different facets of their config.  Well, maybe, but duh!, the same argument applies for other configuration commands besides Colorsets.  Sorry, but that doesn't wash...
 
 Another example where there's a lot of useless use of SetEnvs (UUOS) is people redeclaring their base-location that FVWM looks in.  Here's an example:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 SetEnv fvwm_home $[HOME]/.fvwm
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Again, FVWM already has this environment variable set as $[FVWM\_USERDIR].
 
@@ -333,23 +333,23 @@ the IconBox is to use a window which resizes in incremental steps.  XTerm
 would be good for this, and assuming that its style is set to
 NoResizeOverride as in:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style mySpecialXTerm NoResizeOverride, !Title, !Borders
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then you can launch something like:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Exec exec xterm -T mySpecialXTerm
-{% endfvwm2rc %}
+{% endhighlight %}
 
 And then position and move it to the relevant place, with the relevant size.
 You can then obtain the geometry of that window and then set it as the
 default:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * IconBox 900x546+89+5
-{% endfvwm2rc %}
+{% endhighlight %}
 
 (for instance).  Coupled with that is the position that the icons are placed
 -- hence that's IconFill.
@@ -390,23 +390,23 @@ annoying, and thankfully there's a few things that can be done about it.
 Whenever a Urgency hint is set on a client, FVWM notices this and
 immediately executes a builtin function:  UrgencyFunc as described below.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc UrgencyFunc
 AddToFunc UrgencyFunc
 + I Iconify off
 + I FlipFocus
 + I Raise
 + I WarpToWindow 5p 5p
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Hence it is the FlipFocus line that causes the viewport to change,
 especially if the said client is on another page.  Most people want to turn
 this off.  The simplest way of doing that is to add the following to your
 config file:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc UrgencyFunc
-{% endfvwm2rc %}
+{% endhighlight %}
 
 And that way, any UrgencyHints are ignored by FVWM.  You can of course (just
 like any other function) redefine this to do whatever you like -- it's up to
@@ -420,9 +420,9 @@ The WindowList defaults to showing all windows across desks and pages.  The
 WindowListcommand, like some others, accepts various conditions, hence
 you'll want to use:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 WindowList (CurrentPage) ....
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## How can I make my application startup in a fullscreen" (maximized) state?  I don't see a style option for fullscreen" (maximized) state?  I don't see a style option for it.
 
@@ -439,9 +439,9 @@ Typically when someone asks this question, what they're really asking is:
 titles or borders".  Let's deal with that first.  Setting up a style line is
 generally all that's required:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style some_window !Title, !Borders
-{% endfvwm2rc %}
+{% endhighlight %}
 
 (Or if you're using FVWM 2.4.X:  ``Style some_window NoTitle, NoBorder, BorderWidth 0, HandleWidth 0``)
 
@@ -449,19 +449,19 @@ Then the actual operation of making sure the window is maximised can be done
 in one of two ways.  The somewhat more restrictive approach is to use a
 function, which will launch the desired application, and then maximise it:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartAppMaximized
 AddToFunc StartAppMaximized
 + I Exec exec $0
 + I Wait $0
 + I Next ($0, !Maximized) Maximize
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Hence this can the be used thusly:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 StartAppMaximized my_application
-{% endfvwm2rc %}
+{% endhighlight %}
 
 However, there are several drawbacks in using this approach.  First of all
 the said application can only be launched via the function (and hence FVWM)
@@ -472,24 +472,24 @@ portable is to have some way of identifying the window as it is created
 ("mapped" to use XLib parlance) so that launching the program is not
 dependant on FVWM.  You can do this using FvwmEvent.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig FE-startMaximized: *
 *FE-startMaximized: Cmd Function
 *FE-startMaximized: add_window StartAppMaximized
 
 Module FvwmEvent FE-startMaximized
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The above just declares and starts an FvwmEvent instance which will listen
 on the add\_window event -- each time a window is mapped to the screen, it
 will call the ``StartAppMaximized`` function.  Hence we can declare in
 this function the windows we want to maximize, as in:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartAppMaximized
 AddToFunc   StartAppMaximized
 + I ThisWindow (some_name, !Maximized) Maximize
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Hence the function checks to see if the window is called "some\_name"
 (you'll want to change this to something appropriate) and if it isn't
@@ -510,13 +510,13 @@ operation, but not to see its contents.  Most applications don't like to
 have their contents visible during this operation.  If you want to turn it
 off, then you can uuse the following:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # This is for a Move operation
 OpaqueMoveSize -1
 
 # And this is for Resize.
 Style * ResizeOpaque
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The slightly longer reason as to why this is also useful comes about from
 the way the rubber-band is implemented.  It has an Xor value (which can be
@@ -595,9 +595,9 @@ configuration), then the best thing to do is to  produce a minimal
 configuration that exhibits the problem, and put it into a file.  Then, in
 FvwmConsole, one can type:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Restart fvwm -f $[HOME]/myexampleconfig
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Or some such.  Tailing ~/.xsession-errors in this case, is also
 advisable as the file loads.
@@ -610,9 +610,9 @@ this, they tend not to accept -geometry options.  In situations such as
 this, getting FVWM to tell you where and '''why''' it decided to place that
 window in a specific place can be useful, hence:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 BugOpts ExplainWindowPlacement On
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then the results of which can then be seen in ~/.xsession-errors
 

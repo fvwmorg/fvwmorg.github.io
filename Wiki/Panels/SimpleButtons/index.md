@@ -39,7 +39,7 @@ with 1 Row and 6 Columns. This makes all the buttons the same size of 1x1.
 Then define the 6 Buttons. Each button is just an Icon and an Action that
 runs a program when clicked by the mouse.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig SimpleButtons: *
 *SimpleButtons: Geometry 360x60+780-50
 *SimpleButtons: Colorset 10
@@ -58,23 +58,23 @@ DestroyModuleConfig SimpleButtons: *
               Action(Mouse 1) "Exec exec vlc")
 *SimpleButtons: (1x1, Icon 48x48/editor.png, \
               Action(Mouse 1) "Exec exec libreoffice ")
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Be sure to define the Colorset and add some Styles
 for the Buttons such as no Borders or Title, and
 WindowListSkip so it won't be on window lists.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 10 fg #ffffff, bg #003c3c
 Style SimpleButtons !Borders, !Title, WindowListSkip
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Then run the Buttons by using the following command, or optionally
 add this to the StartFuction so it loads when Fvwm starts.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Module FvwmButtons SimpleButtons
 AddToFunc StartFunction I Module FvwmButtons SimpleButtons
-{% endfvwm2rc %}
+{% endhighlight %}
 
 

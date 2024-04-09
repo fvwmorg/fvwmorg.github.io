@@ -14,7 +14,7 @@ description: |
 
 The simplest example of swallowing xload is to create a definition similar to this one:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyModuleConfig FvwmButtons-test: *
 *FvwmButtons-test: Geometry 100x100-1-1
 *FvwmButtons-test: (1x1, Title 'xload', \
@@ -23,7 +23,7 @@ DestroyModuleConfig FvwmButtons-test: *
         Action(Mouse1) 'Exec xterm -e top')
 
 Module FvwmButtons FvwmButtons-test
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This result will be a 100x100 pixel button in the lower right hand corner of
 the screen that draws a running xload.  If you click on the button, an xterm
@@ -50,7 +50,7 @@ the screen that contains 3 xload buttons.  Left-clicking the buttons brings up a
 remote machine, and Right-clicking the buttons will restart xload on the button if the connection
 to the remote server has been dropped.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartXLoadOn
 AddToFunc   StartXLoadOn
 + I None (xload) Exec ssh $0 /usr/X11R6/bin/xload.$0 &
@@ -89,4 +89,4 @@ DestroyModuleConfig FvwmButtonsXLoad: *
         "FvwmButtonsXLoad-Panel" 'Module FvwmButtons FvwmButtonsXLoad-Panel')
 
 Module FvwmButtons FvwmButtonsXload
-{% endfvwm2rc %}
+{% endhighlight %}

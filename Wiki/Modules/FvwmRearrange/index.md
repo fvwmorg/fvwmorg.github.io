@@ -32,16 +32,16 @@ list of FvwmRearrange configuration options see the FvwmRearrange manpage.
 
 Here is a sample configuration for tiling with 2 columns.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 FvwmRearrange -tile -r -mn 2 -maximize 0 0
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To restore the windows, FvwmRearrange doesn't reverse the options,
 use this for all.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 All (CurrentPage, !Iconic, CirculateHit, !Sticky) Maximize Off
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Example
 
@@ -53,15 +53,15 @@ windows. The below screenshot, before and after tiling, and the following config
 
 Tiling with 3 columns.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc 3Tile
 AddToFunc 3Tile
 + I FvwmRearrange -tile -r -mn 3 -maximize 1 3 92 92
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Tile switch on and off.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 InfoStoreAdd TileSwitch "ON"
 
 DestroyFunc Tile
@@ -78,10 +78,10 @@ DestroyFunc TileOff
 AddToFunc TileOff
 + I All (CurrentPage, !Iconic, CirculateHit, !Sticky) Maximize Off
 + I InfoStoreAdd TileSwitch ON
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Key binding (alt-t)
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Key t A M Tile
-{% endfvwm2rc %}
+{% endhighlight %}

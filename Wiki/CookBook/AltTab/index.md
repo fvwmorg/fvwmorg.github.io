@@ -14,9 +14,9 @@ description: |
 
 The default-config Alt-Tab binding in fvwm looks like:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Key Tab A M WindowList Root c c NoDeskSort, SelectOnRelease Meta_L, CurrentAtEnd
-{% endfvwm2rc %}
+{% endhighlight %}
 
 When Alt-Tab is hit a menu appears that lists all the windows. As long
 as you hold down the Alt key, you can keep pressing tab to cycle through
@@ -29,10 +29,10 @@ simple solution to that is just use the `Next` and `Prev` conditionals
 to switch between windows. For example if one wanted to switch between
 windows on the current desktop, the following keybindings would work.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Key Tab A M Next (CurrentDesk, AcceptsFocus) Focus
 Key Tab A SM Prev (CurrentDesk, AcceptsFocus) Focus
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This simple solution works but it may not completely achieve the affect you
 want. For example if you hit Alt-Tab again do you want to go back to your
@@ -42,7 +42,7 @@ that is selected? Do you want to `DeIconify` the window or `Raise` it? The
 list order, deiconify, raise, or even move the mouse pointer. All of this
 can be achieved with a more complex function:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Custom Focus Function
 DestroyFunc MyFocusFunc
 AddToFunc MyFocusFunc
@@ -54,7 +54,7 @@ AddToFunc MyFocusFunc
 # Key Bindings
 Key Tab A M Next (CurrentDesk, AcceptsFocus) MyFocusFunc
 Key Tab A SM Prev (CurrentDesk, AcceptsFocus) MyFocusFunc
-{% endfvwm2rc %}
+{% endhighlight %}
 
 As you can see you can keep building on this to achieve an Alt-Tab behavior
 that is more like you want. Next is another example that someone used
@@ -71,7 +71,7 @@ suggestions in the main fvwm FAQ about how to do this, although that still
 didn't quite emulate what I was after -- indeed, none of the solutions
 cycled back round to the first window. So, here's my solution to it.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 InfoStoreAdd TabDir Next
 
 DestroyFunc FocusRaiseAndStuff
@@ -92,7 +92,7 @@ AddToFunc   SwitchWindow
 + I Schedule 700 134000 SwitchDirection
 
 Key Tab A M  SwitchWindow
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This might look elaborate, but all it is doing is saving the direction
 conditional `Next` or `Prev` in the `InfoStore` variable TabDir. Then

@@ -22,7 +22,7 @@ you can copy put the directory in $HOME/.fvwm.
 To use this decor first configure the
 [Colorsets]({{ "/Config/Colorsets" | prepend: site.wikiurl }})
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
@@ -31,13 +31,13 @@ Colorset 1 fg #cdcdcd, bg #7f7f7f
 Colorset 2 fg #ffffff, bg #6381c6
 Colorset 3 fg #cdcdcd, bg #7f7f7f
 Colorset 4 fg #ffffff, bg #6381c6
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Next we need to [Bind]({{ "/Config/Bindings" | prepend: site.wikiurl }})
 actions to the window buttons (so they show up on the decor). This decor uses
 use locations 1, 3, 5 and 8 6 4 2.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Window Button Locations [135 Title 8642]
 Mouse 1 1 A Menu MenuWindowOps
 Mouse 1 3 A WindowShade True
@@ -46,11 +46,11 @@ Mouse 1 8 A Stick
 Mouse 1 6 A Iconify
 Mouse 1 4 A Maximize
 Mouse 1 2 A Close
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Now we can define the Decor:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyDecor NanoDecor
 AddToDecor NanoDecor
 + BorderStyle Simple -- HiddenHandles NoInset Raised
@@ -96,16 +96,16 @@ AddToDecor NanoDecor
     ActiveUp   (Pixmap nanogui/shadedown-activeup.png) \
     ActiveDown (Pixmap nanogui/shadedown-activedown.png) \
     Inactive   (Pixmap nanogui/shadedown-inactive.png)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Last we need the Styles for the windows to use this decor, the
 Colorsets and some other settings.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4, \
         BorderWidth 4, HandleWidth 4, \
         MWMBorder, FirmBorder, \
         MwmButtons, UseDecor NanoDecor
-{% endfvwm2rc %}
+{% endhighlight %}
 

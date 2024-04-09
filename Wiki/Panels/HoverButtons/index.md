@@ -30,7 +30,7 @@ FvwmEvent is then used to change the icon of the dock to a shadow with
 SendToModule, and Iconify the other button bringing it into view.
 This is all achieved through the following collection of functions:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ################
 # 
 # HoverButton Functions. These collection of functions create
@@ -106,32 +106,32 @@ AddToFunc KillDock
 # FvwmEvent Config
 DestroyModuleConfig FE-Dock: *
 *FE-Dock: focus_change EventHandler
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Once we have the functions defined, we can use them to build our dock. In this case
 I am going to recreate [SimpleButtons]({{ "/Panels/SimpleButtons" | prepend: site.wikiurl }}),
 but using the HoverButton Functions. Using the same calculations I will put the first button
 at 60x60+780-50 and then move each button 70 pixels to the right.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 CreateDock '11' '60x60+780-50' '48x48/xterm.png' '80x80+760-80' '64x64/xterm.png' 'Exec exec xterm' 'Nop' 'Nop'
 CreateDock '12' '60x60+840-50' '48x48/firefox.png' '80x80+820-80' '64x64/firefox.png' 'Exec exec xterm' 'Nop' 'Nop'
 CreateDock '13' '60x60+900-50' '48x48/gimp.png' '80x80+880-80' '64x64/gimp.png' 'Exec exec xterm' 'Nop' 'Nop'
 CreateDock '14' '60x60+960-50' '48x48/gvim.png' '80x80+940-80' '64x64/gvim.png' 'Exec exec xterm' 'Nop' 'Nop'
 CreateDock '15' '60x60+1020-50' '48x48/vlc.png' '80x80+1000-80' '64x64/vlc.png' 'Exec exec xterm' 'Nop' 'Nop'
 CreateDock '16' '60x60+1080-50' '48x48/editor.png' '80x80+1060-80' '64x64/editor.png' 'Exec exec xterm' 'Nop' 'Nop'
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Now I need to Set the styles for these Docks that get created
 and run use the LaunchDock to run the Modules to load the Dock.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style FvwmDock* Sticky, !Title, !Borders, WindowListSkip, MouseFocus
 Style FvwmDock-* StaysOnBottom, FixedPosition, FixedSize
 Style FvwmDockA* StaysOnTop, FixedSize, StartIconic
 
 LaunchDock
-{% endfvwm2rc %}
+{% endhighlight %}
 
 To get these to load when fvwm runs, add the LaunchDock function to your
 [StartFunction]({{ "/Config/StartFunction" | prepend: site.wikiurl }}).

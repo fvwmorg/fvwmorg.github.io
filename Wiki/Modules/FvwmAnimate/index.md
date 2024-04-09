@@ -29,7 +29,7 @@ You can also specify a Pixmap, or a color can be used for XOR against the backdr
 
 Here is a sample configuration for FvwmAnimate.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Destroy the module definition.
 DestroyModuleConfig FvwmAnimate: *
 
@@ -48,7 +48,7 @@ DestroyModuleConfig FvwmAnimate: *
 
 # How many revolutions to twist the iconification frame.
 *FvwmAnimate: Twist 6
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Advanced Use
 
@@ -56,13 +56,13 @@ You can have a lot of fun with this module. For those of you that don't like
 icons, but still want to use the FvwmAnimate module, then you can use the
 following:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Mouse 1 R A SomeFunc
 
 AddToFunc SomeFunc
 + I SendToModule FvwmAnimate animate 20 25 15 10 44 23 6 12#
 + I Iconify
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Which assumes that when you click in the root window, the !SomeFunc function
 gets run, iconifying the window using an odd effect.  The numbers passed to

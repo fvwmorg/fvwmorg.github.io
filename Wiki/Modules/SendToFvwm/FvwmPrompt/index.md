@@ -19,7 +19,7 @@ interactive shell that can be used send fvwm commands one at a time.
 If FvwmPrompt is given a command, it will send that command to fvwm
 without opening the interactive shell.
 
-{% highlight shell %}
+{% highlight sh %}
 # Open an interactive shell to send fvwm commands.
 $ FvwmPrompt
 
@@ -32,9 +32,9 @@ FvwmPrompts communicates to fvwm via the [FvwmMFL](
 socket, and as such FvwmMFL must be running to use FvwmPrompt,
 so be sure to start FvwmMFL from your StartFunction:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc StartFunction I Module FvwmMFL
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The fvwm source will only build FvwmPrompt or FvwmConsole, not both,
 so you will only have access to one of the tools. Since FvwmPrompt

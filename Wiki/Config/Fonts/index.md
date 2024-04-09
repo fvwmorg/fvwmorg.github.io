@@ -18,9 +18,9 @@ The following will set the DefaultFont used by FVWM and shows and example of
 the XFT font syntax.
 
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DefaultFont "xft:Sans:Bold:size=8:antialias=True"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The Syntax is xft to tell Fvwm to use XFT fonts, the name of the font, followed
 by some options all separated by ":". See the manpage for a more detailed description.

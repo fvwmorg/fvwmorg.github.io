@@ -17,7 +17,7 @@ FvwmScript-TimeDate is provided with a basic installation of Fvwm3,
 it is then swallowed into RightPanel and displays the current time
 and date. Towards the end of the script, you see these lines:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Widget 1
 Property
  Position 0 0
@@ -47,7 +47,7 @@ Main
   Begin
   End
 End
-{% endfvwm2rc %}
+{% endhighlight %}
 
 "SingleClic" is not filled in, so nothing happens when we do a single click
 on one of the Widgets.
@@ -65,7 +65,7 @@ respective line between "Begin" and "End" of "Widget2".
 
 So, here's my Widget1 (=Time) modification:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Widget 1
 Property
  Position 0 0
@@ -81,7 +81,7 @@ Main
    Do {Test (x calcurse) exec $[infostore.terminal] -e calcurse}
   End
 End
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The "Do" tells the Script it should now _do_ something; I then test
 if calcurse is actually installed and can be run; then my

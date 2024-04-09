@@ -18,7 +18,7 @@ is not obvious how to do this, it is possible.  Let's assume you
 need a menu item that toggles an FvwmConsole window on and off.
 Then put the following lines in your .fvwm2rc:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ToggleFvwmConsole
 AddToFunc ToggleFvwmConsole
 + I None (FvwmConsole, CirculateHit) Module FvwmConsole
@@ -29,13 +29,13 @@ AddToFunc ToggleFvwmConsole
 
 AddToMenu SomeMenu
 + "toggle FvwmConsole" Function ToggleFvwmConsole
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Or if you prefer a button in the button bar:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 *FvwmButtons: (Action ToggleFvwmConsole)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The lines with MoveToDesk, MoveToPage and Raise will bring the
 window to the top of the current page if it is not visible
@@ -45,22 +45,22 @@ If you want to toggle one specific window, e.g. an xterm, but
 still want to have other xterms that are not toggled, you must
 give the window an unique name:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + I None (XMessages, CirculateHit) Exec exec \
           xterm -T XMessages -n XMessages -e tail -f /var/adm/?* ~/.X.err
 + I Next (XMessages, CirculateHit) Close
-{% endfvwm2rc %}
+{% endhighlight %}
 
 (CirculateHit is needed for windows with Style CirculateSkip.)
 
 Or for a toggling Netscape button:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ToggleNetscape
 AddToFunc ToggleNetscape
 + I None (Navigator) Exec exec netscape
 + I All (Navigator) Close
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Keep in mind that these functions simply check if a window with
 the specified name exists.  They will happily close manually

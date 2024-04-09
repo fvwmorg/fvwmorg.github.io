@@ -29,9 +29,9 @@ __all__ Colorsets up to the maximum number used.
 For example, define Colorset 2 with a white foreground (fg) and black background (bg)
 as follows:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 2 fg #ffffff, bg #000000
-{% endfvwm2rc %}
+{% endhighlight %}
 
 In the case no hilight (hi) and shade (sh) are set, fvwm will generate
 them when they are being used for the 3D raise/sunk looks. You can set the
@@ -45,10 +45,10 @@ and blue between 00 and ff (in hexadecimal).
 In addition to this format you can also use rgb:rr/gg/bb or color names
 such as
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 2 fg white, bg black
 Colorset 3 fg rgb:ff/ff/ff, bg rgb:00/00/00
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Color names are used using rgb.txt from X (/etc/X11/rgb.txt).
 
@@ -59,9 +59,9 @@ used. One way is to use CleanupColorsets to reset all the colorsets.
 Another is to include additional options to force the defaults. For
 example
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Colorset 2 fg #ffffff, bg #000000, hi, sh, fgsh, Plain, NoShape, Tint, Alpha
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This will do almost the exact same thing as the first example without these
 additional options. The difference is this example removed any previous definitions
@@ -78,7 +78,7 @@ One can use any numbering convention for the Colorsets that fits your configs de
 If you don't want to create one of your own, here is the one used in the default
 config.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ######
 # 3: Colorsets
 #
@@ -102,7 +102,7 @@ Colorset 5  fg #000000, bg #ffffff
 Colorset 6  fg #ffffff, bg #2d2d2d
 Colorset 7  fg grey30, bg #ffffff
 Colorset 8  fg #ffffff, bg #003c3c
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Color Themes
 
@@ -122,12 +122,12 @@ between the color themes.
 To do this extract each of the above collections into $FVWM_USERDIR ($HOME/.fvwm).
 Then to build a menu for CdeColors/* use the following
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyMenu CdeColorMenu
 AddToMenu CdeColorMenu "Cde Colors" Title
 PipeRead 'for i in $[FVWM_USERDIR]/CdeColors/*.fvwm2rc; do \
   echo "AddToMenu CdeColorMenu $(basename -s .fvwm2rc $i) Read $i"; done'
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This menu will Read the file that contains the Colorset definitions when
 selected and give you a way to switch between the color themes.

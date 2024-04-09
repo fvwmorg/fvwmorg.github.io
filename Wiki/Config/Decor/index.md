@@ -43,14 +43,14 @@ for both Active and Inactive windows.
 Using the Style command we can set these [Colorsets](
 {{ "/Config/Colorsets" | prepend: site.wikiurl }}) to the convention:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 #   1 - Inactive Windows
 #   2 - Active Window
 #   3 - Inactive Windows Borders
 #   4 - Active Windows Borders
 Style * Colorset 1, HilightColorset 2, \
         BorderColorset 3, HilightBorderColorset 4
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Active Window is the current window with focus, and all the other windows
 are Inactive.
@@ -60,9 +60,9 @@ options (see below). I prefer to use the above Styles to set the Colorset, becau
 it makes it easier to change just the Colorset for a single window via a Style
 command.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style MyDifferentWindow Colorset 11, HilightColorset 12
-{% endfvwm2rc %}
+{% endhighlight %}
 
 
 ## Bindings
@@ -73,13 +73,13 @@ happens when the window buttons are clicked.
 
 For example you could have 4 buttons on your windows:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Window Button Locations [1 Title 642]
 Mouse 1 2 A Close
 Mouse 1 4 A Maximize
 Mouse 1 6 A Iconify
 Mouse 1 1 A Menu MenuWindowOps
-{% endfvwm2rc %}
+{% endhighlight %}
 
 You can also use the "Button N" and "!Button N" Styles to show/hide buttons. By default
 only buttons with Bindings will be shown.
@@ -99,24 +99,24 @@ TitleStyle controls the main titlebar, not including the window buttons.
 
 There are two different ways to use TitleStyle. The first is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle justification Height N
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This controls the basics of the titlebar, setting the justification
 to Centered, RightJustified or LeftJustified and the height of the title
 bar in pixels (note: The justification statement is optional).
 For example:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle RightJustified Height 22
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The second way to use TitleStyle is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle State Style -- Flag
-{% endfvwm2rc %}
+{% endhighlight %}
 
 + State is the state of the titlebar. The state is one of ActiveUp,
   ActiveDown, Active (means both ActiveUp and ActiveDown), InactiveUp,
@@ -144,10 +144,10 @@ TitleStyle needs to be defined for each different state. In a basic setup you on
 need to define the Active and Inactive states. To have a Flat title bar using
 gradients, use something like
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle Active HGradient 20 navy red -- Flat
 TitleStyle Inactive HGradient 20 navy grey -- Flat
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This will set up a horizontal gradient for the titlebar. Active windows will
 change from the color navy to red, and the inactive windows will change from
@@ -155,13 +155,13 @@ the color navy to grey. Basic syntax for gradients is
 
 Additionally you can put multiple states in a single (extended) line as follows
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle \
     ActiveUp (style -- flag) \
     ActiveDown (style -- flag) \
     InActiveUp (style -- flag) \
     InActiveDown (style -- flag)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Finally there is AddTitleStyle which is similar to TitleStyle, with the difference
 it will Add the style to the previous defined TitleStyle (and any other AddToTitleStyle
@@ -177,15 +177,15 @@ the title bar is split up into multiple sections.
 
 The basic syntax for a MultiPixmap is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle state MultiPixmap section style, section style, ...
-{% endfvwm2rc %}
+{% endhighlight %}
 
 For example if you wanted to put a TiledPixmap under the main part of the
 title bar but include a transitional image on both the LeftEnd and RightEnd
 you could use something like
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 TitleStyle Active MultiPixmap \
     Main TiledPixmap main-active.png, \
     LeftEnd AdjustedPixmap leftend-active.png, \
@@ -194,7 +194,7 @@ TitleStyle Inactive MultiPixmap \
     Main TiledPixmap main-inactive.png, \
     LeftEnd AdjustedPixmap leftend-inactive.png, \
     RightEnd AdjustedPixmap rightend-inactive.png
-{% endfvwm2rc %}
+{% endhighlight %}
 
 You don't need to set the image for the Buttons as that is done with ButtonStyle.
 But if you use LeftButtons, RightButtons (or Buttons for both) in a MultiPixmap,
@@ -209,9 +209,9 @@ these sections will not be sown and you will only see UnderText and the Buttons.
 ButtonStyle controls the different styles of the window
 buttons. There are two different ways to use ButtonStyle. The first is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ButtonStyle button - flag
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This sets basic Toggle flags for the button. The possible flags are
 MwmDecorMax, MwmDecorMin, MwmDecorMenu, MwmDecorShade, MwmDecorStick and
@@ -224,9 +224,9 @@ If so the button will display a different style when the window is Maximized.
 
 The second way to use ButtonStyle is very similar to TitleStyle
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ButtonStyle Button State Style -- Flag
-{% endfvwm2rc %}
+{% endhighlight %}
 
 + Button is the button number or one of "All", "Left" or "Right". This
   sets which button(s) the style is for.
@@ -261,19 +261,19 @@ ButtonStyle Button State Style -- Flag
 
 As with TitleStyles you can specify one ButtonStyle per line
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ButtonStyle 2 Active Pixmap close-active.png
 ButtonStyle 2 Inactive Pixmap close-inactive.png
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Or you can include multiple states in a single (extended) line configuration
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 ButtonStyle 2 \
     ActiveUp (Pixmap close-activeup.png -- Flat) \
     ActiveDown (Pixmap close-activedown.png -- Flat) \
     Inactive (Pixmap close-inactive.png -- Flat)
-{% endfvwm2rc %}
+{% endhighlight fvwm %}
 
 There is also an AddButtonStyle that works like ButtonStyle, with the
 difference is it will Add the new style to any existing styles.
@@ -283,9 +283,9 @@ difference is it will Add the new style to any existing styles.
 BorderStyles are like TitleStyle and ButtonStyle but have far less options.
 The basic syntax is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 BorderStyle state style -- flag
-{% endfvwm2rc %}
+{% endhighlight %}
 
 + State is either Active or Inactive.
 + Style can be TiledPixmap or Colorset.
@@ -298,20 +298,20 @@ BorderStyle state style -- flag
 TitleStyles, ButtonStyles and BorderStyles can all be grouped together
 into a single Decor via the AddToDecor command.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToDecor MyDecor
 + TitleStyle ...
 + ButtonStyle ...
 + BorderStyle ...
 + ...
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This will group all the styles into a Decor so they can be applied
 via the UseDecor style.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style * UseDecor MyDecor
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Decors can be useful as a way to group all the Styles together and also
 give you a way to use different Decors for different windows.

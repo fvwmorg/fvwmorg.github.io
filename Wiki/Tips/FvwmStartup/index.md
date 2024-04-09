@@ -34,7 +34,7 @@ The following describes the situation:
 This is trying to be achieved through use of the StartFunction
 and InitFunction as follows:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartFunction
 AddToFunc StartFunction
 + I Module FvwmAnimate
@@ -46,7 +46,7 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 This is not quite right for several reasons:
 
@@ -122,15 +122,15 @@ a parsing error of that line.
 I said earlier that FVWM will and can collate lines to run -- there's
 two instances on *initialisation* where this is true:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 InitFunction
 StartFunction
-{% endfvwm2rc %}
+{% endhighlight %}
 
 In that order.  Hence, now that you realise how FVWM parses its file,
 why it's possible to do this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Beep
@@ -138,7 +138,7 @@ AddToFunc   StartFunction
 Style foo !Icon
 
 AddToFunc StartFunction I Beep
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... AddToFunc is cumulative when used in successive calls with a known
 function.  So you can build up (in this case) StartFunction, and
@@ -159,7 +159,7 @@ restart).
 
 So to go back to your original example of the functions you had:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartFunction
 AddToFunc StartFunction
 + I Module FvwmAnimate
@@ -171,11 +171,11 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 You would now define the one function as the following:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc StartFunction
 AddToFunc   StartFunction
 + I Module FvwmAnimate
@@ -184,7 +184,7 @@ AddToFunc   StartFunction
 + I Module FvwmPager FourPager 0 3
 + I Test (Init) GotoPage 1 2
 + I Test (Init) Exec exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ### 3. Miscellaneous things
 
@@ -204,23 +204,23 @@ it's at init time or not makes sense.
 * The test for working out whether FVWM (at the time it reads the
 StartFunction) is in Init, is done via:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + I Test (Init)
-{% endfvwm2rc %}
+{% endhighlight %}
 
 #### 3.3. Use Exec exec to prevent unnecessary dead shell processes
 
 * Unrelated to anything I've mentioned so far, you'll note I am using:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Exec exec foo
-{% endfvwm2rc %}
+{% endhighlight %}
 
 As opposed to:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Exec foo
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... this is so that we don't leave the shell around that FVWM used to
 spawn "foo" in the first place.  The double "Exec exec" takes care of
@@ -242,24 +242,24 @@ This is why the case is important for:  "Exec exec" -- the second
 
 ### 4. Don'ts
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc RestartFunction
 + I InitFunction
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Knowing what you do now, you should realise you don't need this.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc SessionInitFunction
 + I InitFunction
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Generally a "bad" idea -- especially if your InitFunction spawns terminals.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc SessionRestartFunction
 + I RestartFunction
-{% endfvwm2rc %}
+{% endhighlight %}
 
 See above.
 
@@ -267,7 +267,7 @@ See above.
 
 OK.  So now on to your original question.  Here's what you have currently:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc InitFunction
 AddToFunc InitFunction
 + I exec xsetroot -solid SteelBlue
@@ -275,7 +275,7 @@ AddToFunc InitFunction
 + I Module FvwmPager FourPager 0 3
 + I GotoPage 1 2
 + I exec xlogo -render -fg blue -bg yellow -xrm "*Page: 0 1 2"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 But, you've already started your "login" xterm in ~/.xinitrc.  At the
 time InitFunction runs, several things could be happening here:
@@ -288,9 +288,9 @@ here.  You don't know at the point FVWM is running along with starting
 up everything else when things will come together.  There is only one
 way you can do this reliably:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + I Schedule 5000 Next (login) MoveToPage 0 1 2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 I say "reliably" loosely here.  The Schedule command is here to give
 the window a chance to load, and ensure it really has done before FVWM
@@ -299,18 +299,18 @@ this application out of band from FVWM's own start-up, expecting FVWM
 to be able to do anything with the window, because it might not be
 mapped or if it is then move it, means you can't do things like this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Style login StartsOnPage 0 1 2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... nor can you do something like this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 AddToFunc   StartFunction
 + I None (login) Exec exec xterm -T login
 + I Wait login
 + I Next (login) MoveToPage 0 1 2
-{% endfvwm2rc %}
+{% endhighlight %}
 
 (Well, you could, but you run the risk of doubling-up your original
 window, especially if it is just about to start when this does --
@@ -324,7 +324,7 @@ don't, c.f. SkipMapping -- but before that was introduced, one of the
 older idioms of making applications appear on the right page was to do
 just this:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 + I GotoPage 0 0
 + I Exec xterm -T foo
 + I Wait foo
@@ -332,7 +332,7 @@ just this:
 + I Exec xterm -T foo2
 + I Wait foo2
 + I GotoPage 00
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ... and so it goes on.  Generally though no longer used.  Given the
 caveat of using "Wait" which really will hang FVWM as it waits for a
@@ -347,8 +347,8 @@ string used with "Wait" for example, but I digress.
 You originally mentioned wanting this "login" window to survive the
 window manager.  Why not cheat?
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyFunc ExitFunction
 AddToFunc   ExitFunction
 + I Test (Quit) Restart xterm -T login
-{% endfvwm2rc %}
+{% endhighlight %}

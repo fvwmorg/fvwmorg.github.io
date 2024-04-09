@@ -27,24 +27,24 @@ or can be used to make different menus use different MenuStyles.
 
 An example of some MenuStyles from the default config is
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # MenuStyles
 MenuStyle * MenuColorset 5, ActiveColorset 6, GreyedColorset 7, TitleColorset 8
 MenuStyle * Hilight3DOff, HilightBack, HilightTitleBack, SeparatorsLong
 MenuStyle * TrianglesSolid, TrianglesUseFore
 MenuStyle * ItemFormat "%|%3.1i%5.3l%5.3>%|"
 MenuStyle * Font "xft:Sans:Bold:size=8:antialias=True"
-{% endfvwm2rc %}
+{% endhighlight %}
 
 
 Refer to the manpage for a description of what each option does.
 If you want different menus to look and act differentially you can replace '\*' with the
 menu name your interested. For example you could use
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 MenuStyle FvwmMenu* ...
 MenuStyle MyMenu* ...
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ...to have two separate looking menus, menus with names
 starting with FvwmMenu and names starting with MyMenu.
@@ -56,7 +56,7 @@ Building menus is quite similar to building functions, you first should destroy 
 previous menu and then add items to the menu in the order you want them to appear.
 A basic root menu could look like this
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 # Root Menu
 DestroyMenu MenuFvwmRoot
 AddToMenu   MenuFvwmRoot "Fvwm" Title
@@ -71,7 +71,7 @@ AddToMenu   MenuFvwmRoot "Fvwm" Title
 + "Re&fresh%icons/refresh.png%" Refresh
 + "&Restart%icons/restart.png%" Restart
 + "&Quit%icons/quit.png%" Module FvwmScript FvwmScript-ConfirmQuit
-{% endfvwm2rc %}
+{% endhighlight %}
 
 The basic menu item format is
 
@@ -87,9 +87,9 @@ icons and adjust where they appear in the menu with MenuStyle * ItemFormat.
 This menu can then be opened by using the Menu command. For example
 you could bind this menu to open when you click on the root window as follows:
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 Mouse 1 R A Menu MenuFvwmRoot
-{% endfvwm2rc %}
+{% endhighlight %}
 
 Each item's command can be triggered by selecting it with a mouse click,
 moving around the menu with the arrow keys and using enter, or using the hot key
@@ -99,7 +99,7 @@ Menu items can Popup new menus, run programs, custom functions. One can also cre
 a menu of window operations. For example I have the following list of menu of
 window operations that opens when I right click the desktop or a window title bar.
 
-{% fvwm2rc %}
+{% highlight fvwm %}
 DestroyMenu MenuWindowOpsLong
 AddToMenu   MenuWindowOpsLong
 + "Move"                Move
@@ -120,7 +120,7 @@ AddToMenu   MenuWindowOpsLong
 + "StaysOnBottom"       Pick (CirculateHit) Layer 0 2
 + "" Nop
 + "Identify"            Module FvwmIdent
-{% endfvwm2rc %}
+{% endhighlight %}
 
 ## Automatic Menu Generation
 
