@@ -1,0 +1,1460 @@
+---
+title: fvwm3menus manual page
+showtitle: 1
+permalink: /Man/fvwm3menus/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_menus">MENUS</a>
+<ul class="sectlevel2">
+<li><a href="#_building_menu_contents">Building menu contents</a></li>
+<li><a href="#_commands_that_open_menus">Commands that open menus</a></li>
+<li><a href="#_menu_style_commands">Menu style commands</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm3menus - fvwm menus</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_menus">MENUS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before a menu can be opened, it has to be populated with menu items
+using the <strong>AddToMenu</strong> command and bound to a key or mouse button with
+the <strong>Key</strong>, <strong>PointerKey</strong> or <strong>Mouse</strong> command (there are many other ways to
+invoke a menu too). This is usually done in the configuration file.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm menus are extremely configurable in look and feel. Even the
+slightest nuances can be changed to the user&#8217;s liking, including the
+menu item fonts, the background, delays before popping up sub menus,
+generating menus dynamically and many other features. Please refer to
+the <strong>MenuStyle</strong> command to learn more.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Types of Menus</strong></dt>
+<dd>
+<p>There are four slightly different types of menus:</p>
+<div class="paragraph">
+<p>Popup menus can appear everywhere on the screen on their own or
+attached to a part of a window. The <strong>Popup</strong> command opens popup menus.
+If the popup menu was invoked with a mouse button held down, it is
+closed when the button is released. The item under the pointer is then
+activated and the associated action is executed.</p>
+</div>
+<div class="paragraph">
+<p>Normal menus are very similar command, but slightly transient.
+When invoked by clicking a mouse button, they stay open
+and can be navigated with no button held. But if invoked by a
+button press followed by mouse motion, it behaves exactly like a popup
+menu. The <strong>Menu</strong> command creates normal menus.</p>
+</div>
+<div class="paragraph">
+<p>"Sub menus" are menus inside other menus. When a menu item that has the
+<strong>Popup</strong> command as its action is selected, the named menu is opened as
+a sub menu to the parent. Any type of menu can have sub menus.</p>
+</div>
+<div class="paragraph">
+<p>"Tear off menus" are menus that have been "torn off" their original
+context on the desktop like a normal window. They are created from
+other menus by certain key presses or mouse sequences or with the
+<strong>TearMenuOff</strong> command from inside a menu.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Menu Anatomy</strong></dt>
+<dd>
+<p>Menus consist of any number of titles which are inactive menu items
+that usually appear at the top of the menu, normal items triggering
+various actions when selected, separator lines between the items, tear
+off bars (a horizontal broken line) that tear off the menu when
+selected, and sub menu items indicated with a triangle pointing left
+or right, depending on the direction in which the sub menu appears.
+All the above menu items are optional.</p>
+<div class="paragraph">
+<p>Additionally, if the menu is too long to fit on the screen, the excess
+menu items are put in a continuation menu and a sub menu with the
+string "More&#8230;&#8203;" is placed at the bottom of the menu. The "More&#8230;&#8203;"
+string honors the locale settings.</p>
+</div>
+<div class="paragraph">
+<p>Finally, there may be a picture running up either side of the menu (a
+"side bar").</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Menu Navigation</strong></dt>
+<dd>
+<p>Menus are navigated with the keyboard and the mouse.
+Many people prefer to use the mouse, but it can be tedious.
+Keyboard navigation can be much faster.
+While fvwm displays a menu, it can do nothing else. For example, new
+windows do not appear before the menu is closed. However, this is not
+exactly true for tear off menus. See the <strong>Tear Off Menus</strong> section for
+details.</p>
+</dd>
+<dt class="hdlist1"><strong>Mouse Navigation</strong></dt>
+<dd>
+<p>Moving the pointer over a menu selects the item below it. Normally
+this is indicated by a 3d border around the item, but not all parts of
+a menu can be selected. Pressing any mouse button while a menu is open
+by default activates the item below it. Items of a popup menu are also
+activated by releasing a held mouse button. In case of an item that
+hides a sub menu, the sub menu is displayed if the pointer hovers over
+the item long enough or moves close to the triangle indicating the sub
+menu. This behaviour can be tuned with menu styles.</p>
+<div class="paragraph">
+<p>Scrolling a mouse wheel over a menu either wraps the pointer along the
+menu (default), scrolls the menu under the pointer or act as if the
+menu was clicked depending on the <em>MouseWheel</em> menu style.</p>
+</div>
+<div class="paragraph">
+<p>Clicking on a selected item activates it - what happens exactly
+depends on the type of the item.</p>
+</div>
+<div class="paragraph">
+<p>Clicking on a title, a separator, the side bar, or outside the menu
+closes the menu (exception: tear off menus can not be closed this
+way). Pressing mouse button 2 over a menu title or activating a tear
+off bar creates a tear off menu from the current menu. Clicking on a
+normal menu item invokes the command that is bound to it, and clicking
+on a sub menu item either closes all open menus and replaces them with
+the sub menu or posts the menu (default).</p>
+</div>
+<div class="paragraph">
+<p>Posting menus is meant to ease mouse navigation. Once a sub menu is
+posted, only items from that sub menu can be selected. This can be
+very useful to navigate the menu if the pointer tends to stray off the
+menu. To unpost the menu and revert back to normal operation, either
+click on the same sub menu item or press any key.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Keyboard Navigation</strong></dt>
+<dd>
+<p>Just like with mouse navigation, the item below the pointer is
+selected. This is achieved by warping the pointer to the menu items
+when necessary. While a menu is open, all key presses are intercepted
+by the menu. No other application can get keyboard input (although
+this is not the case for tear off menus).</p>
+<div class="paragraph">
+<p>Items can be selected directly by pressing a hotkey that can be
+configured individually for each menu item. The hotkey is indicated by
+underlining it in the menu item label. With the <em>AutomaticHotkeys</em>
+menu style fvwm automatically assigns hotkeys to all menu items.</p>
+</div>
+<div class="paragraph">
+<p>The most basic keys to navigate through menus are the cursor keys
+(move up or down one item, enter or leave a sub menu),</p>
+</div>
+<div class="paragraph">
+<p>(activate item) and</p>
+</div>
+<div class="paragraph">
+<p>(close menu). Numerous other keys can be used to navigate through
+menus by default:</p>
+</div>
+<div class="paragraph">
+<p><em>Enter</em>, <em>Return</em>, <em>Space</em> activate the current item.</p>
+</div>
+<div class="paragraph">
+<p><em>Escape</em>, <em>Delete</em>, <em>Ctrl-G</em> exit the current sequence of menus or
+destroy a tear off menu.</p>
+</div>
+<div class="paragraph">
+<p><em>J</em>, <em>N</em>, <em>Cursor-Down</em>, <em>Tab</em>, <em>Meta-Tab</em>, <em>Ctrl-F</em>, move to the next
+item.</p>
+</div>
+<div class="paragraph">
+<p><em>K</em>, <em>P</em>, <em>Cursor-Up</em>, <em>Shift-Tab</em>, <em>Shift-Meta-Tab</em>, <em>Ctrl-B</em>, move
+to the prior item.</p>
+</div>
+<div class="paragraph">
+<p><em>L</em>, <em>Cursor-Right</em>, <em>F</em> enter a sub menu.</p>
+</div>
+<div class="paragraph">
+<p><em>H</em>, <em>Cursor-Left</em>, <em>B</em> return to the prior menu.</p>
+</div>
+<div class="paragraph">
+<p><em>Ctrl-Cursor-Up</em>, <em>Ctrl-K</em> <em>Ctrl-P</em>, <em>Shift-Ctrl-Meta-Tab</em>, <em>Page-Up</em>
+move up five items.</p>
+</div>
+<div class="paragraph">
+<p><em>Ctrl-Cursor-Down</em>, <em>Ctrl-J</em> <em>Ctrl-N</em>, <em>Ctrl-Meta-Tab</em> <em>Page-Down</em>
+move down five items.</p>
+</div>
+<div class="paragraph">
+<p><em>Shift-P</em>, <em>Home</em>, <em>Shift-Cursor-Up</em>, <em>Ctrl-A</em> move to the first item.</p>
+</div>
+<div class="paragraph">
+<p><em>Shift-N</em>, <em>End</em>, <em>Shift-Cursor-Down</em>, <em>Ctrl-E</em> move to the last item.</p>
+</div>
+<div class="paragraph">
+<p><em>Meta-P</em>, <em>Meta-Cursor-Up</em>, <em>Ctrl-Cursor-Left</em>, <em>Shift-Ctrl-Tab</em>, move
+up just below the next separator.</p>
+</div>
+<div class="paragraph">
+<p><em>Meta-N</em>, <em>Meta-Cursor-Down</em>, <em>Ctrl-Cursor-Right</em>, <em>Ctrl-Tab</em>, move
+down just below the next separator.</p>
+</div>
+<div class="paragraph">
+<p><em>Insert</em> opens the "More&#8230;&#8203;" sub menu if any.</p>
+</div>
+<div class="paragraph">
+<p><em>Backspace</em> tears off the menu.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Menu Bindings</strong></dt>
+<dd>
+<p>The keys and mouse buttons used to navigate the menu can be configured
+using the <strong>Key</strong> and <strong>Mouse</strong> commands with the special context 'M',
+possible combined with 'T' for the menu title, 'I' for other menu
+items, 'S' for any border or sidepic, '[' for left border including a
+left sidepic, ']' for right border including a right sidepic, '-' for
+top border, '<em>' for bottom border. The menu context uses its own set
+of actions that can be bound to keys and mouse buttons. These are
+_MenuClose</em>, <em>MenuCloseAndExec</em>, <em>MenuEnterContinuation</em>,
+<em>MenuEnterSubmenu</em>, <em>MenuLeaveSubmenu</em>, <em>MenuMoveCursor</em>,
+<em>MenuCursorLeft</em>, <em>MenuCursorRight</em>, <em>MenuSelectItem</em>, <em>MenuScroll</em>
+and <em>MenuTearOff</em>.</p>
+<div class="paragraph">
+<p>It is not possible to override the key Escape with no modifiers for
+closing the menu. Neither is it possible to undefine mouse button 1,
+the arrow keys or the enter key for minimal navigation.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuClose</strong> exits from the current sequence of menus or destroys a
+tear off menu.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuCloseAndExec</strong> exits from the current sequence of menus or
+destroys a tear off menu and executes the rest of the line as a
+command.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuEnterContinuation</strong> opens the "More&#8230;&#8203;" sub menu if any.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuEnterSubmenu</strong> enters a sub menu.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuLeaveSubmenu</strong> returns to the prior menu.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuMoveCursor</strong> <em>n</em> [<em>m</em>] moves the selection to another item. If the
+first argument is zero the second argument specifies an absolute item
+in the menu to move the pointer to. Negative items are counted from
+the end of the menu. If the first argument is non-zero, the second
+argument must be omitted, and the first argument specifies a relative
+change in the selected item. The positions may be suffixed with a 's'
+to indicate that the items should refer only to the first items after
+separators.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuCursorLeft</strong> enters a sub menu with the <em>SubmenusLeft</em> menu style,
+and returns to the prior menu with the <em>SubmenusRight</em> menu style.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuCursorRight</strong> enters a sub menu with the <em>SubmenusRight</em> menu
+style, and returns to the prior menu with the <em>SubmenusLeft</em> menu
+style.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuSelectItem</strong> triggers the action for the menu item.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuScroll </strong><em>n</em> performs menu scrolling according to the
+<em>MouseWheel</em> menu style with <em>n</em> items. The distance can be suffixed
+with an 's' to indicate the items should refer only to the first items
+after separators.</p>
+</div>
+<div class="paragraph">
+<p><strong>MenuTearOff</strong> turns a normal menu into a "torn off" menu. See <strong>Tear
+Off Menus</strong> for details.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Tear Off Menus</strong></dt>
+<dd>
+<p>A tear off menu is any menu that has been "torn off" the window it was
+attached to and pinned to the root window. There are three ways to
+tear off a menu: click on the menu title with mouse button 2, press</p>
+<div class="paragraph">
+<p>in the menu or activate its tear off bar (a horizontal bar with a
+broken line). Tear off bars must be added to the menu as any other
+item by assigning them the command <strong>TearMenuOff</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The builtin tear off actions can be overridden by undefining the
+builtin menu actions bound to tear off. To remove the builtin mouse
+button 2 binding, use:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Mouse 2 MT A -</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and to remove the builtin backspace binding, use:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Key Backspace M A -</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>See the section <strong>Menu Bindings</strong> for details on how to assign other
+bindings for tear off.</p>
+</div>
+<div class="paragraph">
+<p>Note that prior to fvwm 2.5.20 the tear off mouse bindings were
+redefined in different way, which no longer work.</p>
+</div>
+<div class="paragraph">
+<p>The window containing the menu is placed as any other window would be.
+If you find it confusing to have your tear off menus appear at random
+positions on the screen, put this line in your configuration file:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style fvwm_menu UsePPosition</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To remove borders and buttons from a tear-off menu but keep the menu
+title, you can use</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style fvwm_menu !Button 0, !Button 1
+Style fvwm_menu !Button 2, !Button 3
+Style fvwm_menu !Button 4, !Button 5
+Style fvwm_menu !Button 6, !Button 7
+Style fvwm_menu !Button 8, !Button 9
+Style fvwm_menu Title, HandleWidth 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A tear off menu is a cross breeding between a window and a menu. The
+menu is swallowed by a window and its title is stripped off and
+displayed in the window title. The main advantage is that the menu
+becomes permanent - activating an item does not close the menu.
+Therefore, it can be used multiple times without reopening it. To
+destroy such a menu, close its window or press the Escape key.</p>
+</div>
+<div class="paragraph">
+<p>Tear off menus behave somewhat differently than normal menus and
+windows. They do not take the keyboard focus, but while the pointer is
+over one of them, all key presses are sent to the menu. Other fvwm key
+bindings are disabled as long as the pointer is inside the tear off
+menu or one of its sub menus. When the pointer leaves this area, all
+sub menus are closed immediately. Note that the window containing a
+tear off menu is never hilighted as if it had the focus.</p>
+</div>
+<div class="paragraph">
+<p>A tear off menu is an independent copy of the menu it originated from.
+As such, it is not affected by adding items to that menu or changing
+its menu style.</p>
+</div>
+<div class="paragraph">
+<p>To create a tear off menu without opening the normal menu first, the
+option <em>TearOffImmediately</em> can be added to the <strong>Menu</strong> or <strong>Popup</strong>
+command.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="sect2">
+<h3 id="_building_menu_contents">Building menu contents</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>AddToMenu</strong> <em>menu-name</em> [<em>menu-label</em> <em>action</em>]</dt>
+<dd>
+<p>Begins or adds to a menu definition. Typically a menu definition looks
+like this:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu Utilities Utilities Title
+ + Xterm           Exec  exec xterm -e tcsh
+ + Rxvt            Exec  exec rxvt
+ + "Remote Logins" Popup Remote-Logins
+ + Top             Exec  exec rxvt -T Top -n Top -e top
+ + Calculator      Exec  exec xcalc
+ + Xman            Exec  exec xman
+ + Xmag            Exec  exec xmag
+ + emacs           Exec  exec xemacs
+ + Mail            MailFunction xmh "-font fixed"
+ + ""              Nop
+ + Modules         Popup Module-Popup
+ + ""              Nop
+ + Exit Fvwm       Popup Quit-Verify</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The menu could be invoked via</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Mouse 1 R A Menu Utilities Nop</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Mouse 1 R A Popup Utilities</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>There is no end-of-menu symbol. Menus do not have to be defined in a
+contiguous region of the <em>config</em> file. The quoted (or first word)
+portion in the above examples is the menu label, which appears in the
+menu when the user pops it up. The remaining portion is an fvwm
+command which is executed if the user selects that menu item. An empty
+menu-label ("") and the <strong>Nop</strong> function are used to insert a separator
+into the menu.</p>
+</div>
+<div class="paragraph">
+<p>The keywords <em>DynamicPopUpAction</em> and <em>DynamicPopDownAction</em> have a
+special meaning when used as the name of a menu item. The action
+following the keyword is executed whenever the menu is popped up or
+down. This way you can implement dynamic menus. It is even possible to
+destroy itself with <strong>DestroyMenu</strong> and the rebuild from scratch. When
+the menu has been destroyed (unless you used the <em>recreate</em> option
+when destroying the menu), do not forget to add the dynamic action
+again.</p>
+</div>
+<div class="paragraph">
+<p>Note: Do not trigger actions that require user interaction. They may
+fail and may screw up your menus. See the <strong>Silent</strong> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Warning</strong> Do not issue <strong>MenuStyle</strong> commands as dynamic menu actions.
+Chances are good that this crashes fvwm.</p>
+</div>
+<div class="paragraph">
+<p>The keyword <em>Greyed</em> will still render the menu item, but will grey it out
+making the option unselectable.</p>
+</div>
+<div class="paragraph">
+<p>There are several configurable scripts installed together with fvwm
+for automatic menu generation. They have their own man pages. Some of
+them, specifically <strong>fvwm-menu-directory</strong> and <strong>fvwm-menu-desktop</strong>, may
+be used with <em>DynamicPopupAction</em> to create a directory listing or
+GNOME/KDE application listing.</p>
+</div>
+<div class="paragraph">
+<p>Example (File browser):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># You can find the shell script fvwm_make_browse_menu.sh
+# in the utils/ directory of the distribution.
+AddToMenu BrowseMenu
++ DynamicPopupAction PipeRead \
+'fvwm_make_browse_menu.sh BrowseMenu'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example (Picture menu):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># Build a menu of all .jpg files in
+# $HOME/Pictures
+AddToMenu JpgMenu foo title
++ DynamicPopupAction Function MakeJpgMenu
+
+AddToFunc MakeJpgMenu
++ I DestroyMenu recreate JpgMenu
++ I AddToMenu JpgMenu Pictures Title
++ I PipeRead 'for i in $HOME/Pictures/*.jpg; \
+do echo AddToMenu JpgMenu "`basename $i`" Exec xv $i; done'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The keyword <em>MissingSubmenuFunction</em> has a similar meaning. It is
+executed whenever you try to pop up a sub menu that does not exist.
+With this function you can define and destroy menus on the fly. You
+can use any command after the keyword, but if the name of an item
+(that is a submenu) defined with <strong>AddToFunc</strong> follows it, fvwm executes
+this command:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Function &lt;function-name&gt; &lt;submenu-name&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>i.e. the name is passed to the function as its first argument and can
+be referred to with "$0".</p>
+</div>
+<div class="paragraph">
+<p>The <strong>fvwm-menu-directory</strong> script mentioned above may be used with
+<em>MissingSubmenuFunction</em> to create an up to date recursive directory
+listing.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># There is another shell script fvwm_make_directory_menu.sh
+# in the utils/ directory of the distribution. To use it,
+# define this function in your configuration file:
+
+DestroyFunc MakeMissingDirectoryMenu
+AddToFunc MakeMissingDirectoryMenu
++ I PipeRead fvwm_make_directory_menu.sh $0
+
+DestroyMenu SomeMenu
+AddToMenu SomeMenu
++ MissingSubmenuFunction MakeMissingDirectoryMenu
++ "Root directory" Popup /</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This is another implementation of the file browser that uses sub menus
+for subdirectories.</p>
+</div>
+<div class="paragraph">
+<p>Titles can be used within the menu. If you add the option <em>top</em> behind
+the keyword <strong>Title</strong>, the title is added to the top of the menu. If
+there was a title already, it is overwritten.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu Utilities Tools Title top</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All text up to the first Tab in the menu label is aligned to the left side of
+t the menu, all text right of the first is aligned to the left in a second
+column and all text thereafter is placed right aligned in the third column.
+All other s are replaced by spaces. Note that you can change this format with
+the <em>ItemFormat</em> option of the <strong>MenuStyle</strong> command.</p>
+</div>
+<div class="paragraph">
+<p>If the menu-label contains an ampersand ('&amp;'), the next character is
+taken as a hot-key for the menu item. Hot-keys are underlined in the
+label. To get a literal '&amp;', insert "&amp;&amp;". Pressing the hot-key moves
+through the list of menu items with this hot-key or selects an item
+that is the only one with this hot-key.</p>
+</div>
+<div class="paragraph">
+<p>If the menu-label contains a sub-string which is set off by stars,
+then the text between the stars is expected to be the name of an image
+file to insert in the menu. To get a literal '<strong>', insert "</strong>*". For
+example</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>+ Calculator*xcalc.xpm* Exec exec xcalc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>inserts a menu item labeled "Calculator" with a picture of a
+calculator above it. The following:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>+ *xcalc.xpm*           Exec exec xcalc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Omits the "Calculator" label, but leaves the picture.</p>
+</div>
+<div class="paragraph">
+<p>If the menu-label contains a sub-string which is set off by percent
+signs, then the text between the percent signs is expected to be the
+name of image file (a so called mini icon to insert to the left of the
+menu label. A second mini icon that is drawn at the right side of the
+menu can be given in the same way. To get a literal '%', insert "%%".
+For example</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>+ Calculator%xcalc.xpm% Exec exec xcalc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>inserts a menu item labeled "Calculator" with a picture of a
+calculator to the left. The following:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>+ %xcalc.xpm%           Exec exec xcalc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Omits the "Calculator" label, but leaves the picture. The pictures
+used with this feature should be small (perhaps 16x16).</p>
+</div>
+<div class="paragraph">
+<p>If the menu-name (not the label) contains a sub-string which is set
+off by at signs ('@'), then the text between them is expected to be
+the name of an image file to draw along the left side of the menu (a
+side pixmap). You may want to use the <em>SidePic</em> option of the
+<strong>MenuStyle</strong> command instead. To get a literal '@', insert "@@". For
+example</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu StartMenu@linux-menu.xpm@</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>creates a menu with a picture in its bottom left corner.</p>
+</div>
+<div class="paragraph">
+<p>If the menu-name also contains a sub-string surrounded by '^'s, then
+the text between '^'s is expected to be the name of an X11 color and
+the column containing the side picture is colored with that color. You
+can set this color for a menu style using the <em>SideColor</em> option of
+the <strong>MenuStyle</strong> command. To get a literal '^', insert "^^". Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu StartMenu@linux-menu.xpm@^blue^</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>creates a menu with a picture in its bottom left corner and colors
+with blue the region of the menu containing the picture.</p>
+</div>
+<div class="paragraph">
+<p>In all the above cases, the name of the resulting menu is name
+specified, stripped of the substrings between the various delimiters.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>DestroyMenu</strong> [recreate] <em>menu</em></dt>
+<dd>
+<p>Deletes a menu, so that subsequent references to it are no longer
+valid. You can use this to change the contents of a menu during an
+fvwm session. The menu can be rebuilt using <strong>AddToMenu</strong>. The optional
+parameter <em>recreate</em> tells fvwm not to throw away the menu completely
+but to throw away all the menu items (including the title).</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyMenu Utilities</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Title</strong></dt>
+<dd>
+<p>Does nothing. It is used to insert a title line in a popup or menu.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_commands_that_open_menus">Commands that open menus</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Menu</strong> <em>menu-name</em> [<em>position</em>] [<em>double-click-action</em>]</dt>
+<dd>
+<p>Causes a previously defined menu to be popped up in a sticky manner.
+That is, if the user invokes the menu with a click action instead of a
+drag action, the menu stays up. The command <em>double-click-action</em> is
+invoked if the user double-clicks a button (or hits the key rapidly
+twice if the menu is bound to a key) when bringing up the menu. If the
+double click action is not specified, double clicking on the menu does
+nothing. However, if the menu begins with a menu item (i.e. not with a
+title or a separator) and the double click action is not given, double
+clicking invokes the first item of the menu (but only if the pointer
+really was over the item).</p>
+<div class="paragraph">
+<p>The pointer is warped to where it was when the menu was invoked if it
+was both invoked and closed with a keystroke.</p>
+</div>
+<div class="paragraph">
+<p>The <em>position</em> arguments allow placement of the menu somewhere on the
+screen, for example centered on the visible screen or above a title
+bar. Basically it works like this: you specify a <em>context-rectangle</em>
+and an offset to this rectangle by which the upper left corner of the
+menu is moved from the upper left corner of the rectangle. The
+<em>position</em> arguments consist of several parts:</p>
+</div>
+<div class="paragraph">
+<p>[<em>context-rectangle</em>] <em>x</em> <em>y</em> [<em>special options</em>]</p>
+</div>
+<div class="paragraph">
+<p>The <em>context-rectangle</em> can be one of:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>Root</em></dt>
+<dd>
+<p>the root window of the current screen.</p>
+</dd>
+<dt class="hdlist1"><em>Monitor</em></dt>
+<dd>
+<p>the area of the current RandR screen.</p>
+</dd>
+<dt class="hdlist1"><em>Mouse</em></dt>
+<dd>
+<p>a 1x1 rectangle at the mouse position.</p>
+</dd>
+<dt class="hdlist1"><em>Window</em></dt>
+<dd>
+<p>the frame of the context window.</p>
+</dd>
+<dt class="hdlist1"><em>Interior</em></dt>
+<dd>
+<p>the inside of the context window.</p>
+</dd>
+<dt class="hdlist1"><em>Title</em></dt>
+<dd>
+<p>the title of the context window or icon.</p>
+</dd>
+<dt class="hdlist1"><em>Button&lt;n&gt;</em></dt>
+<dd>
+<p>button &lt;n&gt; of the context window.</p>
+</dd>
+<dt class="hdlist1"><em>Icon</em></dt>
+<dd>
+<p>the icon of the context window.</p>
+</dd>
+<dt class="hdlist1"><em>Menu</em></dt>
+<dd>
+<p>the current menu.</p>
+</dd>
+<dt class="hdlist1"><em>Item</em></dt>
+<dd>
+<p>the current menu item.</p>
+</dd>
+<dt class="hdlist1"><em>Context</em></dt>
+<dd>
+<p>the current window, menu or icon.</p>
+</dd>
+<dt class="hdlist1"><em>This</em></dt>
+<dd>
+<p>whatever widget the pointer is on (e.g. a corner of a window or the
+root window).</p>
+</dd>
+<dt class="hdlist1"><em>Rectangle</em> &lt;_geometry_&gt;</dt>
+<dd>
+<p>the rectangle defined by &lt;_geometry_&gt; in X geometry format. Width
+and height default to 1 if omitted.</p>
+<div class="paragraph">
+<p>If the context-rectangle is omitted or invalid (e.g. "item" on a
+window), "Mouse" is the default. Note that not all of these make sense
+under all circumstances (e.g. "Icon" if the pointer is on a menu).</p>
+</div>
+<div class="paragraph">
+<p>The offset values <em>x</em> and <em>y</em> specify how far the menu is moved from
+its default position. By default, the numeric value given is
+interpreted as a percentage of the context rectangle&#8217;s width (height),
+but with a trailing '<em>m</em>' the menu&#8217;s width (height) is used instead.
+Furthermore a trailing '<em>p</em>' changes the interpretation to mean
+pixels.</p>
+</div>
+<div class="paragraph">
+<p>Instead of a single value you can use a list of values. All additional
+numbers after the first one are separated from their predecessor by
+their sign. Do not use any other separators.</p>
+</div>
+<div class="paragraph">
+<p>If <em>x</em> or <em>y</em> are prefixed with "'<em>o</em>&lt;number&gt;" where &lt;number&gt; is an
+integer, the menu and the rectangle are moved to overlap at the
+specified position before any other offsets are applied. The menu and
+the rectangle are placed so that the pixel at &lt;number&gt; percent of the
+rectangle&#8217;s width/height is right over the pixel at &lt;number&gt; percent
+of the menu&#8217;s width/height. So "o0" means that the top/left borders of
+the menu and the rectangle overlap, with "o100" it&#8217;s the bottom/right
+borders and if you use "o50" they are centered upon each other (try it
+and you will see it is much simpler than this description). The
+default is "o0". The prefix "o&lt;number&gt;" is an abbreviation for
+"+&lt;number&gt;-&lt;number&gt;m".</p>
+</div>
+<div class="paragraph">
+<p>A prefix of '<em>c</em>' is equivalent to "o50". Examples:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># window list in the middle of the screen
+WindowList Root c c
+
+# menu to the left of a window
+Menu name window -100m c+0
+
+# popup menu 8 pixels above the mouse pointer
+Popup name mouse c -100m-8p
+
+# somewhere on the screen
+Menu name rectangle 512x384+1+1 +0 +0
+
+# centered vertically around a menu item
+AddToMenu foobar-menu
+ + "first item" Nop
+ + "special item" Popup "another menu" item +100 c
+ + "last item" Nop
+
+# above the first menu item
+AddToMenu foobar-menu
+ + "first item" Popup "another menu" item +0 -100m</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that you can put a sub menu far off the current menu so you could
+not reach it with the mouse without leaving the menu. If the pointer
+leaves the current menu in the general direction of the sub menu the
+menu stays up.</p>
+</div>
+</dd>
+<dt class="hdlist1"><em>Special options</em></dt>
+<dd>
+<div class="paragraph">
+<p>To create a tear off menu without opening the normal menu, add the
+option <em>TearOffImmediately</em>. Normally the menu opens in normal state
+for a split second before being torn off. As tearing off places the
+menu like any other window, a position should be specified explicitly:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># Forbid fvwm to place the menu window
+Style &lt;name of menu&gt; UsePPosition
+# Menu at top left corner of screen
+Menu Root 0p 0p TearOffImmediately</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>Animated</em> and <em>Mwm</em> or <em>Win</em> menu styles may move a menu
+somewhere else on the screen. If you do not want this you can add
+<em>Fixed</em> as an option. This might happen for example if you want the
+menu always in the top right corner of the screen.</p>
+</div>
+<div class="paragraph">
+<p>Where do you want a menu to appear when you click on its menu item?
+The default is to place the title under the cursor, but if you want it
+where the position arguments say, use the <em>SelectInPlace</em> option. If
+you want the pointer on the title of the menu, use <em>SelectWarp</em> too.
+Note that these options apply only if the <em>PopupAsRootMenu</em>
+<strong>MenuStyle</strong> option is used.</p>
+</div>
+<div class="paragraph">
+<p>The pointer is warped to the title of a sub menu whenever the pointer
+would be on an item when the sub menu is popped up (<em>fvwm</em> menu style)
+or never warped to the title at all (<em>Mwm</em> or <em>Win</em> menu styles). You
+can force (forbid) warping whenever the sub menu is opened with the
+<em>WarpTitle</em> (<em>NoWarp</em>) option.</p>
+</div>
+<div class="paragraph">
+<p>Note that the <em>special-options</em> do work with a normal menu that has no
+other position arguments.</p>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Popup</strong> <em>PopupName</em> [<em>position</em>] [<em>default-action</em>]</dt>
+<dd>
+<p>This command has two purposes: to bind a menu to a key or mouse
+button, and to bind a sub menu into a menu. The formats for the two
+purposes differ slightly. The <em>position</em> arguments are the same as for
+<strong>Menu</strong>. The command <em>default-action</em> is invoked if the user clicks a
+button to invoke the menu and releases it immediately again (or hits
+the key rapidly twice if the menu is bound to a key). If the default
+action is not specified, double clicking on the menu does nothing.
+However, if the menu begins with a menu item (i.e. not with a title or
+a separator) and the default action is not given, double clicking
+invokes the first item of the menu (but only if the pointer really was
+over the item).</p>
+<div class="paragraph">
+<p>To bind a previously defined pop-up menu to a key or mouse button:</p>
+</div>
+<div class="paragraph">
+<p>The following example binds mouse buttons 2 and 3 to a pop-up called
+"Window Ops". The menu pops up if the buttons 2 or 3 are pressed in
+the window frame, side-bar, or title-bar, with no modifiers (none of
+shift, control, or meta).</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Mouse 2 FST N Popup "Window Ops"
+Mouse 3 FST N Popup "Window Ops"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Pop-ups can be bound to keys through the use of the <strong>Key</strong> command.
+Pop-ups can be operated without using the mouse by binding to keys and
+operating via the up arrow, down arrow, and enter keys.</p>
+</div>
+<div class="paragraph">
+<p>To bind a previously defined pop-up menu to another menu, for use as a
+sub menu:</p>
+</div>
+<div class="paragraph">
+<p>The following example defines a sub menu "Quit-Verify" and binds it
+into a main menu, called "RootMenu":</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu Quit-Verify
+ + "Really Quit Fvwm?" Title
+ + "Yes, Really Quit"  Quit
+ + "Restart Fvwm"      Restart
+ + ""                  Nop
+ + "No, Don't Quit"    Nop
+
+AddToMenu RootMenu "Root Menu" Title
+ + "Open XTerm Window" Popup NewWindowMenu
+ + "Login as Root"     Exec exec xterm -T Root -n Root -e su -
+ + "Login as Anyone"   Popup AnyoneMenu
+ + "Remote Hosts"      Popup HostMenu
+ + ""                  Nop
+ + "X utilities"       Popup Xutils
+ + ""                  Nop
+ + "Fvwm Modules"      Popup Module-Popup
+ + "Fvwm Window Ops"   Popup Window-Ops
+ + ""                  Nop
+ + "Previous Focus"    Prev (AcceptsFocus) Focus
+ + "Next Focus"        Next (AcceptsFocus) Focus
+ + ""                  Nop
+ + "Refresh screen"    Refresh
+ + ""                  Nop
+ + "Reset X defaults"  Exec xrdb -load \
+                 $HOME/.Xdefaults
+ + ""                  Nop
+ + ""                  Nop
+ + Quit                Popup Quit-Verify</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Popup differs from <strong>Menu</strong> in that pop-ups do not stay up if the user
+simply clicks. These are popup-menus, which are a little hard on the
+wrist. <strong>Menu</strong> menus stay up on a click action. See the <strong>Menu</strong> command
+for an explanation of the interactive behavior of menus. A menu can be
+open up to ten times at once, so a menu may even use itself or any of
+its predecessors as a sub menu.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>TearMenuOff</strong></dt>
+<dd>
+<p>When assigned to a menu item, it inserts a tear off bar into the menu
+(a horizontal broken line). Activating that item tears off the menu.
+If the menu item has a label, it is shown instead of the broken line.
+If used outside menus, this command does nothing. Examples:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu WindowMenu
++ I "" TearMenuOff
+
+AddToMenu RootMenu
++ I "click here to tear me off" TearMenuOff</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_menu_style_commands">Menu style commands</h3>
+<div class="paragraph">
+<p>Menu styles describe the looks and behaviour like normal styles do
+for windows. Menu styles are assigned to individual or all menus,
+and changing the menu style immediately affects all menus that use
+it.  (If a menu style is used from within a menu, the changes are
+applied the next time an affected menu is opened.)</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>ChangeMenuStyle</strong> <em>menustyle</em> <em>menu</em> &#8230;&#8203;</dt>
+<dd>
+<p>Changes the menu style of <em>menu</em> to <em>menustyle</em>. You may specify more
+than one menu in each call of <strong>ChangeMenuStyle</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>CopyMenuStyle</strong> <em>orig-menustyle</em> <em>dest-menustyle</em></dt>
+<dd>
+<p>Copy <em>orig-menustyle</em> to <em>dest-menustyle</em>, where <em>orig-menustyle</em> is
+an existing menu style. If the menu style <em>dest_menustyle</em> does not
+exist, then it is created.</p>
+</dd>
+<dt class="hdlist1"><strong>DestroyMenuStyle</strong> <em>menustyle</em></dt>
+<dd>
+<p>Deletes the menu style named <em>menustyle</em> and changes all menus using
+this style to the default style, you cannot destroy the default menu
+style.</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyMenuStyle pixmap1</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>MenuStyle</strong> <em>stylename</em> [<em>options</em>]</dt>
+<dd>
+<p>Sets a new menu style or changes a previously defined style. The
+<em>stylename</em> is the style name; if it contains spaces or tabs it has to
+be quoted. The name "<strong>" is reserved for the default menu style. The
+default menu style is used for every menu-like object (e.g. the window
+created by the *WindowList</strong> command) that had not be assigned a style
+using the <strong>ChangeMenuStyle</strong>. See also <strong>DestroyMenuStyle</strong>. When using
+monochrome color options are ignored.</p>
+<div class="paragraph">
+<p><em>options</em> is a comma separated list containing some of the keywords
+Fvwm / Mwm / Win, BorderWidth, HilightBack / !HilightBack, HilightTitleBack,
+ActiveFore / !ActiveFore, MenuColorset, ActiveColorset, GreyedColorset,
+TitleColorset, Hilight3DThick / Hilight3DThin / Hilight3DOff,
+Hilight3DThickness, Animation / !Animation, Font, TitleFont,
+PopupDelay, PopupOffset, TitleWarp / !TitleWarp, TitleUnderlines0 /
+TitleUnderlines1 / TitleUnderlines2, SeparatorsLong / SeparatorsShort,
+TrianglesSolid / TrianglesRelief, PopupImmediately / PopupDelayed,
+PopdownImmediately / PopdownDelayed, PopupActiveArea, DoubleClickTime,
+SidePic, SideColor, PopupAsRootMenu / PopupAsSubmenu / PopupIgnore /
+PopupClose, RemoveSubmenus / HoldSubmenus, SubmenusRight /
+SubmenusLeft, SelectOnRelease, ItemFormat, VerticalItemSpacing,
+VerticalMargins, VerticalTitleSpacing, AutomaticHotkeys /
+!AutomaticHotkeys, UniqueHotkeyActivatesImmediate /
+!UniqueHotkeyActivatesImmediate, MouseWheel, ScrollOffPage /
+!ScrollOffPage, TrianglesUseFore / !TrianglesUseFore,
+Translucent / !Translucent.</p>
+</div>
+<div class="paragraph">
+<p>In the above list some options are listed as option pairs or triples
+with a '/' in between. These options exclude each other. All paired
+options can be negated to have the effect of the counterpart option by
+prefixing ! to the option.</p>
+</div>
+<div class="paragraph">
+<p><em>Fvwm</em>, <em>Mwm</em>, <em>Win</em> reset all options to the style with the same name
+in former versions of fvwm. The default for new menu styles is <em>Fvwm</em>
+style. These options override all others except <em>HilightBack</em>, <em>ActiveFore</em>
+and <em>PopupDelay</em>, so they should be used only as the first option specified
+for a menu style or to reset the style to defined behavior. The same effect
+can be created by setting all the other options one by one.</p>
+</div>
+<div class="paragraph">
+<p><em>Mwm</em> and <em>Win</em> style menus popup sub menus automatically. <em>Win</em> menus
+indicate the current menu item by changing the background to dark.
+<em>Fvwm</em> sub menus overlap the parent menu, <em>Mwm</em> and <em>Win</em> style menus
+never overlap the parent menu.</p>
+</div>
+<div class="paragraph">
+<p><em>Fvwm</em> style is equivalent to !HilightBack, Hilight3DThin,
+!ActiveFore, !Animation, Font, PopupOffset 0 67, TitleWarp,
+TitleUnderlines1, SeparatorsShort, TrianglesRelief, PopupDelayed,
+PopdownDelayed, PopupDelay 150, PopdownDelay 150, PopupAsSubmenu,
+HoldSubmenus, SubmenusRight, BorderWidth 2, !AutomaticHotkeys,
+UniqueHotkeyActivatesImmediate, PopupActiveArea 75.</p>
+</div>
+<div class="paragraph">
+<p><em>Mwm</em> style is equivalent to !HilightBack, Hilight3DThick,
+!ActiveFore, !Animation, Font, PopupOffset -3 100,
+!TitleWarp, TitleUnderlines2, SeparatorsLong, TrianglesRelief,
+PopupImmediately, PopdownDelayed, PopdownDelay 150, PopupAsSubmenu,
+HoldSubmenus, SubmenusRight, BorderWidth 2,
+UniqueHotkeyActivatesImmediate, !AutomaticHotkeys, PopupActiveArea 75.</p>
+</div>
+<div class="paragraph">
+<p><em>Win</em> style is equivalent to HilightBack, Hilight3DOff, ActiveFore,
+!Animation, Font, PopupOffset -5 100, !TitleWarp,
+TitleUnderlines1, SeparatorsShort, TrianglesSolid, PopupImmediately,
+PopdownDelayed, PopdownDelay 150, PopupAsSubmenu, RemoveSubmenus,
+SubmenusRight, BorderWidth 2, UniqueHotkeyActivatesImmediate,
+!AutomaticHotkeys, PopupActiveArea 75.</p>
+</div>
+<div class="paragraph">
+<p><em>BorderWidth</em> takes the thickness of the border around the menus in
+pixels. It may be zero to 50 pixels. The default is 2. Using an
+invalid value reverts the border width to the default.</p>
+</div>
+<div class="paragraph">
+<p><em>HilightBack</em> and <em>!HilightBack</em> switch hilighting the background of
+the selected menu item on and off. The <em>ActiveColorset</em> background
+color is used for the hilighting.</p>
+</div>
+<div class="paragraph">
+<p><em>HilightTitleBack</em> switches hilighting the background of menu titles
+on. The <em>TitleColorset</em> background color is used for the hilighting.</p>
+</div>
+<div class="paragraph">
+<p><em>ActiveFore</em> and <em>!ActiveFore</em> switch hilighting the foreground of the
+selected menu item on and off. The <em>ActiveColorset</em> foreground color
+is used for the hilighting.</p>
+</div>
+<div class="paragraph">
+<p><em>MenuColorset</em> controls the colorset used to color the menu. If the
+colorset has a pixmap or gradient defined, this is used as the background
+of the menu. The shape mask from the colorset is used to shape the
+menu. Please refer to the <strong>Colorsets</strong> section for details about
+colorsets.</p>
+</div>
+<div class="paragraph">
+<p><em>ActiveColorset</em> controls the color of the active menu item, provided
+the <em>HilightBack</em> or <em>ActiveFore</em> menu styles are used. If specified,
+the hilight and shadow colors from the colorset are used too. The
+pixmap and shape mask from the colorset are not used. Hilighting the
+background or foreground can be turned off individually with the
+<em>!ActiveFore</em> or <em>!HilightBack</em> menu styles.</p>
+</div>
+<div class="paragraph">
+<p><em>GreyedColorset</em> works exactly like <em>MenuColorset</em>, but the foreground
+from the colorset replaces the color given with the <em>Greyed</em> menu
+style. No other parts of the colorset are used.</p>
+</div>
+<div class="paragraph">
+<p><em>TitleColorset</em> works exactly like <em>MenuColorset</em>, but is used only
+for menu titles.</p>
+</div>
+<div class="paragraph">
+<p><em>Translucent</em> controls a pseudo transparent effect that uses a image
+of the desktop under the menu as its background image. This option
+takes one value that is a number between 0 (fully translucent)
+and 100 (not translucent), which is the percent of the translucency.
+Use <em>!Translucent</em> (or no additional value) to turn the effect off.
+The translucent effect only applies to normal menus and does not
+apply to "torn off" menus. Note, only the menu background is
+translucent, the <em>HilightBack</em> of the active item and
+<em>HilightTitleBack</em> of the title are not. To have a fully translucent
+menu use the following.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MenuStyle * Translucent 60, !HilightBack, !HilightTitleBack, ActiveFore</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Hilight3DThick</em>, <em>Hilight3DThin</em> and <em>Hilight3DOff</em> determine if the
+selected menu item is hilighted with a 3D relief. Thick reliefs are
+two pixels wide, thin reliefs are one pixel wide.</p>
+</div>
+<div class="paragraph">
+<p><em>Hilight3DThickness</em> takes one numeric argument that may be between
+-50 and +50 pixels. With negative values the menu item gets a pressed
+in look. The above three commands are equivalent to a thickness of 2,
+1 and 0.</p>
+</div>
+<div class="paragraph">
+<p><em>Animation</em> and <em>!Animation</em> turn menu animation on or off. When
+animation is on, sub menus that do not fit on the screen cause the
+parent menu to be shifted to the left so the sub menu can be seen.</p>
+</div>
+<div class="paragraph">
+<p><em>Font</em> and <em>TitleFont</em> take a font name as an argument. If a font by
+this name exists it is used for the text of all menu items. If it does
+not exist or if the name is left blank the built-in default is used.
+If a <em>TitleFont</em> is given, it is used for all menu titles instead of
+the normal font.</p>
+</div>
+<div class="paragraph">
+<p><em>PopupDelay</em> requires one numeric argument. This value is the delay in
+milliseconds before a sub menu is popped up when the pointer moves
+over a menu item that has a sub menu. If the value is zero no
+automatic pop up is done. If the argument is omitted the built-in
+default is used. Note that the popup delay has no effect if the
+<em>PopupImmediately</em> option is used since sub menus pop up immediately
+then.</p>
+</div>
+<div class="paragraph">
+<p><em>PopupImmediately</em> makes menu items with sub menus pop up it up as
+soon as the pointer enters the item. The <em>PopupDelay option</em> is
+ignored then. If <em>PopupDelayed</em> is used fvwm looks at the <em>PopupDelay</em>
+option if or when this automatic popup happens.</p>
+</div>
+<div class="paragraph">
+<p><em>PopdownDelay</em> works exactly like <em>PopupDelay</em> but determines the
+timeout of the <em>PopupDelayed</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>PopdownImmediately</em> makes sub menus vanish as soon as the pointer
+leaves the sub menu and the correspondent item in the parent menu.
+With the opposite option <em>PopdownDelayed</em> the sub menu only pops down
+after the time specified with the <em>PopdownDelay</em> option. This comes
+handy when the pointer often strays off the menu item when trying to
+move into the sub menu. Whenever there is a conflict between the
+<em>PopupImmediately</em>, <em>PopupDelayed</em>, <em>PopupDelay</em> styles and the
+<em>PopdownImmediately</em>, <em>PopdownDelayed</em>, <em>PopdownDelay</em> styles, the
+<em>Popup&#8230;&#8203;</em> styles win when using mouse navigation and the <em>Popdown&#8230;&#8203;</em>
+styles win when navigating with the keyboard.</p>
+</div>
+<div class="paragraph">
+<p><em>PopupOffset</em> requires two integer arguments. Both values affect where
+sub menus are placed relative to the parent menu. If both values are
+zero, the left edge of the sub menu overlaps the left edge of the
+parent menu. If the first value is non-zero the sub menu is shifted
+that many pixels to the right (or left if negative). If the second
+value is non-zero the menu is moved by that many percent of the parent
+menu&#8217;s width to the right or left.</p>
+</div>
+<div class="paragraph">
+<p><em>PopupActiveArea</em> requires an integer value between 51 and 100.
+Normally, when the pointer is over a menu item with a sub menu and the
+pointer enters the area that starts at 75% of the menu width, the sub
+menu is shown immediately. This percentage can be changed with
+<em>PopupActiveArea</em>. Setting this value to 100 disables this kind of
+automatic popups altogether. The default value is restored if no or an
+invalid value is given.</p>
+</div>
+<div class="paragraph">
+<p><em>TitleWarp</em> and <em>!TitleWarp</em> affect if the pointer warps to the menu
+title when a sub menu is opened or not. Note that regardless of this
+setting the pointer is not warped if the menu does not pop up under
+the pointer.</p>
+</div>
+<div class="paragraph">
+<p><em>TitleUnderlines0</em>, <em>TitleUnderlines1</em> and <em>TitleUnderlines2</em> specify
+how many lines are drawn below a menu title.</p>
+</div>
+<div class="paragraph">
+<p><em>SeparatorsLong</em> and <em>SeparatorsShort</em> set the length of menu
+separators. Long separators run from the left edge all the way to the
+right edge. Short separators leave a few pixels to the edges of the
+menu.</p>
+</div>
+<div class="paragraph">
+<p><em>TrianglesSolid</em> and <em>TrianglesRelief</em> affect how the small triangles
+for sub menus is drawn. Solid triangles are filled with a color while
+relief triangles are hollow.</p>
+</div>
+<div class="paragraph">
+<p><em>DoubleClickTime</em> requires one numeric argument. This value is the
+time in milliseconds between two mouse clicks in a menu to be
+considered as a double click. The default is 450 milliseconds. If the
+argument is omitted the double click time is reset to this default.</p>
+</div>
+<div class="paragraph">
+<p><em>SidePic</em> takes the name of an image file as an argument. The picture
+is drawn along the left side of the menu. The <em>SidePic</em> option can be
+overridden by a menu specific side pixmap (see <strong>AddToMenu</strong>). If the
+file name is omitted an existing side pixmap is removed from the menu
+style.</p>
+</div>
+<div class="paragraph">
+<p><em>SideColor</em> takes the name of an X11 color as an argument. This color
+is used to color the column containing the side picture (see above).
+The SideColor option can be overridden by a menu specific side color
+(see <strong>AddToMenu</strong>). If the color name is omitted the side color option
+is switched off.</p>
+</div>
+<div class="paragraph">
+<p><em>PopupAsRootMenu</em>, <em>PopupAsSubmenu</em>, <em>PopupIgnore</em> and <em>PopupClose</em>
+change the behavior when you click on a menu item that opens a sub
+menu. With <em>PopupAsRootMenu</em> the original menu is closed before the
+sub menu appears, with <em>PopupAsSubmenu</em> it is not, so you can navigate
+back into the parent menu. Furthermore, with <em>PopupAsSubmenu</em> the sub
+menu is held open (posted) regardless of where you move the mouse.
+Depending on your menu style this may simplify navigating through the
+menu. <strong>Any</strong> keystroke while a menu is posted reverts the menu back to
+the normal behavior. With <em>PopupClose</em> the menu is closed when a sub
+menu item is activated, and the menu stays open if <em>PopupIgnore</em> is
+used (even if the menu was invoked with the <strong>Popup</strong> command).
+<em>PopupAsSubmenu</em> is the default.</p>
+</div>
+<div class="paragraph">
+<p><em>RemoveSubmenus</em> instructs fvwm to remove sub menu when you move back
+into the parent menu. With <em>HoldSubmenus</em> the sub menu remains
+visible. You probably want to use <em>HoldSubmenus</em> if you are using the
+<em>PopupDelayed</em> style. <em>RemoveSubmenus</em> affects menu navigation with
+the keyboard.</p>
+</div>
+<div class="paragraph">
+<p><em>SelectOnRelease</em> takes an optional key name as an argument. If the
+given key is released in a menu using this style, the current menu
+item is selected. This is intended for
+<strong>WindowList</strong> navigation. The key name is a standard X11 key name as
+defined in <em>/usr/include/X11/keysymdef.h</em>, (without the <em>XK_</em> prefix),
+or the keysym database <em>/usr/X11R6/lib/X11/XKeysymDB</em>. To disable this
+behavior, omit the key name.</p>
+</div>
+<div class="paragraph">
+<p>Note: Some X servers do not support KeyRelease events.
+<em>SelectOnRelease</em> does not work on such a machine.</p>
+</div>
+<div class="paragraph">
+<p><em>ItemFormat</em> takes a special string as its argument that determines
+the layout of the menu items. Think of the format string as if it were
+a menu item. All you have to do is tell fvwm where to place the
+different parts of the menu item (i.e. the labels, the triangle
+denoting a sub menu, the mini icons and the side pic) in the blank
+area. The string consists of spaces,</p>
+</div>
+<div class="paragraph">
+<p>characters and formatting directives beginning with '%'. Any invalid
+characters and formatting directives are silently ignored:</p>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>%l</strong>, <strong>%c</strong> and <strong>%r</strong></dt>
+<dd>
+<p>Insert the next item label. Up to three labels can be used. The item
+column is left-aligned (<strong>%l</strong>), centered (<strong>%c</strong>) or right-aligned
+(<strong>%r</strong>).</p>
+</dd>
+<dt class="hdlist1"><strong>%i</strong></dt>
+<dd>
+<p>Inserts the mini icon.</p>
+</dd>
+<dt class="hdlist1"><strong>%&gt;</strong> and <strong>%&lt;</strong></dt>
+<dd>
+<p>Insert the sub menu triangle pointing either to the right (<strong>%&gt;</strong>) or to
+the left (<strong>%&lt;</strong>).</p>
+</dd>
+<dt class="hdlist1"><strong>%|</strong></dt>
+<dd>
+<p>The first <strong>%|</strong> denotes the beginning of the area that is highlighted
+either with a background color or a relief (or both). The second <strong>%|</strong>
+marks the end of this area. <strong>%|</strong> can be used up to twice in the
+string. If you do not add one or both of them, fvwm sets the margins
+to the margins of the whole item (not counting the side picture).</p>
+</dd>
+<dt class="hdlist1"><strong>%s</strong></dt>
+<dd>
+<p>Places the side picture either at the beginning or the end of the
+menu. This directive may be used only once and only as the first or
+last in the format string. If the <strong>%s</strong> is not at the beginning of the
+string, menus are not drawn properly.</p>
+</dd>
+<dt class="hdlist1"><strong>Space</strong>, <strong>Tab</strong>, <strong>%Space</strong> and <strong>%Tab</strong></dt>
+<dd>
+<p>Add gap of one space, or a tab, using the width of the menu font. When
+using a tab, the size of the gap can be one to 8 spaces since the tab
+position is a multiple of 8 from the edge of the menu. The whole
+string must be quoted if spaces or tabs are used.</p>
+</dd>
+<dt class="hdlist1"><strong>%p</strong></dt>
+<dd>
+<p>Like Space and Tab <strong>%p</strong> inserts an empty area into the item, but with
+better control of its size (see below).</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>You can define an additional space before and after each of the
+objects like this</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>%left.rightp</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This means: if the object is defined in the menu (e.g. if it is <strong>%s</strong>
+and you use a side picture, or it is <strong>%l</strong> for the third column and
+there are items defined that actually have a third column), then add
+<em>left</em> pixels before the object and <em>right</em> pixels after it. You may
+leave out the <em>left</em> or the <em>.right</em> parts if you do not need them.
+All values up to the screen width are allowed. Even negative values
+can be used with care. The <strong>p</strong> may be replaced with any other
+formatting directives described above.</p>
+</div>
+<div class="paragraph">
+<p>Note: Only items defined in the format string are visible in the
+menus. So if you do not put a <strong>%s</strong> in there you do not see a side
+picture, even if one is specified.</p>
+</div>
+<div class="paragraph">
+<p>Note: The <em>SubmenusLeft</em> style changes the default <em>ItemFormat</em>
+string, but if it was set manually it is not modified.</p>
+</div>
+<div class="paragraph">
+<p>Note: If any unformatted title of the menu is wider than the widest
+menu item, the spaces between the different parts of the menu items
+are enlarged to match the width of the title. Leading left aligned
+objects in the format string (<strong>%l</strong>, <strong>%i</strong>, <strong>%&lt;</strong>, first <strong>%|</strong>) stick to
+the left edge of the menu and trailing right aligned objects (<strong>%r</strong>,
+<strong>%i</strong>, <strong>%&gt;</strong>, second <strong>%|</strong>) stick to the right edge. The gaps between the
+remaining items are enlarged equally.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MenuStyle * ItemFormat "%.4s%.1|%.5i%.5l%.5l%.5r%.5i%2.3&gt;%1|"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Is the default string used by fvwm: (side picture + 4 pixels gap)
+(beginning of the hilighted area + 1 pixel gap) (mini icon + 5p)
+(first column left aligned + 5p) (second column left aligned + 5p)
+(third column right aligned + 5p) (second mini icon + 5p) (2p + sub
+menu triangle + 3p) (1p + end of hilighted area).</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MenuStyle * ItemFormat "%.1|%3.2&lt;%5i%5l%5l%5r%5i%1|%4s"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Is used by fvwm with the <em>SubmenusLeft</em> option below.</p>
+</div>
+<div class="paragraph">
+<p><em>VerticalItemSpacing</em> and <em>VerticalTitleSpacing</em> control the vertical
+spacing of menu items and titles like <em>ItemFormat</em> controls the
+horizontal spacing. Both take two numeric arguments that may range
+from -100 to +100. The first is the gap in pixels above a normal menu
+item (or a menu title), the second is the gap in pixels below it.
+Negative numbers do not make much sense and may screw up the menu
+completely. If no arguments are given or the given arguments are
+invalid, the built-in defaults are used: one pixel above the item or
+title and two below.</p>
+</div>
+<div class="paragraph">
+<p><em>VerticalMargins</em> can be used to add some padding at the top and
+bottom of menus. It takes two numeric arguments that must be positive
+integers (or zero). If the number of arguments or its values are
+incorrect, fvwm defaults both to 0, which means no padding at all. If
+the values are correct, the first one is used for the top margin, and
+the second one is used for the bottom margin.</p>
+</div>
+<div class="paragraph">
+<p><em>SubmenusLeft</em> mirrors the menu layout and behavior. Sub menus pop up
+to the left, the sub menu triangle is drawn left and the mini icon and
+side picture are drawn at the right side of the menu. The default is
+<em>SubmenusRight</em>. The position hints of a menu are also affected by
+this setting, i.e. position hints using <em>item</em> or <em>menu</em> as context
+rectangle and position hints using <em>m</em> offsets.</p>
+</div>
+<div class="paragraph">
+<p><em>AutomaticHotkeys</em> and <em>!AutomaticHotkeys</em> control the menu&#8217;s ability
+to automatically provide hot-keys on the first character of each menu
+item&#8217;s label. This behavior is always overridden if an explicit
+hot-key is assigned in the <strong>AddToMenu</strong> command.</p>
+</div>
+<div class="paragraph">
+<p><em>UniqueHotkeyActivatesImmediate</em> and <em>!UniqueHotkeyActivatesImmediate</em>
+controls how menu items are invoked when used with hotkeys. By
+default, if a given menu entry only has one completeable match for a
+given hotkey, the action for that menu entry is invoked and the menu
+is closed. This is due to the <em>UniqueHotkeyActivatesImmediate</em> option.
+However, the menu can be told to remain open, waiting for the user to
+invoke the selected item instead when there is only one matched item
+for a given hotkey, by using the <em>!UniqueHotkeyActivatesImmediate</em>
+option.</p>
+</div>
+<div class="paragraph">
+<p><em>MouseWheel</em> controls the ability to scroll the menu using a mouse
+wheel. It takes one argument, that can be one of ScrollsPointer,
+ScrollsMenu, ScrollsMenuBackwards or ActivatesItem. ScrollsPointer
+makes the mouse wheel scroll the pointer over a menu. This is the
+default. ScrollsMenu and ScrollsMenuBackwards scroll the menu beneath
+the pointer. ActivatesItem disables scrolling by mouse wheel and makes
+the use of a mouse wheel act as if the menu was clicked. If no
+argument is supplied the default setting is restored.</p>
+</div>
+<div class="paragraph">
+<p><em>ScrollOffPage</em> allows a menu to be scrolled out of the visible area
+if <em>MouseWheel</em> is set to ScrollsMenu or ScrollsMenuBackwards. This is
+the default. The opposite, <em>!ScrollOffPage</em> disables this behaviour.</p>
+</div>
+<div class="paragraph">
+<p><em>TrianglesUseFore</em> draws sub menu triangles with the foreground color
+of the menu colorset (normally drawn with the hilight color).
+<em>!TrianglesUseFore</em> disables this behaviour.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>

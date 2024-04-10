@@ -1,0 +1,253 @@
+---
+title: FvwmBacker manual page
+showtitle: 1
+permalink: /Man/FvwmBacker/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_copyrights">COPYRIGHTS</a></li>
+<li><a href="#_initialization">INITIALIZATION</a></li>
+<li><a href="#_invocation">INVOCATION</a></li>
+<li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
+<li><a href="#_run_time_configuration">RUN-TIME CONFIGURATION</a></li>
+<li><a href="#_old_style_options">OLD-STYLE OPTIONS</a></li>
+<li><a href="#_sample_configuration">SAMPLE CONFIGURATION</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+<li><a href="#_modified_by">Modified by</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmBacker - the fvwm background changer module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Module FvwmBacker</p>
+</div>
+<div class="paragraph">
+<p><em>FvwmBacker</em> can only be invoked by fvwm. Command line invocation of the
+<em>FvwmBacker</em> module will not work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The FvwmBacker module provides functionality to change the background
+when changing desktops. Any command can be executed to change the
+backgrounds. Actually, any arbitrary command can be sent to fvwm to
+execute, so you could also do things such as changing window border
+colors, etc.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copyrights">COPYRIGHTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The FvwmBacker module is the original work of Mike Finger.</p>
+</div>
+<div class="paragraph">
+<p>Copyright 1994, Mike Finger. The author makes no guarantees or
+warranties of any kind about the use of this module. Use this module at
+your own risk. You may freely use this module or any portion of it for
+any purpose as long as the copyright is kept intact.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_initialization">INITIALIZATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During initialization, <em>FvwmBacker</em> gets config info from <strong>fvwm</strong>'s
+module configuration database (see <em>fvwm</em>(1), section <strong>MODULE
+COMMANDS</strong>). Available options are discussed in a later section.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invocation">INVOCATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmBacker can be invoked by fvwm during initialization by inserting the
+line</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc StartFunction I Module FvwmBacker</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>in the .fvwm2rc file.</p>
+</div>
+<div class="paragraph">
+<p>FvwmBacker can be started using a 'Module FvwmBacker' command or stopped
+using a 'KillModule FvwmBacker' command at any time when fvwm is
+running.</p>
+</div>
+<div class="paragraph">
+<p>FvwmBacker must reside in a directory that is listed in the ModulePath
+option of fvwm for it to be executed by fvwm.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_options">CONFIGURATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following options can be placed in the .fvwm2rc file</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">*FvwmBacker: Command (Desk d, Page x y) command</dt>
+<dd>
+<p>Specifies the <em>command</em> to execute when the viewport matches the
+arguments for the desk d, page x coordinate and y coordinate. Any or
+all of these three numeric arguments can be replaced with an asterisk
+(*) to indicate that any value matches, in this case Desk or Page
+parts can be skipped.</p>
+<div class="paragraph">
+<p>If either the <em>Desk</em> or the <em>Page</em> parts are omitted, the command is not
+executed if only the desk or the page is switched. If neither is given,
+the command is executed only once when the module is started. This is
+not the same as using asterisks for the numeric arguments: if asterisks
+are used, the command is always executed when only the desk or page
+changes, if the corresponding part is omitted, the command is never
+executed when only the desk or page changes.</p>
+</div>
+<div class="paragraph">
+<p>If the <em>command</em> is <em>-solid</em> FvwmBacker uses the next argument as a
+color in the X database and sets the background to that color without
+generating a system call to xsetroot (only single word color names may
+be used).</p>
+</div>
+<div class="paragraph">
+<p>If the <em>command</em> is <em>colorset</em> FvwmBacker uses the background specified
+in colorset <em>n</em> for the given desk. Please refer to the fvwm man page
+for details about colorsets.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise the command is sent to fvwm to execute.</p>
+</div>
+</dd>
+<dt class="hdlist1">*FvwmBacker: RetainPixmap</dt>
+<dd>
+<p>Causes FvwmBacker to retain and publish the Pixmap with which the
+background has been set. This works only for the <em>-solid</em> or
+<em>colorset</em> commands. This is useful for applications which want to use
+the root Pixmap on the background to simulate transparency (for
+example, Eterm and Aterm use this method). This option should also be
+used for the RootTransparent colorset option. Note: with a colorset
+background this command may add a lot of memory to the X server. For
+example, this adds the pixmap width times height bytes with a
+TiledPixmap image, screen_width times screen_height bytes with a
+Pixmap image or a C,B,D,R,S or Y Gradient and screen_width bytes with
+a VGradient or screen height bytes with an HGradient.</p>
+</dd>
+<dt class="hdlist1">*FvwmBacker: DoNotRetainPixmap</dt>
+<dd>
+<p>Cancels the effect of the previous option. This is the default.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_run_time_configuration">RUN-TIME CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>It it possible to replace FvwmBacker&#8217;s configuration at run-time,
+although it is not yet possible to remove existing configuration lines.
+This is done by simply removing the old configuration from within fvwm
+and then read a new one. This can be done in many ways, for example by
+using an fvwm function or one of the modules <strong>FvwmCommand</strong> or
+<strong>FvwmConsole</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyModuleConfig FvwmBacker*
+*FvwmBacker: Command (Desk 0) -solid black
+*FvwmBacker: Command (Desk 1) -solid blue</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_old_style_options">OLD-STYLE OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is continued support for the now deprecated option:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">*FvwmBacker: Desk d command</dt>
+<dd>
+<p>It is functionally equivalent to omitting the page coordinates with
+<em>*FvwmBacker: Command</em>:</p>
+</dd>
+</dl>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>*FvwmBacker: Command (Desk Id) command</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_sample_configuration">SAMPLE CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following are excerpts from an .fvwm2rc file which describe
+FvwmBacker initialization commands:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>####
+# Set Up Backgrounds for different desktop pages (2 desks, 3x2 pages).
+####
+*FvwmBacker: Command (Page 2 *) -solid steelblue
+*FvwmBacker: Command (Desk 0, Page 0 0) Exec fvwm-root $[HOME]/bg2.xpm
+*FvwmBacker: Command (Desk 0, Page 0 1) -solid midnightblue
+*FvwmBacker: Command (Desk 0, Page 1 *) -solid yellow
+*FvwmBacker: Command (Desk 1, Page * 0) -solid navy
+*FvwmBacker: Command (Desk 1, Page * 1) Colorset 5</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mike Finger (<a href="mailto:mfinger@mermaid.micro.umn.edu">mfinger@mermaid.micro.umn.edu</a>)</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modified_by">Modified by</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Andrew Davison (<a href="mailto:davison@cs.monash.edu.au">davison@cs.monash.edu.au</a>)</p>
+</div>
+<div class="paragraph">
+<p>Michael Han (<a href="mailto:mikehan@best.com">mikehan@best.com</a>)</p>
+</div>
+<div class="paragraph">
+<p>Mikhael Goikhman (<a href="mailto:migo@homemail.com">migo@homemail.com</a>)</p>
+</div>
+</div>
+</div>

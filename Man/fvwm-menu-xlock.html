@@ -1,0 +1,178 @@
+---
+title: fvwm-menu-xlock manual page
+showtitle: 1
+permalink: /Man/fvwm-menu-xlock/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_usage">USAGE</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+<li><a href="#_copying">COPYING</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-menu-xlock - builds xlock menu definition for fvwm</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-menu-xlock [ <strong>--help</strong>|<strong>-h</strong>|<strong>-?</strong> ] [ <strong>--version</strong>|<strong>-V</strong> ]
+[ <strong>--name</strong>|<strong>-n</strong> name ] [ <strong>--title</strong>|<strong>-t</strong> title ]
+[ <strong>--item</strong> format ] [ <strong>--icon-title</strong> icon ] [ <strong>--icon-item</strong> icon ]
+[ <strong>--special-first</strong>|<strong>-s</strong> ] [ <strong>--</strong> xlock params ]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A simple perl script which parses xlock&#8217;s output to build an fvwm menu
+definition of all xlock&#8217;s modes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>--help</strong></dt>
+<dd>
+<p>Show the help and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--version</strong></dt>
+<dd>
+<p>Show the version and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--name</strong> <em>name</em></dt>
+<dd>
+<p>Define menu name in the following argument. Default is XLockMenu.</p>
+</dd>
+<dt class="hdlist1"><strong>--title</strong> <em>title</em></dt>
+<dd>
+<p>Define menu title in the following argument. Default is XLock Modes.</p>
+</dd>
+<dt class="hdlist1"><strong>--item</strong> <em>format</em></dt>
+<dd>
+<p>Define menu item format in the following argument, default is
+<code>'%n\t(%d)'</code>. TAB can be specified as <code>'\t'</code>, but in .fvwm2rc you should
+specify a double backslash or a real TAB.</p>
+<div class="paragraph">
+<p>Format specifiers:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>%n - mode name
+%d - mode description
+%D - mode description without "Shows " prefix if any</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>These specifiers can receive an optional integer size, positive
+for right adjusted string or negative for left adjusted, example:
+<code>%8x</code>; and optional <code>*num</code> or <code>*-num</code>, which means to leave
+only the first or last (if minus) num of chars, the num must be
+greater than 3, since the striped part is replaced with &#8230;&#8203;, example:
+<code>%*30x</code>. Both can be combined: <code>%-10*-20x</code>, this instructs to get
+only the 20 last characters, but if the length is less then 10 - to
+fill with up to 10 spaces on the right.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--icon-title</strong> <em>icon</em></dt>
+<dd>
+<p>Define menu icon for title. Default is no title icon
+(equivalent to an empty icon argument).</p>
+</dd>
+<dt class="hdlist1"><strong>--icon-item</strong> <em>icon</em></dt>
+<dd>
+<p>Define menu icon for regular item. Default is no icon
+(equivalent to an empty icon argument).</p>
+</dd>
+<dt class="hdlist1"><strong>--wm-icons</strong></dt>
+<dd>
+<p>Define icon names suitable for use with wm-icons package. Currently this
+is equivalent to: <strong>--icon-title '' --icon-item menu/lock.xpm</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>--special-first</strong></dt>
+<dd>
+<p>Instructs to include special modes (usually black, bomb and random)
+first.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Option parameters can be specified either using '=' or in the next
+argument. Short options are ok if not ambiguous: -h, -t; but be careful
+with short options, what is now unambiguous, can became ambiguous in the
+next versions.</p>
+</div>
+<div class="paragraph">
+<p>Additional arguments (after <strong>--</strong>) will be passed to xlock.</p>
+</div>
+<div class="paragraph">
+<p>Please see the <strong>xlock</strong>(1) man page for the xlock options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage">USAGE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Add these lines to your fvwm configuration file:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>PipeRead 'fvwm-menu-xlock --name MenuSSaver --title "Screensaver" \
+  --icon-item mini-bball.xpm --special-first -- -nice 19 -nolock'
+PipeRead 'fvwm-menu-xlock --name MenuSLock --title "Lock Screen" \
+  --icon-item mini-rball.xpm --special-first -- -nice 19'
+AddToMenu "Utilities" "Screensaver%mini-monitor.xpm%" Popup MenuSSaver
+AddToMenu "Utilities" "Screenlock%mini-lock.xpm%" Popup MenuSLock</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Charles K. Hines &lt;<a href="mailto:chuck_hines@vnet.ibm.com">chuck_hines@vnet.ibm.com</a>&gt;, initial version.</p>
+</div>
+<div class="paragraph">
+<p>Mikhael Goikhman &lt;<a href="mailto:migo@homemail.com">migo@homemail.com</a>&gt;, from 24 Feb 1999.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copying">COPYING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The script is distributed by the same terms as fvwm itself. See GNU
+General Public License for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Depends on the output of xlock. Will produce an empty menu if the
+structure of the output is changed.</p>
+</div>
+<div class="paragraph">
+<p>Report bugs to &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt; or <a href="https://github.com/fvwmorg/fvwm3" class="bare">https://github.com/fvwmorg/fvwm3</a>.</p>
+</div>
+</div>
+</div>

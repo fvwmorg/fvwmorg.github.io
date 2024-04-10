@@ -1,0 +1,202 @@
+---
+title: FvwmAuto manual page
+showtitle: 1
+permalink: /Man/FvwmAuto/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_invocation">INVOCATION</a></li>
+<li><a href="#_notes">NOTES</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmAuto - the fvwm auto-raise module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmAuto Timeout [-passid] [-menter|-menterleave|-mfocus] [EnterCommand [LeaveCommand]]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>FvwmAuto</em> can only be invoked by fvwm. Command line invocation of the
+<em>FvwmAuto</em> will not work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>FvwmAuto</em> module is most often used to automatically raise focused
+windows.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invocation">INVOCATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The correct syntax is:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmAuto Timeout [-passid] [-menter|-menterleave|-mfocus] [EnterCommand [LeaveCommand]]
+
+AddToMenu Modules
++ "Auto Raise (300 ms)"  Module FvwmAuto 300
++ "Auto Raise/Lower"     Module FvwmAuto 300 "Silent Raise" "Silent Lower"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>Timeout</em> argument is required. It specifies how long a window must
+retain the keyboard input focus before the command is executed. The
+delay is measured in milliseconds, and any integer greater than zero is
+valid.</p>
+</div>
+<div class="paragraph">
+<p>If the literal option <em>-passid</em> is given, the window id of the window
+just entered or left is appended to the command that is sent to fvwm.
+This can be used with the <strong>WindowId</strong> command of fvwm.</p>
+</div>
+<div class="paragraph">
+<p>The options <em>-menter</em>, <em>-menterleave</em> and <em>-mfocus</em> influence the
+actions FvwmAuto reacts to. No more than one of the options can be
+chosen. In <em>-mfocus</em> mode, FvwmAuto raises the window that has the
+focus. In <em>-menter</em> mode, FvwmAuto raises the window under the pointer
+when the pointer enters a window. The <em>LeaveCommand</em> is executed on the
+window that was below the pointer before it entered the new window. When
+the pointer leaves a window and enters the root window, the
+<em>EnterCommand</em> is executed too, but without a window to operate on. In
+<em>-menterleave</em> mode, FvwmAuto works just like in <em>-menter</em> mode, but the
+<em>LeaveCommand</em> is also executed if the pointer moves out of a window but
+does not enter a new window. The latter two modes of operation are
+useful with windows that do not accept the focus.</p>
+</div>
+<div class="paragraph">
+<p>Note: -menterleave mode can interfere with popup windows of some
+applications. One example is the zoom menu of Ghostview. Please do not
+complain about this to us - it is a bug in Ghostview.</p>
+</div>
+<div class="paragraph">
+<p><em>EnterCommand</em> and <em>LeaveCommand</em> are optional. <em>EnterCommand</em> is
+executed <em>Timeout</em> milliseconds after a window gets the input focus,
+<em>LeaveCommand</em> is executed <em>Timeout</em> milliseconds after the window has
+lost focus. Note that you always should use the 'Silent' keyword before
+the command itself. FvwmAuto prepends "Silent " to the command string on
+its own if yor forget this. Without this prefix fvwm would ask you for a
+window to act on if the window has died before the command sent by
+FvwmAuto has been processed by fvwm. This can for example happen with
+popup menus.</p>
+</div>
+<div class="paragraph">
+<p>"Silent Raise" is the default for <em>EnterCommand</em>, but any fvwm function
+is allowed. I would not use "Close" or "Destroy" with a low timeout,
+though. The <em>LeaveCommand</em> can be handy for a tidy desktop. Experiment
+with:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmAuto 0 Nop "Silent Lower"
+Module FvwmAuto 0 Nop "Silent Iconify"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An example for auto raising windows with ClickToFocus:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * ClickToFocus
+FvwmAuto 0 -menter "Silent Raise"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An example for auto raising and lowering only some windows:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>To start FvwmAuto:
+FvwmAuto 0 -passid -menter \
+"Silent selective_raiselower raise" \
+"Silent selective_raiselower lower"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And put this in your .fvwm2rc:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc selective_raiselower
++ I WindowId $1 (FvwmIconMan) $0
++ I WindowId $1 (FvwmButtons) $0
++ IWindowId $1 (xclock) $0
+...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More complex example (three FvwmAuto&#8217;s are running):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyFunc RestoreIconified
+AddToFunc   RestoreIconified
++ I Current (Iconic) Iconify false
+
+DestroyFunc RegisterFocus
+AddToFunc   RegisterFocus
++ I Exec date +"%T $n focused" &gt;&gt;/tmp/focus-stats.txt
+
+DestroyFunc RegisterUnfocus
+AddToFunc   RegisterUnfocus
++ I Exec date +"%T $n unfocused" &gt;&gt;/tmp/focus-stats.txt
+
+KillModule FvwmAuto
+Module FvwmAuto 250 Raise Nop
+Module FvwmAuto 800 RestoreIconified Nop
+Module FvwmAuto   0 RegisterFocus RegisterUnfocus</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_notes">NOTES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>There is a special Raise/Lower support in FvwmAuto. It was added to
+improve Raise/Lower callbacks, since most of FvwmAuto usages is
+auto-raising or auto-lowering. This improvement includes locking on
+M_RAISE_WINDOW and M_LOWER_WINDOW packets and not raising/lowering
+explicitly raised windows. The special Raise/Lower support is enabled
+only when either <em>EnterCommand</em> or <em>LeaveCommand</em> contain substring
+"Raise" or "Lower". You can use this fact to enable/disable any special
+support by renaming these commands, if FvwmAuto does not automatically
+do want you expect it to do.</p>
+</div>
+<div class="paragraph">
+<p>Using <em>FvwmAuto</em> in conjunction with <em>EdgeCommand</em> can be even more
+powerful. There is a short example in the <em>fvwm</em> man page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="literalblock highlight">
+<div class="content">
+<pre>FvwmAuto just appeared one day, nobody knows how.
+FvwmAuto was simply rewritten 09/96, nobody knows by whom.</pre>
+</div>
+</div>
+</div>
+</div>

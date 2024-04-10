@@ -1,0 +1,489 @@
+---
+title: FvwmPager manual page
+showtitle: 1
+permalink: /Man/FvwmPager/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_configuration">CONFIGURATION</a></li>
+<li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmPager - The fvwm pager module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>FvwmPager</strong> [ <em>-transient</em> ] [ <em>alias</em> ] [ <em>first desk</em> [ <em>last desk</em> ] ]</p>
+</div>
+<div class="paragraph">
+<p>FvwmPager is spawned by fvwm, so no command line invocation will work.</p>
+</div>
+<div class="paragraph">
+<p>FvwmPager displays a miniature view of the fvwm virtual desktop(s) showing
+all desk numbers between <em>first desk</em> and <em>last desk</em>. If <em>last desk</em> is
+omitted only the <em>first desk</em> is shown. If both desk numbers are omitted,
+the current desk is used instead. If you use an asterisk '*' in place of
+<em>first desk</em> the pager will always show the current desktop, even when you
+switch desks. If you iconify FvwmPager, its icon on the virtual desktop
+will be a functional version of the pager only showing the current desktop.</p>
+</div>
+<div class="paragraph">
+<p>FvwmPager is launched via the <code>Module FvwmPager</code> command from fvwm&#8217;s config
+file, and can be launched from functions, menus, key bindings, and so on. If
+the pager is started with the <em>-transient</em> option, the next time a button is
+released the pager is closed. Note that this option only works if the window
+style of the pager window is 'Sticky' (see the fvwm man page). You should use
+the 'StaysOnTop' style too.</p>
+</div>
+<div class="paragraph">
+<p>The following example shows how to launch two pagers from your config file
+when fvwm starts. The first is a pager which will show all desks from 0 to
+3, and the second is a pager which only shows the current desk.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc StartFunction Module FvwmPager 0 3
+AddToFunc StartFunction Module FvwmPager *</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>FvwmPager is configured via an fvwm module configuration alias. If an <em>alias</em>
+is given, FvwmPager will use the <em>alias</em> for the configuration and name of the
+window. If no <em>alias</em> is given, the default 'FvwmPager' alias is used. See the
+<strong>CONFIGURATION</strong> section below for a full list of configuration options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmPager displays a miniature view of the fvwm virtual desktop(s) showing
+the position of all windows and pages within each visible desktop. If
+<em>DeskHilight</em> is set, the location of each monitor within the
+desktop is also shown. The pager can be used as a quick reference of the
+location of windows and monitors, to change the current page/desk, and to
+focus or move windows. The behavior of FvwmPager depends on the current
+'DesktopConfiguration'.</p>
+</div>
+<div class="paragraph">
+<p>When clicked with button 1, FvwmPager will move the current desk/page to the
+location clicked. If using 'DesktopConfiguration global' all monitors will
+move to the location clicked, 'DesktopConfiguration per-monitor' moves the
+only the monitor which occupies the area clicked, and last
+'DesktopConfiguration shared' only allows changing pages of a monitor which
+occupies the clicked desk. If <em>MonitorLabels</em> are showing, clicks on the
+monitor label will move that monitor to the clicked desk. Clicks in which it
+cannot be clearly determined which monitor to move will be ignored, such as
+clicks on desk labels or dead space in 'per-monitor' mode, clicking on a desk
+not occupied by any monitor in 'shared' mode. It is suggested to use
+<em>MonitorLabels</em> with 'shared' mode.</p>
+</div>
+<div class="paragraph">
+<p>When clicked with button 3, FvwmPager will move the current view port centered
+on the area clicked. Unlike a left click, which always places the monitor(s)
+inside a single page&#8217;s boundaries, left click will 'Scroll' between multiple
+pages. While right click is held down, moving the mouse will cause the view
+port to 'Scroll' to the mouse location. Note that 'Scroll' works best in
+'global' mode.</p>
+</div>
+<div class="paragraph">
+<p>When button 2 clicks a window in the pager, that window will gain focus.
+Setting the <em>*FvwmPager: SloppyFocus</em> option will give focus to the window
+under the mouse without clicking. Holding down button 2 on a window in the
+pager can be used the move the window. The window can be placed at any
+location inside the pager, and when you move the window outside of the pager,
+the window will move to the current location, and can continued to be moved.</p>
+</div>
+<div class="paragraph">
+<p>When iconified, FvwmPager&#8217;s icon on the desktop is a fully functional pager
+that only shows the current desk. This icon pager responds to all the same
+clicks as described above. This is useful by allowing full pager that shows
+multiple virtual desktops to be iconified to a smaller pager that only shows
+the current desk. Note that the FvwmPager icon must be visible via
+'Style FvwmPager Icon', and not overridden, for this to work.</p>
+</div>
+<div class="paragraph">
+<p>FvwmPager will compute its initial window size based on your monitor(s)
+configuration. By default it makes a pager 1/32 the size of your monitor(s)
+resolution (see <em>DeskTopScale</em>) and matches either the global
+aspect ratio or a single monitor if <em>Monitor</em> is set. Both the size of
+the pager (see <em>Geometry</em>) and desktop layout (see <em>Cols</em> and <em>Rows</em>)
+can be configured.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration">CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmPager is configured via a module configuration alias in fvwm&#8217;s
+configuration file. The default alias is 'FvwmPager' and can be configured
+using lines of the form:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>*FvwmPager: Option parameters</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When FvwmPager is launched with an optional <em>alias</em>, that <em>alias</em> will
+be used for the configuration instead. For example to start a pager that
+shows the current desk on a single monitor, use the following:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyModuleConfig FvwmPagerDP2:*
+*FvwmPagerDP2: Monitor DP-2
+*FvwmPagerDP2: Font None
+*FvwmPagerDP2: MiniIcons
+AddToFunc StartFunction Module FvwmPager FvwmPagerDP2 *</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The full list of configuration options and their parameters
+are listed below.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_options">CONFIGURATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1">*FvwmPager: Geometry geometry</dt>
+<dd>
+<p>Completely or partially specifies the pager windows location and
+geometry, in standard X11 notation. If both width and height are
+set, FvwmPager will use that size and no longer preserve the
+aspect ratio when resized. If you wish to maintain an undistorted
+aspect ratio, you can set one dimension to zero. For example
+'400x0' will make a 400 pixel wide window whose height matches
+the aspect ratio and will also preserve aspect ratio when resized.</p>
+<div class="paragraph">
+<p><strong>Note</strong>: FvwmPager&#8217;s dimensions will be slightly adjusted to ensure
+every page shown has the exact same number of pixels. So the actual
+size may be slightly different than the specified size.</p>
+</div>
+</dd>
+<dt class="hdlist1">*FvwmPager: Rows rows</dt>
+<dd>
+<p>Tells fvwm how many rows of desks to use when laying out the pager
+window.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Columns columns</dt>
+<dd>
+<p>Tells fvwm how many columns of desks to use when laying out the pager
+window.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: IconGeometry geometry</dt>
+<dd>
+<p>Specifies a size (optional) and location (optional) for the pager&#8217;s
+icon window. Since there is no easy way for FvwmPager to determine the
+height of the icon&#8217;s label, you will have to make an allowance for the
+icon label height when using negative y-coordinates in the icon
+location specification (used to specify a location relative to the
+bottom instead of the top of the screen).</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: StartIconic</dt>
+<dd>
+<p>Causes the pager to start iconified.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoStartIconic</dt>
+<dd>
+<p>Causes the pager to start normally. Useful for canceling the effect of
+the <em>StartIconic</em> option.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: LabelsBelow</dt>
+<dd>
+<p>Causes the pager to draw desk labels below the corresponding desk.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: LabelsAbove</dt>
+<dd>
+<p>Causes the pager to draw desk labels above the corresponding desk.
+Useful for canceling the effect of the <em>LabelsBelow</em> option.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: ShapeLabels</dt>
+<dd>
+<p>Causes the pager to hide the labels of all but the current desk. This
+turns off label hilighting.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoShapeLabels</dt>
+<dd>
+<p>Causes the pager to show the labels of all visible desks. Useful for
+canceling the effect of the <em>ShapeLabels</em> option.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: DeskLabels</dt>
+<dd>
+<p>Tells FvwmPager to display a label for each desk. This is the default
+state, but this is useful for undoing <em>Font none</em> or <em>NoDeskLabels</em>.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoDeskLabels</dt>
+<dd>
+<p>Tells FvwmPager to not display desk labels.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: MonitorLabels</dt>
+<dd>
+<p>Tells FvwmPager to display a row of monitor labels. The monitor label
+on the desktop the monitor is currently viewing will be highlighted using
+the hilight color. Clicking on a monitor label will move that monitor to
+the selected desktop. This option is best used with
+'DesktopConfiguration shared' to be able to control which monitor is moved
+to a selected desktop.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoMonitorLabels</dt>
+<dd>
+<p>Tells FvwmPager to not display monitor labels, the default state.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Font font-name</dt>
+<dd>
+<p>Specified a font to use to label the desktops. If <em>font_name</em> is
+"none" then no desktop or monitor labels will be displayed. Note,
+if <em>MonitorLabels</em> or <em>DeskLabels</em> is used after <em>Font none</em>,
+the labels will be shown with a default font.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: SmallFont font-name</dt>
+<dd>
+<p>Specified a font to use to label the window names in the pager. If not
+specified, the window labels will be omitted. Window labels seem to be
+fairly useless for desktop scales of 32 or greater. If <em>font_name</em> is
+"none" then no window names will be displayed.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Fore color</dt>
+<dd>
+<p>Specifies the color to use to write the desktop labels, and to draw
+the page-grid lines.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Back color</dt>
+<dd>
+<p>Specifies the background color for the window.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Hilight color</dt>
+<dd>
+<p>The active page and desk label will be highlighted by using this
+background pattern instead of the normal background.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: HilightPixmap pixmap</dt>
+<dd>
+<p>The active page will be highlighted by using this background pattern
+instead of the normal background.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: DeskHilight</dt>
+<dd>
+<p>Hilight the area shown by all active monitors with the current hilight
+color/pixmap. Useful for canceling the effect of the <em>NoDeskHilight</em> option.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoDeskHilight</dt>
+<dd>
+<p>Don&#8217;t hilight the active page.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: WindowColors fore back hiFore hiBack</dt>
+<dd>
+<p>Change the normal/highlight colors of the windows. <em>fore</em> and <em>hiFore</em>
+specify the colors as used for the font inside the windows. <em>back</em> and
+<em>hiBack</em> are used to fill the windows with.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: WindowLabelFormat format</dt>
+<dd>
+<p>This specifies a printf() like format for the labels in the mini
+window. Possible flags are: %t, %i, %c, and %r for the window&#8217;s title,
+icon title, class, or resource name, respectively. The default is
+"%i".</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: DeskColor desk color</dt>
+<dd>
+<p>Assigns the color <em>color</em> to desk <em>desk</em> (or the current desk if desk
+is "*") in the pager window. This replaces the background color for
+the particular <em>desk</em>. This only works when the pager is full sized.
+When Iconified, the pager uses the color specified by *FvwmPager:
+Back.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Pixmap pixmap</dt>
+<dd>
+<p>Use <em>pixmap</em> as background for the pager.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: DeskPixmap desk pixmap</dt>
+<dd>
+<p>Assigns the pixmap <em>color</em> to desk <em>desk</em> (or the current desk if desk
+is "*") in the pager window. This replaces the background pixmap for
+the particular <em>desk</em>.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: DeskTopScale number</dt>
+<dd>
+<p>If the geometry is not specified, then a desktop reduction factor is
+used to calculate the pager&#8217;s size. Things in the pager window are
+shown at 1/<em>number</em> of the actual size.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: MiniIcons</dt>
+<dd>
+<p>Allow the pager to display a window&#8217;s mini icon in the pager, if it
+has one, instead of showing the window&#8217;s name.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: MoveThreshold pixels</dt>
+<dd>
+<p>Defines the distance the pointer has to be moved before a window being
+dragged with button 2 is actually moved. The default value is three
+pixels. If the pointer moved less that this amount the window snaps
+back to its original position when the button is released. If <em>pixels</em>
+is less than zero the default value is used. The value set with the
+<em>MoveThreshold</em> command in fvwm is inherited by FvwmPager but can be
+overridden with this option.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: SloppyFocus</dt>
+<dd>
+<p>If the SloppyFocus option is used, you do not need to click into the
+mini window in the pager to give the real window the focus. Simply
+putting the pointer over the window inside the pager is enough.</p>
+<div class="paragraph">
+<p>Note: This option interferes slightly with the MouseFocus and
+SloppyFocus styles of fvwm. Sometimes, if you click into the pager
+window to change pages or desks and then move the pointer to a place on
+the screen where a window of the new page will appear, this new window
+does not get the input focus. This may happen if you drag the pointer
+over one of the mini windows in the pager. There is nothing that can be
+done about this - except not using SloppyFocus in the pager.</p>
+</div>
+</dd>
+<dt class="hdlist1">*FvwmPager: SolidSeparators</dt>
+<dd>
+<p>By default the pages of the virtual desktop are separated by dashed
+lines in the pager window. This option causes FvwmPager to use solid
+lines instead.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: NoSeparators</dt>
+<dd>
+<p>Turns off the lines separating the pages of the virtual desktop.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Balloons [type]</dt>
+<dd>
+<p>Show a balloon describing the window when the pointer is moved into a
+window in the pager. The default format (the window&#8217;s icon name) can
+be changed using BalloonStringFormat. If <em>type</em> is <em>Pager</em> balloons
+are just shown for an un-iconified pager; if <em>type</em> is <em>Icon</em> balloons
+are just shown for an iconified pager. If <em>type</em> is anything else (or
+null) balloons are always shown.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonFore color</dt>
+<dd>
+<p>Specifies the color for text in the balloon window. If omitted it
+defaults to the foreground color for the window being described.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonBack color</dt>
+<dd>
+<p>Specifies the background color for the balloon window. If omitted it
+defaults to the background color for the window being described.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonFont font-name</dt>
+<dd>
+<p>Specifies a font to use for the balloon text. Defaults to <em>fixed</em>.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonBorderWidth number</dt>
+<dd>
+<p>Sets the width of the balloon window&#8217;s border. Defaults to 1.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonBorderColor color</dt>
+<dd>
+<p>Sets the color of the balloon window&#8217;s border. Defaults to black.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonYOffset number</dt>
+<dd>
+<p>The balloon window is positioned to be horizontally centered against
+the pager window it is describing. The vertical position may be set as
+an offset. Negative offsets of <em>-n</em> are placed <em>n</em> pixels above the
+pager window, positive offsets of <em>+n</em> are placed <em>n</em> pixels below.
+Offsets of -1 and 1 represent the balloon window close to the original
+window without a gap. Offsets of 0 are not permitted, as this would
+permit direct transit from pager window to balloon window, causing an
+event loop. Defaults to +3. The offset will change sign automatically,
+as needed, to keep the balloon on the screen.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonStringFormat format</dt>
+<dd>
+<p>The same as <em>*FvwmPager: WindowLabelFormat</em>, it just specifies the
+string to display in the balloons. The default is "%i".</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Colorset desk colorset</dt>
+<dd>
+<p>Tells the module to use colorset <em>colorset</em> for <em>desk</em>. If you use an
+asterisk '*' in place of <em>desk</em>, the colorset is used on all desks.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: BalloonColorset desk colorset</dt>
+<dd>
+<p>Tells the module to use colorset <em>colorset</em> for balloons on <em>desk</em>. If
+you use an asterisk '*' in place of <em>desk</em>, the colorset is used on
+all desks.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: HilightColorset desk colorset</dt>
+<dd>
+<p>Tells the module to use colorset <em>colorset</em> for hilighting on <em>desk</em>.
+If you use an asterisk '*' in place of <em>desk</em>, the colorset is used on
+all desks.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: WindowColorsets colorset activecolorset</dt>
+<dd>
+<p>Uses colorsets in the same way as *FvwmPager: WindowColors. The shadow
+and hilight colors of the colorset are only used for the window
+borders if the *FvwmPager: Window3DBorders is specified too.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: WindowMinSize n</dt>
+<dd>
+<p>Specifies the minimum size as <em>n</em> pixels of the mini windows. This does
+not include the width of the border, so the actual minimum size is
+2 * <em>WindowBorderWidth</em> + <em>WindowMinSize</em>. The default is 3.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: WindowBorderWidth n</dt>
+<dd>
+<p>Specifies the width of the border drawn around the mini windows. This
+also affects the minimum size of the mini windows, which will be
+2 * <em>WindowBorderWidth</em> + <em>WindowMinSize</em>. The default is 1.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: HideSmallWindows</dt>
+<dd>
+<p>Tells FvwmPager to not show windows that are the minimum size. Useful
+for tiny pagers where small windows will appear out of place.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Window3DBorders</dt>
+<dd>
+<p>Specifies that the mini windows should have a 3d borders based on the
+mini window background. This option only works if *FvwmPager:
+WindowColorsets is specified.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: UseSkipList</dt>
+<dd>
+<p>Tells FvwmPager to not show the windows that are using the
+WindowListSkip style.</p>
+</dd>
+<dt class="hdlist1">*FvwmPager: Monitor RandRName</dt>
+<dd>
+<p>Tells FvwmPager to display windows only on <em>RandRName</em> monitor. This
+is especially meaningful when the <em>DesktopConfiguration</em> command is
+set to <em>shared</em>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Robert Nation<br>
+DeskColor patch contributed by Alan Wild<br>
+MiniIcons &amp; WindowColors patch contributed by Rob Whapham<br>
+Balloons patch by Ric Lister &lt;<a href="mailto:ric@giccs.georgetown.edu">ric@giccs.georgetown.edu</a>&gt;<br>
+fvwm-workers: Dominik, Olivier, Hippo and others.</p>
+</div>
+</div>
+</div>

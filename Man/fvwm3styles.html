@@ -1,0 +1,2756 @@
+---
+title: fvwm3styles manual page
+showtitle: 1
+permalink: /Man/fvwm3styles/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_controlling_window_styles">Controlling Window Styles</a></li>
+<li><a href="#_window_styles">Window Styles</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm3styles - fvwm styles</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_controlling_window_styles">Controlling Window Styles</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>For readability, the commands in this section are not sorted
+alphabetically. The description of the <strong>Style</strong> command can be found at
+the end of this section.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>FocusStyle</strong> <em>stylename</em> <em>options</em></dt>
+<dd>
+<p>works exactly like the <strong>Style</strong> command, but accepts only the focus
+policy related styles beginning with "FP". The prefix can be removed,
+but at the cost of a little bit of time. <strong>FocusStyle</strong> is meant to make
+the configuration file more readable. Example:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>FocusStyle * EnterToFocus, !LeaveToUnfocus</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>is equivalent to</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * FPEnterToFocus, !FPLeaveToUnfocus</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>DestroyStyle</strong> <em>style</em></dt>
+<dd>
+<p>deletes the style named <em>style</em>. The changes take effect immediately.
+Note that <em>style</em> is not a wild-carded search string, but rather a
+case-sensitive string that should exactly match the original <strong>Style</strong>
+command.</p>
+<div class="paragraph">
+<p>Destroying style "*" can be done, but isn&#8217;t really to be recommended.
+For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyStyle Application*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This removes all settings for the style named "Application*", NOT all
+styles starting with "Application".</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>DestroyWindowStyle</strong></dt>
+<dd>
+<p>deletes the styles set by the <strong>WindowStyle</strong> command on the selected
+window. The changes take effect immediately.</p>
+</dd>
+<dt class="hdlist1"><strong>UpdateStyles</strong></dt>
+<dd>
+<p>All pending updates of all windows' styles and looks are applied
+immediately. E.g. if <strong>Style</strong>, <em>WindowStyle</em> or <em>TitleStyle</em> commands
+were issued inside a fvwm function.</p>
+</dd>
+<dt class="hdlist1"><strong>Style</strong> <em>stylename</em> <em>options</em> &#8230;&#8203;</dt>
+<dd>
+<p>The <strong>Style</strong> command is used to set attributes of a window to values
+other than the default or to set the window manager default styles.</p>
+<div class="paragraph">
+<p><em>stylename</em> can be a window&#8217;s name, class, visible name, or resource
+string. It may contain the wildcards '<strong>' and '?', which are matched in
+the usual Unix filename manner. Multiple style options in a single
+*Style</strong> command are read from left to right as if they were issued one
+after each other in separate commands. A given style always overrides
+all conflicting styles that have been issued earlier (or further left
+on the same style line).</p>
+</div>
+<div class="paragraph">
+<p>Note: windows that have no name (WM_NAME) are given a name of
+"Untitled", and windows that do not have a class (WM_CLASS, res_class)
+are given class "NoClass" and those that do not have a resource
+(WM_CLASS, res_name) are given resource "NoResource".</p>
+</div>
+<div class="paragraph">
+<p>If a window has the resource "fvwmstyle" set, the value of that
+resource is used in addition to any window names when selecting the
+style.</p>
+</div>
+<div class="paragraph">
+<p><em>options</em> is a comma separated list containing one or more of the
+following keywords. Each group of style names is separated by slashes
+('/'). The last style in these groups is the default. <em>BorderWidth</em>,
+<em>HandleWidth</em>, <em>CornerLength</em>, <em>!Icon</em> / <em>Icon</em>, <em>MiniIcon</em>,
+<em>IconBox</em>, <em>IconGrid</em>, <em>IconFill</em>, <em>IconSize</em>, <em>!Title</em> / <em>Title</em>,
+<em>TitleAtBottom</em> / <em>TitleAtLeft</em> / <em>TitleAtRight</em> /
+<em>TitleAtTop</em>, <em>LeftTitleRotatedCW</em> / <em>LeftTitleRotatedCCW</em>,
+<em>RightTitleRotatedCCW</em> / <em>RightTitleRotatedCW</em>,
+<em>TopTitleRotated</em> / <em>TopTitleNotRotated</em>, <em>BottomTitleRotated</em> /
+<em>BottomTitleNotRotated</em>, <em>!UseTitleDecorRotation</em> /
+<em>UseTitleDecorRotation</em>, <em>StippledTitle</em> / <em>!StippledTitle</em>,
+<em>StippledIconTitle</em> / <em>!StippledIconTitle</em>, <em>IndexedWindowName</em> /
+<em>ExactWindowName</em>, <em>IndexedIconName</em> / <em>ExactIconName</em>, <em>TitleFormat</em>
+/ <em>IconTitleFormat</em> / <em>!Borders</em> / <em>Borders</em>, <em>!Handles</em> / <em>Handles</em>,
+<em>WindowListSkip</em> / <em>WindowListHit</em>, <em>CirculateSkip</em> / <em>CirculateHit</em>,
+<em>CirculateSkipShaded</em> / <em>CirculateHitShaded</em>, <em>CirculateSkipIcon</em> /
+<em>CirculateHitIcon</em>, <em>Layer</em>, <em>StaysOnTop</em> / <em>StaysOnBottom</em> /
+<em>StaysPut</em>, <em>Sticky</em> / <em>Slippery</em>, <em>StickyAcrossPages</em> /
+<em>!StickyAcrossPages</em>, <em>StickyAcrossDesks</em> / <em>!StickyAcrossDesks</em>,
+<em>!StickyStippledTitle</em> / <em>StickyStippledTitle</em>,
+<em>!StickyStippledIconTitle</em> / <em>StickyStippledIconTitle</em>, <em>StartIconic</em>
+/ <em>StartNormal</em>,  <em>Colorset</em>, <em>HilightColorset</em>, <em>BorderColorset</em>,
+<em>HilightBorderColorset</em>, <em>IconTitleColorset</em>,
+<em>HilightIconTitleColorset</em>, <em>IconBackgroundColorset</em>,
+<em>IconTitleRelief</em>, <em>IconBackgroundRelief</em>, <em>IconBackgroundPadding</em>,
+<em>Font</em>, <em>IconFont</em>, <em>StartsOnDesk</em> / <em>StartsOnPage</em> /
+<em>StartsAnyWhere</em>, <em>StartsOnScreen</em>, <em>StartShaded</em> / <em>!StartShaded</em>,
+<em>ManualPlacementHonorsStartsOnPage</em> /
+<em>ManualPlacementIgnoresStartsOnPage</em>, <em>CaptureHonorsStartsOnPage</em> /
+<em>CaptureIgnoresStartsOnPage</em>, <em>RecaptureHonorsStartsOnPage</em> /
+<em>RecaptureIgnoresStartsOnPage</em>, <em>StartsOnPageIncludesTransients</em> /
+<em>StartsOnPageIgnoresTransients</em>, <em>IconTitle</em> / <em>!IconTitle</em>,
+<em>MwmButtons</em> / <em>FvwmButtons</em>, <em>MwmBorder</em> / <em>FvwmBorder</em>, <em>MwmDecor</em> /
+<em>!MwmDecor</em>, <em>MwmFunctions</em> / <em>!MwmFunctions</em>, <em>HintOverride</em> /
+<em>!HintOverride</em>, <em>!Button</em> / <em>Button</em>, <em>ResizeHintOverride</em> /
+<em>!ResizeHintOverride</em>, <em>OLDecor</em> / <em>!OLDecor</em>, <em>StickyIcon</em> / <em>SlipperyIcon</em>,
+<em>StickyAcrossPagesIcon</em> / <em>!StickyAcrossPagesIcon</em>,
+<em>StickyAcrossDesksIcon</em> / <em>!StickyAcrossDesksIcon</em>, <em>ManualPlacement</em>
+/ <em>CascadePlacement</em> / <em>MinOverlapPlacement</em> /
+<em>MinOverlapPercentPlacement</em> / <em>TileManualPlacement</em> /
+<em>TileCascadePlacement</em> / <em>PositionPlacement</em>,
+<em>MinOverlapPlacementPenalties</em>, <em>MinOverlapPercentPlacementPenalties</em>,
+<em>DecorateTransient</em> / <em>NakedTransient</em>, <em>DontRaiseTransient</em> /
+<em>RaiseTransient</em>, <em>DontLowerTransient</em> / <em>LowerTransient</em>,
+<em>DontStackTransientParent</em> / <em>StackTransientParent</em>, <em>SkipMapping</em> /
+<em>ShowMapping</em>, <em>ScatterWindowGroups</em> / <em>KeepWindowGroupsOnDesk</em>,
+<em>UseDecor</em>, <em>UseStyle</em>, <em>!UsePPosition</em> / <em>NoPPosition</em> /
+<em>UsePPosition</em>, <em>!UseUSPosition</em>, <em>NoUSPosition</em> / <em>UseUSPosition</em>,
+<em>!UseTransientPPosition</em>, <em>NoTransientPPosition</em> /
+<em>UseTransientPPosition</em>, <em>!UseTransientUSPosition</em> /
+<em>NoTransientUSPosition</em> / <em>UseTransientUSPosition</em>, <em>!UseIconPosition</em>
+/ <em>NoIconPosition</em> / <em>UseIconPosition</em>, <em>Lenience</em> / <em>!Lenience</em>,
+<em>ClickToFocus</em> / <em>SloppyFocus</em> / <em>MouseFocus</em>|<em>FocusFollowsMouse</em> /
+<em>NeverFocus</em>, <em>ClickToFocusPassesClickOff</em> /
+<em>ClickToFocusPassesClick</em>, <em>ClickToFocusRaisesOff</em> /
+<em>ClickToFocusRaises</em>, <em>MouseFocusClickRaises</em> /
+<em>MouseFocusClickRaisesOff</em>, <em>GrabFocus</em> / <em>GrabFocusOff</em>,
+<em>GrabFocusTransientOff</em> / <em>GrabFocusTransient</em>, <em>FPFocusClickButtons</em>,
+<em>FPFocusClickModifiers</em>, <em>!FPSortWindowlistByFocus</em> /
+<em>FPSortWindowlistByFocus</em>, <em>FPClickRaisesFocused</em> /
+<em>!FPClickRaisesFocused</em>, <em>FPClickDecorRaisesFocused</em> /
+<em>!FPClickDecorRaisesFocused</em>, <em>FPClickIconRaisesFocused</em> /
+<em>!FPClickIconRaisesFocused</em>, <em>!FPClickRaisesUnfocused</em> /
+<em>FPClickRaisesUnfocused</em>, <em>FPClickDecorRaisesUnfocused</em> /
+<em>!FPClickDecorRaisesUnfocused</em>, <em>FPClickIconRaisesUnfocused</em> /
+<em>!FPClickIconRaisesUnfocused</em>, <em>FPClickToFocus</em> / <em>!FPClickToFocus</em>,
+<em>FPClickDecorToFocus</em> / <em>!FPClickDecorToFocus</em>, <em>FPClickIconToFocus</em> /
+<em>!FPClickIconToFocus</em>, <em>!FPEnterToFocus</em> / <em>FPEnterToFocus</em>,
+<em>!FPLeaveToUnfocus</em> / <em>FPLeaveToUnfocus</em>, <em>!FPFocusByProgram</em> /
+<em>FPFocusByProgram</em>, <em>!FPFocusByFunction</em> / <em>FPFocusByFunction</em>,
+<em>FPFocusByFunctionWarpPointer</em> / <em>!FPFocusByFunctionWarpPointer</em>,
+<em>FPLenient</em> / <em>!FPLenient</em>, <em>!FPPassFocusClick</em> / <em>FPPassFocusClick</em>,
+<em>!FPPassRaiseClick</em> / <em>FPPassRaiseClick</em>, <em>FPIgnoreFocusClickMotion</em> /
+<em>!FPIgnoreFocusClickMotion</em>, <em>FPIgnoreRaiseClickMotion</em> /
+<em>!FPIgnoreRaiseClickMotion</em>, <em>!FPAllowFocusClickFunction</em> /
+<em>FPAllowFocusClickFunction</em>, <em>!FPAllowRaiseClickFunction</em> /
+<em>FPAllowRaiseClickFunction</em>, <em>FPGrabFocus</em> / <em>!FPGrabFocus</em>,
+<em>!FPGrabFocusTransient</em> / <em>FPGrabFocusTransient</em>,
+<em>FPOverrideGrabFocus</em> / <em>!FPOverrideGrabFocus</em>, <em>FPReleaseFocus</em> /
+<em>!FPReleaseFocus</em>, <em>!FPReleaseFocusTransient</em> /
+<em>FPReleaseFocusTransient</em>, <em>FPOverrideReleaseFocus</em> /
+<em>!FPOverrideReleaseFocus</em>, <em>StartsLowered</em> / <em>StartsRaised</em>,
+<em>IgnoreRestack</em> / <em>AllowRestack</em>, <em>FixedPosition</em> /
+<em>VariablePosition</em>, <em>FixedUSPosition</em> / <em>VariableUSPosition</em>,
+<em>FixedPPosition</em> / <em>VariablePPosition</em>, <em>FixedSize</em> / <em>VariableSize</em>,
+<em>FixedUSSize</em> / <em>VariableUSSize</em>, <em>FixedPSize</em> / <em>VariablePSize</em>,
+<em>!Closable</em> / <em>Closable</em>, <em>!Iconifiable</em> / <em>Iconifiable</em>,
+<em>!Maximizable</em> / <em>Maximizable</em>, <em>!AllowMaximizeFixedSize</em> /
+<em>AllowMaximizeFixedSize</em>, <em>IconOverride</em> / <em>NoIconOverride</em> /
+<em>NoActiveIconOverride</em>, <em>DepressableBorder</em> / <em>FirmBorder</em>,
+<em>MinWindowSize</em>, <em>MaxWindowSize</em>, <em>IconifyWindowGroups</em> /
+<em>IconifyWindowGroupsOff</em>, <em>ResizeOpaque</em> / <em>ResizeOutline</em>,
+<em>BackingStore</em> / <em>BackingStoreOff</em> / <em>BackingStoreWindowDefault</em>,
+<em>Opacity</em> / <em>ParentalRelativity</em>, <em>SaveUnder</em> / <em>SaveUnderOff</em>,
+<em>WindowShadeShrinks</em> / <em>WindowShadeScrolls</em>, <em>WindowShadeSteps</em>,
+<em>WindowShadeAlwaysLazy</em> / <em>WindowShadeBusy</em> / <em>WindowShadeLazy,</em>
+<em>EWMHDonateIcon</em> / <em>EWMHDontDonateIcon</em>, <em>EWMHDonateMiniIcon</em> /
+<em>EWMHDontDonateMiniIcon</em>, <em>EWMHMiniIconOverride</em> /
+<em>EWMHNoMiniIconOverride</em>, <em>EWMHUseStackingOrderHints</em> /
+<em>EWMHIgnoreStackingOrderHints</em>, <em>EWMHIgnoreStateHints</em> /
+<em>EWMHUseStateHints</em>, <em>EWMHIgnoreStrutHints</em> / <em>EWMHUseStrutHints</em>,
+<em>EWMHIgnoreWindowType</em> / <em>!EWMHIgnoreWindowType</em>,
+<em>EWMHMaximizeIgnoreWorkingArea</em> / <em>EWMHMaximizeUseWorkingArea</em> /
+<em>EWMHMaximizeUseDynamicWorkingArea</em>, <em>EWMHPlacementIgnoreWorkingArea</em>
+/ <em>EWMHPlacementUseWorkingArea</em> /
+<em>EWMHPlacementUseDynamicWorkingArea</em>, <em>MoveByProgramMethod</em>,
+<em>Unmanaged</em>, <em>State</em>, <em>SnapGrid</em>, <em>SnapAttraction</em>, <em>EdgeMoveDelay</em>,
+<em>EdgeResizeDelay</em>. <em>EdgeMoveResistance</em>, <em>InitialMapCommand</em></p>
+</div>
+<div class="paragraph">
+<p>In the above list some options are listed as
+style-option/opposite-style-option. The opposite-style-option for
+entries that have them describes the fvwm default behavior and can be
+used if you want to change the fvwm default behavior.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Focus policy</strong></dt>
+<dd>
+<p><em>ClickToFocus</em> instructs fvwm to give the focus to a window when it
+is clicked in. The default <em>MouseFocus</em> (or its alias
+<em>FocusFollowsMouse</em>) tells fvwm to give a window the focus as soon
+as the pointer enters the window, and take it away when the pointer
+leaves the window. <em>SloppyFocus</em> is similar, but doesn&#8217;t give up the
+focus if the pointer leaves the window to pass over the root window
+or a ClickToFocus window (unless you click on it, that is), which
+makes it possible to move the mouse out of the way without losing
+focus. A window with the style <em>NeverFocus</em> never receives the
+focus. This is useful for modules like <strong>FvwmButtons</strong>. for example.
+Note: Once any of the "FP&#8230;&#8203;" styles has been used, the defaults
+that come with the basic focus policies are not restored when the
+latter are used again. For example, once !FPGrabFocus has been used,
+using ClickToFocus does not restore FPGrabFocus.</p>
+<div class="paragraph">
+<p>The focus model can be augmented with several additional options. In
+fvwm-2.5.3 and later, there are a large number of advanced options
+beginning with "FP" or "!FP". These options shall replace the older
+options one day and are described first. Using any of these new
+options may limit compatibility with older releases. In general,
+options beginning with "FP" turn a feature on, while those beginning
+with "!FP" turn it off.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Focusing the window</strong></dt>
+<dd>
+<p>With <em>FPEnterToFocus</em>, when the pointer enters a window it receives
+focus.</p>
+<div class="paragraph">
+<p>With <em>FPLeaveToUnfocus</em> a window loses focus when the pointer leaves
+it.</p>
+</div>
+<div class="paragraph">
+<p>With <em>FPClickToFocus</em>, <em>FPClickDecorToFocus</em> or
+<em>FPClickIconToFocus</em>, a window receives focus when the inside of the
+window or the decorations or its icon is clicked.</p>
+</div>
+<div class="paragraph">
+<p>The <em>FPFocusByProgram</em> style allows windows to take the focus
+themselves.</p>
+</div>
+<div class="paragraph">
+<p>The !<em>FPFocusByFunction</em> style forbids that a window receives the
+focus via the <strong>Focus</strong> and <strong>FlipFocus</strong> commands.</p>
+</div>
+<div class="paragraph">
+<p>The <em>FPFocusByFunctionWarpPointer</em> style controls if the pointer is
+warped to a selected window when the <strong>Focus</strong> command is used.</p>
+</div>
+<div class="paragraph">
+<p><em>FPLenient</em> allows focus on windows that do not want it, like
+<strong>FvwmPager</strong> or xclock.</p>
+</div>
+<div class="paragraph">
+<p>The <em>FPFocusClickButtons</em> style takes a list of mouse buttons that
+can be clicked to focus or raise a window when the appropriate style
+is used. The default is to use the first three buttons ("123").</p>
+</div>
+<div class="paragraph">
+<p>The <em>FPFocusClickModifiers</em> style takes a list of modifier keys just
+like the <strong>Key</strong> command. The exact combination of modifier keys must
+be pressed for the click to focus or raise a window to work. The
+default is to use no modifiers ("N").</p>
+</div>
+<div class="paragraph">
+<p>With the <em>FPPassFocusClick</em> style, the click that was used to focus
+a window is passed to the application.</p>
+</div>
+<div class="paragraph">
+<p>With the <em>FPAllowFocusClickFunction</em> style, the click that was used
+to focus a window can also trigger a normal action that was bound to
+the window with the <strong>Mouse</strong> command).</p>
+</div>
+<div class="paragraph">
+<p>If the <em>FPIgnoreFocusClickMotion</em> style is used, clicking in a
+window and then dragging the pointer with the button held down does
+not count as the click to focus the window. Instead, the application
+processes these events normally. This is useful to select text in a
+terminal window with the mouse without raising the window. However,
+mouse bindings on the client window are not guaranteed to work
+anymore (see <strong>Mouse</strong> command). This style forces the initial click
+to be passed to the application. The distance that the pointer must
+be moved to trigger this is controlled by the <strong>MoveThreshold</strong>
+command.</p>
+</div>
+<div class="paragraph">
+<p>The <em>FPSortWindowlistByFocus</em> and !<em>FPSortWindowlistByFocus</em> styles
+control whether the internal window list is sorted in the order the
+windows were focused or in the order they were created. The latter
+is the default for <em>ClickToFocus</em> and <em>SloppyFocus</em>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Clicking the window to raise</strong></p>
+</div>
+<div class="paragraph">
+<p>The styles <em>FPClickRaisesFocused</em>, <em>FPClickDecorRaisesFocused</em> and
+<em>FPClickIconRaisesFocused</em> allow one to raise the window when the
+interior or the decorations or the icon of the window is clicked
+while the window is already focused.</p>
+</div>
+<div class="paragraph">
+<p>The styles <em>FPClickRaisesUnfocused</em>, <em>FPClickDecorRaisesUnfocused</em>
+and <em>FPClickIconRaisesUnfocused</em> allow one to raise the window when
+the interior or the decorations or the icon of the window is clicked
+while the window is not yet focused.</p>
+</div>
+<div class="paragraph">
+<p>With the <em>FPPassRaiseClick</em> style, the click that was used to raise
+the window is passed to the application.</p>
+</div>
+<div class="paragraph">
+<p>With the <em>FPAllowRaiseClickFunction</em> style, the click that was used
+to raise the window can also trigger a normal action that was bound
+to the window with the <strong>Mouse</strong> command.</p>
+</div>
+<div class="paragraph">
+<p>If the <em>FPIgnoreRaiseClickMotion</em> style is used, clicking in a
+window and then dragging the pointer with the button held down does
+not count as the click to raise the window. Instead, the application
+processes these events normally. This is useful to select text in a
+terminal window with the mouse without raising the window. However,
+mouse bindings on the client window are not guaranteed to work
+anymore (see <strong>Mouse</strong> command. Note that this style forces that the
+initial click is passed to the application. The distance that the
+pointer must be moved to trigger this is controlled by the
+<strong>MoveThreshold</strong> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Grabbing the focus when a new window is created</strong></p>
+</div>
+<div class="paragraph">
+<p>New normal or transient windows with the <em>FPGrabFocus</em> or
+<em>FPGrabFocusTransient</em> style automatically receive the focus when
+they are created. <em>FPGrabFocus</em> is the default for windows with the
+<em>ClickToFocus</em> style. Note that even if these styles are disabled,
+the application may take the focus itself. Fvwm can not prevent
+this.</p>
+</div>
+<div class="paragraph">
+<p>The <em>OverrideGrabFocus</em> style instructs fvwm to never take away the
+focus from such a window via the <em>GrabFocus</em> or <em>GrabFocusTransient</em>
+styles. This can be useful if you like to have transient windows
+receive the focus immediately, for example in a web browser, but not
+while you are working in a terminal window or a text processor.</p>
+</div>
+<div class="paragraph">
+<p>The above three styles are accompanied by <em>FPReleaseFocus</em>,
+<em>FPReleaseFocusTransient</em> and <em>FPOverrideReleaseFocus</em>. These
+control if the focus is returned to another window when the window
+is closed. Otherwise no window or the window under the pointer
+receives the focus.</p>
+</div>
+<div class="paragraph">
+<p><em>ClickToFocusPassesClickOff</em> and <em>ClickToFocusPassesClick</em> controls
+whether a mouse click to focus a window is sent to the application
+or not. Similarly,
+<em>ClickToFocusRaisesOff</em>/<em>MouseFocusClickRaisesOff</em> and
+<em>ClickToFocusRaises</em>/<em>MouseFocusClickRaises</em> control if the window
+is raised (but depending on the focus model).</p>
+</div>
+<div class="paragraph">
+<p>Note: in fvwm versions prior to 2.5.3, the "Click&#8230;&#8203;" options
+applied only to windows with <em>ClickToFocus</em> while the "Mouse&#8230;&#8203;"
+options applied to windows with a different focus policy. This is no
+longer the case.</p>
+</div>
+<div class="paragraph">
+<p>The old <em>GrabFocus</em> style is equivalent to using <em>FPGrabFocus</em><br>
+<em>FPReleaseFocus</em>.</p>
+</div>
+<div class="paragraph">
+<p>The old <em>GrabFocusTransient</em> style is equivalent to using
+<em>FPGrabFocusTransient</em> + <em>FPReleaseFocusTransient</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>Lenience</em> is equivalent to the new style <em>FPLenient</em>.</p>
+</div>
+</dd>
+</dl>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Window title</strong></dt>
+<dd>
+<p>The <em>Title</em> and !Title options determine whether the window is
+       decorated with a title-bar. By default all windows have a title-bar.
+       <em>NoTitle</em> is equivalent to <em>!Title</em> but is deprecated.</p>
+<div class="paragraph">
+<p>Windows with the <em>TitleAtBottom</em>, <em>TitleAtLeft</em> or <em>TitleAtRight</em>
+style have a title-bar below, to the left or to the right of the
+window instead of above as usual. The <em>TitleAtTop</em> style restores
+the default placement. Even if the window has the <em>!Title</em> style
+set, this affects the <strong>WindowShade</strong> command. Please check the
+<strong>WindowShade</strong> command for interactions between that command and
+these styles. Titles on the left or right side of the windows are
+augmented by the following styles:</p>
+</div>
+<div class="paragraph">
+<p>Normally, the text in titles on the left side of a window is rotated
+counterclockwise by 90 degrees from the normal upright position and
+90 degrees clockwise for titles on the right side. It can also be
+rotated in the opposite directions with <em>LeftTitleRotatedCW</em> if
+<em>TitleAtLeft</em> is used, and with <em>RightTitleRotatedCCW</em> if
+<em>TitleAtRight</em> is used. The defaults can be restored with
+<em>LeftTitleRotatedCCW</em> and <em>RightTitleRotatedCW</em>. A normal horizontal
+text may be rotated as well with <em>TopTitleRotated</em> if <em>TitleAtTop</em>
+is used, and with <em>BottomTitleRotated</em> if <em>TitleAtBottom</em> is used.
+The defaults can be restored with <em>TopTitleNotRotated</em> and
+<em>BottomTitleNotRotated</em>.</p>
+</div>
+<div class="paragraph">
+<p>By default the title bar decoration defined using the <strong>TitleStyle</strong>
+command is rotated following the title text rotation (see the
+previous paragraph). This can be disabled by using the
+!<em>UseTitleDecorRotation</em> style. <em>UseTitleDecorRotation</em> reverts back
+to the default.</p>
+</div>
+<div class="paragraph">
+<p>With the <em>StippledTitle</em> style, titles are drawn with the same
+effect that is usually reserved for windows with the <em>Sticky</em>,
+<em>StickyAcrossPages</em> or <em>StickyAcrossDesks</em> style. <em>!StippledTitle</em>
+reverts back to normal titles. <em>StippledTitleOff</em> is equivalent to
+<em>!StippledTitle</em> but is deprecated.</p>
+</div>
+<div class="paragraph">
+<p><strong>Colorset</strong> takes the colorset number as its sole argument and
+overrides the colors set by <em>Color</em>. Instead, the corresponding
+colors from the given colorset are used. Note that all other
+features of a colorset are not used. Use the <strong>Colorset</strong> decoration
+style in the <strong>TitleStyle</strong> and <em>ButtonStyle</em> command for that. To
+stop using the colorset, the colorset number is omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>BorderColorset</em> takes eight positive integers as its arguments and will
+apply the given colorsets to the eight individual components of the window
+border.</p>
+</div>
+<div class="paragraph">
+<p>For backwards compatibility, if one integer is supplied, that is applied to
+all window border components.</p>
+</div>
+<div class="paragraph">
+<p>The border is split up into the following definitions, and is the same order as
+the colorsets which will be applied to the border.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>    North, North East, East, South East, South, South West, West, North West</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>North</em>, <em>East</em>, <em>South</em>, and <em>West</em> refer to the top, left, bottom, and right
+sides of the window border.</p>
+</div>
+<div class="paragraph">
+<p><em>NE</em>, <em>SE</em>, <em>SW</em>, and <em>NW</em> refer to the window handles.</p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE</strong>: due to how window handles are rendered, there is no way to make one
+complete edge of a window the same color as defined by either <em>North</em>, <em>South</em>,
+<em>East</em>, or <em>West</em>.</p>
+</div>
+<div class="paragraph">
+<p>The <em>HilightBorderColorset</em> style option works the same as
+<em>BorderColorset</em> but is used when the window has the focus.</p>
+</div>
+<div class="paragraph">
+<p>!<em>IconTitle</em> disables displaying icon labels while the opposite
+style <em>IconTitle</em> enables icon labels (default behaviour).
+<em>NoIconTitle</em> is equivalent to <em>!IconTitle</em> but is deprecated.</p>
+</div>
+<div class="paragraph">
+<p><em>IconTitleColorset</em> takes the colorset number as its sole argument
+and overrides the colors set by <em>Color</em> or <em>Colorset</em>. To stop using
+this colorset, the argument is omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>HilightIconTitleColorset</em> takes the colorset number as its sole
+argument and overrides the colors set by <strong>HilightColor</strong> or
+<em>HilightColorset</em>. To stop using this colorset, the argument is
+omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>IconBackgroundColorset</em> takes the colorset number as its sole
+argument and uses it to set a background for the icon picture. By
+default the icon picture is not drawn onto a background image. To
+restore the default, the argument is omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>IconTitleRelief</em> takes one numeric argument that may be between -50
+and +50 pixels and defines the thickness of the 3D relief drawn
+around the icon title. With negative values the icon title gets a
+pressed in look. The default is 2 and it is restored if the argument
+is omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>IconBackgroundRelief</em> takes one numeric argument that may be
+between -50 and +50 pixels and defines the thickness of the 3D
+relief drawn around the icon picture background (if any). With
+negative values the icon background gets a pressed in look. The
+default is 2 and it is restored if the argument is omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>IconBackgroundPadding</em> takes one numeric argument that may be
+between 0 and 50 pixels and defines the amount of free space between
+the relief of the icon background picture (if any) and the icon
+picture. The default is 2 and it is restored if the argument is
+omitted.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Font</em> and <em>IconFont</em> options take the name of a font as their
+sole argument. This font is used in the window or icon title. By
+default the font given in the <strong>DefaultFont</strong> command is used. To
+revert back to the default, use the style without the name argument.
+These styles replace the older <strong>WindowFont</strong> and <em>IconFont</em> commands.</p>
+</div>
+<div class="paragraph">
+<p>The deprecated <em>IndexedWindowName</em> style causes fvwm to use window
+titles in the form</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>name (i)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <em>name</em> is the exact window name and <em>i</em> is an integer which
+represents the <em>i th</em> window with <em>name</em> as window name. This has
+been replaced with:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleFormat %n (%t)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>ExactWindowName</em> restores the default which is to use the exact
+window name. Deprecated in favour of:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleFormat %n</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>IndexedIconName</em> and <em>ExactIconName</em> work the same as
+<em>IndexedWindowName</em> and <em>ExactWindowName</em> styles but for the icon
+titles. Both are deprecated in favour of:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconTitleFormat %n (%t)
+IconTitleFormat %n</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>TitleFormat</em> describes what the visible name of a window should
+look like, with the following placeholders being valid:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>%n</strong></dt>
+<dd>
+<p>Insert the window&#8217;s name.</p>
+</dd>
+<dt class="hdlist1"><strong>%i</strong></dt>
+<dd>
+<p>Insert the window&#8217;s icon name.</p>
+</dd>
+<dt class="hdlist1"><strong>%c</strong></dt>
+<dd>
+<p>Insert the window&#8217;s class name.</p>
+</dd>
+<dt class="hdlist1"><strong>%r</strong></dt>
+<dd>
+<p>Insert the window&#8217;s resource name.</p>
+</dd>
+<dt class="hdlist1"><strong>%t</strong></dt>
+<dd>
+<p>Insert the window count.</p>
+</dd>
+<dt class="hdlist1"><strong>%I</strong></dt>
+<dd>
+<p>Insert the window ID.</p>
+</dd>
+<dt class="hdlist1"><strong>%%</strong></dt>
+<dd>
+<p>Insert a literal '%' character.</p>
+<div class="paragraph">
+<p>Any amount of whitespace may be used, along with other characters to
+make up the string&#8201;&#8212;&#8201;but a valid <em>TitleFormat</em> string must contain
+at least one of the placeholders mentioned. No quote stripping is
+performed on the string, so for example the following is printed
+verbatim:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleFormat " %n " -&gt; [%t] -&gt;      [%c]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: It&#8217;s perfectly possible to use a <em>TitleFormat</em> which can
+result in wiping out the visible title altogether. For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleFormat %z</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Simply because the placeholder '%z' isn&#8217;t supported. This is not a
+bug but rather a facet of how the formatting parser works.</p>
+</div>
+<div class="paragraph">
+<p>+
+<em>IconTitleFormat</em> describes what the visible icon name of a window
+should look like, with the options being the same as <em>TitleFormat</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Title buttons</strong></dt>
+<dd>
+<p><em>Button</em> and !<em>Button</em> take a numeric argument which is the number
+of the title-bar button which is to be shown or omitted. <em>NoButton</em>
+is equivalent to <em>!Button</em> but is deprecated.</p>
+<div class="paragraph">
+<p><em>MwmButtons</em> makes the <strong>Maximize</strong> button look pressed-in when the
+window is maximized. See the <em>MwmDecorMax</em> flag in <strong>ButtonStyle</strong> for
+more information. To switch this style off again, use the
+<strong>FvwmButtons</strong> style.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Borders</strong></dt>
+<dd>
+<p>!<em>Borders</em> suppresses the window border (but not the title)
+completely. The <em>Borders</em> style enables them again. Without borders,
+all other styles affecting window borders are meaningless.</p>
+<div class="paragraph">
+<p><em>MwmBorder</em> makes the 3D bevel more closely match Mwm&#8217;s.
+<em>FvwmBorder</em> turns off the previous option.</p>
+</div>
+<div class="paragraph">
+<p>With the !<em>Handles</em> style, the window does not get the handles in
+the window corners that are commonly used to resize it. With
+<em>!Handles</em>, the width from the <em>BorderWidth</em> style is used. By
+default, or if <em>Handles</em> is specified, the width from the
+<em>HandleWidth</em> style is used. <em>NoHandles</em> is equivalent to <em>!Handles</em>
+but is deprecated.</p>
+</div>
+<div class="paragraph">
+<p><em>HandleWidth</em> takes a numeric argument which is the width of the
+border to place the window if it does have resize-handles. Using
+<em>HandleWidth</em> without an argument restores the default.</p>
+</div>
+<div class="paragraph">
+<p><em>CornerLength</em> takes a single numeric argument which is the length,
+in pixels, of the corner handles. The default is the title height.
+Using <em>CornerLength</em> without an argument restores the default.</p>
+</div>
+<div class="paragraph">
+<p><em>BorderWidth</em> takes a numeric argument which is the width of the
+border to place the window if it does not have resize-handles. It is
+used only if the <em>!Handles</em> style is specified too. Using
+<em>BorderWidth</em> without an argument restores the default.</p>
+</div>
+<div class="paragraph">
+<p><em>DepressableBorder</em> makes the border parts of the window decoration
+look sunken in when a button is pressed over them. This can be
+disabled again with the <em>FirmBorder</em> style.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Icons, shading, maximizing, movement, resizing</strong></dt>
+<dd>
+<p><em>Icon</em> takes an (optional) unquoted string argument which is the
+icon bitmap or pixmap to use. Icons specified this way override
+pixmap icons, but not icon windows or the ewmh icon, provided by the
+client in the application (with the WM_HINTS property or with the
+ewmh <em>NET_WM_ICON property). The _IconOverride</em> style changes the
+behavior to override any client-provided icons; the <em>NoIconOverride</em>
+style changes the behavior to not override any client-provided
+icons; the default overriding behavior can be activated with the
+<em>NoActiveIconOverride</em> style. With this style, fvwm uses application
+provided icons if the icon is changed but uses the icon provided in
+the configuration file until then.</p>
+<div class="paragraph">
+<p>There is one exception to these rules, namely</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * Icon unknown.xpm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>doesn&#8217;t force the unknown.xpm icon on every window, it just sets the
+default icon like the DefaultIcon command. If you really want all
+windows to have the same icon, you can use</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style ** Icon unknown.xpm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If the <em>NoIcon</em> attribute is set then the specified window simply
+disappears when it is iconified. The window can be recovered through
+the window-list. If <em>Icon</em> is set without an argument then the
+<em>NoIcon</em> attribute is cleared but no icon is specified. An example
+which allows only the <strong>FvwmPager</strong> module icon to exist:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * NoIcon
+Style FvwmPager Icon</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>IconBox</em> takes no argument, four numeric arguments (plus optionally
+a screen specification), an X11 geometry string or the string
+"none":</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconBox [screen scr-spec] l t r b</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconBox geometry</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where <em>l</em> is the left coordinate, <em>t</em> is the top, <em>r</em> is right and
+<em>b</em> is bottom. Negative coordinates indicate distance from the right
+or bottom of the screen. If the first argument is the word <em>screen</em>,
+the <em>scr-spec</em> argument specifies the RandR screen on which the
+IconBox is defined ´or the additional 'w' for the screen where the
+window center is located. This is only useful with multiple screens.
+The "l t r b" specification is more flexible than an X11 geometry.
+For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconBox -80 240 -1 -1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>defines a box that is 80 pixels wide from the right edge, 240 pixels
+down from the top, and continues to the bottom of the screen.</p>
+</div>
+<div class="paragraph">
+<p>Perhaps it is easier to use is an X11 geometry string though:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconBox 1000x70-1-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>places an 1000 by 70 pixel icon box on the bottom of the screen
+starting in the lower right hand corner of the screen. One way to
+figure out a geometry like this is to use a window that resizes in
+pixel increments, for example, xv. Then resize and place the xv
+window where you want the iconbox. Then use FvwmIdent to read the
+windows geometry. The icon box is a region of the screen where fvwm
+attempts to put icons for any matching window, as long as they do
+not overlap other icons. Multiple icon boxes can be defined as
+overflow areas. When the first icon box is full, the second one is
+filled. All the icon boxes for one style must be defined in one
+<strong>Style</strong> command. For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * IconBox -80 240 -1 -1, \
+  IconBox 1000x70-1-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A Style command with the IconBox option replaces any icon box
+defined previously by another Style command for the same style.
+That&#8217;s why the backslash in the previous example is required.</p>
+</div>
+<div class="paragraph">
+<p>Note: The geometry for the icon box command takes the additional
+screen specifier "@w" in case RandR is used. This designates the
+screen where the window center is located. The additional screen
+specifier is not allowed anywhere else.</p>
+</div>
+<div class="paragraph">
+<p>If you never define an icon box, or you fill all the icon boxes,
+fvwm has a default icon box that covers the screen, it fills top to
+bottom, then left to right, and has an 80x80 pixel grid. To disable
+all but the default icon box you can use IconBox without arguments
+in a separate <strong>Style</strong> command. To disable all icon boxes including
+the default icon box, the argument "none" can be specified.</p>
+</div>
+<div class="paragraph">
+<p>Hint: You can auto arrange your icons in the icon box with a simple
+fvwm function. Put the "DeiconifyAndRearrange" function below in
+your configuration file:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc DeiconifyAndRearrange
+ + C Iconify off
+ + C All (CurrentPage, Iconic) PlaceAgain Icon</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And then replace all places where you call the <strong>Iconify</strong> command to
+de-iconify an icon with a call to the new function. For example
+replace</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc IconFunc
+ + C Iconify off
+ + M Raise
+ + M Move
+ + D Iconify off
+
+Mouse 1 I A Iconify off</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc IconFunc
+ + C DeiconifyAndRearrange
+ + M Raise
+ + M Move
+ + D DeiconifyAndRearrange
+
+Mouse 1 I A DeiconifyAndRearrange</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>IconGrid</em> takes 2 numeric arguments greater than zero.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconGrid x y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Icons are placed in an icon box by stepping through the icon box
+using the <em>x</em> and <em>y</em> values for the icon grid, looking for a free
+space. The default grid is 3 by 3 pixels which gives a tightly
+packed appearance. To get a more regular appearance use a grid
+larger than your largest icon. Use the <em>IconSize</em> argument to clip
+or stretch an icon to a maximum size. An <em>IconGrid</em> definition must
+follow the <strong>IconBox</strong> definition that it applies to:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * IconBox -80x240-1-1, IconGrid 90 90</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>IconFill</em> takes 2 arguments.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconFill Bottom Right</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Icons are placed in an icon box by stepping through the icon box
+using these arguments to control the direction the box is filled in.
+By default the direction is left to right, then top to bottom. This
+would be expressed as:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconFill left top</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To fill an icon box in columns instead of rows, specify the vertical
+direction (top or bottom) first. The directions can be abbreviated
+or spelled out as follows: "t", "top", "b", "bot", "bottom", "l",
+"lft", "left", "r", "rgt", "right". An <strong>IconFill</strong> definition must
+follow the <strong>IconBox</strong> definition that it applies to:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * IconBox -80x240-1-1, IconFill b r</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>IconSize</em> sets limits on the size of an icon image. Both
+user-provided and application-provided icon images are affected.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>IconSize [ width height [ maxwidth maxheight ] ]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>All arguments are measured in pixels. When all four arguments are
+passed to <em>IconSize,</em> <em>width</em> and <em>height</em> represent the minimum
+size of an icon, and <em>maxwidth</em> and <em>maxheight</em> represent the
+maximum size of an icon. Icon images that are smaller than the
+minimum size are padded. Icon images that are bigger than the
+maximum size are clipped.</p>
+</div>
+<div class="paragraph">
+<p>If only two arguments are passed to <em>IconSize,</em> <em>width</em> and <em>height</em>
+represent the absolute size of an icon. Icons covered by this style
+are padded or clipped to achieve the given size.</p>
+</div>
+<div class="paragraph">
+<p>If no arguments are specified, the default values are used for each
+dimension. This effectively places no limits on the size of an icon.</p>
+</div>
+<div class="paragraph">
+<p>The value of "-1" can be used in place of any of the arguments to
+specify the default value for that dimension.</p>
+</div>
+<div class="paragraph">
+<p>In addition to the numeric arguments, 1 additional argument can be
+"Stretched", "Adjusted", or "Shrunk".</p>
+</div>
+<div class="paragraph">
+<p>Note that module provided icon managers are not affected by this
+style.</p>
+</div>
+<div class="paragraph">
+<p><em>MiniIcon</em> specifies a pixmap to use as the miniature icon for the
+window. This miniature icon can be drawn in a title-bar button (see
+<strong>ButtonStyle</strong>), and can be used by various fvwm modules (<strong>FvwmIconMan</strong>
+and <strong>FvwmPager</strong>). It takes the name of a pixmap as an argument.</p>
+</div>
+<div class="paragraph">
+<p><em>WindowShadeShrinks</em> and <em>WindowShadeScrolls</em> control if the contents
+of a window that is being shaded with the <strong>WindowShade</strong> command are
+scrolled (default) or if they stay in place. The shrinking mode is a
+bit faster</p>
+</div>
+<div class="paragraph">
+<p>The <em>WindowShadeSteps</em> option selects the number of steps for
+animation when shading a window with <strong>WindowShade</strong>. It takes one
+number as its argument. If the number has a trailing '<em>p</em>' it sets the
+number of pixels to use as the step size instead of a fixed number of
+steps. 0 disables the animation. This happens too if the argument is
+omitted or invalid.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>WindowShade</strong> command has two modes of operation: busy and lazy
+shading. Busy shading can be 50% slower than lazy shading, but the
+latter can look strange under some conditions, for example, if the
+window borders, buttons or the title are filled with a tiled pixmap.
+Also, the window handles are not drawn in lazy mode and the border
+relief may only be drawn partially right before the window reaches the
+shaded state or tight after leaves the unshaded state. By default,
+fvwm uses lazy mode if there are no bad visual effects (not counting
+the window handles) and busy mode otherwise. Use the
+<em>WindowShadeAlwaysLazy or WindowShadeBusy</em> to force using the lazy or
+busy mode. The default setting is restored with <em>WindowShadeLazy</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>ResizeOpaque</em> instructs fvwm to resize the corresponding windows with
+their contents visible instead of using an outline. Since this causes
+the application to redraw frequently it can be quite slow and make the
+window flicker excessively, depending on the amount of graphics the
+application redraws. The <em>ResizeOutline</em> style (default) negates the
+<em>ResizeOpaque</em> style. Many applications do not like their windows
+being resized opaque, e.g. XEmacs, Netscape or terminals with a pixmap
+background. If you do not like the result, do not use the
+<em>ResizeOpaque</em> style for these windows. To exempt certain windows from
+opaque resizing you could use these lines in your configuration file:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * ResizeOpaque
+Style rxvt ResizeOutline
+Style emacs ResizeOutline</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>Sticky</em> makes the window sticky, i.e. it is always visible on each
+page and each desk. The opposite style, <em>Slippery</em> reverts back to the
+default.</p>
+</div>
+<div class="paragraph">
+<p><em>StickyIcon</em> makes the window sticky when it&#8217;s iconified. It
+de-iconifies on top the active desktop. <em>SlipperyIcon</em> reverts back to
+the default.</p>
+</div>
+<div class="paragraph">
+<p><em>StickyAcrossPages</em> and <em>StickyAcrossPagesIcon</em> work like <em>Sticky</em> and
+<em>StickyIcon</em>, but stick the window only across pages, not desks while
+<em>StickyAcrossDesks and StickyAcrossDesksIcon</em> works the other way
+round.</p>
+</div>
+<div class="paragraph">
+<p>Windows that have been marked as <em>Sticky</em> or <em>StickyAcrossDesks</em> or
+<em>StickyAcrossPages</em> will have stipples drawn on the titlebar. This can
+be negated with the !<em>StickyStippledTitle</em> style. The style
+<em>StickyStippledTitle</em> puts back the stipples where that window has
+also been marked as <em>Sticky</em>. Note that this is the default style for
+<em>Sticky</em> windows. Sticky icons will have stipples drawn on the icon
+title. This can be disabled in the same way with the
+!<em>StickyStippledIconTitle</em> style.</p>
+</div>
+<div class="paragraph">
+<p>Windows with the <em>StartIconic</em> style are shown as icons initially.
+Note that some applications counteract that by deiconifying
+themselves. The default is to not iconify windows and can be set with
+the <em>StartNormal</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>StickyIcon</em> makes the window sticky when it&#8217;s iconified. It
+de-iconifies on top the active desktop. <em>SlipperyIcon</em> reverts back to
+the default.</p>
+</div>
+<div class="paragraph">
+<p><em>StickyIconPage</em> works like <em>StickyIcon</em>, but sticks the icon only
+across pages, not desks while <em>StickyIconDesk</em> works the other way
+round.</p>
+</div>
+<div class="paragraph">
+<p><em>StippledIconTitle</em> works like <em>StippledTitle</em> in that it draws
+stipples on the titles of icons but doesn&#8217;t make the icon sticky.</p>
+</div>
+<div class="paragraph">
+<p><em>IgnoreRestack</em> makes fvwm ignore attempts of clients to raise or
+lower their own windows. By default, the opposite style,
+<em>AllowRestack</em> is active.</p>
+</div>
+<div class="paragraph">
+<p><em>FixedPosition</em> and <em>FixedUSPosition</em> make fvwm ignore attempts of the
+user to move the window. It is still possible to move the window by
+resizing it. To allow the user to move windows, use the
+<em>VariablePosition</em> or <em>VariableUSPosition</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>FixedSize</em> and <em>FixedUSSize</em> make fvwm ignore attempts of the user to
+resize the window. To allow the user to resize windows, use the
+<em>VariableSize</em> or <em>VariableUSSize</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>FixedPPosition</em> and <em>FixedPSize</em> make fvwm ignore attempts of the
+program to move or resize its windows. To allow this kind of actions,
+use the <em>VariablePPosition</em> or <em>VariablePSize</em> style. These styles may
+sometimes affect the initial placement and dimensions of new windows
+(depending on the application). If windows are created at strange
+places, try either the <em>VariablePPosition</em> or <em>!UsePPosition</em> styles.
+The <em>FixedPSize</em> style may screw up window dimensions for some
+applications. Do Not use this style in this case.</p>
+</div>
+<div class="paragraph">
+<p><em>MoveByProgramMethod</em> affects how fvwm reacts to requests by the
+application to move its windows. By default, fvwm tries to detect
+which method to use, but it sometimes detects the wrong method. You
+may come across a window that travels across the screen by a few
+pixels when the application resizes it, moves to a screen border with
+the frame decorations off screen, that remembers its position for the
+next time it starts but appears in a slighly shifted position, or that
+attepmts to become full screen but has the. Try out both options,
+<em>UseGravity</em> and <em>IgnoreGravity</em> on the window (and that window only)
+and see if that helps. By default, fvwm uses the <em>AutoDetect</em> method.
+Once the method was detected, it is never changed again. As long as
+fvwm can not detect the proper method, it uses <em>IgnoreGravity</em>. To
+force fvwm to retry the detection, use one of the other two options
+first and then use <em>AutoDetect</em> again.</p>
+</div>
+<div class="paragraph">
+<p>Note: This option was introduced to alleviate a problem with the ICCCM
+specification. The ICCCM clearly states that the <em>UseGravity</em> option
+should be used, but traditionally applications ignored this rule.</p>
+</div>
+<div class="paragraph">
+<p><em>Closable</em> enables the functions <strong>Close</strong>, <strong>Delete</strong> and <strong>Destroy</strong> to be
+performed on the windows. This is on by default. The opposite,
+<em>!Closable</em>, inhibits the window to be closed.</p>
+</div>
+<div class="paragraph">
+<p><em>Iconifiable</em> enables the function <strong>Iconify</strong> to be performed on the
+windows. This is on by default. The opposite, <em>!Iconifiable</em>, inhibits
+the window from being iconified.</p>
+</div>
+<div class="paragraph">
+<p><em>Maximizable</em> enables the function <strong>Maximize</strong> to be performed on the
+windows. This is on by default. The opposite, <em>!Maximizable</em>, inhibits
+the window from being maximized.</p>
+</div>
+<div class="paragraph">
+<p><em>AllowMaximizeFixedSize</em> enables the function <strong>Maximize</strong> to be
+performed on windows that are not resizable, unless maximization has
+been disabled either using the style <em>!Maximizable</em> or through WM
+hints. This is on by default. The opposite, <em>!AllowMaximizeFixedSize</em>,
+inhibits all windows that are not resizable from being maximized.</p>
+</div>
+<div class="paragraph">
+<p><em>ResizeHintOverride</em> instructs fvwm to ignore the program supplied
+minimum and maximum size as well as the resize step size (the
+character size in many applications). This can be handy for broken
+applications that refuse to be resized. Do not use it if you do not
+need it. The default (opposite) style is <em>NoResizeOverride</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>MinWindowSize [ width [ p | c ] height [ p | c ] ]</em> Tells fvwm the
+minimum width and height of a window. The values are the percentage of
+the total screen area. If the letter '<em>p</em>' is appended to either of the
+values, the numbers are interpreted as pixels. If the letter '<em>c</em>' is
+appended to either of the values, the numbers are in terms of the client
+window&#8217;s size hints, which can be useful for windows such as terminals to
+specify the number of rows or columns. This command is useful to deal with
+windows that freak out if their window becomes too small. If you omit the
+parameters or their values are invalid, both limits are set to 0 pixels
+(which is the default value).</p>
+</div>
+<div class="paragraph">
+<p><em>MaxWindowSize [ width [ p | c ] height [ p | c ] ]</em> Tells fvwm the
+maximum width and height of a window. The values are the percentage of
+the total screen area. If the letter '<em>p</em>' is appended to either of the
+values, the numbers are interpreted as pixels. If the letter '<em>c</em>' is
+appended to either of the values, the numbers are in terms of the client
+window&#8217;s size hints, which can be useful for windows such as terminals to
+specify the number of rows or columns. This command is useful to force
+large application windows to be fully visible. Neither <em>height</em> nor <em>width</em>
+may be less than 100 pixels. If you omit the parameters or their values
+are invalid, both limits are set to 32767 pixels (which is the default).</p>
+</div>
+<div class="paragraph">
+<p>With <em>IconifyWindowGroups</em> all windows in the same window group are
+iconified and deiconified at once when any window in the group is
+(de)iconified. The default is <em>IconifyWindowGroupsOff</em>, which disables
+this behavior. Although a number of applications use the window group
+hint, it is rarely used in a proper way, so it is probably best to use
+<em>IconifyWindowGroups</em> only for selected applications.</p>
+</div>
+<div class="paragraph">
+<p>The option <em>SnapAttraction</em> affects interactive window movement: If
+during an interactive move the window or icon comes within <em>proximity</em>
+pixels of another the window or icon, it is moved to make the borders
+adjoin. The default of 0 means that no snapping happens. Calling this
+command without arguments turns off snap attraction and restores the
+default behavior. Please refer also to the <em>SnapGrid</em> option.</p>
+</div>
+<div class="paragraph">
+<p>The second argument optional and may be set to one of
+the five following values: With <em>All</em> both icons and windows snap to
+other windows and other icons. <em>SameType</em> lets windows snap only to
+windows, and icons snap only to icons. With <em>Windows</em> windows snap
+only to other windows. Similarly with <em>Icons</em> icons snap only to other
+icons. With <em>None</em> no snapping takes place. This option can be useful
+in conjunction with the thirs argument if you only want to snap
+against the screen edges. The default behavior is <em>All</em>.</p>
+</div>
+<div class="paragraph">
+<p>The third and last optional argument may be set to one of the four
+following values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>With <em>Screen</em> the already snapping icons or windows, which is
+controlled by the second argument, will snap now also to the screen
+edges.</p>
+</li>
+<li>
+<p><em>ScreenWindows</em> snaps only windows to the screen edges.</p>
+</li>
+<li>
+<p><em>ScreenIcons</em> snaps only icons to the screen edges.</p>
+</li>
+<li>
+<p><em>ScreenAll</em> snaps windows and icons to the screen edges.</p>
+</li>
+</ul>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>The option <em>SnapGrid</em> defines an invisible grid on the screen. During
+an interactive move a window or icon is positioned such that its
+location (top left corner) is coincident with the nearest grid point.
+The default <em>x-grid-size</em> and <em>y-grid-size</em> setting are both 1, which
+is effectively no grid all.</p>
+</div>
+<div class="paragraph">
+<p>An interactive move with both <em>SnapGrid</em> and <em>SnapAttraction</em> results
+in the window being moved to be adjacent to the nearest window border
+(if within snap proximity) or grid position. The window moves the
+shortest distance possible to satisfy both <em>SnapGrid</em> and
+<em>SnapAttraction</em>. Note that the x and y coordinates are not coupled.
+For example, a window may snap to another window on the x axis while
+snapping to a grid point on the y axis. Using this style without
+arguments reinstates the default settings.</p>
+</div>
+<div class="paragraph">
+<p>The styles <em>EdgeMoveDelay</em> and <em>EdgeResizeDelay</em> define how hard it
+is to change the desktop viewport by moving or resizing a
+window over the edge of the screen. The parameter tells how many
+milliseconds the pointer must spend on the screen edge before fvwm
+moves the viewport. The command <strong>EdgeScroll</strong> determines how far the
+viewport is scrolled. If -1 is given as the delay, page flipping is
+disabled completely. The defaults are no delay for moving (0) and no
+flipping for resizing (-1). Using these styles without any argument
+restores the default settings. Note that, with</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>EdgeScroll 0 0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>it is still possible to move or resize windows across the edge of the
+current screen. See also <strong>EdgeThickness</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The option <em>EdgeMoveResistance</em> makes it easier to place a window
+directly adjacent to a RandR screen&#8217;s edge. It takes one or two parameters.
+The first parameter tells how many pixels over an outside edge of the
+screen a window&#8217;s edge must move before it actually moves partially off
+the screen. The optional second parameter does the same as the first, but
+for inside edges (shared edge between two RandR monitors). If omitted,
+there is no resistance between inside edges. Note that the center of the
+window being moved determines the screen on which the window should be
+kept. Both values are 0 (no resistance) by default. To restore the defaults,
+the option <em>EdgeMoveResistance</em> can be used without any parameters.</p>
+</div>
+<div class="paragraph">
+<p>The option <em>InitialMapCommand</em> allows for any valid fvwm command or
+function to run when the window is initially mapped by fvwm. Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style MyWindow StartsOnPage 0 0, InitialMapCommand Iconify</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This would hence place the window called <em>MyWindow</em> on page 0 0 for
+the current desk, and immediately run the <strong>Iconify</strong> command on that
+window.</p>
+</div>
+<div class="paragraph">
+<p>Note that should <em>InitialMapCommand</em> be used as a global option for
+all windows, but there is a need that some windows should not have
+this command applied, then an action of <strong>Nop</strong> can be used on those
+windows, as in the following example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * InitialMapCommand Iconify
+Style XTeddy InitialMapCommand Nop</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Window Manager placement</strong></dt>
+<dd>
+<p>Applications can place windows at a particular spot on the screen
+either by window manager hints or a geometry specification. When they
+do neither, then the window manager steps in to find a place for the
+window. Fvwm knows several ways to deal with this situation. The
+default is <em>TileCascadePlacement</em>.</p>
+<div class="paragraph">
+<p><em>PositionPlacement</em> [<em>Center</em>|<em>UnderMouse</em>|<em>move-arguments</em>] When
+used without an argument, new windows are placed in the top left
+corner of the display. With the argument <em>Center</em>, all new window
+appear at the center of the screen, and with <em>UnderMouse</em>, windows are
+centered under the mouse pointer where possible. If the window is
+unable to fit on the screen because the pointer is at the edge of the
+screen, then the window is forced on-screen using this option. If any
+other <em>move-arguments</em> are given, they are interpreted exactly as the
+<strong>Move</strong> command does (with the exception that references to the current
+window position do not work as the window has not been placed yet).</p>
+</div>
+<div class="paragraph">
+<p><em>CascadePlacement</em> automatically place new windows in a cascading
+fashion.</p>
+</div>
+<div class="paragraph">
+<p><em>TileCascadePlacement</em> automatically places new windows in a smart
+location - a location in which they do not overlap any other windows
+on the screen. If no such position can be found <em>CascadePlacement</em> is
+used as a fall-back method.</p>
+</div>
+<div class="paragraph">
+<p><em>TileManualPlacement</em> This is the same as <em>TileCascadePlacement</em>, but
+uses <em>ManualPlacement</em> as the fall-back method.</p>
+</div>
+<div class="paragraph">
+<p><em>MinOverlapPlacement</em> automatically places new windows in a location
+in which the overlapping area in pixels of other windows is minimized.
+By default this placement policy tries to avoid overlapping icons and
+windows on higher layers. This can be configured with the
+<em>MinOverlapPlacementPenalties</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>MinOverlapPercentPlacement</em> is similar to <em>MinOverlapPlacement</em> but
+tries to minimize the overlapped percentages of other windows instead
+of the overlapped area in pixels. This placement policy tries to avoid
+covering other windows completely and tries even harder not to cover
+small windows. This can be configured with the
+<em>MinOverlapPlacementPenalties</em> and
+<em>MinOverlapPercentPlacementPenalties</em> styles.</p>
+</div>
+<div class="paragraph">
+<p><em>MinOverlapPlacementPenalties</em> takes at most 6 positive or null
+decimal arguments:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>normal ontop icon sticky below strut</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>if trailing arguments are missing the default is used which is:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>1 5 10 1 0.05 50</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reset this style to the default values, prefix it with a '!'. This
+style configures the <em>MinOverlapPlacement</em> and
+<em>MinOverlapPercentPlacement</em> placement policy. The <em>normal</em> factor
+affects normal windows, the <em>ontop</em> factor affects windows with a
+greater layer than the window being placed, the <em>icon</em> factor affects
+icons, the <em>sticky</em> factor affects sticky windows, the <em>below</em> factor
+affects windows with a smaller layer than the window being placed, the
+<em>strut</em> factor affects the complement of the EWMH working area if the
+window being placed has the <em>EWMHPlacementUseWorkingArea</em> style and
+windows with an EWMH strut hint (i.e., a "please do not cover me"
+hint) if the window being placed has the
+<em>EWMHPlacementUseDynamicWorkingArea</em> style. These factors represent
+the amount of area that these types of windows (or area) are counted
+as, when a new window is placed. For example, by default the area of
+ontop windows is counted 5 times as much as normal windows. So
+<em>MinOverlapPlacement</em> and <em>MinOverlapPercentPlacement</em> covers 5 times
+as much area of another window before it will cover an ontop window.
+To treat ontop windows the same as other windows, set this to 1. To
+really, really avoid putting windows under ontop windows, set this to
+a high value, say 1000. This style affects the window already mapped
+and not the window which is currently placed. There is one exception
+to this rule: in the case of the window being placed has the
+<em>EWMHPlacementUseWorkingArea</em> style the <em>strut</em> factor affects the
+placed window.</p>
+</div>
+<div class="paragraph">
+<p><em>MinOverlapPercentPlacementPenalties</em> takes at most 4 positive or null
+integer arguments:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>cover_100 cover_95 cover_85 cover_75</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>if trailing arguments are missing the defaults are used which are:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>12 6 4 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reset this style to the default values, prefix it with a '!'. This
+style affects the <em>MinOverlapPercentPlacement</em> placement policy and is
+similar to the <em>MinOverlapPlacementPenalties</em> style. The <em>cover_xx</em>
+factor is used when the window being placed covers at least <em>xx</em>
+percent of the window. This factor is added to the factor determined
+by the <em>MinOverlapPlacementPenalties</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>ManualPlacement</em> (aka active placement). The user is required to
+place every new window manually. The window only shows as a rubber
+band until a place is selected manually. The window is placed when a
+mouse button or any key except <em>Escape</em> is pressed. Escape aborts
+manual placement which places the window in the top left corner of the
+screen. If mouse button 2 is pressed during the initial placement of a
+window (respectively <em>Shift</em> and mouse button 1 in case Mwm emulation
+has been enabled with the <strong>Emulate</strong> command), the user is asked to
+resize the window too.</p>
+</div>
+<div class="paragraph">
+<p>It is possible to define buttons usable to place windows with the
+<strong>Move</strong> command and the special context 'P' for placement (see <strong>Move</strong>
+command). However, you can&#8217;t redefine the way to also resize the
+window other than the way it is affected by the <strong>Emulate</strong> command. The
+button used for placing the window can be checked with the
+<em>PlacedByButton</em> condition (see <strong>Current</strong> command).</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * ManualPlacement
+
+*FvwmEvent: PassID
+*FvwmEvent: add_window GrowDownFunc
+AddToFunc StartFunction
++ I FvwmEvent
+
+AddToFunc GrowDownFunc
++ I windowid $0 (PlacedByButton 3) \
+Resize bottomright keep -0p</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, whenever a window is created and the user presses button 3 to
+finish initial placement, the window is automatically enlarged until
+it hits the bottom screen border.</p>
+</div>
+<div class="paragraph">
+<p><em>Old placement styles</em> DumbPlacement / SmartPlacement /
+SmartPlacementOff, CleverPlacement / CleverPlacementOff,
+ActivePlacement / RandomPlacement, ActivePlacementsHonorsStartsOnPage
+/ ActivePlacementsHonorsStartsOnPageOff are
+still supported but will be removed in the future. The old and new
+styles can be translated according to the following table:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * DumbPlacement, RandomPlacement
+--&gt;
+Style * CascadePlacement
+
+Style * DumbPlacement, ActivePlacement
+--&gt;
+Style * ManualPlacement
+
+Style * SmartPlacement, \
+RandomPlacement, CleverPlacementOff
+--&gt;
+Style * TileCascadePlacement
+
+Style * SmartPlacement, \
+ActivePlacement, CleverPlacementOff
+--&gt;
+Style * TileManualPlacement
+
+Style * SmartPlacement, CleverPlacement
+--&gt;
+Style * MinOverlapPlacement
+
+Style * SmartPlacement, \
+ActivePlacement, CleverPlacement
+--&gt;
+Style * MinOverlapPercentPlacement
+
+Style * ActivePlacementsHonorsStartsOnPage
+--&gt;
+Style * ManualPlacementsHonorsStartsOnPage
+
+Style * ActivePlacementsHonorsStartsOnPageOff
+--&gt;
+Style * ManualPlacementsHonorsStartsOnPageOff</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Placement policy options and window stacking</strong></dt>
+<dd>
+<p><em>!UsePPosition</em> instructs fvwm to ignore the program specified
+position (PPosition hint) when adding new windows. Using PPosition is
+required for some applications, but if you do not have one of those
+it&#8217;s a real headache. Many programs set PPosition to something
+obnoxious like 0,0 (upper left corner). Note: <em>!UsePPosition</em> is
+equivalent to the deprecated option <em>!UsePPosition</em></p>
+<div class="paragraph">
+<p><em>!UseUSPosition</em> works like <em>!UsePPosition</em> but applies suppresses
+using the user specified position indicated by the program (USPosition
+hint). It is generally a bad thing to override the user&#8217;s choice, but
+some applications misuse the USPosition hint to force their windows to
+a certain spot on the screen without the user&#8217;s consent. Note:
+<em>!UseUSPosition</em> is equivalent to the deprecated option <em>!USPosition</em></p>
+</div>
+<div class="paragraph">
+<p><em>NoUseTransientPPosition</em> and <em>UseTransientPPosition</em> work like
+<em>!UsePPosition</em> and <em>UsePPosition</em> but apply only to transient
+windows. Note: <em>!UseTransientPPosition</em> is equivalent to the
+deprecated option <em>!TransientPPosition</em></p>
+</div>
+<div class="paragraph">
+<p><em>NoUseIconPosition</em> instructs fvwm to ignore the program specified
+icon position (IconPosition hint) when iconifying the window. Note:
+<em>!UseIconPosition</em> is equivalent to the deprecated option
+<em>!IconPosition</em></p>
+</div>
+<div class="paragraph">
+<p><em>StartsOnDesk</em> takes a numeric argument which is the desktop number on
+which the window should be initially placed. Note that standard Xt
+programs can also specify this via a resource (e.g. "-xrm '*Desk:
+1'").</p>
+</div>
+<div class="paragraph">
+<p><em>StartsOnPage</em> takes 1, 2, or 3 numeric arguments. If one or three
+arguments are given, the first (or only) argument is the desktop
+number. If three arguments are given, the 2nd and 3rd arguments
+identify the x,y page position on the virtual window. If two arguments
+are given, they specify the page position, and indicate no desk
+preference. If only one argument is given, <em>StartsOnPage</em> functions
+exactly like <em>StartsOnDesk</em>. For those standard Xt programs which
+understand this usage, the starting desk/page can also be specified
+via a resource (e.g., "-xrm '*page: 1 0 2'"). <em>StartsOnPage</em> in
+conjunction with <em>SkipMapping</em> is a useful technique when you want to
+start an app on some other page and continue with what you were doing,
+rather than waiting for it to appear.</p>
+</div>
+<div class="paragraph">
+<p><em>StartsOnScreen</em> takes one argument. It must be a valid RandR name. A
+new window is placed on the specified screen. The default is to place
+windows on the screen that contains the mouse pointer at the time the
+window is created. However, those windows which are not placed by fvwm
+(i.e., those with a USPosition hint from a user specified geometry)
+are normally placed in a position relative to all identified screens.</p>
+</div>
+<div class="paragraph">
+<p><em>StartsOnPageIncludesTransients</em> causes the <em>StartsOnPage</em> style to be
+applied even for transient windows. This is not usually useful, since
+transients are usually pop ups that you want to appear in your visible
+viewport; but occasionally an application uses a transient for
+something like a startup window that needs to be coerced into place.</p>
+</div>
+<div class="paragraph">
+<p><em>ManualPlacementIgnoresStartsOnPage</em> suppresses <em>StartsOnPage</em> or
+<em>StartsOnDesk</em> placement in the event that both <em>ManualPlacement</em> and
+<em>SkipMapping</em> are in effect when a window is created. This prevents
+you from interactively placing a window and then wondering where it
+disappeared to, because it got placed on a different desk or page.
+<em>ManualPlacementHonorsStartsOnPage</em> allows this to happen anyway. The
+option has no effect if <em>SkipMapping</em> is not in effect, because fvwm
+switches to the proper desk/page to perform interactive placement. The
+default is <em>ManualPlacementIgnoresStartsOnPage</em>;
+<em>ManualPlacementHonorsStartsOnPage</em> matches the way the old
+<em>StartsOnDesk</em> style used to handle the situation.</p>
+</div>
+<div class="paragraph">
+<p><em>CaptureHonorsStartsOnPage</em> causes the initial capture (of an already
+existing window) at startup to place the window according to the
+<em>StartsOnPage</em> and <em>StartsOnScreen</em> desk, page and screen
+specification. <em>CaptureIgnoresStartsOnPage</em> causes fvwm to ignore
+these settings (including <em>StartsOnDesk</em>) on initial capture. The
+default is <em>CaptureIgnoresStartsOnPage</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>RecaptureHonorsStartsOnPage</em> causes a window to be placed according
+to, or revert to, the <em>StartsOnPage</em> and <em>StartsOnScreen</em> desk, page
+and screen specification on <strong>Restart</strong>. <em>RecaptureIgnoresStartsOnPage</em>
+causes fvwm to respect the current window position on <strong>Restart</strong>. The
+default is <em>RecaptureIgnoresStartsOnPage</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>Layer</em> accepts one optional argument: a non-negative integer. This is
+the layer the window is put in. If no argument is given, any
+previously set value is deleted and the default layer is implied.</p>
+</div>
+<div class="paragraph">
+<p><em>StaysOnTop</em> puts the window in the top layer. This layer can be
+changed by the command <strong>DefaultLayers</strong>; the default is 6.</p>
+</div>
+<div class="paragraph">
+<p><em>StaysPut</em> puts the window in the put layer. This layer can be changed
+by the command <strong>DefaultLayers</strong>; the default is 4.</p>
+</div>
+<div class="paragraph">
+<p><em>StaysOnBottom</em> puts the window in the bottom layer. This layer can be
+changed by the command <strong>DefaultLayers</strong>; the default is 2.</p>
+</div>
+<div class="paragraph">
+<p><em>StartsLowered</em> instructs fvwm to put the window initially at the
+bottom of its layer rather than the default <em>StartsRaised</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>StartShaded</em> tells fvwm to shade the window. An optional direction
+argument may be given, which can be one of "<em>North</em>", "<em>South</em>",
+"<em>West</em>", "<em>East</em>", "<em>NorthWest</em>", "<em>NorthEast</em>", "<em>SouthWest</em>",
+"<em>SouthEast</em>" or if no direction is given, the default is to shade
+north.</p>
+</div>
+<div class="paragraph">
+<p><em>SkipMapping</em> tells fvwm not to switch to the desk the window is on
+when it gets mapped initially (useful with <em>StartsOnDesk</em> or
+<em>StartsOnPage</em>).</p>
+</div>
+<div class="paragraph">
+<p><em>KeepWindowGroupsOnDesk</em> makes new windows that have the window group
+hint set appear on the same desk as the other windows of the same
+group. Since this behavior may be confusing, the default setting is
+<em>ScatterWindowGroups</em>. The window group hint is ignored when placing
+windows in this case.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Transient windows</strong></dt>
+<dd>
+<p><em>DecorateTransient</em> causes transient windows, which are normally left
+undecorated, to be given the usual fvwm decorations (title bar,
+buttons, etc.). Note that some pop-up windows, such as the xterm
+menus, are not managed by the window manager and still do not receive
+decorations. <em>NakedTransient</em> (the default) causes transient windows
+not to be given the standard decorations. You can only bind keys or
+mouse buttons to the sides and the client part of an undecorated
+window ('S' and ´W' contexts in bindings, see <strong>Mouse</strong> and <em>Key</em>
+commands).</p>
+<div class="paragraph">
+<p>A window with the <em>RaiseTransient</em> style that has transient windows
+raises all its transients when it is raised. The <em>DontRaiseTransient</em>
+style disables this behavior. All windows are then treated as if they
+had no transients.</p>
+</div>
+<div class="paragraph">
+<p>A window with the <em>LowerTransient</em> style that has transient windows
+lowers all its transients when it is lowered. The <em>DontLowerTransient</em>
+style disables this behavior. All windows are then treated as if they
+had no transients.</p>
+</div>
+<div class="paragraph">
+<p>The <em>StackTransientParent</em> style augments <em>RaiseTransient</em> and
+<em>LowerTransient</em> styles. Raising a window with <em>StackTransientParent</em>
+style transfers the raise action to the main window if the window
+being raised is a transient and its main window has <em>RaiseTransient</em>
+style; this effect makes raise on a transient act just like raise on
+its main - the whole group is raised. Similar behavior holds for
+lowering a whole group of transients when the main has
+<em>LowerTransient</em> style. <em>DontStackTransientParent</em> turns this behavior
+off. <em>(Dont)StackTransientParent</em> has no effect if <em>RaiseTransient</em>
+and <em>LowerTransient</em> are not used.</p>
+</div>
+<div class="paragraph">
+<p>A reasonable emulation of Motif raise/lower on transients is possible
+like this</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * RaiseTransient
+Style * LowerTransient
+Style * StackTransientParent</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Extended Window Manager Hints styles</strong></dt>
+<dd>
+<p>To understand the used terminology in this sub section, please read
+the <strong>Extended Window Manager Hints</strong> section.</p>
+<div class="paragraph">
+<p><em>EWMHDonateIcon</em> instructs fvwm to set the application ewmh icon hint
+with the icon that is used by fvwm if the application does not provide
+such hint (and if the icon used by fvwm is not an icon window).
+<em>EWMHDonateMiniIcon</em> does the same thing for mini icons. This allows
+compliant pager, taskbar, iconbox &#8230;&#8203;etc to display the same (mini)
+icons as fvwm. Note that on some hardware (e.g., 8-bit displays) these
+styles can slow down window mapping and that in general only one of
+these styles is needed by a compliant application.
+<em>EWMHDontDonateIcon</em> and <em>EWMHDontDonateMiniIcon</em> restore the defaults
+which are to not set any ewmh (mini) icons hints.</p>
+</div>
+<div class="paragraph">
+<p>By default, if an application provides an ewmh icon hint of small size
+(i.e., height and width less than or equal to 22), then fvwm uses this
+icon as its mini icon. <em>EWMHMiniIconOverride</em> instructs fvwm to ignore
+ewmh icons and to use the mini icon provided by the <em>MiniIcon</em> style.
+<em>EWMHNoMiniIconOverride</em> restores the default.</p>
+</div>
+<div class="paragraph">
+<p><em>EWMHUseStackingOrderHints</em> causes fvwm to use EWMH hints and respect
+EWMH hints which change the window layer.
+<em>EWMHIgnoreStackingOrderHints</em> causes fvwm to ignore EWMH layer hints.</p>
+</div>
+<div class="paragraph">
+<p>An application can ask for some reserved space on the desktop by a
+hint. In the EWMH terminology such a hint is called a strut and it is
+used to compute the working area and may be used for window placement
+and in the maximize command. <em>EWMHIgnoreStrutHints</em> causes fvwm to
+ignore such hints, as <em>EWMHUseStrutHints</em>, causes fvwm to use it which
+is the default.</p>
+</div>
+<div class="paragraph">
+<p><em>EWMHIgnoreStateHints</em> causes fvwm to ignore initial EWMH state hints
+when a new window is mapped. The default <em>EWMHUseStateHints</em> causes
+fvwm to accept such hints.</p>
+</div>
+<div class="paragraph">
+<p><em>EWMHIgnoreWindowType</em> causes fvwm to ignore EWMH window type
+specification. The default <em>!EWMHIgnoreWindowType</em> causes fvwm to
+style windows of specified types as such.</p>
+</div>
+<div class="paragraph">
+<p><em>EWMHMaximizeIgnoreWorkingArea</em> causes fvwm to ignore the EWMH working
+area when it executes a <strong>Maximize</strong> command. With
+<em>EWMHMaximizeUseWorkingArea</em> the EWMH working area is used as with
+<em>EWMHMaximizeUseDynamicWorkingArea</em> the EWMH dynamic working area is
+used (the default).</p>
+</div>
+<div class="paragraph">
+<p><em>EWMHPlacementIgnoreWorkingArea</em> causes fvwm to ignore the EWMH
+working area when it places (or places again) a window. With
+<em>EWMHPlacementUseWorkingArea</em> the EWMH working area is taken in
+account as with <em>EWMHPlacementUseDynamicWorkingArea</em> the EWMH dynamic
+working area is taken in account (the default). Note that with the
+<em>MinOverlapPlacement</em> and <em>MinOverlapPercentPlacement</em> placement
+policy, the way the EWMH (dynamic) working area is taken in account is
+configurable with the <em>MinOverlapPlacementPenalties</em> style.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Miscellaneous</strong></dt>
+<dd>
+<p>The <em>BackingStore</em>, <em>BackingStoreOff</em> and <em>BackingStoreWindowDefault</em>
+determine if the X server uses backing store for the window or not.
+<em>BackingStore</em> means that the X server tries to keep the obscured
+parts of a window in memory. This is usually slower if the client runs
+on the same machine as the X server, but can be much faster if the
+connection is slow (see also <em>SaveUnder</em> below). <em>BackingStoreOff</em>
+disables backing store for the window. By default, fvwm does not
+enable or disable backing store itself but leaves is as the window
+requested it. To revert back to the application&#8217;s choice, use the
+<em>BackingStoreWindowDefault</em> style.</p>
+<div class="paragraph">
+<p>Note: This style is useless if the X server does not allow backing
+store.</p>
+</div>
+<div class="paragraph">
+<p><em>SaveUnder</em> enables the corresponding window attribute in the X
+server. For a window using this style, the X server tries to store the
+graphics below it in memory which is usually slower if the client runs
+on the same machine as the X server. <em>SaveUnder</em> may speed up fvwm if
+the connection to the X server is slow (e.g. over a modem link). To
+disable save under, use the <em>SaveUnderOff</em> style. This is the default.
+See also <em>BackingStore</em> above.</p>
+</div>
+<div class="paragraph">
+<p>Note: This style is useless if the X server does not allow save under.</p>
+</div>
+<div class="paragraph">
+<p><em>ParentalRelativity</em> enables clients that use a background pixmap of
+type <em>ParentRelative</em> to achieve transparency. Fvwm modules that
+support transparent colorsets require this setting. <em>Opacity</em> is the
+default and should be used for all non-transparent clients for better
+performance.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecor</em> makes fvwm attempt to recognize and respect the mwm
+decoration hints that applications occasionally use. To switch this
+style off, use the <em>NoDecorHint</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmFunctions</em> makes fvwm attempt to recognize and respect the mwm
+prohibited operations hints that applications occasionally use.
+<em>HintOverride</em> makes fvwm shade out operations that mwm would
+prohibit, but it lets you perform the operation anyway. <em>NoFuncHint</em>
+allows turns off the mwm hints completely.</p>
+</div>
+<div class="paragraph">
+<p><em>OLDecor</em> makes fvwm attempt to recognize and respect the olwm and
+olvwm hints that many older XView and OLIT applications use. Switch
+this option off with <em>NoOLDecor</em>.</p>
+</div>
+<div class="paragraph">
+<p><em>UseDecor</em> This style is deprecated and will be removed in the future.
+There are plans to replace it with a more flexible solution in
+fvwm-3.0.</p>
+</div>
+<div class="paragraph">
+<p><em>UseDecor</em> accepts one argument: the name of a decor created with
+<strong>AddToDecor</strong>. If no decor name is specified, the "Default" decor is
+used. Windows do not actually contain decors, but are always assigned
+to one. If the decor is later modified with <strong>AddToDecor</strong>, the changes
+are visible for all windows which are assigned to it. The decor for a
+window can be reassigned with <strong>ChangeDecor</strong>.</p>
+</div>
+<div class="paragraph">
+<p><em>UseStyle</em> This style is deprecated and will be removed in the future.
+There are plans to replace it with a more flexible solution in
+fvwm-3.0.</p>
+</div>
+<div class="paragraph">
+<p><em>UseStyle</em> takes one arg, which is the name of another style. That way
+you can have unrelated window names easily inherit similar traits
+without retyping. For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style rxvt UseStyle XTerm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Warning: If a style is built from one or more parent styles and the
+parent styles are changed, the derived style is not modified. To
+achieve this you have to issue the <em>UseStyle</em> line again.</p>
+</div>
+<div class="paragraph">
+<p><em>Unmanaged</em> Windows with the <em>Unmanaged</em> style option are ignored by
+fvwm. They are not decorated, can not be moved or resized, etc. You
+probably want to use <strong>Bugopts RaiseOverUnmanaged</strong> too. This option can
+be turned off with the <em>!Unmanaged</em> style.</p>
+</div>
+<div class="paragraph">
+<p><em>State</em> sets the initial value of one of the 32 user defined states
+which are associated with each window. The state number ranges from 0
+to 31 and must be given as an argument. The states have no meaning in
+fvwm, but they can be checked in conditional commands like <strong>Next</strong> with
+the <em>State</em> condition and manipulated with the <strong>State</strong> command.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># turn on state 11 for xterms ...
+Style xterm State 11
+# ... but not for rxvts.
+Style rxvt !State 11</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Windows with the <em>WindowListSkip</em> styles do not appear in the menu
+that is created with the <strong>WindowList</strong> command or the lists shown in
+modules like <strong>FvwmIconMan</strong>. In the modules, the style can usually be
+ignored with an option. Please refer to the man page of the module in
+question for further information. To disable this feature, use the
+default style <em>WindowListHit</em>.</p>
+</div>
+<div class="paragraph">
+<p>The styles <em>CirculateSkip</em> and <em>CirculateHit</em> control whether the
+window is considered by conditional commands, for example <strong>Next</strong>,
+<em>Prev</em> or <em>All</em>. Windows with <em>CirculateSkip</em>, are never selected by
+conditional commands. However, the styles can be overridden explicitly
+in the condition with the <em>CirculateHit</em>, <em>CirculateHitIcon</em> or
+<em>CirculateHitShaded</em> conditions, and some conditional commands,
+e.g. <strong>Current</strong> and <em>All</em>, do this by default. The styles
+<em>CirculateSkipIcon</em>, <em>CirculateHitIcon</em>, <em>CirculateSkipShaded</em> and
+<em>CirculateHitShaded</em> work like <em>CirculateSkip</em> and <em>CirculateHit</em> but
+apply only to iconic or shaded windows. Note: if multiple &#8230;&#8203;Skip&#8230;&#8203;
+options are combined, windows are only selected if they match none of
+the given conditions. So, with</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * CirculateSkipIcon, CirculateSkipShaded</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>only windows that are neither iconic nor shaded are selected. Note:
+For historical reasons, the conditional commands understand the names
+of these styles as condition names. Take care not to confuse them.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>Examples</strong></dt>
+</dl>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># Change default fvwm behavior to no title-
+# bars on windows! Also define a default icon.
+
+Style *       !Title,                      \
+              Icon unknown1.xpm,           \
+              BorderWidth 4,               \
+              HandleWidth 5
+
+# now, window specific changes:
+Style Fvwm* !Handles, Sticky,              \
+            WindowListSkip,                \
+            BorderWidth 0
+Style FvwmPager   StaysOnTop, BorderWidth 0
+Style *lock       !Handles, Sticky,        \
+                  StaysOnTop, WindowListSkip
+Style xbiff       Sticky, WindowListSkip
+Style FvwmButtons !Handles, Sticky,        \
+                  WindowListSkip
+Style sxpm        !Handles
+
+# Put title-bars back on xterms only!
+Style xterm     Title, Color black/grey
+
+Style rxvt        Icon term.xpm
+Style xterm       Icon rterm.xpm
+Style xcalc       Icon xcalc.xpm
+Style xbiff       Icon mail1.xpm
+Style xmh         Icon mail1.xpm,         \
+                  StartsOnDesk 2
+Style xman        Icon xman.xpm
+Style matlab      Icon math4.xpm,         \
+                  StartsOnDesk 3
+Style xmag        Icon magnifying_glass2.xpm
+Style xgraph      Icon graphs.xpm
+Style FvwmButtons Icon toolbox.xpm
+Style Maker       StartsOnDesk 1
+Style signal      StartsOnDesk 3
+
+# Fire up Netscape on the second desk, in the
+# middle of my 3x3 virtual desktop, and do not
+# bother me with it...
+Style Netscape* SkipMapping,              \
+          StartsOnPage 1 1 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that all properties for a window are or&#8217;ed together. In the above
+example "FvwmPager" gets the property <em>StaysOnTop</em> via an exact window
+name match but also gets <em>!Handles</em>, <em>Sticky</em> and <em>WindowListSkip</em> by
+a match to "Fvwm*". It gets <em>!Title</em> by virtue of a match to "*". If
+conflicting styles are specified for a window, then the last style
+specified is used.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>WindowStyle</strong> <em>options</em></dt>
+<dd>
+<p>sets attributes (styles) on the selected window. The <em>options</em> are
+exactly the same as for the <strong>Style</strong> command.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_window_styles">Window Styles</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>AddButtonStyle</strong> button [<em>state</em>] [<em>style</em>] [-- [!]<em>flag</em> &#8230;&#8203;]</dt>
+<dd>
+<p>Adds a button style to <em>button</em>. <em>button</em> can be a button number, or
+one of "<em>All</em>", "<em>Left</em>" or "<em>Right</em>". <em>state</em> can be "<em>ActiveUp</em>",
+"<em>ActiveDown</em>", "<em>InactiveUp</em>" or "<em>InactiveDown</em>", or "<em>Active</em>" (the
+same as both "ActiveUp" and "ActiveDown") or "<em>Inactive</em>" (the same as
+both "InactiveUp" and "InactiveDown") or any of these 6 with
+"<em>Toggled</em>" prepended. The "Active" states apply to the focused
+window, the "Inactive" ones apply to all other windows. The "Up"
+states apply to the non pressed buttons, the "Down" ones apply to
+pressed buttons. The "Toggled" prefix refers to maximized, shaded or
+sticky windows that have the corresponding <em>MwmDecor&#8230;&#8203;</em> button style
+set. Additionally, the following shortcuts may be used: "<em>AllNormal</em>",
+"<em>AllToggled</em>", "<em>AllActive</em>", "<em>AllInactive</em>", "<em>AllUp</em>",
+"<em>AllDown</em>". They are actually different masks for 4 individual states
+from 8 total. These are supported too: "<em>AllActiveUp</em>",
+"<em>AllActiveDown</em>", "<em>AllInactiveUp</em>", "<em>AllInactiveDown</em>".</p>
+<div class="paragraph">
+<p>If <em>state</em> is omitted, then the style is added to every state. If the
+<em>style</em> and <em>flags</em> are enclosed in parentheses, then multiple <em>state</em>
+definitions can be placed on a single line. <em>Flags</em> for additional
+button styles cannot be changed after definition.</p>
+</div>
+<div class="paragraph">
+<p>Buttons are drawn in the order of definition, beginning with the most
+recent button style, followed by those added with <strong>AddButtonStyle</strong>. To
+clear the button style stack, change style flags, or for descriptions
+of available styles and flags, see the <strong>ButtonStyle</strong> command.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>**ButtonStyle** 1 Pixmap led.xpm -- Top Left
+**ButtonStyle** 1 ActiveDown HGradient 8 grey black
+**ButtonStyle All** --  UseTitleStyle
+AddButtonStyle 1 \
+	ActiveUp (Pixmap a.xpm) \
+	ActiveDown (Pixmap b.xpm -- Top)
+AddButtonStyle 1 Vector 4 50x30@1 70x70@0 30x70@0 50x30@1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Initially for this example all button states are set to a pixmap. The
+second line replaces the "ActiveDown" state with a gradient (it
+overrides the pixmap assigned to it in the line before, which assigned
+the same style to every state). Then, the <em>UseTitleStyle</em> flag is set
+for all buttons, which causes fvwm to draw any styles set with
+<strong>TitleStyle</strong> before drawing the buttons. Finally, <strong>AddButtonStyle</strong> is
+used to place additional pixmaps for both "ActiveUp" and "ActiveDown"
+states and a vector button style is drawn on top of all states.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>AddTitleStyle</strong> [<em>state</em>] [<em>style</em>] [-- [!]<em>flag</em> &#8230;&#8203;]</dt>
+<dd>
+<p>Adds a title style to the title-bar. <em>state</em> can be "<em>ActiveUp</em>",
+"<em>ActiveDown</em>", "<em>InactiveUp</em>" or "<em>InactiveDown</em>", or "<em>Active</em>" (the
+same as both "ActiveUp" and "ActiveDown") or "<em>Inactive</em>" (the same as
+both "InactiveUp" and "InactiveDown") or any of these 6 with "Toggled"
+prepended. If <em>state</em> is omitted, then the style is added to every
+state. If the <em>style</em> and <em>flags</em> are enclosed in parentheses, then
+multiple <em>state</em> definitions can be placed on a single line. This
+command is quite similar to the <strong>AddButtonStyle</strong> command.</p>
+<div class="paragraph">
+<p>Title-bars are drawn in the order of definition, beginning with the
+most recent <strong>TitleStyle</strong>, followed by those added with
+<strong>AddTitleStyle</strong>. To clear the title style stack, change style flags,
+or for the descriptions of available styles and flags, see the
+<strong>TitleStyle</strong> and <strong>ButtonStyle</strong> commands.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>AddToDecor</strong> <em>decor</em></dt>
+<dd>
+<p>This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+<div class="paragraph">
+<p>Add or divert commands to the decor named <em>decor</em>. A decor is a name
+given to the set of commands which affect button styles, title-bar
+styles and border styles. If <em>decor</em> does not exist it is created;
+otherwise the existing <em>decor</em> is modified. Note: Earlier versions
+allowed to use the <strong>HilightColor</strong>, <strong>HilightColorset</strong> and <strong>WindowFont</strong>
+commands in decors. This is no longer possible. Please use the <strong>Style</strong>
+command with the <em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
+</div>
+<div class="paragraph">
+<p>New decors start out exactly like the "default" decor without any
+style definitions. A given decor may be applied to a set of windows
+with the <em>UseDecor</em> option of the <strong>Style</strong> command. Modifying an
+existing decor affects all windows which are currently assigned to it.</p>
+</div>
+<div class="paragraph">
+<p><strong>AddToDecor</strong> is similar in usage to the <strong>AddToMenu</strong> and <strong>AddToFunc</strong>
+commands, except that menus and functions are replaced by
+<strong>ButtonStyle</strong>, <strong>AddButtonStyle</strong>, <strong>TitleStyle</strong>, <strong>AddTitleStyle</strong> and
+<strong>BorderStyle</strong> commands. Decors created with <strong>AddToDecor</strong> can be
+manipulated with <strong>ChangeDecor</strong>, <strong>DestroyDecor</strong>, <strong>UpdateDecor</strong> and the
+<strong>Style</strong> option.</p>
+</div>
+<div class="paragraph">
+<p>The following example creates a decor "FlatDecor" and style
+"FlatStyle". They are distinct entities:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToDecor FlatDecor
++ ButtonStyle All Active (-- flat) Inactive (-- flat)
++ TitleStyle  -- flat
++ BorderStyle -- HiddenHandles NoInset
+
+Style FlatStyle \
+	UseDecor FlatDecor, HandleWidth 4, Colorset 0, HilightColorset 1
+
+Style xterm UseStyle FlatStyle</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An existing window&#8217;s decor may be reassigned with <strong>ChangeDecor</strong>. A
+decor can be destroyed with <strong>DestroyDecor</strong>.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyDecor FlatDecor
+AddToDecor FlatDecor ...
+
+Style FlatStyle UseDecor FlatDecor</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>and now apply the style again:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style xterm UseStyle FlatStyle</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>BorderStyle</strong> <em>state</em> [<em>style</em>] [-- [!]<em>flag</em> &#8230;&#8203;]</dt>
+<dd>
+<p>Defines a border style for windows. <em>state</em> can be either "<em>Active</em>"
+or "<em>Inactive</em>". If <em>state</em> is omitted, then the style is set for both
+states. If the <em>style</em> and <em>flags</em> are enclosed in parentheses, then
+multiple <em>state</em> definitions can be specified per line.</p>
+<div class="paragraph">
+<p><em>style</em> is a subset of the available button styles, and can only be
+<em>TiledPixmap</em> (uniform pixmaps which match the bevel colors work best
+this way) or <em>Colorset</em>. If a '!' is prefixed to any <em>flag</em>, the
+behavior is negated. If <em>style</em> is not specified, then one can change
+flags without resetting the style.</p>
+</div>
+<div class="paragraph">
+<p>The <em>HiddenHandles</em> flag hides the corner handle dividing lines on
+windows with handles (this option has no effect for !<em>Handles</em>
+windows). By default, <em>HiddenHandles</em> is disabled.</p>
+</div>
+<div class="paragraph">
+<p>The <em>NoInset</em> flag supplements <em>HiddenHandles</em>. If given, the inner
+bevel around the window frame is not drawn. If <em>HiddenHandles</em> is not
+specified, the frame looks a little strange.</p>
+</div>
+<div class="paragraph">
+<p><em>Raised</em> causes a raised relief pattern to be drawn (default). <em>Sunk</em>
+causes a sunken relief pattern to be drawn. <em>Flat</em> inhibits the relief
+pattern from being drawn.</p>
+</div>
+<div class="paragraph">
+<p>To decorate the active and inactive window borders with a textured
+pixmap, one might specify:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>BorderStyle Active TiledPixmap marble.xpm
+BorderStyle Inactive TiledPixmap granite.xpm
+BorderStyle Active -- HiddenHandles NoInset</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To clear the style for both states:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>BorderStyle Simple</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To clear for a single state:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>BorderStyle Active Simple</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To unset a flag for a given state:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>BorderStyle Inactive -- !NoInset</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>title-bar buttons can inherit the border style with the
+<em>UseBorderStyle</em> flag (see <strong>ButtonStyle</strong>).</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>ButtonState</strong> [ActiveDown <em>bool</em>] [Inactive <em>bool</em>] [InactiveDown <em>bool</em>]</dt>
+<dd>
+<p>The <strong>ButtonState</strong> command controls which states of the window titles
+and title buttons are used. The default is to use all four states:
+"ActiveUp", "ActiveDown", "InactiveUp" and "InactiveDown" (see
+<strong>ButtonStyle</strong> and <strong>TitleStyle</strong> commands). The <em>bool</em> argument after
+the key word controls if the designated state is used ("True") or not
+("False"). The <em>bool</em> flag is the same as other commands, and not
+limited to just "True" or "False"; "Yes" and "No" may also be used.
+The "ActiveUp" state cannot be deactivated. If no arguments are
+provided or the given arguments are invalid, the default is restored.</p>
+<div class="paragraph">
+<p>If <em>ActiveDown</em> argument is "False", no different button style for the
+pressed down buttons used, instead "ActiveUp" state is used even when
+button is pressed.</p>
+</div>
+<div class="paragraph">
+<p>If <em>Inactive</em> argument is "False", focused and unfocused windows look
+similarly, the corresponding "Active" states are always used.</p>
+</div>
+<div class="paragraph">
+<p>If <em>InactiveDown</em> argument is "False" (only applied when <em>Inactive</em> is
+"True"), the pressed titles and title buttons in non-focused windows
+are drawn using "InactiveUp" or "ActiveUp" states depending on the
+values of the other key words.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>ButtonStyle</strong> button [<em>state</em>] [<em>style</em>] [-- [!]<em>flag</em> &#8230;&#8203;]</dt>
+<dd>
+<p>Sets the button style for a title-bar button. <em>button</em> is the
+title-bar button number between 0 and 9, or one of "<em>All</em>", "<em>Left</em>",
+"<em>Right</em>", or "<em>Reset</em>". Button numbering is described in the <strong>Mouse</strong>
+command section. If the <em>style</em> and <em>flags</em> are enclosed in
+parentheses, then multiple <em>state</em> definitions can be specified per
+line.</p>
+<div class="paragraph">
+<p><em>state</em> refers to which button state should be set. Button states are
+defined as follows: "<em>ActiveUp</em>" and "<em>ActiveDown</em>" refer to the
+un-pressed and pressed states for buttons on active windows; while the
+"<em>InactiveUp</em>" and "<em>InactiveDown</em>" states denote buttons on inactive
+windows. The shortcut "<em>Active</em>" denotes both "ActiveUp" and
+"ActiveDown" states. Shortcut "<em>Inactive</em>" denotes both "InactiveUp"
+and "InactiveDown" states. The similar state names like just
+described, but with the "Toggled" prefix are used instead for title
+buttons which have one of the <em>MwmDecorMax</em>, <em>MwmDecorShade</em>,
+<em>MwmDecorStick</em> or <em>MwmDecorLayer</em> hints, if the window is maximized,
+shaded, sticky or placed on specific layer, respectively.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToDecor Default
++ ButtonStyle 6                   \
+  Vector 4 50x25@1 85x75@0 15x75@0 50x25@1
++ ButtonStyle 6 ToggledActiveUp   \
+  Vector 4 50x75@0 85x25@1 15x25@0 50x75@0
++ ButtonStyle 6 ToggledActiveDown \
+  Vector 4 50x75@0 85x25@1 15x25@0 50x75@0
++ ButtonStyle 6 ToggledInactive   \
+  Vector 4 50x75@0 85x25@1 15x25@0 50x75@0
++ ButtonStyle 6 - MwmDecorShade
+Mouse 0 6 N WindowShade</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Additionally, the following shortcuts may be used: "<em>AllNormal</em>",
+"<em>AllToggled</em>", "<em>AllActive</em>", "<em>AllInactive</em>", "<em>AllUp</em>",
+"<em>AllDown</em>". They are actually different masks for 4 individual states
+from 8 total. These are supported too: "<em>AllActiveUp</em>",
+"<em>AllActiveDown</em>", "<em>AllInactiveUp</em>", "<em>AllInactiveDown</em>".</p>
+</div>
+<div class="paragraph">
+<p>If <em>state</em> is specified, that particular button state is set. If
+<em>state</em> is omitted, every state is set. Specifying a style destroys
+the current style (use <strong>AddButtonStyle</strong> to avoid this).</p>
+</div>
+<div class="paragraph">
+<p>If <em>style</em> is omitted, then state-dependent flags can be set for the
+primary button style without destroying the current style. Examples
+(each line should be considered independent):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle Left -- flat
+ButtonStyle All ActiveUp (-- flat) Inactive (-- flat)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first line sets every state of the left buttons to flat, while the
+second sets only the "ActiveUp" and "Inactive" states of every button
+to flat (only flags are changed; the buttons' individual styles are
+not changed).</p>
+</div>
+<div class="paragraph">
+<p>If you want to reset all buttons to their defaults:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle Reset</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reset the "ActiveUp" button state of button 1 to the default:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle 1 ActiveUp Default</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To reset all button states of button 1 to the default of button number
+2:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle 1 Default 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For any button, multiple <em>state</em> definitions can be given on one line
+by enclosing the <em>style</em> and <em>flags</em> in parentheses. If only one
+definition per line is given the parentheses can be omitted.</p>
+</div>
+<div class="paragraph">
+<p><em>flags</em> affect the specified <em>state</em>. If a '!' is prefixed to any
+<em>flag</em>, its behavior is negated. The available state-dependent flags
+for all styles are described here (the <strong>ButtonStyle</strong> entry deals with
+state-independent flags).</p>
+</div>
+<div class="paragraph">
+<p><em>Raised</em> causes a raised relief pattern to be drawn.</p>
+</div>
+<div class="paragraph">
+<p><em>Sunk</em> causes a sunken relief pattern to be drawn.</p>
+</div>
+<div class="paragraph">
+<p><em>Flat</em> inhibits the relief pattern from being drawn.</p>
+</div>
+<div class="paragraph">
+<p><em>UseTitleStyle</em> causes the given button state to render the current
+title style before rendering the buttons' own styles. The <em>Raised</em>,
+<em>Flat</em> and <em>Sunk</em> <strong>TitleStyle</strong> flags are ignored since they are
+redundant in this context.</p>
+</div>
+<div class="paragraph">
+<p><em>UseBorderStyle</em> causes the button to inherit the decorated
+<strong>BorderStyle</strong> options.</p>
+</div>
+<div class="paragraph">
+<p><em>Raised</em>, <em>Sunk</em> and <em>Flat</em> are mutually exclusive, and can be
+specified for the initial <strong>ButtonStyle</strong> only. <em>UseTitleStyle</em> and
+<em>UseBorderStyle</em> are also mutually exclusive (both can be off
+however). The default is <em>Raised</em> with both <em>UseBorderStyle and
+UseTitleStyle</em> left unset.</p>
+</div>
+<div class="paragraph">
+<p><strong>Important</strong></p>
+</div>
+<div class="paragraph">
+<p>for the "ActiveDown" and "InactiveDown" states: When a button is
+pressed, the relief is inverted. Because of this, to obtain the raised
+look in "ActiveDown" or "InactiveDown" states you must specify the
+opposite of the desired relief (i.e. <em>Sunk</em> for "ActiveDown" or
+"InactiveDown"). This behavior is consistent, but may seem confusing
+at first. The same applies to the "Toggled" states.</p>
+</div>
+<div class="paragraph">
+<p>Button styles are classified as non-destructive, partially
+destructive, or fully destructive. Non-destructive styles do not
+affect the image. Partially destructive styles can obscure some or all
+parts of the underlying image (i.e. <em>Pixmap</em>). Fully destructive
+styles obscure the entire underlying image (i.e. <em>Solid</em> or one of the
+<em>gradient</em> styles). Thus, if stacking styles with <strong>AddButtonStyle</strong> (or
+<strong>AddTitleStyle</strong> for title-bars), use care in sequencing styles to
+minimize redraw.</p>
+</div>
+<div class="paragraph">
+<p>The available styles are:</p>
+</div>
+<div class="paragraph">
+<p><em>Simple</em>, <em>Default</em>, <em>Solid</em>, <em>Colorset</em>, <em>Vector</em>, <em>?Gradient</em>,
+<em>Pixmap</em>, <em>AdjustedPixmap</em>, <em>ShrunkPixmap</em>, <em>StretchedPixmap</em>,
+<em>TiledPixmap</em>, <em>MiniIcon</em></p>
+</div>
+<div class="paragraph">
+<p>The description of these styles and their arguments follow:</p>
+</div>
+<div class="paragraph">
+<p>The <em>Simple</em> style does nothing. There are no arguments, and this
+style is an example of a non-destructive button style.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Default</em> style conditionally accepts one argument: a number which
+specifies the default button number to load. If the style command
+given is <strong>ButtonStyle</strong> or <strong>AddButtonStyle</strong>, the argument is optional
+(if given, it overrides the current button). If a command other than
+<strong>ButtonStyle</strong> or <strong>AddButtonStyle</strong> is used, the number must be
+specified.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Solid</em> style fills the button with a solid color. The relief
+border color is not affected. The color is specified as a single
+argument. This style is fully destructive.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Colorset</em> <em>cs</em> [<em>alpha</em>] style fills the button with the Colorset
+<em>cs</em>. The optional <em>alpha</em> argument is a percentage between 0 and 100.
+It causes fvwm to merge the colorset background onto the button using
+this percentage. If the percentage is 0 the colorset background is
+hidden and if it is 100 the colorset background is fully applied. The
+default is 100. So, the destructiveness depends on the <em>alpha</em>
+argument.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Vector</em> <em>num</em>
+<em>X</em><strong>[</strong><em>offset</em><strong>p]x</strong><em>Y</em><strong>[</strong><em>offset</em><strong>p]@C &#8230;&#8203;</strong>
+style draws a line pattern. Since this is a standard button style, the
+keyword <em>Vector</em> is optional, <em>num</em> is a number of point
+specifications of the form
+<em>X</em><strong>[</strong><em>offset</em><strong>p]x</strong><em>Y</em><strong>[</strong><em>offset</em><strong>p]@C &#8230;&#8203;</strong> <em>X</em>
+and <em>Y</em> are point coordinates inside the button, given in percents
+(from 0 to 100). An optional absolute <em>offset</em> in pixels, can be given
+as "+&lt;offset&gt;p" for a positive or "-&lt;offset&gt;p" for a negative offset.</p>
+</div>
+<div class="paragraph">
+<p><em>C</em> specifies a line color (0 - the shadow color, 1 - the highlight
+color, 2 - the background color, 3 - the foreground color, 4 - only
+move the point, do not draw). The first point color is not used. You
+can use up to 10000 points in a line pattern. This style is partially
+destructive.</p>
+</div>
+<div class="paragraph">
+<p>The specification is a little cumbersome:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle 2 Vector 4 50x30@1 70x70@0 30x70@0 50x30@1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then the button 2 decoration uses a 4-point pattern consisting of a
+line from (x=50,y=30) to (70,70) in the shadow color (@0), and then to
+(30,70) in the shadow color, and finally to (50,30) in the highlight
+color (@1). Is that too confusing? See the fvwm web pages for some
+examples with screenshots.</p>
+</div>
+<div class="paragraph">
+<p>A more complex example of <em>Vector</em>:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle 8 Vector 10 45x65@2 45x75@3 \
+20x75@3 20x50@3 35x50@3 35x65@1 35x25@1 \
+75x25@1 75x65@0 35x65@0
+ButtonStyle 0 Vector 10 45x65@2 45x75@0 \
+20x75@0 20x50@1 45x50@1 45x65@0 75x65@3 \
+75x25@3 35x25@3 35x47@3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The <em>Gradient</em> styles denote color gradients. Fill in the question
+mark with any one of the defined gradient types. Please refer to the
+<strong>Color Gradients</strong> section for a description of the gradient syntax.
+The gradient styles are fully destructive.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Pixmap</em> style displays a pixmap. A pixmap should be specified as
+an argument. For example, the following would give button number 2 the
+same pixmap for all 4 states (2 active and 2 inactive), and button
+number 4 all different pixmaps.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ButtonStyle 2 Pixmap my_pixmap.xpm
+ButtonStyle 4 \
+ActiveUp (Pixmap activeup.xpm) \
+ActiveDown (Pixmap activedown.xpm) \
+Inactive (Pixmap inactiveup.xpm)
+ButtonStyle 4 \
+InactiveDown Pixmap inactivedown.xpm</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The pixmap specification can be given as an absolute or relative
+pathname (see <strong>ImagePath</strong>). If the pixmap cannot be found, the button
+style reverts to <em>Simple</em>. Flags specific to the <em>Pixmap</em> style are
+<em>Left</em>, <em>Right</em>, <em>Top</em>, and <em>Bottom</em>. These can be used to justify the
+pixmap (default is centered for both directions). Pixmap transparency
+is used for the color "None." This style is partially destructive.</p>
+</div>
+<div class="paragraph">
+<p>The <em>AdjustedPixmap</em> style is similar to the <em>Pixmap</em> style. But the
+image is resized to exactly fit the button.</p>
+</div>
+<div class="paragraph">
+<p>The <em>ShrunkPixmap</em> style is similar to the <em>Pixmap</em> style. But if the
+image is bigger than the button the image is resized to fit into the
+button.</p>
+</div>
+<div class="paragraph">
+<p>The <em>StretchedPixmap</em> style is similar to the <em>Pixmap</em> style. But if
+the image is smaller than the button the image is resized to cover the
+button.</p>
+</div>
+<div class="paragraph">
+<p>The <em>TiledPixmap</em> style accepts a pixmap to be tiled as the button
+background. One pixmap is specified as an argument. Pixmap
+transparency is not used. This style is fully destructive.</p>
+</div>
+<div class="paragraph">
+<p>The <em>MiniIcon</em> style draws the window&#8217;s miniature icon in the button,
+which is specified with the <em>MiniIcon</em> option of the <strong>Style</strong> command.
+This button style accepts no arguments. Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style *     MiniIcon mini-bx2.xpm
+Style xterm MiniIcon mini-term.xpm
+Style Emacs MiniIcon mini-doc.xpm
+
+ButtonStyle 1 MiniIcon</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>ButtonStyle</strong> <em>button</em> - [!]<em>flag</em> &#8230;&#8203;</dt>
+<dd>
+<p>Sets state-independent flags for the specified <em>button</em>.
+State-independent flags affect button behavior. Each <em>flag</em> is
+separated by a space. If a '!' is prefixed to the flag then the
+behavior is negated. The special flag <em>Clear</em> clears any existing
+flags.</p>
+<div class="paragraph">
+<p>The following flags are usually used to tell fvwm which buttons should
+be affected by mwm function hints (see <em>MwmFunctions</em> option of the
+<strong>Style</strong> command. This is not done automatically since you might have
+buttons bound to complex functions, for instance.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecorMenu</em> should be assigned to title-bar buttons which display a
+menu. The default assignment is the leftmost button. When a window
+with the <em>MwmFunctions</em> <strong>Style</strong> option requests not to show this
+button, it is hidden.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecorMin</em> should be assigned to title-bar buttons which minimize
+or iconify the window. The default assignment is the second button
+over from the rightmost button. When a window with the <em>MwmFunctions</em>
+<strong>Style</strong> option requests not to show this button, it is hidden.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecorMax</em> should be assigned to title-bar buttons which maximize
+the window. The default assignment is the rightmost button. When a
+window with the <em>MwmFunctions</em> <strong>Style</strong> option requests not to show
+this button, it is hidden. When the window is maximized, the vector
+pattern on the button looks pressed in.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecorShade</em> should be assigned to title-bar buttons which shade
+the window (see <strong>WindowShade</strong> command). When the window is shaded, the
+vector pattern on the button looks pressed in.</p>
+</div>
+<div class="paragraph">
+<p><em>MwmDecorStick</em> should be assigned to title-bar buttons which make the
+window sticky. When the window is sticky, the vector pattern on the
+button looks pressed in.</p>
+</div>
+<div class="paragraph">
+<p>The flag <em>MwmDecorLayer</em> <em>layer</em> should be assigned to title-bar
+buttons which place the window in the layer numbered <em>layer</em>. When the
+window is on that specific layer, the vector pattern on the button
+looks pressed in.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>ChangeDecor</strong> <em>decor</em></dt>
+<dd>
+<p>This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+<div class="paragraph">
+<p>Changes the decor of a window to <em>decor</em>. <em>decor</em> is "Default" or the
+name of a decor defined with <strong>AddToDecor</strong>. If <em>decor</em> is invalid,
+nothing occurs. If called from somewhere in a window or its border,
+then that window is affected. If called from the root window the user
+is allowed to select the target window. <strong>ChangeDecor</strong> only affects
+attributes which can be set using the <strong>AddToDecor</strong> command.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>ChangeDecor CustomDecor1</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>DestroyDecor</strong> [recreate] <em>decor</em></dt>
+<dd>
+<p>This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+<div class="paragraph">
+<p>Deletes the <em>decor</em> defined with <strong>AddToDecor</strong>, so that subsequent
+references to it are no longer valid. Windows using this <em>decor</em>
+revert to the "Default" decor. The optional parameter <em>recreate</em> tells
+fvwm not to throw away the decor completely but to throw away only its
+contents. If the decor is created again later, windows do not use it
+before the <em>UseDecor</em> style is applied again unless the decor was
+destroyed with the <em>recreate</em> option. The decor named "Default" cannot
+be destroyed.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyDecor CustomDecor1</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>TitleStyle</strong> [<em>justification</em>] [Height [<em>num</em>]] [MinHeight [<em>num</em>]]</dt>
+<dd>
+<p>Sets attributes for the title-bar. Justifications can be <em>Centered</em>,
+<em>RightJustified</em> or <em>LeftJustified</em>. <em>Height</em> sets the title bar&#8217;s
+height to an amount in pixels. <em>MinHeight</em> sets the minimal height in
+pixels of the title bar. Defaults are <em>Centered</em>, the window&#8217;s font
+height and no minimal height. To reset the font height to the default
+value, omit the <em>num</em> argument after the <em>Height</em> keyword. The
+<em>MinHeight</em> height is reset by <em>Height</em> or if given with no argument.
+Example:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleStyle LeftJustified Height 24</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>TitleStyle</strong> [<em>state</em>] [<em>style</em>] [-- [!]<em>flag</em> &#8230;&#8203;]</dt>
+<dd>
+<p>Sets the style for the title-bar. See also <strong>AddTitleStyle</strong> and
+<strong>ButtonStyle</strong> <em>state</em> can be one of "<em>ActiveUp</em>", "<em>ActiveDown</em>",
+"<em>InactiveUp</em>", or "<em>InactiveDown</em>". Shortcuts like "<em>Active</em>" and
+"<em>Inactive</em>" are allowed. The states with the "Toggled" prefix are
+allowed too, the title itself does not use "Toggled" states, but these
+states are used for the buttons with <strong>ButtonStyle</strong> <em>UseTitleStyle</em>. If
+<em>state</em> is omitted, then the <em>style</em> is added to every state. If
+parentheses are placed around the <em>style</em> and <em>flags</em>, then multiple
+state definitions can be given per line. <em>style</em> can be omitted so
+that flags can be set while not destroying the current style.</p>
+<div class="paragraph">
+<p>If a '!' is prefixed to any <em>flag</em>, its behavior is negated. Valid
+flags for each state include <em>Raised</em>, <em>Flat</em> and <em>Sunk</em> (these are
+mutually exclusive). The default is <em>Raised</em>. See the note in
+<strong>ButtonStyle</strong> regarding the "<em>ActiveDown</em>" state. Examples:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleStyle ActiveUp HGradient 16 navy black
+TitleStyle \
+ActiveDown (Solid red -- flat) \
+Inactive (TiledPixmap wood.xpm)
+TitleStyle \
+ActiveUp (-- Flat) \
+ActiveDown (-- Raised) \
+InactiveUp (-- Flat) \
+InactiveDown (-- Sunk)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This sets the "ActiveUp" state to a horizontal gradient, the
+"ActiveDown" state to solid red, and the "Inactive" states to a tiled
+wood pixmap. Finally, "ActiveUp" and "InactiveUp" are set to look
+flat, while "ActiveDown" set to be sunk (the <em>Raised</em> flag for the
+"ActiveDown" state causes it to appear sunk due to relief inversion),
+and "InactiveDown" is set to look raised. An example which sets flags
+for all states:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleStyle -- flat</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a flattened look:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>TitleStyle -- flat
+ButtonStyle All Active (-- flat) Inactive (-- flat)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>TitleStyle</strong> accepts all the <strong>ButtonStyle</strong> styles and arguments:</p>
+</div>
+<div class="paragraph">
+<p><em>Simple</em>, <em>Default</em>, <em>Solid</em>, <em>Colorset</em>, <em>Vector</em>, <em>?Gradient</em>,
+<em>Pixmap</em>, <em>AdjustedPixmap</em>, <em>ShrunkPixmap</em>, <em>StretchedPixmap</em>,
+<em>TiledPixmap</em>, <em>MiniIcon</em>.</p>
+</div>
+<div class="paragraph">
+<p>See the <strong>ButtonStyle</strong> command for a description of all these styles
+and their arguments.</p>
+</div>
+<div class="paragraph">
+<p>In addition to these styles <strong>TitleStyle</strong> accepts a powerful
+<em>MultiPixmap</em> option. This allows you to specify different pixmaps,
+colorsets or colors for different parts of the titlebar. Some of them
+are tiled or stretched to fit a particular space; others are discrete
+"transition" images. The definable <em>sections</em> are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>Main</em></dt>
+<dd>
+<p>The full titlebar</p>
+</dd>
+<dt class="hdlist1"><em>LeftMain</em></dt>
+<dd>
+<p>Left of title text</p>
+</dd>
+<dt class="hdlist1"><em>RightMain</em></dt>
+<dd>
+<p>Right of title text</p>
+</dd>
+<dt class="hdlist1"><em>UnderText</em></dt>
+<dd>
+<p>Underneath title text</p>
+</dd>
+<dt class="hdlist1"><em>LeftOfText</em></dt>
+<dd>
+<p>just to the left of the title text</p>
+</dd>
+<dt class="hdlist1"><em>RightOfText</em></dt>
+<dd>
+<p>just to the right of the title text</p>
+</dd>
+<dt class="hdlist1"><em>LeftEnd</em></dt>
+<dd>
+<p>at the far left end of the titlebar (just after left buttons if any)</p>
+</dd>
+<dt class="hdlist1"><em>RightEnd</em></dt>
+<dd>
+<p>at the far right end of the titlebar (just before right buttons if any)</p>
+</dd>
+<dt class="hdlist1"><em>Buttons</em></dt>
+<dd>
+<p>under buttons in case of <em>UseTitleStyle</em></p>
+</dd>
+<dt class="hdlist1"><em>LeftButtons</em></dt>
+<dd>
+<p>under left buttons in case of <em>UseTitleStyle</em></p>
+</dd>
+<dt class="hdlist1"><em>RightButtons</em></dt>
+<dd>
+<p>under right buttons in case of <em>UseTitleStyle</em></p>
+</dd>
+</dl>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>None of these are mandatory except for <em>Main</em> (or, if you do not
+define <em>Main</em> you must define both <em>LeftMain</em> and <em>RightMain</em>). If no
+<em>Buttons</em> pixmaps are defined and <em>UseTitleStyle</em> is specified for one
+or more buttons, <em>Main</em>, <em>LeftMain</em> or <em>RightMain</em> are used as
+appropriate.</p>
+</div>
+<div class="paragraph">
+<p>The syntax for this style type is:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MultiPixmap section style arg, ...</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>continuing for whatever you want to define. The <em>style</em> can be either
+<em>TiledPixmap</em>, <em>AdjustedPixmap</em>, <em>Colorset</em> or <em>Solid</em>. See the
+<strong>ButtonStyle</strong> command for the description of these styles. In the case
+of a transition section, <em>LeftEnd</em>, <em>LeftOfText</em>, <em>RightOfText</em> or
+<em>RightEnd</em>, <em>AdjustedPixmap</em> only resize the pixmap in the "y"
+direction. For the <em>Colorset</em> and <em>Solid</em> styles a width of the half
+of the title bar height is assumed for the transition sections.</p>
+</div>
+<div class="paragraph">
+<p>An example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MultiPixmap Main AdjustedPixmap foo.xpm, \
+      UnderText TiledPixmap bar.xpm, \
+      Buttons Colorset 2</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that the old syntax is still supported: if the style is omitted,
+<em>TiledPixmap</em> is assumed and adding "(stretched)" between the section
+and the file name implies <em>AdjustedPixmap</em>.
+<strong>UpdateDecor</strong> [<em>decor</em>]::
+This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+</div>
+<div class="paragraph">
+<p>This command is kept mainly for backward compatibility. Since all
+elements of a decor are updated immediately when they are changed,
+this command is mostly useless.</p>
+</div>
+<div class="paragraph">
+<p>Updates window decorations. <em>decor</em> is an optional argument which
+specifies the <em>decor</em> to update. If given, only windows which are
+assigned to that particular <em>decor</em> are updated. This command is
+useful, for instance, after a <strong>ButtonStyle</strong>, <strong>TitleStyle</strong> or
+<strong>BorderStyle</strong> (possibly used in conjunction with <strong>AddToDecor</strong>).
+Specifying an invalid decor results in all windows being updated.</p>
+</div>
+</div>
+</div>

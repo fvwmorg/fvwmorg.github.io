@@ -1,0 +1,93 @@
+---
+title: FvwmPrompt manual page
+showtitle: 1
+permalink: /Man/FvwmPrompt/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_prerequisites">Prerequisites</a></li>
+<li><a href="#_comparisons_to_fvwmconsole">Comparisons to FvwmConsole</a></li>
+<li><a href="#_author">Author</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmPrompt - a command-shell for fvwm3</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="verseblock">
+<pre class="content"><em>FvwmPrompt</em> &lt;options&gt;</pre>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>FvwmPrompt</em> accepts the following command-line arguments:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>FvwmPrompt [-p &lt;prompt&gt;]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>FvwmPrompt</em> provides a minimal shell for sending commands to <strong>fvwm3</strong>&#8201;&#8212;&#8201;with
+the history of previous commands remembered for easier repetition.</p>
+</div>
+<div class="paragraph">
+<p>The prompt can be changed, although by default the <em>FvwmPrompt</em> interface
+looks like the following:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>*FvwmPrompt 1.0.1 (1.0.0-49-g845f28d85-dirty)
+
+Press ^D or type 'exit' to end this session
+
+&gt;&gt;&gt;</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_prerequisites">Prerequisites</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>FvwmMFL</em>(1) must be spawned by <strong>fvwm3</strong> otherwise <em>FvwmPrompt</em> will not
+start.  For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc StartFunction I Module FvwmMFL</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_comparisons_to_fvwmconsole">Comparisons to FvwmConsole</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Unlike <em>FvwmConsole</em>, <em>FvwmPrompt</em> doesn&#8217;t need to be spawned via a terminal
+(such as <em>xterm</em>) but acts as a standalone program, and can be run from any
+terminal the user choses.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">Author</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thomas Adam &lt;<a href="mailto:thomas@fvwm.org">thomas@fvwm.org</a>&gt;</p>
+</div>
+</div>
+</div>

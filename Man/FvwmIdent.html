@@ -1,0 +1,140 @@
+---
+title: FvwmIdent manual page
+showtitle: 1
+permalink: /Man/FvwmIdent/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_copyrights">COPYRIGHTS</a></li>
+<li><a href="#_initialization">INITIALIZATION</a></li>
+<li><a href="#_invocation">INVOCATION</a></li>
+<li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmIdent - the Fvwm identify-window module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmIdent is spawned by fvwm, so no command line invocation will work.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The FvwmIdent module prompts the user to select a target window, if the
+module was not launched from within a window context in Fvwm. After
+that, it pops up a window with information about the window which was
+selected.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copyrights">COPYRIGHTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The FvwmIdent program, and the concept for interfacing this module to
+the Window Manager, are all original work by Robert Nation and Nobutaka
+Suzuki.</p>
+</div>
+<div class="paragraph">
+<p>Copyright 1994, Robert Nation and Nobutaka Suzuki. No guarantees or
+warranties or anything are provided or implied in any way whatsoever.
+Use this program at your own risk. Permission to use this program for
+any purpose is given, as long as the copyright is kept intact.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_initialization">INITIALIZATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During initialization, <em>FvwmIdent</em> gets config info from <strong>fvwm</strong>'s module
+configuration database (see <em>fvwm</em>(1), section <strong>MODULE COMMANDS</strong>) to
+determine which colors and font to use.</p>
+</div>
+<div class="paragraph">
+<p>If the FvwmIdent executable is linked to another name, ie ln -s
+FvwmIdent MoreIdentify, then another module called MoreIdentify can be
+started, with a completely different configuration than FvwmIdent,
+simply by changing the keyword FvwmIdent to MoreIdentify. This way
+multiple clutter-reduction programs can be used.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invocation">INVOCATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmIdent can be invoked by binding the action 'Module FvwmIdent' to a
+menu or key-stroke in the .fvwm2rc file. Fvwm will search directory
+specified in the ModulePath configuration option to attempt to locate
+FvwmIdent. Although nothing keeps you from launching FvwmIdent at
+start-up time, you probably don&#8217;t want to. Clicking into the FvwmIdent
+window or pressing a key while it has focus closes FvwmIdent. Pressing
+mouse button 2 in the window restarts FvwmIdent and asks for a new
+window to select.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_options">CONFIGURATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmIdent reads the same .fvwm2rc file as fvwm reads when it starts up,
+and looks for lines as listed below:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">*FvwmIdent: Colorset n</dt>
+<dd>
+<p>Tells the module to use colorset <em>n</em>.</p>
+</dd>
+<dt class="hdlist1">*FvwmIdent: Fore color</dt>
+<dd>
+<p>Tells the module to use <em>color</em> instead of black for text. Switches
+off the Colorset option.</p>
+</dd>
+<dt class="hdlist1">*FvwmIdent: Back color</dt>
+<dd>
+<p>Tells the module to use <em>color</em> instead of white for the window
+background. Switches off the Colorset option.</p>
+</dd>
+<dt class="hdlist1">*FvwmIdent: Font fontname</dt>
+<dd>
+<p>Tells the module to use <em>fontname</em> instead of fixed for text.</p>
+</dd>
+<dt class="hdlist1">*FvwmIdent: MinimalLayer layer</dt>
+<dd>
+<p>FvwmIdent places its window on the layer of a target window. But not
+below the minimal layer. By default, the minimal layer is 4 just like
+the fvwm default layer. If <em>layer</em> is 0, the layer of the target
+window is always used. If <em>layer</em> is "default" or not specified, the
+default behavior is restored. If <em>layer</em> is "none", FvwmIdent is
+placed as a normal window even if the target window is above it.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Robert Nation and Nobutaka Suzuki (<a href="mailto:nobuta-s@is.aist-nara.ac.jp">nobuta-s@is.aist-nara.ac.jp</a>).</p>
+</div>
+</div>
+</div>

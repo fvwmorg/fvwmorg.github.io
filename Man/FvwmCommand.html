@@ -1,0 +1,95 @@
+---
+title: FvwmCommand manual page
+showtitle: 1
+permalink: /Man/FvwmCommand/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_invocation">INVOCATION</a></li>
+<li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand - send commands to fvwm3.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand <em>command</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand allows the user to send commands to fvwm3.  This is useful for
+external use from shell-scripts or other languages.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invocation">INVOCATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand <em>command</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_options">CONFIGURATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand accepts the following command-line arguments:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-c</dt>
+<dd>
+<p>Read and send commands from stdin</p>
+</dd>
+<dt class="hdlist1">-f <em>filename</em></dt>
+<dd>
+<p>Use unix socket (<em>filename</em>) to connect to <em>FvwmMFL</em></p>
+</dd>
+<dt class="hdlist1">-i [infolevel]</dt>
+</dl>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>0 - default
+&gt;0 - print output from FvwmMFL</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-d</dt>
+<dd>
+<p>Print detailed diagnostic messages</p>
+</dd>
+<dt class="hdlist1">-v</dt>
+<dd>
+<p>Print version number.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmCommand is the original work of Miroslav (NsCDE)</p>
+</div>
+</div>
+</div>

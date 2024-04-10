@@ -1,0 +1,2284 @@
+---
+title: fvwm3 manual page
+showtitle: 1
+permalink: /Man/fvwm3/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_anatomy_of_a_window">ANATOMY OF A WINDOW</a></li>
+<li><a href="#_the_virtual_desktop">THE VIRTUAL DESKTOP</a></li>
+<li><a href="#_randr_multi_screen_support">RANDR MULTI-SCREEN SUPPORT</a></li>
+<li><a href="#_desktop_behaviour">DESKTOP BEHAVIOUR</a></li>
+<li><a href="#_initialization">INITIALIZATION</a></li>
+<li><a href="#_compilation_options">COMPILATION OPTIONS</a></li>
+<li><a href="#_icons_and_images">ICONS AND IMAGES</a>
+<ul class="sectlevel2">
+<li><a href="#_svg_rendering_options">SVG rendering options</a></li>
+</ul>
+</li>
+<li><a href="#_modules">MODULES</a></li>
+<li><a href="#_icccm_compliance">ICCCM COMPLIANCE</a></li>
+<li><a href="#_extended_window_manager_hints">EXTENDED WINDOW MANAGER HINTS</a></li>
+<li><a href="#_configuration">CONFIGURATION</a>
+<ul class="sectlevel2">
+<li><a href="#_configuration_files">Configuration Files</a></li>
+<li><a href="#_supplied_configuration">Supplied Configuration</a></li>
+</ul>
+</li>
+<li><a href="#_fonts">FONTS</a>
+<ul class="sectlevel2">
+<li><a href="#_font_names_and_font_loading">Font names and font loading</a></li>
+<li><a href="#_font_and_string_encoding">Font and string encoding</a></li>
+<li><a href="#_font_shadow_effects">Font Shadow Effects</a></li>
+</ul>
+</li>
+<li><a href="#_bi_directional_text">BI-DIRECTIONAL TEXT</a></li>
+<li><a href="#_keyboard_shortcuts">KEYBOARD SHORTCUTS</a></li>
+<li><a href="#_session_management">SESSION MANAGEMENT</a></li>
+<li><a href="#_boolean_arguments">BOOLEAN ARGUMENTS</a></li>
+<li><a href="#_builtin_key_and_mouse_bindings">BUILTIN KEY AND MOUSE BINDINGS</a></li>
+<li><a href="#_command_execution">COMMAND EXECUTION</a>
+<ul class="sectlevel2">
+<li><a href="#_module_and_function_commands">Module and Function Commands</a></li>
+<li><a href="#_delayed_execution_of_commands">Delayed Execution of Commands</a></li>
+</ul>
+</li>
+<li><a href="#_quoting">QUOTING</a></li>
+<li><a href="#_command_expansion">COMMAND EXPANSION</a></li>
+<li><a href="#_scripting_and_complex_functions">SCRIPTING AND COMPLEX FUNCTIONS</a></li>
+<li><a href="#_menu_concepts_and_commands">MENU CONCEPTS AND COMMANDS</a></li>
+<li><a href="#_list_of_fvwm_commands">LIST OF FVWM COMMANDS</a></li>
+<li><a href="#_environment">ENVIRONMENT</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+<li><a href="#_copyright">COPYRIGHT</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm3 - F? Virtual Window Manager for X11</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>fvwm3</strong>
+[<strong>-c</strong> <em>config-command</em>]
+[<strong>-d</strong> <em>displayname</em>]
+[<strong>-f</strong> <em>config-file</em>]
+[<strong>-o</strong> <em>logfile</em>]
+[<strong>-v</strong>]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm is a window manager for X11 optimised for speed.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm is intended to have a small memory footprint and is extremely
+customizable and extendible.  A large <em>virtual desktop</em> and
+<em>multiple disjoint desktops</em> can be used separately or together.
+The virtual desktop pretends that the video screen is really quite
+large, and you can scroll around within the desktop.  The multiple
+disjoint desktops pretend there are really several screens to work
+at, but each screen is completely unrelated to the others.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm provides <em>keyboard accelerators</em> that allow one to perform practically
+all window manager functions, including moving and resizing windows and
+operating the menus, using keyboard shortcuts.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm does not distinguish between configuration and action commands.
+Configuration commands typically set fonts, colors, menu contents, and
+key and mouse function bindings, while action commands do things like
+raising and lowering windows. Fvwm makes no such distinction and allows
+anything to be changed at any time.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These are the command line options that are recognized by fvwm:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-i</strong> | <strong>--clientid</strong> <em>id</em></dt>
+<dd>
+<p>This option is used when fvwm is started by a session manager. Should
+not be used by a user.</p>
+</dd>
+<dt class="hdlist1"><strong>-c</strong> | <strong>--cmd</strong> <em>config-command</em></dt>
+<dd>
+<p>Causes fvwm to use <em>config-command</em> instead of '<strong>Read</strong> <em>config</em>' (or
+'<strong>Read</strong> <em>.fvwm2rc</em>') as its initialization command. (Note that up to 10
+<strong>-f</strong> and <strong>-c</strong> parameters can be given, and they are executed in the
+order specified.)</p>
+<div class="paragraph">
+<p>Any module started by command line arguments is assumed to be a module
+that sends back config commands. All command line modules have to quit
+before fvwm proceeds on to the StartFunction and setting border
+decorations and styles. There is a potential deadlock if you start a
+module other than <strong>FvwmPerl</strong> but there is a timeout
+so fvwm eventually gets going.</p>
+</div>
+<div class="paragraph">
+<p>As an example, starting the pager this way hangs fvwm until the timeout,
+but the following should work well:</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>fvwm -c "AddToFunc StartFunction I Module FvwmPager"</pre>
+</div>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-d</strong> | <strong>--display</strong> <em>displayname</em></dt>
+<dd>
+<p>Manage the display called <em>displayname</em> instead of the name obtained
+from the environment variable <em>$DISPLAY</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-f</strong> <em>config-file</em></dt>
+<dd>
+<p>Causes fvwm to read <em>config-file</em> instead of <em>~/.fvwm/config</em> as its
+initialization file. <em>$FVWM_USERDIR</em> can also be used to change location
+of default user directory <em>~/.fvwm</em>.</p>
+</dd>
+<dt class="hdlist1"><strong>-o</strong> <em>logfile</em></dt>
+<dd>
+<p>Write log messages to <em>logfile</em>.  If <em>logfile</em> is '-', log to the
+console.  (Does not turn on logging, see the <strong>-v</strong> option.)</p>
+</dd>
+<dt class="hdlist1"><strong>-h</strong> | <strong>--help</strong></dt>
+<dd>
+<p>A short usage description is printed.</p>
+</dd>
+<dt class="hdlist1"><strong>-r</strong> | <strong>--replace</strong></dt>
+<dd>
+<p>Try to take over from a previously running wm. This does not work unless
+the other wm is ICCCM2 2.0 compliant.</p>
+</dd>
+<dt class="hdlist1"><strong>-F</strong> | <strong>--restore</strong> <em>state-file</em></dt>
+<dd>
+<p>This option is used when fvwm is started by a session manager. Should
+not be used by a user.</p>
+</dd>
+<dt class="hdlist1"><strong>-V</strong> | <strong>--version</strong></dt>
+<dd>
+<p>Prints the version of fvwm to <em>stderr</em>. Also prints an information about
+the compiled in features as stated at compiletime.</p>
+</dd>
+<dt class="hdlist1"><strong>-C</strong> | <strong>--visual</strong> <em>visual-class</em></dt>
+<dd>
+<p>Causes fvwm to use <em>visual-class</em> for the window borders and menus.
+<em>visual-class</em> can be "StaticGray", "GrayScale", "StaticColor",
+"PseudoColor", "TrueColor" or "DirectColor".</p>
+</dd>
+<dt class="hdlist1"><strong>-I</strong> | <strong>--visualid</strong> <em>id</em></dt>
+<dd>
+<p>Causes fvwm to use <em>id</em> as the visual id for the window borders and
+menus. <em>id</em> can be specified as N for decimal or 0xN for hexadecimal.
+See man page of xdpyinfo for a list of supported visuals.</p>
+</dd>
+<dt class="hdlist1"><strong>-l</strong> | <strong>--color-limit</strong> <em>limit</em></dt>
+<dd>
+<p>Specifies a <em>limit</em> on the colors used in image, gradient and possibly
+simple colors used by fvwm. In fact, fvwm (and all the modules) uses a
+palette with at most <em>limit</em> colors. This option is only useful with
+screens that display 256 colors (or less) with a dynamic visual
+(PseudoColor, GrayScale or DirectColor). The default depends on your X
+server and how you run fvwm. In most case this default is reasonable.
+The <strong>-l</strong> option should be used only if you encounter problems with
+colors. By default, fvwm tries to detect large pre-allocated palettes.
+If such a palette is detected fvwm uses it and a priori the <strong>-l</strong> must
+not be used. Moreover, in this case the <strong>-A</strong> and <strong>-S</strong> options are
+forced. Note that XFree-4.2 pre-allocates 244 colors (if you use a
+driver with Render support) leaving only a few free colors. This may
+lead to some color problems (and nothing can be done). XFree-4.3 or
+better pre-allocate only 85 colors. If no pre-allocated palette is auto
+detected the defaults are as follow:</p>
+<div class="paragraph">
+<p>Display depth 8 (256 colors)</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>PseudoColor: 68 (4x4x4 color cube + 4 grey)
+GrayScale: 64 regular grey
+DirectColor: 32 (3x3x3 color cube + 5 grey)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Display depth 4 (16 colors)</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>PseudoColor: 10 (2x2x2 color cube + 2 grey)
+GrayScale: 8 regular grey
+DirectColor: 10 (2x2x2 color cube + 2 grey)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that if you use a private color map (i.e., fvwm is started with the
+<strong>-C</strong> or the <strong>-I</strong> options), then other defaults are used.</p>
+</div>
+<div class="paragraph">
+<p>Now what to do if you encounter problems with colors? The first thing to
+do is to check if you really cannot run your X server with depth 15, 16
+or better. Check your X server documentation. Note that some hardware
+can support two different depths on the same screen (typically depth 8
+and depth 24). If depth 8 is the default, you can force fvwm to use the
+best depth by using the <strong>-C</strong> option with <em>TrueColor</em> as argument. So now
+we assume that you are forced to run in depth 8 with a dynamic visual
+because your hardware/driver cannot do better or because you need to use
+an application which needs to run under this mode (e.g., because this
+application needs read-write colors). What it should be understand is
+that you have only 256 colors and that all the applications which use
+the default color map must share these colors. The main problem is that
+there are applications which use a lot or even all the colors. If you
+use such application you may have no more free colors and some
+applications (which used only a few colors) may fail to start or are
+unusable. There are three things that can be done (and fvwm does not
+really play a particular role, all applications are concerned). The
+first is to run the applications which waste your (default) color map
+with a private color map. For example, run netscape with the -install
+option, run KDE or QT applications with the --cmap option, use the <strong>-C</strong>
+option for fvwm. The disadvantage of this method is that it is visually
+disturbing (see the <strong>ColormapFocus</strong> command for a better control of the
+color maps switching). The second method is to limit the number of
+colors that the applications use. Again, some applications have options
+to specify a given color limit. With fvwm you may try various values, 61
+(a special "visual" palette), 56 (a 4x4x3 color cube plus 6 grey), 29 (a
+3x3x3 color cube plus 2 grey), 10 or 9. Also, you may use the <strong>-L</strong>
+option. However, limiting the number of colors is not the definitive
+solution. The definitive solution is to try cause applications which use
+a lot of colors use the same colors. This is a difficult task as there
+are no formal standards for this goal. However, some toolkits as QT and
+GTK use color cubes as palettes. So, the idea is to configure your
+applications/toolkits to all use the same color cube. Moreover, you can
+use the colors in this color cube in your X resources configuration
+files and/or as arguments to colors options. Fvwm can use any color cube
+of the form RxGxB with 2 &#8656; R &#8656; 6, R = G, R-1 =&lt; B &#8656; R and B &gt;= 2. To
+get an RxGxB color cube give an argument to <strong>-l</strong> an integer c &gt;= R*G*B
+and &lt; (R+1)<strong>(G+1)*B if B=R and &lt; R*G</strong>(B+1) if B &lt; R (and different from
+61). If c &gt; R*G*B, then some grey may be added to the color cube. You
+can use the <strong>PrintInfo</strong> <em>Colors</em> [<em>1</em>] command to get information on
+your fvwm colors setting. In particular, this command prints the palette
+used by fvwm in rgb format (the last integer gives the number of times
+fvwm has allocated the colors).</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>-L</strong> | <strong>--strict-color-limit</strong></dt>
+<dd>
+<p>If the screen displays 256 colors (or less) and has a dynamic visual,
+causes fvwm to use its palette for all the colors. By default, the
+palette is used only for images and gradients.</p>
+</dd>
+<dt class="hdlist1"><strong>-P</strong> | <strong>--visual-palette</strong></dt>
+<dd>
+<p>If the screen displays 256 colors (or less) and has a dynamic visual,
+this option causes fvwm to use a palette designed for limiting the
+"visual" color distance between the points of the palette. Moreover, for
+better color sharing, if possible colors with a name in the X rgb data
+base are used for defining the colors (with the hope that applications
+and images prefer to use named colors). If the <strong>-l</strong> option is not used
+this palette has 61 colors. This palette is also automatically selected
+if 61 or 9 is used as argument to the <strong>-l</strong> option.</p>
+</dd>
+<dt class="hdlist1"><strong>-A</strong> | <strong>--allocate-palette</strong></dt>
+<dd>
+<p>If the screen displays 256 colors (or less) and has a dynamic visual
+this option causes fvwm to allocate all the colors of its palette at
+start up for reserving these colors for future use. This option forces
+the <strong>-static-palette</strong> option. By default, fvwm allocates (reserves) a
+color in its palette only if it needs this color.</p>
+</dd>
+<dt class="hdlist1"><strong>-S</strong> | <strong>--static-palette</strong></dt>
+<dd>
+<p>If the screen displays 256 colors (or less) and has a dynamic visual
+this option causes fvwm to never free the colors in its palette. By
+default, when fvwm does not need a color any more it frees this color so
+that a new color can be used. This option may speed up image loading and
+save a few bits of memory.</p>
+</dd>
+<dt class="hdlist1"><strong>--debug-stack-ring</strong></dt>
+<dd>
+<p>Enables stack ring debugging. This option is only intended for internal
+debugging and should only be used by developers.</p>
+</dd>
+<dt class="hdlist1"><strong>-v</strong> | <strong>--verbose</strong></dt>
+<dd>
+<p>Enables debug logging. Writes in append mode to fvwm log file, which is
+~/.fvwm/fvwm3-output.log by default. See ENVIRONMENT section on how to
+override this location on fvwm3 startup using <em>$FVWM_USERDIR</em> or
+<em>$FVWM3_LOGFILE</em> .</p>
+<div class="paragraph">
+<p>Logging can also be dynamically toggled on and off using signals:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>SIGUSR1 : used as a signal to restart Fvwm
+SIGUSR2 : used as a signal to toggle opening/closing debug log file</pre>
+</div>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_anatomy_of_a_window">ANATOMY OF A WINDOW</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm puts a decorative border around most windows. This border consists
+of a bar on each side and a small L-shaped section on each corner. There
+is an additional top bar called the title-bar which is used to display
+the name of the window. In addition, there are up to 10 title-bar
+buttons. The top, side, and bottom bars are collectively known as the
+side-bars. The corner pieces are called the frame.</p>
+</div>
+<div class="paragraph">
+<p>With the built-in minimal configuration, dragging mouse button 1 in the
+frame or side-bars begins a resize operation on the window. Dragging
+mouse button 2 in the frame or side-bars begins a move operation. There
+are raise/lower operations bound to a single clicking on borders.
+Similarly for the window title.</p>
+</div>
+<div class="paragraph">
+<p>Up to ten title-bar buttons may exist. Their use is completely user
+definable. One popular configuration uses one button on the left that is
+used to bring up a list of window options and two buttons on the right
+used to iconify and maximize the window. Another popular configuration
+adds a close button to the right. The number of title-bar buttons used
+depends on which ones have mouse actions bound to them. See the <strong>Mouse</strong>
+command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_virtual_desktop">THE VIRTUAL DESKTOP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm provides multiple virtual desktops for users who wish to use them.
+The screen is a viewport onto a <em>desktop</em> which may be larger than the
+screen. Several distinct desktops can be accessed (concept: one desktop
+for each project, or one desktop for each application, when view
+applications are distinct). Since each desktop can be larger than the
+physical screen, divided into m by n <em>pages</em> which are each the size of
+the physical screen, windows which are larger than the screen or large
+groups of related windows can easily be viewed.</p>
+</div>
+<div class="paragraph">
+<p>The (m by n) size (i.e. number of pages) of the virtual desktops can be
+changed any time, by using the <strong>DesktopSize</strong> command. All virtual
+desktops must be (are) the same size. The total number of distinct
+desktops does not need to be specified, but is limited to approximately
+4 billion total. All windows on a range of desktops can be viewed in the
+<strong>FvwmPager</strong>, a miniature view of the desktops. The pager is an accessory
+program, called a module, which is not essential for the window manager
+to operate. Windows may also be listed using the <strong>WindowList</strong> command or
+the <strong>FvwmIconMan</strong> module.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm keeps the windows on the desktop in a layered stacking order; a
+window in a lower layer never obscures a window in a higher layer. The
+layer of a window can be changed by using the <strong>Layer</strong> command. The
+concept of layers is a generalization of the <em>StaysOnTop</em> flag of older
+fvwm versions. The <em>StaysOnTop</em> and <em>StaysPut</em> <strong>Style</strong> options are now
+implemented by putting the windows in suitable layers and the previously
+missing <em>StaysOnBottom</em> <strong>Style</strong> option has been added.</p>
+</div>
+<div class="paragraph">
+<p><em>Sticky</em> windows are windows which transcend the virtual desktop by
+"Sticking to the screen&#8217;s glass". They always stay put on the screen.
+This is convenient for things like clocks and xbiffs, so you only need
+to run one such gadget and it always stays with you. Icons can also be
+made to stick to the glass, if desired.</p>
+</div>
+<div class="paragraph">
+<p>Window geometries are specified relative to the current viewport. That
+is:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -geometry +0+0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>creates a window in the upper left hand corner of the visible portion of
+the screen. It is permissible to specify geometries which place windows
+on the virtual desktop, but off the screen. For example, if the visible
+screen is 1000 by 1000 pixels, and the desktop size is 3x3, and the
+current viewport is at the upper left hand corner of the desktop,
+invoking:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -geometry +1000+1000</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>places a window just off of the lower right hand corner of the screen.
+It can be found by moving the mouse to the lower right hand corner of
+the screen and waiting for it to scroll into view. A geometry specified
+as something like:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -geometry -5-5</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>places the window&#8217;s lower right hand corner 5 pixels from the lower
+right corner of the visible portion of the screen. Not all applications
+support window geometries with negative offsets. Some applications place
+the window&#8217;s upper right hand corner 5 pixels above and to the left of
+the upper left hand corner of the screen; others may do just plain
+bizarre things.</p>
+</div>
+<div class="paragraph">
+<p>There is a fvwm-specific extension to geometry strings which can also
+enforce the geometry is relative to the given screen.  For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -geometry +0+0@n</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Where 'n' can be one of a RandR monitor name, or an assigned monitor number.
+For more details, see the RANDR SUPPORT section.</p>
+</div>
+<div class="paragraph">
+<p>There are several ways to cause a window to map onto a desktop or page
+other than the currently active one. The geometry technique mentioned
+above (specifying x,y coordinates larger than the physical screen size),
+however, suffers from the limitation of being interpreted relative to
+the current viewport: the window may not consistently appear on a
+specific page, unless you always invoke the application from the same
+page.</p>
+</div>
+<div class="paragraph">
+<p>A better way to place windows on a different page, screen or desk from
+the currently mapped viewport is to use the <em>StartsOnPage</em> or
+<em>StartsOnScreen</em> style specification (the successors to the older
+<em>StartsOnDesk</em> style) in your <em>config</em> file. The placement is
+consistent: it does not depend on your current location on the virtual
+desktop.</p>
+</div>
+<div class="paragraph">
+<p>Some applications that understand standard Xt command line arguments and
+X resources, like xterm and xfontsel, allow the user to specify the
+start-up desk or page on the command line:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -xrm "*Desk:1"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>starts an xterm on desk number 1;</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xterm -xrm "*Page:3 2 1"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>starts an xterm two pages to the right and one down from the upper left
+hand page of desk number 3. Not all applications understand the use of
+these options, however. You could achieve the same results with the
+following lines in your <em>.Xdefaults</em> file:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>XTerm*Desk: 1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>XTerm*Page: 3 2 1</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_randr_multi_screen_support">RANDR MULTI-SCREEN SUPPORT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm best supports multiple screens using the RandR X11 protocol. If
+fvwm isn&#8217;t built with the RandR protocol then the multi screen support
+is very limited, and it is suggested to rebuild with RandR. It is also
+recommended to use 'EdgeScroll 0 0' on multi-screen displays to avoid
+changing pages when moving the mouse between screens.</p>
+</div>
+<div class="paragraph">
+<p>If Fvwm has been compiled with RandR support then it tracks the outputs
+(displays) which it finds. These outputs are stored by name, which can be
+found by running using the xrandr(1) command.</p>
+</div>
+<div class="paragraph">
+<p>When Fvwm detects monitors, it adds them to a tree with a defined order, and
+each monitor is assigned a number.  That order is top-down, left-to-right, so
+for example, the following diagram illustrates a monitor layout and their
+assigned number.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>A (0)
+B (1)   C (2)    D (3)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Hence it is possible to then refer to the 2nd monitor and print its name via
+expansion variables as:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>$[monitor.1.name]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Which would print the name, <strong>B</strong>.</p>
+</div>
+<div class="paragraph">
+<p>In doing so, Fvwm tracks events from RandR, such as when a given output
+changes size, or has been added or removed.</p>
+</div>
+<div class="paragraph">
+<p>In addition to specific <strong>FvwmEvent</strong> conditions which can be used to track a
+monitor&#8217;s change, there is a function called <em>RandRFunc</em> which the user can
+define to be run when a screen event occurs (such as
+enabling/disabling/resolution change):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyFunc RandRFunc
+AddToFunc   RandRFunc
++ I Exec exec xmessage "A screen changed"</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_desktop_behaviour">DESKTOP BEHAVIOUR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Because Fvwm has the capability to track outputs, Fvwm can be told how
+to handle those. This is controlled via the <strong>DesktopConfiguration</strong>
+command. By default, Fvwm treats all outputs it finds as one large
+screen, although Fvwm can be told to treat screens independently of each
+other.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_initialization">INITIALIZATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>During initialization, fvwm searches for a configuration file which
+describes key and button bindings, and many other things. The format of
+these files is described later. Fvwm first searches for configuration
+files using the command</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Read config</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This looks for file <em>config</em> in <em>$FVWM_USERDIR</em> and <em>$FVWM_DATADIR</em>
+directories, as described in <strong>Read</strong>. If this fails more files are
+queried for backward compatibility. Here is the complete list of all
+file locations queried in the default installation (only the first found
+file is used):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>$HOME/.fvwm/config
+/usr/local/share/fvwm/config
+
+$HOME/.fvwm/.fvwm2rc
+$HOME/.fvwm2rc
+/usr/local/share/fvwm/.fvwm2rc
+/usr/local/share/fvwm/system.fvwm2rc
+/etc/system.fvwm2rc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Please note, the last 5 locations are not guaranteed to be supported in
+the future.</p>
+</div>
+<div class="paragraph">
+<p>If a configuration file is not found, the left mouse button, or</p>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="paragraph">
+<p>keys on the root window bring up menus and forms that can create a
+starting configuration file.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm sets two environment variables which are inherited by its children.
+These are <em>$DISPLAY</em> which describes the display on which fvwm is
+running. <em>$DISPLAY</em> may be <em>unix:0.0</em> or <em>:0.0</em>, which doesn&#8217;t work too
+well when passed through ssh to another machine, so <em>$HOSTDISPLAY</em> is
+set to a network-ready description of the display. <em>$HOSTDISPLAY</em> always
+uses the TCP/IP transport protocol (even for a local connection) so
+<em>$DISPLAY</em> should be used for local connections, as it may use
+Unix-domain sockets, which are faster.</p>
+</div>
+<div class="paragraph">
+<p>If you want to start some applications or modules with fvwm, you can
+simply put</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Exec app</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmXxx</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>into your <em>config</em>, but it is not recommended; do this only if you know
+what you are doing. It is usually important to start applications or
+modules after the entire config is read, because it contains styles or
+module configurations which can affect window appearance and
+functionality.</p>
+</div>
+<div class="paragraph">
+<p>The standard way to start applications or modules on fvwm&#8217;s start up is
+to add them to an initialization function (usually <strong>StartFunction</strong> or
+<strong>InitFunction</strong>). This way they are only started after fvwm finishes to
+read and execute <em>config</em> file.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm has three special functions for initialization: <strong>StartFunction</strong>,
+which is executed on startups and restarts; <strong>InitFunction</strong> and
+<strong>RestartFunction</strong>, which are executed during initialization and restarts
+(respectively) just after StartFunction. These functions may be
+customized in a user&#8217;s <em>config</em> file using the <strong>AddToFunc</strong> command
+(described later) to start up modules, xterms, or whatever you&#8217;d like to
+have started by fvwm.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm has also a special exit function: <strong>ExitFunction</strong>, executed when
+exiting or restarting before actually quitting. It could be used to
+explicitly kill modules, etc.</p>
+</div>
+<div class="paragraph">
+<p>If fvwm is run under a session manager, functions <strong>SessionInitFunction</strong>
+and <strong>SessionRestartFunction</strong> are executed instead of InitFunction and
+RestartFunction. This helps to define the user&#8217;s <em>config</em> file to be
+good for both running under a session manager and without it. Generally
+it is a bad idea to start xterms or other applications in "Session*"
+functions. Also someone can decide to start different modules while
+running under a session manager or not. For the similar purposes
+<strong>SessionExitFunction</strong> is used instead of ExitFunction.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyFunc StartFunction
+AddToFunc StartFunction
+ + I Module FvwmPager * *
+ + I Module FvwmButtons
+
+DestroyFunc InitFunction
+AddToFunc InitFunction
+ + I Module FvwmBanner
+ + I Module FvwmIconMan
+ + I Exec xsetroot -solid cyan
+ + I Exec xterm
+ + I Exec netscape
+
+DestroyFunc RestartFunction
+AddToFunc RestartFunction
+ + I Module FvwmIconMan
+
+DestroyFunc SessionInitFunction
+AddToFunc SessionInitFunction
+ + I Module FvwmBanner
+
+DestroyFunc SessionRestartFunction
+AddToFunc SessionRestartFunction
+ + I Nop</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You do not need to define all special functions if some are empty. Also
+note, all these special functions may be emulated now using
+<strong>StartFunction</strong> and <strong>ExitFunction,</strong> like this:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyFunc StartFunction
+AddToFunc StartFunction
++ I Test (Init) Module FvwmBanner
++ I Module FvwmPager * *
++ I Test (Restart) Beep
+
+DestroyFunc ExitFunction
+AddToFunc ExitFunction
++ I Test (Quit) Echo Bye-bye
++ I KillModule MyBuggyModule
++ I Test (ToRestart) Beep</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_compilation_options">COMPILATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm has a number of compile-time options. If you have trouble using a
+certain command or feature, check to see if support for it was included
+at compile time. Optional features are described in the <em>config.h</em> file
+that is generated during compilation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_icons_and_images">ICONS AND IMAGES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm can load <strong>.xbm,</strong> <strong>.xpm,</strong> <strong>.png</strong> and <strong>.svg</strong> images. <strong>XBM</strong> images are
+monochrome. Fvwm can always display <strong>XBM</strong> files. <strong>XPM</strong> and <strong>PNG</strong> formats
+are color images. SVG is a vector graphics image format. Compile-time
+options determine whether fvwm can display <strong>XPM</strong>, <strong>PNG</strong> or <strong>SVG</strong> icons
+and images. See the <em>INSTALL.fvwm</em> file for more information.</p>
+</div>
+<div class="paragraph">
+<p>The related <strong>SHAPE</strong> compile-time option can make fvwm display spiffy
+shaped icons.</p>
+</div>
+<div class="sect2">
+<h3 id="_svg_rendering_options">SVG rendering options</h3>
+<div class="paragraph">
+<p>SVG images are generated from (XML) text files. A really simple SVG file
+might look something like this:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>&lt;svg width="120" height="80"&gt;
+&lt;rect fill="red"     width="40" height="40"  x="0"   y="0"  /&gt;
+&lt;rect fill="lime"    width="40" height="40"  x="40"  y="0"  /&gt;
+&lt;rect fill="blue"    width="40" height="40"  x="80"  y="0"  /&gt;
+&lt;rect fill="cyan"    width="40" height="40"  x="0"   y="40" /&gt;
+&lt;rect fill="magenta" width="40" height="40"  x="40"  y="40" /&gt;
+&lt;rect fill="yellow"  width="40" height="40"  x="80"  y="40" /&gt;
+&lt;/svg&gt;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>By default, SVG images are rendered as the image creator intended them
+to. But since SVG is a vector graphics format, the images can be
+rendered at any chosen size and rotation, e.g. making it possible to use
+the same icon file rendered at different sizes for the <em>Icon</em> and
+<em>MiniIcon</em> styles.</p>
+</div>
+<div class="paragraph">
+<p>The rendering options are specified as a string appended to the SVG
+filename as follows:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>_image.svg_:[!] [(1) _size_] [(2) _position_] [(3) _rotation_] [(4)
+_scale_] ...
+
+{empty}(1) [-]_width_{x}[-]_height_
+
+{empty}(2) {- | +}_xpos_{- | +}_ypos_
+
+{empty}(3) @[-]_angle_
+
+{empty}(4) {* | }[-]_factor_[x | y]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The option string always starts with a colon (':') to separate it from
+the filename. An empty option string can skip this colon, but it might
+still be a good idea to include it to prevent ambiguity if the filename
+contains any colon.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>filename_without_colon.svg
+filename:with:colon.svg:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>An exclamation point ('!') transposes the entire final image (including
+the rendering area), i.e. all the horizontal and all the vertical
+coordinates are swapped with each other.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:!</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>width</em> and <em>height</em> specifies the dimensions of the rendering area in
+pixels, i.e. the dimensions of the resulting image. The actual image is
+fitted to fill the entire rendering area.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:60x60</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use a <em>width</em> or <em>height</em> value of 0 to keep the aspect ratio.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:0x60
+image.svg:60x0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A '-' before <em>width</em> mirrors the rendering area horizontally.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:-0x0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A '-' before <em>height</em> mirrors the rendering area vertically.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:0x-0</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>xpos</em> and <em>ypos</em> specifies a translation of the image in pixels. A
+positive <em>xpos</em> value moves the image to the right. A positive <em>ypos</em>
+value moves it down. Moving it partially outside of the rendering area
+results in a cropped image.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:-30-0
+image.svg:-0+10
+image.svg:-30+10</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>angle</em> specifies a rotation around the actual image center in degrees.
+This might result in a cropped image. A positive value rotates the image
+clockwise. Floating point values are recognized.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:@180
+image.svg:@-90
+image.svg:@30
+image.svg:@57.3</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>factor</em> specifes a scaling of the actual image (not the rendering
+area). Scaling it up results in a cropped image. Floating point values
+are recognized. Division by zero is ignored. If <em>factor</em> is directly
+followed by a 'x' or a 'y', the scaling is horizontal or vertical
+respectively. Otherwise the scaling is uniform.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:*2
+image.svg:/2
+image.svg:/3x
+image.svg:/2y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Scaling down a translated or rotated image can prevent cropping.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:@30*0.6</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Repeated usage of translation, rotation, and scaling is allowed.
+Translation and rotation are additive. Scaling is multiplicative.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:*2/3
+image.svg:/3x/2y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When combining affine transformations, the scaling is always done first,
+then the rotation, and finally the translation.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:-30+10@30/3x/2y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Use a negative scale <em>factor</em> to mirror the actual image.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:-30+10@30/-3x/2y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Mirroring of the rendering area is done after any scaling, rotation or
+translation of the image.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:-0x0-30+10@30/3x/2y</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Transposing is done last of all, after everything else.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>image.svg:!-0x0-30+10@30/3x/2y</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_modules">MODULES</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A module is a separate program which runs as a separate Unix process but
+transmits commands to fvwm to execute. Users can write their own modules
+to do any weird or bizarre manipulations without bloating or affecting
+the integrity of fvwm itself.</p>
+</div>
+<div class="paragraph">
+<p>Modules must be spawned by fvwm so that it can set up two pipes for fvwm
+and the module to communicate with. The pipes are already open for the
+module when it starts and the file descriptors for the pipes are
+provided as command line arguments.</p>
+</div>
+<div class="paragraph">
+<p>Modules can be spawned by fvwm at any time during the X session by use
+of the <strong>Module</strong> command. Modules can exist for the duration of the X
+session, or can perform a single task and exit. If the module is still
+active when fvwm is told to quit, then fvwm closes the communication
+pipes and waits to receive a SIGCHLD from the module, indicating that it
+has detected the pipe closure and has exited. If modules fail to detect
+the pipe closure fvwm exits after approximately 30 seconds anyway. The
+number of simultaneously executing modules is limited by the operating
+system&#8217;s maximum number of simultaneously open files, usually between 60
+and 256.</p>
+</div>
+<div class="paragraph">
+<p>Modules simply transmit commands to the fvwm command engine. Commands
+are formatted just as in the case of a mouse binding in the <em>config</em>
+setup file. Certain auxiliary information is also transmitted, as in the
+sample module <strong>FvwmButtons</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong>Module Commands</strong> section for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_icccm_compliance">ICCCM COMPLIANCE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm attempts to be ICCCM 2.0 compliant. Check
+<em><a href="http://tronche.com/gui/x/icccm/" class="bare">http://tronche.com/gui/x/icccm/</a></em> for more info. In addition, ICCCM
+states that it should be possible for applications to receive any
+keystroke, which is not consistent with the keyboard shortcut approach
+used in fvwm and most other window managers. In particular you cannot
+have the same keyboard shortcuts working with your fvwm and another fvwm
+running within Xnest (a nested X server running in a window). The same
+problem exists with mouse bindings.</p>
+</div>
+<div class="paragraph">
+<p>The ICCCM states that windows possessing the property</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>WM_HINTS(WM_HINTS):
+Client accepts input or input focus: False</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>should not be given the keyboard input focus by the window manager.
+These windows can take the input focus by themselves, however. A number
+of applications set this property, and yet expect the window manager to
+give them the keyboard focus anyway, so fvwm provides a window style,
+<em>Lenience</em>, which allows fvwm to overlook this ICCCM rule. Even with
+this window style it is not guaranteed that the application accepts
+focus.</p>
+</div>
+<div class="paragraph">
+<p>The differences between ICCCM 1.1 and 2.0 include the ability to take
+over from a running ICCCM 2.0 compliant window manager; thus</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>fvwm; vi ~/.fvwm/config; fvwm -replace</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>resembles the <strong>Restart</strong> command. It is not exactly the same, since
+killing the previously running wm may terminate your X session, if the
+wm was started as the last client in your <em>.Xclients</em> or <em>.Xsession</em>
+file.</p>
+</div>
+<div class="paragraph">
+<p>Further additions are support for client-side colormap installation (see
+the ICCCM for details) and the urgency hint. Clients can set this hint
+in the WM_HINTS property of their window and expect the window manager
+to attract the user&#8217;s attention to the window. Fvwm has two re-definable
+functions for this purpose, "UrgencyFunc" and "UrgencyDoneFunc", which
+are executed when the flag is set/cleared. Their default definitions
+are:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc UrgencyFunc
+ + I Iconify off
+ + I FlipFocus
+ + I Raise
+ + I WarpToWindow !raise 5p 5p
+AddToFunc UrgencyDoneFunc
+ + I Nop</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extended_window_manager_hints">EXTENDED WINDOW MANAGER HINTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm attempts to respect the extended window manager hints (ewmh or EWMH
+for short) specification:
+<em><a href="https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html" class="bare">https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html</a></em> and
+some extensions of this specification.</p>
+</div>
+<div class="paragraph">
+<p>This support is configurable with styles and commands. These styles and
+commands have EWMH as the prefix (so you can find them easily in this
+man page).</p>
+</div>
+<div class="paragraph">
+<p>There is a new Context 'D' for the <strong>Key</strong>, <strong>PointerKey</strong>, <strong>Mouse</strong>
+commands. This context is for desktop applications (such as kdesktop and
+Nautilus desktop).</p>
+</div>
+<div class="paragraph">
+<p>When a compliant taskbar asks fvwm to activate a window (typically when
+you click on a button which represents a window in such a taskbar), then
+fvwm calls the complex function <strong>EWMHActivateWindowFunc</strong> which by
+default is Iconify Off, Focus and Raise. You can redefine this function.
+For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyFunc EWMHActivateWindowFunc
+AddToFunc EWMHActivateWindowFunc I Iconify Off
++ I Focus
++ I Raise
++ I WarpToWindow 50 50</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>additionally warps the pointer to the center of the window.</p>
+</div>
+<div class="paragraph">
+<p>The EWMH specification introduces the notion of Working Area. Without
+ewmh support the Working Area is the full visible screen (or all your
+screens if you have a multi head setup with RandR). However, compliant
+applications (such as a panel) can ask to reserve space at the edge of
+the screen. If this is the case, the Working Area is your full visible
+screen minus these reserved spaces. If a panel can be hidden by clicking
+on a button the Working Area does not change (as you can unhide the
+panel at any time), but the Dynamic Working Area is updated: the space
+reserved by the panel is removed (and added again if you pop up the
+panel). The Dynamic Working Area may be used when fvwm places or
+maximizes a window. To know if an application reserves space you can
+type "xprop | grep _NET_WM_STRUT" in a terminal and select the
+application. If four numbers appear then these numbers define the
+reserved space as explained in the <strong>EwmhBaseStruts</strong> command.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration">CONFIGURATION</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_configuration_files">Configuration Files</h3>
+<div class="paragraph">
+<p>The configuration file is used to describe mouse and button bindings,
+colors, the virtual display size, and related items. The initialization
+configuration file is typically called <em>config</em> (or <em>.fvwm2rc</em>). By
+using the <strong>Read</strong> command, it is easy to read in new configuration files
+as you go.</p>
+</div>
+<div class="paragraph">
+<p>Lines beginning with '#' are ignored by fvwm. Lines starting with '*'
+are expected to contain module configuration commands (rather than
+configuration commands for fvwm itself). Like in shell scripts embedded
+newlines in a configuration file line can be quoted by preceding them
+with a backslash. All lines linked in this fashion are treated as a
+single line. The newline itself is ignored.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm makes no distinction between configuration commands and action
+commands, so anything mentioned in the fvwm commands section can be
+placed on a line by itself for fvwm to execute as it reads the
+configuration file, or it can be placed as an executable command in a
+menu or bound to a mouse button or a keyboard key. It is left as an
+exercise for the user to decide which function make sense for
+initialization and which ones make sense for run-time.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_supplied_configuration">Supplied Configuration</h3>
+<div class="paragraph">
+<p>A sample configuration file, is supplied with the fvwm distribution. It
+is well commented and can be used as a source of examples for fvwm
+configuration. It may be copied from <em>/usr/local/share/fvwm/config</em>
+file.</p>
+</div>
+<div class="paragraph">
+<p>Alternatively, the built-in menu (accessible when no configuration file
+is found) has options to create an initial config file for the user.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_fonts">FONTS</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_font_names_and_font_loading">Font names and font loading</h3>
+<div class="paragraph">
+<p>The fonts used for the text of a window title, icon titles, menus and
+geometry window can be specified by using the Font and IconFont <strong>Style</strong>,
+the Font <strong>MenuStyle</strong> and the <strong>DefaultFont</strong> commands. Also, all the
+Modules which use text have configuration command(s) to specify font(s).
+All these styles and commands take a font name as an argument. This
+section explains what is a font name for fvwm and which fonts fvwm
+loads.</p>
+</div>
+<div class="paragraph">
+<p>First, you can use what we can call a usual font name, for example,</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-adobe-courier-bold-r-normal--10-100-75-75-m-60-ISO8859-1
+-adobe-courier-bold-r-normal--10-*
+-*-fixed-medium-o-normal--14-*-ISO8859-15</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That is, you can use an X Logical Font Description (XLFD for short).
+Then the "first" font which matches the description is loaded and used.
+This "first" font depends of your font path and also of your locale.
+Fonts which match the locale charset are loaded in priority order. For
+example with</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-adobe-courier-bold-r-normal--10-*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>if the locale charset is ISO8859-1, then fvwm tries to load a font which
+matches</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-adobe-courier-bold-r-normal--10-*-ISO8859-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>with the locale charset ISO8859-15 fvwm tries to load</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-adobe-courier-bold-r-normal--10-*-ISO8859-15.</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>A font name can be given as an extended XLFD. This is a comma separated
+list of (simple) XLFD font names, for example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-adobe-courier-bold-r-normal--14-*,-*-courier-medium-r-normal--14-*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Each simple font name is tried until a matching font with the locale
+charset is found and if this fails each simple font name is tried
+without constraint on the charset.</p>
+</div>
+<div class="paragraph">
+<p>More details on the XLFD can be found in the X manual page, the X
+Logical Font Description Conventions document (called xlfd) and the
+XLoadFont and XCreateFontSet manual pages. Some useful font utilities
+are: xlsfonts, xfontsel, xfd and xset.</p>
+</div>
+<div class="paragraph">
+<p>If you have Xft support you can specify an Xft font name (description)
+of a true type (or Type1) font prefixed by "xft:", for example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>"xft:Luxi Mono"
+"xft:Luxi Mono:Medium:Roman:size=14:encoding=iso8859-1"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The "first" font which matches the description is loaded. This first
+font depends on the XftConfig configuration file with Xft1 and on the
+/etc/fonts/fonts.conf file with Xft2. One may read the Xft manual page
+and the fontconfig man page with Xft2. The first string which follows
+"xft:" is always considered as the family. With the second example Luxi
+Mono is the Family (Other XFree TTF families: "Luxi Serif", "Luxi
+Sans"), Medium is the Weight (other possible weights: Light, DemiBold,
+Bold, Black), Roman is the slant or the style (other possibilities:
+Regular, Oblique, Italic) size specifies the point size (for a pixel
+size use pixelsize=), encoding allows for enforce a charset (iso8859-1
+or iso10646-1 only; if no encoding is given the locale charset is
+assumed). An important parameter is "minspace=bool" where bool is True
+or False. If bool is False (the default?) Xft gives a greater font
+height to fvwm than if bool is True. This may modify text placement,
+icon and window title height, line spacing in menus and <strong>FvwmIdent</strong>,
+button height in some fvwm modules &#8230;&#8203;etc. With a LCD monitor you may
+try to add "rgba=mode" where mode is either rgb, bgr, vrgb or vbgr to
+enable subpixel rendering. The best mode depends on the way your LCD
+cells are arranged. You can pass other specifications in between ":", as
+"foundry=foundry_name", "spacing=type" where type can be monospace,
+proportional or charcell, "charwidth=integer", "charheight=integer" or
+"antialias=bool" where bool is True or False. It seems that these
+parameters are not always taken in account.</p>
+</div>
+<div class="paragraph">
+<p>To determine which Xft fonts are really loaded you can export
+XFT_DEBUG=1 before starting fvwm and take a look to the error log. With
+Xft2 you may use fc-list to list the available fonts. Anyway, Xft
+support is experimental (from the X and the fvwm point of view) and the
+quality of the rendering depends on number of parameters (the XFree and
+the freetype versions and your video card(s)).</p>
+</div>
+<div class="paragraph">
+<p>After an Xft font name you can add after a ";" an XLFD font name (simple
+or extended) as:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>xft:Verdana:pixelsize=14;-adobe-courier-bold-r-normal--14-*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then, if either loading the Xft font fails or fvwm has no Xft support,
+fvwm loads the font "-adobe-courier-bold-r-normal&#8212;&#8203;14-*". This allows
+for writing portable configuration files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_font_and_string_encoding">Font and string encoding</h3>
+<div class="paragraph">
+<p>Once a font is loaded, fvwm finds its encoding (or charset) using its
+name (the last two fields of the name). fvwm assumes that the strings
+which are displayed with this font use this encoding (an exception is
+that if an iso10646-1 font is loaded, then UTF-8 is assumed for string
+encoding). In a normal situation, (i) a font is loaded by giving a font
+name without specifying the encoding, (ii) the encoding of the loaded
+font is the locale encoding, and then (iii) the strings in the fvwm
+configuration files should use the locale encoding as well as the window
+and icon name. With Xft the situation is bit different as Xft supports
+only iso10646-1 and iso8859-1. If you do not specify one of these
+encodings in the Xft font name, then fvwm does strings conversion using
+(iii). Note that with multibyte fonts (and in particular with "CJK"
+fonts) for good text rendering, the locale encoding should be the
+charset of the font.</p>
+</div>
+<div class="paragraph">
+<p>To override the previous rules, it is possible to specify the string
+encoding in the beginning of a font description as follow:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>StringEncoding=enc:_full_font_name_</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>where <em>enc</em> is an encoding supported by fvwm (usually font name charset
+plus some unicode encodings: UTF-8, USC-2, USC-4 and UTF-16).</p>
+</div>
+<div class="paragraph">
+<p>For example, you may use an iso8859-1 locale charset and have an
+<strong>FvwmForm</strong> in Russian using koi8-r encoding. In this case, you just have
+to ask <strong>FvwmForm</strong> to load a koi8-r font by specifying the encoding in
+the font name. With a multibyte language, (as multibyte font works well
+only if the locale encoding is the charset of the font), you should use
+an iso10646-1 font:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>StringEncoding=jisx0208.1983-0:-*-fixed-medium-r-*-ja-*-iso10646-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>"StringEncoding=jisx0208.1983-0:xft:Bitstream Cyberbit"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>if your <strong>FvwmForm</strong> configuration uses jisx0208.1983-0 encoding. Another
+possibility is to use UTF-8 encoding for your <strong>FvwmForm</strong> configuration
+and use an iso10646-1 font:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-*-fixed-medium-r-*-ja-*-iso10646-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>"StringEncoding=UTF-8:xft:Bitstream Cyberbit"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or equivalently</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>"xft:Bitstream Cyberbit:encoding=iso10646-1"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In general iso10646-1 fonts together with UTF-8 string encoding allows
+the display of any characters in a given menu, <strong>FvwmForm</strong> etc.</p>
+</div>
+<div class="paragraph">
+<p>More and more, unicode is used and text files use UTF-8 encoding.
+However, in practice the characters used range over your locale charset.
+For saving memory (an iso10646-1 font may have a very large number of
+characters) or because you have a pretty font without an iso10646-1 charset,
+you can specify the string encoding to be UTF-8 and use a font in the locale
+charset:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>StringEncoding=UTF-8:-*-pretty_font-*-12-*</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In most cases, fvwm correctly determines the encoding of the font.
+However, some fonts do not end with valid encoding names. When the font
+name isn&#8217;t normal, for example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>-misc-fixed-*--20-*-my_utf8-36</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>you need to add the encoding after the font name using a slash as a
+delimiter. For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MenuStyle * Font -misc-fixed-*--20-*-my_utf8-36/iso10646-1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If fvwm finds an encoding, fvwm uses the iconv system functions to do
+conversion between encodings. Unfortunately, there are no standards. For
+conversion between iso8859-1 and UTF-8: a GNU system uses "ISO-8859-1"
+and other systems use "iso881" to define the converters (these two names
+are supported by fvwm). Moreover, in some cases it may be necessary to
+use machine specific converters. So, if you experience problems you can
+try to get information on your iconv implementation ("man iconv" may
+help) and put the name which defines the converter between the font
+encoding and UTF-8 at the end of the font name after the encoding hint
+and a / (another possible solution is to use GNU libiconv). For example
+use:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * Font -misc-fixed-*--14-*-iso8859-1/*/latin1</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to use latin1 for defining the converter for the iso8859-1 encoding. The
+"*" in between the "/" says to fvwm to determine the encoding from the
+end of the font name. Use:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style * Font \
+-misc-fixed-*--14-*-local8859-6/iso8859-6/local_iso8859_6_iconv</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>to force fvwm to use the font with iso8859-6 as the encoding (this is
+useful for bi-directionality) and to use local_iso8859_6_iconv for
+defining the converters.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_font_shadow_effects">Font Shadow Effects</h3>
+<div class="paragraph">
+<p>Fonts can be given 3d effects. At the beginning of the font name (or
+just after a possible StringEncoding specification) add</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Shadow=size [offset] [directions]]:</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>size</em> is a positive integer which specifies the number of pixels of
+shadow. <em>offset</em> is an optional positive integer which defines the
+number of pixels to offset the shadow from the edge of the character.
+The default offset is zero. <em>directions</em> is an optional set of
+directions the shadow emanates from the character. The <em>directions</em> are
+a space separated list of fvwm directions:</p>
+</div>
+<div class="paragraph">
+<p><em>N</em>, <em>North</em>, <em>Top</em>, <em>t</em>, <em>Up</em>, <em>u</em>, <em>-</em></p>
+</div>
+<div class="paragraph">
+<p><em>E</em>, <em>East</em>, <em>Right</em>, <em>r</em>, <em>Right</em>, <em>r</em>, <em>]</em></p>
+</div>
+<div class="paragraph">
+<p><em>S</em>, <em>South</em>, <em>Bottom</em>, <em>b</em>, <em>Down</em>, <em>d</em>, <em>_</em></p>
+</div>
+<div class="paragraph">
+<p><em>W</em>, <em>West</em>, <em>Left</em>, <em>l</em>, <em>Left</em>, <em>l</em>, <em>[</em></p>
+</div>
+<div class="paragraph">
+<p><em>NE</em>, <em>NorthEast</em>, <em>TopRight</em>, <em>tr</em>, <em>UpRight</em>, <em>ur</em>, <em>^</em></p>
+</div>
+<div class="paragraph">
+<p><em>SE</em>, <em>SouthEast</em>, <em>BottomRight</em>, <em>br</em>, <em>DownRight</em>, <em>dr</em>, <em>&gt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>SW</em>, <em>SouthWest</em>, <em>BottomLeft</em>, <em>bl</em>, <em>DownLeft</em>, <em>dl</em>, <em>v</em></p>
+</div>
+<div class="paragraph">
+<p><em>NW</em>, <em>NorthWest</em>, <em>TopLeft</em>, <em>tl</em>, <em>UpLeft</em>, <em>ul</em>, <em>&lt;</em></p>
+</div>
+<div class="paragraph">
+<p><em>C</em>, <em>Center</em>, <em>Centre</em>, <em>.</em></p>
+</div>
+<div class="paragraph">
+<p>A shadow is displayed in each given direction. <em>All</em> is equivalent to
+all the directions. The default <em>direction</em> is <em>BottomRight</em>. With the
+<em>Center</em> direction, the shadow surrounds the whole string. Since this is
+a super set of all other directions, it is a waste of time to specify
+this along with any other directions.</p>
+</div>
+<div class="paragraph">
+<p>The shadow effect only works with colorsets. The color of the shadow is
+defined by using the <em>fgsh</em> option of the <strong>Colorset</strong> command. Please
+refer to the <strong>Colorsets</strong> section for details about colorsets.</p>
+</div>
+<div class="paragraph">
+<p>Note: It can be difficult to find the font, <em>fg</em>, <em>fgsh</em> and <em>bg</em> colors
+to make this effect look good, but it can look quite good.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bi_directional_text">BI-DIRECTIONAL TEXT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Arabic and Hebrew text require bi-directional text support to be
+displayed correctly, this means that logical strings should be converted
+before their visual presentation, so left-to-right and right-to-left
+sub-strings are determined and reshuffled. In fvwm this is done
+automatically in window titles, menus, module labels and other places if
+the fonts used for displaying the text are of one of the charsets that
+require <em>bidi</em> (bi-directional) support. For example, this includes
+iso8859-6, iso8859-8 and iso10646-1 (unicode), but not other iso8859-*
+fonts.</p>
+</div>
+<div class="paragraph">
+<p>This bi-directional text support is done using the <em>fribidi</em> library
+compile time option, see <em>INSTALL.fvwm</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_keyboard_shortcuts">KEYBOARD SHORTCUTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Almost all window manager operations can be performed from the keyboard
+so mouse-less operation should be possible. In addition to scrolling
+around the virtual desktop by binding the <strong>Scroll</strong> command to
+appropriate keys, <strong>Popup</strong>, <strong>Move</strong>, <strong>Resize</strong>, and any other command can
+be bound to keys. Once a command is started the pointer is moved by
+using the up, down, left, and right arrows, and the action is terminated
+by pressing return. Holding down the Shift key causes the pointer movement to
+go in larger steps and holding down the control key causes the pointer movement
+to go in smaller steps. Standard emacs and vi cursor movement controls can be
+used instead of the arrow keys.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_session_management">SESSION MANAGEMENT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm supports session management according to the X Session Management
+Protocol. It saves and restores window position, size, stacking order,
+desk, stickiness, shadiness, maximizedness, iconifiedness for all
+windows. Furthermore, some global state is saved.</p>
+</div>
+<div class="paragraph">
+<p>Fvwm doesn&#8217;t save any information regarding styles, decors, functions or
+menus. If you change any of these resources during a session (e.g. by
+issuing <strong>Style</strong> commands or by using various modules), these changes are
+lost after saving and restarting the session. To become permanent, such
+changes have to be added to the configuration file.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_boolean_arguments">BOOLEAN ARGUMENTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A number of commands take one or several boolean arguments. These take a
+few equivalent inputs: "yes", "on", "true", "t" and "y" all evaluate to
+true while "no", "off", "false", "f" and "n" evaluate to false. Some
+commands allow "toggle" too which means that the feature is disabled if
+it is currently enabled and vice versa.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_builtin_key_and_mouse_bindings">BUILTIN KEY AND MOUSE BINDINGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following commands are built-in to fvwm:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Key Help R A Popup MenuFvwmRoot
+Key F1 R A Popup MenuFvwmRoot
+Key Tab A M WindowList Root c c NoDeskSort
+Key Escape A MC EscapeFunc
+
+Mouse 1 R A Menu MenuFvwmRoot
+Mouse 1 T   A FuncFvwmRaiseLowerX Move
+Mouse 1 FS  A FuncFvwmRaiseLowerX Resize
+Mouse 2 FST A FuncFvwmRaiseLowerX Move
+
+AddToFunc FuncFvwmRaiseLowerX
++ I Raise
++ M $0
++ D Lower</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The Help and F1 keys invoke a built-in menu that fvwm creates. This is
+primarily for new users that have not created their own configuration file.
+Either key on the root (background) window pops up an menu to help you get
+started.</p>
+</div>
+<div class="paragraph">
+<p>The Tab key pressed anywhere with the Alt key (same as the key on PC
+keyboards) held down pop-ups a window list.</p>
+</div>
+<div class="paragraph">
+<p>Mouse button 1 on the title-bar or side frame can move, raise or lower a
+window.</p>
+</div>
+<div class="paragraph">
+<p>Mouse button 1 on the window corners can resize, raise or lower a
+window.</p>
+</div>
+<div class="paragraph">
+<p>You can override or remove these bindings. To remove the window list
+binding, use this:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Key Tab A M -</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_execution">COMMAND EXECUTION</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_module_and_function_commands">Module and Function Commands</h3>
+<div class="paragraph">
+<p>If fvwm encounters a command that it doesn&#8217;t recognize, it checks to see
+if the specified command should have been</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Function (rest of command)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module (rest of command)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This allows complex functions or modules to be invoked in a manner which
+is fairly transparent to the configuration file.</p>
+</div>
+<div class="paragraph">
+<p>Example: the <em>config</em> file contains the line</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>HelpMe</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Fvwm looks for an fvwm command called "HelpMe", and fails. Next it looks
+for a user-defined complex function called "HelpMe". If no such function
+exists, fvwm tries to execute a module called "HelpMe".</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_delayed_execution_of_commands">Delayed Execution of Commands</h3>
+<div class="paragraph">
+<p><strong>Note</strong>: There are many commands that affect look and feel of specific,
+some or all windows, like <strong>Style</strong>, <strong>Mouse</strong>, <strong>Colorset</strong>, <strong>TitleStyle</strong> and
+many others. For performance reasons such changes are not applied
+immediately but only when fvwm is idle, i.e. no user interaction or
+module input is pending. Specifically, new <strong>Style</strong> options that are set
+in a function are not applied until after the function has completed.
+This can sometimes lead to unwanted effects.</p>
+</div>
+<div class="paragraph">
+<p>To force that all pending changes are applied immediately, use the
+<strong>UpdateStyles</strong>, <strong>Refresh</strong> or <strong>RefreshWindow</strong> commands.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_quoting">QUOTING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Quotes are required only when needed to make fvwm consider two or more
+words to be a single argument. Unnecessary quoting is allowed. If you
+want a quote character in your text, you must escape it by using the
+backslash character. For example, if you have a pop-up menu called
+"Window-Ops", then you do not need quotes:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Popup Window-Ops</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>but if you replace the dash with a space, then you need quotes:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Popup "Window Ops"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The supported quoting characters are double quotes, single quotes and
+reverse single quotes. All three kinds of quotes are treated in the same
+way. Single characters can be quoted with a preceding backslash. Quoting
+single characters works even inside other kinds of quotes.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_command_expansion">COMMAND EXPANSION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Whenever an fvwm command line is executed, fvwm performs parameter
+expansion. A parameter is a '$' followed by a word enclosed in brackets
+($[&#8230;&#8203;]) or a single special character. If fvwm encounters an unquoted
+parameter on the command line it expands it to a string indicated by the
+parameter name. Unknown parameters are left untouched. Parameter
+expansion is performed before quoting. To get a literal '$' use "$$".</p>
+</div>
+<div class="paragraph">
+<p>If a command is prefixed with a '-' parameter expansion isn&#8217;t performed.
+This applies to the command immediately following the '-', in which the
+expansion normally would have taken place. When uesed together with
+other prefix commands it must be added before the other prefix.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Pick -Exec exec xmessage '$[w.name]'</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>opens an xmessage dialog with "$[w.name]" unexpanded.</p>
+</div>
+<div class="paragraph">
+<p>The longer variables may contain additional variables inside the name,
+which are expanded before the outer variable.</p>
+</div>
+<div class="paragraph">
+<p>In earlier versions of fvwm, some single letter variables were
+supported. It is deprecated now, since they cause a number of problems.
+You should use the longer substitutes instead.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># Print the current desk number, horizontal page number
+# and the window's class (unexpanded here, no window).
+Echo $[desk.n] $[page.nx] $[w.class]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: If the command is called outside a window context, it prints
+"$[w.class]" instead of the class name. It is usually not enough to have
+the pointer over a window to have a context window. To force using the
+window with the focus, the <strong>Current</strong> command can be used:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Current Echo $[desk.n] $[page.nx] $[w.class]</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The parameters known by fvwm are:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">$$</dt>
+<dd>
+<p>A literal '$'.</p>
+</dd>
+<dt class="hdlist1">$.</dt>
+<dd>
+<p>The absolute directory of the currently Read file. Intended for creating
+relative and relocatable configuration trees. If used outside of any
+read file, the returned value is '.'.</p>
+</dd>
+<dt class="hdlist1">$0 to $9</dt>
+<dd>
+<p>The positional parameters given to a complex function (a function that
+has been defined with the <strong>AddToFunc</strong> command). "$0" is replaced with
+the first parameter, "$1" with the second parameter and so on. If the
+corresponding parameter is undefined, the "$&#8230;&#8203;" is deleted from the
+command line.</p>
+</dd>
+<dt class="hdlist1">$*</dt>
+<dd>
+<p>All positional parameters given to a complex function. This includes
+parameters that follow after "$9".</p>
+</dd>
+<dt class="hdlist1">$[<em>n</em>]</dt>
+<dd>
+<p>The <em>n</em>:th positional parameter given to a complex function, counting
+from 0. If the corresponding parameter is undefined, the "$[<em>n</em>]" is
+deleted from the command line. The parameter is expanded unquoted.</p>
+</dd>
+<dt class="hdlist1">$[<em>n</em>-<em>m</em>]</dt>
+<dd>
+<p>The positional parameters given to a complex function, starting with
+parameter <em>n</em> and ending with parameter <em>m</em>. If all the corresponding
+parameters are undefined, the "$[&#8230;&#8203;]" is deleted from the command line.
+If only some of the parameters are defined, all defined parameters are
+expanded, and the remaining silently ignored. All parameters are
+expanded unquoted.</p>
+</dd>
+<dt class="hdlist1">$[<em>n</em>-]</dt>
+<dd>
+<p>All the positional parameters given to a complex function, starting with
+parameter <em>n</em>. If all the corresponding parameters are undefined, the
+"$[&#8230;&#8203;]" is deleted from the command line. All parameters are expanded
+unquoted.</p>
+</dd>
+<dt class="hdlist1">$[*]</dt>
+<dd>
+<p>All the positional parameters given to a complex function. This is
+equivalent of $[0-].</p>
+</dd>
+<dt class="hdlist1">$[version.num]</dt>
+<dd>
+<p>The version number, like "2.6.0".</p>
+</dd>
+<dt class="hdlist1">$[version.info]</dt>
+<dd>
+<p>The version info, which contains the SHA of the latest commit (if
+compiled from git), or "(relesaed)" if a compiled from a release
+tarball.</p>
+</dd>
+<dt class="hdlist1">$[version.line]</dt>
+<dd>
+<p>The first line printed by the --version command line option.</p>
+</dd>
+<dt class="hdlist1">$[vp.x] $[vp.y] $[vp.width] $[vp.height]</dt>
+<dd>
+<p>Either coordinate or the width or height of the current viewport.</p>
+</dd>
+<dt class="hdlist1">$[wa.x] $[wa.y] $[wa.width] $[wa.height]</dt>
+<dd>
+<p>Either coordinate or the width or height of the EWMH working area.</p>
+</dd>
+<dt class="hdlist1">$[dwa.x] $[dwa.y] $[dwa.width] $[dwa.height]</dt>
+<dd>
+<p>Either coordinate or the width or height of the dynamic EWMH working area.</p>
+</dd>
+<dt class="hdlist1">$[desk.n]</dt>
+<dd>
+<p>The current desk number.</p>
+</dd>
+<dt class="hdlist1">$[desk.name&lt;n&gt;]</dt>
+<dd>
+<p>These parameters are replaced with the name of the desktop number &lt;n&gt;
+that is defined with the <strong>DesktopName</strong> command. If no name is defined,
+then the default name is returned.</p>
+</dd>
+<dt class="hdlist1">$[desk.width] $[desk.height]</dt>
+<dd>
+<p>The width or height of the whole desktop, i.e. the width or height
+multiplied by the number of pages in x or y direction.</p>
+</dd>
+<dt class="hdlist1">$[desk.pagesx] $[desk.pagesy]</dt>
+<dd>
+<p>The number of total pages in a desk in x or y direction. This is the
+same as the values set by <strong>DesktopSize</strong>.</p>
+</dd>
+<dt class="hdlist1">$[page.nx] $[page.ny]</dt>
+<dd>
+<p>The current page numbers, by X and Y axes, starting from 0. <em>page</em> is
+equivalent to <em>area</em> in the GNOME terminology.</p>
+</dd>
+<dt class="hdlist1">$[w.id]</dt>
+<dd>
+<p>The window-id (expressed in hex, e.g. 0x10023c) of the window the
+command was called for or "$[w.id]" if no window is associated with the
+command.</p>
+</dd>
+<dt class="hdlist1">$[w.name] $[w.iconname] $[w.class] $[w.resource] $[w.visiblename] $[w.iconfile] $[w.miniiconfile] $[w.iconfile.svgopts] $[w.miniiconfile.svgopts]</dt>
+<dd>
+<p>The window&#8217;s name, icon name, resource class and resource name, visible
+name, file name of its icon or mini icon defined with the <em>Icon</em> or
+<em>MiniIcon</em> style (including the full path if the file was found on
+disk), and (if fvwm is compiled with SVG support) the icon or mini icon
+svg rendering options (including the leading colon), or unexpanded
+"$[w.&lt;attribute&gt;]" string if no window is associated with the command.</p>
+<div class="paragraph">
+<p>Note, the first 5 variables may include any kind of characters, so these
+variables are quoted. It means that the value is surrounded by single
+quote characters and any contained single quote is prefixed with a
+backslash. This guarantees that commands like:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style $[w.resource] Icon norm/network.png</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>work correctly, regardless of any special symbols the value may contain,
+like spaces and different kinds of quotes.</p>
+</div>
+<div class="paragraph">
+<p>In the case of the window&#8217;s visible name, this is the value returned
+from the literal title of the window shown in the titlebar. Typically
+this will be the same as $[w.name] once expanded, although in the case
+of using <em>IndexedWindowName</em> then this is more useful a distinction, and
+allows for referencing the specific window by its visible name for
+inclusion in things like <strong>Style</strong> commands.</p>
+</div>
+</dd>
+<dt class="hdlist1">$[w.x] $[w.y] $[w.width] $[w.height]</dt>
+<dd>
+<p>Either coordinate or the width or height of the current window if it is
+not iconified. If no window is associated with the command or the window
+is iconified, the string is left as is.</p>
+</dd>
+<dt class="hdlist1">$[w.pagex] $[w.pagey]</dt>
+<dd>
+<p>The X or Y page the window is on.</p>
+</dd>
+<dt class="hdlist1">$[w.desk]</dt>
+<dd>
+<p>The number of the desk on which the window is shown. If the window is
+sticky the current desk number is used.</p>
+</dd>
+<dt class="hdlist1">$[w.layer]</dt>
+<dd>
+<p>The layer of the window.</p>
+</dd>
+<dt class="hdlist1">$[w.screen]</dt>
+<dd>
+<p>The screen name the window is on.</p>
+</dd>
+<dt class="hdlist1">$[cw.x] $[cw.y] $[cw.width] $[cw.height]</dt>
+<dd>
+<p>These work like $[w.…] but return the geometry of the client part of the
+window. In other words: the border and title of the window is not taken
+into account.</p>
+</dd>
+<dt class="hdlist1">$[i.x], $[it.x], $[ip.x] $[i.y], $[it.y], $[ip.y] $[i.width], $[it.width], $[ip.width] $[i.height], $[it.height], $[ip.height]</dt>
+<dd>
+<p>These work like $[w.…] but return the geometry of the icon ($[i.…]), the
+icon title ($[it.…]) or the icon picture ($[ip.…]).</p>
+</dd>
+<dt class="hdlist1">$[pointer.x] $[pointer.y]</dt>
+<dd>
+<p>These return the position of the pointer on the screen. If the pointer
+is not on the screen, these variables are not expanded.</p>
+</dd>
+<dt class="hdlist1">$[pointer.wx] $[pointer.wy]</dt>
+<dd>
+<p>These return the position of the pointer in the selected window. If the
+pointer is not on the screen, the window is iconified or no window is
+selected, these variables are not expanded.</p>
+</dd>
+<dt class="hdlist1">$[pointer.cx] $[pointer.cy]</dt>
+<dd>
+<p>These return the position of the pointer in the client portion of the
+selected window. If the pointer is not on the screen, the window is
+shaded or iconified or no window is selected, these variables are not
+expanded.</p>
+</dd>
+<dt class="hdlist1">$[pointer.screen]</dt>
+<dd>
+<p>The screen name the pointer is currently on.</p>
+<div class="paragraph">
+<p>This is deprecated; use $[monitor.current] instead.</p>
+</div>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>$[monitor.&lt;n&gt;.x], $[monitor.&lt;n&gt;.y], $[monitor.&lt;n&gt;.width],
+$[monitor.&lt;n&gt;.height], $[monitor.&lt;n&gt;.desk], $[monitor.&lt;n&gt;.pagex], $[monitor.&lt;n&gt;.pagey] $[monitor.primary], $[monitor.prev_primary], $[monitor.current], $[monitor.prev] $[monitor.output], $[monitor.number] $[monitor.count], $[monitor.&lt;n&gt;.prev_desk], $[monitor.&lt;n&gt;.prev_pagex], $[monitor.&lt;n&gt;.prev_pagey]::
+	Returns information about the selected monitor. These can be nested, for
+	example: $[monitor.$[monitor.primary].width]</p>
+</div>
+<div class="paragraph">
+<p>+
+&lt;n&gt; should be a valid xrandr(1) output name.</p>
+</div>
+<div class="paragraph">
+<p>+
+"x" returns the monitor&#8217;s x position; "y" returns the monitor&#8217;s y
+position; "width" returns the monitor&#8217;s width (in pixels); "height"
+returns the monitor&#8217;s height (in pixels)</p>
+</div>
+<div class="paragraph">
+<p>+
+"number" returns the monitor&#8217;s position within the tree.  See RANDR SUPPORT.</p>
+</div>
+<div class="paragraph">
+<p>+
+"current" is the same as the deprecated $[screen.pointer] variable; the
+monitor which has the mouse pointer.</p>
+</div>
+<div class="paragraph">
+<p>+
+"prev" returns the previously focused monitor, or the empty string if there
+isn&#8217;t one.</p>
+</div>
+<div class="paragraph">
+<p>+
+"count" returns the number of active monitors.</p>
+</div>
+<div class="paragraph">
+<p>+
+"desk" returns the current desk displayed on the referenced monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"pagex" returns the X page on the referenced monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"pagey" returns the Y page of the referenced monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"primary" is the name of the output set as primary via xrandr(1).</p>
+</div>
+<div class="paragraph">
+<p>+
+"prev_primary" is the name of the output which was the previous primary
+monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"prev_desk" returns the previous desk on the referenced monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"prev_pagex" returns the previous X page on the referenced monitor.</p>
+</div>
+<div class="paragraph">
+<p>+
+"prev_pagey" returns the previous Y page on the referenced monitor.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">$[screen]</dt>
+<dd>
+<p>The screen number fvwm is running on. Useful for setups with multiple
+screens.</p>
+</dd>
+<dt class="hdlist1">$[screen.count]</dt>
+<dd>
+<p>The total number of screens detected.</p>
+<div class="paragraph">
+<p>This is deprecated; use $[monitor.count] instead.</p>
+</div>
+</dd>
+<dt class="hdlist1">$[fg.cs&lt;n&gt;] $[bg.cs&lt;n&gt;] $[hilight.cs&lt;n&gt;] $[shadow.cs&lt;n&gt;] $[fgsh.cs&lt;n&gt;]</dt>
+<dd>
+<p>These parameters are replaced with the name of the foreground (fg),
+background (bg), hilight (hilight), shadow (shadow), or the font shadow
+(fgsh) color that is defined in colorset &lt;n&gt; (replace &lt;n&gt; with zero or a
+positive integer). For example "$[fg.cs3]" is expanded to the name of
+the foreground color of colorset 3 (in rgb:rrrr/gggg/bbbb form).</p>
+<div class="paragraph">
+<p>If .lighten&lt;p&gt; or .darken&lt;p&gt; is appended to the parameters, they are
+instead replaced with a color that is lighter or darker than the one
+defined in colorset &lt;n&gt; by a percentage value &lt;p&gt; (between 0 and 100).
+For example "$[bg.cs3.lighten15]" is expanded to the background color of
+colorset 3 and then lightened 15% (in rgb:rrrr/gggg/bbbb form).</p>
+</div>
+<div class="paragraph">
+<p>If .hash is appened to the end the color output will use #rrggbb form
+(instead of rgb:rrrr/gggg/bbbb). For example, $[bg.cs3.hash] or
+$[bg.cs3.lighten15.hash].</p>
+</div>
+<div class="paragraph">
+<p>Please refer to the <strong>Colorsets</strong> section for details about colorsets.</p>
+</div>
+</dd>
+<dt class="hdlist1">$[schedule.last]</dt>
+<dd>
+<p>This is replaced by the id of the last command that was scheduled with
+the <strong>Schedule</strong> command, even if this command was already executed.</p>
+</dd>
+<dt class="hdlist1">$[schedule.next]</dt>
+<dd>
+<p>This is replaced by the id the next command used with <strong>Schedule</strong> will
+get (unless a different id is specified explicitly).</p>
+</dd>
+<dt class="hdlist1">$[cond.rc]</dt>
+<dd>
+<p>The return code of the last conditional command. This variable is only
+valid inside a function and can not be used in a conditional command.
+Please refer to the section <strong>Conditional Commands</strong> in the command list.</p>
+</dd>
+<dt class="hdlist1">$[func.context]</dt>
+<dd>
+<p>The context character of the running command as used in the <strong>Mouse</strong>,
+<strong>Key</strong> or <strong>PointerKey</strong> command. This is useful for example with:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Mouse 3 FS N WindowShade $$[func.context]</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">$[debuglog.state]</dt>
+<dd>
+<p>Either <em>0</em> (debug log closed) or <em>1</em>. Indicates the current state of
+debugging and logging facility.</p>
+</dd>
+<dt class="hdlist1">$[gt.<em>str</em>]</dt>
+<dd>
+<p>return the translation of <em>str</em> by looking in the current locale
+catalogs. If no translation is found <em>str</em> is returned as is. See the
+<strong>LocalePath</strong> command.</p>
+</dd>
+<dt class="hdlist1">$[infostore.<em>key</em>]</dt>
+<dd>
+<p>Return the value of the item stored in the InfoStore at the given <em>key</em>.
+If no key is present, the unexpanded string is returned.</p>
+</dd>
+<dt class="hdlist1">$[&#8230;&#8203;]</dt>
+<dd>
+<p>If the string within the braces is neither of the above, fvwm tries to
+find an environment variable with this name and replaces its value if
+one is found (e.g. "$[PAGER]" could be replaced by "more"). Otherwise
+the string is left as is.</p>
+<div class="paragraph">
+<p>Some examples can be found in the description of the <strong>AddToFunc</strong>
+command.</p>
+</div>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_scripting_and_complex_functions">SCRIPTING AND COMPLEX FUNCTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>To achieve the more complex effects, fvwm has a number of commands that
+improve its scripting abilities. Scripts can be read from a file with
+<strong>Read</strong>, from the output of a command with <strong>PipeRead</strong> or written as a
+complex function with the <strong>AddToFunc</strong> command. For the curious, section
+7 of the fvwm FAQ shows some real life applications of scripting. Please
+refer to the sections <strong>User Functions and Shell Commands</strong> and
+<strong>Conditional Commands</strong> for details. A word of warning: during execution
+of complex functions, fvwm needs to take all input from the mouse
+pointer (the pointer is "grabbed" in the slang of X). No other programs
+can receive any input from the pointer while a function is run. This can
+confuse some programs. For example, the xwd program refuses to make
+screen shots when run from a complex function. To achieve the same
+functionality you can use the <strong>Read</strong> or <strong>PipeRead</strong> command instead.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_menu_concepts_and_commands">MENU CONCEPTS AND COMMANDS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please refer to the fvwm3menus man page.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_list_of_fvwm_commands">LIST OF FVWM COMMANDS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Please refer to the fvwm3commands and fvwm3styles man pages.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_environment">ENVIRONMENT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The environment variables that have an effect on how fvwm operates are
+the following:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><em>DISPLAY</em></dt>
+<dd>
+<p>Fvwm starts on this display unless the <strong>-display</strong> option is given.</p>
+</dd>
+<dt class="hdlist1"><em>FVWM_USERDIR</em></dt>
+<dd>
+<p>Used to determine the user&#8217;s data directory for reading and writing
+files. If this variable is not already set, it is set by fvwm to
+<em>$HOME/.fvwm</em>, which is the default user&#8217;s data directory.</p>
+</dd>
+<dt class="hdlist1"><em>FVWM3_LOGFILE</em></dt>
+<dd>
+<p>Used to determine the path and filename to log debug information from
+fvwm3. By default debug log is written to
+<em>$FVWM_USERDIR</em>/fvwm3-output.log . If an absolute path is specified
+(starting with /) then <em>$FVWM_USERDIR</em> is ignored, otherwise the log is
+written to <em>$FVWM_USERDIR</em>/<em>$FVWM3_LOGFILE</em> .</p>
+</dd>
+<dt class="hdlist1"><em>FVWM_DATADIR</em></dt>
+<dd>
+<p>Set by fvwm to the directory containing fvwm config and module data.</p>
+</dd>
+<dt class="hdlist1"><em>FVWM_MODULEDIR</em></dt>
+<dd>
+<p>Set by fvwm to the directory containing the standard fvwm modules.</p>
+</dd>
+<dt class="hdlist1"><em>SESSION_MANAGER</em></dt>
+<dd>
+<p>Fvwm tries to contact this session manager.</p>
+</dd>
+<dt class="hdlist1"><em>SESSION_MANAGER_NAME</em></dt>
+<dd>
+<p>This is used mainly to determine xsm running to work around its bug. If
+this variable is set to "xsm", DiscardCommand is set as xsm expects it
+and not as XSMP requires. If you run fvwm under xsm, you should set this
+variable to "xsm", otherwise old state files are not removed.</p>
+</dd>
+<dt class="hdlist1"><em>SM_SAVE_DIR</em></dt>
+<dd>
+<p>If this is set, fvwm saves its session data in this directory. Otherwise
+it uses <em>$HOME</em>. Note, the state files are named <em>.fs-??????</em> and
+normally are removed automatically when not used anymore.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Robert Nation with help from many people, based on twm code, which was
+written by Tom LaStrange. After Robert Nation came Charles Hines,
+followed by Brady Montz. Currently fvwm is developed by a number of
+people on the fvwm-workers mailing list.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copyright">COPYRIGHT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Fvwm and all the modules, scripts and other files coming with the
+distribution are subject to the GNU General Public License (GPL). Please
+refer to the COPYING file that came with fvwm for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Bug reports can be sent to the fvwm-workers mailing list at
+&lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</p>
+</div>
+<div class="paragraph">
+<p>The official fvwm homepage is <em><a href="http://fvwm.org/" class="bare">http://fvwm.org/</a></em>.</p>
+</div>
+</div>
+</div>

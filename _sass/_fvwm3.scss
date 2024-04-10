@@ -40,6 +40,17 @@ p.title-indent
 	margin-left: 40px;
 }
 
+// Manual pages, indent description items:
+.dlist > dl > dd {
+	margin-left: 2em;
+}
+// Move manpage headers left for all but small screens.
+@media (min-width: 576px ) {
+	.sect1 > h2 {
+		margin-left: -1em;
+	}
+}
+
 /**
  * Rouge Line Number Tables
  */

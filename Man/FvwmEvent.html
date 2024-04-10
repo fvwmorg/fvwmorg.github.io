@@ -1,0 +1,412 @@
+---
+title: FvwmEvent manual page
+showtitle: 1
+permalink: /Man/FvwmEvent/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_invocation">INVOCATION</a></li>
+<li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
+<li><a href="#_history">HISTORY</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmEvent - the fvwm event module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>FvwmEvent</em> is a more versatile replacement for <em>FvwmAudio</em>. It can in
+general be used to hook any <em>fvwm</em> function or program to any window
+manager event. E.g: Delete unwanted Netscape Pop ups or application
+error pop ups as they appear, play sounds, log events to a file and the
+like. Be creative, you&#8217;ll find a use for it.</p>
+</div>
+<div class="paragraph">
+<p><em>FvwmEvent</em> is spawned by <em>fvwm</em>, so no command line invocation will
+work. From within the <em>.fvwm2rc</em> file, <em>FvwmEvent</em> is spawned as
+follows:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmEvent</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>or from within an <em>fvwm</em> pop-up menu:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyMenu Module-Popup
+AddToMenu Module-Popup "Modules" Title
++ "Event"        Module FvwmEvent
++ "Auto"         Module FvwmAuto 200
++ "Buttons"      Module FvwmButtons
++ "Console"      Module FvwmConsole
++ "Ident"        Module FvwmIdent
++ "Banner"       Module FvwmBanner
++ "Pager"        Module FvwmPager 0 3</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>FvwmEvent</em> module communicates with the <em>fvwm</em> window manager to
+bind <em>actions</em> to window manager <em>events</em>. Different actions may be
+assigned to distinct window manager events.</p>
+</div>
+<div class="paragraph">
+<p><em>FvwmEvent</em> can be used to bind sound files to events like <em>FvwmAudio</em>
+(RiP) did. It can be used for logging event traces to a log file, while
+debugging <em>fvwm</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_invocation">INVOCATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The invocation method was shown in the synopsis section. No command line
+invocation is possible. <em>FvwmEvent</em> must be invoked by the <em>fvwm</em> window
+manager.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration_options">CONFIGURATION OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>FvwmEvent</em> gets config info from <strong>fvwm</strong>'s module configuration database
+(see <em>fvwm</em>(1), section <strong>MODULE COMMANDS</strong>), and looks for certain
+configuration options:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">*FvwmEvent: Cmd command</dt>
+<dd>
+<p>This determines the <em>fvwm</em> function that is to be called with the
+event parameters. You might want to do one of the following (details
+below):</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>	# execute distinct fvwm functions
+	*FvwmEvent: Cmd
+
+	# execute distinct external programs
+	*FvwmEvent: Cmd exec</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>FvwmEvent</em> has support for any other external program. e.g: the
+rsynth 'say' command:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>	*FvwmEvent: Cmd "Exec /rsynth/say"
+	*FvwmEvent: destroy_window "window closed"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can also use <em>fvwm</em>'s builtin <em>Echo</em> command as <em>FvwmEvent: Cmd</em> to
+obtain debug output for <em>fvwm</em> events quietly. I used this setup to
+debug FvwmAuto:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>	*FvwmEvent: Cmd Echo
+	*FvwmEvent: focus_change "focus change"
+	*FvwmEvent: raise_window "raise window"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can even call different shell commands for each event just by
+setting</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>	*FvwmEvent: Cmd exec
+	*FvwmEvent: add_window 'killname "APPL ERROR"'</pre>
+</div>
+</div>
+</dd>
+<dt class="hdlist1">*FvwmEvent: PassId</dt>
+<dd>
+<p>Specifies that the event action will have an ID parameter added to the
+end of the command line. Most events will have the windowID of the
+window that the event refers to, new_desk will have the new desk
+number. The windowID is a hexadecimal string preceded by 0x, desk
+numbers are decimal.</p>
+</dd>
+<dt class="hdlist1">*FvwmEvent: window-manager-event action-or-filename</dt>
+<dd>
+<p>Binds particular actions to window manager events.</p>
+<div class="paragraph">
+<p>The following events are valid:</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Event</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Description</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a new window is mapped and visible</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">config_info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a module asks for configuration</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configure_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a ConfigureNotify event happens</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default_icon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s DefaultIcon changes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deiconify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window id deiconified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destroy_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is destroyed</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">dewindowshade</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is unshaded</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">echo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when an Echo command is run</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end_config_info</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when there&#8217;s no more module config to send</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">end_windowlist</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when the windowlist has finished sending</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enter_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window receives a EnterNotify event</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">error</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">focus_change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window gains or loses focus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iconify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is iconified</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leave_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window receives a LeaveNotify event</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lower_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is lowered</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">map</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is Mapped</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">mini_icon</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s mini icon changes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor_changed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a monitor&#8217;s resolution changes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor_disabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a monitor is disabled (via RandR)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor_enabled</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a monitor is enabled (via RandR)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">monitor_focus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a monitor gains focus</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new_desk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a new desk is switched to</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new_page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a new page is switched to</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">old_add_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">old_configure_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">property_change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window receives a PropertNotify event</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raise_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is raised</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">res_class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s Class is set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">res_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s Resource is set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when windows are restacked</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sendconfig</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when FvwmEvent asks for its config</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shutdown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">startup</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when the SendToModule command is used</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">unknown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DEPRECATED</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible_icon_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s visible icon name changes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s visible name changes</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">window_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window&#8217;s name (WM_NAME) is set</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">windowshade</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Occurs when a window is shaded</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>The window related event handlers are executed within a window context.
+Previously PassId was used for this purpose, but now using PassId is not
+needed.</p>
+</div>
+<div class="paragraph">
+<p>The monitor_* events do not operate in a window context (as there isn&#8217;t
+one), but react to when a monitor is plugged in (enabled), unplugged
+(disabled), focused (focus) or changed (resized/rotated, etc., which
+will only be true if the monitor is already active).</p>
+</div>
+<div class="paragraph">
+<p>The echo event is generated whenever Fvwm receives an Echo command.</p>
+</div>
+<div class="paragraph">
+<p>Note: The enter_window event is generated when the pointer enters a
+window. With the -passid option, that window&#8217;s id is passed to fvwm. An
+enter_window event is generated too when the pointer leaves a window and
+moves into the root window. In this case, the id passed is 0.</p>
+</div>
+<div class="paragraph">
+<p>Note: When the shutdown event arrives, FvwmEvent may be killed before it
+can trigger the associated action.</p>
+</div>
+</dd>
+<dt class="hdlist1">*FvwmEvent: Delay 5</dt>
+<dd>
+<p>Specifies that an event-action will only be executed if it occurs at
+least 5 seconds after the previous event. Events that occur during the
+delay period are ignored. The default delay is 0 which disables the Event.</p>
+</dd>
+<dt class="hdlist1">*FvwmEvent: StartDelay delay</dt>
+<dd>
+<p>Specifies that an event-action will only be executed if it occurs at
+least <em>delay</em> seconds after the startup event. Events that occur
+during the delay period are ignored. This option is useful when <em>fvwm</em>
+starts and restarts using an audio player. The default delay is 0.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_history">HISTORY</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This module has evolved of <em>FvwmAudio</em>, which in term is heavily based
+on a similar Fvwm module called <em>FvwmSound</em> by Mark Boyns. <em>FvwmAudio</em>
+simply took Mark&#8217;s original program and extended it to make it generic
+enough to work with any audio player. Due to different requests to do
+specific things on specific events, <em>FvwmEvent</em> took this one step
+further and now calls any <em>fvwm</em> function, or builtin-rplay. If <em>fvwm</em>'s
+Exec function is used, any external program can be called with any
+parameter.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="literalblock highlight">
+<div class="content">
+<pre>1994  FvwmSound  Mark Boyns       (boyns@sdsu.edu)
+1994  FvwmAudio  Mark Scott       (mscott@mcd.mot.com)
+1996  FvwmAudio  Albrecht Kadlec
+1998  FvwmEvent  Albrecht Kadlec  (albrecht@auto.tuwien.ac.at)</pre>
+</div>
+</div>
+</div>
+</div>

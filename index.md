@@ -11,6 +11,8 @@ helpnav:
         url: /Wiki/
       - name: Frequently Asked Questions
         url: /Archive/Faq/
+      - name: Fvwm3 Manual Pages
+        url: /Man/
   - title: Development Information
     color: arizona
     links:
