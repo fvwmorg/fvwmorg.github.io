@@ -1,0 +1,388 @@
+---
+title: fvwm-menu-directory manual page
+showtitle: 1
+permalink: /Man/fvwm-menu-directory/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_hints">HINTS</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_usage">USAGE</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+<li><a href="#_copying">COPYING</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-menu-directory - builds a directory browsing menu for fvwm</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-menu-directory [ <strong>--help</strong>|<strong>-h</strong>|<strong>-?</strong> ] [ <strong>--version</strong>|<strong>-V</strong> ]
+[ <strong>--name</strong>|<strong>-na</strong> NAME ] [ <strong>--title</strong>|<strong>-t</strong> NAME ]
+[ <strong>--item</strong>|<strong>-it</strong> NAME ] [ <strong>--icon-title</strong>|<strong>-icon-t</strong> XPM ]
+[ <strong>--icon-dir</strong>|<strong>-icon-d</strong> XPM ] [ <strong>--icon-file</strong>|<strong>-icon-f</strong> XPM ]
+[ <strong>--icon-app</strong>|<strong>-icon-a</strong> XPM ] [ <strong>--wm-icons</strong> ] [ <strong>--dir</strong>|<strong>-d</strong> NAME ]
+[ <strong>--order</strong>|<strong>-o</strong> NUM ] [ <strong>--[no]all</strong>|<strong>-a</strong> ] [ <strong>--[no]links</strong>|<strong>-l</strong> ]
+[ <strong>--xterm</strong>|<strong>-x</strong> CMD ] [ <strong>--exec-title</strong>|<strong>-exec-t</strong> CMD ]
+[ <strong>--exec-file</strong>|<strong>-exec-f</strong> CMD ] [ <strong>--exec-app</strong>|<strong>-exec-a</strong> [CMD] ]
+[ <strong>--command-title</strong>|<strong>-command-t</strong> CMD ] [ <strong>--command-file</strong>|<strong>-command-f</strong> CMD ]
+[ <strong>--command-app</strong>|<strong>-command-a</strong> CMD ] [ <strong>--[no]reuse</strong>|<strong>-r</strong> ]
+[ <strong>--[no]check-subdirs</strong>|<strong>-ch</strong> ] [ <strong>--special-dirs</strong>|<strong>-s</strong> [VALUE] ]
+[ <strong>--[no]memory-for-speed</strong>|<strong>-mem</strong> ] [ <strong>--menu-style</strong>|<strong>-men</strong> NAME ]
+[ <strong>--func-name</strong>|<strong>-f</strong> NAME ]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>A perl script which provides an output to read in with PipeRead to build
+an fvwm menu containing a directory listing. Almost everything can be
+configured.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_hints">HINTS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The title item with its own attached action is usually added to the
+menu. This may be used to define an action for the directory for which
+the menu is built, such as starting a terminal in this directory (the
+default). However, this may annoy some users. To disable the title
+action use <strong>--command-title ""</strong>, to remove the title completely use
+<strong>--title ""</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>--help</strong></dt>
+<dd>
+<p>Show the usage and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--version</strong></dt>
+<dd>
+<p>Show version and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--name</strong> <em>name</em></dt>
+<dd>
+<p>Menu name, used only with <strong>--reuse</strong>, default is <code>MenuBrowser</code>.</p>
+</dd>
+<dt class="hdlist1"><strong>--title</strong> <em>title</em></dt>
+<dd>
+<p>Menu title format, default is <code>'%*-40p'</code> - last 40 characters of the
+current full path. TAB can be specified as <code>'\t'</code>, but in .fvwm2rc you
+should specify a double backslash or a real TAB.</p>
+<div class="paragraph">
+<p>Format specifiers:
+<code>%d</code> - the current directory name <code>%p</code> - the current directory full path.</p>
+</div>
+<div class="paragraph">
+<p>These specifiers can receive an optional integer size, positive for
+right adjusted string or negative for left adjusted, example: <code>%8x</code>;
+and optional <code>*num</code> or <code>*-num</code>, which means to leave only the first
+or last (if minus) num of chars, the num must be greater than 3, since the
+striped part is replaced with &#8230;&#8203;, example: <code>%*30x</code>. Both can be combined:
+<code>%-10*-20x</code>, this instructs to get only the 20 last characters, but if the
+length is less then 10 - to fill with up to 10 spaces on the right.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--item</strong> <em>format</em></dt>
+<dd>
+<p>Menu item format, default is <code>'%n'</code>. TAB and width modifiers for <code>%n</code>,
+<code>%N</code> and <code>%s</code> can be specified as described in <strong>--title</strong> above.
+Note, specifying a non default format slows the script.</p>
+<div class="paragraph">
+<p>Format specifiers:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>%n - file/dir name (without the path)
+%N - file/dir name (full with the path)
+%d - file/dir date (yyyy-mm-dd HH:MM:SS)
+%D - file/dir date (yyyy-mm-dd)
+%s - file/dir size (in bytes)
+%t - file/dir type (File|Dir |Link|Sock|Blck|Char|Pipe)
+%T - file/dir type (F|D|L|S|B|C|P)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Example: <code>--title '%*-40p\tDate, Type\tSize' --item '%*40n\t%d %t\t%s'</code></p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--icon-title</strong> <em>icon</em></dt>
+<dd>
+<p>Menu title icon, default is none.</p>
+</dd>
+<dt class="hdlist1"><strong>--icon-dir</strong> <em>icon</em></dt>
+<dd>
+<p>Menu dir icon, default is none.</p>
+</dd>
+<dt class="hdlist1"><strong>--icon-file</strong> <em>icon</em></dt>
+<dd>
+<p>Menu file icon, default is none.</p>
+</dd>
+<dt class="hdlist1"><strong>--icon-app</strong> <em>icon</em></dt>
+<dd>
+<p>Menu application icon, default is none.</p>
+</dd>
+<dt class="hdlist1"><strong>--wm-icons</strong></dt>
+<dd>
+<p>Define icon names suitable for use with wm-icons package. Currently this
+is equivalent to: <code>--icon-title menu/folder-open.xpm --icon-item
+menu/file.xpm --icon-dir menu/folder.xpm --icon-app menu/utility.xpm</code>.</p>
+</dd>
+<dt class="hdlist1"><strong>--dir</strong> <em>dir</em></dt>
+<dd>
+<p>Starting dir, default is <code>${HOME-.}</code>.</p>
+</dd>
+<dt class="hdlist1"><strong>--order</strong> <em>number</em></dt>
+<dd>
+<p>In the range (-6 .. 6), default is 5:</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>1 - do not sort
+2 - dirs first
+3 - files first
+4 - sort by name
+5 - dirs first
+6 - files first</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Negative number represents reverse order.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--[no]all</strong></dt>
+<dd>
+<p>Show hidden files, like in 'ls -A', default is <strong>--noall</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>--[no]links</strong></dt>
+<dd>
+<p>Follow linked directories, default is <strong>--nolinks</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>--xterm</strong> <em>command</em></dt>
+<dd>
+<p>X terminal call, default is 'xterm -e'.</p>
+</dd>
+<dt class="hdlist1"><strong>--exec-title</strong> <em>command</em></dt>
+<dd>
+<p>An fvwm Exec command on directory title (usually the shell), default is
+<code>${SHELL-/bin/sh}</code>. '-' means no Exec command, i.e. Nop. If the command
+is not started with '^' X terminal call is prepended. The command is
+started in the currently browsed directory.</p>
+</dd>
+<dt class="hdlist1"><strong>--exec-file</strong> <em>command</em></dt>
+<dd>
+<p>An fvwm Exec command on regular files, default is <code>${EDITOR-vi}</code>. '-'
+means no Exec command, i.e. Nop. If the command is not started with '^'
+X terminal call is prepended. The actual file name is appended to the
+command.</p>
+</dd>
+<dt class="hdlist1"><strong>--exec-app</strong> [<em>command</em>]</dt>
+<dd>
+<p>An fvwm Exec command on +x files, default is '-', which means the same
+command as on regular files. If no command is given, it is assumed to be
+empty - simply run the +x file. If the command is not started with '^' X
+terminal call is prepended. The actual file name is appended to the
+command.</p>
+</dd>
+<dt class="hdlist1"><strong>--command-title</strong> <em>command</em></dt>
+<dd>
+<p>An fvwm command to execute on title. If this option is not given (or
+command is '-'), the <strong>--exec-title</strong> is used instead. In the command,
+<code>%d</code> is substituted with the full directory path.</p>
+<div class="paragraph">
+<p>In fact, <em>--exec-title=tcsh</em> is equivalent to <em>--command-title='Exec cd %d; xterm
+-e tcsh'</em>.</p>
+</div>
+<div class="paragraph">
+<p>The empty value disables the title action.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--command-file</strong> <em>command</em></dt>
+<dd>
+<p>An fvwm command to execute on regular files. If this option is not given
+(or command is '-'), the <strong>--exec-file</strong> is used instead. In the
+command, <code>%f</code> is substituted with the full file path.</p>
+<div class="paragraph">
+<p>In fact, <em>--exec-file=vi</em> is equivalent to <em>--command-file='Exec xterm -e vi %f'</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--command-app</strong> <em>command</em></dt>
+<dd>
+<p>An fvwm command to execute on x files. If this option is not given (or
+command is '-'), the *--command-app* is used instead. In the command,
+`%f+` is substituted with the full file path.</p>
+<div class="paragraph">
+<p>In fact, <em>--exec-app=^exec</em> is equivalent to <em>--command-app='Exec exec %f'</em>.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--[no]reuse</strong></dt>
+<dd>
+<p>No pop-up menus, reuse the same menu, default is <strong>--noreuse</strong>. When you
+specify this option the Menu action is used, not Popup. Also, the <strong>--name</strong>
+parameter is not ignored, and <strong>--dir</strong> parameter is ignored if there is
+<code>~/.fvwm/.fvwm-menu-directory.dir</code> file. This file is only created or used
+with this option specified, it is the only solution for the current fvwm
+menu state.</p>
+</dd>
+<dt class="hdlist1"><strong>--[no]check-subdirs</strong></dt>
+<dd>
+<p>Check all subdirs for having execute (+x) permission and replace
+"Popup"/"Menu" command with Nop for these without permissions. This has a
+visual effect of disabling popup triangle in the subdirectory item. The
+default is <strong>--nocheck-subdirs</strong>, because: 1) enabling this slows a bit the
+script, 2) with this option enabled, if no icons used and no dir/file
+separate sorting used there is no way to know that the item is directory
+and not file.</p>
+</dd>
+<dt class="hdlist1"><strong>--special-dirs</strong> <em>value</em></dt>
+<dd>
+<p>Add .. or ~ or / special directories according to given optional value.
+Without with option these directories are not added. Default value if
+not specified is "1,2". The value is comma separated ordered special
+directory indexes, where 1 is parent directory, 2 is home directory, 3
+is root directory. If minus is prepended to the value, special
+directories are added at the bottom of menu instead of top. Value 0 or
+any bad value is equivalent to non-specifying this option at all.</p>
+</dd>
+<dt class="hdlist1"><strong>--[no]memory-for-speed</strong></dt>
+<dd>
+<p>Use speed optimization, i.e. use previously created directory menus
+without destroying it when closed, default is <strong>--nomemory-for-speed</strong>.</p>
+<div class="paragraph">
+<p>Warning: speed optimization takes up a lot of memory that is never freed
+again while fvwm is running.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--menu-style</strong> <em>name</em></dt>
+<dd>
+<p>Assign MenuStyle name to the menus.</p>
+</dd>
+<dt class="hdlist1"><strong>--func-name</strong> <em>name</em></dt>
+<dd>
+<p>Overwrite the default MissingSubmenuFunction name that is
+FuncFvwmMenuDirectory.</p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p>Option parameters can be specified either using '=' or in the next
+argument. Short options are ok if not ambiguous: <code>-a</code>, <code>-x</code>,
+<code>-icon-f</code>; but be careful with short options, what is now unambiguous,
+can become ambiguous in the next versions.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage">USAGE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Put this into your fvwm configuration file to invoke the script:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc FuncFvwmMenuDirectory
++ I PipeRead "fvwm-menu-directory -d $0"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>More complex example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToFunc FuncFvwmMenuDirectory
++ I PipeRead "fvwm-menu-directory -d '$0' -x 'Eterm -g 80x40 -e' \\
+    -a -l -o 6 --exec-app --exec-title 'tcsh -l' \\
+    --exec-file 'vim -R' -t 'Go to: %d' --wm-icons"</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And put this in the menu from which you want to pop-up the directory
+menus:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu SomeMenu MissingSubmenuFunction FuncFvwmMenuDirectory
++ "Home Directory" Popup $[HOME]
++ "Httpd Directory" Popup /home/httpd</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note: please use absolute path names.</p>
+</div>
+<div class="paragraph">
+<p>It is a good idea to set the menu pop-up delay to something positive and
+enable busy cursor</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>MenuStyle * PopupDelayed, PopupDelay 200
+BusyCursor DynamicMenu True</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>in your configuration file when using this script for better results.</p>
+</div>
+<div class="paragraph">
+<p>Another interesting usage (<code>'--reuse'</code> or <code>'-r'</code> is mandatory for this):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>AddToMenu Browser
++ DynamicPopupAction PipeRead \\
+  "fvwm-menu-directory -r -na Browser -d / -s"
+AddToMenu SomeMenu "My Browser" Menu Browser</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Here the <code>'--dir'</code> parameter (starting directory) is ignored if there is
+<code>~/.fvwm/.fvwm-menu-directory.dir</code> file, which you can delete.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Inspired on 1999-06-07 by Dominik Vogt &lt;<a href="mailto:domivogt@fvwm.org">domivogt@fvwm.org</a>&gt;.</p>
+</div>
+<div class="paragraph">
+<p>Rewritten on 1999-08-05 by Mikhael Goikhman &lt;<a href="mailto:migo@homemail.com">migo@homemail.com</a>&gt;.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copying">COPYING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The script is distributed by the same terms as fvwm itself. See GNU
+General Public License for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Report bugs to &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt; or <a href="https://github.com/fvwmorg/fvwm3" class="bare">https://github.com/fvwmorg/fvwm3</a>.</p>
+</div>
+</div>
+</div>

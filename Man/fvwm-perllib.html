@@ -1,0 +1,143 @@
+---
+title: fvwm-perllib manual page
+showtitle: 1
+permalink: /Man/fvwm-perllib/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_usage">USAGE</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+<li><a href="#_copying">COPYING</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-perllib - shows the documentation of the Fvwm Perl library</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-perllib [ <strong>--help</strong>|<strong>-h</strong>|<strong>-?</strong> ] [ <strong>--version</strong>|<strong>-v</strong>|<strong>-V</strong> ]
+[ <strong>man</strong> [ <em>Perl::Class</em> ] ] [ <strong>cat</strong> [ <em>Perl::Class</em> ] ]
+[ <strong>raw</strong> [ <em>Perl::Class</em> ] ] [ <strong>dir</strong> ]</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Starting from fvwm-2.5.x versions there is a built-in support for
+creating fvwm modules in Perl. This <strong>fvwm-perllib</strong> utility provides help
+services for the Fvwm Perl library.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>--help</strong></dt>
+<dd>
+<p>Show the help and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--version</strong></dt>
+<dd>
+<p>Show the version and exit.</p>
+</dd>
+<dt class="hdlist1"><strong>--man</strong> or <strong>man</strong> [ <em>Perl::Class</em> ]</dt>
+<dd>
+<p>Show manual page just like <strong>man</strong>(1).</p>
+</dd>
+<dt class="hdlist1"><strong>--cat</strong> or <strong>cat</strong> [ <em>Perl::Class</em> ]</dt>
+<dd>
+<p>Show manual page in plain text.</p>
+</dd>
+<dt class="hdlist1"><strong>--raw</strong> or <strong>raw</strong> [ <em>Perl::Class</em> ]</dt>
+<dd>
+<p>Generate output in man format (not human readable).</p>
+</dd>
+<dt class="hdlist1"><strong>--dir</strong> or <strong>dir</strong></dt>
+<dd>
+<p>Print perllib directory without a trailing end of line.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage">USAGE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Use this in the fvwm modules written in Perl:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>use lib `fvwm-perllib dir`;</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Introduction to the Fvwm Perl library:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>% fvwm-perllib man</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Manual page for the <code>FVWM::Module</code> class:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>% fvwm-perllib man FVWM::Module</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Standard options:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>% fvwm-perllib --help % fvwm-perllib --version</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Mikhael Goikhman &lt;<a href="mailto:migo@homemail.com">migo@homemail.com</a>&gt;.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_copying">COPYING</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The script is distributed by the same terms as fvwm itself. See GNU
+General Public License for details.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>No known bugs.</p>
+</div>
+<div class="paragraph">
+<p>Report bugs to &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt; or <a href="https://github.com/fvwmorg/fvwm3" class="bare">https://github.com/fvwmorg/fvwm3</a>.</p>
+</div>
+</div>
+</div>

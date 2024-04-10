@@ -1,0 +1,150 @@
+---
+title: fvwm-root manual page
+showtitle: 1
+permalink: /Man/fvwm-root/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-root - Sets the root window of the current X display to image</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>fvwm-root</strong> [<strong>--retain-pixmap</strong>|<strong>-r</strong>] [<strong>--no-retain-pixmap</strong>]
+[<strong>--dummy</strong>|<strong>-d</strong>] [<strong>--no-dummy</strong>] [<strong>--dither</strong>] [<strong>--no-dither</strong>]
+[<strong>--color-limit</strong> [<em>ncolors</em>] ] [<strong>--no-color-limit</strong>]
+[<strong>--help</strong>|<strong>-h</strong>|<strong>-?</strong>] [<strong>--version</strong>|<strong>-V</strong>] <em>image_file</em></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>fvwm-root</em> reads the image file specified in the command line and
+displays it in the root window. The supported image formats are <em>XBM</em>,
+<em>XPM</em>, <em>PNG</em> and <em>SVG</em> if appropriated libraries are compiled in.</p>
+</div>
+<div class="paragraph">
+<p>SVG rendering options (as described in the * ICONS AND IMAGES * section
+of the main fvwm documentation) can be utilized.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>These command line options are recognized by fvwm-root:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>--retain-pixmap</strong> | <strong>-r</strong></dt>
+<dd>
+<p>Causes fvwm-root to retain and publish the Pixmap with which the
+background has been set (the ESETROOT_PMAP_ID and _XROOTPMAP_ID
+properties are used). This is useful for applications which want to
+use the root Pixmap on the background to simulate transparency (for
+example, Eterm and Aterm use this method). This option should also be
+used for the RootTransparent colorset option, refer to the COLORSETS
+section of fvwm(1). If this option is not used, fvwm-root sets the
+_XSETROOT_ID property to None, and some programs, like fvwm modules,
+may use this to update their background if the background is
+transparent (Transparent colorset).</p>
+<div class="paragraph">
+<p>Note, a well behaved program, like fvwm, should listen to both
+_XSETROOT_ID and _XROOTPMAP_ID property changes and update itself
+correspondingly. However some programs listen only to one of them, so
+you should either use this option or not depending on what part is
+implemented by these programs. You should also use this option to get
+fast root-transparent menus in fvwm.</p>
+</div>
+</dd>
+<dt class="hdlist1"><strong>--no-retain-pixmap</strong></dt>
+<dd>
+<p>This is a default. May be useful to explicitly force the default even
+if "--retain-pixmap" is specified earlier.</p>
+</dd>
+<dt class="hdlist1"><strong>--dummy</strong> | <strong>-d</strong></dt>
+<dd>
+<p>Causes fvwm-root NOT to set the background, but to only free a memory
+associated with the ESETROOT_PMAP_ID property (if any). In any case
+the _XSETROOT_ID property is set to None.</p>
+</dd>
+<dt class="hdlist1"><strong>--no-dummy</strong></dt>
+<dd>
+<p>This is a default. May be useful to explicitly force the default even
+if "--dummy" is specified earlier.</p>
+</dd>
+<dt class="hdlist1"><strong>--dither</strong></dt>
+<dd>
+<p>Causes fvwm-root to dither images for "smoother" rendition on displays
+with color depth of 16 or lower. This the default with color depth
+less or equal to 8.</p>
+</dd>
+<dt class="hdlist1"><strong>--no-dither</strong></dt>
+<dd>
+<p>Causes fvwm-root NOT to dither images. This is the default with color
+depth greater than 8.</p>
+</dd>
+<dt class="hdlist1"><strong>--color-limit </strong><em>ncolors</em></dt>
+<dd>
+<p>Causes fvwm-root to limit its color use to <em>ncolors</em> (if specified).
+This option is taken in account only with color depth less or equal to
+8 (and a TrueColor or GrayScale visual). The default is to use the
+same color limit as fvwm. So in normal situation this option is not
+useful. However, if fvwm use a private colors map, as fvwm-root always
+use the default colors map you should use this option for limiting
+colors correctly. If <em>ncolors</em> is not specified a default is used.</p>
+</dd>
+<dt class="hdlist1"><strong>--no-color-limit</strong></dt>
+<dd>
+<p>Causes fvwm-root NOT to limit its color use.</p>
+</dd>
+<dt class="hdlist1"><strong>--help</strong></dt>
+<dd>
+<p>Shows a short usage.</p>
+</dd>
+<dt class="hdlist1"><strong>--version</strong></dt>
+<dd>
+<p>Shows a version number.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Repeated use of fvwm-root with different xpm pixmaps will use up slots
+in your color table pretty darn fast.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Rob Nation</p>
+</div>
+<div class="paragraph">
+<p>Rewritten and enhanced by fvwm-workers.</p>
+</div>
+</div>
+</div>

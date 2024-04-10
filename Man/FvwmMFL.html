@@ -1,0 +1,245 @@
+---
+title: FvwmMFL manual page
+showtitle: 1
+permalink: /Man/FvwmMFL/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_communication">COMMUNICATION</a></li>
+<li><a href="#_registering_interest">REGISTERING INTEREST</a></li>
+<li><a href="#_json_format">JSON FORMAT</a></li>
+<li><a href="#_example">EXAMPLE</a></li>
+<li><a href="#_authors">AUTHORS</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>FvwmMFL - the Fvwm3 front-loader module</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>FvwmMFL</em> can only be invoked by Fvwm3. Command line invocation of the
+<em>FvwmMFL</em> will not work.</p>
+</div>
+<div class="paragraph">
+<p>This module has no command-line options.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The <em>FvwmMFL</em> module provides access to Fvwm events over a unix-domain
+socket. This module is intended to provide externally-written programs
+(clients) the ability to receive information from Fvwm and to perform an
+action on that event.</p>
+</div>
+<div class="paragraph">
+<p>The information from Fvwm3 is in the form of JSON packets. Each JSON
+packet has different fields, depending on the type requested.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_communication">COMMUNICATION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The default unix-domain socket for <em>FvwmMFL</em> is <em>$TMPDIR/fvwm_mfl.sock</em>,
+although this can be overridden via an environment variable
+<em>FVWMMFL_SOCKET</em>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_registering_interest">REGISTERING INTEREST</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Commands can be sent to <em>FvwmMFL</em> to control which information is sent
+the client. The <em>set</em> command is used for this. The table below shows
+which events can be subscribed to.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Event</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Description</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a new window is mapped and visible.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">map</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is mapped.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">configure_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is moved or resized.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">destroy_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is closed.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new_page</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a new page is switched to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">new_desk</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a new desk is switched to.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raise_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is raised (or changes layer).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lower_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is lowered (or changed layer).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">focus_change</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window loses/gains focus.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enter_window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window has the pointer moved into it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leave_Window</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window has pointer moved out of it.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">window_shade</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is shaded.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">window_unshade</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is unshaded.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">window_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the window name changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the visible window name changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">res_class</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the class of the window is set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">res_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the resource of the window is set.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">iconify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is iconified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">deiconify</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when a window is deiconified.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the icon name changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">visible_icon_name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the icon&#8217;s visible name changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_file</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the path to the icon changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icon_location</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the icon location changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">restack</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when the window stacking order changes.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">echo</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Fired when Fvwm receives an Echo command.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="paragraph">
+<p>For example, to register an interest in <em>new_window</em> and <em>focus_change</em>,
+the following commands would be set via the socket:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>set new_window
+set focus_change</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To remove interest in an event, use the <em>unset</em> command:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>unset focus_change</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_json_format">JSON FORMAT</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Each packet sent to a client is in plain JSON. The information contained
+in each packet varies depending on the event.</p>
+</div>
+<div class="paragraph">
+<p>TODO: document each JSON structure.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_example">EXAMPLE</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following example shows how to monitor for <em>focus_change</em> events at
+the shell, printing the JSON returned:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>  echo set focus_change | nc -U /tmp/fvwm_mfl.sock 2&gt;&amp;1 | jq --unbuffered</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Outputs:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>{ "focus_change": { "window": "0x5400022", "type": 0, "hilight": {
+"text_colour": 16777215, "bg_colour": 32767 } } }</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_authors">AUTHORS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This module first appeared in 2020.</p>
+</div>
+</div>
+</div>

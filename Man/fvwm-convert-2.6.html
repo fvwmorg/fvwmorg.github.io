@@ -1,0 +1,155 @@
+---
+title: fvwm-convert-2.6 manual page
+showtitle: 1
+permalink: /Man/fvwm-convert-2.6/index.html
+---
+<div id="markdown-toc">
+<ul class="sectlevel1">
+<li><a href="#_name">NAME</a></li>
+<li><a href="#_synopsis">SYNOPSIS</a></li>
+<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_description">DESCRIPTION</a></li>
+<li><a href="#_bugs">BUGS</a></li>
+<li><a href="#_author">AUTHOR</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_name">NAME</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>fvwm-convert-2.6 - convert fvwm 2.4.x configuration file to fvwm 2.6 style</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_synopsis">SYNOPSIS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>fvwm-convert-2.6</strong> [<em>--follow-read</em>|<em>-f</em>] [<em>--help</em>|<em>-h</em>] source</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_options">OPTIONS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following options are supported:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">--help | -h</dt>
+<dd>
+<p>Prints a usage message to the screen.</p>
+</dd>
+<dt class="hdlist1">--follow-read | -f</dt>
+<dd>
+<p>Follows files found along with the <strong>Read</strong> command.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_description">DESCRIPTION</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>fvwm-convert-2.6</strong> converts an fvwm 2.4.x configuration file into a fvwm
+2.6 file with compatible syntax. It is not suitable to convert older 2.x
+configuration files. Please use <strong>fvwm-convert-2.2</strong> to convert these to
+the 2.2.x format first, and then if necessary <strong>fvwm-convert-2.4</strong></p>
+</div>
+<div class="paragraph">
+<p>By default, <strong>fvwm-convert-2.6</strong> won&#8217;t look for a given config file. This
+must be specified as the first parameter to <strong>fvwm-convert-2.6.</strong>
+Different source and destination files may be given. If the destination
+file already exists, this program exits. If no destination file is
+given, then the filename is the same name as the source file with the
+suffix ".converted" added. Without an absolute path given as the
+destination path to the destination file, the program will create the
+destination file in the CWD.</p>
+</div>
+<div class="paragraph">
+<p><strong>fvwm-convert-2.6</strong> makes the following changes:</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>Style lines</strong></dt>
+<dd>
+<p>In fvwm 2.4, most style options could be negated from their
+counterparts using NoFoo&#8201;&#8212;&#8201;fvwm-convert-2.6 corrects this by now
+using !Foo.</p>
+</dd>
+<dt class="hdlist1"><strong>ModulePath</strong></dt>
+<dd>
+<p>In fvwm 2.4 and beyond, the ModulePath is compiled into fvwm.
+<strong>fvwm-convert-2.6</strong> comments out any ModulePath commands it finds. If
+you are using your own modules, (not the ones that come with fvwm),
+you will have to fix your configuration file after using
+<strong>fvwm-convert-2.6</strong>.</p>
+</dd>
+<dt class="hdlist1"><strong>Conditional command syntax</strong></dt>
+<dd>
+<p>In fvwm 2.4, the conditional command options were whitespace-separated&#8201;&#8212;&#8201;they should now be comma-separated instead. In addition, the older
+syntax to Next and Prev of using [*] to denote all windows has been
+removed entirely. Both these checks and conversions are done on
+function commands, key/mouse bindings.</p>
+</dd>
+<dt class="hdlist1"><strong>WindowShadeSteps</strong></dt>
+<dd>
+<p>In fvwm 2.4, the WindowShadeSteps command is replaced by the
+WindowShadeSteps Style option. <strong>fvwm-convert-2.6</strong> makes this change.</p>
+</dd>
+<dt class="hdlist1"><strong>FvwmTheme</strong></dt>
+<dd>
+<p>In fvwm 2.6, the FvwmTheme module is replaced by a series of Colorset
+commands. Whilst <strong>fvwm-convert-2.6</strong> will try and make this change, it
+is still recommended that this is checked after conversion.</p>
+</dd>
+<dt class="hdlist1"><strong>EdgeResistance</strong></dt>
+<dd>
+<p>In fvwm 2.6, the EdgeResistance command is has been split to include
+an additional style option for EdgeMoveResistance. <strong>fvwm-convert-2.6</strong>
+makes any changes necessary.</p>
+</dd>
+<dt class="hdlist1"><strong>StartFunction / RestartFunction / InitFunction</strong></dt>
+<dd>
+<p>In fvwm 2.6, the need for using InitFunction and/or RestartFunction is
+redundant when StartFunction is read at both of these times.
+<strong>fvwm-convert-2.6</strong> attempts to convert this.</p>
+</dd>
+<dt class="hdlist1"><strong>Read</strong></dt>
+<dd>
+<p>If <strong>-f</strong> or <strong>--follow-read</strong> is given, any files <strong>fvwm-convert-2.6</strong> can
+detect and open will be converted automatically, else a list of files
+that can be followed are printed to the screen.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bugs">BUGS</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>InitFunction</em> and <em>RestartFunction</em> and hence <em>StartFunction</em> are
+printed at the end of the files&#8201;&#8212;&#8201;this slight reordering might put some
+comments before in an odd spot.</p>
+</div>
+<div class="paragraph">
+<p>When converting over FvwmTheme lines, the colorset definitions might
+well be broken, but these cannot easily be converted.</p>
+</div>
+<div class="paragraph">
+<p>Bug reports can be sent to the fvwm-workers mailing list (see the
+<em>FAQ</em>).</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_author">AUTHOR</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Thomas Adam &lt;<a href="mailto:thomas@fvwm.org">thomas@fvwm.org</a>&gt;</p>
+</div>
+</div>
+</div>
