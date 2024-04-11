@@ -15,6 +15,11 @@ ul, ol {
   margin-bottom: 1rem !important;
 }
 
+// Clearfix for highlight blocks
+.highlight {
+	clear: both;
+}
+
 // Block Quotes
 blockquote {
   background: darken($bg-color, 5%);
