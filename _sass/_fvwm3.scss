@@ -51,7 +51,7 @@ p.title-indent
 }
 // Move manpage headers left for all but small screens.
 @media (min-width: 576px ) {
-	.sect1 > h2 {
+	.sect1 > h2, .sect2 > h3 {
 		margin-left: -1em;
 	}
 }
