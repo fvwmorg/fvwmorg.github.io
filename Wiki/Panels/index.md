@@ -11,9 +11,6 @@ description: |
 ---
 # Panels and Docks
 
-* TOC
-{:toc}
-
 Like everything else in Fvwm these need to be configured. Fvwm provides
 lots of choice of how to configure the panels you want to use.
 
