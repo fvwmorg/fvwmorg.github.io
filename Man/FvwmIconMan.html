@@ -118,64 +118,282 @@ dislike of paging though a long man page, so here is a terse reference
 chart describing the available options. They are described in more
 detail in the next section.</p>
 </div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Name            Description                Default
-
-NumManagers     number of managers         1
-Action          binds command to event     Mouse 0 N sendcommand Iconify
-Background      default background         gray
-ButtonGeometry  size of button in pixels
-Colorset        default colorset
-DontShow        list of windows to ignore
-DrawIcons       use mini icons             false
-FocusAndSelectButton                       flat grey black
-FocusAndSelectColorset
-FocusButton     style for focused buttons  up grey black
-FocusColorset
-FollowFocus     show which win has focus   false
-Font                                       8x13
-Foreground      default text color         white
-Format          describes button label     "%c: %i"
-IconName        manager icon name          FvwmIconMan
-IconAndSelectButton                        up black grey
-IconAndSelectColorset
-IconButton      style for icon buttons     up black grey
-IconColorset
-ManagerGeometry size of manager in buttons 0x1
-MaxButtonWidth  max width of a button
-MaxButtonWidthByColumns
-NoIconAction    animate iconification      NOP
-PlainButton     style for normal buttons   up black grey
-PlainColorset
-ReliefThickness size of button relief      2
-Resolution      window filters             desk page
-Reverse         normal, icon or none       none
-SelectButton    style for selected buttons flat black grey
-SelectColorset
-Shape           use shape extension        false
-Show            list of windows to show
-ShowOnlyIcons   only icons visible         false
-ShowNoIcons     icons are not displayed    false
-ShowTransient   transient windows visible  false
-ShowOnlyFocused only focused visible       false
-Sort            keep managers sorted       name
-SortWeight      weight for sorting
-Tips            Tool Tips mode             none
-TipsDelays      Tool Tips mapping delays   1000 300
-TipsFont        Font for Tool Tips         default fvwm font
-TipsColorset    Tool Tips Colorset         0
-TipsFormat      describes Tips label       the Format value
-TipsBorderWidth Tool Tips border size      1
-TipsPlacement   Tips placement vs button   updown
-TipsJustification Tips Just vs button      leftup
-TipsOffsets     Tips placement Offsets     3 2
-Title           manager title              FvwmIconMan
-TitleButton     style for title button     raisededge black grey
-TitleColorset
-UseWinList      honor WinListSkip?         true</pre>
-</div>
-</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NumManagers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">number of managers</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Action</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">binds command to event</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Mouse 0 N sendcommand Iconify</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Background</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default background</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">gray</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ButtonGeometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size of button in pixels</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Colorset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default colorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DontShow</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of windows to ignore</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DrawIcons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use mini icons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FocusAndSelectButton</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flat grey black</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FocusAndSelectColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FocusButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">style for focused buttons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">up grey black</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FocusColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FollowFocus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">show which win has focus</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Font</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">8x13</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Foreground</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default text color</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">white</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Format</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">describes button label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">"%c: %i"</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IconName</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manager icon name</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FvwmIconMan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IconAndSelectButton</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">up black grey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IconAndSelectColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IconButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">style for icon buttons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">up black grey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">IconColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ManagerGeometry</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size of manager in buttons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0x1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MaxButtonWidth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">max width of a button</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MaxButtonWidthByColumns</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NoIconAction</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">animate iconification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NOP</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PlainButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">style for normal buttons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">up black grey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PlainColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ReliefThickness</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">size of button relief</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resolution</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">window filters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">desk page</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Reverse</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">normal, icon or none</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SelectButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">style for selected buttons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">flat black grey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SelectColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Shape</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">use shape extension</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Show</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">list of windows to show</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ShowOnlyIcons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">only icons visible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ShowNoIcons</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">icons are not displayed</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ShowTransient</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">transient windows visible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ShowOnlyFocused</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">only focused visible</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">false</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Sort</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep managers sorted</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">name</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SortWeight</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">weight for sorting</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Tips mode</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">none</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsDelays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Tips mapping delays</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1000 300</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsFont</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Font for Tool Tips</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">default fvwm font</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsColorset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Tips Colorset</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">0</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsFormat</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">describes Tips label</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">the Format value</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsBorderWidth</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool Tips border size</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">1</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsPlacement</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips placement vs button</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">updown</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsJustification</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips Just vs button</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">leftup</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TipsOffsets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tips placement Offsets</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">3 2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">manager title</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">FvwmIconMan</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TitleButton</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">style for title button</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">raisededge black grey</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TitleColorset</p></td>
+<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">UseWinList</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">honor WinListSkip?</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">true</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
@@ -407,33 +625,25 @@ only show windows (not) on the stated page.</p>
 <div class="paragraph">
 <p><em>[!]screen [S]</em> shows windows (not) on monitor <em>S</em>, which can be:</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
 <p><em>NAME</em>: The "NAME" of the specific RandR monitor.</p>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
+</li>
+<li>
 <p><em>c</em>: The current RandR monitor (containing the pointer)</p>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
+</li>
+<li>
 <p><em>p</em>: The primary RandR monitor</p>
-</div>
-</blockquote>
-</div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
+</li>
+<li>
 <p><em>g</em>: The global monitor</p>
+</li>
+</ul>
 </div>
-</blockquote>
+</div>
 </div>
 <div class="paragraph">
 <p>Since all windows are on the global monitor, <em>screen g</em> effectively does
@@ -523,9 +733,6 @@ title is drawn in the title button.</p>
 <p>If <em>true</em>, then honor the WinListSkip style flag. Otherwise, all
 windows are subject to possible management according to the show and
 dontshow lists.</p>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>The two following options control which windows get handled by which
 managers. A manager can get two lists, one of windows to show, and one
@@ -542,8 +749,7 @@ expression of the same format used in the fvwm style command
 taken as part of the expression. If a window could be handled by more
 than one manager, then the manager with the lowest id gets it.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1">*FvwmIconMan: [id] Show pattern list</dt>
 <dd>
 <p>If a window matches one of the patterns in the list, then it may be
@@ -569,14 +775,10 @@ be handled by this manager.</p>
 <dt class="hdlist1">*FvwmIconMan: [id] ShowOnlyFocused boolean</dt>
 <dd>
 <p>Only window with the focus is shown if <em>boolean</em> is true.</p>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>The following two options control tips.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1">*FvwmIconMan: [id] Tips value</dt>
 <dd>
 <p>where <em>value</em> can be always, needed or false. Default is false, no
@@ -822,48 +1024,65 @@ current button, if any.</p>
 </dl>
 </div>
 <div class="paragraph">
-<p><strong>Examples:</strong> gotobutton select, gotobutton Down, select</p>
+<p><strong>Examples:</strong></p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton select, gotobutton Down, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Selects the button below the currently selected button. Since the
 current button is already initialized to the selected button, this may
 be shortened to "gotobutton Down, select".</p>
 </div>
-<div class="paragraph">
-<p>gotobutton Up, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton Up, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Selects the button above the currently selected button.</p>
 </div>
-<div class="paragraph">
-<p>gotobutton 0, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton 0, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Selects the first button of the current manager. If there is no current
 manager, which is the case when no button is selected, then this does
 nothing.</p>
 </div>
-<div class="paragraph">
-<p>gotobutton -1, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton -1, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Selects the last button of the current manager.</p>
 </div>
-<div class="paragraph">
-<p>gotobutton focus, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton focus, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Selects the button corresponding to the focused window.</p>
 </div>
-<div class="paragraph">
-<p>gotobutton focus, Iconify</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>gotobutton focus, Iconify</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Sends the fvwm command Iconify to the focused window. Note that this
 does not change the selected button.</p>
 </div>
-<div class="paragraph">
-<p>bif Next 3, gotobutton 0, select, ret, gotobutton Next, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>bif Next 3, gotobutton 0, select, ret, gotobutton Next, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>If a button is selected, and it&#8217;s the last button, go to button 0. If
@@ -871,9 +1090,11 @@ it&#8217;s not the last button, go to the next button. Otherwise, do nothing.
 Basically, this action cycles through all buttons in the current
 manager.</p>
 </div>
-<div class="paragraph">
-<p>bif select 7, bif focus 3, gotomanager 0, select, ret, gotobutton focus,
-\ select, ret, gotobutton down, select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>bif select 7, bif focus 3, gotomanager 0, select, ret, gotobutton focus, \
+select, ret, gotobutton down, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>This is good for sending to FvwmIconMan with a SendToModule command. If
@@ -881,10 +1102,11 @@ there is a selected button, it moves down. Otherwise, if there is a
 focused button, it is selected. Otherwise, button 0 of manager 0 gets
 selected.</p>
 </div>
-<div class="paragraph">
-<p>bif select Select, bif focus Focus, gotomanager 0, select, ret, label
-Focus, \ gotobutton focus, select, ret, label Select, gotobutton down,
-select</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>bif select Select, bif focus Focus, gotomanager 0, select, ret, label Focus, \
+gotobutton focus, select, ret, label Select, gotobutton down, select</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>Same as previous, but using the label instruction.</p>
@@ -1026,21 +1248,18 @@ should.</p>
 <div class="sect1">
 <h2 id="_thanks">THANKS</h2>
 <div class="sectionbody">
-<div class="literalblock highlight">
-<div class="content">
-<pre>Thanks to:
-	David Berson &lt;berson@cs.pitt.edu&gt;,
-	Gren Klanderman &lt;greg@alphatech.com&gt;,
-	David Goldberg &lt;dsg@mitre.org&gt;,
-	Pete Forman &lt;gsez020@compo.bedford.waii.com&gt;,
-	Neil Moore &lt;amethyst@maxwell.ml.org&gt;,
-	Josh M. Osborne &lt;stripes@va.pubnix.com,
-	Adam Rice &lt;wysiwyg@glympton.airtime.co.uk&gt;,
-	Chris Siebenmann &lt;cks@hawkwind.utcs.toronto.edu&gt;,
-	Bjorn Victor &lt;victor@delial.docs.uu.se&gt;.
-
-for contributing either code or truly keen ideas.</pre>
-</div>
+<div class="paragraph">
+<p>Thanks to:
+David Berson &lt;<a href="mailto:berson@cs.pitt.edu">berson@cs.pitt.edu</a>&gt;,
+Gren Klanderman &lt;<a href="mailto:greg@alphatech.com">greg@alphatech.com</a>&gt;,
+David Goldberg &lt;<a href="mailto:dsg@mitre.org">dsg@mitre.org</a>&gt;,
+Pete Forman &lt;<a href="mailto:gsez020@compo.bedford.waii.com">gsez020@compo.bedford.waii.com</a>&gt;,
+Neil Moore &lt;<a href="mailto:amethyst@maxwell.ml.org">amethyst@maxwell.ml.org</a>&gt;,
+Josh M. Osborne &lt;<a href="mailto:stripes@va.pubnix.com">stripes@va.pubnix.com</a>,
+Adam Rice &lt;<a href="mailto:wysiwyg@glympton.airtime.co.uk">wysiwyg@glympton.airtime.co.uk</a>&gt;,
+Chris Siebenmann &lt;<a href="mailto:cks@hawkwind.utcs.toronto.edu">cks@hawkwind.utcs.toronto.edu</a>&gt;,
+Bjorn Victor &lt;<a href="mailto:victor@delial.docs.uu.se">victor@delial.docs.uu.se</a>&gt;,
+for contributing either code or truly keen ideas.</p>
 </div>
 </div>
 </div>

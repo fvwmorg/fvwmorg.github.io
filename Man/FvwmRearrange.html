@@ -9,7 +9,16 @@ permalink: /Man/FvwmRearrange/index.html
 <li><a href="#_synopsis">SYNOPSIS</a></li>
 <li><a href="#_description">DESCRIPTION</a></li>
 <li><a href="#_invocation">INVOCATION</a></li>
-<li><a href="#_options">OPTIONS</a></li>
+<li><a href="#_options">OPTIONS</a>
+<ul class="sectlevel2">
+<li><a href="#_tiling_options">TILING OPTIONS</a></li>
+<li><a href="#_cascading_options">CASCADING OPTIONS</a></li>
+<li><a href="#_general_options">GENERAL OPTIONS</a></li>
+<li><a href="#_resizing_options">RESIZING OPTIONS</a></li>
+<li><a href="#_filtering_options">FILTERING OPTIONS</a></li>
+<li><a href="#_ordering_options">ORDERING OPTIONS</a></li>
+</ul>
+</li>
 <li><a href="#_bounding_box">BOUNDING BOX</a></li>
 <li><a href="#_bugs">BUGS</a></li>
 <li><a href="#_authors">AUTHORS</a></li>
@@ -27,11 +36,10 @@ permalink: /Man/FvwmRearrange/index.html
 <h2 id="_synopsis">SYNOPSIS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Module FvwmRearrange [-cascade | -tile] [options] [bounding box]</p>
+<p><strong>FvwmRearrange [options] [bounding box] [options]</strong></p>
 </div>
 <div class="paragraph">
-<p>FvwmRearrange is spawned by fvwm, so no command line invocation will
-work.</p>
+<p>FvwmRearrange is spawned by fvwm, so no command line invocation will work.</p>
 </div>
 </div>
 </div>
@@ -42,17 +50,25 @@ work.</p>
 <p>This module can be called to tile or cascade windows.</p>
 </div>
 <div class="paragraph">
-<p>When tiling the module attempts to tile windows on the current screen
-subject to certain constraints. Horizontal or vertical tiling is
-performed so that each window does not overlap another, and by default
-each window is resized to its nearest resize increment (note sometimes
-some space might appear between tiled windows&#8201;&#8212;&#8201;this is why).</p>
+<p>When tiling the module will tile the windows into a grid (table or matrix)
+inside the bounding box (the current monitor&#8217;s working area by default).
+Tiling is performed so that windows will not overlap. When moving and
+resizing windows to fit into the grid, windows are resized to their nearest
+increment size, specified by the window&#8217;s size hints (this is why sometimes
+space might appear between tiled windows, common with terminals). Use the
+<em>ResizeHintOverride</em> style on widows with increment size hints to override
+this behavior (which removes the gaps).</p>
 </div>
 <div class="paragraph">
-<p>When cascading the module attempts to cascade windows on the current
-screen subject to certain constraints. Layering is performed so
-consecutive windows will have their window titles visible underneath the
-previous.</p>
+<p>When cascading the module will cascade the windows inside the bounding box
+from the top left of the bounding box. Windows will be resized to fit the
+bounding box and layering is performed so that consecutive windows all have
+their titles visible underneath the previous window.</p>
+</div>
+<div class="paragraph">
+<p>The behavior of both tiling and cascading can be configured by the options
+listed below. This can control the size of the bounding box, if windows are
+resized, and which windows are affected, and so on.</p>
 </div>
 </div>
 </div>
@@ -60,173 +76,395 @@ previous.</p>
 <h2 id="_invocation">INVOCATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>FvwmRearrange is best invoked from a menu, pop up or button. There are a
-number of command line options which can be used to constrain the
-layering, these are described below. As an example case, one could call
-FvwmRearrange with the following arguments:</p>
+<p>FvwmRearrange is best invoked from a menu, keybinding, or button. There are
+a number of command line options which can be used to control how windows
+will be cascaded/tiled, described below. Invoking FvwmRearrange with no
+options will auto tile (see _-auto_tile) windows on the current monitor:</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
-<pre>FvwmRearrange -tile -h 10 10 90 90</pre>
+<pre>FvwmRearrange</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>or</p>
+<p>This tiles all windows in the working area of the current monitor into
+a grid. This size of the grid will be computed using the number of
+windows trying to make the grid as square as possible. Windows on the top
+row will be resized to take up any extra space filling the full working
+area. Adding additional arguments can change the behavior, for example:</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
-<pre>FvwmRearrange -cascade -resize 10 2 80 70</pre>
+<pre>FvwmRearrange -tile -swap 10 10 90 90</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The first invocation will horizontally tile windows with a bounding box
-which starts at 10 by 10 percent into and down the screen and ends at 90
-by 90 percent into and down the screen.</p>
+<p>This invocation will tile windows in a single column with a bounding box
+which starts at 10 by 10 percent into and down the monitor&#8217;s working area
+and ends at 90 by 90 percent into and down the working area. Another example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>FvwmRearrange -cascade 10 2 80 70</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>The second invocation will cascade windows starting 10 by 2 percent into
-and down the screen. Windows will be constrained to 80 by 70 percent of
-the screen dimensions. Since the <em>resize</em> is also specified, windows
-will be resized to the given constrained width and height.</p>
+<p>This invocation will cascade windows starting 10 by 2 percent into and down
+the monitor&#8217;s working area. Windows will be resized so their height and width
+are 75 percent of the bounding box, which ends at 80 by 70 percent of the
+working area.</p>
+</div>
+<div class="paragraph">
+<p>FvwmRearrange can also be run multiple times on the same monitor with
+different bounding boxes. This way you can better control how windows are
+tiled. Consider the following example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>FvwmRearrange -tile -swap 0 0 35 100
+FvwmRearrange 35 0 100 100</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The first command will create a single column of windows located on the left
+35% of the monitor, and the second will auto tile the windows on the right
+65% of the monitor. This way you can control how windows are tiled in
+different parts of the monitor independent of each other.</p>
+</div>
+<div class="paragraph">
+<p>If you want to run FvwmRearrange automatically when new windows are added,
+use FvwmEvent to trigger FvwmRearrange with an <em>add_window</em> event. If using
+multiple bounding boxes (like the above example), a ManualPlacement Style
+would allow you to place a window in the portion of the screen you wanted
+it to be tiled in.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_options">OPTIONS</h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>FvwmRearrange is only configured using command line options. These options
+can come before or after the <em>bounding box</em>, and all start with a '-'.
+Below the options are split into categories, <strong>TILING OPTIONS</strong>,
+<strong>CASCADING OPTIONS</strong>, <strong>GENERAL OPTIONS</strong>, <strong>RESIZING OPTIONS</strong>,
+<strong>FILTERING OPTIONS</strong>, and <strong>ORDERING OPTIONS</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_tiling_options">TILING OPTIONS</h3>
+<div class="paragraph">
+<p>Tiling takes the windows inside the bounding box, creates a grid of equal
+sized cells based on the number of windows, then resizes and moves the
+windows to fill the cells, starting at the top left. The cells are then
+filled one row at a time (from left to right) working downward.</p>
+</div>
+<div class="paragraph">
+<p>Windows may have minimum size or size increment EMWH hints, so there
+could be gaps between windows or some windows minimum size might be
+bigger than the cell. The <em>ResizeHintOverride</em> fvwm <em>Style</em> will
+override this behavior and make windows fit in their cells better.</p>
+</div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">-a</dt>
+<dt class="hdlist1">-auto_tile</dt>
 <dd>
-<p>Causes <em>all</em> window types to be affected, even ones with the
-WindowListSkip style.</p>
+<p>This is the default behavior which tiles all windows into as close to
+a square grid as possible. There can be up to one more column than row
+(or one more row than column with <em>-swap</em>), depending on number of windows.
+If the option <em>-max_n N</em> is also provided, then the grid will have <em>N</em> more
+columns than rows (or <em>N</em> more rows than columns if <em>-swap</em> is included).
+This option implies <em>-fill_start</em> so all space will be used. If <em>-fill_end</em>
+option is provided, the free space is used at the end instead.</p>
 </dd>
-<dt class="hdlist1">-animate</dt>
+<dt class="hdlist1">-tile</dt>
 <dd>
-<p>Attempt to do an animated move, this is ignored if <em>-resize</em> or
-<em>-maximize</em> are used.</p>
+<p>This will tile the windows into a single row (or column if with <em>-swap</em>).
+If <em>-max_n N</em> is also provided, there will be at most <em>N</em> columns per row
+(or <em>N</em> rows per column with <em>-sawp</em>) in the resulting grid. If the grid
+has more cells than the number of windows, then the additional cells at
+the end will be left open, unless the <em>-fill_start</em> or <em>-fill_end</em> options
+are included.</p>
 </dd>
+<dt class="hdlist1">-max_n <em>N</em></dt>
+<dd>
+<p>This option alters how the grid is computed. When using <em>-auto_tile</em> this
+gives the number of more columns than rows (or more rows than columns with
+<em>-swap</em>). When using <em>-tile</em> this gives the max number of columns, before
+a new row is created (or max number of rows with <em>-swap</em>). Default is 0.</p>
+</dd>
+<dt class="hdlist1">-swap</dt>
+<dd>
+<p>Swaps the rows and columns, and swaps the direction the cells are filled,
+by starting at the top left cell and filling each column downward (from
+top to bottom) while working to the right. This use to be called horizontal
+sort (with the default being vertical sort), and the old option <em>-h</em> is
+an alias for <em>-swap</em>, due to this history.</p>
+</dd>
+<dt class="hdlist1">-fill_start</dt>
+<dd>
+<p>This will use any unused space in the grid by filling the first row (or
+first column with <em>-swap</em>) left open in the grid. This is done by growing
+the windows in the row (or column) to fill the unused space. The rest of
+the windows will then fill up the rest of the grid.</p>
+</dd>
+<dt class="hdlist1">-fill_end</dt>
+<dd>
+<p>This will use any unused space in the grid by filling the last row (or
+last column with <em>-swap</em>) left open in the grid.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_cascading_options">CASCADING OPTIONS</h3>
+<div class="paragraph">
+<p>Cascading takes all windows in the bounding box, places the first window
+in the upper left corer of the bounding box, then stacks the second window
+just below the first shifted slightly down and to the right, so the previous
+window can be seen behind it. This process is repeated placing each window
+slightly down and to the right of the previous window.</p>
+</div>
+<div class="paragraph">
+<p>By default the windows are resized such that their height and width are
+75% of the bounding box&#8217;s height and width. Though as the windows are
+cascaded, windows will shrunk so they will stay inside the bounding box.
+The <em>-nostretch</em> and <em>-noresize</em> options will prevent windows from being
+stretched or resized.</p>
+</div>
+<div class="dlist">
+<dl>
 <dt class="hdlist1">-cascade</dt>
 <dd>
-<p>Cascade windows. This argument must be the first on the command line.
-This is the default.</p>
+<p>Cascade windows inside the bounding box.</p>
 </dd>
-<dt class="hdlist1">-desk</dt>
+<dt class="hdlist1">-cascadew <em>arg</em></dt>
 <dd>
-<p>Causes all windows on the desk to be cascaded/tiled instead of the
-current screen only.</p>
+<p>Specifies the width of the cascade windows. <em>arg</em> is a percentage of the
+bounding box&#8217;s width, or a pixel value if a <em>p</em> is suffixed. Windows are
+shrunk if the width pushes them outside the bounding box. Default is 75.</p>
+</dd>
+<dt class="hdlist1">-cascadeh <em>arg</em></dt>
+<dd>
+<p>Specifies the height of the cascade windows. <em>arg</em> is a percentage of the
+bounding box&#8217;s height, or a pixel value if a <em>p</em> is suffixed. Windows are
+shrunk if the height pushes them outside the bounding box. Default is 75.</p>
+</dd>
+<dt class="hdlist1">-inc_equal</dt>
+<dd>
+<p>Make the x and y increment equal to the maximum of the two values. This is
+useful to get the offset to be equal to the size of the border and title
+bar in both directions. This can be combined with <em>-incx, _-incy</em>,
+<em>-flatx</em>, and <em>-flaty</em>.</p>
+</dd>
+<dt class="hdlist1">-incx <em>arg</em></dt>
+<dd>
+<p>Specifies an additional horizontal increment which is successively added
+to cascaded windows. <em>arg</em> is a percentage of bounding box&#8217;s width, or a
+pixel value if a <em>p</em> is suffixed. Default is zero.</p>
+</dd>
+<dt class="hdlist1">-incy <em>arg</em></dt>
+<dd>
+<p>Specifies an additional vertical increment which is successively added to
+cascaded windows. <em>arg</em> is a percentage of bounding box&#8217;s height, or a
+pixel value if a <em>p</em> is suffixed. Default is zero.</p>
 </dd>
 <dt class="hdlist1">-flatx</dt>
 <dd>
-<p>Inhibits border width increment. Only used when cascading.</p>
+<p>Inhibits incrementing the horizontal position by a windows border width
+(and title width if titles are on the right or left). Useful with <em>-incx</em>
+to better control the horizontal increment.</p>
 </dd>
 <dt class="hdlist1">-flaty</dt>
 <dd>
-<p>Inhibits border height increment. Only used when cascading.</p>
+<p>Inhibits incrementing the vertical position by a windows border width
+(and title width if titles are on the top or bottom). Useful with <em>-incy</em>
+to better control the vertical increment.</p>
 </dd>
-<dt class="hdlist1">-h</dt>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_general_options">GENERAL OPTIONS</h3>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-screen <em>name</em></dt>
 <dd>
-<p>Tiles horizontally (default is to tile vertically). Used for tiling
-only.</p>
-</dd>
-<dt class="hdlist1">-incx arg</dt>
-<dd>
-<p>Specifies a horizontal increment which is successively added to
-cascaded windows. <em>arg</em> is a percentage of screen width, or pixel
-value if a <em>p</em> is suffixed. Default is zero. Used only for cascading.</p>
-</dd>
-<dt class="hdlist1">-incy arg</dt>
-<dd>
-<p>Specifies a vertical increment which is successively added to cascaded
-windows. <em>arg</em> is a percentage of screen height, or pixel value if a
-<em>p</em> is suffixed. Default is zero. Used only for cascading.</p>
-</dd>
-<dt class="hdlist1">-m</dt>
-<dd>
-<p>Causes maximized windows to also be affected (implied by -a).</p>
-</dd>
-<dt class="hdlist1">-maximize</dt>
-<dd>
-<p>When moving/resizing a window, put it also into maximized state.</p>
-</dd>
-<dt class="hdlist1">-mn arg</dt>
-<dd>
-<p>Tiles up to <em>arg</em> windows in tile direction. If more windows exist, a
-new direction row or column is created (in effect, a matrix is
-created). Used only when tiling windows.</p>
-</dd>
-<dt class="hdlist1">-noanimate</dt>
-<dd>
-<p>Do not attempt to do an animated move.</p>
-</dd>
-<dt class="hdlist1">-nomaximize</dt>
-<dd>
-<p>Do not put windows into maximized state.</p>
+<p>By default the current monitor is used to determine what windows to
+cascade/tile, and is used as the base bounding box. This will use the
+monitor specified by the RandR <em>name</em> instead. If <em>name</em> is equal to "g"
+the global monitor (bounding box containing all monitors is used). Since
+this may cause windows to span across multiple monitors, the working area
+is ignored (see <em>ewmhiwa</em>).</p>
 </dd>
 <dt class="hdlist1">-noraise</dt>
 <dd>
 <p>Inhibits window raising, leaving the depth ordering intact.</p>
 </dd>
-<dt class="hdlist1">-noresize</dt>
+<dt class="hdlist1">-maximize</dt>
 <dd>
-<p>Inhibits window resizing, leaving window sizes intact. This is the
-default when cascading windows.</p>
+<p>When moving/resizing a window, put them into a maximized state. This makes
+so <em>Maximize</em> can be used to restore the previous size and position.</p>
 </dd>
-<dt class="hdlist1">-nostretch</dt>
+<dt class="hdlist1">-animate</dt>
 <dd>
-<p>If tiling: inhibits window growth to fit tile. Windows are shrunk to
-fit the tile but not expanded.</p>
-</dd>
-</dl>
-</div>
-<div class="paragraph">
-<p>If cascading: inhibits window expansion when using the -resize option.
-Windows will only shrink to fit the maximal width and height (if given).</p>
-</div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">-r</dt>
-<dd>
-<p>Reverses the window sequence.</p>
-</dd>
-<dt class="hdlist1">-resize</dt>
-<dd>
-<p>Forces all windows to resize to the constrained width and height (if
-given). This is the default when tiling windows.</p>
-</dd>
-<dt class="hdlist1">-s</dt>
-<dd>
-<p>Causes sticky windows to also be affected (implied by -a).</p>
-</dd>
-<dt class="hdlist1">-sp</dt>
-<dd>
-<p>Causes windows sticky across pages to also be affected (implied by
--a).</p>
-</dd>
-<dt class="hdlist1">-sd</dt>
-<dd>
-<p>Causes windows sticky across desks to also be affected (implied by
--a).</p>
-</dd>
-<dt class="hdlist1">-t</dt>
-<dd>
-<p>Causes transient windows to also be affected (implied by -a).</p>
-</dd>
-<dt class="hdlist1">-tile</dt>
-<dd>
-<p>Tile windows. This argument must be the first on the command line.</p>
-</dd>
-<dt class="hdlist1">-u</dt>
-<dd>
-<p>Causes untitled windows to also be affected (implied by -a).</p>
+<p>When only moving windows (<em>-noresize</em> is used), use <em>AnimateMove</em> instead
+of <em>Move</em> to move windows.</p>
 </dd>
 <dt class="hdlist1">-ewmhiwa</dt>
 <dd>
-<p>When rearranging windows, make the calculation ignore the working
-area, such as EwmhBaseStruts; by default, FvwmRearrange will honour
-the working area.</p>
+<p>When rearranging windows, make the calculation ignore the working area,
+such as <em>EwmhBaseStruts</em>; by default, FvwmRearrange will honour the
+working area. This option may place windows outside of the current monitor.</p>
 </dd>
 </dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resizing_options">RESIZING OPTIONS</h3>
+<div class="paragraph">
+<p>By default both tiling and cascading will resize windows based on the
+provided options. These options will limit this behavior.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-noresize</dt>
+<dd>
+<p>Inhibits window resizing, leaving window sizes intact.</p>
+</dd>
+<dt class="hdlist1">-nostretch</dt>
+<dd>
+<p>Inhibits windows from growing to fit the grid cell (when tiling) or
+bounding box (when cascading). Windows are still shrunk to fit but not
+expanded. This implies both <em>-nostretchx</em> and <em>-nostretchy</em>.</p>
+</dd>
+<dt class="hdlist1">-nostretchx</dt>
+<dd>
+<p>Inhibits windows from growing horizontally to fit, but they will still
+be shrunk.</p>
+</dd>
+<dt class="hdlist1">-nostretchy</dt>
+<dd>
+<p>Inhibits windows from growing vertically to fit, but they will still be
+shrunk.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_filtering_options">FILTERING OPTIONS</h3>
+<div class="paragraph">
+<p>These options affect which windows inside the bounding box will be tiled
+or cascaded.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-all</dt>
+<dd>
+<p>Cause skipped, sticky, and transient windows to also be cascaded/tiled
+(ignored by default). This is a shortcut for <em>-skiplist</em>, <em>-sticky</em> and
+<em>-transient</em>.</p>
+</dd>
+<dt class="hdlist1">-some</dt>
+<dd>
+<p>Don&#8217;t include maximized windows and windows without title bars (useful
+when cascading) when cascading/tiling. This is a shortcut for
+<em>-no_maximized</em> and <em>-no_titled</em>.</p>
+</dd>
+<dt class="hdlist1">-skiplist</dt>
+<dd>
+<p>Causes windows on the windows skip list (see <em>WindowListSkip</em> style) to
+also be affected.</p>
+</dd>
+<dt class="hdlist1">-sticky</dt>
+<dd>
+<p>Causes sticky windows to also be affected. This is a shortcut for
+<em>-sticky_page</em> and <em>-sticky_desk</em>.</p>
+</dd>
+<dt class="hdlist1">-sticky_page</dt>
+<dd>
+<p>Causes windows sticky across pages to also be affected.</p>
+</dd>
+<dt class="hdlist1">-sticky_desk</dt>
+<dd>
+<p>Causes windows sticky across desks to also be affected.</p>
+</dd>
+<dt class="hdlist1">-transient</dt>
+<dd>
+<p>Causes transient windows to also be affected.</p>
+</dd>
+<dt class="hdlist1">-no_maximized</dt>
+<dd>
+<p>Don&#8217;t include windows in the maximized state to be cascaded/tiled.</p>
+</dd>
+<dt class="hdlist1">-no_titled</dt>
+<dd>
+<p>Don&#8217;t include windows with title bars to be cascaded/tiled.</p>
+</dd>
+<dt class="hdlist1">-desk</dt>
+<dd>
+<p>Causes all windows on the desk to be cascaded/tiled instead of only
+windows that intersect the bounding box.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_ordering_options">ORDERING OPTIONS</h3>
+<div class="paragraph">
+<p>Windows are tiled or cascaded based on their order. By default the order
+is based off fvwm&#8217;s <em>WindowList</em> order (usually based off the order the
+windows were last focused). These options control the window order.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">-order_name</dt>
+<dd>
+<p>Order the windows by their name.</p>
+</dd>
+<dt class="hdlist1">-order_icon</dt>
+<dd>
+<p>Order the windows by their icon name.</p>
+</dd>
+<dt class="hdlist1">-order_class</dt>
+<dd>
+<p>Order the windows by their class.</p>
+</dd>
+<dt class="hdlist1">-order_resource</dt>
+<dd>
+<p>Order the windows by their resource.</p>
+</dd>
+<dt class="hdlist1">-order_xy</dt>
+<dd>
+<p>Order the windows based on their (x, y) coordinate position. This is a
+lexicographic ordering, by comparing x-coordinates first, then if the
+x-coordinates are equal compare the y-coordinates. This ordering matches
+the ordering of the <em>-swap</em> tiling option.</p>
+</dd>
+<dt class="hdlist1">-order_yx</dt>
+<dd>
+<p>Order the windows based on their (x, y) coordinate position. This is a
+lexicographic ordering, by comparing y-coordinates first, then if the
+y-coordinates are equal compare the x-coordinates. This ordering matches
+the default positing of tiling windows.</p>
+</dd>
+<dt class="hdlist1">-order_hw</dt>
+<dd>
+<p>Order the windows based on their height, and if their heights are the same
+compare windows based on their width. This can be useful with <em>-cascade</em>
+and <em>-noresize</em> to stack windows based on their size.</p>
+</dd>
+<dt class="hdlist1">-order_wh</dt>
+<dd>
+<p>Order the windows based on their width, and if their widths are the same
+compare windows based on their height. This can be useful with <em>-cascade</em>
+and <em>-noresize</em> to stack windows based on their size.</p>
+</dd>
+<dt class="hdlist1">-reverse</dt>
+<dd>
+<p>Reverses the window ordering.</p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 </div>
@@ -234,24 +472,32 @@ the working area.</p>
 <h2 id="_bounding_box">BOUNDING BOX</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Up to four numbers can be placed on the command line that are not
-switches. The first pair specify an x and y offset to start the first
-window (default is 0, 0). The meaning of the second pair depends on
-operation mode:</p>
+<p>The bounding box is the area in which FvwmRearrange will both find and place
+windows when cascading/tiling.  The base bounding box is the working area of
+the current or specified monitor via the <em>-screen name</em> option. If the option
+<em>-ewmhiwa</em> is provided the base bounding box will ignore the working area and
+use the full monitor.</p>
 </div>
 <div class="paragraph">
-<p>When tiling windows it specifies an absolute coordinate reference
-denoting the lower right bounding box for tiling.</p>
+<p>Up to four numbers can be placed on the command line to specify a bounding
+box relative to the base bounding box of the given monitor.  The numbers
+give the position of the corners of the bounding box in the following order
+(default is "0 0 100 100"):</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Left Top Right Bottom</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>When cascading it specifies a maximal width and height for the layered
-windows. If an affected window exceeds either this width or height, it
-is resized to the maximal width or height.</p>
-</div>
-<div class="paragraph">
-<p>If any number is suffixed with the letter p, then it is taken to be a
-pixel value, otherwise it is interpreted as a screen percentage.
-Specifying zero for any parameter is equivalent to not specifying it.</p>
+<p>These numbers are treated as a percentage of the base bounding box. For
+instance the bounding box "10 5 85 80" would use a bounding starting 10%
+across the working area from the left and ending 85% across the working
+area, while starting 5% down the working area from the top and ending
+80% down the working area. If any number is suffixed with the letter <em>p</em>,
+then it is taken to be a pixel value instead of a percentage.
+Specifying zero for any parameter is equivalent to not specifying it
+(for example "0 0 0 0" is the same as "0 0 100 100").</p>
 </div>
 </div>
 </div>
@@ -268,8 +514,9 @@ rearranged.</p>
 <h2 id="_authors">AUTHORS</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Andrew Veliath (original FvwmTile and FvwmCascade modules) Dominik Vogt
-(merged FvwmTile and FvwmCascade to FvwmRearrange)</p>
+<p>Andrew Veliath (original FvwmTile and FvwmCascade modules),
+Dominik Vogt (merged FvwmTile and FvwmCascade to FvwmRearrange),
+Jaimos Skriletz (updated for fvwm3 including adding the auto_tile option).</p>
 </div>
 </div>
 </div>

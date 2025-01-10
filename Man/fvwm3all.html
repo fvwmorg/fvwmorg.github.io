@@ -311,7 +311,7 @@ GTK use color cubes as palettes. So, the idea is to configure your
 applications/toolkits to all use the same color cube. Moreover, you can
 use the colors in this color cube in your X resources configuration
 files and/or as arguments to colors options. Fvwm can use any color cube
-of the form RxGxB with 2 &#8656; R &#8656; 6, R = G, R-1 =&lt; B &#8656; R and B &gt;= 2. To
+of the form RxGxB with 2 &lt;= R &lt;= 6, R = G, R-1 =&lt; B &lt;= R and B &gt;= 2. To
 get an RxGxB color cube give an argument to <strong>-l</strong> an integer c &gt;= R*G*B
 and &lt; (R+1)<strong>(G+1)*B if B=R and &lt; R*G</strong>(B+1) if B &lt; R (and different from
 61). If c &gt; R*G*B, then some grey may be added to the color cube. You
@@ -1053,7 +1053,7 @@ sample module <strong>FvwmButtons</strong>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Fvwm attempts to be ICCCM 2.0 compliant. Check
-<em><a href="http://tronche.com/gui/x/icccm/" class="bare">http://tronche.com/gui/x/icccm/</a></em> for more info. In addition, ICCCM
+<a href="http://tronche.com/gui/x/icccm/" class="bare">http://tronche.com/gui/x/icccm/</a> for more info. In addition, ICCCM
 states that it should be possible for applications to receive any
 keystroke, which is not consistent with the keyboard shortcut approach
 used in fvwm and most other window managers. In particular you cannot
@@ -1122,7 +1122,7 @@ AddToFunc UrgencyDoneFunc
 <div class="paragraph">
 <p>Fvwm attempts to respect the extended window manager hints (ewmh or EWMH
 for short) specification:
-<em><a href="https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html" class="bare">https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html</a></em> and
+<a href="https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html" class="bare">https://specifications.freedesktop.org/wm-spec/wm-spec-1.3.html</a> and
 some extensions of this specification.</p>
 </div>
 <div class="paragraph">
@@ -2032,77 +2032,58 @@ expanded.</p>
 <p>This is deprecated; use $[monitor.current] instead.</p>
 </div>
 </dd>
-</dl>
+<dt class="hdlist1">$[monitor.&lt;n&gt;.x], $[monitor.&lt;n&gt;.y], $[monitor.&lt;n&gt;.width], $[monitor.&lt;n&gt;.height], $[monitor.&lt;n&gt;.desk], $[monitor.&lt;n&gt;.pagex], $[monitor.&lt;n&gt;.pagey] $[monitor.primary], $[monitor.prev_primary], $[monitor.current], $[monitor.prev] $[monitor.output], $[monitor.number] $[monitor.count], $[monitor.&lt;n&gt;.prev_desk], $[monitor.&lt;n&gt;.prev_pagex], $[monitor.&lt;n&gt;.prev_pagey]</dt>
+<dd>
+<p>Returns information about the selected monitor. These can be nested, for
+example: $[monitor.$[monitor.primary].width]</p>
+<div class="paragraph">
+<p>&lt;n&gt; should be a valid xrandr(1) output name.</p>
 </div>
 <div class="paragraph">
-<p>$[monitor.&lt;n&gt;.x], $[monitor.&lt;n&gt;.y], $[monitor.&lt;n&gt;.width],
-$[monitor.&lt;n&gt;.height], $[monitor.&lt;n&gt;.desk], $[monitor.&lt;n&gt;.pagex], $[monitor.&lt;n&gt;.pagey] $[monitor.primary], $[monitor.prev_primary], $[monitor.current], $[monitor.prev] $[monitor.output], $[monitor.number] $[monitor.count], $[monitor.&lt;n&gt;.prev_desk], $[monitor.&lt;n&gt;.prev_pagex], $[monitor.&lt;n&gt;.prev_pagey]::
-	Returns information about the selected monitor. These can be nested, for
-	example: $[monitor.$[monitor.primary].width]</p>
-</div>
-<div class="paragraph">
-<p>+
-&lt;n&gt; should be a valid xrandr(1) output name.</p>
-</div>
-<div class="paragraph">
-<p>+
-"x" returns the monitor&#8217;s x position; "y" returns the monitor&#8217;s y
+<p>"x" returns the monitor&#8217;s x position; "y" returns the monitor&#8217;s y
 position; "width" returns the monitor&#8217;s width (in pixels); "height"
 returns the monitor&#8217;s height (in pixels)</p>
 </div>
 <div class="paragraph">
-<p>+
-"number" returns the monitor&#8217;s position within the tree.  See RANDR SUPPORT.</p>
+<p>"number" returns the monitor&#8217;s position within the tree.  See RANDR SUPPORT.</p>
 </div>
 <div class="paragraph">
-<p>+
-"current" is the same as the deprecated $[screen.pointer] variable; the
+<p>"current" is the same as the deprecated $[screen.pointer] variable; the
 monitor which has the mouse pointer.</p>
 </div>
 <div class="paragraph">
-<p>+
-"prev" returns the previously focused monitor, or the empty string if there
+<p>"prev" returns the previously focused monitor, or the empty string if there
 isn&#8217;t one.</p>
 </div>
 <div class="paragraph">
-<p>+
-"count" returns the number of active monitors.</p>
+<p>"count" returns the number of active monitors.</p>
 </div>
 <div class="paragraph">
-<p>+
-"desk" returns the current desk displayed on the referenced monitor.</p>
+<p>"desk" returns the current desk displayed on the referenced monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"pagex" returns the X page on the referenced monitor.</p>
+<p>"pagex" returns the X page on the referenced monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"pagey" returns the Y page of the referenced monitor.</p>
+<p>"pagey" returns the Y page of the referenced monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"primary" is the name of the output set as primary via xrandr(1).</p>
+<p>"primary" is the name of the output set as primary via xrandr(1).</p>
 </div>
 <div class="paragraph">
-<p>+
-"prev_primary" is the name of the output which was the previous primary
+<p>"prev_primary" is the name of the output which was the previous primary
 monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"prev_desk" returns the previous desk on the referenced monitor.</p>
+<p>"prev_desk" returns the previous desk on the referenced monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"prev_pagex" returns the previous X page on the referenced monitor.</p>
+<p>"prev_pagex" returns the previous X page on the referenced monitor.</p>
 </div>
 <div class="paragraph">
-<p>+
-"prev_pagey" returns the previous Y page on the referenced monitor.</p>
+<p>"prev_pagey" returns the previous Y page on the referenced monitor.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1">$[screen]</dt>
 <dd>
 <p>The screen number fvwm is running on. Useful for setups with multiple
@@ -2136,6 +2117,26 @@ $[bg.cs3.lighten15.hash].</p>
 </div>
 <div class="paragraph">
 <p>Please refer to the <strong>Colorsets</strong> section for details about colorsets.</p>
+</div>
+</dd>
+<dt class="hdlist1">$[math.+.&lt;x&gt;,&lt;y&gt;] $[math.-.&lt;x&gt;,&lt;y&gt;] $[math.*.&lt;x&gt;,&lt;y&gt;] $[math./.&lt;x&gt;,&lt;y&gt;] $[math.%.&lt;x&gt;,&lt;y&gt;] $[math.^.&lt;x&gt;,&lt;y&gt;]</dt>
+<dd>
+<p>The math expansion variables can be used to do some basic arithmetic
+on the integers &lt;x&gt; and &lt;y&gt;. These expressions can be used to add
+(&#43;), subtract (-), multiply (*), divide (/), modulus
+(%), and exponentiation (^). This can be useful when computing
+the size of panels or locations of windows relative to a monitor, for
+example $[math.-.$[monitor.$[monitor.primary].height],200] will
+subtract 200 pixels from the height of the primary monitor. These can
+also be nested for more complex operations,
+$[math.&#43;.$[math.*.3,5],$[math.-.4,-2]]
+is replaced with 21.</p>
+<div class="paragraph">
+<p>The comma in "&lt;x&gt;,&lt;y&gt;" is to allow for a future possibility of using floats.
+All operations use C integer mathematics. The result of integer division is
+the quotient. The modulus can be used to get the remainder of the integer
+division. Note that the C modulus returns negative remainders for negative
+values. Finally the exponentiation operation returns 1 if &lt;y&gt; is negative.</p>
 </div>
 </dd>
 <dt class="hdlist1">$[schedule.last]</dt>
@@ -2409,9 +2410,9 @@ using the <strong>Key</strong> and <strong>Mouse</strong> commands with the spec
 possible combined with 'T' for the menu title, 'I' for other menu
 items, 'S' for any border or sidepic, '[' for left border including a
 left sidepic, ']' for right border including a right sidepic, '-' for
-top border, '<em>' for bottom border. The menu context uses its own set
-of actions that can be bound to keys and mouse buttons. These are
-_MenuClose</em>, <em>MenuCloseAndExec</em>, <em>MenuEnterContinuation</em>,
+top border, '_' for bottom border. The menu context uses its own set
+of actions that can be bound to keys and mouse buttons.
+These are _MenuClose_, <em>MenuCloseAndExec</em>, <em>MenuEnterContinuation</em>,
 <em>MenuEnterSubmenu</em>, <em>MenuLeaveSubmenu</em>, <em>MenuMoveCursor</em>,
 <em>MenuCursorLeft</em>, <em>MenuCursorRight</em>, <em>MenuSelectItem</em>, <em>MenuScroll</em>
 and <em>MenuTearOff</em>.</p>
@@ -4179,19 +4180,6 @@ keysym database <em>/usr/X11R6/lib/X11/XKeysymDB</em>. The <em>wait</em>,
 <p>Note: all command names can be abbreviated with their first letter.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>HilightColor</strong> <em>textcolor</em> <em>backgroundcolor</em></dt>
-<dd>
-<p>This command is obsoleted by the <strong>Style</strong> options <em>HilightFore</em> and
-<em>HilightBack</em>. Please use</p>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Style * HilightFore textcolor, HilightBack backgroundcolor</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>instead.</p>
-</div>
-</dd>
 <dt class="hdlist1"><strong>HilightColorset</strong> [<em>num</em>]</dt>
 <dd>
 <p>This command is obsoleted by the <strong>Style</strong> option <em>HilightColorset</em>.
@@ -4382,19 +4370,19 @@ listing the key and its value. <em>verbose</em> has no effect with this
 option.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>Schedule</strong> [Periodic] <em>delay_ms</em> [<em>command_id</em>] <em>command</em></dt>
+<dt class="hdlist1"><strong>Schedule</strong> [<em>Periodic</em>] <em>delay_ms</em> [<em>command_id</em>] <em>command</em></dt>
 <dd>
-<p>	The <em>command</em> is executed after about <em>delay_ms</em> milliseconds. This
-	may be useful in some tricky setups. The <em>command</em> is executed in the
-	same context window as the <strong>Schedule</strong> command. An optional integer
-	argument <em>command_id</em> may be given in decimal, hexadecimal or octal
-	format. This id can be used with the <strong>Deschedule</strong> command to remove
-	the scheduled command before it is executed. If no id is given, fvwm
-	uses negative id numbers, starting with -1 and decreasing by one with
-	each use of the <strong>Schedule</strong> command. Note that the <strong>Schedule</strong> command
-	and its arguments undergo the usual command line expansion, and, when
-	<em>command</em> is finally executed, it is expanded again. It may therefore
-	be necessary to quote the parts of the command that must not be
+<p>The <em>command</em> is executed after about <em>delay_ms</em> milliseconds. This
+may be useful in some tricky setups. The <em>command</em> is executed in the
+same context window as the <strong>Schedule</strong> command. An optional integer
+argument <em>command_id</em> may be given in decimal, hexadecimal or octal
+format. This id can be used with the <strong>Deschedule</strong> command to remove
+the scheduled command before it is executed. If no id is given, fvwm
+uses negative id numbers, starting with -1 and decreasing by one with
+each use of the <strong>Schedule</strong> command. Note that the <strong>Schedule</strong> command
+and its arguments undergo the usual command line expansion, and, when
+<em>command</em> is finally executed, it is expanded again. It may therefore
+be necessary to quote the parts of the command that must not be
 expanded twice.</p>
 <div class="paragraph">
 <p>Note: A window&#8217;s id as it is returned with $[w.id] can be used as the
@@ -4667,12 +4655,10 @@ window is moved or resized interactively. This can be used to hide,
 show, change the colorset, change the location, or change the screen
 of the geometry window. Multiple options can be set at once separated
 by spaces. Details of each option are described below.</p>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>GeometryWindow</strong> Hide [Never | Move | Resize]</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>GeometryWindow Hide [Never | Move | Resize]</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Hides or switches off the geometry window. If the optional parameters <em>Move</em>
@@ -4680,12 +4666,10 @@ or <em>Resize</em> are given, it will only hide the geometry window during the
 respective operation. The parameter <em>Never</em> will switch the geometry back on
 again (equivalent to <em>Show</em>).</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>GeometryWindow</strong> Show [Never | Move | Resize]</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>GeometryWindow Show [Never | Move | Resize]</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Shows or switches on the geometry window (equivalent to <em>Hide Never</em>). If
@@ -4693,23 +4677,19 @@ the optional parameters <em>Move</em> or <em>Resize</em> are given, it will only
 geometry window during the respective operation. The parameter <em>Never</em> will
 switch the geometry window off (equivalent to <em>Hide</em>).</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>GeometryWindow</strong> Colorset <em>cset</em></p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>GeometryWindow Colorset _cset_</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Sets colorset of the gometry window to <em>cset</em>. Use the literal option
 <em>default</em> for <em>cset</em> to use the default colorset.</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>GeometryWindow</strong> Position [+|-]<em>x</em>[p] [+|-]<em>y</em>[p]</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>GeometryWindow Position [+|-]_x_[p] [+|-]_y_[p]</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Configures the position the geometry window appears. <em>x</em> and <em>y</em> are the
@@ -4720,12 +4700,10 @@ as the number of pixels from the respective screen edge. If no position
 arguments are given, the geometry window&#8217;s position will return to its default
 state of the upper left corner or the center if emulating MWM.</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>GeometryWindow</strong> Screen <em>RANDRNAME</em></p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>GeometryWindow Screen _RANDRNAME_</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>Configure which screen the geometry window is shown on. By default the
@@ -4810,23 +4788,19 @@ command).</p>
 window is moved to the pointer position before starting an interactive
 move; this is mainly intended for internal use by modules like <strong>FvwmPager</strong>.</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>Move</strong> pointer</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Move pointer</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>To move a window in a given direction until it hits another window, icon,
 or screen boundary use:</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>Move</strong> shuffle [Warp] [ewmhiwa] [snap <em>type</em>] [layers <em>min</em> <em>max</em>] <em>direction</em>(s)</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Move shuffle [options] _direction_(s)</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>The <em>direction</em> can be <em>North</em>/<em>N</em>/<em>Up</em>/<em>U</em>, <em>East</em>/<em>E</em>/<em>Right</em>/<em>R</em>,
@@ -4843,11 +4817,19 @@ in the order of the sequence stated.</p>
 </div>
 <div class="paragraph">
 <p>The literal option <em>Warp</em> will warp the mouse pointer to the window.
-If the literal option <em>snap</em> followed by a snap <em>type</em> of <em>windows</em>,
+The literal option <em>all_windows</em> will consider all windows on the same
+monitor instead of just the windows in the path the window is moving.
+This allows moving to the boundary of a window it is next too. The literal
+option <em>both_sides</em> will consider both the close side and the far side of
+the window (by default only the close side is considered).</p>
+</div>
+<div class="paragraph">
+<p>If the literal option <em>snap</em> followed by a snap <em>type</em> of <em>windows</em>,
 <em>icons</em>, or <em>same</em> is given, then the window will only stop if it hits
 another window, icon, or the same type. If the literal option <em>layers</em>
-followed by a <em>min</em> layer and <em>max</em> layer is given, then only windows on
-the layers between <em>min</em> and <em>max</em> layers will stop the window. For example:</p>
+followed by two integers specifying a <em>min</em> layer and <em>max</em> layer is given,
+then only windows on the layers between <em>min</em> and <em>max</em> layers will stop
+the window. For example:</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
@@ -4862,21 +4844,26 @@ Move shuffle Up Left</pre>
 </div>
 </div>
 <div class="paragraph">
-<p><strong>Move</strong> can be used to moved a window to a specified position:</p>
+<p>Move can be used to moved a window to a specified position:</p>
 </div>
-<div class="quoteblock">
-<blockquote>
-<div class="paragraph">
-<p><strong>Move</strong> [screen <em>S</em>] [w | m | v]<em>x</em>[p | w] [w | m | v]<em>y</em>[p | w] [Warp] [ewmhiwa]</p>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Move [screen _S_] [desk _N_] [w | m | v]_x_[p | w] \
+     [w | m | v]_y_[p | w] [Warp] [ewmhiwa]</pre>
 </div>
-</blockquote>
 </div>
 <div class="paragraph">
 <p>This will move the window to the <em>x</em> and <em>y</em> position (see below).
-By default, the EWMH working area is honoured. If he trailing option
-<em>ewmhiwa</em> is given, then the window position will ignore the working
-area (such as ignoring any values set via <strong>EwmhBaseStruts</strong>). If the
-option <em>Warp</em> is given then the pointer is warped to the window.</p>
+By default, the EWMH working area of each monitor is honoured (the
+working area for each monitor is set via <strong>EwmhBaseStruts</strong> and honors
+any strut hints provided by windows on the monitor). This means that
+if a window is placed outside the working area, the position of the
+window will be adjusted to fit inside the working area of the screen
+the center of the window is on. If the trailing option <em>ewmhiwa</em> is
+given, then the window position will ignore the working area and its
+position will not be adjusted (this option is needed to move windows
+off the screen and to have full control of where it is placed). If
+the option <em>Warp</em> is given then the pointer is warped to the window.</p>
 </div>
 <div class="paragraph">
 <p>If the literal option <em>screen</em> followed by a RandR screen name <em>S</em> is
@@ -4886,16 +4873,26 @@ calculations instead of the display dimensions. The <em>screen</em> is
 interpreted as in the <strong>MoveToScreen</strong> command.</p>
 </div>
 <div class="paragraph">
+<p>If the literal option <em>desk</em> followed by a desk number <em>N</em> is specified,
+place the window on the specified desk after it has been moved. This can
+serve two purposes, first you can move a window&#8217;s position and desk in a
+single command. Second when a window is moved between monitors, its desk
+is updated to be the same as the new monitor. This option can override
+that behavior by specifying which desk the window should end up on.</p>
+</div>
+<div class="paragraph">
 <p>The positional arguments <em>x</em> and <em>y</em> can specify an absolute or relative
-position from either the left/top or right/bottom of the screen. By default,
-the numeric value given is interpreted as a percentage of the screen
-width/height, but a trailing '<em>p</em>' changes the interpretation to mean pixels,
-while a trailing '<em>w</em>' means percent of the window width/height. To move the
-window relative to its current position, add the '<em>w</em>' (for "window") prefix
-before the <em>x</em> and/or <em>y</em> value. To move the window to a position relative to
-the current location of the pointer, add the '<em>m</em>' (for "mouse") prefix. To
-move the window relative to the virtual screen coordinates, add the '<em>v</em>'
-(for "virtual screen") prefix. This is mostly for internal use with FvwmPager,
+position from either the left/top (positive values) or right/bottom
+(negative values) of the global screen (the bounding box that contains all
+monitors) or specified <em>screen</em>. By default, the numeric value given is
+interpreted as a percentage of the screen&#8217;s width/height, but a trailing
+'<em>p</em>' changes the interpretation to mean pixels, while a trailing '<em>w</em>'
+means percent of the window width/height. To move the window relative to
+its current position, add the '<em>w</em>' (for "window") prefix before the <em>x</em>
+and/or <em>y</em> value. To move the window to a position relative to the current
+location of the pointer, add the '<em>m</em>' (for "mouse") prefix. To move the
+window relative to the virtual screen coordinates, add the '<em>v</em>' (for
+"virtual screen") prefix. This is mostly for internal use with FvwmPager,
 but can be used to give exact coordinates on the virtual screen and is best
 used with the '<em>p</em>' suffix. To leave either coordinate unchanged, "<em>keep</em>"
 can be specified in place of <em>x</em> or <em>y</em>.</p>
@@ -5278,14 +5275,9 @@ of the main motion. The above settings are the default.</p>
 <p>This command has been removed and must be replaced by <strong>MoveToDesk</strong>,
 the arguments for which are the same as for the <strong>GotoDesk</strong> command.</p>
 </div>
-<div class="literalblock highlight">
-<div class="content">
-<pre> +
-*Important*</pre>
-</div>
-</div>
 <div class="paragraph">
-<p>You cannot simply change the name of the command: the syntax has
+<p><strong>Important</strong>
+You cannot simply change the name of the command: the syntax has
 changed. If you used:</p>
 </div>
 <div class="literalblock highlight">
@@ -5327,6 +5319,59 @@ is used if the given <em>number</em> is omitted or invalid.</p>
 <h3 id="_focus_mouse_movement">Focus &amp; Mouse Movement</h3>
 <div class="dlist">
 <dl>
+<dt class="hdlist1"><strong>CursorBarrier</strong> [destroy] [options] [<em>left</em> <em>top</em> <em>right</em> <em>bottom</em>]</dt>
+<dd>
+<p>A cursor barrier is a box that the cursor cannot be moved outside of
+(unless warped with <em>CursorMove</em> or <em>WarpToWindow</em>). The <em>left</em>, <em>top</em>,
+<em>right</em>, and <em>bottom</em> values give the percent distance the box is placed
+from each of the corresponding edges of the desktop. If the values end
+with a <em>p</em>, they are interpreted as pixel amounts instead. If the option
+<em>coords</em> is given, the values are interpreted as the left/top and
+right/bottom coordinates of the box&#8217;s corners. If the option
+<em>screen RandRname</em> is given, the positions are computed relative to the
+specified monitor. Use <em>screen c</em> to place the barrier on the current
+monitor.</p>
+<div class="paragraph">
+<p>Multiple barriers can be created by calling <em>CursorBarrier</em> multiple times.
+This allows creating multiple regions to confine the cursor to (such as each
+monitor in a multi-monitor setup), then use <em>CursorMove</em> or <em>WarpToWindow</em>
+to move the cursor between the barriers. If the command <em>destroy</em> is included,
+all barriers are destroyed allowing free movement of the mouse again. If
+<em>destroy</em> is followed by an integer <em>N</em>, only that barrier is destroyed
+(barriers are numbered in the order they are created starting at 0). If the
+integer is negative, this counts backwards, such as "-1" is the most recent
+created barrier, "-2" is the second most recent, and so on. When a barrier
+is destroyed, this renumbers all barriers after it. In practice this is
+best used with <em>destroy -1</em> to destroy the most recent barrier without
+affecting any previously created barriers.</p>
+</div>
+<div class="paragraph">
+<p>By default the key binding ctrl+shift+D will destroy all cursor barriers
+by calling <em>CursorBarrier destroy</em>.</p>
+</div>
+<div class="paragraph">
+<p>Here are some examples:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre># A barrier 15% from left/right and 10% from top/bottom.
+CursorBarrier 15 10 15 10
+
+# A barrier to confine the mouse to the current monitor.
+CursorBarrier screen c
+
+# A barrier to confine the mouse to a selected window
+Pick CursorBarrier coords $[w.x]p $[w.y]p \
+    $[math.+.$[w.x],$[w.width]]p $[math.+.$[w.y],$[w.height]]p
+
+# Destroy all barriers
+CursorBarrier destroy</pre>
+</div>
+</div>
+<div class="paragraph">
+<p><em>CursorBarrier</em> only works if fvwm is complied with the XFixes extension.</p>
+</div>
+</dd>
 <dt class="hdlist1"><strong>CursorMove</strong> <em>horizontal</em>[p] <em>vertical</em>[p]</dt>
 <dd>
 <p>Moves the mouse pointer by <em>horizontal</em> pages in the X direction and
@@ -5487,18 +5532,28 @@ until finding any obstacle. The vertical resizing is similar. If both
 horizontal and vertical values are "grow", it expands vertically
 first, then horizontally to find space. Instead of the horizontal
 "grow" argument, "<em>growleft</em>" or "<em>growright</em>" can be used
-respectively "<em>growup</em>" and "<em>growdown</em>". The optional <em>flags</em>
-argument is a space separated list containing the following key words:
-<em>fullscreen</em>, <em>ewmhiwa</em>, <em>growonwindowlayer</em>, <em>growonlayers</em> and
-<em>screen</em>. <em>fullscreen</em> causes the window to become fullscreened if the
-appropriate EWMH hint is set. <em>ewmhiwa</em> causes fvwm to ignore the EWMH
-working area. <em>growonwindowlayer</em> causes the various grow methods to
-ignore windows with a layer other than the current layer of the window
-which is maximized. The <em>growonlayers</em> option must have two integer
-arguments. The first one is the minimum layer and the second one the
-maximum layer to use. Windows that are outside of this range of layers
-are ignored by the grow methods. A negative value as the first or
-second argument means to assume no minimum or maximum layer. <em>screen</em>
+respectively "<em>growup</em>" and "<em>growdown</em>".</p>
+</div>
+<div class="paragraph">
+<p>The optional <em>flags</em> argument is a space separated list containing the
+following key words: <em>fullscreen</em>, <em>ewmhiwa</em>, <em>growonwindowlayer</em>,
+<em>growonlayers</em>, <em>keepgrowing</em>, <em>all_windows</em>, <em>both_sides</em>, and <em>screen</em>.
+<em>fullscreen</em> causes the window to become fullscreened if the appropriate
+EWMH hint is set. <em>ewmhiwa</em> causes fvwm to ignore the EWMH working area.
+<em>growonwindowlayer</em> causes the various grow methods to ignore windows with
+a layer other than the current layer of the window which is maximized. The
+<em>growonlayers</em> option must have two integer arguments. The first one is
+the minimum layer and the second one the maximum layer to use. Windows that
+are outside of this range of layers are ignored by the grow methods. A
+negative value as the first or second argument means to assume no minimum
+or maximum layer. The <em>all_windows</em> option will consider all windows on the
+same monitor in the direction the window is growing. This can be used to
+grow a window to the edge of a window it is next to. The option <em>both_sides</em>
+will consider both sides of other windows when growing (by default only the
+close side is considered). This can be used to grow a window to the
+boundaries of a window it is currently inside of. <em>keepgrowing</em> will allow
+the window to keep growing beyond any window boundary it is currently
+touching until it grows into the next closest window boundary. <em>screen</em>
 must have an argument which specifies the screen on which to operate.</p>
 </div>
 <div class="paragraph">
@@ -6435,7 +6490,7 @@ the colorsets which will be applied to the border.</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
-<pre>    North, North East, East, South East, South, South West, West, North West</pre>
+<pre>BorderColorset North, North East, East, South East, South, South West, West, North West</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6466,9 +6521,8 @@ this colorset, the argument is omitted.</p>
 </div>
 <div class="paragraph">
 <p><em>HilightIconTitleColorset</em> takes the colorset number as its sole
-argument and overrides the colors set by <strong>HilightColor</strong> or
-<em>HilightColorset</em>. To stop using this colorset, the argument is
-omitted.</p>
+argument and overrides the colors set by <em>HilightColorset</em>.
+To stop using this colorset, the argument is omitted.</p>
 </div>
 <div class="paragraph">
 <p><em>IconBackgroundColorset</em> takes the colorset number as its sole
@@ -6597,16 +6651,15 @@ result in wiping out the visible title altogether. For example:</p>
 <pre>TitleFormat %z</pre>
 </div>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>Simply because the placeholder '%z' isn&#8217;t supported. This is not a
 bug but rather a facet of how the formatting parser works.</p>
 </div>
+</dd>
+</dl>
+</div>
 <div class="paragraph">
-<p>+
-<em>IconTitleFormat</em> describes what the visible icon name of a window
+<p><em>IconTitleFormat</em> describes what the visible icon name of a window
 should look like, with the options being the same as <em>TitleFormat</em>.</p>
 </div>
 </dd>
@@ -6667,7 +6720,7 @@ disabled again with the <em>FirmBorder</em> style.</p>
 icon bitmap or pixmap to use. Icons specified this way override
 pixmap icons, but not icon windows or the ewmh icon, provided by the
 client in the application (with the WM_HINTS property or with the
-ewmh <em>NET_WM_ICON property). The _IconOverride</em> style changes the
+ewmh _NET_WM_ICON property). The <em>IconOverride</em> style changes the
 behavior to override any client-provided icons; the <em>NoIconOverride</em>
 style changes the behavior to not override any client-provided
 icons; the default overriding behavior can be activated with the
@@ -7149,6 +7202,8 @@ against the screen edges. The default behavior is <em>All</em>.</p>
 <p>The third and last optional argument may be set to one of the four
 following values:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -7167,8 +7222,7 @@ edges.</p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
+</div>
 </div>
 <div class="paragraph">
 <p>The option <em>SnapGrid</em> defines an invisible grid on the screen. During
@@ -7245,8 +7299,7 @@ windows, as in the following example:</p>
 Style XTeddy InitialMapCommand Nop</pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>Window Manager placement</strong></dt>
 <dd>
 <p>Applications can place windows at a particular spot on the screen
@@ -7835,8 +7888,7 @@ of these styles as condition names. Take care not to confuse them.</p>
 </div>
 </dd>
 <dt class="hdlist1"><strong>Examples</strong></dt>
-</dl>
-</div>
+<dd>
 <div class="literalblock highlight">
 <div class="content">
 <pre># Change default fvwm behavior to no title-
@@ -7892,8 +7944,7 @@ a match to "Fvwm*". It gets <em>!Title</em> by virtue of a match to "*". If
 conflicting styles are specified for a window, then the last style
 specified is used.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>WindowStyle</strong> <em>options</em></dt>
 <dd>
 <p>sets attributes (styles) on the selected window. The <em>options</em> are
@@ -7987,9 +8038,9 @@ are plans to replace it with a more flexible solution in fvwm-3.0.</p>
 given to the set of commands which affect button styles, title-bar
 styles and border styles. If <em>decor</em> does not exist it is created;
 otherwise the existing <em>decor</em> is modified. Note: Earlier versions
-allowed to use the <strong>HilightColor</strong>, <strong>HilightColorset</strong> and <strong>WindowFont</strong>
-commands in decors. This is no longer possible. Please use the <strong>Style</strong>
-command with the <em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
+allowed to use the <strong>HilightColorset</strong> and <strong>WindowFont</strong> commands in decors.
+This is no longer possible. Please use the <strong>Style</strong> command with the
+<em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
 </div>
 <div class="paragraph">
 <p>New decors start out exactly like the "default" decor without any
@@ -8610,6 +8661,8 @@ colorsets or colors for different parts of the titlebar. Some of them
 are tiled or stretched to fit a particular space; others are discrete
 "transition" images. The definable <em>sections</em> are:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><em>Main</em></dt>
@@ -8658,8 +8711,7 @@ are tiled or stretched to fit a particular space; others are discrete
 </dd>
 </dl>
 </div>
-</dd>
-</dl>
+</div>
 </div>
 <div class="paragraph">
 <p>None of these are mandatory except for <em>Main</em> (or, if you do not
@@ -8698,11 +8750,13 @@ of the title bar height is assumed for the transition sections.</p>
 <div class="paragraph">
 <p>Note that the old syntax is still supported: if the style is omitted,
 <em>TiledPixmap</em> is assumed and adding "(stretched)" between the section
-and the file name implies <em>AdjustedPixmap</em>.
-<strong>UpdateDecor</strong> [<em>decor</em>]::
-This command is deprecated and will be removed in the future. There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+and the file name implies <em>AdjustedPixmap</em>.</p>
 </div>
+</dd>
+<dt class="hdlist1"><strong>UpdateDecor</strong> [<em>decor</em>]</dt>
+<dd>
+<p>This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
 <div class="paragraph">
 <p>This command is kept mainly for backward compatibility. Since all
 elements of a decor are updated immediately when they are changed,
@@ -8716,12 +8770,15 @@ useful, for instance, after a <strong>ButtonStyle</strong>, <strong>TitleStyle</
 <strong>BorderStyle</strong> (possibly used in conjunction with <strong>AddToDecor</strong>).
 Specifying an invalid decor results in all windows being updated.</p>
 </div>
+</dd>
+</dl>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_controlling_the_virtual_desktop">Controlling the Virtual Desktop</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><strong>Desk</strong> <em>arg1</em> [<em>arg2</em>] [<em>min</em> <em>max</em>]</dt>
+<dt class="hdlist1"><strong>Desk</strong> [screen <em>RANDRNAME</em>] <em>arg1</em> [<em>arg2</em>] [<em>min</em> <em>max</em>]</dt>
 <dd>
 <p>This command has been renamed. Please see <strong>GotoDesk</strong> command.</p>
 </dd>
@@ -8773,11 +8830,12 @@ active desktop on both monitors:</p>
 <p><strong>Note:</strong> these each <strong>DesktopConfiguration</strong> mode can be changed on-the-fly.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>DesktopSize</strong> <em>Horizontal</em>x_Vertical_</dt>
+<dt class="hdlist1"><strong>DesktopSize</strong> <em>Horizontal</em>x<em>Vertical</em></dt>
 <dd>
 <p>Defines the virtual desktop size in units of the physical screen size.</p>
 </dd>
-<dt class="hdlist1"><strong>EdgeResistance</strong> <em>delay</em><strong>EdgeResistance</strong> <em>scrolling</em> <em>moving</em> [<em>screen-scrolling</em>]</dt>
+<dt class="hdlist1"><strong>EdgeResistance</strong> <em>delay</em></dt>
+<dt class="hdlist1"><strong>EdgeResistance</strong> <em>scrolling</em> <em>moving</em> [<em>screen-scrolling</em>]</dt>
 <dd>
 <p>Tells how hard it should be to change the desktop viewport by moving
 the mouse over the edge of the screen. The parameter tells how many
@@ -8917,17 +8975,20 @@ itself. This is accepted by fvwm only if this number is less than or
 equal to <em>max</em> or if <em>max</em> is null. Note that negative desktops are
 not supported by the ewmh specification. The default is 4 0.</p>
 </dd>
-<dt class="hdlist1"><strong>GotoDesk</strong> [prev | <em>arg1</em> [<em>arg2</em>] [<em>min</em> <em>max</em>]]</dt>
+<dt class="hdlist1"><strong>GotoDesk</strong> [screen <em>RANDRNAME</em>] [prev | <em>arg1</em> [<em>arg2</em>] [<em>min</em> <em>max</em>]]</dt>
 <dd>
-<p>Switches the current viewport to another desktop (workspace, room).</p>
+<p>Switches the current viewport to another desktop (workspace, room).
+The current monitor is used in <em>per-monitor</em> and <em>shared</em>
+<em>DesktopConfiguration</em>, unless the literal <em>screen</em> followed
+by a valid RandR monitor name is included.</p>
 <div class="paragraph">
 <p>The command takes 1, 2, 3, or 4 arguments. A single argument is
 interpreted as a relative desk number. Two arguments are understood as
 a relative and an absolute desk number. Three arguments specify a
 relative desk and the minimum and maximum of the allowable range. Four
 arguments specify the relative, absolute, minimum and maximum values.
-(Desktop numbers can be negative). If a literal <em>prev</em> is given as the
-single argument, the last visited desk number is used.</p>
+If a literal <em>prev</em> is given as the single argument, the last visited
+desk number is used.</p>
 </div>
 <div class="paragraph">
 <p>If <em>arg1</em> is non zero then the next desktop number is the current
@@ -8950,8 +9011,9 @@ different desktop.</p>
 <div class="paragraph">
 <p>The number of active desktops is determined dynamically. Only desktops
 which contain windows or are currently being displayed are active.
-Desktop numbers must be between 2147483647 and -2147483648 (is that
-enough?).</p>
+Desktop numbers must be between 0 and 2147483647 (is that enough?).
+Negative desktop numbers are not supported by the EWMH specifications
+and are no longer supported in fvwm.</p>
 </div>
 </dd>
 <dt class="hdlist1"><strong>GotoDeskAndPage</strong> screen | prev | <em>desk</em> <em>xpage</em> <em>ypage</em></dt>
@@ -9757,7 +9819,7 @@ pattern</em>, <em>EdgeHasPointer direction</em>, <em>EdgeIsActive direction</em>
 <div class="paragraph">
 <p>The <em>Version</em> <em>operator x.y.z</em> test-condition is fulfilled if the
 logical condition of the expression is true. Valid <em>operator</em> values
-are: <em>&gt;=</em>, <em>&gt;</em>, <em>&#8656;</em>, <em>&lt;</em>, <em>==</em> and <em>!=</em>.</p>
+are: <em>&gt;=</em>, <em>&gt;</em>, <em>&lt;=</em>, <em>&lt;</em>, <em>==</em> and <em>!=</em>.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -10512,7 +10574,7 @@ you may use the convention used in fvwm-themes, it defines the meaning
 of the first 40 colorsets for nearly all purposes:</p>
 </div>
 <div class="paragraph">
-<p><em><a href="http://fvwm-themes.sourceforge.net/doc/colorsets" class="bare">http://fvwm-themes.sourceforge.net/doc/colorsets</a></em></p>
+<p><a href="http://fvwm-themes.sourceforge.net/doc/colorsets" class="bare">http://fvwm-themes.sourceforge.net/doc/colorsets</a></p>
 </div>
 <div class="paragraph">
 <p>Each colorset has four colors, an optional pixmap and an optional
@@ -10764,16 +10826,13 @@ however this effect can be useful with images which contain a lot of
 close colors. For example a fine gradient looks more smooth.</p>
 </div>
 <div class="paragraph">
-<p><em>IconTint</em> takes 2 arguments, a color and a percentage between 0 and
-100. It causes fvwm or a module to tint the "icons" which are rendered
+<p><em>IconTint</em> takes 2 arguments, a color and a percentage between 0 and 100.
+It causes fvwm or a module to tint the "icons" which are rendered
 into the colorset background with the specified color using a
 percentage. Here "icons" means, fvwm Icons, fvwm menu icons, MiniIcons
 which represent applications in various modules, images loaded by
 modules (e.g., images specified by the <em>Icon</em> <strong>FvwmButtons</strong> button
 option) &#8230;&#8203;etc. With no arguments this option removes the icon tint.</p>
-</div>
-</dd>
-</dl>
 </div>
 <div class="paragraph">
 <p><em>IconAlpha</em> takes a percentage between 0 and 100 as an argument. It
@@ -10873,8 +10932,7 @@ can be substituted in any fvwm command. For example:</p>
 <p>Where $[fg.cs0] is the foreground color of colorset zero. Please refer
 to the <strong>Command Expansion</strong> section for more information.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>CleanupColorsets</strong></dt>
 <dd>
 <p>Resets a definition of all colorsets.</p>
@@ -10940,9 +10998,6 @@ Colorset 0 DGradient 100 3 Red 20 Blue 30 Black 50 Grey
 Colorset 0 HGradient 128 3 Blue 1000 Green 1 Yellow 1000 Red</pre>
 </div>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>Note: Some gradient styles may be slow and consume huge amounts of
 memory, so if you encounter performance problems with them you may be
@@ -10950,12 +11005,8 @@ better off by not using them. To improve performance you can try one
 or all of the following:</p>
 </div>
 <div class="paragraph">
-<p>+
-Turn hilighting of the active menu item other than foreground color
+<p>Turn hilighting of the active menu item other than foreground color
 off:</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
@@ -10963,12 +11014,8 @@ off:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>+
-Make sure sub menus do not overlap the parent menu. This can prevent
+<p>Make sure sub menus do not overlap the parent menu. This can prevent
 menus being redrawn every time a sub menu pops up or down.</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
@@ -10976,12 +11023,8 @@ menus being redrawn every time a sub menu pops up or down.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>+
-Run your X server with backing storage. If your X Server is started
+<p>Run your X server with backing storage. If your X Server is started
 with the -bs option, turn it off. If not try the -wm and +bs options:</p>
-</div>
-<div class="paragraph">
-<p>+</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
@@ -10989,9 +11032,11 @@ with the -bs option, turn it off. If not try the -wm and +bs options:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>+
-You may have to adapt this example to your system (e.g. if you use
+<p>You may have to adapt this example to your system (e.g. if you use
 xinit to start X).</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -11081,7 +11126,7 @@ refer to the COPYING file that came with fvwm for details.</p>
 &lt;<a href="mailto:fvwm-workers@fvwm.org">fvwm-workers@fvwm.org</a>&gt;</p>
 </div>
 <div class="paragraph">
-<p>The official fvwm homepage is <em><a href="http://fvwm.org/" class="bare">http://fvwm.org/</a></em>.</p>
+<p>The official fvwm homepage is <a href="http://fvwm.org/" class="bare">http://fvwm.org/</a></p>
 </div>
 </div>
 </div>

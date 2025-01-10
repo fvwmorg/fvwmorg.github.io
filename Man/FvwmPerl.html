@@ -37,19 +37,8 @@ permalink: /Man/FvwmPerl/index.html
 <p>FvwmPerl should be spawned by <em>fvwm</em> (1) for normal functionality.</p>
 </div>
 <div class="paragraph">
-<p>To run this module, place this command somewhere in the configuration:</p>
-</div>
-<div class="paragraph">
-<p>Module FvwmPerl [params]</p>
-</div>
-<div class="paragraph">
-<p>or:</p>
-</div>
-<div class="paragraph">
-<p>ModuleSynchronize FvwmPerl [params]</p>
-</div>
-<div class="paragraph">
-<p>if you want to immediately start to send commands to FvwmPerl.</p>
+<p>To run this module, place the command <code>Module FvwmPerl [params]</code> in fvwm&#8217;s
+configuration file to start sending commands to FvwmPerl.</p>
 </div>
 </div>
 </div>
@@ -86,53 +75,73 @@ top is also possible, but involves some issues not discussed here.</p>
 <div class="paragraph">
 <p>Long switches may be abbreviated to short one-letter switches.</p>
 </div>
-<div class="paragraph">
-<p><strong>-e</strong>|<strong>--eval</strong> line - evaluate the given perl code</p>
-</div>
-<div class="paragraph">
-<p><strong>-l</strong>|<strong>--load</strong> file - evaluate perl code in the given file</p>
-</div>
-<div class="paragraph">
-<p><strong>-p</strong>|<strong>--preprocess</strong> [ file ] - preprocess the given fvwm config file</p>
-</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-e</strong>|<strong>--eval</strong> <em>line</em></dt>
+<dd>
+<p>evaluate the given perl code</p>
+</dd>
+<dt class="hdlist1"><strong>-l</strong>|<strong>--load</strong> <em>file</em></dt>
+<dd>
+<p>evaluate perl code in the given file</p>
+</dd>
+<dt class="hdlist1"><strong>-p</strong>|<strong>--preprocess</strong> [ <em>file</em> ]</dt>
+<dd>
+<p>preprocess the given fvwm config file</p>
 <div class="paragraph">
 <p>The following 5 options are only valid together with <strong>--preprocess</strong>
 option.</p>
 </div>
-<div class="paragraph">
-<p><strong>-c</strong>|<strong>--cmd</strong> line - an fvwm command to be preprocessed instead of file</p>
-</div>
-<div class="paragraph">
-<p><strong>-q</strong>|<strong>--quote</strong> char - change the default '%' quote</p>
-</div>
-<div class="paragraph">
-<p><strong>-w</strong>|<strong>--winid</strong> wid - set explicit window context (should begin with
+<div class="openblock">
+<div class="content">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><strong>-c</strong>|<strong>--cmd</strong> <em>line</em></dt>
+<dd>
+<p>An fvwm command to be preprocessed instead of file.</p>
+</dd>
+<dt class="hdlist1"><strong>-q</strong>|<strong>--quote</strong> <em>char</em></dt>
+<dd>
+<p>Change the default '%' quote.</p>
+</dd>
+<dt class="hdlist1"><strong>-w</strong>|<strong>--winid</strong> <em>wid</em></dt>
+<dd>
+<p>Set explicit window context (should begin with
 digit, may be in oct or hex form; this window id overwrites implicit
-window context if any)</p>
-</div>
-<div class="paragraph">
-<p><strong>--nosend</strong> - do not send the preprocessed file to <em>fvwm</em> for
-<strong>Read</strong>ing, the default is send. Useful for preprocessing non fvwm
-config files.</p>
-</div>
-<div class="paragraph">
-<p><strong>--noremove</strong> - do not remove the preprocessed file after sending it to
+window context if any).</p>
+</dd>
+<dt class="hdlist1"><strong>--nosend</strong></dt>
+<dd>
+<p>Do not send the preprocessed file to <em>fvwm</em> for <strong>Read</strong>ing, the
+default is send. Useful for preprocessing non fvwm config files.</p>
+</dd>
+<dt class="hdlist1"><strong>--noremove</strong></dt>
+<dd>
+<p>Do not remove the preprocessed file after sending it to
 <em>fvwm</em> for <strong>Read</strong>ing, the default is remove. Useful for debugging.</p>
+</dd>
+</dl>
 </div>
-<div class="paragraph">
-<p><strong>-x</strong>|<strong>--export</strong> [names] - define fvwm shortcut functions (by default,
+</div>
+</div>
+</dd>
+<dt class="hdlist1"><strong>-x</strong>|<strong>--export</strong> [<em>names</em>]</dt>
+<dd>
+<p>Define fvwm shortcut functions (by default,
 two functions named Eval and .). This option implies <strong>--stay</strong>.</p>
-</div>
-<div class="paragraph">
-<p><strong>-s</strong>|<strong>--stay</strong> - continues an execution after <strong>--eval</strong>, <strong>--load</strong> or
+</dd>
+<dt class="hdlist1"><strong>-s</strong>|<strong>--stay</strong></dt>
+<dd>
+<p>Continues an execution after <strong>--eval</strong>, <strong>--load</strong> or
 <strong>--preprocess</strong> are processed. By default, the module is not persistent
 in this case, i.e. <strong>--nostay</strong> is assumed.</p>
-</div>
-<div class="paragraph">
-<p><strong>--nolock</strong> - when one of the 3 action options is given, this option
-causes unlocking <em>fvwm</em> immediately. By default the requested action is
-executed synchronously; this only makes difference when invoked like:</p>
-</div>
+</dd>
+<dt class="hdlist1"><strong>--nolock</strong></dt>
+<dd>
+<p>When one of the 3 action options is given, this option
+causes unlocking <em>fvwm</em> immediately. By default the requested action
+is executed synchronously; this only makes difference when invoked
+like:</p>
 <div class="literalblock highlight">
 <div class="content">
 <pre>ModuleSynchronous FvwmPerl --preprocess someconfig.ppp</pre>
@@ -141,6 +150,9 @@ executed synchronously; this only makes difference when invoked like:</p>
 <div class="paragraph">
 <p>If <strong>--nolock</strong> is added here, <strong>ModuleSynchronous</strong> returns immediately.
 Note that <strong>Module</strong> returns immediately regardless of this option.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -251,7 +263,7 @@ preprocessed result. Avoid recursion. If any embedded perl code contains
 an error, it is printed to the standard error stream and prepended with
 the _[FvwmPerl][preprocess]:_ header. The result of substitution is
 empty in this case. The following variables may be used in the perl
-code: `$USER+<code>, `+$DISPLAY+</code>, <code>$WIDTH</code>, <code>$HEIGHT</code>,
+code: `$USER+<code>, `$DISPLAY</code>, <code>$WIDTH</code>, <code>$HEIGHT</code>,
 <code>$FVWM_VERSION</code>, <code>$FVWM_MODULEDIR</code>, <code>$FVWM_DATADIR</code>,
 <code>$FVWM_USERDIR</code> The following line based directives are recognized
 when preprocessing. They are processed after the perl code (if any) is

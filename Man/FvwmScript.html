@@ -227,8 +227,15 @@ defined with UseGettext.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This part contains instructions which will be executed at the startup.
-For example: Init Begin Do "Exec cat tada.voc &gt; /dev/dsp" WarpPointer 1
-Set $ToDo=Restart End</p>
+For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Init
+Begin
+  Do "Exec cat tada.voc &gt; /dev/dsp" WarpPointer 1
+  Set $ToDo=Restart End</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>These instructions are used to play a sound, move the pointer to widget
@@ -373,14 +380,10 @@ End</pre>
 <div class="paragraph">
 <p><strong>Value</strong>: if Value is equal to 1, the box is checked else it is not.</p>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>The <strong>Size</strong> property is ignored.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>HDipstick</strong>: Display a horizontal dipstick.</dt>
 <dd>
 <p>This widget can be used to display disk usage.</p>
@@ -393,14 +396,10 @@ End</pre>
 <div class="paragraph">
 <p><strong>MaxValue</strong>: specify the maximum value of the dipstick.</p>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>A minimum size of 30x11 is imposed.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>HScrollBar</strong>: Display an horizontal scrollbar.</dt>
 <dd>
 <p><strong>Value</strong>: position of the thumb.</p>

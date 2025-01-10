@@ -54,9 +54,13 @@ packet has different fields, depending on the type requested.</p>
 <h2 id="_communication">COMMUNICATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The default unix-domain socket for <em>FvwmMFL</em> is <em>$TMPDIR/fvwm_mfl.sock</em>,
-although this can be overridden via an environment variable
-<em>FVWMMFL_SOCKET</em>.</p>
+<p>The default unix-domain socket for <em>FvwmMFL</em> is
+<em>$TMPDIR/fvwmmfl/fvwm_mfl</em>$DISPLAY.sock_.</p>
+</div>
+<div class="paragraph">
+<p>The path for where <em>fvwm_mfl-$DISPLAY</em>.sock is created can be changed by
+setting the <em>FVWMMFL_SOCKET_PATH</em> environment variable.  <em>FvwmMFL</em> will create
+this if it does not exist, and set relevant permissions.</p>
 </div>
 </div>
 </div>

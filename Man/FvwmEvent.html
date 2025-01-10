@@ -6,7 +6,6 @@ permalink: /Man/FvwmEvent/index.html
 <div id="markdown-toc">
 <ul class="sectlevel1">
 <li><a href="#_name">NAME</a></li>
-<li><a href="#_synopsis">SYNOPSIS</a></li>
 <li><a href="#_description">DESCRIPTION</a></li>
 <li><a href="#_invocation">INVOCATION</a></li>
 <li><a href="#_configuration_options">CONFIGURATION OPTIONS</a></li>
@@ -23,55 +22,16 @@ permalink: /Man/FvwmEvent/index.html
 </div>
 </div>
 <div class="sect1">
-<h2 id="_synopsis">SYNOPSIS</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>FvwmEvent</em> is a more versatile replacement for <em>FvwmAudio</em>. It can in
-general be used to hook any <em>fvwm</em> function or program to any window
-manager event. E.g: Delete unwanted Netscape Pop ups or application
-error pop ups as they appear, play sounds, log events to a file and the
-like. Be creative, you&#8217;ll find a use for it.</p>
-</div>
-<div class="paragraph">
-<p><em>FvwmEvent</em> is spawned by <em>fvwm</em>, so no command line invocation will
-work. From within the <em>.fvwm2rc</em> file, <em>FvwmEvent</em> is spawned as
-follows:</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Module FvwmEvent</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>or from within an <em>fvwm</em> pop-up menu:</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>DestroyMenu Module-Popup
-AddToMenu Module-Popup "Modules" Title
-+ "Event"        Module FvwmEvent
-+ "Auto"         Module FvwmAuto 200
-+ "Buttons"      Module FvwmButtons
-+ "Console"      Module FvwmConsole
-+ "Ident"        Module FvwmIdent
-+ "Banner"       Module FvwmBanner
-+ "Pager"        Module FvwmPager 0 3</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
 <h2 id="_description">DESCRIPTION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The <em>FvwmEvent</em> module communicates with the <em>fvwm</em> window manager to
-bind <em>actions</em> to window manager <em>events</em>. Different actions may be
-assigned to distinct window manager events.</p>
-</div>
-<div class="paragraph">
-<p><em>FvwmEvent</em> can be used to bind sound files to events like <em>FvwmAudio</em>
-(RiP) did. It can be used for logging event traces to a log file, while
-debugging <em>fvwm</em>.</p>
+<p><em>FvwmEvent</em> is a module that triggers actions on <em>fvwm</em> events.
+It can be used to hook any <em>fvwm</em> function or program to any window
+manager event. <em>FvwmEvent</em> can trigger actions when windows are
+added, deleted, iconified, shaded, or when <em>fvwm</em> changes which
+virtual page or desk is being shown, or when RandR monitors are
+changed, enabled, disabled, or gain focus. Be creative, you&#8217;ll
+find a use for it.</p>
 </div>
 </div>
 </div>
@@ -79,9 +39,25 @@ debugging <em>fvwm</em>.</p>
 <h2 id="_invocation">INVOCATION</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The invocation method was shown in the synopsis section. No command line
-invocation is possible. <em>FvwmEvent</em> must be invoked by the <em>fvwm</em> window
-manager.</p>
+<p><em>FvwmEvent</em> is spawned by <em>fvwm</em>, so no command line invocation will
+work. <em>FvwmEvent</em> can be spawned from within the <em>config</em> file
+with or without an <em>Alias</em> as follows:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Module FvwmEvent Alias</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can add this to the <em>StartFunction</em> to ensure <em>FvwmEvent</em>
+is running and listening for events when <em>fvwm</em> starts. Alternatively
+you can add this to a menu, key binding, etc. You can kill stop
+a running instance of <em>FvwmEvent</em> with:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>KillModule FvwmEvent Alias</pre>
+</div>
 </div>
 </div>
 </div>
@@ -146,13 +122,15 @@ setting</p>
 <dd>
 <p>Specifies that the event action will have an ID parameter added to the
 end of the command line. Most events will have the windowID of the
-window that the event refers to, new_desk will have the new desk
-number. The windowID is a hexadecimal string preceded by 0x, desk
-numbers are decimal.</p>
+window that the event refers to. The new_desk event will have the new
+desk number. Monitor events will have the RandR monitor name. The
+windowID is a hexadecimal string preceded by 0x, desk numbers are
+decimal, and monitor name&#8217;s are strings.</p>
 </dd>
-<dt class="hdlist1">*FvwmEvent: window-manager-event action-or-filename</dt>
+<dt class="hdlist1">*FvwmEvent: window-manager-event action</dt>
 <dd>
-<p>Binds particular actions to window manager events.</p>
+<p>Binds particular actions to window manager events. The action is
+appended to the <em>Cmd</em> which is then sent to <em>fvwm</em> for execution.</p>
 <div class="paragraph">
 <p>The following events are valid:</p>
 </div>
@@ -391,22 +369,29 @@ on a similar Fvwm module called <em>FvwmSound</em> by Mark Boyns. <em>FvwmAudio<
 simply took Mark&#8217;s original program and extended it to make it generic
 enough to work with any audio player. Due to different requests to do
 specific things on specific events, <em>FvwmEvent</em> took this one step
-further and now calls any <em>fvwm</em> function, or builtin-rplay. If <em>fvwm</em>'s
-Exec function is used, any external program can be called with any
-parameter.</p>
+further and now calls any <em>fvwm</em> function. If <em>fvwm</em>'s Exec function
+is used, any external program can be called with any parameter.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="_authors">AUTHORS</h2>
 <div class="sectionbody">
-<div class="literalblock highlight">
-<div class="content">
-<pre>1994  FvwmSound  Mark Boyns       (boyns@sdsu.edu)
-1994  FvwmAudio  Mark Scott       (mscott@mcd.mot.com)
-1996  FvwmAudio  Albrecht Kadlec
-1998  FvwmEvent  Albrecht Kadlec  (albrecht@auto.tuwien.ac.at)</pre>
-</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1994  FvwmSound  Mark Boyns       (<a href="mailto:boyns@sdsu.edu">boyns@sdsu.edu</a>)</p>
+</li>
+<li>
+<p>1994  FvwmAudio  Mark Scott       (<a href="mailto:mscott@mcd.mot.com">mscott@mcd.mot.com</a>)</p>
+</li>
+<li>
+<p>1996  FvwmAudio  Albrecht Kadlec</p>
+</li>
+<li>
+<p>1998  FvwmEvent  Albrecht Kadlec  (<a href="mailto:albrecht@auto.tuwien.ac.at">albrecht@auto.tuwien.ac.at</a>)</p>
+</li>
+</ul>
 </div>
 </div>
 </div>

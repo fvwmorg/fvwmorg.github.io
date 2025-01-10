@@ -469,7 +469,7 @@ the colorsets which will be applied to the border.</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
-<pre>    North, North East, East, South East, South, South West, West, North West</pre>
+<pre>BorderColorset North, North East, East, South East, South, South West, West, North West</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -500,9 +500,8 @@ this colorset, the argument is omitted.</p>
 </div>
 <div class="paragraph">
 <p><em>HilightIconTitleColorset</em> takes the colorset number as its sole
-argument and overrides the colors set by <strong>HilightColor</strong> or
-<em>HilightColorset</em>. To stop using this colorset, the argument is
-omitted.</p>
+argument and overrides the colors set by <em>HilightColorset</em>.
+To stop using this colorset, the argument is omitted.</p>
 </div>
 <div class="paragraph">
 <p><em>IconBackgroundColorset</em> takes the colorset number as its sole
@@ -631,16 +630,15 @@ result in wiping out the visible title altogether. For example:</p>
 <pre>TitleFormat %z</pre>
 </div>
 </div>
-</dd>
-</dl>
-</div>
 <div class="paragraph">
 <p>Simply because the placeholder '%z' isn&#8217;t supported. This is not a
 bug but rather a facet of how the formatting parser works.</p>
 </div>
+</dd>
+</dl>
+</div>
 <div class="paragraph">
-<p>+
-<em>IconTitleFormat</em> describes what the visible icon name of a window
+<p><em>IconTitleFormat</em> describes what the visible icon name of a window
 should look like, with the options being the same as <em>TitleFormat</em>.</p>
 </div>
 </dd>
@@ -701,7 +699,7 @@ disabled again with the <em>FirmBorder</em> style.</p>
 icon bitmap or pixmap to use. Icons specified this way override
 pixmap icons, but not icon windows or the ewmh icon, provided by the
 client in the application (with the WM_HINTS property or with the
-ewmh <em>NET_WM_ICON property). The _IconOverride</em> style changes the
+ewmh _NET_WM_ICON property). The <em>IconOverride</em> style changes the
 behavior to override any client-provided icons; the <em>NoIconOverride</em>
 style changes the behavior to not override any client-provided
 icons; the default overriding behavior can be activated with the
@@ -1183,6 +1181,8 @@ against the screen edges. The default behavior is <em>All</em>.</p>
 <p>The third and last optional argument may be set to one of the four
 following values:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1201,8 +1201,7 @@ edges.</p>
 </li>
 </ul>
 </div>
-</dd>
-</dl>
+</div>
 </div>
 <div class="paragraph">
 <p>The option <em>SnapGrid</em> defines an invisible grid on the screen. During
@@ -1279,8 +1278,7 @@ windows, as in the following example:</p>
 Style XTeddy InitialMapCommand Nop</pre>
 </div>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>Window Manager placement</strong></dt>
 <dd>
 <p>Applications can place windows at a particular spot on the screen
@@ -1869,8 +1867,7 @@ of these styles as condition names. Take care not to confuse them.</p>
 </div>
 </dd>
 <dt class="hdlist1"><strong>Examples</strong></dt>
-</dl>
-</div>
+<dd>
 <div class="literalblock highlight">
 <div class="content">
 <pre># Change default fvwm behavior to no title-
@@ -1926,8 +1923,7 @@ a match to "Fvwm*". It gets <em>!Title</em> by virtue of a match to "*". If
 conflicting styles are specified for a window, then the last style
 specified is used.</p>
 </div>
-<div class="dlist">
-<dl>
+</dd>
 <dt class="hdlist1"><strong>WindowStyle</strong> <em>options</em></dt>
 <dd>
 <p>sets attributes (styles) on the selected window. The <em>options</em> are
@@ -2023,9 +2019,9 @@ are plans to replace it with a more flexible solution in fvwm-3.0.</p>
 given to the set of commands which affect button styles, title-bar
 styles and border styles. If <em>decor</em> does not exist it is created;
 otherwise the existing <em>decor</em> is modified. Note: Earlier versions
-allowed to use the <strong>HilightColor</strong>, <strong>HilightColorset</strong> and <strong>WindowFont</strong>
-commands in decors. This is no longer possible. Please use the <strong>Style</strong>
-command with the <em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
+allowed to use the <strong>HilightColorset</strong> and <strong>WindowFont</strong> commands in decors.
+This is no longer possible. Please use the <strong>Style</strong> command with the
+<em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
 </div>
 <div class="paragraph">
 <p>New decors start out exactly like the "default" decor without any
@@ -2646,6 +2642,8 @@ colorsets or colors for different parts of the titlebar. Some of them
 are tiled or stretched to fit a particular space; others are discrete
 "transition" images. The definable <em>sections</em> are:</p>
 </div>
+<div class="openblock">
+<div class="content">
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><em>Main</em></dt>
@@ -2694,8 +2692,7 @@ are tiled or stretched to fit a particular space; others are discrete
 </dd>
 </dl>
 </div>
-</dd>
-</dl>
+</div>
 </div>
 <div class="paragraph">
 <p>None of these are mandatory except for <em>Main</em> (or, if you do not
@@ -2734,11 +2731,13 @@ of the title bar height is assumed for the transition sections.</p>
 <div class="paragraph">
 <p>Note that the old syntax is still supported: if the style is omitted,
 <em>TiledPixmap</em> is assumed and adding "(stretched)" between the section
-and the file name implies <em>AdjustedPixmap</em>.
-<strong>UpdateDecor</strong> [<em>decor</em>]::
-This command is deprecated and will be removed in the future. There
-are plans to replace it with a more flexible solution in fvwm-3.0.</p>
+and the file name implies <em>AdjustedPixmap</em>.</p>
 </div>
+</dd>
+<dt class="hdlist1"><strong>UpdateDecor</strong> [<em>decor</em>]</dt>
+<dd>
+<p>This command is deprecated and will be removed in the future. There
+are plans to replace it with a more flexible solution in fvwm-3.0.</p>
 <div class="paragraph">
 <p>This command is kept mainly for backward compatibility. Since all
 elements of a decor are updated immediately when they are changed,
@@ -2751,6 +2750,9 @@ assigned to that particular <em>decor</em> are updated. This command is
 useful, for instance, after a <strong>ButtonStyle</strong>, <strong>TitleStyle</strong> or
 <strong>BorderStyle</strong> (possibly used in conjunction with <strong>AddToDecor</strong>).
 Specifying an invalid decor results in all windows being updated.</p>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 </div>
