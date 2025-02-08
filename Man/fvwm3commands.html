@@ -250,10 +250,6 @@ value resets the <strong>ClickTime</strong> to the default.</p>
 double-click.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>ColorLimit</strong> <em>limit</em></dt>
-<dd>
-<p>This command is obsolete. See the <strong>--color-limit</strong> option to fvwm.</p>
-</dd>
 <dt class="hdlist1"><strong>ColormapFocus</strong> FollowsMouse | FollowsFocus</dt>
 <dd>
 <p>By default, fvwm installs the colormap of the window that the cursor
@@ -560,35 +556,6 @@ keysym database <em>/usr/X11R6/lib/X11/XKeysymDB</em>. The <em>wait</em>,
 <p>Note: all command names can be abbreviated with their first letter.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>HilightColorset</strong> [<em>num</em>]</dt>
-<dd>
-<p>This command is obsoleted by the <strong>Style</strong> option <em>HilightColorset</em>.
-Please use</p>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Style * HilightColorset num</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>instead.</p>
-</div>
-</dd>
-<dt class="hdlist1"><strong>IconFont</strong> [<em>fontname</em>]</dt>
-<dd>
-<p>This command is obsoleted by the <strong>Style</strong> option <em>IconFont</em>. Please use</p>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Style * IconFont fontname</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>instead.</p>
-</div>
-</dd>
-<dt class="hdlist1"><strong>IconPath</strong> <em>path</em></dt>
-<dd>
-<p>This command is obsolete. Please use <strong>ImagePath</strong> instead.</p>
-</dd>
 <dt class="hdlist1"><strong>ImagePath</strong> <em>path</em></dt>
 <dd>
 <p>Specifies a colon separated list of directories in which to search for
@@ -696,10 +663,6 @@ explain how to build locale catalogs. Please refer to the GNU gettext
 documentation.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>PixmapPath</strong> <em>path</em></dt>
-<dd>
-<p>This command is obsolete. Please use <strong>ImagePath</strong> instead.</p>
-</dd>
 <dt class="hdlist1"><strong>PrintInfo</strong> <em>subject</em> [<em>verbose</em>]</dt>
 <dd>
 <p>Print information on <em>subject</em> to debug log file, which defaults to
@@ -798,18 +761,6 @@ argument. "True" sets the given state, while "False" clears it. Using "toggle"
 switches to the opposite state. If the <em>bool</em> argument is not given, the state
 is toggled.</p>
 </dd>
-<dt class="hdlist1"><strong>WindowFont</strong> [<em>fontname</em>]</dt>
-<dd>
-<p>This command is obsoleted by the <strong>Style</strong> option <em>Font</em>. Please use</p>
-<div class="literalblock highlight">
-<div class="content">
-<pre>Style * Font fontname</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>instead.</p>
-</div>
-</dd>
 <dt class="hdlist1"><strong>WindowList</strong> [(<em>conditions</em>)] [<em>position</em>] [<em>options</em>] [<em>double-click-action</em>]</dt>
 <dd>
 <p>Generates a pop-up menu (and pops it up) in which the title and
@@ -904,7 +855,8 @@ width</em>, <em>TitleForAllDesks</em>, <em>Function funcname</em>, <em>Desk desk
 <em>OnlyOnBottom</em>, <em>Layer m [n]</em>, <em>UseSkipList</em> / <em>OnlySkipList</em>,
 <em>NoDeskSort</em>, <em>ReverseOrder</em>, <em>CurrentAtEnd</em>, <em>IconifiedAtEnd</em>,
 <em>UseIconName</em>, <em>Alphabetic</em> / <em>NotAlphabetic</em>, <em>SortByResource</em>,
-<em>SortByClass</em>, <em>NoHotkeys</em>, <em>SelectOnRelease</em>.</p>
+<em>SortByClass</em>, <em>NoHotkeys</em>, <em>SelectOnRelease</em> ,<em>ShowPage</em>, <em>ShowPageX</em>,
+<em>ShowPageY</em>, <em>ShowScreen</em>.</p>
 </div>
 <div class="paragraph">
 <p>(Note - normal means not iconic, sticky, or on top)</p>
@@ -1108,11 +1060,6 @@ GeometryWindow Screen $[monitor.primary]
 GeometryWindow Hide</pre>
 </div>
 </div>
-</dd>
-<dt class="hdlist1"><strong>HideGeometryWindow</strong> [Never | Move | Resize]</dt>
-<dd>
-<p>This command has been depreciated and is now obsolete. Use
-       <strong>GeometryWindow Hide</strong> instead.</p>
 </dd>
 <dt class="hdlist1"><strong>Layer</strong> [<em>arg1</em> <em>arg2</em>] | [default]</dt>
 <dd>
@@ -1333,8 +1280,7 @@ Move 50-50w 50-50w</pre>
 <dd>
 <p>Moves the selected window to another desktop. The arguments are the
 same as for the <strong>GotoDesk</strong> command. Without any arguments, the window
-is moved to the current desk. <strong>MoveToDesk</strong> is a replacement for the
-obsolete <strong>WindowsDesk</strong> command, which can no longer be used.</p>
+is moved to the current desk.</p>
 </dd>
 <dt class="hdlist1"><strong>MoveThreshold</strong> [<em>pixels</em>]</dt>
 <dd>
@@ -1638,42 +1584,6 @@ more cartoonish, by briefly moving slightly in the opposite direction
 of the main motion. The above settings are the default.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>SnapAttraction</strong> [<em>proximity</em> [<em>behaviour</em>] [Screen]]</dt>
-<dd>
-<p>The <strong>SnapAttraction</strong> command is obsolete. It has been replaced by the
-<strong>Style</strong> command option <em>SnapAttraction</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>SnapGrid</strong> [<em>x-grid-size</em> <em>y-grid-size</em>]</dt>
-<dd>
-<p>The <strong>SnapGrid</strong> command is obsolete. It has been replaced by the
-<strong>Style</strong> command option <em>SnapGrid</em>.</p>
-</dd>
-<dt class="hdlist1"><strong>WindowsDesk</strong> <em>arg1</em> [<em>arg2</em>]</dt>
-<dd>
-<p>Moves the selected window to another desktop.</p>
-<div class="paragraph">
-<p>This command has been removed and must be replaced by <strong>MoveToDesk</strong>,
-the arguments for which are the same as for the <strong>GotoDesk</strong> command.</p>
-</div>
-<div class="paragraph">
-<p><strong>Important</strong>
-You cannot simply change the name of the command: the syntax has
-changed. If you used:</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>WindowsDesk n</pre>
-</div>
-</div>
-<div class="paragraph">
-<p>to move a window to desk n, you have to change it to:</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>MoveToDesk 0 n</pre>
-</div>
-</div>
-</dd>
 <dt class="hdlist1"><strong>XorPixmap</strong> [<em>pixmap</em>]</dt>
 <dd>
 <p>Selects the pixmap with which bits are xor&#8217;ed when doing rubber-band
@@ -1747,6 +1657,11 @@ Pick CursorBarrier coords $[w.x]p $[w.y]p \
 # Destroy all barriers
 CursorBarrier destroy</pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Note that if the CURSOR_BARRIER limit is hit, <em>all</em> defined CursorBarriers
+are undefined.  In pratice, this is unlikely to happen though.  If it does, a
+message is printed to fvwm3&#8217;s debug logs.</p>
 </div>
 <div class="paragraph">
 <p><em>CursorBarrier</em> only works if fvwm is complied with the XFixes extension.</p>
@@ -2063,11 +1978,6 @@ shaded in the direction of the title bar.</p>
 signify "on", and 2 to signify "off". Note that this syntax is
 obsolete, and will be removed in the future.</p>
 </div>
-</dd>
-<dt class="hdlist1"><strong>WindowShadeAnimate</strong> [<em>steps</em> [p]]</dt>
-<dd>
-<p>This command is obsolete. Please use the <em>WindowShadeSteps</em> option of
-the <strong>Style</strong> command instead.</p>
 </dd>
 </dl>
 </div>
@@ -2424,10 +2334,6 @@ PointerKey f1 a m Menu MainMenu</pre>
 <h3 id="_controlling_the_virtual_desktop">Controlling the Virtual Desktop</h3>
 <div class="dlist">
 <dl>
-<dt class="hdlist1"><strong>Desk</strong> [screen <em>RANDRNAME</em>] <em>arg1</em> [<em>arg2</em>] [<em>min</em> <em>max</em>]</dt>
-<dd>
-<p>This command has been renamed. Please see <strong>GotoDesk</strong> command.</p>
-</dd>
 <dt class="hdlist1"><strong>DesktopName</strong> <em>desk</em> <em>name</em></dt>
 <dd>
 <p>Defines the name of the desktop number <em>desk</em> to <em>name</em>. This name is

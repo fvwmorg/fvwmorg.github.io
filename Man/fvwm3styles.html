@@ -85,9 +85,9 @@ were issued inside a fvwm function.</p>
 other than the default or to set the window manager default styles.</p>
 <div class="paragraph">
 <p><em>stylename</em> can be a window&#8217;s name, class, visible name, or resource
-string. It may contain the wildcards '<strong>' and '?', which are matched in
+string. It may contain the wildcards '*' and '?', which are matched in
 the usual Unix filename manner. Multiple style options in a single
-*Style</strong> command are read from left to right as if they were issued one
+<strong>Style</strong> command are read from left to right as if they were issued one
 after each other in separate commands. A given style always overrides
 all conflicting styles that have been issued earlier (or further left
 on the same style line).</p>
@@ -534,8 +534,7 @@ omitted.</p>
 <p>The <em>Font</em> and <em>IconFont</em> options take the name of a font as their
 sole argument. This font is used in the window or icon title. By
 default the font given in the <strong>DefaultFont</strong> command is used. To
-revert back to the default, use the style without the name argument.
-These styles replace the older <strong>WindowFont</strong> and <em>IconFont</em> commands.</p>
+revert back to the default, use the style without the name argument.</p>
 </div>
 <div class="paragraph">
 <p>The deprecated <em>IndexedWindowName</em> style causes fvwm to use window
@@ -2018,10 +2017,7 @@ are plans to replace it with a more flexible solution in fvwm-3.0.</p>
 <p>Add or divert commands to the decor named <em>decor</em>. A decor is a name
 given to the set of commands which affect button styles, title-bar
 styles and border styles. If <em>decor</em> does not exist it is created;
-otherwise the existing <em>decor</em> is modified. Note: Earlier versions
-allowed to use the <strong>HilightColorset</strong> and <strong>WindowFont</strong> commands in decors.
-This is no longer possible. Please use the <strong>Style</strong> command with the
-<em>Hilight&#8230;&#8203;</em> and <em>Font</em> options.</p>
+otherwise the existing <em>decor</em> is modified.</p>
 </div>
 <div class="paragraph">
 <p>New decors start out exactly like the "default" decor without any
@@ -2049,7 +2045,7 @@ manipulated with <strong>ChangeDecor</strong>, <strong>DestroyDecor</strong>, <s
 + BorderStyle -- HiddenHandles NoInset
 
 Style FlatStyle \
-	UseDecor FlatDecor, HandleWidth 4, Colorset 0, HilightColorset 1
+	UseDecor FlatDecor, HandleWidth 4, Colorset 0
 
 Style xterm UseStyle FlatStyle</pre>
 </div>
