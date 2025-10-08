@@ -23,8 +23,8 @@ helpnav:
   - title: Community Support
     color: green
     links:
-      - name: Fvwm Forums
-        url: https://fvwmforums.org/
+      - name: Fvwm Forums / Discussions
+        url: https://github.com/fvwmorg/fvwm3/discussions
       - name: Github Issues
         url: https://github.com/fvwmorg/fvwm3/issues
       - name: "Irc (#fvwm)"

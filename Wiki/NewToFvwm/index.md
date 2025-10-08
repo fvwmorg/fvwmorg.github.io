@@ -58,9 +58,6 @@ stuff until they have a setup that suits their needs.
 Besides the default config there are some additional configurations
 that can be used as a starting point:
 
-+ [FVWM Forums User Configs](
-  https://fvwmforums.org/c/fvwm-themes/27) --
-  Examples and screenshots of various users configs.
 + [Taviso's fvwm2rc](
   https://fvwm.org/Archive/Screenshots/2004-01-24_Tavis_Ormandy-desk-1152x864/fvwmrc)
   -- An older example used as a basis for many users.
@@ -100,6 +97,6 @@ of different window looks and panels/docks.
 
 You might,of course, still have a question to ask. You can ask on the
 [Mailing Lists](https://www.fvwm.org/Community/#fvwm-mailing-lists),
-as well as the [FVWM Forums](https://fvwmforums.org/), or the [/Irc](
+as well as the [FVWM Forums](https://github.com/fvwmorg/fvwm3/discussions), or the [/Irc](
 {{ "/Irc" | prepend: site.wikiurl }}) Channel.
 

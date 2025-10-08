@@ -107,8 +107,8 @@ They are maintained by Jason Tibbitts, and are Majordomo based
 mailing lists.  Check the support page for more details:
 <http://fvwm.org/support>
 
-+ You can ask questions to other fvwm users on the forums:
-  <http://fvwmforums.org>
++ You can ask questions of support to the Discussions site of Github:
+  https://github.com/fvwmorg/fvwm3/discussions
 + You can also ask questions on `#fvwm` on `libera.chat`.
 
 #### What should I name my config file (config or .fvwm2rc)?

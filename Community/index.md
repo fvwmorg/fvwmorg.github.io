@@ -8,8 +8,8 @@ title: Fvwm Community
 <ul>
 <li><a href="https://github.com/fvwmorg/">
 Github</a></li>
-<li><a href="https://fvwmforums.org">
-Forums</a></li>
+<li><a href="https://github.com/fvwmorg/fvwm3/discussions">
+Discussions</a></li>
 </ul>
 {% endcapture %}
 
@@ -82,7 +82,7 @@ in any way.
 
 ## Fvwm Forums
 
-The [Fvwm forums](https://fvwmforums.org) are a collection of questions,
+The [Fvwm forums](https://github.com/fvwmorg/fvwm3/discussions) are a collection of questions,
 answers and discussions from the users of Fvwm. Use the forums to search
 for answers to previous questions or ask new ones. Share your configurations
 and screenshots.
