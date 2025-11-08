@@ -701,9 +701,6 @@ fvwm used. <em>verbose</em> can be 1 or 2.</p>
 <p><em>nls</em> which prints information on the locale catalogs that fvwm used</p>
 </div>
 <div class="paragraph">
-<p><em>style</em> which prints information on fvwm styles. <em>verbose</em> can be 1.</p>
-</div>
-<div class="paragraph">
 <p><em>bindings</em> which prints information on all the bindings fvwm has: key
 and mouse bindings. <em>verbose</em> has no effect with this option.</p>
 </div>
@@ -1667,40 +1664,56 @@ message is printed to fvwm3&#8217;s debug logs.</p>
 <p><em>CursorBarrier</em> only works if fvwm is complied with the XFixes extension.</p>
 </div>
 </dd>
-<dt class="hdlist1"><strong>CursorMove</strong> <em>horizontal</em>[p] <em>vertical</em>[p]</dt>
+<dt class="hdlist1"><strong>CursorMove</strong> [screen <em>RANDRNAME</em>] <em>horizontal</em>[p] <em>vertical</em>[p]</dt>
 <dd>
-<p>Moves the mouse pointer by <em>horizontal</em> pages in the X direction and
-<em>vertical</em> pages in the Y direction. Either or both entries may be
-negative. CursorMove can only move the mouse cursor to a relative
-position. To move the mouse cursor to an absolute position, see
-<strong>WarpToWindow</strong>. Both horizontal and vertical values are expressed in
-percent of pages, so</p>
+<p>Without the <em>screen</em> option, <em>CusorMove</em> moves the mouse cursor a
+<em>horizontal</em> distance and <em>vertical</em> distance from its current position.
+The values are expressed as either a percent of the virtual desktop size,
+or a pixel distance by appending a '<em>p</em>' to the value. Either or both
+entries may be negative. For example,</p>
 <div class="literalblock highlight">
 <div class="content">
-<pre>CursorMove 100 100</pre>
+<pre># Move down and right by one full page.
+CursorMove 100 100
+
+# Move down two full pages.
+CursorMove 0 200
+
+# Move half page right and quarter page up.
+CursorMove 50 -25
+
+# Move left 100 pixels and down 50 pixels.
+CursorMove -100p 50p</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>means to move down and right by one full page.</p>
+<p>If the option <em>screen</em> followed by a valid RandR monitor name is included,
+<em>CursorMove</em> will move the cursor to the absolute position (starting at
+the top left corner) given by the arguments, as either percent values
+of the monitor&#8217;s size, or an absolute location with the '<em>p</em>' suffix.
+For example,</p>
 </div>
 <div class="literalblock highlight">
 <div class="content">
-<pre>CursorMove 50 25</pre>
+<pre># Move cursor to center of monitor DP-1
+CursorMove screen DP-1 50 50
+
+# Move cursor to the exact location (400, 200) of monitor DP-2
+CursorMove screen DP-2 400p 200p</pre>
 </div>
 </div>
 <div class="paragraph">
-<p>means to move right half a page and down a quarter of a page.
-Alternatively, the distance can be specified in pixels by appending a
-'<em>p</em>' to the horizontal and/or vertical specification. For example</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>CursorMove -10p -10p</pre>
-</div>
+<p>When moving to a specified <em>screen</em>, the <em>horizontal</em> and <em>vertical</em>
+values are always shifted to be inside the current page of the specified
+monitor. For instance '50', '150', and '-150' will all be the center of the
+monitor, and will not change monitor&#8217;s page. Use <strong>GotoPage</strong> to change the
+page of a specified monitor. Negative values can be used to specify distance
+from the right/bottom corner of the monitor.</p>
 </div>
 <div class="paragraph">
-<p>means move ten pixels up and ten pixels left. The CursorMove function
-should not be called from pop-up menus.</p>
+<p><em>CusorMove</em> can only move the cursor relative to its current position,
+or to an absolute position on a given monitor. To move the cursor relative
+to a window, use <strong>WarpToWindow</strong>.</p>
 </div>
 </dd>
 <dt class="hdlist1"><strong>FlipFocus</strong> [NoWarp]</dt>

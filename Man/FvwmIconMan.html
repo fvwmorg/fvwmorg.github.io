@@ -505,8 +505,8 @@ has focus. Default is false.</p>
 <dd>
 <p>A printf like format string which describes the string to be printed
 in the manager window for each managed window. Possible flags are: %t,
-%i, %c, and %r for the window&#8217;s title, icon title, class, or resource
-name, respectively. The default is "%c: %i".</p>
+%i, %c, %r, and %s for the window&#8217;s title, icon title, class, resource
+name, or screen respectively. The default is "%c: %i".</p>
 </dd>
 <dt class="hdlist1">*FvwmIconMan: [id] IconName iconstring</dt>
 <dd>
@@ -692,7 +692,7 @@ is created. If <em>weighted</em>, then the manager list is sorted by weight
 <dd>
 <p>Assigns the specified <em>weight</em> to windows that match <em>pattern-list</em>.
 The list is made up of patterns of the form <em>type=pattern</em>, where type
-is one of <em>class</em>, <em>resource</em>, <em>title</em>, or <em>icon</em>, and pattern is an
+is one of <em>class</em>, <em>resource</em>, <em>title</em>, <em>icon</em>, or, <em>screen</em> and pattern is an
 expression of the same format used in the fvwm style command
 (minimalistic shell pattern matching). Multiple sort weights can be
 given. Each window is matched against the list of sort weights, in

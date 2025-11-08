@@ -564,17 +564,7 @@ expansion variables as:</p>
 changes size, or has been added or removed.</p>
 </div>
 <div class="paragraph">
-<p>In addition to specific <strong>FvwmEvent</strong> conditions which can be used to track a
-monitor&#8217;s change, there is a function called <em>RandRFunc</em> which the user can
-define to be run when a screen event occurs (such as
-enabling/disabling/resolution change):</p>
-</div>
-<div class="literalblock highlight">
-<div class="content">
-<pre>DestroyFunc RandRFunc
-AddToFunc   RandRFunc
-+ I Exec exec xmessage "A screen changed"</pre>
-</div>
+<p>These are controlled by <strong>FvwmEvent</strong>.</p>
 </div>
 </div>
 </div>
@@ -2085,12 +2075,13 @@ $[bg.cs3.lighten15.hash].</p>
 <p>Please refer to the <strong>Colorsets</strong> section for details about colorsets.</p>
 </div>
 </dd>
-<dt class="hdlist1">$[math.+.&lt;x&gt;,&lt;y&gt;] $[math.-.&lt;x&gt;,&lt;y&gt;] $[math.*.&lt;x&gt;,&lt;y&gt;] $[math./.&lt;x&gt;,&lt;y&gt;] $[math.%.&lt;x&gt;,&lt;y&gt;] $[math.^.&lt;x&gt;,&lt;y&gt;]</dt>
+<dt class="hdlist1">$[math.+.&lt;x&gt;,&lt;y&gt;] $[math.-.&lt;x&gt;,&lt;y&gt;] $[math.*.&lt;x&gt;,&lt;y&gt;] $[math./.&lt;x&gt;,&lt;y&gt;] $[math.%.&lt;x&gt;,&lt;y&gt;] $[math.^.&lt;x&gt;,&lt;y&gt;] $[math.&lt;.&lt;x&gt;,&lt;y&gt;] $[math.&gt;.&lt;x&gt;,&lt;y&gt;]</dt>
 <dd>
 <p>The math expansion variables can be used to do some basic arithmetic
 on the integers &lt;x&gt; and &lt;y&gt;. These expressions can be used to add
 (&#43;), subtract (-), multiply (*), divide (/), modulus
-(%), and exponentiation (^). This can be useful when computing
+(%), and exponentiation (^). Maximum (&gt;) returns the greater of
+two values, and minimum (&lt;) the lesser. This can be useful when computing
 the size of panels or locations of windows relative to a monitor, for
 example $[math.-.$[monitor.$[monitor.primary].height],200] will
 subtract 200 pixels from the height of the primary monitor. These can

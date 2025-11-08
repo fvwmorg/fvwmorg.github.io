@@ -412,14 +412,15 @@ be configured below.</p>
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">*FvwmPager: Balloons [type]</dt>
+<dt class="hdlist1">*FvwmPager: Balloons type</dt>
 <dd>
 <p>Show a balloon describing the window when the pointer is moved into a
 window in the pager. The default format (the window&#8217;s icon name) can
 be changed using <em>BalloonStringFormat</em>. If <em>type</em> is "Pager" balloons
-are just shown for an un-iconified pager; if <em>type</em> is "Icon" balloons
-are just shown for an iconified pager. If <em>type</em> is anything else (or
-null) balloons are always shown.</p>
+are just shown for an un-iconified pager. If <em>type</em> is "Icon" balloons
+are just shown for an iconified pager. If <em>type</em> is "All" (or any unused
+non blank value) balloons are always shown. If <em>type</em> is "None" balloons
+are never shown (the default behavior).</p>
 </dd>
 <dt class="hdlist1">*FvwmPager: BalloonFont font-name</dt>
 <dd>

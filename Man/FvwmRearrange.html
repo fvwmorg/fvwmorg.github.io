@@ -324,6 +324,15 @@ of <em>Move</em> to move windows.</p>
 such as <em>EwmhBaseStruts</em>; by default, FvwmRearrange will honour the
 working area. This option may place windows outside of the current monitor.</p>
 </dd>
+<dt class="hdlist1">-win_cmd <em>COMMAND</em></dt>
+<dd>
+<p>Runs the fvwm <em>COMMAND</em> in the context of every window that is rearranged.
+This can be used to set the state of all affected windows with the <em>COMMAND</em>
+"State n" so they can be matched using the "State n" conditional. The
+<em>COMMAND</em> is sent after the window is moved/resized, so any change in
+window&#8217;s size, adding removing title bars, etc, will not be used in
+computing the new position/size of the window.</p>
+</dd>
 </dl>
 </div>
 </div>
@@ -412,6 +421,12 @@ also be affected.</p>
 <dd>
 <p>Causes all windows on the desk to be cascaded/tiled instead of only
 windows that intersect the bounding box.</p>
+</dd>
+<dt class="hdlist1">-on_screen</dt>
+<dd>
+<p>Causes all windows on the monitor to be cascaded/tiled instead of only
+windows that intersect the bounding box. Has no effect when used together
+with <em>-desk</em>.</p>
 </dd>
 </dl>
 </div>

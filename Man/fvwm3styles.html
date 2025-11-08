@@ -26,6 +26,81 @@ permalink: /Man/fvwm3styles/index.html
 alphabetically. The description of the <strong>Style</strong> command can be found at
 the end of this section.</p>
 </div>
+<div class="paragraph">
+<p>The commands: <strong>FocusStyle</strong>, <strong>Style</strong>, and <strong>WindowStyle</strong> can accept optional
+conditional components to match some properties of a window.</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style (Name mc) Sticky</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Will make a window whose name matched 'mc' <em>Sticky</em>.</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style (Name mc, Class XTerm) StartIconic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This example will start an xterm(1) window whose WM_CLASS matches 'XTerm' and
+name is 'mc'.</p>
+</div>
+<div class="paragraph">
+<p>A valid list of properties to test against are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Resource</p>
+</li>
+<li>
+<p>Class</p>
+</li>
+<li>
+<p>Name</p>
+</li>
+<li>
+<p>Icon</p>
+</li>
+<li>
+<p>WindowID</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The matching of the properties specified for any <strong>Style</strong> line are ANDed
+together, and for styles to be applied, <strong>all</strong> properties must match.</p>
+</div>
+<div class="paragraph">
+<p><strong>NOTE</strong>: To destroy a style line with window properties, <strong>DestroyStyle</strong>
+should be used.  For example:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>DestroyStyle (Name mc, Class XTerm)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is not required to specify the style arguments when destroying a style,
+only the property components are required.</p>
+</div>
+<div class="paragraph">
+<p>Existing <strong>Style</strong> lines in the form:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Style Application* Sticky, StartIconic</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>are still supported, and their behaviour remains unchanged.</p>
+</div>
+<hr>
 <div class="dlist">
 <dl>
 <dt class="hdlist1"><strong>FocusStyle</strong> <em>stylename</em> <em>options</em></dt>
