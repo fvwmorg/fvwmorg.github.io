@@ -13,7 +13,7 @@ description: |
 
 The RightPanel is a taskbar like panel along the right edge of the screen
 for a now more common widescreen setup. This panel contains [FvwmPager](
-{{ "/Moduels/FvwmPager" | prepend: site.wikiurl }}) for moving around
+{{ "/Modules/FvwmPager" | prepend: site.wikiurl }}) for moving around
 the virtual desktops, [FvwmIconMan](
 {{ "/Modules/FvwmIconMan" | prepend: site.wikiurl }}) to list the running
 applications and then uses [FvwmScript-DateTime](
