@@ -461,11 +461,16 @@ the font size. X and Y coordinates are ignored.</p>
 </dd>
 <dt class="hdlist1">*FvwmIconMan: [id] DrawIcons value</dt>
 <dd>
-<p>If your version of fvwm is capable of using mini icons, then this
-option determines if FvwmIconMan displays the mini icons. Otherwise,
-it generates an error message. "true" means that mini icons are shown
-for iconified windows, "false" that mini icons are never shown, and
-"always" that mini icons are shown for all windows.</p>
+<p>This sets the behavior of the space placed before each button label.
+The default is "false" which means there is an empty space before each
+label in which a relief button will be drawn next to all iconified
+windows, provided 'ReliefThickness' is not zero. If this is set to
+"true" a mini icon will be drawn in place of the relief button next
+to all iconified windows. If this is set to "always", a mini icon
+will be drawn for all windows. Note, iconified windows without mini
+icons will still show a relief button unless 'ReliefThickness' is zero.
+Last, if this is "none", the space before the label is completely
+removed and no mini icons or relief buttons are shown.</p>
 </dd>
 <dt class="hdlist1">*FvwmIconMan: [id] FocusAndSelectButton style [forecolor backcolor]</dt>
 <dd>
@@ -909,8 +914,8 @@ by commas.</p>
 <p><em>Window</em> and <em>Button</em> types look exactly the same in the .fvwm2rc file,
 but are interpreted as either specifying a managed window, or a
 FvwmIconMan button representing a window. They can either be an integer
-(which is interpreted module N where N is the number of buttons - so 0
-is the first and -1 is the last), or one of the strings: <em>Select</em>,
+(which is interpreted modulo N where N is the number of buttons - so 0
+is the first and N-1 is the last), or one of the strings: <em>Select</em>,
 <em>Focus</em>, <em>Up</em>, <em>Down</em>, <em>Right</em>, <em>Left</em>, <em>Next</em>, <em>Prev</em>. <em>Select</em> and
 <em>Focus</em> refer to the currently selected or focused button or window.
 <em>Up</em>, <em>Down</em>, <em>Right</em>, and <em>Left</em> refer to the button or window above,

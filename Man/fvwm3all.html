@@ -9797,10 +9797,10 @@ the opposite side. Returns -1 if an invalid direction was given. See
 <em>test-conditions</em> are keywords with possible arguments from the list
 below and are separated by commas or whitespace. They include:
 <em>Version operator x.y.z</em>, <em>EnvIsSet varname</em>, <em>EnvMatch varname
-pattern</em>, <em>EdgeHasPointer direction</em>, <em>EdgeIsActive direction</em>,
-<em>Start</em>, <em>Init</em>, <em>Restart</em>, <em>Exit</em>, <em>Quit</em>, <em>ToRestart</em>, <em>True</em>,
-<em>False</em>, <em>F</em>, <em>R</em>, <em>W</em>, <em>X</em> and <em>I</em>. A test-condition prefixed with
-"!" is negated.</p>
+pattern</em>, <em>StrMatch string pattern</em>, <em>EdgeHasPointer direction</em>,
+<em>EdgeIsActive direction</em>, <em>Start</em>, <em>Init</em>, <em>Restart</em>, <em>Exit</em>, <em>Quit</em>,
+<em>ToRestart</em>, <em>True</em>, <em>False</em>, <em>F</em>, <em>R</em>, <em>W</em>, <em>X</em> and <em>I</em>. A
+test-condition prefixed with "!" is negated.</p>
 <div class="paragraph">
 <p>The <em>Version</em> <em>operator x.y.z</em> test-condition is fulfilled if the
 logical condition of the expression is true. Valid <em>operator</em> values
@@ -9821,6 +9821,23 @@ test-condition is true if <em>pattern</em> matches the given environment or
 infostore variable value. (See <strong>InfoStoreAdd</strong>). The pattern may
 contain special "*" and "?" chars. The "varname" is coded without
 the leading dollar sign ($).</p>
+</div>
+<div class="paragraph">
+<p>The <em>StrMatch</em> <em>string</em> <em>pattern</em> tests if the given <em>string</em> matches
+the given <em>pattern</em>, which is a case sensitive string that may contain
+special "*" and "?" characters for wild cards. This can be used in place
+of <em>EnvMatch</em> with different syntax and also allows testing if other
+variable expansions are equal to a certain value. For example to test
+if the current monitor&#8217;s name is "DP-2" use:</p>
+</div>
+<div class="literalblock highlight">
+<div class="content">
+<pre>Test (StrMatch $[monitor.current] DP-2) Echo True
+
+# StrMatch and EnvMatch have different syntaxes:
+Test (EnvMatch HOME /home/username) ...
+Test (StrMatch $[HOME] /home/username) ...</pre>
+</div>
 </div>
 <div class="paragraph">
 <p>The <em>EdgeHasPointer</em> [<em>direction</em>] test-condition is true if the
@@ -10347,8 +10364,7 @@ syntax may be used:</p>
 or de-iconified), <strong>FvwmAuto</strong> (an auto raise module), <strong>FvwmBacker</strong> (to
 change the background when you change desktops), <strong>FvwmBanner</strong> (to
 display a spiffy XBM, XPM, PNG or SVG), <strong>FvwmButtons</strong> (brings up a
-customizable tool bar), <strong>FvwmCommandS</strong> (a command server to use with
-shell&#8217;s FvwmCommand client), <strong>FvwmConsole</strong> (to execute fvwm commands
+customizable tool bar), <strong>FvwmPrompt</strong> (to execute fvwm commands
 directly), <strong>FvwmEvent</strong> (trigger various actions by events), <strong>FvwmForm</strong>
 (to bring up dialogs), <strong>FvwmIconMan</strong> (a flexible icon manager),
 <strong>FvwmIdent</strong> (to get window info), <strong>FvwmPager</strong> (a mini version of the
